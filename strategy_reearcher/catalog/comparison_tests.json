@@ -1,0 +1,291 @@
+{
+  "_meta": {
+    "title": "Comparison & Ablation Test Plan — alternatives drawn only from the knowledge base",
+    "purpose": "Each test varies ONE documented component of a base strategy across alternatives that the knowledge base itself documents (or removes a component whose necessity the knowledge base asserts). No alternative introduces outside methodology. Every test is a Claim-type-B research operationalisation (ADV-M18-R01) and must follow the protocol: define rules -> label in-sample -> measure -> freeze -> out-of-sample -> freeze -> forward (ADV-M18-R05).",
+    "metrics_for_every_test": ["number of setups / trades", "win rate", "average win / average loss (R units)", "expectancy = Win% x AvgWin - Loss% x AvgLoss", "maximum drawdown under the sizing rule", "R-multiple distribution", "time in trade"],
+    "metrics_source": "ADV-M18-R06, ADV-M18-C07",
+    "robustness_requirement": "Repeat across instruments, years, volatility regimes, and small perturbations of labeling thresholds (ADV-M18-R06); sample must span multiple regimes (ADV-M18-R03).",
+    "reporting_requirement": "ADV-M18-R07 — exact rules, instrument/timeframe/period/N, IS/OOS/forward separately, all metrics, rule-change log, and the statement that results describe the operationalisation, not ICT doctrine.",
+    "look_ahead_control": "ADV-M18-R04 — every label computable at decision time; walk-forward labeling preferred."
+  },
+  "tests": [
+    {
+      "test_id": "CT-01",
+      "name": "Entry refinement level",
+      "base_strategies": ["S01-BUY-11STEP", "S02-SELL-11STEP", "S11-ADV-BUY-A-FVG-OTE", "S15-ADV-SELL-A-FVG-OTE"],
+      "component_varied": "entry price inside the displacement array",
+      "arms": [
+        {"arm": "A", "rule": "Consequent Encroachment (50%) of the FVG", "source": "INT-M04-R02, ADV-M05-R01, BEG-M11-EX01 (entry at CE)"},
+        {"arm": "B", "rule": "Near edge of the FVG (first touch)", "source": "P-FVG-01 zone boundary; ADV-M16-R03 warns against far-edge entries on wide FVGs"},
+        {"arm": "C", "rule": "OTE 70.5% level of the displacement leg", "source": "BEG-M07-R03, INT-M07-R02"},
+        {"arm": "D", "rule": "Order Block boundary (near edge)", "source": "BEG-M11-S01 Step 9, INT-M07-C06"},
+        {"arm": "E", "rule": "OB ∩ OTE overlap zone", "source": "INT-M07-C06"}
+      ],
+      "kb_claim_under_test": "ADV-M16-R03 ranks CE-of-FVG-inside-HTF-array highest; INT-M04-R02 states price 'frequently reacts at or near CE rather than requiring a full fill'.",
+      "stratify_by": ["FVG width relative to stop distance"],
+      "notes": "Fill-rate differences matter: arms with deeper entries will have fewer fills (BEG-M07-C05 accepts missing moves as the trade-off)."
+    },
+    {
+      "test_id": "CT-02",
+      "name": "Stop / trade-invalidation placement",
+      "base_strategies": ["S01-BUY-11STEP", "S11-ADV-BUY-A-FVG-OTE", "S14-ADV-BUY-D-HTF-ARRAY-LTF", "S19-BUY-LOKZ-ASIAN-SWEEP"],
+      "component_varied": "trade-level stop reference (P-STOP-01 options)",
+      "arms": [
+        {"arm": "A", "rule": "Beyond the liquidity-sweep extreme (+ small buffer)", "source": "BEG-M11-S01, BEG-M12-S01"},
+        {"arm": "B", "rule": "Beyond the displacement origin (100% Fibonacci)", "source": "BEG-M07-C06, INT-M12-R02, INT-M07-EX01"},
+        {"arm": "C", "rule": "Beyond the far side of the entry array (FVG / OB / Breaker)", "source": "INT-M12-R02, ADV-M16-R04"},
+        {"arm": "D", "rule": "Beyond the recent LTF swing whose breach negates the internal MSS", "source": "ADV-M16-R04, ADV-M17-R01"},
+        {"arm": "E", "rule": "More conservative of OB extreme or 79% level (OTE+OB confluence only)", "source": "INT-M07-C06"},
+        {"arm": "F", "rule": "Variation D only: HTF-wide (below HTF array / HTF displacement origin) vs LTF-tight", "source": "INT-M08-EX01, ADV-M05-C10, INT-M08-R05"}
+      ],
+      "kb_claim_under_test": "Stops inside the array are 'too tight' (INT-M12-R02); a too-wide stop relative to first target means the trade is not worth taking (ADV-M17-R01). Test how each logical stop affects win rate vs R.",
+      "stratify_by": ["distance from entry to first target in R"],
+      "notes": "Arms A and B coincide when the sweep extreme is the displacement origin (Judas / LOKZ variants)."
+    },
+    {
+      "test_id": "CT-03",
+      "name": "Target / exit policy",
+      "base_strategies": ["S01-BUY-11STEP", "S03-BULL-DISCOUNT-FW", "S11-ADV-BUY-A-FVG-OTE", "S19-BUY-LOKZ-ASIAN-SWEEP"],
+      "component_varied": "target / exit rule (P-TARGET-01 options)",
+      "arms": [
+        {"arm": "A", "rule": "Single target at the nearest opposing pool (displacement high/low)", "source": "BEG-M11-S01 Step 11 primary"},
+        {"arm": "B", "rule": "Internal liquidity first, then external liquidity (all-out at ERL)", "source": "INT-M06-S01, INT-M02-R04"},
+        {"arm": "C", "rule": "Negative Fibonacci extension -27% / -62%", "source": "BEG-M07-R03, BEG-M07-C06"},
+        {"arm": "D", "rule": "Partial (predetermined fraction) at first internal pool + runner to terminal DOL; runner exits on target / narrative invalidation / structure-tied trail", "source": "INT-M12-R03, ADV-M16-R06, ADV-M17-R05"},
+        {"arm": "E", "rule": "Fixed R multiples (1:2, 1:3) as minimum thresholds / partial guides", "source": "INT-M12-R03"}
+      ],
+      "kb_claim_under_test": "Documented tension: INT-M12-R03 permits fixed R multiples as minimum thresholds; ADV-M17-R04 forbids R:R as a primary filter and treats it as an outcome. Also BEG-M11-EX01 asserts a 'naturally asymmetric' R:R profile.",
+      "stratify_by": ["whether the terminal DOL was reached within the session/day"],
+      "notes": "Partial fraction is unspecified (ADV-M16-R06 'e.g. 50%'); test the researcher-frozen value and a perturbation."
+    },
+    {
+      "test_id": "CT-04",
+      "name": "Kill-zone boundary alternatives and time-filter ablation",
+      "base_strategies": ["S06-JUDAS-LONDON", "S07-NYKZ-SWEEP-SEQUENCE", "S19-BUY-LOKZ-ASIAN-SWEEP", "S21-NY-CONTINUATION-OF-LONDON"],
+      "component_varied": "session window (P-TIME-01) / presence of time filter",
+      "arms": [
+        {"arm": "A", "rule": "LOKZ 02:00-05:00 ET", "source": "BEG-M08-R02, INT-M09-R02, ADV-M07-R01"},
+        {"arm": "B", "rule": "LOKZ 02:00-04:00 ET", "source": "BEG-M08-R02"},
+        {"arm": "C", "rule": "NYKZ 07:00-10:00 ET", "source": "BEG-M08-R04, INT-M09-R03"},
+        {"arm": "D", "rule": "NYKZ 08:00-11:00 ET", "source": "BEG-M08-R04"},
+        {"arm": "E", "rule": "NYKZ 08:30-11:00 ET", "source": "BEG-M08-R04"},
+        {"arm": "F", "rule": "NYKZ 07:00-09:00 ET", "source": "INT-M09-R03, ADV-M07-R01"},
+        {"arm": "G", "rule": "Asian window 20:00-22:00 vs 20:00-00:00 ET (affects Asian-range levels)", "source": "BEG-M08-R01, INT-M09-R01"},
+        {"arm": "ABLATION", "rule": "Same sequence with NO time filter (all hours)", "source": "BEG-M08-C01 claim that identical patterns inside kill zones are 'materially higher-confidence'; ADV-M07-R04"}
+      ],
+      "kb_claim_under_test": "Time & Price Theory (BEG-M08-C01, ADV-M07-C01, ADV-M07-R04): in-window expansions are higher quality; dead-zone signals are lower quality. The book itself notes this is an externally debated aspect (BEG-M08-C01 limits).",
+      "stratify_by": ["DST regime (US/UK mismatch weeks — BEG-M08-R05)"],
+      "notes": "Windows are anchored to New York time; broker server time must be converted (INT-M09-R02)."
+    },
+    {
+      "test_id": "CT-05",
+      "name": "Premium / discount location filter ablation",
+      "base_strategies": ["S01-BUY-11STEP", "S03-BULL-DISCOUNT-FW", "S11-ADV-BUY-A-FVG-OTE"],
+      "component_varied": "dealing-range half requirement (P-RANGE-01)",
+      "arms": [
+        {"arm": "A", "rule": "Require entry array in the correct half of the controlling range", "source": "BEG-M07-R02, INT-M06-R02, INT-M06-R03, ADV-M02-C06"},
+        {"arm": "B", "rule": "Require deep zone (outer ~20-25% / beyond 79%-21%)", "source": "INT-M06-R02"},
+        {"arm": "C", "rule": "Require correct half on BOTH the entry-timeframe range and the HTF controlling range", "source": "INT-M06-R01 (3), ADV-M02-R02, ADV-M14-C06, ADV-M16-R01"},
+        {"arm": "ABLATION", "rule": "No location filter", "source": "INT-M06-EX01 counter-example (same arrays at 1.0960 premium = lower quality)"}
+      ],
+      "kb_claim_under_test": "INT-M04-R04 / INT-M06-R03: arrays in the correct half are higher quality; BEG-M07-R02 qualifier: strongly trending markets may never retrace to the preferred half (fill-rate cost).",
+      "stratify_by": ["range timeframe used (15m/1H/daily/weekly)"]
+    },
+    {
+      "test_id": "CT-06",
+      "name": "OTE / PD-array confluence (empirical claim test)",
+      "base_strategies": ["S09-OTE-ENTRY-COMPONENT", "S01-BUY-11STEP"],
+      "component_varied": "confluence requirement at entry",
+      "arms": [
+        {"arm": "A", "rule": "OTE band alone (62-79%) after sweep+displacement+MSS", "source": "BEG-M07-C04"},
+        {"arm": "B", "rule": "FVG alone (no OTE check)", "source": "BEG-M11-S01 Step 6 without Step 8"},
+        {"arm": "C", "rule": "FVG ∩ OTE required", "source": "BEG-M11-S01 Step 8, INT-M07-C05"},
+        {"arm": "D", "rule": "OB ∩ OTE required", "source": "INT-M07-C06"},
+        {"arm": "E", "rule": "FVG ∩ OB ∩ OTE required (triple confluence)", "source": "INT-M05-R04, BEG-M06-R01"},
+        {"arm": "F", "rule": "OTE with NO preceding liquidity raid (INT-M07-C04 says lower probability)", "source": "INT-M07-C04"}
+      ],
+      "kb_claim_under_test": "BEG-M07-EMP01: standalone OTE ~55-60% (hedged, secondary), 'notably higher' with OB/FVG confluence; BEG-M11-S01 Step 8: both tools agreeing is 'substantially higher-confidence'; INT-M07-AMB01: OTE alone is insufficient by the book's standard.",
+      "stratify_by": ["retracement depth class: shallow / standard / deep (INT-M07-R05)"]
+    },
+    {
+      "test_id": "CT-07",
+      "name": "MSS definition strictness and scope",
+      "base_strategies": ["S01-BUY-11STEP", "S03-BULL-DISCOUNT-FW", "S11-ADV-BUY-A-FVG-OTE"],
+      "component_varied": "P-MSS-01 definition",
+      "arms": [
+        {"arm": "A", "rule": "Strict (book working definition): body close beyond governing swing + displacement (+ FVG ideally)", "source": "BEG-M03-R01, BEG-M03-R02, INT-M03-R02"},
+        {"arm": "B", "rule": "Body close only, displacement not required (CHoCH-style, documented but NOT adopted)", "source": "BEG-M03-AMB01 framing 2"},
+        {"arm": "C", "rule": "Wick breach accepted (explicitly insufficient per book)", "source": "BEG-M03-R01 (negative control)"},
+        {"arm": "D", "rule": "Strict + 'not reclaimed' confirmation window (window frozen by researcher)", "source": "INT-M03-R02 (4)"},
+        {"arm": "E", "rule": "Swing tier: short-term vs intermediate-term swing broken", "source": "INT-M01-R02, BEG-M11-S01 Step 5 ('meaningful')"},
+        {"arm": "F", "rule": "Internal MSS accepted vs external MSS required", "source": "INT-M03-R03, INT-M06-S01, ADV-M04-R02"}
+      ],
+      "kb_claim_under_test": "BEG-M03-R02 / INT-M03-R05: shifts lacking displacement are weak and should not be treated as confirmation; INT-M03-R03: many profitable trades are on internal MSS aligned with HTF bias.",
+      "stratify_by": ["presence of FVG on the breaking move"]
+    },
+    {
+      "test_id": "CT-08",
+      "name": "Fibonacci anchoring and level conventions (documented conflict)",
+      "base_strategies": ["S09-OTE-ENTRY-COMPONENT", "S01-BUY-11STEP", "S19-BUY-LOKZ-ASIAN-SWEEP"],
+      "component_varied": "P-FIB-01 anchor price type and level set",
+      "arms": [
+        {"arm": "A", "rule": "Body-to-body anchoring", "source": "BEG-M07-R01, BEG-M07-C01"},
+        {"arm": "B", "rule": "Origin at the liquidity-sweep wick extreme, termination at displacement high/low", "source": "INT-M07-R01, INT-M07-C01, INT-M07-EX01 (drawn from 1.0810 sweep extreme)"},
+        {"arm": "C", "rule": "Levels 0.62 / 0.705 / 0.79", "source": "BEG-M07-R03, INT-M07-R02"},
+        {"arm": "D", "rule": "Levels 0.618 / 0.786", "source": "INT-M07-R02 qualifier"}
+      ],
+      "kb_claim_under_test": "INT-M07-R02: the 0.618/0.786 difference is 'minor; consistency matters more'. BEG-M07-R01 vs INT-M07-R01 anchoring conflict is unresolved between levels of the book.",
+      "stratify_by": ["sweep wick size relative to leg"]
+    },
+    {
+      "test_id": "CT-09",
+      "name": "HTF / daily bias method",
+      "base_strategies": ["S01-BUY-11STEP", "S02-SELL-11STEP", "S19-BUY-LOKZ-ASIAN-SWEEP", "S20-SELL-LOKZ-ASIAN-SWEEP"],
+      "component_varied": "bias determination rule (P-BIAS-01/02/03)",
+      "arms": [
+        {"arm": "A", "rule": "Monthly + weekly open method (both must agree)", "source": "BEG-M10-R01"},
+        {"arm": "B", "rule": "Structural HH/HL vs LH/LL on weekly/daily", "source": "BEG-M10-R01 qualifier, INT-M11-R01, ADV-M04-R01"},
+        {"arm": "C", "rule": "Three-factor daily bias (structure + open + unswept liquidity) with Bullish/Bearish Conditions checklist", "source": "BEG-M10-C03, BEG-M10-R02, BEG-M10-R03, BEG-M10-R04"},
+        {"arm": "D", "rule": "'Daily bias trick' — most recent daily MSS alone", "source": "BEG-M10-C03, BEG-M10-AMB01"},
+        {"arm": "E", "rule": "Full advanced bias statement incl. named DOL, range location, PO3 phase, time window, invalidation, conditioning event (unclear -> no trade)", "source": "ADV-M10-R01, ADV-M10-R06"},
+        {"arm": "ABLATION", "rule": "No HTF bias filter (LTF sequence only)", "source": "BEG-M11-S01 'Step 1 non-negotiable first filter'; INT-M08-NT01 ('death by a thousand lower-timeframe cuts')"}
+      ],
+      "kb_claim_under_test": "BEG-M02-R01 timeframe confluence raises setup quality; ADV-M10-R06 single-source bias is fragile. BEG-M10-AMB01 documents both daily-bias methods.",
+      "stratify_by": ["synchronized vs conflicting layers (ADV-M09-R02)"]
+    },
+    {
+      "test_id": "CT-10",
+      "name": "Liquidity-sweep prerequisite ablation ('no sweep, no trade')",
+      "base_strategies": ["S01-BUY-11STEP", "S03-BULL-DISCOUNT-FW", "S11-ADV-BUY-A-FVG-OTE"],
+      "component_varied": "requirement that a marked pool was swept before displacement",
+      "arms": [
+        {"arm": "A", "rule": "Sweep of a marked pool required (Step 3)", "source": "BEG-M11-S01, BEG-M04-NT01, INT-M03-R04"},
+        {"arm": "B", "rule": "Sweep of relative equal highs/lows specifically", "source": "INT-M02-R01, ADV-M03-R04 (3)"},
+        {"arm": "C", "rule": "Sweep of session extreme (Asian) vs prior-day extreme vs HTF extreme", "source": "ADV-M03-R01, ADV-M07-R04"},
+        {"arm": "ABLATION", "rule": "Displacement + MSS + array with NO preceding sweep", "source": "BEG-M11-S01 why Step 3: 'no sweep, no trade'; BEG-M05-C04 FVG without sweep 'generally weaker'"}
+      ],
+      "kb_claim_under_test": "Displacement following a raid is the 'foundation of many ICT execution models' (INT-M03-R04); an MSS without a preceding sweep is weaker (BEG-M11-R01).",
+      "stratify_by": ["pool timeframe tier (short/intermediate/long-term)"]
+    },
+    {
+      "test_id": "CT-11",
+      "name": "Judas / manipulation reclaim-window definition",
+      "base_strategies": ["S06-JUDAS-LONDON", "S05-PO3-DAILY", "S19-BUY-LOKZ-ASIAN-SWEEP"],
+      "component_varied": "P-LIQ-02 reclaim window and 'reclaim' operationalisation",
+      "arms": [
+        {"arm": "A", "rule": "2 candles on the 5-minute", "source": "BEG-M08-R06"},
+        {"arm": "B", "rule": "3 candles on the 5-minute", "source": "BEG-M08-R06"},
+        {"arm": "C", "rule": "Researcher-frozen 'reasonable number' (report value)", "source": "BEG-M09-R02"},
+        {"arm": "D", "rule": "Reclaim defined as close vs wick beyond the swept level (two frozen definitions)", "source": "ADV-M18-C03 template (Y pips beyond, close back within Z bars)"}
+      ],
+      "kb_claim_under_test": "BEG-M08-R06: reclaim within ~2-3 candles -> genuine breakout; qualifier: 'cannot be made with certainty until after the fact'.",
+      "stratify_by": ["side swept (Asian high vs low)"]
+    },
+    {
+      "test_id": "CT-12",
+      "name": "Displacement threshold perturbation (robustness)",
+      "base_strategies": ["S01-BUY-11STEP", "S11-ADV-BUY-A-FVG-OTE"],
+      "component_varied": "P-DISP-01 unspecified thresholds",
+      "arms": [
+        {"arm": "A", "rule": "Body/range ratio frozen at a researcher value inside the cited 60-70% heuristic band; report", "source": "BEG-M05-C01, BEG-M05-C02 (heuristic only)"},
+        {"arm": "B", "rule": "Range multiple vs recent-average range frozen at researcher value; lookback frozen", "source": "BEG-M05-R01"},
+        {"arm": "C", "rule": "Require resulting FVG as corroboration (yes/no)", "source": "BEG-M05-R01 step 5, INT-M03-R01 (3)"},
+        {"arm": "D", "rule": "Require structural break by the displacement (yes/no)", "source": "BEG-M05-R01 (4)"}
+      ],
+      "kb_claim_under_test": "BEG-M05-AMB01: thresholds are unresolved; ADV-M18-R06 requires perturbation robustness. Report sensitivity of expectancy to each frozen value.",
+      "stratify_by": ["instrument volatility regime"]
+    },
+    {
+      "test_id": "CT-13",
+      "name": "Variation A / B / C / D stratification",
+      "base_strategies": ["S11-ADV-BUY-A-FVG-OTE", "S12-ADV-BUY-B-BREAKER", "S13-ADV-BUY-C-IFVG", "S14-ADV-BUY-D-HTF-ARRAY-LTF", "S15-ADV-SELL-A-FVG-OTE", "S16-ADV-SELL-B-BREAKER", "S17-ADV-SELL-C-IFVG", "S18-ADV-SELL-D-HTF-ARRAY-LTF"],
+      "component_varied": "entry array type under the same skeleton",
+      "arms": [{"arm": "A", "rule": "FVG/OTE", "source": "ADV-M11-S01"}, {"arm": "B", "rule": "Breaker", "source": "ADV-M11-S02"}, {"arm": "C", "rule": "IFVG (demonstrated)", "source": "ADV-M11-S03"}, {"arm": "D", "rule": "HTF array + LTF nested", "source": "ADV-M11-S04"}],
+      "kb_claim_under_test": "ADV-M18-C08 recommends classifying setups by variation to see which conditions carry the edge; ADV-M05-R02 hierarchy ranks HTF arrays > OB > FVG > Breaker > mitigated arrays.",
+      "stratify_by": ["long vs short (symmetry check — ADV-M12-R02)", "session"]
+    },
+    {
+      "test_id": "CT-14",
+      "name": "SMT confirmation layer on / off",
+      "base_strategies": ["S22-ADV-A-SMT-CONFIRMED", "S11-ADV-BUY-A-FVG-OTE", "S15-ADV-SELL-A-FVG-OTE"],
+      "component_varied": "presence and agreement of SMT at the origin liquidity event",
+      "arms": [
+        {"arm": "A", "rule": "SMT present and aligned with bias", "source": "ADV-M13-R05"},
+        {"arm": "B", "rule": "No SMT (correlated instrument confirmed the swing)", "source": "ADV-M13-R01"},
+        {"arm": "C", "rule": "SMT contradicts bias -> stand aside (count as no-trade) vs tightened requirements", "source": "ADV-M13-R07"},
+        {"arm": "D", "rule": "Instrument selection: trade the non-confirming ('weaker') instrument vs the confirming one", "source": "ADV-M13-R03"}
+      ],
+      "kb_claim_under_test": "ADV-M13-R04: SMT improves the probability the array will hold; ADV-M13-R06: many divergences are short-lived. Correlation stability must be verified and reported.",
+      "stratify_by": ["pair (ES/NQ, EUR/GBP, DXY/EUR inverse)"]
+    },
+    {
+      "test_id": "CT-15",
+      "name": "Weekly PO3 / weekly-range gating on / off",
+      "base_strategies": ["S23-WEEKLY-PO3-GATED-DAILY", "S19-BUY-LOKZ-ASIAN-SWEEP", "S11-ADV-BUY-A-FVG-OTE"],
+      "component_varied": "weekly-phase and weekly-location gate",
+      "arms": [
+        {"arm": "A", "rule": "Trade only when weekly phase = manipulation-complete / distribution AND daily range half agrees with weekly range half", "source": "INT-M10-R02, ADV-M08-R03, ADV-M14-C06"},
+        {"arm": "B", "rule": "Trade in weekly accumulation with reduced size", "source": "INT-M10-R02"},
+        {"arm": "ABLATION", "rule": "No weekly gate", "source": "ADV-M09-NT01 ('do not write only a daily narrative')"}
+      ],
+      "kb_claim_under_test": "ADV-M08-R04 / INT-M10-R04: daily PO3 aligned with weekly narrative and controlling-range location is highest quality.",
+      "stratify_by": ["day of week (descriptive only — ADV-M08-NT01 forbids rigid day rules)"]
+    },
+    {
+      "test_id": "CT-16",
+      "name": "Breaker operationalisation",
+      "base_strategies": ["S12-ADV-BUY-B-BREAKER", "S16-ADV-SELL-B-BREAKER"],
+      "component_varied": "P-OB-02 Breaker qualification",
+      "arms": [
+        {"arm": "A", "rule": "Body close through far boundary of the OB (observable test)", "source": "INT-M05-R02"},
+        {"arm": "B", "rule": "Sweep through the OB + immediately following genuine MSS opposite the OB's bias", "source": "BEG-M06-R03"},
+        {"arm": "C", "rule": "A + B + violation displacement + original OB high-quality (all quality filters)", "source": "INT-M05-R03, INT-M05-R01"}
+      ],
+      "kb_claim_under_test": "INT-M05-R03: Breaker quality is elevated by original-OB quality, violation displacement, and a concurrent sweep. INT-M05-AMB01 / ADV-M05-AMB02: the body-close test is the book's adopted delimiter.",
+      "stratify_by": ["time between OB formation and violation"]
+    },
+    {
+      "test_id": "CT-17",
+      "name": "Session stratification of the same sequence",
+      "base_strategies": ["S06-JUDAS-LONDON", "S07-NYKZ-SWEEP-SEQUENCE", "S08-LONDON-CLOSE-RETRACE", "S21-NY-CONTINUATION-OF-LONDON"],
+      "component_varied": "which session the sweep -> displacement -> MSS sequence prints in",
+      "arms": [
+        {"arm": "A", "rule": "London Open KZ", "source": "BEG-M08-R02"},
+        {"arm": "B", "rule": "New York Open KZ — fresh sweep sequence", "source": "BEG-M08-R04"},
+        {"arm": "C", "rule": "New York Open KZ — continuation into London array (no new sweep)", "source": "ADV-M14-R03"},
+        {"arm": "D", "rule": "London Close window", "source": "BEG-M08-R03"},
+        {"arm": "E", "rule": "Asian session (negative control — KB says observe only)", "source": "BEG-M08-NT02, INT-M09-NT01"},
+        {"arm": "F", "rule": "Midday / dead zone (negative control)", "source": "INT-M09-R04, ADV-M07-R01"}
+      ],
+      "kb_claim_under_test": "BEG-M08-R03: London Close is the lowest-probability named zone; ADV-M14-R03: early-NY continuation entries are among the highest quality; BEG-M08-C10 role-based session use.",
+      "stratify_by": ["London profile type: manipulation / continuation / reversal (ADV-M14-R02)"]
+    },
+    {
+      "test_id": "CT-18",
+      "name": "Timeframe synchronization vs conflict stratification",
+      "base_strategies": ["S11-ADV-BUY-A-FVG-OTE", "S14-ADV-BUY-D-HTF-ARRAY-LTF", "S01-BUY-11STEP"],
+      "component_varied": "alignment of monthly / weekly / daily direction and range location",
+      "arms": [
+        {"arm": "A", "rule": "Synchronized: all layers agree in direction and P/D location, expected KZ produced the event", "source": "ADV-M09-R02"},
+        {"arm": "B", "rule": "False conflict: intraday undercut of a prior low inside intact daily/weekly bullish narrative followed by displacement back", "source": "ADV-M09-R02"},
+        {"arm": "C", "rule": "True conflict: LTF signal opposite HTF narrative — counter-narrative bucket (KB permits only with explicit reduced-probability acknowledgment and tight risk; most stand aside)", "source": "INT-M08-R03, ADV-M04-R04, ADV-M09-R02"}
+      ],
+      "kb_claim_under_test": "ADV-M09-R02: synchronized narratives are the highest-quality environment; INT-M08-NT01: LTF setups against HTF narrative are low quality.",
+      "stratify_by": ["which layer conflicts (daily vs weekly vs monthly)"],
+      "notes": "Arm C is recorded for stratification only; the KB does not supply a complete counter-narrative model, so no standalone strategy was constructed for it."
+    },
+    {
+      "test_id": "CT-19",
+      "name": "Entry trigger: resting limit vs LTF confirmation",
+      "base_strategies": ["S01-BUY-11STEP", "S19-BUY-LOKZ-ASIAN-SWEEP", "S21-NY-CONTINUATION-OF-LONDON", "S11-ADV-BUY-A-FVG-OTE"],
+      "component_varied": "order trigger at the entry zone",
+      "arms": [
+        {"arm": "A", "rule": "Resting limit order at the entry zone", "source": "BEG-M11-S01 Step 10a, INT-M04-R02 ('placing a limit order at CE'), INT-M09-EX01"},
+        {"arm": "B", "rule": "Market entry only after an additional LTF confirmation (1-minute MSS or rejection candle) at the zone", "source": "BEG-M11-S01 Step 10b, BEG-M07-C05"},
+        {"arm": "C", "rule": "Full LTF conditioning at the array (local sweep -> displacement -> MSS) required", "source": "ADV-M16-R02, INT-M08-R04, INT-M08-EX01"}
+      ],
+      "kb_claim_under_test": "ADV-M16-R02: entering before the LTF liquidity event/displacement/MSS is 'the most common execution error'; ADV-M16-NT01. Trade-off: fill rate vs quality.",
+      "stratify_by": ["array width in R"]
+    }
+  ]
+}

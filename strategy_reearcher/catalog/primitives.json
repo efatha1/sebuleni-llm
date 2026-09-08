@@ -1,0 +1,240 @@
+{
+  "_meta": {
+    "title": "Detection Primitive Library — ICT Knowledge Base (sebuleni-llm)",
+    "purpose": "Every strategy in strategies.json is composed exclusively from these primitives. Each primitive is a mechanical labeling rule traced to knowledge-base objects. Where the source leaves a threshold undefined, the parameter is marked 'unspecified' and must be frozen by the researcher BEFORE testing (ADV-M18-R02, ADV-M18-C03) and reported as a research parameter, never as ICT doctrine (ADV-M18-R01).",
+    "knowledge_base_source": "sebuleni-llm repository: beginner/, intermediate/, advanced/ module JSON files; index.json; _schema/SCHEMA.md",
+    "look_ahead_policy": "All labels must be computable from data available at the decision timestamp (ADV-M18-R04). Confirmation-lagged primitives (swing points, FVG, MSS) are timestamped at the close of the candle that completes the pattern, not at the candle that later 'looks like' the pivot.",
+    "id_convention": "P-<FAMILY>-<NN>"
+  },
+  "primitives": [
+    {
+      "id": "P-SWING-01",
+      "name": "Short-Term Swing High / Swing Low (three-candle test)",
+      "rule": "Swing High (STH): candle whose high > high of the candle immediately left AND > high of the candle immediately right. Swing Low (STL): candle whose low < low of the candle immediately left AND < low of the candle immediately right. Record the exact high/low price as a reference level.",
+      "label_timestamp": "Close of the right-hand (confirming) candle — one-candle lag.",
+      "parameters": {"confirmation_candles_each_side": {"value": 1, "status": "specified", "source": "BEG-M01-C01, BEG-M01-C02"}},
+      "kb_refs": ["BEG-M01-C01", "BEG-M01-C02", "INT-M01-C04"],
+      "confidence_note": "Book flags the exact three-candle test as community-corroborated rather than verified verbatim ICT transcript (BEG-M01-AMB01)."
+    },
+    {
+      "id": "P-SWING-02",
+      "name": "Swing hierarchy: ITH/ITL and LTH/LTL",
+      "rule": "Intermediate-Term High (ITH): an STH with lower STHs on both its left and right. Intermediate-Term Low (ITL): an STL with higher STLs on both sides. Long-Term High (LTH): an ITH with lower ITHs on both sides, OR an ITH coinciding with an HTF key level (previous-week high, monthly open, major PD array). LTL is the mirror.",
+      "label_timestamp": "Close of the candle that confirms the flanking swing on the right side.",
+      "parameters": {},
+      "usage": "Breaks of ST structure -> LTF entry timing; breaks of IT structure -> MSS confirmation weight; breaks of LT structure -> HTF bias change (INT-M01-R02).",
+      "kb_refs": ["INT-M01-R01", "INT-M01-R02", "INT-M01-C04"]
+    },
+    {
+      "id": "P-STRUCT-01",
+      "name": "Market structure state (bullish / bearish / range) and governing structural point",
+      "rule": "Bullish structure: at least two consecutive higher highs AND two consecutive higher lows; governing structural low = most recent confirmed higher low. Bearish structure: at least two consecutive lower highs AND two consecutive lower lows; governing structural high = most recent confirmed lower high. Otherwise: range / undetermined.",
+      "parameters": {"min_consecutive_swings": {"value": 2, "status": "specified", "source": "BEG-M03-C03, BEG-M03-C04"}, "swing_tier_used_for_governing_point": {"value": "unspecified (judgment informed by swing hierarchy)", "status": "unspecified", "source": "BEG-M03-C02 qualification_or_limits"}},
+      "kb_refs": ["BEG-M03-C01", "BEG-M03-C02", "BEG-M03-C03", "BEG-M03-C04", "BEG-M01-C03", "BEG-M01-C04", "BEG-M01-C05", "BEG-M01-C06"]
+    },
+    {
+      "id": "P-DISP-01",
+      "name": "Displacement candle / displacement leg",
+      "rule": "A candle (or run of 2-3 candles) qualifies as displacement when ALL hold: (1) range unusually large relative to recent candles on the same timeframe; (2) body is the large majority of the range with small wicks; (3) moves in one direction without significant overlap with the immediately preceding candle(s); (4) actually breaks a meaningful prior swing high/low — a large candle in open space that breaks nothing is NOT displacement. Corroboration: a Fair Value Gap left behind (P-FVG-01).",
+      "parameters": {
+        "range_multiple_vs_recent_average": {"value": "unspecified", "status": "unspecified", "source": "BEG-M05-R01, BEG-M05-AMB01"},
+        "recent_average_lookback_candles": {"value": "unspecified", "status": "unspecified", "source": "BEG-M05-R01"},
+        "body_to_range_ratio_min": {"value": "unspecified — secondary sources cite roughly 60-70% as a heuristic; the book does NOT fix it", "status": "heuristic_unfixed", "source": "BEG-M05-C01, BEG-M05-C02, BEG-M05-AMB01"},
+        "max_overlap_with_prior_candle": {"value": "unspecified", "status": "unspecified", "source": "BEG-M05-R01"}
+      },
+      "quality_grading": "Strong displacement additionally shows immediate follow-through (no immediate mean reversion) and occurs after/with a liquidity event (INT-M03-R01). Weak/failed displacement is not used (INT-M03-R05).",
+      "kb_refs": ["BEG-M05-C01", "BEG-M05-C02", "BEG-M05-R01", "INT-M03-R01", "INT-M03-R05", "BEG-M05-AMB01"]
+    },
+    {
+      "id": "P-FVG-01",
+      "name": "Fair Value Gap (three-candle imbalance) and Consequent Encroachment",
+      "rule": "Three consecutive candles with the middle candle a displacement candle (P-DISP-01). Bullish FVG (BISI): low(candle3) > high(candle1), no overlap; zone = [high(c1), low(c3)]. Bearish FVG (SIBI): high(candle3) < low(candle1), no overlap; zone = [high(c3), low(c1)]. If wick of c1 and wick of c3 touch or overlap, no standard FVG exists. Consequent Encroachment (CE) = exact midpoint of the zone.",
+      "label_timestamp": "Close of candle 3.",
+      "parameters": {"min_gap_size": {"value": "unspecified (only 'clear separation' required)", "status": "unspecified", "source": "INT-M04-R01"}},
+      "dependency": "Causation runs displacement -> FVG; an FVG without a genuine displacement candle is a weak signal and is excluded (BEG-M05-R03, BEG-M05-NT01).",
+      "kb_refs": ["BEG-M05-C04", "BEG-M05-R02", "BEG-M05-R03", "INT-M04-R01", "INT-M04-R02", "ADV-M06-R01", "ADV-M05-R01"]
+    },
+    {
+      "id": "P-FVG-02",
+      "name": "FVG mitigation state, failure, and inversion (IFVG)",
+      "rule": "Unmitigated: price has not returned into the zone since creation. Partially mitigated: price has entered but not closed through the far side. Failed: a candle body closes decisively through the far side of the gap (boundary opposite the direction of the original displacement) with displacement. Inverted (IFVG): a failed FVG that has SUBSEQUENTLY been retested from the opposite side and held (demonstrated new polarity). Inversion is never assumed at the moment of first trade-through.",
+      "parameters": {"decisive_close_definition": {"value": "unspecified", "status": "unspecified", "source": "INT-M04-R03, ADV-M06-R03"}, "retest_hold_definition": {"value": "unspecified", "status": "unspecified", "source": "ADV-M06-R03"}},
+      "kb_refs": ["INT-M04-R03", "ADV-M06-R03", "ADV-M05-R05", "BEG-M05-C04", "INT-M04-AMB01"],
+      "confidence_note": "The 'IFVG' label is flagged by the book as community terminology for the core ICT observation that a mitigated FVG's polarity may reverse (INT-M04-AMB01)."
+    },
+    {
+      "id": "P-OB-01",
+      "name": "Order Block (last opposing candle before displacement)",
+      "rule": "Bullish OB: the last down-close (bearish) candle immediately before a bullish displacement leg (P-DISP-01) that breaks structure. Bearish OB: the last up-close (bullish) candle immediately before a bearish displacement leg that breaks structure. Zone = full high-to-low range of that candle (or small candle group). Quality filters (all required for 'high-quality'): (1) forms in association with a liquidity event; (2) followed by genuine displacement, preferably leaving an FVG; (3) produces/accompanies an MSS; (4) unmitigated; (5) sits in the correct premium/discount half for the intended direction.",
+      "parameters": {"candle_group_size": {"value": "unspecified ('single candle or small group')", "status": "unspecified", "source": "BEG-M06-C01"}},
+      "kb_refs": ["BEG-M06-C01", "INT-M05-C01", "INT-M05-R01", "INT-M05-R04"]
+    },
+    {
+      "id": "P-OB-02",
+      "name": "Breaker Block vs Mitigation Block (observable test)",
+      "rule": "Given a confirmed OB that price returns to: if a candle BODY closes through the far boundary of the OB (accompanied by displacement in the new direction, and ideally a liquidity sweep in conjunction with the violation, followed by an MSS opposite the OB's original bias) -> relabel as Breaker with inverted polarity (former bullish OB = bearish Breaker/resistance; former bearish OB = bullish Breaker/support). If price returns into the zone WITHOUT a body close through the far boundary and the original direction continues -> Mitigation Block (continuation in original direction). Breaker quality is elevated when the original OB was itself high-quality (P-OB-01 filters).",
+      "parameters": {"required_MSS_after_violation": {"value": "BEG-M06-R03 requires sweep + genuine MSS; INT-M05-R02 uses the body-close test as the operational delimiter — two documented operationalisations (see comparison test CT-16)", "status": "alternatives_documented", "source": "BEG-M06-R03, INT-M05-R02"}},
+      "kb_refs": ["BEG-M06-C02", "BEG-M06-C03", "BEG-M06-R03", "INT-M05-C03", "INT-M05-C04", "INT-M05-R02", "INT-M05-R03", "INT-M05-C05", "INT-M05-AMB01", "BEG-M06-AMB01"],
+      "confidence_note": "Real-time distinction between Mitigation and Breaker cannot be made before the retest resolves (BEG-M06-AMB01); classification is confirmed only by the body-close outcome."
+    },
+    {
+      "id": "P-LIQ-01",
+      "name": "Liquidity pools (BSL / SSL), equal highs/lows, session and period extremes",
+      "rule": "Buy-side liquidity (BSL) = zone immediately above a swing high, equal highs, session high, or prior day/week/month high. Sell-side liquidity (SSL) = zone immediately below a swing low, equal lows, session low, or prior day/week/month low. Relative equal highs/lows (EQH/EQL): two or more swing highs (lows) at or within a small tolerance of the same price; qualifying equals must be obvious at a glance (no micro-swings), separated in time (hours/days apart weigh more than a few candles apart), and carry extra weight at session extremes, previous-day extremes, or HTF structural points. Pools are ranked by timeframe (short/intermediate/long-term) and by internal vs external position relative to the controlling dealing range.",
+      "parameters": {
+        "equal_highs_lows_tolerance": {"value": "unspecified — secondary sources cite roughly 5-10 pips (forex) as a documented tolerance, not a fixed universal rule", "status": "heuristic_unfixed", "source": "BEG-M04-C05"},
+        "min_time_separation_for_equals": {"value": "unspecified", "status": "unspecified", "source": "INT-M02-R01"}
+      },
+      "kb_refs": ["BEG-M04-C01", "BEG-M04-C02", "BEG-M04-C03", "BEG-M04-C04", "BEG-M04-C05", "BEG-M04-C06", "INT-M02-C02", "INT-M02-R01", "INT-M02-C03", "ADV-M03-R01", "INT-M01-C07"]
+    },
+    {
+      "id": "P-LIQ-02",
+      "name": "Liquidity sweep / raid (and raid-vs-continuation test)",
+      "rule": "A marked pool (P-LIQ-01) is swept when price trades beyond the level (ideally by a wick / brief push rather than a sustained close) and then reverses back through the level. Raid characteristics: run of the pool (often a wick) followed by reversal with displacement, leaving the pool behind. Continuation characteristics: strong displacement THROUGH the level with little/no reclaim, aligned with HTF narrative, internal structure continuing in the direction of the run. Classification is confirmed only by subsequent price behaviour (displacement, MSS, reclaim-or-abandon). A bare sweep is context, never an entry signal.",
+      "label_timestamp": "Sweep event = first candle whose extreme exceeds the pool. Sweep CONFIRMED as raid only after reversal + displacement + MSS print (lagged).",
+      "parameters": {
+        "min_penetration_beyond_pool": {"value": "unspecified (ADV-M18-C03 leaves this as research parameter 'Y')", "status": "unspecified", "source": "ADV-M18-C03"},
+        "reclaim_window_candles": {"value": "Judas-Swing context: ~2-3 LTF candles (BEG-M08-R06); generic PO3 context: 'reasonable number', unspecified (BEG-M09-R02); research template: parameter 'Z' (ADV-M18-C03)", "status": "partially_specified", "source": "BEG-M08-R06, BEG-M09-R02, ADV-M18-C03"}
+      },
+      "kb_refs": ["BEG-M04-C07", "BEG-M04-C08", "BEG-M04-NT01", "BEG-M04-NT02", "INT-M02-R05", "INT-M02-NT01", "BEG-M08-R06", "BEG-M09-R02", "ADV-M18-C03"]
+    },
+    {
+      "id": "P-MSS-01",
+      "name": "Market Structure Shift — strict working definition (book framing 1)",
+      "rule": "An MSS prints when: (1) market is in a defined bullish or bearish structure (P-STRUCT-01); (2) a candle BODY closes beyond the governing structural swing point against the prevailing trend (wick-only breach is insufficient); (3) the breaking move is displacement (P-DISP-01), ideally leaving an FVG; (4) preferred: a liquidity event (P-LIQ-02) preceded or is concurrent with the move; (5) preferred: price subsequently fails to reclaim the broken level in a meaningful way. A close that is immediately reversed is insufficient (failed/weak shift).",
+      "label_timestamp": "Close of the breaking candle; 'not reclaimed' condition is a lagged confirmation whose window is unspecified.",
+      "parameters": {
+        "reclaim_window_for_weak_shift": {"value": "unspecified", "status": "unspecified", "source": "INT-M03-R02"},
+        "swing_tier_broken": {"value": "'meaningful, relevant short-term swing' for entry-level MSS (BEG-M11-S01 Step 5); IT/LT tier for higher-weight shifts (INT-M01-R02)", "status": "partially_specified", "source": "BEG-M11-S01, INT-M01-R02"}
+      },
+      "alternatives": "Loose framings (CHoCH-as-MSS, any directional shift without displacement) are documented in BEG-M03-AMB01 but explicitly NOT adopted by the book; they are available only as a comparison arm (CT-07).",
+      "kb_refs": ["BEG-M03-C05", "BEG-M03-R01", "BEG-M03-R02", "BEG-M03-R03", "INT-M03-R02", "INT-M03-R05", "BEG-M03-AMB01"]
+    },
+    {
+      "id": "P-MSS-02",
+      "name": "Internal MSS vs External MSS",
+      "rule": "Internal MSS: the broken swing lies inside the current dealing range / intermediate swing (short- or intermediate-term pivot). Used for LTF entry timing; does not overturn the HTF narrative. External MSS: the break violates a dealing-range boundary or a long-term / HTF structural pivot, with displacement; carries narrative weight (range expansion or reversal).",
+      "parameters": {},
+      "kb_refs": ["INT-M03-R03", "ADV-M04-R02", "ADV-M04-R01", "ADV-M04-NT01"]
+    },
+    {
+      "id": "P-RANGE-01",
+      "name": "Dealing range, equilibrium, premium / discount",
+      "rule": "Dealing range = most recent pair of significant swing high (range high) and swing low (range low) framing the bulk of current price action on the chosen timeframe; prefer ranges whose both boundaries have been tested or had liquidity engineered (sweeps of both sides). Equilibrium = (Range High + Range Low) / 2. Premium = above equilibrium; Discount = below equilibrium. Deepest zones (roughly outer 20-25% of the range, overlapping the 79%/21% Fibonacci region) are the highest-conviction mean-reversion-style entry areas in the HTF-bias direction. Range is retired/updated when price closes beyond a boundary with displacement and the new extreme holds. Nested ranges: align the range timeframe with the narrative being traded and keep the HTF range in view (Authority: Macro > Intermediate > Internal).",
+      "parameters": {
+        "range_timeframe": {"value": "Controlling range = highest TF that still frames the active liquidity objective (monthly/weekly for swing narratives; daily for intraday); entry range = next lower TF (e.g. 15m model references a 15m or 1H range inside an HTF container)", "status": "specified_as_procedure", "source": "ADV-M02-R01, INT-M06-R01"},
+        "deep_zone_fraction": {"value": "roughly outer 20-25% of range", "status": "range_given", "source": "INT-M06-R02"},
+        "boundary_hold_confirmation": {"value": "unspecified ('new extreme holds as structure')", "status": "unspecified", "source": "ADV-M02-R03"}
+      },
+      "kb_refs": ["INT-M01-C03", "INT-M01-R03", "INT-M06-C01", "INT-M06-C02", "INT-M06-R01", "INT-M06-R02", "INT-M06-R03", "ADV-M02-R01", "ADV-M02-R02", "ADV-M02-R03", "BEG-M07-R02", "ADV-M02-NT01"]
+    },
+    {
+      "id": "P-FIB-01",
+      "name": "ICT Fibonacci / OTE on the displacement leg",
+      "rule": "Anchor the retracement tool on the displacement leg that produced the MSS (or expanded the dealing range after a liquidity event) — never an arbitrary swing. Bullish: 100% at the leg origin (low), 0% at the leg termination (high). Bearish: 100% at origin (high), 0% at termination (low). Levels: 50% = equilibrium of the leg; 62% = OTE start; 70.5% = OTE 'sweet spot'; 79% = OTE end; 100% = origin (stop reference); negative extensions -27%, -62% (also -100%) = projection targets beyond 0%. Retracement depth classes: shallow (<= 50%), standard/OTE (62-79%), deep (> 79% approaching 100%). OTE falling on the wrong side of dealing-range equilibrium for the intended direction is lower quality / requires extra confluence.",
+      "parameters": {
+        "anchor_price_type": {"value": "CONFLICT: BEG-M07-R01 mandates body-to-body anchoring; INT-M07-R01 notes ICT examples frequently use the liquidity-sweep wick extreme as origin and demands only consistency. Both are KB-documented alternatives (CT-08).", "status": "alternatives_documented", "source": "BEG-M07-R01, INT-M07-R01"},
+        "ote_levels": {"value": "0.62 / 0.705 / 0.79 (book's settled values); 0.618 / 0.786 documented as an alternative presentation with 'minor' difference", "status": "alternatives_documented", "source": "BEG-M07-R03, INT-M07-R02"},
+        "extension_targets": {"value": "-0.27, -0.62 (occasionally -1.0)", "status": "specified", "source": "BEG-M07-R03, INT-M07-R02"}
+      },
+      "kb_refs": ["BEG-M07-C01", "BEG-M07-C02", "BEG-M07-C03", "BEG-M07-C04", "BEG-M07-R01", "BEG-M07-R02", "BEG-M07-R03", "INT-M07-C01", "INT-M07-C03", "INT-M07-R01", "INT-M07-R02", "INT-M07-R03", "INT-M07-R04", "INT-M07-R05", "INT-M07-AMB01"]
+    },
+    {
+      "id": "P-TIME-01",
+      "name": "Sessions and Kill Zones (New York / Eastern Time anchored)",
+      "rule": "All windows are anchored to New York time and shift by one hour when US or UK individually changes DST (BEG-M08-R05). Asian session / Kill Zone: range-building, observation only. London Open Kill Zone (LOKZ): first major FX liquidity event — sweep of Asian-range liquidity, displacement, MSS. New York Open Kill Zone (NYKZ): continuation/expansion of London, or second liquidity event if London was only manipulation; the London-New York overlap is the highest-volume period; ~08:30 ET scheduled US data is a common catalyst. London Close window: secondary, lowest-probability of the named zones; reduced size. Midday / lunch / late Asian hours: dead zones, stand aside unless an HTF narrative is already in active expansion.",
+      "parameters": {
+        "asian_window_ET": {"value": "20:00-22:00 (some sources to 00:00); intermediate/advanced text uses 20:00-00:00", "status": "alternatives_documented", "source": "BEG-M08-R01, INT-M09-R01"},
+        "london_open_kz_ET": {"value": "02:00-05:00 (some sources 02:00-04:00)", "status": "alternatives_documented", "source": "BEG-M08-R02, INT-M09-R02, ADV-M07-R01"},
+        "new_york_open_kz_ET": {"value": "07:00-10:00 | 08:00-11:00 | 08:30-11:00 | 07:00-09:00 — genuine unresolved variance", "status": "alternatives_documented", "source": "BEG-M08-R04, INT-M09-R03, ADV-M07-R01, BEG-M08-AMB01"},
+        "london_close_kz_ET": {"value": "10:00-12:00 vs 08:00-09:00 — non-overlapping windows, unresolved", "status": "alternatives_documented", "source": "BEG-M08-R03, INT-M09-R04, BEG-M08-AMB02"},
+        "silver_bullet_window": {"value": "10:00-11:00 ET mentioned by name only; the book gives NO rules for it and does not treat it as a concept — NOT usable as a strategy component", "status": "not_operationalised_in_source", "source": "BEG-M08-C09"}
+      },
+      "kb_refs": ["BEG-M08-C01", "BEG-M08-C02", "BEG-M08-C03", "BEG-M08-C04", "BEG-M08-C05", "BEG-M08-C06", "BEG-M08-C07", "BEG-M08-C08", "BEG-M08-C09", "BEG-M08-C10", "BEG-M08-R01", "BEG-M08-R02", "BEG-M08-R03", "BEG-M08-R04", "BEG-M08-R05", "INT-M09-R01", "INT-M09-R02", "INT-M09-R03", "INT-M09-R04", "INT-M09-R05", "ADV-M07-R01", "ADV-M07-R04", "ADV-M16-R07", "BEG-M08-AMB01", "BEG-M08-AMB02"]
+    },
+    {
+      "id": "P-TIME-02",
+      "name": "Asian Range reference levels",
+      "rule": "After (or as) the Asian window completes, record the highest high and lowest low of that window. Upper line = candidate BSL pool; lower line = candidate SSL pool. Carry both into London as the primary intraday liquidity references. Look-ahead control: the range used for London decisions must be the range as of the Asian window's end, not updated with later data.",
+      "parameters": {"asian_window": {"value": "see P-TIME-01.asian_window_ET", "status": "alternatives_documented", "source": "BEG-M08-R01, INT-M09-R01"}},
+      "kb_refs": ["BEG-M08-C03", "BEG-M08-C04", "INT-M09-C01", "INT-M09-C05", "ADV-M14-C02", "BEG-M08-NT02", "INT-M09-NT01"]
+    },
+    {
+      "id": "P-BIAS-01",
+      "name": "HTF bias — opening-price method (monthly / weekly opens)",
+      "rule": "Bullish HTF bias if current price > current month's opening price; bearish if below. Repeat with the current week's opening price. If monthly and weekly readings agree, the combined HTF bias is treated as more reliable than either alone; if they disagree -> not aligned (treat as unclear unless structural method resolves it).",
+      "look_ahead": "Monthly/weekly opens are known at period start; compute at each decision timestamp using current price vs those opens.",
+      "parameters": {},
+      "alternatives": "Structural HH/HL vs LH/LL reading at the same timeframes (P-BIAS-02) is a documented alternative (BEG-M10-R01 qualifier).",
+      "kb_refs": ["BEG-M10-C02", "BEG-M10-R01"]
+    },
+    {
+      "id": "P-BIAS-02",
+      "name": "HTF / weekly bias — structural method with dealing-range location and named DOL",
+      "rule": "On the weekly (and monthly if useful) chart: read the swing sequence (P-STRUCT-01) and any MSS (P-MSS-01); locate the weekly dealing range and whether price is in premium or discount (P-RANGE-01); name the Draw on Liquidity (P-DOL-01); state an explicit invalidation (a decisive close beyond the displacement origin that defined the sequence, or beyond the dealing-range extreme, or an HTF MSS against the bias). Output: direction (bullish/bearish/unclear) + P/D location + named DOL + invalidation. Weekly bias is the highest-priority filter; daily/intraday ideas conflicting with it are lower quality.",
+      "parameters": {"decisive_close_definition": {"value": "unspecified", "status": "unspecified", "source": "INT-M11-R04"}},
+      "kb_refs": ["INT-M11-R01", "INT-M11-R02", "INT-M11-R04", "INT-M11-R05", "ADV-M10-R01", "ADV-M10-R02", "ADV-M04-R01", "ADV-M09-R01"]
+    },
+    {
+      "id": "P-BIAS-03",
+      "name": "Daily bias — three-factor method (primary) and single-MSS 'trick' (documented alternative)",
+      "rule": "Three-factor (primary): (1) daily structure — HH/HL bullish, LH/LL bearish; (2) price relative to the day's (or, pre-open, the prior day's) opening price — above = bullish lean, below = bearish; (3) nearest significant unswept liquidity (previous day high/low, weekly high/low) as the likely draw. Combine into one statement finalized before New York open (ideally before London). Apply the Bullish/Bearish Conditions checklist: structure + open + unswept opposing liquidity below (bullish) / above (bearish). If the read is not clean and consistent -> bias = neutral/unclear -> no directional model authorised. Alternative 'daily bias trick': the most recent daily-timeframe MSS alone sets the bias (bullish MSS -> bullish, bearish MSS -> bearish), then a bias-aligned PD array is marked and a 15-minute-or-higher confirmation is required before entry.",
+      "look_ahead": "Use only closed daily candles and the current (already-printed) daily open; never the current day's close (ADV-M18-R04).",
+      "parameters": {},
+      "kb_refs": ["BEG-M10-C03", "BEG-M10-C04", "BEG-M10-C05", "BEG-M10-C06", "BEG-M10-R02", "BEG-M10-R03", "BEG-M10-R04", "BEG-M10-NT01", "BEG-M10-AMB01", "INT-M11-NT01", "ADV-M10-NT01"]
+    },
+    {
+      "id": "P-DOL-01",
+      "name": "Draw on Liquidity (DOL) selection and target hierarchy",
+      "rule": "Procedure: (1) establish HTF bias and the large dealing range (daily/4H); (2) mark the most obvious untouched or lightly tested pools (prev-day H/L, prev-week H/L, relative equal H/L, major swing points, large unfilled HTF FVGs); (3) choose the side consistent with bias and location — discount + bullish -> buy-side above; premium + bearish -> sell-side below; (4) decide whether the immediate objective is internal (IRL) or external (ERL) to the operating range; (5) write the DOL before the session. Priority when pools compete: HTF over LTF; relative equals over single swings; untested over already-raided; narrative-aligned over counter-narrative; ERL as terminal thesis targets, IRL as intermediate/partial objectives. A complete DOL statement names location, timeframe significance, IRL/ERL status, and why it outranks alternatives.",
+      "parameters": {"lightly_tested_definition": {"value": "unspecified", "status": "unspecified", "source": "INT-M02-R02"}},
+      "kb_refs": ["BEG-M04-C09", "INT-M02-C05", "INT-M02-R02", "INT-M02-R03", "INT-M02-R04", "ADV-M03-R02", "ADV-M03-R03", "ADV-M03-R04", "ADV-M03-R01", "ADV-M16-R05", "INT-M11-R02"]
+    },
+    {
+      "id": "P-PO3-01",
+      "name": "Power of 3 (AMD) phase labeling — daily and weekly mappings",
+      "rule": "Choose the period and its opening price. Accumulation: tight, roughly horizontal range near the open (daily: Asian session); mark its high/low. Manipulation: a sharp, brief break beyond one boundary of the accumulation range (daily: London Open sweep of one Asian-range side = Judas Swing), often taking liquidity beyond the daily open, showing signs of reversal shortly after. Distribution: the sustained move in the opposite direction, confirmed by an LTF MSS, targeting liquidity on the opposite side of the accumulation range and beyond (daily: London continuation / New York expansion). Classic bullish daily signature: lower wick (manipulation below open), close near high. Weekly (frequent, not rigid): Monday accumulation, mid-week manipulation of early-week H/L, later-week distribution toward weekly DOL. Failure: sweep-and-go continuation, both sides swept with doji/inside close, or HTF opposing force before DOL — then re-check narrative and stand aside if needed.",
+      "parameters": {"manipulation_reversal_window": {"value": "unspecified ('reasonable number of candles') — contrast Judas Swing 2-3 LTF candles", "status": "unspecified", "source": "BEG-M09-R02, BEG-M08-R06"}, "accumulation_range_tightness": {"value": "unspecified", "status": "unspecified", "source": "BEG-M09-C01"}},
+      "kb_refs": ["BEG-M09-C01", "BEG-M09-C02", "BEG-M09-C03", "BEG-M09-C04", "BEG-M09-C05", "BEG-M09-R01", "BEG-M09-R02", "BEG-M09-R03", "INT-M10-R01", "INT-M10-R02", "INT-M10-R03", "INT-M10-R04", "INT-M10-R05", "ADV-M08-R01", "ADV-M08-R02", "ADV-M08-R03", "ADV-M08-R05", "ADV-M07-C03"]
+    },
+    {
+      "id": "P-SMT-01",
+      "name": "SMT divergence (price-to-price, correlated instruments)",
+      "rule": "Requires two instruments with strong, stable CURRENT correlation on the analysed timeframe (classic pairs: ES vs NQ (YM); EUR/USD vs GBP/USD; DXY vs EUR/USD inverse; AUD/USD vs NZD/USD when stable). Bullish SMT: both testing lows; one prints a lower low, the other a higher low (non-confirmation) -> prefer the instrument that held the higher low for the long. Bearish SMT: both testing highs; one prints a higher high, the other a lower high -> prefer the instrument that printed the lower high for the short. Inverse-correlated pairs: failure of the expected inverse relationship is also SMT. Valid only at swing extremes coinciding with expected liquidity events and kill zones. Never compares price to an oscillator. SMT without a following displacement+MSS on the traded instrument is only a warning; SMT is a supporting layer, never a standalone reason for a trade.",
+      "parameters": {"correlation_stability_threshold": {"value": "unspecified", "status": "unspecified", "source": "ADV-M13-R01"}, "swing_comparison_window": {"value": "unspecified", "status": "unspecified", "source": "ADV-M13-R02"}},
+      "kb_refs": ["ADV-M13-C01", "ADV-M13-C02", "ADV-M13-C03", "ADV-M13-R01", "ADV-M13-R02", "ADV-M13-R03", "ADV-M13-R04", "ADV-M13-R05", "ADV-M13-R06", "ADV-M13-R07", "ADV-M13-NT01", "ADV-M13-AMB01"]
+    },
+    {
+      "id": "P-STOP-01",
+      "name": "Structural stop / trade-invalidation placement options (all KB-documented)",
+      "rule": "Option A — beyond the liquidity-sweep extreme that originated the leg (Beginner Buy/Sell Models: 'just beyond the low/high of the sweep', small buffer). Option B — beyond the origin of the displacement leg (100% Fibonacci level / displacement origin). Option C — beyond the far side of the entry array (FVG / OB / Breaker). Option D — beyond a recent LTF swing whose breach would negate the internal MSS. Option E (OTE + OB confluence) — the more conservative of the OB extreme or the 79% level. Prohibited: stops inside the PD array; fixed-pip or round-number stops ignoring structure; widening the stop after entry. If the structurally required stop makes risk unacceptable relative to the first target, the trade is not taken (do not move the stop closer to a non-logical level).",
+      "parameters": {"buffer_beyond_level": {"value": "unspecified ('small buffer'; worked examples use ~12 pips EUR/USD, ~0.60 pts gold)", "status": "unspecified", "source": "BEG-M11-EX01, BEG-M12-EX01"}},
+      "kb_refs": ["BEG-M11-S01", "BEG-M12-S01", "BEG-M07-C06", "INT-M12-R02", "INT-M07-C06", "ADV-M16-R04", "ADV-M17-R01", "INT-M12-NT01", "ADV-M16-NT01"]
+    },
+    {
+      "id": "P-TARGET-01",
+      "name": "Target / exit options (all KB-documented)",
+      "rule": "Option A — nearest significant opposing liquidity pool (Beginner: displacement high/low, prior day/week high/low, equal highs/lows) as primary; further HTF pools as secondary. Option B — internal-range liquidity first, then external-range liquidity consistent with the DOL (Intermediate frameworks). Option C — negative Fibonacci extensions -27% / -62% beyond the leg's 0% (OTE Entry Zone). Option D — partial at the first high-quality intermediate pool (predetermined fraction, e.g. 50%) + runner to the terminal DOL; runner closed on terminal target, narrative invalidation, or a structure-tied trailing rule. Fixed R multiples (1:2, 1:3) may serve as minimum thresholds / partial guides (INT-M12-R03) but ADV-M17-R04 forbids using R:R as a primary filter — a documented tension (CT-03).",
+      "parameters": {"partial_fraction": {"value": "'e.g. 50% or a fixed fraction' — unspecified", "status": "unspecified", "source": "ADV-M16-R06"}},
+      "kb_refs": ["BEG-M11-S01", "BEG-M12-S01", "BEG-M07-C06", "BEG-M07-R03", "INT-M06-S01", "INT-M06-S02", "INT-M12-R03", "INT-M12-R04", "ADV-M16-R05", "ADV-M16-R06", "ADV-M17-R04", "ADV-M17-R05"]
+    },
+    {
+      "id": "P-RISK-01",
+      "name": "Position sizing and daily risk controls",
+      "rule": "Stop distance is set by structure first (P-STOP-01); Size = (Account equity x Risk fraction) / (Entry - Stop distance), adjusted for contract value. Risk fraction is fixed in advance and held constant (never enlarged for 'perfect' setups). Daily risk ceiling and daily loss limit are hard process controls: when reached, no new risk / trading terminates for the session. High-impact scheduled news: reduce size, or stand aside around the event when the narrative does not depend on it.",
+      "parameters": {
+        "risk_fraction_per_trade": {"value": "Beginner: ~1%, up to ~2% for higher conviction; Intermediate: 0.5-1% (rarely 1-2%); Advanced: 0.25-1%. Ranges only — a personal decision, fixed in advance", "status": "range_given", "source": "BEG-M13-R01, INT-M12-R01, ADV-M17-R02"},
+        "max_daily_risk": {"value": "e.g. 1-2% of equity", "status": "range_given", "source": "ADV-M17-R03"},
+        "daily_loss_limit": {"value": "e.g. 1-3% of equity", "status": "range_given", "source": "ADV-M17-R03"}
+      },
+      "kb_refs": ["BEG-M13-R01", "INT-M12-R01", "INT-M12-R05", "ADV-M17-R02", "ADV-M17-R03", "ADV-M17-R07"]
+    },
+    {
+      "id": "P-GATE-01",
+      "name": "Pre-entry checklist gate (advanced) / eligibility gate",
+      "rule": "Entry is placed only if ALL hold: HTF location still correct and no HTF invalidation has printed; LTF liquidity event, displacement and MSS have printed; selected entry array is unmitigated and correctly located; trade invalidation defined and risk acceptable; first and terminal targets named from the liquidity hierarchy; partial/runner plan predetermined; execution inside the authorised time window; bias and model selection not retired. Any failing item -> no entry.",
+      "parameters": {},
+      "kb_refs": ["ADV-M16-R08", "ADV-M16-R01", "ADV-M16-R02", "ADV-M16-NT01", "ADV-M11-R01", "ADV-M12-R01", "ADV-M15-R03", "ADV-M10-R07"]
+    }
+  ]
+}

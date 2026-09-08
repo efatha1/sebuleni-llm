@@ -1,0 +1,490 @@
+{
+  "level": "advanced",
+  "module_number": 8,
+  "module_title": "Advanced Power of 3",
+  "module_intro": "Subtopics: Daily / Weekly / Monthly AMD, Opening Price, Session-Based PO3, Failure & Alternative Paths, PO3 + Liquidity + HTF Bias.",
+  "prerequisites_stated_in_text": "Advanced Modules 1--7. Power of 3 is not a setup; it is a recurring delivery template that organises accumulation, manipulation and distribution across daily, weekly and monthly time horizons, conditioned by opening price, kill zones and the higher-timeframe Draw on Liquidity.",
+  "module_objectives": [
+    "Map Accumulation - Manipulation - Distribution onto the daily, weekly and monthly candles and onto session sequences.",
+    "Use the opening price as the central reference for classifying the developing PO3 profile.",
+    "Link each PO3 phase to the corresponding delivery condition (Module 1), liquidity event (Module 3) and kill zone (Module 7).",
+    "Recognise PO3 failure and alternative delivery paths and rewrite the narrative accordingly.",
+    "Align PO3 expectations with higher-timeframe bias and the controlling dealing range.",
+    "Select or reject lower-timeframe models according to which PO3 phase is active.",
+    "Avoid forcing every day or week into a textbook PO3 when the profile is alternative.",
+    "Accumulation - Asian session range-building around or relative to the daily open.",
+    "Manipulation - London Open sweep of one side of the Asian range (Judas Swing), often taking liquidity beyond the daily open.",
+    "Distribution - London continuation or New York expansion toward the opposing liquidity / higher-timeframe DOL.",
+    "The expected distribution does not materialise after manipulation.",
+    "The manipulation is itself continued (sweep and go) rather than reversed.",
+    "Both sides of the accumulation range are swept and the period closes with no clear distribution.",
+    "Higher-timeframe opposing force reverses distribution before the DOL is reached.",
+    "Trend days with little or no manipulation wick.",
+    "Range days with multiple small AMD cycles.",
+    "News-driven expansions that ignore the usual session sequence.",
+    "Accumulation - generally stand aside or prepare; do not force directional entries.",
+    "Manipulation - watch for the liquidity raid and the subsequent displacement; do not trade the manipulation itself as the trend.",
+    "Distribution - the primary window for continuation entries (FVG/OB/OTE retracement into the displacement arrays) toward the DOL."
+  ],
+  "concepts": [
+    {
+      "id": "ADV-M08-C01",
+      "kind": "concept",
+      "name": "Power of 3 as a Delivery Template",
+      "definition": "Power of 3 (PO3), also called AMD - Accumulation, Manipulation, Distribution - is ICT's description of a recurring three-phase process by which a significant candle or range is often constructed. Institutions accumulate during a quiet phase, manipulate price to engineer liquidity, then distribute in the true intended direction.",
+      "ict_specific_meaning": "Power of 3 (PO3), also called AMD - Accumulation, Manipulation, Distribution - is ICT's description of a recurring three-phase process by which a significant candle or range is often constructed. Institutions accumulate during a quiet phase, manipulate price to engineer liquidity, then distribute in the true intended direction.",
+      "what_changed_from_beginner_level": "unspecified",
+      "detection_criteria": [
+        "unspecified - see raw_sections"
+      ],
+      "numeric_or_narrative_example": "unspecified",
+      "why_it_matters": "unspecified",
+      "beginner_mistakes_or_misinterpretations": [],
+      "raw_sections": {
+        "Core Definition": "Power of 3 (PO3), also called AMD - Accumulation, Manipulation, Distribution - is ICT's description of a recurring three-phase process by which a significant candle or range is often constructed. Institutions accumulate during a quiet phase, manipulate price to engineer liquidity, then distribute in the true intended direction.",
+        "Relationship to Module 1": "PO3 is a specialised, high-frequency instance of the four delivery conditions. Accumulation corresponds to consolidation; Manipulation is a directed form of liquidity seeking that often looks like a false expansion; Distribution is the true expansion toward the Draw on Liquidity. Retracement and reversal language still apply inside and after the distribution phase.\n\n**Evidence Classification:** *A - Power of 3 / AMD is core ICT teaching.*"
+      },
+      "dependencies": [],
+      "attribution_type": "ICT_primary",
+      "cited_sources_in_text": [],
+      "book_location": {
+        "level": "advanced",
+        "module_number": 8,
+        "module_title": "Advanced Power of 3",
+        "section_heading": "Power of 3 as a Delivery Template"
+      },
+      "confidence_note": "unspecified"
+    },
+    {
+      "id": "ADV-M08-C02",
+      "kind": "concept",
+      "name": "Daily Power of 3",
+      "definition": "A common daily mapping (FX and related markets):\n- Accumulation - Asian session range-building around or relative to the daily open.\n- Manipulation - London Open sweep of one side of the Asian range (Judas Swing), often taking liquidity beyond the daily open.\n- Distribution - London continuation or New York expansion toward the opposing liquidity / higher-timeframe DOL.",
+      "ict_specific_meaning": "A common daily mapping (FX and related markets):\n- Accumulation - Asian session range-building around or relative to the daily open.\n- Manipulation - London Open sweep of one side of the Asian range (Judas Swing), often taking liquidity beyond the daily open.\n- Distribution - London continuation or New York expansion toward the opposing liquidity / higher-timeframe DOL.",
+      "what_changed_from_beginner_level": "unspecified",
+      "detection_criteria": [
+        "unspecified - see raw_sections"
+      ],
+      "numeric_or_narrative_example": "unspecified",
+      "why_it_matters": "unspecified",
+      "beginner_mistakes_or_misinterpretations": [],
+      "raw_sections": {
+        "Classic Mapping": "A common daily mapping (FX and related markets):\n\n1191. Accumulation - Asian session range-building around or relative to the daily open.\n\n1192. Manipulation - London Open sweep of one side of the Asian range (Judas Swing), often taking liquidity beyond the daily open.\n\n1193. Distribution - London continuation or New York expansion toward the opposing liquidity / higher-timeframe DOL.",
+        "Opening Price Relationship": "On many classic bullish daily PO3 profiles the manipulation prints below the daily open and distribution carries price above the open. On classic bearish profiles the manipulation prints above the open and distribution carries price lower. The finished daily candle often shows a long wick on the manipulation side and a close near the opposite extreme.",
+        "Expansion from the Open": "True distribution is expansion away from the manipulated side and usually away from the open in the direction of the higher-timeframe bias. Expansion that begins without a prior liquidity raid is lower quality."
+      },
+      "dependencies": [],
+      "attribution_type": "research_compiled_secondary",
+      "cited_sources_in_text": [],
+      "book_location": {
+        "level": "advanced",
+        "module_number": 8,
+        "module_title": "Advanced Power of 3",
+        "section_heading": "Daily Power of 3"
+      },
+      "confidence_note": "unspecified"
+    },
+    {
+      "id": "ADV-M08-C03",
+      "kind": "concept",
+      "name": "Weekly and Monthly Power of 3",
+      "definition": "A frequent (not rigid) weekly profile: early-week accumulation (often Monday), mid-week manipulation that sets the week's extreme (raid of early-week high or low), later-week distribution toward the weekly Draw on Liquidity. Weekly opening behaviour frames the first days of the profile.",
+      "ict_specific_meaning": "A frequent (not rigid) weekly profile: early-week accumulation (often Monday), mid-week manipulation that sets the week's extreme (raid of early-week high or low), later-week distribution toward the weekly Draw on Liquidity. Weekly opening behaviour frames the first days of the profile.",
+      "what_changed_from_beginner_level": "unspecified",
+      "detection_criteria": [
+        "unspecified - see raw_sections"
+      ],
+      "numeric_or_narrative_example": "unspecified",
+      "why_it_matters": "unspecified",
+      "beginner_mistakes_or_misinterpretations": [],
+      "raw_sections": {
+        "Weekly": "A frequent (not rigid) weekly profile: early-week accumulation (often Monday), mid-week manipulation that sets the week's extreme (raid of early-week high or low), later-week distribution toward the weekly Draw on Liquidity. Weekly opening behaviour frames the first days of the profile.",
+        "Monthly": "Monthly PO3 is slower and less mechanically session-tied. Accumulation may span the first part of the month; manipulation may appear as a raid of a prior month's extreme or of early-month range boundaries; distribution occupies the balance of the month toward the monthly DOL. Monthly PO3 supplies the highest-timeframe template that daily and weekly profiles nest inside.\n\n**Evidence Classification:** *A/B - Daily PO3 is heavily demonstrated. Weekly and monthly extensions are consistent with ICT multi-timeframe teaching; exact day-of-week or day-of-month rules are less rigid than the daily session mapping.*"
+      },
+      "dependencies": [],
+      "attribution_type": "ICT_primary",
+      "cited_sources_in_text": [],
+      "book_location": {
+        "level": "advanced",
+        "module_number": 8,
+        "module_title": "Advanced Power of 3",
+        "section_heading": "Weekly and Monthly Power of 3"
+      },
+      "confidence_note": "unspecified"
+    },
+    {
+      "id": "ADV-M08-C04",
+      "kind": "concept",
+      "name": "Session-Based PO3",
+      "definition": "The same three phases can appear inside a single kill zone or session. A New York window may accumulate briefly, manipulate a local high or low, then distribute. Recognising the phase inside the session prevents the trader from entering during manipulation and labelling it distribution. Session-based PO3 is always subordinate to the daily and higher-timeframe PO3 narrative.",
+      "ict_specific_meaning": "The same three phases can appear inside a single kill zone or session. A New York window may accumulate briefly, manipulate a local high or low, then distribute. Recognising the phase inside the session prevents the trader from entering during manipulation and labelling it distribution. Session-based PO3 is always subordinate to the daily and higher-timeframe PO3 narrative.",
+      "what_changed_from_beginner_level": "unspecified",
+      "detection_criteria": [
+        "unspecified - see definition field"
+      ],
+      "numeric_or_narrative_example": "unspecified",
+      "why_it_matters": "unspecified",
+      "beginner_mistakes_or_misinterpretations": [],
+      "raw_sections": {
+        "Full Text": "The same three phases can appear inside a single kill zone or session. A New York window may accumulate briefly, manipulate a local high or low, then distribute. Recognising the phase inside the session prevents the trader from entering during manipulation and labelling it distribution. Session-based PO3 is always subordinate to the daily and higher-timeframe PO3 narrative."
+      },
+      "dependencies": [],
+      "attribution_type": "research_compiled_secondary",
+      "cited_sources_in_text": [],
+      "book_location": {
+        "level": "advanced",
+        "module_number": 8,
+        "module_title": "Advanced Power of 3",
+        "section_heading": "Session-Based PO3"
+      },
+      "confidence_note": "unspecified"
+    },
+    {
+      "id": "ADV-M08-C05",
+      "kind": "concept",
+      "name": "PO3 + Liquidity",
+      "definition": "The manipulation phase is directed at resting liquidity - typically the Asian range extreme, relative equal highs/lows, or the opposing side of the daily open. The side that is manipulated frequently reveals the side that was needed to fuel the subsequent distribution.",
+      "ict_specific_meaning": "The manipulation phase is directed at resting liquidity - typically the Asian range extreme, relative equal highs/lows, or the opposing side of the daily open. The side that is manipulated frequently reveals the side that was needed to fuel the subsequent distribution.",
+      "what_changed_from_beginner_level": "unspecified",
+      "detection_criteria": [
+        "unspecified - see raw_sections"
+      ],
+      "numeric_or_narrative_example": "unspecified",
+      "why_it_matters": "unspecified",
+      "beginner_mistakes_or_misinterpretations": [],
+      "raw_sections": {
+        "Manipulation Targets Liquidity": "The manipulation phase is directed at resting liquidity - typically the Asian range extreme, relative equal highs/lows, or the opposing side of the daily open. The side that is manipulated frequently reveals the side that was needed to fuel the subsequent distribution.",
+        "Distribution Seeks the DOL": "Distribution is the delivery leg toward the Draw on Liquidity (Module 3). Intermediate IRL may be taken on the way; the terminal objective is often ERL or a higher-timeframe pool."
+      },
+      "dependencies": [],
+      "attribution_type": "research_compiled_secondary",
+      "cited_sources_in_text": [],
+      "book_location": {
+        "level": "advanced",
+        "module_number": 8,
+        "module_title": "Advanced Power of 3",
+        "section_heading": "PO3 + Liquidity"
+      },
+      "confidence_note": "unspecified"
+    },
+    {
+      "id": "ADV-M08-C06",
+      "kind": "concept",
+      "name": "PO3 + Higher-Timeframe Bias",
+      "definition": "The highest-quality daily or weekly PO3 profiles are those that align with the higher-timeframe delivery narrative and controlling dealing-range location. A bullish daily PO3 that occurs while weekly structure and DOL are also bullish, and while price is in discount of the controlling range, is high-confluence.",
+      "ict_specific_meaning": "The highest-quality daily or weekly PO3 profiles are those that align with the higher-timeframe delivery narrative and controlling dealing-range location. A bullish daily PO3 that occurs while weekly structure and DOL are also bullish, and while price is in discount of the controlling range, is high-confluence.",
+      "what_changed_from_beginner_level": "unspecified",
+      "detection_criteria": [
+        "unspecified - see raw_sections"
+      ],
+      "numeric_or_narrative_example": "unspecified",
+      "why_it_matters": "unspecified",
+      "beginner_mistakes_or_misinterpretations": [],
+      "raw_sections": {
+        "Alignment": "The highest-quality daily or weekly PO3 profiles are those that align with the higher-timeframe delivery narrative and controlling dealing-range location. A bullish daily PO3 that occurs while weekly structure and DOL are also bullish, and while price is in discount of the controlling range, is high-confluence.",
+        "Conflict": "A daily PO3 that points opposite to the weekly narrative is lower probability or represents a corrective day inside a larger opposing story. Advanced discipline favours the higher-timeframe narrative when the two conflict."
+      },
+      "dependencies": [],
+      "attribution_type": "research_compiled_secondary",
+      "cited_sources_in_text": [],
+      "book_location": {
+        "level": "advanced",
+        "module_number": 8,
+        "module_title": "Advanced Power of 3",
+        "section_heading": "PO3 + Higher-Timeframe Bias"
+      },
+      "confidence_note": "unspecified"
+    },
+    {
+      "id": "ADV-M08-C07",
+      "kind": "concept",
+      "name": "PO3 Failure and Alternative Delivery Paths",
+      "definition": "PO3 fails when:\n- The expected distribution does not materialise after manipulation.\n- The manipulation is itself continued (sweep and go) rather than reversed.\n- Both sides of the accumulation range are swept and the period closes with no clear distribution.\n- Higher-timeframe opposing force reverses distribution before the DOL is reached.",
+      "ict_specific_meaning": "PO3 fails when:\n- The expected distribution does not materialise after manipulation.\n- The manipulation is itself continued (sweep and go) rather than reversed.\n- Both sides of the accumulation range are swept and the period closes with no clear distribution.\n- Higher-timeframe opposing force reverses distribution before the DOL is reached.",
+      "what_changed_from_beginner_level": "unspecified",
+      "detection_criteria": [
+        "unspecified - see raw_sections"
+      ],
+      "numeric_or_narrative_example": "unspecified",
+      "why_it_matters": "unspecified",
+      "beginner_mistakes_or_misinterpretations": [],
+      "raw_sections": {
+        "Failure Modes": "PO3 fails when:\n\n1194. The expected distribution does not materialise after manipulation.\n\n1195. The manipulation is itself continued (sweep and go) rather than reversed.\n\n1196. Both sides of the accumulation range are swept and the period closes with no clear distribution.\n\n1197. Higher-timeframe opposing force reverses distribution before the DOL is reached.",
+        "Alternative Paths": "Not every day or week prints a textbook PO3. Alternative profiles include:\n\n1198. Trend days with little or no manipulation wick.\n\n1199. Range days with multiple small AMD cycles.\n\n1200. News-driven expansions that ignore the usual session sequence.\n\nAdvanced practice recognises alternatives rather than forcing the three-phase template onto every candle.",
+        "Response": "When PO3 fails or an alternative path is active, the student re-checks the higher-timeframe DOL and structure, updates the daily narrative, and selects models consistent with the actual path rather than the hoped-for path."
+      },
+      "dependencies": [],
+      "attribution_type": "research_compiled_secondary",
+      "cited_sources_in_text": [],
+      "book_location": {
+        "level": "advanced",
+        "module_number": 8,
+        "module_title": "Advanced Power of 3",
+        "section_heading": "PO3 Failure and Alternative Delivery Paths"
+      },
+      "confidence_note": "unspecified"
+    },
+    {
+      "id": "ADV-M08-C08",
+      "kind": "concept",
+      "name": "Phase-Dependent Model Selection",
+      "definition": "Which lower-timeframe model is appropriate depends on the active PO3 phase:\n- Accumulation - generally stand aside or prepare; do not force directional entries.\n- Manipulation - watch for the liquidity raid and the subsequent displacement; do not trade the manipulation itself as the trend.\n- Distribution - the primary window for continuation entries (FVG/OB/OTE retracement into the displacement arrays) toward the DOL.\n- Trading distribution models during accumulation, or treating manipulation as distribution, is a frequent source of error.",
+      "ict_specific_meaning": "Which lower-timeframe model is appropriate depends on the active PO3 phase:\n- Accumulation - generally stand aside or prepare; do not force directional entries.\n- Manipulation - watch for the liquidity raid and the subsequent displacement; do not trade the manipulation itself as the trend.\n- Distribution - the primary window for continuation entries (FVG/OB/OTE retracement into the displacement arrays) toward the DOL.\n- Trading distribution models during accumulation, or treating manipulation as distribution, is a frequent source of error.",
+      "what_changed_from_beginner_level": "unspecified",
+      "detection_criteria": [
+        "Accumulation - generally stand aside or prepare; do not force directional entries.",
+        "Manipulation - watch for the liquidity raid and the subsequent displacement; do not trade the manipulation itself as the trend.",
+        "Distribution - the primary window for continuation entries (FVG/OB/OTE retracement into the displacement arrays) toward the DOL."
+      ],
+      "numeric_or_narrative_example": "unspecified",
+      "why_it_matters": "unspecified",
+      "beginner_mistakes_or_misinterpretations": [],
+      "raw_sections": {
+        "Full Text": "Which lower-timeframe model is appropriate depends on the active PO3 phase:\n\n1201. Accumulation - generally stand aside or prepare; do not force directional entries.\n\n1202. Manipulation - watch for the liquidity raid and the subsequent displacement; do not trade the manipulation itself as the trend.\n\n1203. Distribution - the primary window for continuation entries (FVG/OB/OTE retracement into the displacement arrays) toward the DOL.\n\nTrading distribution models during accumulation, or treating manipulation as distribution, is a frequent source of error."
+      },
+      "dependencies": [],
+      "attribution_type": "research_compiled_secondary",
+      "cited_sources_in_text": [],
+      "book_location": {
+        "level": "advanced",
+        "module_number": 8,
+        "module_title": "Advanced Power of 3",
+        "section_heading": "Phase-Dependent Model Selection"
+      },
+      "confidence_note": "unspecified"
+    }
+  ],
+  "module_synthesis": {
+    "relationship_to_prior_level": [],
+    "worked_narrative_examples": [
+      {
+        "id": "ADV-M08-C09",
+        "kind": "concept",
+        "name": "Worked Narrative - Daily PO3 Aligned with Weekly Delivery",
+        "definition": "Weekly: bullish structure, DOL = buy-side above prior weekly high, price in weekly discount.\n\nDaily open: 1.0720. Asian range: 1.0700 - 1.0740 (accumulation around the open).\n\nLondon: sweeps Asian low to 1.0685 (manipulation below the open), then displaces higher with MSS and FVG. Distribution begins.\n\nNew York: continues distribution toward daily and weekly buy-side objectives. Entry was available on the retracement into the London FVG/CE.\n\nDaily candle result: lower wick (manipulation), open mid-range, close near high (distribution). The profile is textbook bullish daily PO3 and is aligned with the weekly narrative.",
+        "ict_specific_meaning": "Weekly: bullish structure, DOL = buy-side above prior weekly high, price in weekly discount.\n\nDaily open: 1.0720. Asian range: 1.0700 - 1.0740 (accumulation around the open).\n\nLondon: sweeps Asian low to 1.0685 (manipulation below the open), then displaces higher with MSS and FVG. Distribution begins.\n\nNew York: continues distribution toward daily and weekly buy-side objectives. Entry was available on the retracement into the London FVG/CE.\n\nDaily candle result: lower wick (manipulation), open mid-range, close near high (distribution). The profile is textbook bullish daily PO3 and is aligned with the weekly narrative.",
+        "what_changed_from_beginner_level": "unspecified",
+        "detection_criteria": [
+          "unspecified - see definition field"
+        ],
+        "numeric_or_narrative_example": "unspecified",
+        "why_it_matters": "unspecified",
+        "beginner_mistakes_or_misinterpretations": [],
+        "raw_sections": {
+          "Full Text": "Weekly: bullish structure, DOL = buy-side above prior weekly high, price in weekly discount.\n\nDaily open: 1.0720. Asian range: 1.0700 - 1.0740 (accumulation around the open).\n\nLondon: sweeps Asian low to 1.0685 (manipulation below the open), then displaces higher with MSS and FVG. Distribution begins.\n\nNew York: continues distribution toward daily and weekly buy-side objectives. Entry was available on the retracement into the London FVG/CE.\n\nDaily candle result: lower wick (manipulation), open mid-range, close near high (distribution). The profile is textbook bullish daily PO3 and is aligned with the weekly narrative."
+        },
+        "dependencies": [],
+        "attribution_type": "community_interpretation",
+        "cited_sources_in_text": [],
+        "book_location": {
+          "level": "advanced",
+          "module_number": 8,
+          "module_title": "Advanced Power of 3",
+          "section_heading": "Worked Narrative - Daily PO3 Aligned with Weekly Delivery"
+        },
+        "confidence_note": "unspecified"
+      }
+    ],
+    "failure_conditions": [],
+    "common_misinterpretations": [
+      {
+        "id": "ADV-M08-C10",
+        "kind": "concept",
+        "name": "Common Misinterpretations",
+        "definition": "1204. Treating every day as a textbook PO3.\n\n1205. Entering during the manipulation phase and calling it the trend.\n\n1206. Ignoring the daily open when classifying the profile.\n\n1207. Forcing a daily PO3 that conflicts with a clear weekly opposing narrative.\n\n1208. Assuming that once manipulation has occurred, distribution is guaranteed.\n\n1209. Applying rigid day-of-week rules to weekly PO3 without reference to actual liquidity and structure.",
+        "ict_specific_meaning": "1204. Treating every day as a textbook PO3.\n\n1205. Entering during the manipulation phase and calling it the trend.\n\n1206. Ignoring the daily open when classifying the profile.\n\n1207. Forcing a daily PO3 that conflicts with a clear weekly opposing narrative.\n\n1208. Assuming that once manipulation has occurred, distribution is guaranteed.\n\n1209. Applying rigid day-of-week rules to weekly PO3 without reference to actual liquidity and structure.",
+        "what_changed_from_beginner_level": "unspecified",
+        "detection_criteria": [
+          "Treating every day as a textbook PO3.",
+          "Entering during the manipulation phase and calling it the trend.",
+          "Ignoring the daily open when classifying the profile.",
+          "Forcing a daily PO3 that conflicts with a clear weekly opposing narrative.",
+          "Assuming that once manipulation has occurred, distribution is guaranteed.",
+          "Applying rigid day-of-week rules to weekly PO3 without reference to actual liquidity and structure."
+        ],
+        "numeric_or_narrative_example": "unspecified",
+        "why_it_matters": "unspecified",
+        "beginner_mistakes_or_misinterpretations": [],
+        "raw_sections": {
+          "Full Text": "1204. Treating every day as a textbook PO3.\n\n1205. Entering during the manipulation phase and calling it the trend.\n\n1206. Ignoring the daily open when classifying the profile.\n\n1207. Forcing a daily PO3 that conflicts with a clear weekly opposing narrative.\n\n1208. Assuming that once manipulation has occurred, distribution is guaranteed.\n\n1209. Applying rigid day-of-week rules to weekly PO3 without reference to actual liquidity and structure."
+        },
+        "dependencies": [],
+        "attribution_type": "community_interpretation",
+        "cited_sources_in_text": [],
+        "book_location": {
+          "level": "advanced",
+          "module_number": 8,
+          "module_title": "Advanced Power of 3",
+          "section_heading": "Common Misinterpretations"
+        },
+        "confidence_note": "unspecified"
+      }
+    ],
+    "evidence_summary": [
+      {
+        "id": "ADV-M08-C11",
+        "kind": "concept",
+        "name": "Evidence Summary",
+        "definition": "Power of 3 / AMD, the daily mapping onto Asian accumulation, London manipulation and New York distribution, and the role of the daily open are core ICT. Weekly and monthly extensions follow from multi-timeframe application. Failure recognition and alternative-path discipline are the advanced operational requirements. Community day-of-week or fixed-percentage rules beyond ICT's demonstrations are secondary.\n\n***Source / Research note:** Primary orientation: ICT teaching on Power of 3, Accumulation - Manipulation - Distribution, daily open, and session-linked daily profiles. Weekly/monthly and failure analysis are the advanced synthesis consistent with primary multi-timeframe logic.*",
+        "ict_specific_meaning": "Power of 3 / AMD, the daily mapping onto Asian accumulation, London manipulation and New York distribution, and the role of the daily open are core ICT. Weekly and monthly extensions follow from multi-timeframe application. Failure recognition and alternative-path discipline are the advanced operational requirements. Community day-of-week or fixed-percentage rules beyond ICT's demonstrations are secondary.\n\n***Source / Research note:** Primary orientation: ICT teaching on Power of 3, Accumulation - Manipulation - Distribution, daily open, and session-linked daily profiles. Weekly/monthly and failure analysis are the advanced synthesis consistent with primary multi-timeframe logic.*",
+        "what_changed_from_beginner_level": "unspecified",
+        "detection_criteria": [
+          "unspecified - see definition field"
+        ],
+        "numeric_or_narrative_example": "unspecified",
+        "why_it_matters": "unspecified",
+        "beginner_mistakes_or_misinterpretations": [],
+        "raw_sections": {
+          "Full Text": "Power of 3 / AMD, the daily mapping onto Asian accumulation, London manipulation and New York distribution, and the role of the daily open are core ICT. Weekly and monthly extensions follow from multi-timeframe application. Failure recognition and alternative-path discipline are the advanced operational requirements. Community day-of-week or fixed-percentage rules beyond ICT's demonstrations are secondary.\n\n***Source / Research note:** Primary orientation: ICT teaching on Power of 3, Accumulation - Manipulation - Distribution, daily open, and session-linked daily profiles. Weekly/monthly and failure analysis are the advanced synthesis consistent with primary multi-timeframe logic.*"
+        },
+        "dependencies": [],
+        "attribution_type": "community_interpretation",
+        "cited_sources_in_text": [
+          "Primary orientation: ICT teaching on Power of 3, Accumulation - Manipulation - Distribution, daily open, and session-linked daily profiles. Weekly/monthly and failure analysis are the advanced synthesis consistent with primary multi-timeframe logic."
+        ],
+        "book_location": {
+          "level": "advanced",
+          "module_number": 8,
+          "module_title": "Advanced Power of 3",
+          "section_heading": "Evidence Summary"
+        },
+        "confidence_note": "Primary orientation: ICT teaching on Power of 3, Accumulation - Manipulation - Distribution, daily open, and session-linked daily profiles. Weekly/monthly and failure analysis are the advanced synthesis consistent with primary multi-timeframe logic."
+      }
+    ]
+  },
+  "rules": [
+    {
+      "id": "ADV-M08-R01",
+      "kind": "rule",
+      "rule_type": "detection_criteria",
+      "statement": "Classic daily PO3 mapping: Accumulation = Asian session range-building around/relative to the daily open; Manipulation = London Open sweep of one side of the Asian range (Judas Swing), often taking liquidity beyond the daily open; Distribution = London continuation or New York expansion toward the opposing liquidity/HTF DOL. On bullish profiles manipulation prints below the open and distribution carries price above; mirror for bearish. True distribution is expansion away from the manipulated side, usually away from the open, in the direction of HTF bias; expansion beginning without a prior liquidity raid is lower quality.",
+      "applies_to": [
+        "Daily Power of 3"
+      ],
+      "conditions": [],
+      "exceptions_or_qualifiers": "unspecified",
+      "book_location": {
+        "level": "advanced",
+        "module_number": 8,
+        "module_title": "Advanced Power of 3",
+        "section_heading": "Daily Power of 3"
+      },
+      "attribution_type": "ICT_primary"
+    },
+    {
+      "id": "ADV-M08-R02",
+      "kind": "rule",
+      "rule_type": "detection_criteria",
+      "statement": "Weekly PO3 (frequent, not rigid): early-week accumulation (often Monday); mid-week manipulation setting the week's extreme (raid of early-week high/low); later-week distribution toward the weekly DOL. Monthly PO3 is slower and less mechanically session-tied: accumulation may span the first part of the month; manipulation may raid a prior month's extreme or early-month range boundaries; distribution occupies the balance of the month toward the monthly DOL. Monthly PO3 supplies the highest-timeframe template that daily and weekly profiles nest inside.",
+      "applies_to": [
+        "Weekly and Monthly Power of 3"
+      ],
+      "conditions": [],
+      "exceptions_or_qualifiers": "Exact day-of-week or day-of-month rules are less rigid than the daily session mapping.",
+      "book_location": {
+        "level": "advanced",
+        "module_number": 8,
+        "module_title": "Advanced Power of 3",
+        "section_heading": "Weekly and Monthly Power of 3"
+      },
+      "attribution_type": "community_interpretation"
+    },
+    {
+      "id": "ADV-M08-R03",
+      "kind": "rule",
+      "rule_type": "selection_procedure",
+      "statement": "Phase-dependent model selection: Accumulation -> generally stand aside or prepare, do not force directional entries. Manipulation -> watch for the liquidity raid and subsequent displacement, do not trade the manipulation itself as the trend. Distribution -> the primary window for continuation entries (FVG/OB/OTE retracement into the displacement arrays) toward the DOL. Trading distribution models during accumulation, or treating manipulation as distribution, is a frequent source of error.",
+      "applies_to": [
+        "Phase-Dependent Model Selection"
+      ],
+      "conditions": [],
+      "exceptions_or_qualifiers": "unspecified",
+      "book_location": {
+        "level": "advanced",
+        "module_number": 8,
+        "module_title": "Advanced Power of 3",
+        "section_heading": "Phase-Dependent Model Selection"
+      },
+      "attribution_type": "community_interpretation"
+    },
+    {
+      "id": "ADV-M08-R04",
+      "kind": "rule",
+      "rule_type": "confluence",
+      "statement": "The highest-quality daily or weekly PO3 profiles align with the HTF delivery narrative and controlling dealing-range location (e.g. a bullish daily PO3 while weekly structure/DOL are also bullish and price is in discount of the controlling range = high confluence). A daily PO3 pointing opposite to the weekly narrative is lower probability or represents only a corrective day inside a larger opposing story; favour the HTF narrative when the two conflict.",
+      "applies_to": [
+        "PO3 + Higher-Timeframe Bias"
+      ],
+      "conditions": [],
+      "exceptions_or_qualifiers": "unspecified",
+      "book_location": {
+        "level": "advanced",
+        "module_number": 8,
+        "module_title": "Advanced Power of 3",
+        "section_heading": "PO3 + Higher-Timeframe Bias"
+      },
+      "attribution_type": "community_interpretation"
+    },
+    {
+      "id": "ADV-M08-R05",
+      "kind": "rule",
+      "rule_type": "invalidation",
+      "statement": "PO3 failure modes: expected distribution does not materialise after manipulation; the manipulation is itself continued (sweep and go) rather than reversed; both sides of the accumulation range are swept and the period closes with no clear distribution; higher-timeframe opposing force reverses distribution before the DOL is reached. Alternative (non-textbook) paths: trend days with little/no manipulation wick; range days with multiple small AMD cycles; news-driven expansions ignoring the usual session sequence. When PO3 fails or an alternative path is active, re-check the HTF DOL and structure, update the daily narrative, and select models consistent with the actual path rather than the hoped-for path.",
+      "applies_to": [
+        "PO3 Failure and Alternative Delivery Paths"
+      ],
+      "conditions": [],
+      "exceptions_or_qualifiers": "unspecified",
+      "book_location": {
+        "level": "advanced",
+        "module_number": 8,
+        "module_title": "Advanced Power of 3",
+        "section_heading": "PO3 Failure and Alternative Delivery Paths"
+      },
+      "attribution_type": "community_interpretation"
+    }
+  ],
+  "strategies": [],
+  "examples": [],
+  "relationships": [],
+  "no_trade_conditions": [
+    {
+      "id": "ADV-M08-NT01",
+      "kind": "no_trade_rule",
+      "statement": "During the Accumulation phase, generally stand aside or prepare -- do not force directional entries. Do not trade the manipulation phase itself as if it were the trend. Do not assume that once manipulation has occurred, distribution is guaranteed. Do not force a daily PO3 that conflicts with a clear weekly opposing narrative. Do not apply rigid day-of-week rules to weekly PO3 without reference to actual liquidity and structure.",
+      "applies_to_strategy_ids": [],
+      "book_location": {
+        "level": "advanced",
+        "module_number": 8,
+        "module_title": "Advanced Power of 3",
+        "section_heading": "Phase-Dependent Model Selection / Common Misinterpretations"
+      }
+    }
+  ],
+  "contradictions_or_ambiguities": [],
+  "empirical_claims": [],
+  "module_review_notes": {
+    "key_terms": [
+      "Power of 3 / AMD - Accumulation, Manipulation, Distribution sequence.",
+      "Accumulation - quiet range-building phase; liquidity builds.",
+      "Manipulation - engineered move that raids liquidity (often beyond the open).",
+      "Distribution - true directional expansion toward the DOL.",
+      "Daily / Weekly / Monthly PO3 - the three phases mapped onto those candles.",
+      "Session-based PO3 - the same phases inside a single session or kill zone.",
+      "PO3 failure - expected distribution does not occur or is reversed.",
+      "Alternative delivery path - trend day, range day, news-driven profile, etc."
+    ],
+    "beginner_summary": "unspecified",
+    "concept_relationships_summary": "unspecified",
+    "practical_chart_exercise": "unspecified",
+    "self_test_questions": [
+      "How does classic bullish daily PO3 typically relate to the daily open?",
+      "What is the usual session mapping of daily Accumulation - Manipulation - Distribution?",
+      "When should a daily PO3 profile be treated as lower quality?",
+      "What models are appropriate during the distribution phase versus the accumulation phase?",
+      "Give two examples of alternative delivery paths that are not textbook PO3."
+    ],
+    "common_misconceptions": [],
+    "research_sources_cited_in_text": []
+  }
+}

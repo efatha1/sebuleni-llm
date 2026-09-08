@@ -1,0 +1,450 @@
+{
+  "level": "beginner",
+  "module_number": 6,
+  "module_title": "ICT Price Delivery / PD Arrays",
+  "module_intro": "Module 5 ended with the Fair Value Gap -- a precise, three-candle price zone created by displacement. This module widens the lens: the FVG turns out to be just one member of a larger family of tools ICT-focused teaching calls PD Arrays (Premium and Discount Arrays), all used for the same underlying purpose -- identifying specific, defensible price zones where a reaction is plausible. Introduces the Order Block, and the two outcomes when price later returns to test an old Order Block: a Mitigation Block (partial, failed-expansion retest that continues the original direction) or a Breaker Block (complete, structure-shift-confirmed break that reverses the zone's role). Reframes the FVG as one PD Array among several, and reconnects to plain key support/resistance levels from Module 1.",
+  "prerequisites_stated_in_text": "Assumes full fluency with Displacement and Fair Value Gap (Module 5), Liquidity Sweep (Module 4), and Market Structure Shift (Module 3).",
+  "module_objectives": [
+    "identify a bullish or bearish Order Block from a displacement move and its preceding opposing candle",
+    "explain the specific behavioral difference between a Mitigation Block (failed expansion, continuation) and a Breaker Block (complete break, reversal)",
+    "correctly classify a given retest of an old Order Block as either a Mitigation Block or a Breaker Block scenario, based on how price behaves at the zone",
+    "explain what a PD Array is as an umbrella category, and name at least three specific tools that fall under it",
+    "explain the confluence principle and identify an example of two PD arrays overlapping at the same price",
+    "explain why an old key support/resistance level (Module 1) can still add contextual weight to a PD array, without being required for that PD array to be valid"
+  ],
+  "concepts": [
+    {
+      "id": "BEG-M06-C01",
+      "kind": "concept",
+      "name": "Order Block",
+      "definition": "An Order Block is the last opposing candle (or small group of candles) before a strong, displacement-driven impulse move, understood within ICT's framework as the specific price zone where institutional traders positioned themselves immediately before that move began.",
+      "ict_specific_meaning": "ICT-focused teaching, credited to Michael J. Huddleston, treats the Order Block as a footprint of institutional order placement: a bullish Order Block is the last bearish (down) candle immediately preceding a strong bullish impulse move, and a bearish Order Block is the last bullish (up) candle immediately preceding a strong bearish impulse move. The underlying reasoning given across sources is that institutions, unable to fill very large positions in a single moment without moving price unfavorably against themselves, are described as accumulating (or distributing) part of their position in this zone just before the market moves away from it.\n\nMultiple ICT-focused sources describe a consistent set of quality criteria for a \"high-probability\" Order Block: it should be found at a genuine structural pivot point (a swing high or low, not in the middle of an unremarkable range), the impulse move immediately following it should qualify as genuine displacement (Module 5), and the move should ideally follow a liquidity sweep (Module 4) and leave behind a Fair Value Gap.\n\nA distinction is drawn in some ICT-focused secondary material between an Order Block and a broader conventional \"supply and demand zone\": ICT's framework is described as preferring the precise, single candle (or small candle group) over a wider zone, on the reasoning that institutions return to the exact price level of their unfilled orders rather than to any point within a broad range - this produces a tighter stop-loss placement than a wide supply/demand zone would allow, at the cost of slightly less buffer if price sweeps through the Order Block before reversing.",
+      "beginner_explanation": "Imagine a large truck needs to unload a huge shipment, but it can't dump everything in one spot without blocking the road - so it backs up slightly, drops off part of the load, and then drives forward. The exact spot where it backed up and unloaded, just before driving off, is analogous to an Order Block: institutions are described as needing to place large orders gradually, and the last candle moving against the eventual direction - right before the market takes off - is treated as the visible trace of where they did it.",
+      "detection_criteria": [
+        "Locate a strong, displacement-driven impulse move (Module 5) on the chart.",
+        "Identify the single candle (or small group of candles) immediately preceding that move that moves in the opposite direction - a down-candle before an up-move (bullish Order Block) or an up-candle before a down-move (bearish Order Block).",
+        "Confirm this candle sits at or near a genuine structural swing point, not in the middle of an unremarkable range.",
+        "Check whether the impulse move that follows leaves behind a Fair Value Gap and whether it was preceded by a liquidity sweep - both increase the presumed quality of the Order Block.",
+        "Mark the full range (high to low) of the identified candle as the Order Block zone, to be watched for a future retracement and reaction."
+      ],
+      "preconditions": [
+        "unspecified"
+      ],
+      "numeric_or_narrative_example": "112 → 110 (down-candle) → 122 (large displacement up-candle) → 124\n\nThe down-candle from 112 to 110 is the last opposing candle before the large displacement move up to 122. Under ICT's framework, the 110 - 112 range would be marked as a bullish Order Block - a candidate zone for price to retrace into later, where buyers are presumed to have positioned themselves just before the rally began.",
+      "what_it_tells_the_trader": "An Order Block tells the trader a specific, precise candle-based zone - rather than a broad range - where a reaction is plausible if price returns to it, and gives a comparatively tight stop-loss reference (just beyond the Order Block candle) for planning a trade.\n\nIt does not tell the trader that price will necessarily return to the zone, or that a return will produce a reaction rather than a pass-through. Like other PD arrays, an Order Block's reliability depends heavily on the surrounding context - displacement quality, liquidity sweep, and higher-timeframe alignment.",
+      "common_pairings": [
+        "Displacement / Fair Value Gap (Module 5)",
+        "Liquidity Sweep (Module 4)",
+        "Breaker Block / Mitigation Block"
+      ],
+      "common_pairings_narrative": "An Order Block is defined entirely in relation to the displacement move that follows it and the Fair Value Gap that move typically leaves behind - the two are often found at the same location on a chart. An Order Block that later fails (gets broken through) becomes the origin of either a Breaker Block or a Mitigation Block, covered next in this module.",
+      "framework_placement": {
+        "comes_before": "Requires Displacement, Displacement Candle, and Fair Value Gap (Module 5), and Liquidity Sweep (Module 4).",
+        "comes_after": "Feeds directly into Mitigation Block and Breaker Block (both are, by definition, a failed Order Block), and into the broader PD Array framework covered later in this module."
+      },
+      "beginner_mistakes_or_misinterpretations": [
+        "Marking every down-candle before any up-move as a bullish Order Block, without checking for genuine displacement, structural significance, or a resulting Fair Value Gap.",
+        "Using a wide, loosely drawn zone instead of the precise high-to-low range of the specific candle identified.",
+        "Ignoring whether the Order Block formed after a liquidity sweep, which several sources treat as a meaningful quality filter."
+      ],
+      "qualification_or_limits": "An Order Block is a probabilistic zone of interest, not a guaranteed reaction point. ICT-focused sources are explicit that Order Blocks can and do fail - a failure is not treated as an anomaly but as the specific mechanism that produces the Breaker Block and Mitigation Block concepts covered next.",
+      "dependencies": [
+        "Displacement",
+        "Displacement Candle",
+        "Fair Value Gap",
+        "Liquidity Sweep "
+      ],
+      "timeframe_relationship": "unspecified",
+      "attribution_type": "research_compiled_secondary",
+      "cited_sources_in_text": [
+        "innercircletrader.net - \"ICT Order Block Explained - Bullish & Bearish OB Setup with Examples.\"",
+        "atas.net - \"What Are ICT Order Blocks and Breaker Blocks in Trading?\"",
+        "luxalgo.com - \"ICT Concepts: Order Blocks Explained.\"",
+        "tradingstrategyguides.com - \"Day 11: Supply & Demand Zones Vs Order Blocks - ICT & SMC Compared.\"",
+        "strike.money - \"Order Block: Overview, Formation, Types, Identification, Trading Guide\" (attributes the concept's origin and popularization, via mentorship series in the early 2010s, to Michael J. Huddleston)."
+      ],
+      "book_location": {
+        "level": "beginner",
+        "module_number": 6,
+        "module_title": "ICT Price Delivery / PD Arrays",
+        "section_heading": "Order Block"
+      },
+      "confidence_note": "unspecified"
+    },
+    {
+      "id": "BEG-M06-C02",
+      "kind": "concept",
+      "name": "Mitigation Block",
+      "definition": "A Mitigation Block is a previously formed Order Block that is retested by price after the original impulse move loses steam and fails to reach a new extreme, with the retest acting as a continuation reaction in the same direction as the original move.",
+      "ict_specific_meaning": "ICT-focused sources consistently distinguish the Mitigation Block from the Breaker Block (covered next) along one key line: a Mitigation Block forms when the original directional move stalls out - producing a lower high in an uptrend or a higher low in a downtrend - without price ever fully closing back through and invalidating the Order Block's polarity. This is described by one source as a \"failed expansion\" (the move ran out of steam before reaching its prior target) as opposed to a \"complete break\" (the full reversal that defines a Breaker Block).\n\nThe word \"mitigation\" itself is used in a specific ICT-adjacent sense: some sources describe it as institutions using the retest to \"mitigate\" (reduce risk on, or partially close) an existing position from the original Order Block, rather than opening a brand-new opposing position - consistent with the Mitigation Block being classified as a continuation, not a reversal, tool.\n\nThis makes the Mitigation Block one of a documented \"block trio\" of PD arrays built on top of the Order Block concept, alongside the Breaker Block and the Rejection Block (a related concept using candle wicks rather than full candle bodies, not separately covered as a numbered concept in this book but worth being aware of by name).",
+      "beginner_explanation": "Imagine the truck from the Order Block explanation drives off, but doesn't get very far before slowing back down and reversing slightly toward its old unloading spot - not all the way back past it, just close to it. When it reaches that old spot again, it continues on in the same general direction as before, rather than turning around completely. That partial return-and-continue, without a full reversal past the old zone, is what a Mitigation Block describes.",
+      "detection_criteria": [
+        "Identify a confirmed Order Block and the impulse move that followed it.",
+        "Watch for a subsequent move that fails to make a new high (in an uptrend) or new low (in a downtrend) beyond the prior extreme - this failure is the key precondition.",
+        "Watch for price to retrace back toward the original Order Block zone.",
+        "Confirm price reacts and continues in the original direction from at or near this zone, without fully closing back through and past it in the opposite direction (which would instead qualify as a Breaker Block)."
+      ],
+      "preconditions": [
+        "unspecified"
+      ],
+      "numeric_or_narrative_example": "110 (OB) → 122 (impulse up) → 118 (pullback, lower high) → 112 (retest near OB) → 121\n\nAfter the initial move to 122, price pulls back to 118 - a lower high, meaning it never exceeded 122 again before pulling back further. Price then returns close to the original Order Block zone (around 110 - 112) and reacts upward again toward 121, continuing the original bullish direction. This pattern - failed new high, retest of the OB, continuation in the same direction - is what qualifies this zone as a Mitigation Block.",
+      "what_it_tells_the_trader": "A Mitigation Block tells the trader that an old Order Block may still be structurally relevant even after the initial move has paused, offering a second, later opportunity to align with the original direction rather than assuming the zone is now irrelevant.\n\nIt does not tell the trader that the original direction is guaranteed to continue - a failed new high can also be the first sign of a genuine reversal rather than a healthy pause, which is why this concept must be read alongside Market Structure (Module 3), not in isolation.",
+      "common_pairings": [
+        "Order Block",
+        "Breaker Block (the alternative outcome of a failed OB)",
+        "Market Structure Shift (Module 3)"
+      ],
+      "common_pairings_narrative": "A Mitigation Block and a Breaker Block represent the two different things that can happen when price returns to an old Order Block: a partial, failed-expansion retest (Mitigation) versus a complete, reversing break-through (Breaker). Distinguishing correctly between the two requires careful reference to market structure.",
+      "framework_placement": {
+        "comes_before": "Requires Order Block.",
+        "comes_after": "Sits alongside Breaker Block as one of two possible outcomes for an Order Block that gets revisited; both feed into the broader PD Array framework."
+      },
+      "beginner_mistakes_or_misinterpretations": [
+        "Confusing a Mitigation Block (continuation, same direction) with a Breaker Block (reversal, opposite direction) - the two look very similar on a chart until the specific behavior at the level is examined closely.",
+        "Assuming a lower high or higher low automatically confirms a Mitigation Block scenario without waiting to see how price actually behaves at the OB zone."
+      ],
+      "qualification_or_limits": "Distinguishing a Mitigation Block from a Breaker Block in real time, before the retest has fully played out, can be difficult - both begin the same way (a failed new high/low followed by a retracement toward the old Order Block). The classification is only fully confirmed by how price behaves once it reaches the zone.",
+      "dependencies": [
+        "Order Block"
+      ],
+      "timeframe_relationship": "unspecified",
+      "attribution_type": "community_interpretation",
+      "cited_sources_in_text": [
+        "innercircletrader.net - \"ICT Mitigation Block Explained - Continuation Setup vs Breaker Block.\"",
+        "fxopen.com - \"Understanding PD Arrays in ICT: Meaning, Components, and Trading Use.\"",
+        "ictkillzone.com - \"ICT Breaker Block vs Mitigation Block: The Definitive Guide\" (\"Complete break = Breaker; Failed expansion = Mitigation\").",
+        "strike.money - \"Order Block: Overview, Formation, Types, Identification, Trading Guide.\""
+      ],
+      "book_location": {
+        "level": "beginner",
+        "module_number": 6,
+        "module_title": "ICT Price Delivery / PD Arrays",
+        "section_heading": "Mitigation Block"
+      },
+      "confidence_note": "Some ICT-adjacent analytical tools (such as certain TradingView indicators) define the Breaker/Mitigation distinction slightly differently - based on whether the original Order Block's formation swing swept liquidity, rather than based on the failed-expansion-versus-complete-break behavior described above. This book adopts the failed-expansion-versus-complete-break framing as its working definition, since it is the more consistently corroborated version across independent ICT-focused tutorial sources, and flags the alternative framing here rather than silently picking one."
+    },
+    {
+      "id": "BEG-M06-C03",
+      "kind": "concept",
+      "name": "Breaker Block",
+      "definition": "A Breaker Block is a failed Order Block - a price zone that originally functioned as a bullish or bearish Order Block but was subsequently and completely broken through by a liquidity sweep followed by a Market Structure Shift, after which the zone flips polarity and is expected to act as support or resistance from the opposite side.",
+      "ict_specific_meaning": "ICT-focused sources, including material directly attributed to Michael J. Huddleston, describe the Breaker Block as forming through a specific sequence: an established Order Block is swept (a liquidity sweep occurs through or near it), and this is immediately followed by a genuine Market Structure Shift (Module 3) in the opposite direction, confirming that the original directional bias tied to that Order Block has failed. Once this sequence completes, the old Order Block \"flips\": a bullish Order Block that fails this way becomes a bearish Breaker Block (now expected to act as resistance), and a bearish Order Block that fails this way becomes a bullish Breaker Block (now expected to act as support).\n\nMultiple sources describe this as directly analogous to a classic support/resistance polarity flip in conventional technical analysis (\"old support becomes new resistance\"), but grounded specifically in ICT's Order Block and liquidity-sweep mechanics rather than in generic price-reaction history.\n\nICT-focused sources describe the Breaker Block as one of the primary tools for identifying reversal trades after a liquidity sweep, in contrast to the Mitigation Block's role as a continuation tool.",
+      "beginner_explanation": "Picture a fence that used to reliably keep a herd of animals contained on one side (acting as a boundary). One day, the herd breaks completely through that fence and doesn't come back - the fence has failed at its original job. But afterward, that same broken fence line is still a meaningful boundary marker: if the herd later drifts back toward it from the new side, the old fence line is still a place worth watching, just now serving the opposite function. A Breaker Block works the same way: the level that used to matter for one direction, having been decisively broken through, is expected to matter again - but now for the opposite direction.",
+      "detection_criteria": [
+        "Identify a confirmed Order Block (Module 6, first concept).",
+        "Watch for price to sweep through this Order Block zone, taking any resting liquidity at or near it.",
+        "Confirm this sweep is immediately followed by a genuine Market Structure Shift (Module 3) in the direction opposite the Order Block's original bias.",
+        "Once confirmed, relabel the old Order Block zone as a Breaker Block, with its expected reaction now reversed: a former bullish Order Block becomes resistance (a bearish Breaker Block); a former bearish Order Block becomes support (a bullish Breaker Block).",
+        "Watch for price to retest this flipped zone from the new side as a candidate entry area in the new direction."
+      ],
+      "preconditions": [
+        "unspecified"
+      ],
+      "numeric_or_narrative_example": "Bullish OB at 108 - 110 → price rallies to 120 → reverses and closes decisively below 108 with displacement → structure shift confirmed bearish → price later rallies back up to 109\n\nThe original bullish Order Block at 108 - 110 is completely broken through (not just dipped into) when price closes below 108 with force, and this break is confirmed as a genuine bearish Market Structure Shift. The 108 - 110 zone is now reclassified as a bearish Breaker Block. When price later rallies back up into 109, this is read, under ICT's framework, as a potential zone for new short entries - the same level, now serving the opposite role.",
+      "what_it_tells_the_trader": "A Breaker Block tells the trader that a specific old zone, having decisively failed in its original role and been confirmed by a structure shift, is a candidate location for a reversal-direction trade - reusing a level the market has already demonstrated it respects, just from the other side.\n\nIt does not tell the trader that the flipped zone will necessarily hold on its first retest, or that the newly confirmed direction will continue indefinitely - like every PD array in this book, it describes a probable reaction zone, not a certainty.",
+      "common_pairings": [
+        "Liquidity Sweep (Module 4)",
+        "Market Structure Shift (Module 3)",
+        "Mitigation Block (the alternative outcome)"
+      ],
+      "common_pairings_narrative": "A Breaker Block is specifically defined by the sweep-then-structure-shift sequence from Modules 3 and 4; it is directly contrasted with the Mitigation Block, which represents the alternative, less decisive outcome (a failed expansion rather than a complete break) when price returns to an old Order Block.",
+      "framework_placement": {
+        "comes_before": "Requires Order Block, Liquidity Sweep (Module 4), and Market Structure Shift (Module 3).",
+        "comes_after": "Feeds into the broader PD Array framework and into the ICT Buy/Sell Models (Modules 11 - 12), where a Breaker Block is one of several candidate entry zones."
+      },
+      "beginner_mistakes_or_misinterpretations": [
+        "Labeling a zone a Breaker Block after only a wick through the Order Block, without confirming an actual candle-body close beyond it and a genuine structure shift.",
+        "Confusing a Breaker Block (complete break, reversal) with a Mitigation Block (failed expansion, continuation) - see the Mitigation Block qualification for how to distinguish them.",
+        "Trading the first retest of a Breaker Block without any additional confirmation, treating the classification alone as sufficient for entry."
+      ],
+      "qualification_or_limits": "A Breaker Block, like the Order Block it is built from, describes a probable reaction zone, not a guaranteed one. ICT-focused sources are explicit that Breaker Blocks can themselves fail, particularly if the market structure shift used to confirm them was weak or unaccompanied by genuine displacement.",
+      "dependencies": [
+        "Order Block",
+        "Liquidity Sweep",
+        "Market Structure Shift "
+      ],
+      "timeframe_relationship": "unspecified",
+      "attribution_type": "research_compiled_secondary",
+      "cited_sources_in_text": [
+        "michaeljhuddleston.org - \"ICT Breaker Block Strategy: Turn Failed Order Blocks Into High-Probability Trades\" (attributed directly to ICT/Michael J. Huddleston's teaching).",
+        "innercircletraders.net - \"What is ICT Breaker Block & How to Trade It?\"",
+        "innercircletrader.net - \"ICT Breaker Block Trading - Failed Order Block Strategy.\"",
+        "atas.net - \"What Are ICT Order Blocks and Breaker Blocks in Trading?\""
+      ],
+      "book_location": {
+        "level": "beginner",
+        "module_number": 6,
+        "module_title": "ICT Price Delivery / PD Arrays",
+        "section_heading": "Breaker Block"
+      },
+      "confidence_note": "unspecified"
+    },
+    {
+      "id": "BEG-M06-C04",
+      "kind": "concept",
+      "name": "Fair Value Gap as a PD Array",
+      "definition": "This concept revisits the Fair Value Gap (defined mechanically in Module 5) specifically in its role as one of several \"PD Array\" tools used within ICT's Premium/Discount framework to plan entries, alongside the Order Block, Breaker Block, and Mitigation Block.",
+      "ict_specific_meaning": "ICT-focused sources use \"PD Array\" (Premium and Discount Array), a term and framework credited to Michael J. Huddleston, as the umbrella category for any price level or zone with a defined, repeatable effect on price delivery. Within this umbrella, sources consistently distinguish two broad families: institutional arrays (such as the Order Block and Breaker Block, marking zones where large orders were placed) and imbalance arrays (such as the Fair Value Gap and the larger, multi-candle Liquidity Void, marking zones where price moved too quickly and left an untraded gap).\n\nA specifically documented ICT framework, referred to across sources as the PD Array Matrix, ranks a list of specific tools by which zone (premium, the top half of a trading range, or discount, the bottom half) each is used in: several sources describe an ordered list such as Old Highs, Rejection Block, Bearish Order Block, Fair Value Gap variants, and Breaker Block as premium-zone tools (used for selling), with a mirrored list of Old Lows, Rejection Block, Bullish Order Block, Fair Value Gap variants, and Breaker Block as discount-zone tools (used for buying).\n\nA frequently repeated principle across sources is confluence: a Fair Value Gap that overlaps with an Order Block or Breaker Block at the same price level is treated as a substantially higher-probability zone than any one of these PD arrays found in isolation, since multiple independent tools are agreeing on the same specific level.",
+      "beginner_explanation": "Think of a PD Array as a category, like \"tools in a toolbox,\" rather than one single object. The Fair Value Gap is one specific tool in that box - a precisely defined price zone. This section is really just a reminder and reframing: everything you learned about the Fair Value Gap in Module 5 is also, formally, an example of a PD Array - one of several related tools traders use to decide where a reaction might happen.",
+      "detection_criteria": [
+        "Construct a Fair Value Gap using the three-candle method from Module 5.",
+        "Check whether this Fair Value Gap overlaps with any nearby Order Block or Breaker Block on the same chart.",
+        "If an overlap exists, treat the combined zone as higher-confidence \"confluence\" rather than treating each tool separately.",
+        "Note whether the Fair Value Gap sits in the premium half (upper 50%) or discount half (lower 50%) of the relevant trading range or dealing range - a concept fully developed in Module 7 (Fibonacci and OTE) - since ICT-focused teaching generally favors selling from Fair Value Gaps found in premium and buying from Fair Value Gaps found in discount."
+      ],
+      "preconditions": [
+        "unspecified"
+      ],
+      "numeric_or_narrative_example": "A bullish Fair Value Gap spans 107 - 116. A bullish Order Block is separately identified at 106 - 108.\n\nBecause the Fair Value Gap (107 - 116) and the Order Block (106 - 108) overlap in the 107 - 108 region, this overlapping zone is treated as a confluence area - a location where two independent PD Array tools are pointing to roughly the same price, which ICT-focused teaching treats as a stronger, more carefully watched zone than either tool would represent alone.",
+      "what_it_tells_the_trader": "Framing the Fair Value Gap as one PD Array among several tells the trader that no single tool is meant to be used alone - the strength of an ICT-style setup, according to consistently repeated guidance across sources, comes from multiple PD arrays agreeing at the same location, not from any one gap or block in isolation.\n\nIt does not tell the trader that confluence guarantees success; it only describes a commonly cited method for ranking which zones deserve the most attention.",
+      "common_pairings": [
+        "Order Block",
+        "Breaker Block",
+        "Premium/Discount and OTE (Module 7)"
+      ],
+      "common_pairings_narrative": "The PD Array framework exists specifically to organize these related tools together and to connect them to the Premium/Discount (equilibrium) concept that Module 7 develops in full via Fibonacci retracement and the Optimal Trade Entry (OTE).",
+      "framework_placement": {
+        "comes_before": "Requires Fair Value Gap (Module 5), Order Block, and Breaker Block.",
+        "comes_after": "Feeds directly into Module 7 (Fibonacci & OTE), where the premium/discount concept referenced here is fully defined, and into Key Support/Resistance as Contextual Levels, the final concept in this module."
+      },
+      "beginner_mistakes_or_misinterpretations": [
+        "Treating the Fair Value Gap and PD Array as two unrelated concepts rather than understanding the FVG as one specific member of the broader PD Array category.",
+        "Trading a single, isolated PD array without checking for confluence with any other nearby tool.",
+        "Ignoring whether a given Fair Value Gap sits in a premium or discount position before deciding whether to treat it as a buying or selling zone."
+      ],
+      "qualification_or_limits": "The PD Array Matrix, as documented in ICT-focused secondary sources, is a ranking framework and organizing checklist, not a mechanical formula that produces certain outcomes. Multiple sources caution against \"loose pattern recognition\" - treating any FVG, Order Block, or Breaker Block as valid without checking it against the specific rules for that individual tool.",
+      "dependencies": [
+        "Fair Value Gap",
+        "Order Block",
+        "Breaker Block"
+      ],
+      "timeframe_relationship": "unspecified",
+      "attribution_type": "research_compiled_secondary",
+      "cited_sources_in_text": [
+        "innercircletrader.net - \"ICT PD Array Matrix - Premium & Discount Trade Execution Framework\" (PD Array Matrix ranking, confluence principle).",
+        "fxopen.com - \"Understanding PD Arrays in ICT: Meaning, Components, and Trading Use\" (institutional array vs. imbalance array distinction; PD Array attributed to Michael J. Huddleston).",
+        "arongroups.co - \"What Is PD array in ICT Trading?\"",
+        "TradingView (ICT Advisor - PD Array STM) - indicator documentation describing the PD Array Matrix's premium/discount tool lists."
+      ],
+      "book_location": {
+        "level": "beginner",
+        "module_number": 6,
+        "module_title": "ICT Price Delivery / PD Arrays",
+        "section_heading": "Fair Value Gap as a PD Array"
+      },
+      "confidence_note": "unspecified"
+    },
+    {
+      "id": "BEG-M06-C05",
+      "kind": "concept",
+      "name": "Key Support/Resistance as Contextual Levels",
+      "definition": "This concept revisits key support and resistance levels (defined in Module 1) specifically in their role as broader contextual reference points that inform how much weight to give a PD array found near them, rather than as independent trading tools in their own right within this module.",
+      "ict_specific_meaning": "ICT-focused teaching does not discard conventional support and resistance; rather, it re-purposes old highs and lows as one input among several used to judge a PD array's significance. A Fair Value Gap, Order Block, or Breaker Block that happens to sit at or near a well-established prior key support or resistance level (an old swing high/low, or a prior day/week/month high/low) is generally treated as more significant than the same PD array found at an unremarkable price with no such historical significance.\n\nThis connects directly back to the liquidity concepts of Module 4: a key support or resistance level is exactly the kind of place ICT's framework expects buy-side or sell-side liquidity to have accumulated, which is part of why a PD array located there is treated as carrying extra weight.",
+      "beginner_explanation": "If a Fair Value Gap or Order Block is like a specific tool for pinpointing a price zone, a key support or resistance level is more like the neighborhood that zone happens to sit in. A tool sitting in a well-known, previously significant neighborhood tends to get more attention than the same tool sitting somewhere nobody has paid attention to before.",
+      "detection_criteria": [
+        "Identify any PD array (Fair Value Gap, Order Block, Breaker Block, or Mitigation Block) of interest.",
+        "Check whether this PD array sits at, or very close to, a previously marked key support or resistance level from Module 1 (an old swing high/low, or a prior day/week/month high/low).",
+        "If a match exists, treat the PD array as carrying additional contextual weight due to this historical significance.",
+        "If no match exists, treat the PD array on its own individual merits, without assuming reduced significance purely due to the absence of an old level nearby."
+      ],
+      "preconditions": [
+        "unspecified"
+      ],
+      "numeric_or_narrative_example": "A bullish Order Block forms at 100 - 102. This zone also happens to be the site of a previously established key support level, tested twice before.\n\nBecause the Order Block coincides with a level that has already proven historically significant (two prior reactions), a trader following ICT's framework would treat this specific Order Block as a higher-confidence zone than an otherwise identical Order Block found at a price with no prior historical significance.",
+      "what_it_tells_the_trader": "This contextual layering tells the trader which of several candidate PD arrays, all else being equal, deserves the most attention - historical significance is treated as one more piece of corroborating evidence, alongside displacement quality, liquidity sweeps, and confluence with other PD arrays.\n\nIt does not tell the trader that a PD array lacking this historical overlap is invalid - many valid, reactive PD arrays form at prices with no significant prior history, particularly on lower timeframes or in newly forming trading ranges.",
+      "common_pairings": [
+        "Key Support/Resistance Levels (Module 1)",
+        "Liquidity (Module 4)",
+        "All PD Array tools in this module"
+      ],
+      "common_pairings_narrative": "This concept is the direct bridge back to Module 1's foundational support/resistance vocabulary, showing how a beginner-level concept introduced very early in this book continues to add value even after much more specialized ICT vocabulary (Order Blocks, Breakers, FVGs) has been introduced.",
+      "framework_placement": {
+        "comes_before": "Requires Key Support/Resistance Levels (Module 1) and all PD array concepts earlier in this module.",
+        "comes_after": "Concludes Module 6 and feeds into Module 7 (Fibonacci & OTE), where premium/discount positioning adds a further contextual layer, and ultimately into the full weighting process used in the ICT Buy/Sell Models (Modules 11 - 12)."
+      },
+      "beginner_mistakes_or_misinterpretations": [
+        "Assuming a PD array is worthless simply because it does not coincide with an old, well-known support or resistance level.",
+        "Over-weighting historical significance alone while ignoring more direct evidence such as displacement quality or the presence of a liquidity sweep."
+      ],
+      "qualification_or_limits": "Historical significance is one contributing factor among several used to judge a PD array, not a stand-alone requirement. A textbook-quality Order Block or Fair Value Gap, formed with strong displacement following a genuine liquidity sweep, can still be a valid, tradable zone even without any prior key-level history at that exact price.",
+      "dependencies": [
+        "Key Support/Resistance Levels",
+        "all PD array concepts earlier in this module"
+      ],
+      "timeframe_relationship": "unspecified",
+      "attribution_type": "community_interpretation",
+      "cited_sources_in_text": [
+        "chartinglens.com - \"Support and Resistance Levels: Complete Trading Guide\" (cited previously in Module 1).",
+        "General synthesis of the PD Array confluence principle from innercircletrader.net's \"ICT PD Array Matrix\" material, applied to Module 1's key-level concept."
+      ],
+      "book_location": {
+        "level": "beginner",
+        "module_number": 6,
+        "module_title": "ICT Price Delivery / PD Arrays",
+        "section_heading": "Key Support/Resistance as Contextual Levels"
+      },
+      "confidence_note": "This specific concept - treating old key levels explicitly as a weighting factor for PD array confidence - is this book's own synthesis connecting Module 1's terminology to the PD Array material in this module, built to satisfy the specified curriculum topic (\"Key support/resistance as contextual levels\"); it is a reasonable, consistent extension of ICT-focused liquidity and PD Array teaching rather than a separately named ICT term found verbatim in the sources reviewed."
+    }
+  ],
+  "rules": [
+    {
+      "id": "BEG-M06-R01",
+      "kind": "rule",
+      "rule_type": "confluence",
+      "statement": "Multiple PD Arrays overlapping at the same price (confluence) are treated as more significant than any single one alone.",
+      "applies_to": [
+        "Order Block",
+        "Fair Value Gap (FVG)",
+        "Breaker Block",
+        "Mitigation Block"
+      ],
+      "conditions": [],
+      "exceptions_or_qualifiers": "unspecified precise scoring/weighting method",
+      "book_location": {
+        "level": "beginner",
+        "module_number": 6,
+        "module_title": "ICT Price Delivery / PD Arrays",
+        "section_heading": "How These Concepts Connect"
+      },
+      "attribution_type": "community_interpretation"
+    },
+    {
+      "id": "BEG-M06-R02",
+      "kind": "rule",
+      "rule_type": "confluence",
+      "statement": "ICT-focused teaching generally favors selling from Fair Value Gaps found in the premium half (upper 50%) of the relevant trading/dealing range, and buying from Fair Value Gaps found in the discount half (lower 50%) -- a concept fully developed in Module 7 (Fibonacci and OTE).",
+      "applies_to": [
+        "Fair Value Gap as a PD Array"
+      ],
+      "conditions": [],
+      "exceptions_or_qualifiers": "unspecified precise range boundaries beyond '50%'; fully developed in Module 7",
+      "book_location": {
+        "level": "beginner",
+        "module_number": 6,
+        "module_title": "ICT Price Delivery / PD Arrays",
+        "section_heading": "Fair Value Gap as a PD Array"
+      },
+      "attribution_type": "community_interpretation"
+    },
+    {
+      "id": "BEG-M06-R03",
+      "kind": "rule",
+      "rule_type": "detection_criteria",
+      "statement": "Breaker Block relabeling rule: once a confirmed Order Block is swept (taking resting liquidity) and immediately followed by a genuine Market Structure Shift in the direction opposite the Order Block's original bias, the old Order Block zone is relabeled a Breaker Block with its expected reaction reversed -- a former bullish Order Block becomes resistance (bearish Breaker Block); a former bearish Order Block becomes support (bullish Breaker Block).",
+      "applies_to": [
+        "Breaker Block",
+        "Order Block"
+      ],
+      "conditions": [
+        "Order Block confirmed",
+        "Sweep of the Order Block zone occurs",
+        "Genuine Market Structure Shift follows immediately, opposite the original bias"
+      ],
+      "exceptions_or_qualifiers": "unspecified",
+      "book_location": {
+        "level": "beginner",
+        "module_number": 6,
+        "module_title": "ICT Price Delivery / PD Arrays",
+        "section_heading": "Breaker Block"
+      },
+      "attribution_type": "community_interpretation"
+    }
+  ],
+  "strategies": [],
+  "examples": [],
+  "relationships": [
+    {
+      "id": "BEG-M06-REL01",
+      "kind": "cross_module_relationship",
+      "statement": "This module has a clear internal branch point. Order Block is the trunk: every other concept in this module is defined relative to it. When an Order Block is later revisited by price, exactly two outcomes are possible, and this module dedicates one concept to each: a Mitigation Block (the move stalls out with a failed new high/low, and price continues in the original direction after the retest) or a Breaker Block (the move fully reverses through the Order Block, confirmed by a genuine Market Structure Shift, after which the zone's role flips to the opposite side).\n\nThe module then steps back and reclassifies: the Fair Value Gap from Module 5, the Order Block, and the Breaker Block are all shown to be members of one larger organizing category - the PD Array - with a documented principle that multiple PD Arrays overlapping at the same price (confluence) are treated as more significant than any single one alone. Finally, the module reconnects this entire specialized vocabulary back to the very first tool introduced in this book: a plain old support or resistance level from Module 1 is shown to still matter, not as a standalone signal, but as one more layer of context that can add or subtract confidence from a PD array found nearby.",
+      "involved_concepts": [
+        "Order Block",
+        "Mitigation Block",
+        "Breaker Block",
+        "Fair Value Gap as a PD Array",
+        "Key Support/Resistance as Contextual Levels"
+      ],
+      "involved_modules": [
+        "Module 1 (beginner)",
+        "Module 3 (beginner)",
+        "Module 4 (beginner)",
+        "Module 5 (beginner)",
+        "Module 7 (beginner, forward reference)"
+      ],
+      "book_location": {
+        "level": "beginner",
+        "module_number": 6,
+        "module_title": "ICT Price Delivery / PD Arrays",
+        "section_heading": "How These Concepts Connect"
+      }
+    }
+  ],
+  "no_trade_conditions": [],
+  "contradictions_or_ambiguities": [
+    {
+      "id": "BEG-M06-AMB01",
+      "kind": "contradiction_or_ambiguity",
+      "description": "Distinguishing a Mitigation Block from a Breaker Block in real time, before the retest has fully played out, is explicitly stated to be difficult -- both begin identically (a failed new high/low followed by a retracement toward the old Order Block). Classification is only fully confirmed by how price behaves once it reaches the zone, meaning the two labels cannot be reliably assigned in real time at the moment of retest.",
+      "passage_a": {
+        "text": "Distinguishing a Mitigation Block from a Breaker Block in real time, before the retest has fully played out, can be difficult - both begin the same way (a failed new high/low followed by a retracement toward the old Order Block). The classification is only fully confirmed by how price behaves once it reaches the zone.",
+        "book_location": {
+          "level": "beginner",
+          "module_number": 6,
+          "module_title": "ICT Price Delivery / PD Arrays",
+          "section_heading": "Mitigation Block"
+        }
+      },
+      "passage_b": {
+        "text": "unspecified - no directly conflicting passage; this is flagged as an inherent real-time ambiguity acknowledged by the book itself rather than a disagreement between two sources.",
+        "book_location": {
+          "level": "beginner",
+          "module_number": 6,
+          "module_title": "ICT Price Delivery / PD Arrays",
+          "section_heading": "Mitigation Block"
+        }
+      },
+      "resolution_status": "unresolved_in_source"
+    }
+  ],
+  "empirical_claims": [],
+  "module_review_notes": {
+    "key_terms": [
+      "Order Block (OB)",
+      "Mitigation Block (MB)",
+      "Breaker Block (BB)",
+      "PD Array (Premium/Discount Array)",
+      "PD Array Matrix",
+      "Confluence",
+      "Institutional Array",
+      "Imbalance Array",
+      "Rejection Block (mentioned)"
+    ],
+    "beginner_summary": "An Order Block is the last candle moving against the eventual direction, right before a strong, displacement-driven move - treated within ICT's framework as the visible footprint of institutional positioning. When price later returns to test an old Order Block, one of two things happens: either the move stalls out without reaching a new high or low and continues in the original direction (a Mitigation Block), or the move fully reverses through the zone with a confirmed structure shift, flipping the zone's role entirely (a Breaker Block). Both of these, together with the Fair Value Gap from Module 5, belong to a broader category called the PD Array - a checklist of tools ICT-focused teaching uses to plan entries, with special attention paid to spots where multiple PD arrays overlap (confluence) and to whether a PD array coincides with an old, historically significant support or resistance level.",
+    "concept_relationships_summary": "Order Block is the foundational concept. Mitigation Block and Breaker Block are the two possible outcomes when an Order Block is revisited. Fair Value Gap as a PD Array reframes Module 5's concept as one member of this same family. Key Support/Resistance as Contextual Levels connects the whole family back to Module 1's original support/resistance vocabulary.",
+    "practical_chart_exercise": "Given a bearish Order Block at 200 - 202 (the last up-candle before a strong bearish impulse move down to 180), describe what price behavior on a later retest of the 200 - 202 zone would indicate a Mitigation Block scenario, and what price behavior on that same retest would instead indicate a Breaker Block scenario. Then explain which of the two scenarios would make you more inclined to look for short (sell) opportunities, and why.",
+    "self_test_questions": [
+      "What is the difference between a bullish Order Block and a bearish Order Block?",
+      "What single behavioral difference distinguishes a Mitigation Block from a Breaker Block?",
+      "What two broad families of tools does the PD Array umbrella category divide into, according to ICT-focused sources?",
+      "What is confluence, and why is it treated as increasing a PD array's significance?",
+      "Why might a Fair Value Gap or Order Block found at an old, historically significant support or resistance level be treated as more significant than the same tool found at an unremarkable price?"
+    ],
+    "common_misconceptions": [
+      "Believing a Mitigation Block and a Breaker Block are the same thing, or interchangeable terms, rather than two distinct outcomes distinguished by specific price behavior.",
+      "Believing an Order Block, Fair Value Gap, or Breaker Block must always coincide with an old key support/resistance level to be valid.",
+      "Believing the PD Array Matrix is a rigid mechanical formula that guarantees outcomes, rather than a ranked checklist of tools that still requires careful, context-specific judgment.",
+      "Treating every candle before every move as an Order Block, without checking for genuine displacement and structural significance."
+    ],
+    "research_sources_cited_in_text": [
+      "innercircletrader.net - \"ICT Order Block Explained,\" \"ICT Mitigation Block Explained,\" \"ICT Breaker Block Trading,\" and \"ICT PD Array Matrix - Premium & Discount Trade Execution Framework.\"",
+      "michaeljhuddleston.org - \"ICT Breaker Block Strategy: Turn Failed Order Blocks Into High-Probability Trades.\"",
+      "atas.net - \"What Are ICT Order Blocks and Breaker Blocks in Trading?\"",
+      "fxopen.com - \"Understanding PD Arrays in ICT: Meaning, Components, and Trading Use.\"",
+      "ictkillzone.com - \"ICT Breaker Block vs Mitigation Block: The Definitive Guide.\"",
+      "strike.money - \"Order Block: Overview, Formation, Types, Identification, Trading Guide.\"",
+      "arongroups.co - \"What Is PD array in ICT Trading?\"",
+      "tradingstrategyguides.com - \"Day 11: Supply & Demand Zones Vs Order Blocks\" and \"Day 12: Breaker Blocks & Mitigation Blocks Explained.\"",
+      "Note: this module documents a minor definitional variation across secondary sources regarding the precise Breaker/Mitigation distinction (failed-expansion-vs-complete-break, adopted here, versus a liquidity-sweep-based distinction used by some analytical tools). As in prior modules, no direct ICT primary-source transcript was accessible in this research pass to resolve this definitively."
+    ]
+  }
+}

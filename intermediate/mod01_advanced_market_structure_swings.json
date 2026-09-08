@@ -1,0 +1,462 @@
+{
+  "level": "intermediate",
+  "module_number": 1,
+  "module_title": "Advanced Market Structure & Price Swings",
+  "module_intro": "In the Beginner textbook, market structure was introduced as the sequence of swing highs and swing lows that define bullish or bearish conditions, together with the Market Structure Shift that signals a potential change in that sequence. At the intermediate level the same price action is examined through additional lenses: a hierarchy of swing points (short-term, intermediate-term, long-term), the distinction between internal and external structure (and internal-range vs external-range liquidity), the dealing range as the active price container, and the recognition of expansion and contraction phases. The practical goal is to stop reacting to every three-candle swing and instead identify which structural elements actually matter for bias, liquidity targeting and entry timing.",
+  "prerequisites_stated_in_text": "The student has completed the ICT Beginner textbook. Basic swing highs/lows, higher-high/higher-low structure, Market Structure Shift (MSS), and simple liquidity concepts are assumed known.",
+  "module_objectives": [
+    "Distinguish internal structure from external structure on any given timeframe.",
+    "Define and correctly identify a dealing range (including nested dealing ranges across timeframes).",
+    "Classify swing points into short-term, intermediate-term and long-term highs and lows (STH/STL, ITH/ITL, LTH/LTL).",
+    "Recognise expansion versus contraction phases and their implications for structure.",
+    "Differentiate structural continuation from structural failure.",
+    "Separate internal-range liquidity from external-range liquidity and understand their sequential relationship.",
+    "Read structure fractally across multiple timeframes without confusing noise with narrative."
+  ],
+  "concepts": [
+    {
+      "id": "INT-M01-C01",
+      "kind": "concept",
+      "name": "Internal Structure vs External Structure",
+      "definition": "External structure consists of the major swing highs and swing lows that define the boundaries of the current dealing range or the prevailing higher-timeframe trend. These are the pivots that, when broken with displacement, change the larger narrative.\n\nInternal structure consists of the smaller swings that form between two external pivots. Internal structure describes the path price takes while remaining inside the larger container.",
+      "ict_specific_meaning": "External structure consists of the major swing highs and swing lows that define the boundaries of the current dealing range or the prevailing higher-timeframe trend. These are the pivots that, when broken with displacement, change the larger narrative.\n\nInternal structure consists of the smaller swings that form between two external pivots. Internal structure describes the path price takes while remaining inside the larger container.",
+      "what_changed_from_beginner_level": "Beginners treat every swing high or low as potentially equal. Intermediate practice requires the trader to ask: \"Is this swing defining the range, or is it merely movement inside the range?\" Breaking an internal swing is routine; breaking an external swing is narrative-changing.",
+      "detection_criteria": [
+        "On the working timeframe, mark the most recent significant swing high and swing low that together contain the majority of recent price action. These are candidate external points.",
+        "All swings that form strictly between those two points are internal.",
+        "When price later expands beyond one of the external points and that expansion holds, the old external point is retired and a new dealing range is defined."
+      ],
+      "numeric_or_narrative_example": "On a 1-hour chart, price establishes a clear high at 1.1000 and a clear low at 1.0800. Between these two levels, price prints several higher highs and higher lows. Those intermediate swings are internal structure. Only a decisive break and close beyond 1.1000 or 1.0800 (with displacement) alters the external structure.",
+      "why_it_matters": "Confusing internal breaks with external breaks is one of the most common sources of premature bias changes and over-trading. An internal Market Structure Shift may offer a lower-timeframe entry opportunity, but it does not automatically overturn the higher-timeframe dealing-range narrative.",
+      "beginner_mistakes_or_misinterpretations": [
+        "Treating every lower-timeframe MSS as an external structural failure on the higher timeframe."
+      ],
+      "raw_sections": {
+        "ICT Definition": "External structure consists of the major swing highs and swing lows that define the boundaries of the current dealing range or the prevailing higher-timeframe trend. These are the pivots that, when broken with displacement, change the larger narrative.\n\nInternal structure consists of the smaller swings that form between two external pivots. Internal structure describes the path price takes while remaining inside the larger container.",
+        "What Changed from Beginner Understanding": "Beginners treat every swing high or low as potentially equal. Intermediate practice requires the trader to ask: \"Is this swing defining the range, or is it merely movement inside the range?\" Breaking an internal swing is routine; breaking an external swing is narrative-changing.",
+        "Why It Matters": "Confusing internal breaks with external breaks is one of the most common sources of premature bias changes and over-trading. An internal Market Structure Shift may offer a lower-timeframe entry opportunity, but it does not automatically overturn the higher-timeframe dealing-range narrative.",
+        "How to Identify": "- On the working timeframe, mark the most recent significant swing high and swing low that together contain the majority of recent price action. These are candidate external points.\n\n- All swings that form strictly between those two points are internal.\n\n- When price later expands beyond one of the external points and that expansion holds, the old external point is retired and a new dealing range is defined.",
+        "Example": "On a 1-hour chart, price establishes a clear high at 1.1000 and a clear low at 1.0800. Between these two levels, price prints several higher highs and higher lows. Those intermediate swings are internal structure. Only a decisive break and close beyond 1.1000 or 1.0800 (with displacement) alters the external structure.",
+        "Common Mistake": "- Treating every lower-timeframe MSS as an external structural failure on the higher timeframe.\n\n***Source / Research note:** ICT's 2022 Mentorship and related lectures distinguish internal-range behaviour from external-range liquidity runs. Community codifications of \"internal vs external structure\" map directly onto that teaching.*"
+      },
+      "dependencies": [],
+      "attribution_type": "research_compiled_secondary",
+      "cited_sources_in_text": [
+        "ICT's 2022 Mentorship and related lectures distinguish internal-range behaviour from external-range liquidity runs. Community codifications of \"internal vs external structure\" map directly onto that teaching."
+      ],
+      "book_location": {
+        "level": "intermediate",
+        "module_number": 1,
+        "module_title": "Advanced Market Structure & Price Swings",
+        "section_heading": "Internal Structure vs External Structure"
+      },
+      "confidence_note": "ICT's 2022 Mentorship and related lectures distinguish internal-range behaviour from external-range liquidity runs. Community codifications of \"internal vs external structure\" map directly onto that teaching."
+    },
+    {
+      "id": "INT-M01-C02",
+      "kind": "concept",
+      "name": "Internal Range and External Range",
+      "definition": "The internal range is the price territory lying strictly between the current dealing-range high and dealing-range low.\n\nThe external range (or external territory) is everything outside those two boundaries - above the range high or below the range low.",
+      "ict_specific_meaning": "The internal range is the price territory lying strictly between the current dealing-range high and dealing-range low.\n\nThe external range (or external territory) is everything outside those two boundaries - above the range high or below the range low.",
+      "what_changed_from_beginner_level": "unspecified",
+      "detection_criteria": [
+        "unspecified - see raw_sections"
+      ],
+      "numeric_or_narrative_example": "unspecified",
+      "why_it_matters": "When the trader's thesis is that price will expand to an external target, intermediate reactions at internal PD arrays are expected and should not automatically be read as reversal. Conversely, once external liquidity has been taken, the probability of a return into the range rises.",
+      "beginner_mistakes_or_misinterpretations": [],
+      "raw_sections": {
+        "Definitions": "The internal range is the price territory lying strictly between the current dealing-range high and dealing-range low.\n\nThe external range (or external territory) is everything outside those two boundaries - above the range high or below the range low.",
+        "Relationship to Liquidity": "Liquidity resting inside the dealing range is internal-range liquidity (IRL). Liquidity resting beyond the range boundaries is external-range liquidity (ERL).\n\nA common ICT delivery sequence is: price expands to take external-range liquidity, then returns into the range to address internal-range liquidity (often Fair Value Gaps or Order Blocks), then expands again toward the opposite external liquidity. The reverse sequence (internal first, then external) also occurs and is equally important to recognise.",
+        "Practical Implication": "When the trader's thesis is that price will expand to an external target, intermediate reactions at internal PD arrays are expected and should not automatically be read as reversal. Conversely, once external liquidity has been taken, the probability of a return into the range rises."
+      },
+      "dependencies": [],
+      "attribution_type": "research_compiled_secondary",
+      "cited_sources_in_text": [],
+      "book_location": {
+        "level": "intermediate",
+        "module_number": 1,
+        "module_title": "Advanced Market Structure & Price Swings",
+        "section_heading": "Internal Range and External Range"
+      },
+      "confidence_note": "unspecified"
+    },
+    {
+      "id": "INT-M01-C03",
+      "kind": "concept",
+      "name": "The Dealing Range",
+      "definition": "A dealing range is the price container defined by a meaningful swing high (range high) and a meaningful swing low (range low). Inside this container the market is understood to be \"dealing\" - oscillating between premium and discount relative to the 50 % equilibrium of the range.",
+      "ict_specific_meaning": "A dealing range is the price container defined by a meaningful swing high (range high) and a meaningful swing low (range low). Inside this container the market is understood to be \"dealing\" - oscillating between premium and discount relative to the 50 % equilibrium of the range.",
+      "what_changed_from_beginner_level": "unspecified",
+      "detection_criteria": [
+        "Locate the most recent pair of swing high and swing low that together frame the bulk of current price action on the chosen timeframe.",
+        "Confirm that both sides have been tested or that liquidity has been engineered at both extremes (a common ICT refinement is that a true interbank dealing range often follows the sweep of both buy-side and sell-side liquidity).",
+        "Mark the range high, the range low, and the precise 50 % midpoint (equilibrium).",
+        "Everything above equilibrium is premium; everything below is discount."
+      ],
+      "numeric_or_narrative_example": "Weekly range: 1.0500 - 1.1200, equilibrium 1.0850. Daily range currently active: 1.0900 - 1.1100, equilibrium 1.1000. A long sought on the daily chart at 1.0920 is in daily discount but still above weekly equilibrium. The trader must decide whether the weekly premium location is acceptable given the larger narrative.\n\n***Source / Research note:** ICT explicitly discusses the interbank dealing range and the importance of having swept both sides of liquidity in several mentorship lectures (including material around the 2022 series). The premium/discount division at 50 % is a consistent application across ICT chart examples.*",
+      "why_it_matters": "unspecified",
+      "beginner_mistakes_or_misinterpretations": [],
+      "raw_sections": {
+        "ICT Definition": "A dealing range is the price container defined by a meaningful swing high (range high) and a meaningful swing low (range low). Inside this container the market is understood to be \"dealing\" - oscillating between premium and discount relative to the 50 % equilibrium of the range.",
+        "How to Identify": "1. Locate the most recent pair of swing high and swing low that together frame the bulk of current price action on the chosen timeframe.\n\n2. Confirm that both sides have been tested or that liquidity has been engineered at both extremes (a common ICT refinement is that a true interbank dealing range often follows the sweep of both buy-side and sell-side liquidity).\n\n3. Mark the range high, the range low, and the precise 50 % midpoint (equilibrium).\n\n4. Everything above equilibrium is premium; everything below is discount.",
+        "Nested Dealing Ranges": "Dealing ranges are fractal. A daily dealing range sits inside a weekly dealing range, which sits inside a monthly dealing range. The intermediate student learns to keep the higher-timeframe container in view while operating inside the lower-timeframe container. A long setup that is in discount on the daily range but in deep premium on the weekly range requires additional justification.",
+        "Example": "Weekly range: 1.0500 - 1.1200, equilibrium 1.0850. Daily range currently active: 1.0900 - 1.1100, equilibrium 1.1000. A long sought on the daily chart at 1.0920 is in daily discount but still above weekly equilibrium. The trader must decide whether the weekly premium location is acceptable given the larger narrative.\n\n***Source / Research note:** ICT explicitly discusses the interbank dealing range and the importance of having swept both sides of liquidity in several mentorship lectures (including material around the 2022 series). The premium/discount division at 50 % is a consistent application across ICT chart examples.*"
+      },
+      "dependencies": [],
+      "attribution_type": "research_compiled_secondary",
+      "cited_sources_in_text": [
+        "ICT explicitly discusses the interbank dealing range and the importance of having swept both sides of liquidity in several mentorship lectures (including material around the 2022 series). The premium/discount division at 50 % is a consistent application across ICT chart examples."
+      ],
+      "book_location": {
+        "level": "intermediate",
+        "module_number": 1,
+        "module_title": "Advanced Market Structure & Price Swings",
+        "section_heading": "The Dealing Range"
+      },
+      "confidence_note": "ICT explicitly discusses the interbank dealing range and the importance of having swept both sides of liquidity in several mentorship lectures (including material around the 2022 series). The premium/discount division at 50 % is a consistent application across ICT chart examples."
+    },
+    {
+      "id": "INT-M01-C04",
+      "kind": "concept",
+      "name": "Structural Swing Points: Short-Term, Intermediate-Term, Long-Term",
+      "definition": "unspecified - see raw_sections",
+      "ict_specific_meaning": "unspecified",
+      "what_changed_from_beginner_level": "unspecified",
+      "detection_criteria": [
+        "unspecified - see raw_sections"
+      ],
+      "numeric_or_narrative_example": "unspecified",
+      "why_it_matters": "Breaks of short-term structure are used for precise lower-timeframe entries. Breaks of intermediate-term structure carry more weight for confirming a Market Structure Shift. Breaks of long-term structure often signal a change in the higher-timeframe bias itself.",
+      "beginner_mistakes_or_misinterpretations": [],
+      "raw_sections": {
+        "Hierarchy Overview": "ICT organises swing points into three nested degrees of significance:\n\n471. Short-Term High / Low (STH / STL) - the basic three-candle (or local) swing.\n\n472. Intermediate-Term High / Low (ITH / ITL) - a short-term swing that is itself flanked by short-term swings on both sides, giving it greater weight.\n\n473. Long-Term High / Low (LTH / LTL) - an intermediate-term swing that is itself flanked by intermediate-term swings, or that forms at a higher-timeframe PD array and therefore carries still greater structural importance.",
+        "Short-Term High / Low (STH / STL)": "A short-term high is a candle (or bar) whose high is higher than the highs of the candles immediately to its left and right. A short-term low is the mirror image. These are the most frequent pivots and form the raw material of structure.",
+        "Intermediate-Term High / Low (ITH / ITL)": "An intermediate-term high is a short-term high that has lower short-term highs on both its left and right. An intermediate-term low has higher short-term lows on both sides. The intermediate-term pivot therefore required multiple short-term swings to form and is more significant for bias and liquidity mapping.",
+        "Long-Term High / Low (LTH / LTL)": "A long-term high is an intermediate-term high that has lower intermediate-term highs on both sides, or that coincides with a higher-timeframe key level (previous week high, monthly open, major PD array, etc.). Long-term pivots define the largest structural narrative on the chart being examined.",
+        "Practical Use": "Breaks of short-term structure are used for precise lower-timeframe entries. Breaks of intermediate-term structure carry more weight for confirming a Market Structure Shift. Breaks of long-term structure often signal a change in the higher-timeframe bias itself.",
+        "Visual Hierarchy": "LTH ──────────────────────────────────\n\n /\n\n ITH /\n\n / ITH /\n\n / / /\n\nX / /\n\n/ /\n\n/ /\n\n/ STL /\n\n/ /\n\nLTL ─────────────────────/──────────\n\nThe diagram is schematic. Real charts are less symmetrical, but the nesting principle remains: long-term pivots contain intermediate-term pivots, which contain short-term pivots.\n\n***Source / Research note:** The STH/STL -> ITH/ITL -> LTH/LTL hierarchy appears in ICT mentorship material and has been widely documented in community educational resources that reference those lectures. Exact three-candle definitions of short-term pivots are standard price-action practice refined by ICT's emphasis on hierarchical importance.*"
+      },
+      "dependencies": [],
+      "attribution_type": "research_compiled_secondary",
+      "cited_sources_in_text": [
+        "The STH/STL -> ITH/ITL -> LTH/LTL hierarchy appears in ICT mentorship material and has been widely documented in community educational resources that reference those lectures. Exact three-candle definitions of short-term pivots are standard price-action practice refined by ICT's emphasis on hierarchical importance."
+      ],
+      "book_location": {
+        "level": "intermediate",
+        "module_number": 1,
+        "module_title": "Advanced Market Structure & Price Swings",
+        "section_heading": "Structural Swing Points: Short-Term, Intermediate-Term, Long-Term"
+      },
+      "confidence_note": "The STH/STL -> ITH/ITL -> LTH/LTL hierarchy appears in ICT mentorship material and has been widely documented in community educational resources that reference those lectures. Exact three-candle definitions of short-term pivots are standard price-action practice refined by ICT's emphasis on hierarchical importance."
+    },
+    {
+      "id": "INT-M01-C05",
+      "kind": "concept",
+      "name": "Expansion and Contraction",
+      "definition": "Expansion is the phase in which price moves forcefully away from a level of equilibrium or from a consolidation, creating large-range candles, displacement, and often Fair Value Gaps. Expansion reveals the market's willingness to reprice.\n\nContraction is the phase in which price compresses, range contracts, volatility declines, and the market builds or rebalances inside a tighter container. Contraction often precedes the next expansion.",
+      "ict_specific_meaning": "Expansion is the phase in which price moves forcefully away from a level of equilibrium or from a consolidation, creating large-range candles, displacement, and often Fair Value Gaps. Expansion reveals the market's willingness to reprice.\n\nContraction is the phase in which price compresses, range contracts, volatility declines, and the market builds or rebalances inside a tighter container. Contraction often precedes the next expansion.",
+      "what_changed_from_beginner_level": "unspecified",
+      "detection_criteria": [
+        "unspecified - see raw_sections"
+      ],
+      "numeric_or_narrative_example": "unspecified",
+      "why_it_matters": "A trader who enters during deep contraction without evidence of expansion beginning is frequently caught in chop. A trader who recognises the first displacement candles of a new expansion can align with the developing structural direction.",
+      "beginner_mistakes_or_misinterpretations": [],
+      "raw_sections": {
+        "Definitions": "Expansion is the phase in which price moves forcefully away from a level of equilibrium or from a consolidation, creating large-range candles, displacement, and often Fair Value Gaps. Expansion reveals the market's willingness to reprice.\n\nContraction is the phase in which price compresses, range contracts, volatility declines, and the market builds or rebalances inside a tighter container. Contraction often precedes the next expansion.",
+        "Relationship to Structure": "During expansion the market is typically creating or confirming external structure. During contraction the market is more often operating inside internal structure and addressing internal-range liquidity.",
+        "Practical Reading": "A trader who enters during deep contraction without evidence of expansion beginning is frequently caught in chop. A trader who recognises the first displacement candles of a new expansion can align with the developing structural direction."
+      },
+      "dependencies": [],
+      "attribution_type": "research_compiled_secondary",
+      "cited_sources_in_text": [],
+      "book_location": {
+        "level": "intermediate",
+        "module_number": 1,
+        "module_title": "Advanced Market Structure & Price Swings",
+        "section_heading": "Expansion and Contraction"
+      },
+      "confidence_note": "unspecified"
+    },
+    {
+      "id": "INT-M01-C06",
+      "kind": "concept",
+      "name": "Structural Continuation vs Structural Failure",
+      "definition": "unspecified - see raw_sections",
+      "ict_specific_meaning": "unspecified",
+      "what_changed_from_beginner_level": "unspecified",
+      "detection_criteria": [
+        "unspecified - see raw_sections"
+      ],
+      "numeric_or_narrative_example": "unspecified",
+      "why_it_matters": "unspecified",
+      "beginner_mistakes_or_misinterpretations": [],
+      "raw_sections": {
+        "Continuation": "Structural continuation occurs when price respects the existing sequence of highs and lows. In a bullish sequence, higher highs and higher lows continue to print; pullbacks hold above prior structural lows; displacements expand in the direction of the trend.",
+        "Failure": "Structural failure occurs when a key structural point is violated in a manner that invalidates the prior sequence. Classic examples include: a bullish sequence that breaks a significant higher low with displacement and closes below it; or a bearish sequence that breaks a significant lower high with displacement. The failure of intermediate-term or long-term structure carries more weight than the failure of short-term structure.",
+        "Intermediate Caution": "Not every internal swing failure is a structural failure of the larger narrative. The intermediate student learns to grade the significance of the broken pivot before changing bias."
+      },
+      "dependencies": [],
+      "attribution_type": "research_compiled_secondary",
+      "cited_sources_in_text": [],
+      "book_location": {
+        "level": "intermediate",
+        "module_number": 1,
+        "module_title": "Advanced Market Structure & Price Swings",
+        "section_heading": "Structural Continuation vs Structural Failure"
+      },
+      "confidence_note": "unspecified"
+    },
+    {
+      "id": "INT-M01-C07",
+      "kind": "concept",
+      "name": "Internal-Range Liquidity vs External-Range Liquidity",
+      "definition": "Internal-range liquidity (IRL) resides inside the current dealing range. Common forms include: short-term and intermediate-term swing highs/lows inside the range, equal highs/lows inside the range, Fair Value Gaps, and Order Blocks that have not yet been mitigated.\n\nExternal-range liquidity (ERL) resides beyond the dealing-range boundaries - above the range high (buy-side) or below the range low (sell-side). These are typically the more significant pools that attract larger order-flow interest.",
+      "ict_specific_meaning": "Internal-range liquidity (IRL) resides inside the current dealing range. Common forms include: short-term and intermediate-term swing highs/lows inside the range, equal highs/lows inside the range, Fair Value Gaps, and Order Blocks that have not yet been mitigated.\n\nExternal-range liquidity (ERL) resides beyond the dealing-range boundaries - above the range high (buy-side) or below the range low (sell-side). These are typically the more significant pools that attract larger order-flow interest.",
+      "what_changed_from_beginner_level": "unspecified",
+      "detection_criteria": [
+        "unspecified - see raw_sections"
+      ],
+      "numeric_or_narrative_example": "unspecified",
+      "why_it_matters": "When mapping a trade, the intermediate student identifies both:\n\n474. An internal-range objective (often used for partial profits or as a first target), and\n\n475. An external-range objective (the fuller thesis target).\n\nThis dual-target approach keeps the trader aligned with the fractal nature of liquidity delivery.",
+      "beginner_mistakes_or_misinterpretations": [],
+      "raw_sections": {
+        "Definitions (Recap and Expansion)": "Internal-range liquidity (IRL) resides inside the current dealing range. Common forms include: short-term and intermediate-term swing highs/lows inside the range, equal highs/lows inside the range, Fair Value Gaps, and Order Blocks that have not yet been mitigated.\n\nExternal-range liquidity (ERL) resides beyond the dealing-range boundaries - above the range high (buy-side) or below the range low (sell-side). These are typically the more significant pools that attract larger order-flow interest.",
+        "Sequential Behaviour": "ICT examples frequently show price moving from external liquidity to internal liquidity (or the reverse) as part of a complete delivery cycle. After external liquidity is taken, the market often returns to rebalance or mitigate internal inefficiencies before expanding toward the opposite external target.",
+        "Practical Application": "When mapping a trade, the intermediate student identifies both:\n\n474. An internal-range objective (often used for partial profits or as a first target), and\n\n475. An external-range objective (the fuller thesis target).\n\nThis dual-target approach keeps the trader aligned with the fractal nature of liquidity delivery."
+      },
+      "dependencies": [],
+      "attribution_type": "research_compiled_secondary",
+      "cited_sources_in_text": [],
+      "book_location": {
+        "level": "intermediate",
+        "module_number": 1,
+        "module_title": "Advanced Market Structure & Price Swings",
+        "section_heading": "Internal-Range Liquidity vs External-Range Liquidity"
+      },
+      "confidence_note": "unspecified"
+    },
+    {
+      "id": "INT-M01-C08",
+      "kind": "concept",
+      "name": "Structure Across Multiple Timeframes",
+      "definition": "unspecified - see raw_sections",
+      "ict_specific_meaning": "unspecified",
+      "what_changed_from_beginner_level": "unspecified",
+      "detection_criteria": [
+        "unspecified - see raw_sections"
+      ],
+      "numeric_or_narrative_example": "unspecified",
+      "why_it_matters": "unspecified",
+      "beginner_mistakes_or_misinterpretations": [
+        "\"Every swing high/low is equally important.\" - False. Hierarchy exists for a reason.",
+        "\"A 5-minute MSS changes the daily bias.\" - False. Timeframe priority must be respected.",
+        "\"Once a dealing range is drawn it never changes.\" - False. Ranges are updated when external structure expands and holds.",
+        "\"Internal liquidity is irrelevant.\" - False. IRL often supplies the first targets and the rebalancing path.",
+        "\"Expansion means the trend will continue forever.\" - False. Expansion is a phase; it eventually meets opposing liquidity or exhaustion."
+      ],
+      "raw_sections": {
+        "Fractal Nature": "Market structure is fractal: the same principles of short-term, intermediate-term and long-term pivots, internal versus external structure, and dealing ranges appear on every timeframe. What is external structure on a 15-minute chart is frequently internal structure on a 4-hour chart.",
+        "Top-Down Discipline": "The intermediate workflow is:\n\n1. Higher timeframe (daily / 4-hour): establish the large dealing range, the dominant external structure, and the primary liquidity draw.\n\n2. Intermediate timeframe (1-hour / 15-minute): refine the active dealing range, locate internal structure and the relevant PD arrays.\n\n3. Lower timeframe (5-minute / 1-minute): time the entry after a lower-timeframe Market Structure Shift inside the higher-timeframe narrative.",
+        "Conflict Resolution": "When timeframes conflict (for example, bullish internal structure on the 15-minute while the daily external structure remains bearish), the higher-timeframe narrative is given priority for bias. Lower-timeframe structure is used for timing, not for overriding the larger story.\n\n# **Worked Example - Reading Hierarchical Structure**\n\nContext: EUR/USD, multi-day period.\n\nOn the daily chart a long-term low (LTL) formed near 1.0600 after a liquidity sweep, followed by a series of higher intermediate-term lows. The daily dealing range is currently 1.0600 - 1.0950.\n\nOn the 4-hour chart the most recent external high sits at 1.0920 and the external low at 1.0750. Inside this 4-hour dealing range, price has printed several short-term and intermediate-term swings. A recent intermediate-term low at 1.0780 was held, and price is expanding higher.\n\nOn the 15-minute chart a short-term Market Structure Shift occurs after a small sell-side liquidity sweep. This LTF shift is used for entry timing, but it does not redefine the 4-hour or daily structure.\n\nInterpretation: The higher-timeframe structure remains bullish. The 4-hour dealing range is still intact. The 15-minute shift is an internal event that can be used for a long entry aiming first at internal-range liquidity (perhaps a 4-hour FVG) and ultimately at external-range liquidity above 1.0920.\n\n# **Visual Reference - Internal vs External Inside a Dealing Range**\n\nERL (BSL above range high)\n\n─────────────────────────────────\n\n| Range High (external pivot) |\n\n| |\n\n| internal swings / IRL |\n\n| (FVGs, OBs, ST/IT pivots) |\n\n| |\n\n|──────── Equilibrium (50 %) ───|\n\n| |\n\n| internal swings / IRL |\n\n| |\n\n| Range Low (external pivot) |\n\n─────────────────────────────────\n\nERL (SSL below range low)\n\nPrice may expand to the upper ERL, return into the range to address IRL, then expand again toward the lower ERL (or the reverse). The dealing-range boundaries remain the primary external references until they are themselves broken and replaced.\n\n# **How These Concepts Connect**\n\nThe hierarchy of swing points (ST / IT / LT) supplies the raw structural vocabulary. Internal versus external structure tells the trader which of those swings define the container and which are merely path. The dealing range formalises that container and supplies the premium/discount filter. Expansion and contraction describe the volatility regime inside the container. Internal-range versus external-range liquidity supplies the sequential targets. Multi-timeframe reading keeps every lower-timeframe decision subordinate to the higher-timeframe narrative.\n\nLater modules will place liquidity engineering, displacement, PD arrays and session behaviour inside this structural framework. Without a clear structural map, those tools lack context.\n\n# **What You Should Now Be Able to Do**\n\n476. Mark a dealing range on any timeframe and identify its equilibrium.\n\n477. Label short-term, intermediate-term and long-term highs and lows with reasonable consistency.\n\n478. State whether a given swing break is internal or external relative to the active dealing range.\n\n479. Distinguish expansion candles from contraction/consolidation behaviour.\n\n480. Map at least one internal-range liquidity objective and one external-range liquidity objective for a developing move.\n\n481. Explain why a lower-timeframe Market Structure Shift does not automatically change the higher-timeframe bias.\n\n# **Module Review**",
+        "Key Terms": "482. Dealing range - price container defined by a significant swing high and swing low; 50 % = equilibrium.\n\n483. Internal structure - swings that form inside the dealing-range boundaries.\n\n484. External structure - the boundary pivots themselves and structure beyond them.\n\n485. Internal-range liquidity (IRL) - liquidity residing inside the dealing range.\n\n486. External-range liquidity (ERL) - liquidity residing beyond the dealing-range boundaries.\n\n487. Short-term high/low (STH/STL) - basic local swing.\n\n488. Intermediate-term high/low (ITH/ITL) - short-term swing flanked by short-term swings.\n\n489. Long-term high/low (LTH/LTL) - intermediate-term swing of highest significance, often at HTF levels.\n\n490. Expansion - forceful directional repricing away from equilibrium or consolidation.\n\n491. Contraction - compression of range and volatility, often preceding expansion.\n\n492. Structural continuation - existing sequence of highs/lows remains intact.\n\n493. Structural failure - key pivot violated in a manner that invalidates the prior sequence.",
+        "Beginner Summary (Bridge)": "Beginner structure taught the sequence of highs and lows and the MSS. Intermediate structure adds hierarchy (which swings matter more), containers (dealing ranges), and the internal/external distinction so that the student no longer treats every swing as equally important.",
+        "Concept Relationships": "Swing hierarchy feeds the definition of internal versus external structure. External pivots define the dealing range. The dealing range organises premium/discount and hosts both IRL and ERL. Expansion/contraction describe how price moves inside or out of that range. Multi-timeframe application keeps the entire map coherent.",
+        "Practical Chart Exercise": "Choose a liquid instrument and three timeframes (e.g., daily, 1-hour, 15-minute).\n\n5. On the daily chart mark the current dealing range, equilibrium, and the most obvious long-term pivots.\n\n6. On the 1-hour chart mark the active dealing range and label several intermediate-term and short-term swings.\n\n7. Identify one clear instance of expansion and one of contraction.\n\n8. Map at least one internal-range liquidity pool and one external-range liquidity pool.\n\n9. On the 15-minute chart locate a recent Market Structure Shift and decide whether it was internal or external relative to the 1-hour range.\n\n10. Write a short paragraph explaining the current hierarchical structure and the most logical next liquidity objective.",
+        "Self-Test Questions": "11. What is the primary difference between an intermediate-term low and a short-term low?\n\n12. If price breaks a short-term high inside a dealing range but the range high remains intact, has external structure failed?\n\n13. Why might a trader take partial profits at internal-range liquidity even when the thesis targets external-range liquidity?\n\n14. How does the 50 % equilibrium of a dealing range influence trade direction selection?\n\n15. Describe a situation in which lower-timeframe bullish structure should be ignored.\n\n16. What typically follows a successful run on external-range liquidity according to common ICT delivery sequences?",
+        "Common Misconceptions": "494. \"Every swing high/low is equally important.\" - False. Hierarchy exists for a reason.\n\n495. \"A 5-minute MSS changes the daily bias.\" - False. Timeframe priority must be respected.\n\n496. \"Once a dealing range is drawn it never changes.\" - False. Ranges are updated when external structure expands and holds.\n\n497. \"Internal liquidity is irrelevant.\" - False. IRL often supplies the first targets and the rebalancing path.\n\n498. \"Expansion means the trend will continue forever.\" - False. Expansion is a phase; it eventually meets opposing liquidity or exhaustion.",
+        "Research Sources": "Primary orientation is taken from ICT's discussions of the interbank dealing range, internal-range versus external-range liquidity, and hierarchical swing analysis appearing in the 2022 Mentorship and related public lectures. The short-term / intermediate-term / long-term swing hierarchy is consistently documented in community educational material that directly references those ICT presentations.\n\nWhere community sources supply precise three-candle definitions or visual hierarchies, they are treated as helpful standardisations of ICT's hierarchical intent rather than independent doctrine. The pedagogical emphasis remains on distinguishing noise from narrative and on keeping lower-timeframe structure subordinate to the higher-timeframe dealing range.\n\n***Source / Research note:** Key references include ICT mentorship material on internal range liquidity and market structure shifts, lectures introducing the interbank dealing range, and chart examples demonstrating nested structure across timeframes.*\n\n# **Transition to Module 2**\n\nModule 1 has established the structural map: hierarchical swings, dealing ranges, internal versus external distinctions, and multi-timeframe coherence. Module 2 (Advanced Liquidity Engineering) will place liquidity pools, relative equal highs/lows, liquidity draws, and sequential liquidity objectives inside that map. The student will move from \"there is liquidity here\" to \"this is the relevant liquidity given the current dealing range and higher-timeframe narrative.\""
+      },
+      "dependencies": [],
+      "attribution_type": "research_compiled_secondary",
+      "cited_sources_in_text": [
+        "Key references include ICT mentorship material on internal range liquidity and market structure shifts, lectures introducing the interbank dealing range, and chart examples demonstrating nested structure across timeframes."
+      ],
+      "book_location": {
+        "level": "intermediate",
+        "module_number": 1,
+        "module_title": "Advanced Market Structure & Price Swings",
+        "section_heading": "Structure Across Multiple Timeframes"
+      },
+      "confidence_note": "Key references include ICT mentorship material on internal range liquidity and market structure shifts, lectures introducing the interbank dealing range, and chart examples demonstrating nested structure across timeframes."
+    }
+  ],
+  "rules": [
+    {
+      "id": "INT-M01-R01",
+      "kind": "rule",
+      "rule_type": "detection_criteria",
+      "statement": "Intermediate-Term High (ITH): a short-term high that has lower short-term highs on both its left and right. Intermediate-Term Low (ITL): a short-term low that has higher short-term lows on both sides. Long-Term High (LTH): an intermediate-term high that has lower intermediate-term highs on both sides, or that coincides with a higher-timeframe key level (previous week high, monthly open, major PD array, etc.). Long-Term Low (LTL) is the mirror.",
+      "applies_to": [
+        "Structural Swing Points: Short-Term, Intermediate-Term, Long-Term"
+      ],
+      "conditions": [],
+      "exceptions_or_qualifiers": "unspecified",
+      "book_location": {
+        "level": "intermediate",
+        "module_number": 1,
+        "module_title": "Advanced Market Structure & Price Swings",
+        "section_heading": "Structural Swing Points: Short-Term, Intermediate-Term, Long-Term"
+      },
+      "attribution_type": "community_interpretation"
+    },
+    {
+      "id": "INT-M01-R02",
+      "kind": "rule",
+      "rule_type": "timeframe_relationship",
+      "statement": "Practical use of swing hierarchy: breaks of short-term structure are used for precise lower-timeframe entries. Breaks of intermediate-term structure carry more weight for confirming a Market Structure Shift. Breaks of long-term structure often signal a change in the higher-timeframe bias itself.",
+      "applies_to": [
+        "Structural Swing Points: Short-Term, Intermediate-Term, Long-Term"
+      ],
+      "conditions": [],
+      "exceptions_or_qualifiers": "unspecified",
+      "book_location": {
+        "level": "intermediate",
+        "module_number": 1,
+        "module_title": "Advanced Market Structure & Price Swings",
+        "section_heading": "Structural Swing Points: Short-Term, Intermediate-Term, Long-Term"
+      },
+      "attribution_type": "community_interpretation"
+    },
+    {
+      "id": "INT-M01-R03",
+      "kind": "rule",
+      "rule_type": "detection_criteria",
+      "statement": "Dealing range identification: (1) locate the most recent pair of swing high and swing low that together frame the bulk of current price action; (2) confirm both sides have been tested or that liquidity has been engineered at both extremes (a true interbank dealing range often follows the sweep of both buy-side and sell-side liquidity); (3) mark range high, range low, and the precise 50% midpoint (equilibrium); (4) everything above equilibrium is premium, everything below is discount.",
+      "applies_to": [
+        "The Dealing Range"
+      ],
+      "conditions": [],
+      "exceptions_or_qualifiers": "unspecified",
+      "book_location": {
+        "level": "intermediate",
+        "module_number": 1,
+        "module_title": "Advanced Market Structure & Price Swings",
+        "section_heading": "The Dealing Range"
+      },
+      "attribution_type": "community_interpretation"
+    },
+    {
+      "id": "INT-M01-R04",
+      "kind": "rule",
+      "rule_type": "sequencing",
+      "statement": "Common ICT delivery sequence: price expands to take external-range liquidity, then returns into the range to address internal-range liquidity (often FVGs or Order Blocks), then expands again toward the opposite external liquidity. The reverse sequence (internal first, then external) also occurs and is equally important to recognise.",
+      "applies_to": [
+        "Internal Range and External Range",
+        "Internal-Range Liquidity vs External-Range Liquidity"
+      ],
+      "conditions": [],
+      "exceptions_or_qualifiers": "Both sequence orders (external-then-internal, and internal-then-external) are valid and occur.",
+      "book_location": {
+        "level": "intermediate",
+        "module_number": 1,
+        "module_title": "Advanced Market Structure & Price Swings",
+        "section_heading": "Internal Range and External Range"
+      },
+      "attribution_type": "community_interpretation"
+    },
+    {
+      "id": "INT-M01-R05",
+      "kind": "rule",
+      "rule_type": "timeframe_relationship",
+      "statement": "Top-down workflow: (1) Higher timeframe (daily/4-hour) - establish the large dealing range, dominant external structure, and primary liquidity draw. (2) Intermediate timeframe (1-hour/15-minute) - refine the active dealing range, locate internal structure and relevant PD arrays. (3) Lower timeframe (5-minute/1-minute) - time the entry after a lower-timeframe MSS inside the higher-timeframe narrative. When timeframes conflict, the higher-timeframe narrative is given priority for bias; lower-timeframe structure is used for timing, not for overriding the larger story.",
+      "applies_to": [
+        "Structure Across Multiple Timeframes"
+      ],
+      "conditions": [],
+      "exceptions_or_qualifiers": "unspecified",
+      "book_location": {
+        "level": "intermediate",
+        "module_number": 1,
+        "module_title": "Advanced Market Structure & Price Swings",
+        "section_heading": "Structure Across Multiple Timeframes"
+      },
+      "attribution_type": "community_interpretation"
+    }
+  ],
+  "strategies": [],
+  "examples": [
+    {
+      "id": "INT-M01-EX01",
+      "kind": "example",
+      "example_type": "worked_narrative",
+      "linked_concept_or_strategy_ids": [
+        "Structure Across Multiple Timeframes"
+      ],
+      "content": "Context: EUR/USD, multi-day period. Daily chart: a long-term low (LTL) formed near 1.0600 after a liquidity sweep, followed by higher intermediate-term lows; daily dealing range currently 1.0600-1.0950. 4-hour chart: most recent external high at 1.0920, external low at 1.0750; a recent intermediate-term low at 1.0780 was held, price expanding higher. 15-minute chart: a short-term Market Structure Shift occurs after a small sell-side liquidity sweep -- used for entry timing only, does not redefine 4-hour or daily structure.",
+      "interpretation_given_in_text": "The higher-timeframe structure remains bullish. The 4-hour dealing range is still intact. The 15-minute shift is an internal event usable for a long entry aiming first at internal-range liquidity (e.g. a 4-hour FVG) and ultimately at external-range liquidity above 1.0920.",
+      "book_location": {
+        "level": "intermediate",
+        "module_number": 1,
+        "module_title": "Advanced Market Structure & Price Swings",
+        "section_heading": "Worked Example - Reading Hierarchical Structure"
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "id": "INT-M01-REL01",
+      "kind": "cross_module_relationship",
+      "statement": "The hierarchy of swing points (ST / IT / LT) supplies the raw structural vocabulary. Internal versus external structure tells the trader which of those swings define the container and which are merely path. The dealing range formalises that container and supplies the premium/discount filter. Expansion and contraction describe the volatility regime inside the container. Internal-range versus external-range liquidity supplies the sequential targets. Multi-timeframe reading keeps every lower-timeframe decision subordinate to the higher-timeframe narrative.\n\nLater modules will place liquidity engineering, displacement, PD arrays and session behaviour inside this structural framework. Without a clear structural map, those tools lack context.",
+      "involved_concepts": [
+        "Internal Structure vs External Structure",
+        "Internal Range and External Range",
+        "The Dealing Range",
+        "Structural Swing Points: Short-Term, Intermediate-Term, Long-Term",
+        "Expansion and Contraction",
+        "Structural Continuation vs Structural Failure",
+        "Internal-Range Liquidity vs External-Range Liquidity",
+        "Structure Across Multiple Timeframes"
+      ],
+      "involved_modules": [
+        "Beginner Module 3 (Market Structure)",
+        "Intermediate Module 2 (forward reference)"
+      ],
+      "book_location": {
+        "level": "intermediate",
+        "module_number": 1,
+        "module_title": "Advanced Market Structure & Price Swings",
+        "section_heading": "How These Concepts Connect"
+      }
+    }
+  ],
+  "no_trade_conditions": [],
+  "contradictions_or_ambiguities": [],
+  "empirical_claims": [],
+  "module_review_notes": {
+    "key_terms": [
+      "Dealing range - price container defined by a significant swing high and swing low; 50 % = equilibrium.",
+      "Internal structure - swings that form inside the dealing-range boundaries.",
+      "External structure - the boundary pivots themselves and structure beyond them.",
+      "Internal-range liquidity (IRL) - liquidity residing inside the dealing range.",
+      "External-range liquidity (ERL) - liquidity residing beyond the dealing-range boundaries.",
+      "Short-term high/low (STH/STL) - basic local swing.",
+      "Intermediate-term high/low (ITH/ITL) - short-term swing flanked by short-term swings.",
+      "Long-term high/low (LTH/LTL) - intermediate-term swing of highest significance, often at HTF levels.",
+      "Expansion - forceful directional repricing away from equilibrium or consolidation.",
+      "Contraction - compression of range and volatility, often preceding expansion.",
+      "Structural continuation - existing sequence of highs/lows remains intact.",
+      "Structural failure - key pivot violated in a manner that invalidates the prior sequence."
+    ],
+    "beginner_summary": "Beginner structure taught the sequence of highs and lows and the MSS. Intermediate structure adds hierarchy (which swings matter more), containers (dealing ranges), and the internal/external distinction so that the student no longer treats every swing as equally important.",
+    "concept_relationships_summary": "Swing hierarchy feeds the definition of internal versus external structure. External pivots define the dealing range. The dealing range organises premium/discount and hosts both IRL and ERL. Expansion/contraction describe how price moves inside or out of that range. Multi-timeframe application keeps the entire map coherent.",
+    "practical_chart_exercise": "Choose a liquid instrument and three timeframes (e.g., daily, 1-hour, 15-minute).\n\n5. On the daily chart mark the current dealing range, equilibrium, and the most obvious long-term pivots.\n\n6. On the 1-hour chart mark the active dealing range and label several intermediate-term and short-term swings.\n\n7. Identify one clear instance of expansion and one of contraction.\n\n8. Map at least one internal-range liquidity pool and one external-range liquidity pool.\n\n9. On the 15-minute chart locate a recent Market Structure Shift and decide whether it was internal or external relative to the 1-hour range.\n\n10. Write a short paragraph explaining the current hierarchical structure and the most logical next liquidity objective.",
+    "self_test_questions": [
+      "What is the primary difference between an intermediate-term low and a short-term low?",
+      "If price breaks a short-term high inside a dealing range but the range high remains intact, has external structure failed?",
+      "Why might a trader take partial profits at internal-range liquidity even when the thesis targets external-range liquidity?",
+      "How does the 50 % equilibrium of a dealing range influence trade direction selection?",
+      "Describe a situation in which lower-timeframe bullish structure should be ignored.",
+      "What typically follows a successful run on external-range liquidity according to common ICT delivery sequences?"
+    ],
+    "common_misconceptions": [
+      "\"Every swing high/low is equally important.\" - False. Hierarchy exists for a reason.",
+      "\"A 5-minute MSS changes the daily bias.\" - False. Timeframe priority must be respected.",
+      "\"Once a dealing range is drawn it never changes.\" - False. Ranges are updated when external structure expands and holds.",
+      "\"Internal liquidity is irrelevant.\" - False. IRL often supplies the first targets and the rebalancing path.",
+      "\"Expansion means the trend will continue forever.\" - False. Expansion is a phase; it eventually meets opposing liquidity or exhaustion."
+    ],
+    "research_sources_cited_in_text": []
+  }
+}

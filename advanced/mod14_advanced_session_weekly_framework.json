@@ -1,0 +1,512 @@
+{
+  "level": "advanced",
+  "module_number": 14,
+  "module_title": "Advanced Session & Weekly Framework",
+  "module_intro": "Subtopics: Asian Accumulation, London & New York Profiles, Weekly Opening & Expansion, Session Hierarchy, Daily-within-Weekly.",
+  "prerequisites_stated_in_text": "Advanced Modules 1--13. This module deepens the time containers in which delivery, PO3, SMT and PD-array entries actually occur. Session and weekly profiles are not rigid scripts; they are high-probability organising templates conditioned by the higher-timeframe narrative.",
+  "module_objectives": [
+    "Map Asian accumulation, London manipulation/continuation/reversal, and New York distribution/continuation/reversal onto the active daily narrative.",
+    "Read weekly opening behaviour and weekly range expansion as the higher-timeframe containers of daily profiles.",
+    "Locate daily ranges and session extremes inside the weekly dealing range.",
+    "Apply session hierarchy so that lower-session activity remains subordinate to higher-session and weekly objectives.",
+    "Anticipate which session is most likely to produce the liquidity event and which session is most likely to produce distribution.",
+    "Recognise when a session is printing an alternative profile and adjust model selection accordingly.",
+    "Integrate session and weekly expectations into the full narrative stack and bias statement.",
+    "Weekly DOL and weekly range location set the highest session-relevant authority.",
+    "Daily bias and daily PO3 expectation set the day's path.",
+    "Asian range supplies the first liquidity targets for London.",
+    "London is the primary window for the day's manipulation and first displacement.",
+    "New York is the primary window for continuation/distribution or for a true reversal of a failed London leg.",
+    "Lower-timeframe activity outside these windows is subordinate and often ignored for new directional entries.",
+    "When a session prints a clear alternative to the expected profile, the daily narrative is updated immediately.",
+    "Trend days that expand from the open with little Asian range or manipulation wick.",
+    "Range days with multiple small AMD cycles and no sustained distribution.",
+    "News-driven expansions that ignore session boundaries.",
+    "Quiet days in which neither London nor New York produces a clean displacement."
+  ],
+  "concepts": [
+    {
+      "id": "ADV-M14-C01",
+      "kind": "concept",
+      "name": "Session Hierarchy and the Daily Delivery Path",
+      "definition": "Weekly narrative and range govern the daily narrative. Within the day, the kill-zone and session sequence organises the path from accumulation through manipulation to distribution. Asian activity is preparatory; London and New York carry the majority of directional delivery for most FX and related markets.",
+      "ict_specific_meaning": "Weekly narrative and range govern the daily narrative. Within the day, the kill-zone and session sequence organises the path from accumulation through manipulation to distribution. Asian activity is preparatory; London and New York carry the majority of directional delivery for most FX and related markets.",
+      "what_changed_from_beginner_level": "unspecified",
+      "detection_criteria": [
+        "unspecified - see raw_sections"
+      ],
+      "numeric_or_narrative_example": "unspecified",
+      "why_it_matters": "unspecified",
+      "beginner_mistakes_or_misinterpretations": [],
+      "raw_sections": {
+        "Order of Authority": "Weekly narrative and range govern the daily narrative. Within the day, the kill-zone and session sequence organises the path from accumulation through manipulation to distribution. Asian activity is preparatory; London and New York carry the majority of directional delivery for most FX and related markets.",
+        "Classic Daily Path (Recap Linked to Modules 7 - 8)": "Asian range builds (accumulation). London Open raids one side of that range (manipulation). Displacement and MSS follow. New York continues or expands the distribution toward the daily and weekly Draw on Liquidity. This path is the default expectation when the higher-timeframe bias is clear; it is abandoned when the chart prints a clear alternative."
+      },
+      "dependencies": [],
+      "attribution_type": "research_compiled_secondary",
+      "cited_sources_in_text": [],
+      "book_location": {
+        "level": "advanced",
+        "module_number": 14,
+        "module_title": "Advanced Session & Weekly Framework",
+        "section_heading": "Session Hierarchy and the Daily Delivery Path"
+      },
+      "confidence_note": "unspecified"
+    },
+    {
+      "id": "ADV-M14-C02",
+      "kind": "concept",
+      "name": "Asian Accumulation",
+      "definition": "The Asian session typically constructs a relatively tight range. Its high and low become the most important intraday liquidity references for London. Aggressive directional models during Asia are lower probability for most pairs unless a higher-timeframe news-driven or gap scenario is already in force.",
+      "ict_specific_meaning": "The Asian session typically constructs a relatively tight range. Its high and low become the most important intraday liquidity references for London. Aggressive directional models during Asia are lower probability for most pairs unless a higher-timeframe news-driven or gap scenario is already in force.",
+      "what_changed_from_beginner_level": "unspecified",
+      "detection_criteria": [
+        "unspecified - see raw_sections"
+      ],
+      "numeric_or_narrative_example": "unspecified",
+      "why_it_matters": "unspecified",
+      "beginner_mistakes_or_misinterpretations": [],
+      "raw_sections": {
+        "Role": "The Asian session typically constructs a relatively tight range. Its high and low become the most important intraday liquidity references for London. Aggressive directional models during Asia are lower probability for most pairs unless a higher-timeframe news-driven or gap scenario is already in force.",
+        "What the Student Records": "Asian high, Asian low, range midpoint, and any relative equal highs/lows formed inside Asia. These levels are the first candidates for the London manipulation raid."
+      },
+      "dependencies": [],
+      "attribution_type": "research_compiled_secondary",
+      "cited_sources_in_text": [],
+      "book_location": {
+        "level": "advanced",
+        "module_number": 14,
+        "module_title": "Advanced Session & Weekly Framework",
+        "section_heading": "Asian Accumulation"
+      },
+      "confidence_note": "unspecified"
+    },
+    {
+      "id": "ADV-M14-C03",
+      "kind": "concept",
+      "name": "London Profiles",
+      "definition": "The most common high-quality London behaviour: sweep of the Asian high or low (often relative equal highs/lows), followed by displacement in the opposite direction and an MSS. This is the manipulation phase of daily PO3 and the origin of many of the best daily delivery legs.",
+      "ict_specific_meaning": "The most common high-quality London behaviour: sweep of the Asian high or low (often relative equal highs/lows), followed by displacement in the opposite direction and an MSS. This is the manipulation phase of daily PO3 and the origin of many of the best daily delivery legs.",
+      "what_changed_from_beginner_level": "unspecified",
+      "detection_criteria": [
+        "unspecified - see raw_sections"
+      ],
+      "numeric_or_narrative_example": "unspecified",
+      "why_it_matters": "unspecified",
+      "beginner_mistakes_or_misinterpretations": [],
+      "raw_sections": {
+        "London Manipulation": "The most common high-quality London behaviour: sweep of the Asian high or low (often relative equal highs/lows), followed by displacement in the opposite direction and an MSS. This is the manipulation phase of daily PO3 and the origin of many of the best daily delivery legs.",
+        "London Continuation": "After a successful manipulation and displacement, London itself may continue the distribution leg, leaving FVGs and Order Blocks that New York later reprices. London continuation is more likely when the higher-timeframe bias is strong and the manipulation was clean.",
+        "London Reversal": "Less frequent as a complete daily reversal, but possible when London's displacement fails, an opposing external MSS prints, and the higher-timeframe narrative itself is under pressure or failing. A London \"reversal\" that merely corrects a deep manipulation undercut inside an intact higher-timeframe bias is not a true narrative reversal.\n\n**Evidence Classification:** *A/B - Asian range, London Open liquidity raid and subsequent displacement are core ICT session teaching.*"
+      },
+      "dependencies": [],
+      "attribution_type": "ICT_primary",
+      "cited_sources_in_text": [],
+      "book_location": {
+        "level": "advanced",
+        "module_number": 14,
+        "module_title": "Advanced Session & Weekly Framework",
+        "section_heading": "London Profiles"
+      },
+      "confidence_note": "unspecified"
+    },
+    {
+      "id": "ADV-M14-C04",
+      "kind": "concept",
+      "name": "New York Profiles",
+      "definition": "The classic role of New York is to continue or expand the distribution that London began, especially during the London - New York overlap. Many of the highest-quality continuation entries (FVG/CE retracements) occur in early New York after London has already conditioned the market.",
+      "ict_specific_meaning": "The classic role of New York is to continue or expand the distribution that London began, especially during the London - New York overlap. Many of the highest-quality continuation entries (FVG/CE retracements) occur in early New York after London has already conditioned the market.",
+      "what_changed_from_beginner_level": "unspecified",
+      "detection_criteria": [
+        "unspecified - see raw_sections"
+      ],
+      "numeric_or_narrative_example": "unspecified",
+      "why_it_matters": "unspecified",
+      "beginner_mistakes_or_misinterpretations": [],
+      "raw_sections": {
+        "New York Distribution / Continuation": "The classic role of New York is to continue or expand the distribution that London began, especially during the London - New York overlap. Many of the highest-quality continuation entries (FVG/CE retracements) occur in early New York after London has already conditioned the market.",
+        "New York Reversal": "New York can also reverse a London move when London's expansion is the manipulation relative to a higher-timeframe or daily objective that New York then delivers in the opposite direction. True New York reversals are more credible when accompanied by external MSS, opposing liquidity targeting, and alignment with higher-timeframe bias.",
+        "New York Continuation of a London Reversal": "If London has already reversed and printed a new directional displacement, New York often continues that new direction. The student must update the daily narrative at the London close / New York open rather than assuming the original London direction is still active."
+      },
+      "dependencies": [],
+      "attribution_type": "research_compiled_secondary",
+      "cited_sources_in_text": [],
+      "book_location": {
+        "level": "advanced",
+        "module_number": 14,
+        "module_title": "Advanced Session & Weekly Framework",
+        "section_heading": "New York Profiles"
+      },
+      "confidence_note": "unspecified"
+    },
+    {
+      "id": "ADV-M14-C05",
+      "kind": "concept",
+      "name": "Weekly Opening Behaviour and Weekly Range Expansion",
+      "definition": "The weekly open is a repeated reference. Early-week price action often builds or manipulates relative to the weekly open before the week's true distribution direction becomes clear. A weekly profile that sweeps one side of the early-week range and then expands in the opposite direction is the weekly analogue of daily PO3.",
+      "ict_specific_meaning": "The weekly open is a repeated reference. Early-week price action often builds or manipulates relative to the weekly open before the week's true distribution direction becomes clear. A weekly profile that sweeps one side of the early-week range and then expands in the opposite direction is the weekly analogue of daily PO3.",
+      "what_changed_from_beginner_level": "unspecified",
+      "detection_criteria": [
+        "unspecified - see raw_sections"
+      ],
+      "numeric_or_narrative_example": "unspecified",
+      "why_it_matters": "unspecified",
+      "beginner_mistakes_or_misinterpretations": [],
+      "raw_sections": {
+        "Weekly Open": "The weekly open is a repeated reference. Early-week price action often builds or manipulates relative to the weekly open before the week's true distribution direction becomes clear. A weekly profile that sweeps one side of the early-week range and then expands in the opposite direction is the weekly analogue of daily PO3.",
+        "Weekly Range Expansion": "True weekly distribution expands the weekly range toward the weekly Draw on Liquidity. Expansion that begins mid-week after early-week accumulation and manipulation is a common high-quality weekly profile. Failure of the weekly range to expand in the expected direction is information that the weekly narrative may be delayed or incorrect.",
+        "Weekly Liquidity": "Weekly highs, lows, and relative equal weekly highs/lows are higher-authority liquidity pools. Daily and session raids of those weekly pools are often the defining liquidity events of the week.\n\n**Evidence Classification:** *A/B - Weekly open and weekly range behaviour are consistent with ICT multi-timeframe and PO3 teaching; exact day-of-week rules are less rigid than the daily session mapping.*"
+      },
+      "dependencies": [],
+      "attribution_type": "ICT_primary",
+      "cited_sources_in_text": [],
+      "book_location": {
+        "level": "advanced",
+        "module_number": 14,
+        "module_title": "Advanced Session & Weekly Framework",
+        "section_heading": "Weekly Opening Behaviour and Weekly Range Expansion"
+      },
+      "confidence_note": "unspecified"
+    },
+    {
+      "id": "ADV-M14-C06",
+      "kind": "concept",
+      "name": "Daily Range within Weekly Range",
+      "definition": "Every daily dealing range nests inside the weekly dealing range. Premium/discount of the daily range is interpreted in the context of premium/discount of the weekly range. A daily discount long that sits in deep weekly premium is fighting the higher-timeframe location filter unless the weekly narrative itself has failed. The advanced student always states both locations before selecting a model.",
+      "ict_specific_meaning": "Every daily dealing range nests inside the weekly dealing range. Premium/discount of the daily range is interpreted in the context of premium/discount of the weekly range. A daily discount long that sits in deep weekly premium is fighting the higher-timeframe location filter unless the weekly narrative itself has failed. The advanced student always states both locations before selecting a model.",
+      "what_changed_from_beginner_level": "unspecified",
+      "detection_criteria": [
+        "unspecified - see definition field"
+      ],
+      "numeric_or_narrative_example": "unspecified",
+      "why_it_matters": "unspecified",
+      "beginner_mistakes_or_misinterpretations": [],
+      "raw_sections": {
+        "Full Text": "Every daily dealing range nests inside the weekly dealing range. Premium/discount of the daily range is interpreted in the context of premium/discount of the weekly range. A daily discount long that sits in deep weekly premium is fighting the higher-timeframe location filter unless the weekly narrative itself has failed. The advanced student always states both locations before selecting a model."
+      },
+      "dependencies": [],
+      "attribution_type": "research_compiled_secondary",
+      "cited_sources_in_text": [],
+      "book_location": {
+        "level": "advanced",
+        "module_number": 14,
+        "module_title": "Advanced Session & Weekly Framework",
+        "section_heading": "Daily Range within Weekly Range"
+      },
+      "confidence_note": "unspecified"
+    },
+    {
+      "id": "ADV-M14-C07",
+      "kind": "concept",
+      "name": "Session Hierarchy - Practical Rules",
+      "definition": "- Weekly DOL and weekly range location set the highest session-relevant authority.\n\n- Daily bias and daily PO3 expectation set the day's path.\n\n- Asian range supplies the first liquidity targets for London.\n\n- London is the primary window for the day's manipulation and first displacement.\n\n- New York is the primary window for continuation/distribution or for a true reversal of a failed London leg.\n\n- Lower-timeframe activity outside these windows is subordinate and often ignored for new directional entries.\n\n- When a session prints a clear alternative to the expected profile, the daily narrative is updated immediately.",
+      "ict_specific_meaning": "- Weekly DOL and weekly range location set the highest session-relevant authority.\n\n- Daily bias and daily PO3 expectation set the day's path.\n\n- Asian range supplies the first liquidity targets for London.\n\n- London is the primary window for the day's manipulation and first displacement.\n\n- New York is the primary window for continuation/distribution or for a true reversal of a failed London leg.\n\n- Lower-timeframe activity outside these windows is subordinate and often ignored for new directional entries.\n\n- When a session prints a clear alternative to the expected profile, the daily narrative is updated immediately.",
+      "what_changed_from_beginner_level": "unspecified",
+      "detection_criteria": [
+        "Weekly DOL and weekly range location set the highest session-relevant authority.",
+        "Daily bias and daily PO3 expectation set the day's path.",
+        "Asian range supplies the first liquidity targets for London.",
+        "London is the primary window for the day's manipulation and first displacement.",
+        "New York is the primary window for continuation/distribution or for a true reversal of a failed London leg.",
+        "Lower-timeframe activity outside these windows is subordinate and often ignored for new directional entries.",
+        "When a session prints a clear alternative to the expected profile, the daily narrative is updated immediately."
+      ],
+      "numeric_or_narrative_example": "unspecified",
+      "why_it_matters": "unspecified",
+      "beginner_mistakes_or_misinterpretations": [],
+      "raw_sections": {
+        "Full Text": "- Weekly DOL and weekly range location set the highest session-relevant authority.\n\n- Daily bias and daily PO3 expectation set the day's path.\n\n- Asian range supplies the first liquidity targets for London.\n\n- London is the primary window for the day's manipulation and first displacement.\n\n- New York is the primary window for continuation/distribution or for a true reversal of a failed London leg.\n\n- Lower-timeframe activity outside these windows is subordinate and often ignored for new directional entries.\n\n- When a session prints a clear alternative to the expected profile, the daily narrative is updated immediately."
+      },
+      "dependencies": [],
+      "attribution_type": "research_compiled_secondary",
+      "cited_sources_in_text": [],
+      "book_location": {
+        "level": "advanced",
+        "module_number": 14,
+        "module_title": "Advanced Session & Weekly Framework",
+        "section_heading": "Session Hierarchy - Practical Rules"
+      },
+      "confidence_note": "unspecified"
+    },
+    {
+      "id": "ADV-M14-C08",
+      "kind": "concept",
+      "name": "Alternative Session Profiles",
+      "definition": "Not every day follows the classic path. Alternatives include:\n- Trend days that expand from the open with little Asian range or manipulation wick.\n- Range days with multiple small AMD cycles and no sustained distribution.\n- News-driven expansions that ignore session boundaries.\n- Quiet days in which neither London nor New York produces a clean displacement.\n- Advanced practice recognises the alternative and either stands aside or selects models appropriate to the actual profile rather than forcing the classic template.",
+      "ict_specific_meaning": "Not every day follows the classic path. Alternatives include:\n- Trend days that expand from the open with little Asian range or manipulation wick.\n- Range days with multiple small AMD cycles and no sustained distribution.\n- News-driven expansions that ignore session boundaries.\n- Quiet days in which neither London nor New York produces a clean displacement.\n- Advanced practice recognises the alternative and either stands aside or selects models appropriate to the actual profile rather than forcing the classic template.",
+      "what_changed_from_beginner_level": "unspecified",
+      "detection_criteria": [
+        "Trend days that expand from the open with little Asian range or manipulation wick.",
+        "Range days with multiple small AMD cycles and no sustained distribution.",
+        "News-driven expansions that ignore session boundaries.",
+        "Quiet days in which neither London nor New York produces a clean displacement."
+      ],
+      "numeric_or_narrative_example": "unspecified",
+      "why_it_matters": "unspecified",
+      "beginner_mistakes_or_misinterpretations": [],
+      "raw_sections": {
+        "Full Text": "Not every day follows the classic path. Alternatives include:\n\n1442. Trend days that expand from the open with little Asian range or manipulation wick.\n\n1443. Range days with multiple small AMD cycles and no sustained distribution.\n\n1444. News-driven expansions that ignore session boundaries.\n\n1445. Quiet days in which neither London nor New York produces a clean displacement.\n\nAdvanced practice recognises the alternative and either stands aside or selects models appropriate to the actual profile rather than forcing the classic template."
+      },
+      "dependencies": [],
+      "attribution_type": "research_compiled_secondary",
+      "cited_sources_in_text": [],
+      "book_location": {
+        "level": "advanced",
+        "module_number": 14,
+        "module_title": "Advanced Session & Weekly Framework",
+        "section_heading": "Alternative Session Profiles"
+      },
+      "confidence_note": "unspecified"
+    }
+  ],
+  "module_synthesis": {
+    "relationship_to_prior_level": [],
+    "worked_narrative_examples": [
+      {
+        "id": "ADV-M14-C09",
+        "kind": "concept",
+        "name": "Worked Narrative - Session Path Inside Weekly Delivery",
+        "definition": "Weekly: bullish bias toward 1.1200; weekly range in discount; early-week accumulation complete; mid-week manipulation of weekly SSL has printed; distribution phase active.\n\nDaily: expect classic path. Asian range 1.0620 - 1.0680. London to raid Asian low, displace higher, leave FVG in discount. New York to continue toward daily intermediate buy-side and the weekly DOL.\n\nLondon: Asian low swept; bullish displacement and MSS; FVG at 1.0635 - 1.0665. Entry available.\n\nNew York: continues the expansion. Weekly range expands higher. Session hierarchy and weekly narrative remain aligned.\n\nIf instead London had failed to displace and New York had reversed with opposing MSS, the daily narrative would have been rewritten and bullish models retired for that day.",
+        "ict_specific_meaning": "Weekly: bullish bias toward 1.1200; weekly range in discount; early-week accumulation complete; mid-week manipulation of weekly SSL has printed; distribution phase active.\n\nDaily: expect classic path. Asian range 1.0620 - 1.0680. London to raid Asian low, displace higher, leave FVG in discount. New York to continue toward daily intermediate buy-side and the weekly DOL.\n\nLondon: Asian low swept; bullish displacement and MSS; FVG at 1.0635 - 1.0665. Entry available.\n\nNew York: continues the expansion. Weekly range expands higher. Session hierarchy and weekly narrative remain aligned.\n\nIf instead London had failed to displace and New York had reversed with opposing MSS, the daily narrative would have been rewritten and bullish models retired for that day.",
+        "what_changed_from_beginner_level": "unspecified",
+        "detection_criteria": [
+          "unspecified - see definition field"
+        ],
+        "numeric_or_narrative_example": "unspecified",
+        "why_it_matters": "unspecified",
+        "beginner_mistakes_or_misinterpretations": [],
+        "raw_sections": {
+          "Full Text": "Weekly: bullish bias toward 1.1200; weekly range in discount; early-week accumulation complete; mid-week manipulation of weekly SSL has printed; distribution phase active.\n\nDaily: expect classic path. Asian range 1.0620 - 1.0680. London to raid Asian low, displace higher, leave FVG in discount. New York to continue toward daily intermediate buy-side and the weekly DOL.\n\nLondon: Asian low swept; bullish displacement and MSS; FVG at 1.0635 - 1.0665. Entry available.\n\nNew York: continues the expansion. Weekly range expands higher. Session hierarchy and weekly narrative remain aligned.\n\nIf instead London had failed to displace and New York had reversed with opposing MSS, the daily narrative would have been rewritten and bullish models retired for that day."
+        },
+        "dependencies": [],
+        "attribution_type": "community_interpretation",
+        "cited_sources_in_text": [],
+        "book_location": {
+          "level": "advanced",
+          "module_number": 14,
+          "module_title": "Advanced Session & Weekly Framework",
+          "section_heading": "Worked Narrative - Session Path Inside Weekly Delivery"
+        },
+        "confidence_note": "unspecified"
+      }
+    ],
+    "failure_conditions": [],
+    "common_misinterpretations": [
+      {
+        "id": "ADV-M14-C10",
+        "kind": "concept",
+        "name": "Common Misinterpretations",
+        "definition": "1446. Treating every London move as the final daily direction without waiting for confirmation or New York behaviour.\n\n1447. Trading aggressive directional models during Asian accumulation as if they were London or New York distributions.\n\n1448. Ignoring weekly range location when selecting daily session models.\n\n1449. Forcing the classic Asian - London - New York path onto clear alternative profile days.\n\n1450. Failing to update the daily narrative when London's expansion fails and New York reverses.\n\n1451. Elevating a single session extreme above the weekly Draw on Liquidity.",
+        "ict_specific_meaning": "1446. Treating every London move as the final daily direction without waiting for confirmation or New York behaviour.\n\n1447. Trading aggressive directional models during Asian accumulation as if they were London or New York distributions.\n\n1448. Ignoring weekly range location when selecting daily session models.\n\n1449. Forcing the classic Asian - London - New York path onto clear alternative profile days.\n\n1450. Failing to update the daily narrative when London's expansion fails and New York reverses.\n\n1451. Elevating a single session extreme above the weekly Draw on Liquidity.",
+        "what_changed_from_beginner_level": "unspecified",
+        "detection_criteria": [
+          "Treating every London move as the final daily direction without waiting for confirmation or New York behaviour.",
+          "Trading aggressive directional models during Asian accumulation as if they were London or New York distributions.",
+          "Ignoring weekly range location when selecting daily session models.",
+          "Forcing the classic Asian - London - New York path onto clear alternative profile days.",
+          "Failing to update the daily narrative when London's expansion fails and New York reverses.",
+          "Elevating a single session extreme above the weekly Draw on Liquidity."
+        ],
+        "numeric_or_narrative_example": "unspecified",
+        "why_it_matters": "unspecified",
+        "beginner_mistakes_or_misinterpretations": [],
+        "raw_sections": {
+          "Full Text": "1446. Treating every London move as the final daily direction without waiting for confirmation or New York behaviour.\n\n1447. Trading aggressive directional models during Asian accumulation as if they were London or New York distributions.\n\n1448. Ignoring weekly range location when selecting daily session models.\n\n1449. Forcing the classic Asian - London - New York path onto clear alternative profile days.\n\n1450. Failing to update the daily narrative when London's expansion fails and New York reverses.\n\n1451. Elevating a single session extreme above the weekly Draw on Liquidity."
+        },
+        "dependencies": [],
+        "attribution_type": "community_interpretation",
+        "cited_sources_in_text": [],
+        "book_location": {
+          "level": "advanced",
+          "module_number": 14,
+          "module_title": "Advanced Session & Weekly Framework",
+          "section_heading": "Common Misinterpretations"
+        },
+        "confidence_note": "unspecified"
+      }
+    ],
+    "evidence_summary": [
+      {
+        "id": "ADV-M14-C11",
+        "kind": "concept",
+        "name": "Evidence Summary",
+        "definition": "Asian range as accumulation, London Open liquidity raid and displacement, New York continuation, and the nesting of daily activity inside weekly range and weekly DOL are core ICT session and multi-timeframe teaching. Weekly opening behaviour and range expansion follow from the same logic applied at the weekly scale. Rigid day-of-week or fixed-percentage session rules beyond primary demonstrations are secondary.\n\n***Source / Research note:** Primary orientation: ICT teaching on session profiles, kill zones, daily and weekly PO3, and multi-timeframe range nesting. Alternative-profile recognition and hierarchy rules are the advanced operational synthesis.*",
+        "ict_specific_meaning": "Asian range as accumulation, London Open liquidity raid and displacement, New York continuation, and the nesting of daily activity inside weekly range and weekly DOL are core ICT session and multi-timeframe teaching. Weekly opening behaviour and range expansion follow from the same logic applied at the weekly scale. Rigid day-of-week or fixed-percentage session rules beyond primary demonstrations are secondary.\n\n***Source / Research note:** Primary orientation: ICT teaching on session profiles, kill zones, daily and weekly PO3, and multi-timeframe range nesting. Alternative-profile recognition and hierarchy rules are the advanced operational synthesis.*",
+        "what_changed_from_beginner_level": "unspecified",
+        "detection_criteria": [
+          "unspecified - see definition field"
+        ],
+        "numeric_or_narrative_example": "unspecified",
+        "why_it_matters": "unspecified",
+        "beginner_mistakes_or_misinterpretations": [],
+        "raw_sections": {
+          "Full Text": "Asian range as accumulation, London Open liquidity raid and displacement, New York continuation, and the nesting of daily activity inside weekly range and weekly DOL are core ICT session and multi-timeframe teaching. Weekly opening behaviour and range expansion follow from the same logic applied at the weekly scale. Rigid day-of-week or fixed-percentage session rules beyond primary demonstrations are secondary.\n\n***Source / Research note:** Primary orientation: ICT teaching on session profiles, kill zones, daily and weekly PO3, and multi-timeframe range nesting. Alternative-profile recognition and hierarchy rules are the advanced operational synthesis.*"
+        },
+        "dependencies": [],
+        "attribution_type": "community_interpretation",
+        "cited_sources_in_text": [
+          "Primary orientation: ICT teaching on session profiles, kill zones, daily and weekly PO3, and multi-timeframe range nesting. Alternative-profile recognition and hierarchy rules are the advanced operational synthesis."
+        ],
+        "book_location": {
+          "level": "advanced",
+          "module_number": 14,
+          "module_title": "Advanced Session & Weekly Framework",
+          "section_heading": "Evidence Summary"
+        },
+        "confidence_note": "Primary orientation: ICT teaching on session profiles, kill zones, daily and weekly PO3, and multi-timeframe range nesting. Alternative-profile recognition and hierarchy rules are the advanced operational synthesis."
+      }
+    ]
+  },
+  "rules": [
+    {
+      "id": "ADV-M14-R01",
+      "kind": "rule",
+      "rule_type": "sequencing",
+      "statement": "Classic daily path: Asian range builds (accumulation) -> London Open raids one side of that range (manipulation) -> displacement and MSS follow -> New York continues or expands the distribution toward the daily and weekly Draw on Liquidity. This is the default expectation when HTF bias is clear; abandoned when the chart prints a clear alternative.",
+      "applies_to": [
+        "Session Hierarchy and the Daily Delivery Path"
+      ],
+      "conditions": [],
+      "exceptions_or_qualifiers": "unspecified",
+      "book_location": {
+        "level": "advanced",
+        "module_number": 14,
+        "module_title": "Advanced Session & Weekly Framework",
+        "section_heading": "Session Hierarchy and the Daily Delivery Path"
+      },
+      "attribution_type": "ICT_primary"
+    },
+    {
+      "id": "ADV-M14-R02",
+      "kind": "rule",
+      "rule_type": "detection_criteria",
+      "statement": "London profiles: Manipulation (most common high-quality behaviour) -- sweep of Asian high/low (often relative equal highs/lows), followed by displacement in the opposite direction and MSS. Continuation -- after successful manipulation and displacement, London continues the distribution leg, leaving FVGs/OBs New York later reprices; more likely when HTF bias is strong and manipulation was clean. Reversal -- less frequent as a complete daily reversal; possible when London's displacement fails, an opposing external MSS prints, and the HTF narrative itself is under pressure or failing (a London 'reversal' that merely corrects a deep manipulation undercut inside an intact HTF bias is not a true narrative reversal).",
+      "applies_to": [
+        "London Profiles"
+      ],
+      "conditions": [],
+      "exceptions_or_qualifiers": "unspecified",
+      "book_location": {
+        "level": "advanced",
+        "module_number": 14,
+        "module_title": "Advanced Session & Weekly Framework",
+        "section_heading": "London Profiles"
+      },
+      "attribution_type": "ICT_primary"
+    },
+    {
+      "id": "ADV-M14-R03",
+      "kind": "rule",
+      "rule_type": "detection_criteria",
+      "statement": "New York profiles: Distribution/Continuation (classic role) -- continues or expands London's distribution, especially during the London-New York overlap; many highest-quality continuation entries (FVG/CE retracements) occur in early New York after London has conditioned the market. Reversal -- can reverse a London move when London's expansion is manipulation relative to a HTF/daily objective that New York then delivers oppositely; more credible with external MSS, opposing liquidity targeting, and HTF bias alignment. Continuation of a London reversal -- if London has already reversed and printed new directional displacement, New York often continues that new direction; the daily narrative must be updated at London close/New York open rather than assuming the original London direction is still active.",
+      "applies_to": [
+        "New York Profiles"
+      ],
+      "conditions": [],
+      "exceptions_or_qualifiers": "unspecified",
+      "book_location": {
+        "level": "advanced",
+        "module_number": 14,
+        "module_title": "Advanced Session & Weekly Framework",
+        "section_heading": "New York Profiles"
+      },
+      "attribution_type": "community_interpretation"
+    },
+    {
+      "id": "ADV-M14-R04",
+      "kind": "rule",
+      "rule_type": "detection_criteria",
+      "statement": "Weekly open is a repeated reference: early-week price action often builds or manipulates relative to the weekly open before the week's true distribution direction becomes clear (a weekly profile that sweeps one side of the early-week range then expands oppositely is the weekly analogue of daily PO3). True weekly distribution expands the weekly range toward the weekly DOL; expansion beginning mid-week after early-week accumulation/manipulation is a common high-quality weekly profile. Failure of the weekly range to expand as expected is information that the weekly narrative may be delayed or incorrect. Weekly highs/lows and relative equal weekly highs/lows are higher-authority liquidity pools; daily/session raids of those weekly pools are often the defining liquidity events of the week.",
+      "applies_to": [
+        "Weekly Opening Behaviour and Weekly Range Expansion"
+      ],
+      "conditions": [],
+      "exceptions_or_qualifiers": "unspecified",
+      "book_location": {
+        "level": "advanced",
+        "module_number": 14,
+        "module_title": "Advanced Session & Weekly Framework",
+        "section_heading": "Weekly Opening Behaviour and Weekly Range Expansion"
+      },
+      "attribution_type": "community_interpretation"
+    },
+    {
+      "id": "ADV-M14-R05",
+      "kind": "rule",
+      "rule_type": "selection_procedure",
+      "statement": "Session hierarchy practical rules: weekly DOL and weekly range location set the highest session-relevant authority; daily bias and daily PO3 expectation set the day's path; Asian range supplies the first liquidity targets for London; London is the primary window for the day's manipulation and first displacement; New York is the primary window for continuation/distribution or a true reversal of a failed London leg; lower-timeframe activity outside these windows is subordinate and often ignored for new directional entries; when a session prints a clear alternative to the expected profile, the daily narrative is updated immediately.",
+      "applies_to": [
+        "Session Hierarchy - Practical Rules"
+      ],
+      "conditions": [],
+      "exceptions_or_qualifiers": "unspecified",
+      "book_location": {
+        "level": "advanced",
+        "module_number": 14,
+        "module_title": "Advanced Session & Weekly Framework",
+        "section_heading": "Session Hierarchy - Practical Rules"
+      },
+      "attribution_type": "community_interpretation"
+    },
+    {
+      "id": "ADV-M14-R06",
+      "kind": "rule",
+      "rule_type": "other",
+      "statement": "Alternative session profiles (not every day follows the classic path): trend days expanding from the open with little Asian range or manipulation wick; range days with multiple small AMD cycles and no sustained distribution; news-driven expansions ignoring session boundaries; quiet days in which neither London nor New York produces a clean displacement. Advanced practice recognises the alternative and either stands aside or selects models appropriate to the actual profile rather than forcing the classic template.",
+      "applies_to": [
+        "Alternative Session Profiles"
+      ],
+      "conditions": [],
+      "exceptions_or_qualifiers": "unspecified",
+      "book_location": {
+        "level": "advanced",
+        "module_number": 14,
+        "module_title": "Advanced Session & Weekly Framework",
+        "section_heading": "Alternative Session Profiles"
+      },
+      "attribution_type": "community_interpretation"
+    }
+  ],
+  "strategies": [],
+  "examples": [],
+  "relationships": [],
+  "no_trade_conditions": [
+    {
+      "id": "ADV-M14-NT01",
+      "kind": "no_trade_rule",
+      "statement": "Do not trade aggressive directional models during Asian accumulation as if they were London or New York distributions. Do not treat every London move as the final daily direction without waiting for confirmation or New York behaviour. Do not force the classic Asian-London-New York path onto clear alternative profile days. Do not ignore weekly range location when selecting daily session models. Do not elevate a single session extreme above the weekly Draw on Liquidity.",
+      "applies_to_strategy_ids": [],
+      "book_location": {
+        "level": "advanced",
+        "module_number": 14,
+        "module_title": "Advanced Session & Weekly Framework",
+        "section_heading": "Common Misinterpretations"
+      }
+    }
+  ],
+  "contradictions_or_ambiguities": [],
+  "empirical_claims": [],
+  "module_review_notes": {
+    "key_terms": [
+      "Asian accumulation - range-building phase that supplies London's first liquidity targets.",
+      "London manipulation - raid of Asian (or related) liquidity followed by displacement.",
+      "London / New York continuation - expansion of the distribution leg inside that session.",
+      "London / New York reversal - opposing displacement and MSS that ends the prior session's directional claim.",
+      "Weekly opening behaviour - early-week activity relative to the weekly open.",
+      "Weekly range expansion - true distribution that enlarges the weekly range toward the weekly DOL.",
+      "Session hierarchy - weekly > daily > London/NY kill zones > Asian and lower activity."
+    ],
+    "beginner_summary": "unspecified",
+    "concept_relationships_summary": "unspecified",
+    "practical_chart_exercise": "unspecified",
+    "self_test_questions": [
+      "What is the classic session path from accumulation through distribution?",
+      "Why are Asian high and low the primary references for London manipulation?",
+      "When is a New York reversal more credible than a simple continuation failure?",
+      "How should a daily discount long be treated if it sits in deep weekly premium?",
+      "What is the correct response when the expected London path fails and New York reverses?"
+    ],
+    "common_misconceptions": [],
+    "research_sources_cited_in_text": []
+  }
+}

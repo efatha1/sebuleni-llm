@@ -1,0 +1,401 @@
+{
+  "level": "intermediate",
+  "module_number": 8,
+  "module_title": "Multi-Timeframe Narrative",
+  "module_intro": "Presents multi-timeframe reading as 'one story, three roles': HTF narrative, intermediate-timeframe narrative, LTF narrative, the top-down analysis process, timeframe alignment vs conflict, and the HTF-target-to-LTF-entry bridge.",
+  "prerequisites_stated_in_text": "Requires Intermediate Modules 1-7.",
+  "module_objectives": [
+    "Construct a coherent higher-timeframe (HTF) narrative that includes bias, dealing range, liquidity objectives and key PD arrays.",
+    "Refine that narrative on an intermediate timeframe without contradicting the HTF story.",
+    "Use the lower timeframe (LTF) strictly for confirmation and precise entry timing.",
+    "Recognise timeframe alignment and timeframe conflict, and know which takes priority.",
+    "Map an HTF target to an LTF entry sequence (liquidity -> displacement -> MSS -> PD array / OTE).",
+    "Treat price delivery as fractal: the same principles operate on every timeframe, but roles differ.",
+    "Avoid the common error of letting an attractive LTF setup override a conflicting HTF narrative."
+  ],
+  "concepts": [
+    {
+      "id": "INT-M08-C01",
+      "kind": "concept",
+      "name": "Higher-Timeframe Narrative",
+      "definition": "unspecified - see raw_sections",
+      "ict_specific_meaning": "unspecified",
+      "what_changed_from_beginner_level": "unspecified",
+      "detection_criteria": [
+        "unspecified - see raw_sections"
+      ],
+      "numeric_or_narrative_example": "unspecified",
+      "why_it_matters": "unspecified",
+      "beginner_mistakes_or_misinterpretations": [],
+      "raw_sections": {
+        "Components": "A complete HTF narrative answers:\n\n764. What is the prevailing structural sequence (bullish, bearish, or transitional)?\n\n765. What is the active HTF dealing range and where is equilibrium?\n\n766. Where is the primary Draw on Liquidity (which side, internal or external)?\n\n767. Which HTF PD arrays (Order Blocks, FVGs, Breakers) are unmitigated and correctly located?\n\n768. Is the market in expansion or contraction on the HTF?",
+        "Output": "The output is a directional expectation (bullish / bearish / neutral) and a short list of HTF targets and invalidation levels. Everything that follows on lower timeframes is subordinate to this story."
+      },
+      "dependencies": [],
+      "attribution_type": "research_compiled_secondary",
+      "cited_sources_in_text": [],
+      "book_location": {
+        "level": "intermediate",
+        "module_number": 8,
+        "module_title": "Multi-Timeframe Narrative",
+        "section_heading": "Higher-Timeframe Narrative"
+      },
+      "confidence_note": "unspecified"
+    },
+    {
+      "id": "INT-M08-C02",
+      "kind": "concept",
+      "name": "Intermediate-Timeframe Narrative",
+      "definition": "unspecified - see raw_sections",
+      "ict_specific_meaning": "unspecified",
+      "what_changed_from_beginner_level": "unspecified",
+      "detection_criteria": [
+        "unspecified - see raw_sections"
+      ],
+      "numeric_or_narrative_example": "unspecified",
+      "why_it_matters": "unspecified",
+      "beginner_mistakes_or_misinterpretations": [],
+      "raw_sections": {
+        "Role": "The intermediate timeframe translates the HTF story into a working container. It defines the dealing range that will actually be traded, locates the relevant internal liquidity and PD arrays, and identifies the session or expansion phase in which the move is most likely to develop.",
+        "Discipline": "The intermediate timeframe may refine or delay the HTF idea; it should not invert it without clear external structural failure on the HTF itself."
+      },
+      "dependencies": [],
+      "attribution_type": "research_compiled_secondary",
+      "cited_sources_in_text": [],
+      "book_location": {
+        "level": "intermediate",
+        "module_number": 8,
+        "module_title": "Multi-Timeframe Narrative",
+        "section_heading": "Intermediate-Timeframe Narrative"
+      },
+      "confidence_note": "unspecified"
+    },
+    {
+      "id": "INT-M08-C03",
+      "kind": "concept",
+      "name": "Lower-Timeframe Narrative",
+      "definition": "unspecified - see raw_sections",
+      "ict_specific_meaning": "unspecified",
+      "what_changed_from_beginner_level": "unspecified",
+      "detection_criteria": [
+        "unspecified - see raw_sections"
+      ],
+      "numeric_or_narrative_example": "unspecified",
+      "why_it_matters": "unspecified",
+      "beginner_mistakes_or_misinterpretations": [],
+      "raw_sections": {
+        "Role": "The lower timeframe exists for confirmation and timing. Once price reaches an HTF or intermediate PD array, the LTF is used to observe:\n\n769. A liquidity event (sweep of local BSL or SSL),\n\n770. Displacement away from that liquidity,\n\n771. A Market Structure Shift,\n\n772. The creation of an LTF Fair Value Gap or the refinement of an OTE / Order Block entry.",
+        "Strict Limitation": "The LTF does not generate independent bias. An attractive LTF long inside a clear HTF bearish narrative is a low-quality idea unless the HTF narrative has itself been invalidated."
+      },
+      "dependencies": [],
+      "attribution_type": "research_compiled_secondary",
+      "cited_sources_in_text": [],
+      "book_location": {
+        "level": "intermediate",
+        "module_number": 8,
+        "module_title": "Multi-Timeframe Narrative",
+        "section_heading": "Lower-Timeframe Narrative"
+      },
+      "confidence_note": "unspecified"
+    },
+    {
+      "id": "INT-M08-C04",
+      "kind": "concept",
+      "name": "Top-Down Analysis Process",
+      "definition": "unspecified - see raw_sections",
+      "ict_specific_meaning": "unspecified",
+      "what_changed_from_beginner_level": "unspecified",
+      "detection_criteria": [
+        "unspecified - see raw_sections"
+      ],
+      "numeric_or_narrative_example": "unspecified",
+      "why_it_matters": "unspecified",
+      "beginner_mistakes_or_misinterpretations": [],
+      "raw_sections": {
+        "Recommended Sequence": "- HTF: Mark dealing range, equilibrium, structural sequence, major liquidity pools, and unmitigated PD arrays. State bias in one sentence.\n\n- Intermediate: Mark the active dealing range that nests inside the HTF range. Identify internal liquidity and the PD arrays most likely to be used for entry.\n\n- LTF: Wait for price to reach the intermediate / HTF zone of interest. Then require the confirmation sequence (liquidity -> displacement -> MSS -> PD-array / OTE entry).\n\n- Management: Targets and invalidation remain anchored to the HTF and intermediate maps; the LTF only times the entry and may supply tight stop placement.",
+        "Fractal Price Delivery": "Because delivery is fractal, a complete HTF cycle (raid external liquidity -> return to internal PD array -> expansion to opposite external liquidity) will contain many smaller cycles of the same type on intermediate and lower timeframes. The intermediate student learns to see the smaller cycles as the mechanism by which the larger cycle is delivered, not as independent stories."
+      },
+      "dependencies": [],
+      "attribution_type": "research_compiled_secondary",
+      "cited_sources_in_text": [],
+      "book_location": {
+        "level": "intermediate",
+        "module_number": 8,
+        "module_title": "Multi-Timeframe Narrative",
+        "section_heading": "Top-Down Analysis Process"
+      },
+      "confidence_note": "unspecified"
+    },
+    {
+      "id": "INT-M08-C05",
+      "kind": "concept",
+      "name": "Timeframe Alignment",
+      "definition": "Alignment exists when the directional expectation, the premium/discount location, and the active Draw on Liquidity are consistent across the HTF and intermediate timeframes, and the LTF is used only to time entry in that shared direction.",
+      "ict_specific_meaning": "Alignment exists when the directional expectation, the premium/discount location, and the active Draw on Liquidity are consistent across the HTF and intermediate timeframes, and the LTF is used only to time entry in that shared direction.",
+      "what_changed_from_beginner_level": "unspecified",
+      "detection_criteria": [
+        "unspecified - see raw_sections"
+      ],
+      "numeric_or_narrative_example": "unspecified",
+      "why_it_matters": "unspecified",
+      "beginner_mistakes_or_misinterpretations": [],
+      "raw_sections": {
+        "Definition": "Alignment exists when the directional expectation, the premium/discount location, and the active Draw on Liquidity are consistent across the HTF and intermediate timeframes, and the LTF is used only to time entry in that shared direction.",
+        "Practical Benefit": "Aligned setups reduce the frequency of fighting the larger order flow. They do not guarantee profitability, but they raise the quality of the average trade by ensuring the trader is not positioned against the HTF narrative."
+      },
+      "dependencies": [],
+      "attribution_type": "research_compiled_secondary",
+      "cited_sources_in_text": [],
+      "book_location": {
+        "level": "intermediate",
+        "module_number": 8,
+        "module_title": "Multi-Timeframe Narrative",
+        "section_heading": "Timeframe Alignment"
+      },
+      "confidence_note": "unspecified"
+    },
+    {
+      "id": "INT-M08-C06",
+      "kind": "concept",
+      "name": "Timeframe Conflict",
+      "definition": "Conflict exists when the LTF or intermediate timeframe produces a directional signal opposite to the HTF narrative (for example, a clean LTF bullish MSS while the daily dealing range and bias remain clearly bearish).",
+      "ict_specific_meaning": "Conflict exists when the LTF or intermediate timeframe produces a directional signal opposite to the HTF narrative (for example, a clean LTF bullish MSS while the daily dealing range and bias remain clearly bearish).",
+      "what_changed_from_beginner_level": "unspecified",
+      "detection_criteria": [
+        "unspecified - see raw_sections"
+      ],
+      "numeric_or_narrative_example": "unspecified",
+      "why_it_matters": "unspecified",
+      "beginner_mistakes_or_misinterpretations": [],
+      "raw_sections": {
+        "Definition": "Conflict exists when the LTF or intermediate timeframe produces a directional signal opposite to the HTF narrative (for example, a clean LTF bullish MSS while the daily dealing range and bias remain clearly bearish).",
+        "Resolution Rule": "In the presence of conflict, the higher-timeframe narrative takes priority for bias. The lower-timeframe signal may be used for a counter-trend scalp only if the trader explicitly accepts the reduced probability and defines a tight invalidation; it should not be treated as a change in the larger story.",
+        "Common Intermediate Error": "- Seeing a beautiful LTF OTE or FVG and reversing the HTF bias to accommodate it. This is the most frequent cause of \"death by a thousand lower-timeframe cuts.\""
+      },
+      "dependencies": [],
+      "attribution_type": "research_compiled_secondary",
+      "cited_sources_in_text": [],
+      "book_location": {
+        "level": "intermediate",
+        "module_number": 8,
+        "module_title": "Multi-Timeframe Narrative",
+        "section_heading": "Timeframe Conflict"
+      },
+      "confidence_note": "unspecified"
+    },
+    {
+      "id": "INT-M08-C07",
+      "kind": "concept",
+      "name": "HTF Target -> LTF Entry",
+      "definition": "unspecified - see raw_sections",
+      "ict_specific_meaning": "unspecified",
+      "what_changed_from_beginner_level": "unspecified",
+      "detection_criteria": [
+        "unspecified - see raw_sections"
+      ],
+      "numeric_or_narrative_example": "unspecified",
+      "why_it_matters": "unspecified",
+      "beginner_mistakes_or_misinterpretations": [],
+      "raw_sections": {
+        "The Bridge": "The practical link between timeframes is:\n\nHTF defines the target (Draw on Liquidity) and the zone of interest (HTF PD array in the correct premium/discount half).\n\nPrice arrives at that zone.\n\nLTF delivers the confirmation sequence: local liquidity sweep -> displacement -> MSS -> entry at LTF FVG / OTE / Order Block.\n\nManagement aims first at intermediate targets and ultimately at the HTF liquidity objective.",
+        "Invalidation Hierarchy": "A decisive HTF close beyond the HTF invalidation level ends the idea regardless of how clean the LTF entry looked. An LTF stop-out does not automatically invalidate the HTF narrative; it may simply mean the entry timing was imperfect."
+      },
+      "dependencies": [],
+      "attribution_type": "research_compiled_secondary",
+      "cited_sources_in_text": [],
+      "book_location": {
+        "level": "intermediate",
+        "module_number": 8,
+        "module_title": "Multi-Timeframe Narrative",
+        "section_heading": "HTF Target -> LTF Entry"
+      },
+      "confidence_note": "unspecified"
+    }
+  ],
+  "rules": [
+    {
+      "id": "INT-M08-R01",
+      "kind": "rule",
+      "rule_type": "detection_criteria",
+      "statement": "A complete HTF narrative answers: what is the prevailing structural sequence (bullish, bearish, or transitional); what is the active HTF dealing range and where is equilibrium; where is the primary Draw on Liquidity. Output is a directional expectation (bullish/bearish/neutral) plus a short list of HTF targets and invalidation levels. Everything on lower timeframes is subordinate to this story.",
+      "applies_to": [
+        "Higher-Timeframe Narrative"
+      ],
+      "conditions": [],
+      "exceptions_or_qualifiers": "unspecified",
+      "book_location": {
+        "level": "intermediate",
+        "module_number": 8,
+        "module_title": "Multi-Timeframe Narrative",
+        "section_heading": "Higher-Timeframe Narrative"
+      },
+      "attribution_type": "community_interpretation"
+    },
+    {
+      "id": "INT-M08-R02",
+      "kind": "rule",
+      "rule_type": "selection_procedure",
+      "statement": "Top-down analysis recommended sequence: (1) HTF -- mark dealing range, equilibrium, structural sequence, major liquidity pools, and unmitigated PD arrays; state bias in one sentence; (2) Intermediate -- mark the active dealing range nested inside the HTF range; identify internal liquidity and the PD arrays most likely to be used for entry; (3) LTF -- wait for price to reach the intermediate/HTF zone of interest, then require the confirmation sequence (liquidity -> displacement -> MSS -> PD-array/OTE entry); (4) Management -- targets and invalidation remain anchored to the HTF and intermediate maps; the LTF only times the entry and may supply tight stop placement.",
+      "applies_to": [
+        "Top-Down Analysis Process"
+      ],
+      "conditions": [],
+      "exceptions_or_qualifiers": "unspecified",
+      "book_location": {
+        "level": "intermediate",
+        "module_number": 8,
+        "module_title": "Multi-Timeframe Narrative",
+        "section_heading": "Top-Down Analysis Process"
+      },
+      "attribution_type": "community_interpretation"
+    },
+    {
+      "id": "INT-M08-R03",
+      "kind": "rule",
+      "rule_type": "timeframe_relationship",
+      "statement": "Timeframe conflict resolution rule: in the presence of conflict (LTF or intermediate timeframe produces a directional signal opposite to the HTF narrative), the higher-timeframe narrative takes priority for bias. The lower-timeframe signal may be used for a counter-trend scalp only if the trader explicitly accepts the reduced probability and defines tight risk.",
+      "applies_to": [
+        "Timeframe Conflict"
+      ],
+      "conditions": [],
+      "exceptions_or_qualifiers": "unspecified",
+      "book_location": {
+        "level": "intermediate",
+        "module_number": 8,
+        "module_title": "Multi-Timeframe Narrative",
+        "section_heading": "Timeframe Conflict"
+      },
+      "attribution_type": "community_interpretation"
+    },
+    {
+      "id": "INT-M08-R04",
+      "kind": "rule",
+      "rule_type": "sequencing",
+      "statement": "HTF Target -> LTF Entry bridge: HTF defines the target (Draw on Liquidity) and the zone of interest (HTF PD array in the correct premium/discount half). Price arrives at that zone. LTF delivers the confirmation sequence: local liquidity sweep -> displacement -> MSS -> entry at LTF FVG/OTE/Order Block. Management aims first at intermediate targets and ultimately at the HTF liquidity objective.",
+      "applies_to": [
+        "HTF Target -> LTF Entry"
+      ],
+      "conditions": [],
+      "exceptions_or_qualifiers": "unspecified",
+      "book_location": {
+        "level": "intermediate",
+        "module_number": 8,
+        "module_title": "Multi-Timeframe Narrative",
+        "section_heading": "HTF Target -> LTF Entry"
+      },
+      "attribution_type": "community_interpretation"
+    },
+    {
+      "id": "INT-M08-R05",
+      "kind": "rule",
+      "rule_type": "invalidation",
+      "statement": "Invalidation hierarchy: a decisive HTF close beyond the HTF invalidation level ends the idea regardless of how clean the LTF entry looked. An LTF stop-out does not automatically invalidate the HTF narrative -- it may simply mean the entry timing was imperfect.",
+      "applies_to": [
+        "HTF Target -> LTF Entry"
+      ],
+      "conditions": [],
+      "exceptions_or_qualifiers": "unspecified",
+      "book_location": {
+        "level": "intermediate",
+        "module_number": 8,
+        "module_title": "Multi-Timeframe Narrative",
+        "section_heading": "HTF Target -> LTF Entry"
+      },
+      "attribution_type": "community_interpretation"
+    }
+  ],
+  "strategies": [],
+  "examples": [
+    {
+      "id": "INT-M08-EX01",
+      "kind": "example",
+      "example_type": "worked_narrative",
+      "linked_concept_or_strategy_ids": [
+        "Top-Down Analysis Process",
+        "HTF Target -> LTF Entry"
+      ],
+      "content": "HTF (Daily): Bias bullish. Dealing range 1.0500 - 1.1000, equilibrium 1.0750. Price is in discount. Primary Draw on Liquidity is buy-side above 1.1000 and a prior weekly high. An unmitigated daily bullish FVG sits near 1.0600 - 1.0650.\n\nIntermediate (1-hour): Active dealing range 1.0550 - 1.0800. Price has raided sell-side liquidity near 1.0560 and is displacing higher. A 1-hour bullish Order Block and FVG overlap in discount around 1.0620 - 1.0650, nested inside the daily FVG.\n\nLTF (5-minute): Price returns into the 1-hour / daily confluence zone. A local sell-side sweep occurs, followed by bullish displacement and a 5-minute MSS. Entry is taken on the retracement into the 5-minute FVG / OTE that formed during the displacement.\n\nManagement: Partial profits at internal 1-hour buy-side liquidity; remainder held toward the daily external target. Invalidation remains a decisive daily close below the daily dealing-range low or below the origin of the daily bullish structure.\n\nThis is alignment: every timeframe is telling a compatible story, and the LTF is used only for timing.",
+      "interpretation_given_in_text": "Demonstrates the complete top-down narrative construction process across HTF, intermediate, and LTF.",
+      "book_location": {
+        "level": "intermediate",
+        "module_number": 8,
+        "module_title": "Multi-Timeframe Narrative",
+        "section_heading": "Worked Example - Top-Down Narrative"
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "id": "INT-M08-REL01",
+      "kind": "cross_module_relationship",
+      "statement": "Modules 1 - 7 supplied the individual tools. Module 8 organises those tools into a single coherent narrative across timeframes. The HTF supplies bias, container and destination. The intermediate timeframe supplies the working range and the PD arrays that will be traded. The LTF supplies the confirmation sequence and the precise entry. Alignment raises quality; conflict is resolved in favour of the higher timeframe. Fractal delivery explains why the same patterns appear at every scale without requiring the trader to treat every scale as an independent decision.",
+      "involved_concepts": [
+        "Higher-Timeframe Narrative",
+        "Intermediate-Timeframe Narrative",
+        "Lower-Timeframe Narrative",
+        "Top-Down Analysis Process",
+        "Timeframe Alignment",
+        "Timeframe Conflict",
+        "HTF Target -> LTF Entry"
+      ],
+      "involved_modules": [
+        "Beginner Module 2",
+        "Intermediate Modules 1-7",
+        "Intermediate Module 9 (forward reference)"
+      ],
+      "book_location": {
+        "level": "intermediate",
+        "module_number": 8,
+        "module_title": "Multi-Timeframe Narrative",
+        "section_heading": "How These Concepts Connect"
+      }
+    }
+  ],
+  "no_trade_conditions": [
+    {
+      "id": "INT-M08-NT01",
+      "kind": "no_trade_rule",
+      "statement": "The lower timeframe does not generate independent bias. An attractive LTF long inside a clear HTF bearish narrative is a low-quality idea unless the HTF narrative has itself been invalidated. Do not reverse the HTF bias to accommodate an attractive LTF OTE or FVG -- this is described as the most frequent cause of 'death by a thousand lower-timeframe cuts.'",
+      "applies_to_strategy_ids": [],
+      "book_location": {
+        "level": "intermediate",
+        "module_number": 8,
+        "module_title": "Multi-Timeframe Narrative",
+        "section_heading": "Lower-Timeframe Narrative / Timeframe Conflict"
+      }
+    }
+  ],
+  "contradictions_or_ambiguities": [],
+  "empirical_claims": [],
+  "module_review_notes": {
+    "key_terms": [
+      "HTF narrative - directional story, dealing range, major liquidity and PD arrays on the higher timeframe.",
+      "Intermediate narrative - refinement of the HTF story into a working range and entry-zone arrays.",
+      "LTF confirmation - liquidity sweep, displacement, MSS and precise PD-array / OTE entry on the lower timeframe.",
+      "Top-down analysis - sequential process from HTF to intermediate to LTF.",
+      "Timeframe alignment - consistent directional expectation and location filters across timeframes.",
+      "Timeframe conflict - lower-timeframe signal opposite to the HTF narrative.",
+      "Fractal price delivery - the same principles operate on every timeframe; roles differ.",
+      "HTF target -> LTF entry - using the higher timeframe for destination and zone, the lower timeframe for timing."
+    ],
+    "beginner_summary": "Beginner teaching introduced multiple timeframes mainly as different chart settings. Intermediate teaching assigns explicit roles: HTF for narrative, intermediate for location, LTF for timing. Alignment is required; conflict is resolved upward. The result is a single coherent story rather than three competing ones.",
+    "concept_relationships_summary": "Every tool from Modules 1 - 7 is now placed inside a timeframe hierarchy. Dealing ranges nest. Liquidity and PD arrays are graded by the timeframe on which they form. Displacement and MSS on the LTF confirm arrival at an HTF or intermediate zone. OTE and CE refine the entry only after the higher-timeframe story has authorised the direction.",
+    "practical_chart_exercise": "Before the next session:\n\n24. On the daily chart write a four-sentence HTF narrative (bias, range, DOL, key PD arrays).\n\n25. On the 1-hour chart mark the active dealing range and the PD arrays that sit inside the HTF zone of interest.\n\n26. State whether the intermediate picture is aligned or in conflict with the daily narrative.\n\n27. Define the exact LTF sequence you will require before entry (sweep -> displacement -> MSS -> which array).\n\n28. After the session, record whether the LTF sequence appeared, whether the HTF narrative was respected, and one lesson about alignment or conflict.",
+    "self_test_questions": [
+      "What three roles are assigned to HTF, intermediate and LTF in the model presented here?",
+      "What is the correct response when a clean LTF bullish MSS appears inside a clear HTF bearish narrative?",
+      "Outline the top-down process from HTF narrative to LTF entry.",
+      "What does fractal price delivery mean in practical terms?",
+      "Why is an LTF stop-out not automatically an invalidation of the HTF idea?",
+      "Give one concrete example of timeframe alignment and one of timeframe conflict."
+    ],
+    "common_misconceptions": [
+      "\"The lowest timeframe is the most accurate.\" - False. It is the most precise for timing, not the most authoritative for bias.",
+      "\"If the 5-minute is bullish I should be long.\" - Only if that long is consistent with the HTF narrative.",
+      "\"I need the same setup on every timeframe.\" - False. The HTF supplies the story; the LTF supplies the trigger.",
+      "\"Conflict means the market is random.\" - False. Conflict means the lower timeframe is speaking about a smaller cycle inside a larger story that has not yet changed.",
+      "\"Once I have an LTF entry the HTF no longer matters.\" - False. Management and invalidation remain anchored to the higher timeframe."
+    ],
+    "research_sources_cited_in_text": []
+  }
+}

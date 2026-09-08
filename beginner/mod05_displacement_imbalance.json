@@ -1,0 +1,398 @@
+{
+  "level": "beginner",
+  "module_number": 5,
+  "module_title": "Displacement & Imbalance",
+  "module_intro": "Module 3 introduced the Market Structure Shift and noted that a genuine shift requires displacement -- a forceful, one-sided move -- rather than a slow drift through a structural level. Module 4 introduced the liquidity sweep and noted that the highest-quality sweeps are immediately followed by that same forceful move. This module defines displacement precisely and follows it through to its direct mechanical consequence: the Fair Value Gap. A short module (four concepts) but one of the most consequential -- the FVG becomes one of the primary tools used to plan an actual entry price in the ICT Buy and Sell Models (Modules 11-12).",
+  "prerequisites_stated_in_text": "Assumes fluency with Market Structure Shift (Module 3) and Liquidity Sweep (Module 4).",
+  "module_objectives": [
+    "identify a genuine displacement candle by comparing its range and body-to-range ratio against recent, nearby candles",
+    "explain why a large candle occurring in open space, without breaking a structural level, is not treated as significant displacement",
+    "distinguish an imbalance in general from the more narrowly, mechanically defined Fair Value Gap",
+    "mechanically construct a Fair Value Gap from three candles, correctly identifying the zone boundaries for both a bullish and a bearish gap",
+    "locate the midpoint (Consequent Encroachment) of a Fair Value Gap and explain why it is commonly treated as a key reaction point",
+    "explain, using this module's cause-and-effect logic, why an FVG without a preceding displacement candle or liquidity sweep is considered weaker than one that has both"
+  ],
+  "concepts": [
+    {
+      "id": "BEG-M05-C01",
+      "kind": "concept",
+      "name": "Displacement",
+      "definition": "Displacement is a strong, fast, one-directional price move - typically one candle or a short run of two to three candles - with a large body, minimal opposing wicks, and enough force to break a prior structural swing point, understood within ICT's framework as the visible signature of concentrated institutional order flow.",
+      "ict_specific_meaning": "ICT-focused teaching treats displacement as the engine behind price delivery: it is what confirms a Market Structure Shift is genuine rather than a slow, indecisive drift, and it is the specific mechanism that creates a Fair Value Gap (this module's fourth concept). Several sources are explicit that a market structure shift without displacement is considered weak or questionable, and that an FVG without a preceding displacement candle is considered a minor imbalance with limited significance.\n\nMultiple ICT-focused sources describe a small set of consistent quality criteria for identifying genuine displacement: (1) a wide range candle relative to recent volatility, (2) a large body-to-range ratio (some sources cite roughly 60 - 70% or more of the candle's total range being body rather than wick), (3) minimal overlapping wicks with neighboring candles, and (4) the move actually breaking a meaningful prior structural level rather than occurring in open space.\n\nICT-focused sources also describe displacement as scalable across timeframes: what counts as a strong displacement candle on a 1-minute chart is a very different absolute size than what counts as displacement on a daily chart - the assessment is always relative to that timeframe's recent volatility, not an absolute number of pips or points.",
+      "beginner_explanation": "Imagine a crowded room where people are calmly negotiating prices back and forth - some going a little higher, some a little lower, in a slow give-and-take. Then suddenly, one side of the room shouts and rushes forward all at once, and everyone scrambles out of the way. That sudden, forceful rush - no negotiation, no back-and-forth, just one side completely overpowering the other - is what displacement looks like on a price chart: a candle (or short run of candles) that moves hard and fast in one direction, with almost no pushback.",
+      "detection_criteria": [
+        "Compare a candidate candle's total range (high to low) to the typical range of recent candles on the same timeframe - a genuine displacement candle is unusually large relative to this recent average.",
+        "Check the candle's body-to-range ratio: the candle's body (the distance between open and close) should make up the large majority of its total range, with only small wicks.",
+        "Confirm the candle (or short run of candles) moves in one clear direction without significant overlap with the candle(s) immediately before it.",
+        "Confirm the move actually breaks a meaningful prior swing high or swing low (Module 1/3) - a large candle that occurs in open space, without breaking anything, is not treated as structurally significant displacement.",
+        "Check for a resulting Fair Value Gap left behind between the candle before the display and the candle after it - the presence of this gap is strong corroborating evidence that genuine displacement occurred."
+      ],
+      "preconditions": [
+        "unspecified"
+      ],
+      "numeric_or_narrative_example": "108 → 107 → 106 (three quiet candles) → 118 (one large forceful candle) → 119 → 121\n\nThe move from 106 to 118 in a single candle is disproportionately large compared to the quiet 108→107→106 sequence before it. If this candle also has a large body relative to its total range (little wick), and it breaks above a prior swing high, it qualifies as a displacement candle. The two smaller candles on either side of it (106 before, 119 after) are what will be checked for a Fair Value Gap between them.",
+      "what_it_tells_the_trader": "Displacement tells the trader that a move is backed by forceful, one-sided participation rather than being a slow, uncertain drift - within ICT's framework, this is treated as evidence supporting the reliability of an accompanying Market Structure Shift and as the mechanism that creates a tradable Fair Value Gap.\n\nIt does not tell the trader the ultimate size or duration of the move that follows. A single strong displacement candle can be followed by continuation, consolidation, or reversal, and displacement alone does not specify which of these will occur.",
+      "common_pairings": [
+        "Market Structure Shift (Module 3)",
+        "Fair Value Gap",
+        "Liquidity Sweep (Module 4)"
+      ],
+      "common_pairings_narrative": "Displacement is what elevates a simple structural break into a higher-confidence Market Structure Shift under this book's working definition, and it is the direct mechanical cause of the Fair Value Gap covered later in this module. It is also frequently the move that immediately follows a liquidity sweep, forming the sweep-then-displacement backbone of the ICT Buy/Sell Models (Modules 11 - 12).",
+      "framework_placement": {
+        "comes_before": "Requires Market Structure Shift (Module 3) and Liquidity Sweep (Module 4).",
+        "comes_after": "Feeds directly into Displacement Candle (a closer look at the individual candle) and Fair Value Gap (the resulting imbalance)."
+      },
+      "beginner_mistakes_or_misinterpretations": [
+        "Judging \"large\" using an absolute number of pips or points instead of comparing to recent volatility on the same timeframe.",
+        "Treating any single large candle as displacement even when it occurs in open space without breaking a meaningful structural level.",
+        "Ignoring wick size and focusing only on how far price moved, rather than checking that the move is dominated by candle body rather than wick."
+      ],
+      "qualification_or_limits": "Displacement is a matter of degree and relative comparison, not a fixed, universally agreed-upon threshold. Different ICT-focused sources use different specific numeric heuristics (such as body-to-range percentage cutoffs), and a move that looks like clear displacement on one timeframe may look unremarkable zoomed out to a higher timeframe.",
+      "dependencies": [
+        "Market Structure Shift",
+        "Liquidity Sweep "
+      ],
+      "timeframe_relationship": "unspecified",
+      "attribution_type": "research_compiled_secondary",
+      "cited_sources_in_text": [
+        "ictkillzone.com - \"ICT Displacement: The Complete Guide.\"",
+        "backtrex.com - \"ICT Displacement Candle: The Market Displacement Concept Explained.\"",
+        "fxnx.com - \"ICT Displacement: The 1-Candle Bank Tell.\"",
+        "thesimpleict.com - \"ICT Displacement Explained: How to Read Real Institutional Moves.\""
+      ],
+      "book_location": {
+        "level": "beginner",
+        "module_number": 5,
+        "module_title": "Displacement & Imbalance",
+        "section_heading": "Displacement"
+      },
+      "confidence_note": "unspecified"
+    },
+    {
+      "id": "BEG-M05-C02",
+      "kind": "concept",
+      "name": "Displacement Candle",
+      "definition": "A displacement candle is the specific individual candle (or the dominant candle within a short displacement sequence) responsible for the forceful move - the middle candle in the three-candle Fair Value Gap pattern, whose large body and minimal wicks distinguish it from ordinary price action.",
+      "ict_specific_meaning": "Where \"displacement\" describes the event or move in general, \"displacement candle\" specifically names the single candle doing the work - the object a trader points to and marks on the chart. ICT-focused sources describe this candle as the middle of a three-candle sequence: an unremarkable candle before it, the displacement candle itself, and another candle after it, with the gap between the first and third candles forming the Fair Value Gap.\n\nSome ICT-adjacent analytical tools formalize this with a specific quantitative filter - for example, requiring the candle's body to be at least roughly 60 - 70% of its total high-to-low range - used to separate genuine displacement candles (strong directional commitment) from candles that merely look large but are dominated by indecisive wicks.",
+      "beginner_explanation": "If displacement is the general event of \"a forceful shove,\" the displacement candle is the specific single candle on the chart that represents that shove - the one big, mostly solid-bodied candle sitting between two smaller, calmer candles.",
+      "detection_criteria": [
+        "Locate a candle whose range is significantly larger than the candles immediately surrounding it.",
+        "Measure the candle's body-to-range ratio; a strong displacement candle should have a small wick relative to its body.",
+        "Confirm this candle sits directly between two other candles that will be checked for an FVG (the candle immediately before it, and the candle immediately after it).",
+        "Confirm the candle moves the market through a meaningful structural level, not through open, low-significance price territory."
+      ],
+      "preconditions": [
+        "unspecified"
+      ],
+      "numeric_or_narrative_example": "Candle A: 106 → 107 (small body). Candle B (displacement): 107 → 118 (large body, tiny wicks). Candle C: 118 → 119 (small body)\n\nCandle B is the displacement candle: its body spans nearly its entire range (107 to 118), with almost no wick on either end, in sharp contrast to the small, ordinary candles before and after it. This single candle is what a trader would mark and reference when discussing displacement on this chart.",
+      "what_it_tells_the_trader": "Identifying the specific displacement candle tells the trader exactly which candle's high and low to use when constructing the resulting Fair Value Gap, and gives a precise reference point for judging how forceful the move actually was.\n\nIt does not, by itself, tell the trader whether the FVG it creates will be a high-quality, reliable one - that also depends on whether the move breaks a meaningful structural level and follows a liquidity event, as discussed in Displacement above.",
+      "common_pairings": [
+        "Fair Value Gap",
+        "Market Structure Shift (Module 3)",
+        "Order Block (Module 6)"
+      ],
+      "common_pairings_narrative": "The displacement candle is the direct source of the Fair Value Gap; it is also frequently the candle whose break confirms a Market Structure Shift, and the candle immediately preceding it (an opposing-direction candle) is frequently marked as an Order Block, covered in Module 6.",
+      "framework_placement": {
+        "comes_before": "Requires Displacement.",
+        "comes_after": "Feeds directly into Imbalance and Fair Value Gap."
+      },
+      "beginner_mistakes_or_misinterpretations": [
+        "Marking a candle with a large range but a small body (mostly wick) as a displacement candle.",
+        "Marking multiple candles in a sequence as \"the\" displacement candle rather than identifying the single most dominant one for FVG construction, when the guidance in use calls for a single reference candle."
+      ],
+      "qualification_or_limits": "The exact quantitative threshold for what counts as a valid displacement candle (such as a specific body-to-range percentage) varies across ICT-focused secondary sources and tools; this book presents these thresholds as commonly used heuristics, not as a single fixed, universally agreed rule.",
+      "dependencies": [
+        "Displacement"
+      ],
+      "timeframe_relationship": "unspecified",
+      "attribution_type": "community_interpretation",
+      "cited_sources_in_text": [
+        "FibAlgo (TradingView) - \"ICT Displacement\" indicator documentation (body-to-range ratio threshold, ~60 - 70%).",
+        "innercircletrader.net - \"Valid ICT Fair Value Gap: Weak vs Strong 3-Candle Pattern Explained.\""
+      ],
+      "book_location": {
+        "level": "beginner",
+        "module_number": 5,
+        "module_title": "Displacement & Imbalance",
+        "section_heading": "Displacement Candle"
+      },
+      "confidence_note": "The specific 60 - 70% body-to-range percentage is a community-built analytical tool's threshold, not a number confirmed here as an ICT-stated rule; it is presented as a reasonable, widely used heuristic."
+    },
+    {
+      "id": "BEG-M05-C03",
+      "kind": "concept",
+      "name": "Imbalance",
+      "definition": "An imbalance is any price zone where one side of the market (buyers or sellers) moved price so quickly that the opposite side did not have the opportunity to trade at every intervening price level, leaving a zone that was not fairly and evenly traded in both directions.",
+      "ict_specific_meaning": "ICT-focused teaching uses \"imbalance\" as the general umbrella term for one-sided, inefficient price delivery, with the Fair Value Gap (this module's final concept) being the single most common, specifically defined type of imbalance. Some sources also describe a broader category called a liquidity void - a larger imbalance spanning multiple candles, often containing several individual FVGs stacked together, typically associated with major news events or off-hours repricing.\n\nA related but distinct concept some sources describe is the volume imbalance: a gap that exists between candle bodies (open/close prices) while the wicks of those same candles still overlap. This is described as a thinner, weaker version of an imbalance than a full Fair Value Gap, since actual trading (via the wicks) did technically occur across the zone, even if the bodies suggest one-sidedness.\n\nThe underlying theoretical framing across ICT-focused sources is auction-based: a market is considered to have established \"fair value\" at a price only once genuine two-sided trading has occurred there. A zone that was skipped over during a fast, one-sided move never had that two-sided negotiation, which is why ICT-focused teaching describes price as having a tendency to return to these zones later to \"rebalance\" or complete the interrupted two-way auction.",
+      "beginner_explanation": "Imagine a busy market where buyers and sellers usually haggle back and forth at every price before agreeing on a deal. An imbalance is what happens when that haggling gets skipped - one side is so eager, or so overwhelming, that price rockets past several potential deal-points without anyone actually trading there. That skipped-over zone, where no real two-sided negotiation happened, is the imbalance.",
+      "detection_criteria": [
+        "Identify a fast, one-directional move (see Displacement).",
+        "Examine the specific candles involved for a zone where price on one side did not overlap with price on the other side of the move - this is the general signature of an imbalance.",
+        "Distinguish between the specific, most rigorously defined type (a Fair Value Gap, based on non-overlapping wicks across three candles) and looser or related types (a volume imbalance, based on non-overlapping candle bodies while wicks still overlap; or a larger multi-candle liquidity void).",
+        "Mark the identified imbalance zone as a candidate area price may return to later."
+      ],
+      "preconditions": [
+        "unspecified"
+      ],
+      "numeric_or_narrative_example": "Candle A: high 107, low 105. Candle B: open 107, close 117 (large, fast move). Candle C: high 119, low 116\n\nBetween candle A's high (107) and candle C's low (116), there is a nine-point span that neither candle A nor candle C actually traded through - only candle B's fast move crossed it. This untraded span is the imbalance; because the wicks of candle A and candle C do not overlap here, this specific example also qualifies as a Fair Value Gap (defined precisely in the next concept).",
+      "what_it_tells_the_trader": "An imbalance tells the trader that a specific price zone was skipped during a one-sided move and, within ICT's framework, is treated as an area price has some tendency to revisit before or during continued movement, in order to complete a more balanced, two-sided negotiation.\n\nIt does not tell the trader that the zone will definitely be revisited, or when. Some imbalances remain unfilled indefinitely, especially during strong trending conditions or after major shifts in an asset's underlying value.",
+      "common_pairings": [
+        "Fair Value Gap",
+        "Displacement",
+        "Liquidity Void"
+      ],
+      "common_pairings_narrative": "Fair Value Gap is simply the most precisely defined, most commonly traded subtype of imbalance; every Fair Value Gap is an imbalance, but not every imbalance meets the stricter three-candle, non-overlapping-wick definition of a Fair Value Gap.",
+      "framework_placement": {
+        "comes_before": "Requires Displacement and Displacement Candle.",
+        "comes_after": "Feeds directly into Fair Value Gap, the specific, formally defined type of imbalance used throughout the rest of this book."
+      },
+      "beginner_mistakes_or_misinterpretations": [
+        "Treating every candle gap or wick as an imbalance without checking whether genuine non-overlap actually exists between the relevant candles.",
+        "Assuming all imbalances are equally significant, rather than recognizing that a Fair Value Gap created by strong displacement carries more weight than a marginal or ambiguous zone."
+      ],
+      "qualification_or_limits": "Not every imbalance is filled, and not every filled imbalance produces a meaningful reaction. This concept describes a tendency observed across many charts, not a rule that guarantees a specific price will always be revisited.",
+      "dependencies": [
+        "Displacement",
+        "Displacement Candle"
+      ],
+      "timeframe_relationship": "unspecified",
+      "attribution_type": "research_compiled_secondary",
+      "cited_sources_in_text": [
+        "fxopen.com - \"Fair Value Gaps (FVGs) and Liquidity Voids - Differences & Strategies.\"",
+        "coinranking.com - \"ICT Trading Strategy Basics: Liquidity, Imbalance, Market Structure, and Timing\" (cited previously in Module 4).",
+        "luxalgo.com - \"Fair Value Gap - Smart Money Concepts / ICT Concept\" (volume imbalance definition)."
+      ],
+      "book_location": {
+        "level": "beginner",
+        "module_number": 5,
+        "module_title": "Displacement & Imbalance",
+        "section_heading": "Imbalance"
+      },
+      "confidence_note": "unspecified"
+    },
+    {
+      "id": "BEG-M05-C04",
+      "kind": "concept",
+      "name": "Fair Value Gap (FVG)",
+      "definition": "A Fair Value Gap is a three-candle price pattern in which the wick of the first candle does not overlap with the wick of the third candle, because the middle candle (the displacement candle) moved so aggressively that it left a specific, precisely bounded, untraded zone between them.",
+      "ict_specific_meaning": "ICT-focused teaching is highly consistent on the mechanical definition: for a bullish FVG, the zone runs from the high of the first candle to the low of the third candle (with the middle candle's aggressive upward move connecting them); for a bearish FVG, the zone runs from the low of the first candle to the high of the third candle (with the middle candle's aggressive downward move connecting them). In both cases, the middle candle is expected to be a genuine displacement candle (this module's first two concepts).\n\nThe midpoint of the FVG zone is referred to across ICT-focused sources as the Consequent Encroachment (CE), and is commonly cited as the most closely watched specific price within the gap - many sources describe price reaching and reacting at the CE as a particularly reliable signal that the zone is being respected, and some describe using the CE as a specific limit-entry level.\n\nA significant and well-corroborated refinement across ICT-focused sources concerns the quality of an FVG: an FVG formed without a preceding displacement candle (i.e., a coincidental small gap without real institutional force behind it) is described as weak and low-value; an FVG formed without a preceding liquidity sweep is also described as generally weaker; and an FVG that forms entirely inside the range of an earlier large candle (rather than breaking meaningfully beyond it) is described as a weak FVG. The strongest, most reliable FVGs are consistently described as those that follow a liquidity sweep, are created by genuine displacement that breaks a structural level, and align with higher-timeframe bias.\n\nICT-focused sources also document an important related concept: the Inverse Fair Value Gap (IFVG or IFVG), formed when an existing FVG is invalidated by a candle body closing through it (not merely a wick touching it). Once inverted, the zone is understood to flip roles - a bearish FVG that gets broken by a bullish close becomes a bullish IFVG (support), and vice versa - functioning similarly to a support/resistance polarity flip.",
+      "beginner_explanation": "Picture three candles in a row. The first candle trades in its own normal little range. The second candle then rockets through a big price move, so fast that it skips right past a chunk of prices without anyone actually trading there. The third candle then trades in its own normal little range again, but because of how far the second candle moved things, the third candle's range doesn't overlap with the first candle's range at all. The empty space between the first candle's edge and the third candle's edge - the space nobody actually traded in - is the Fair Value Gap.",
+      "detection_criteria": [
+        "Identify three consecutive candles where the middle candle is a genuine displacement candle (Module 5, first two concepts).",
+        "For a bullish FVG: confirm the low of the third candle is higher than the high of the first candle, with no overlap between them. Mark the zone from the first candle's high up to the third candle's low.",
+        "For a bearish FVG: confirm the high of the third candle is lower than the low of the first candle, with no overlap between them. Mark the zone from the third candle's high down to the first candle's low.",
+        "Mark the midpoint of this zone as the Consequent Encroachment (CE).",
+        "Note whether the FVG followed a liquidity sweep and broke a meaningful structural level - both increase the presumed reliability of the zone."
+      ],
+      "preconditions": [
+        "unspecified"
+      ],
+      "numeric_or_narrative_example": "Candle 1: high 107, low 105. Candle 2 (displacement): open 107, close 117. Candle 3: high 119, low 116\n\nCandle 1's high is 107. Candle 3's low is 116. Since 116 is higher than 107, with no overlap, this is a bullish Fair Value Gap spanning from 107 to 116. The Consequent Encroachment (midpoint) sits at approximately 111.5. Under ICT's framework, this zone (107 - 116, with special attention to 111.5) would be marked as a candidate area for price to retrace into and potentially react from, before or during continued upward movement.\n\nCandle 3: 116 - 119\n| <- untraded FVG zone\n| (CE ~ 111.5)\n|\nCandle 1: 105 - 107\n\nCandle 2 (displacement): 107 -> 117 (connects them)",
+      "what_it_tells_the_trader": "A Fair Value Gap tells the trader a specific, precisely bounded price zone where a retracement is plausible before or during continued movement in the direction of the original displacement, and gives an objective, repeatable reference point (including the CE) for planning an entry.\n\nIt does not guarantee price will return to the zone at all, nor that a return, if it happens, will result in a reaction rather than a straight pass-through. ICT-focused sources are explicit that not every FVG fills, and not every filled FVG produces a tradable reaction.",
+      "common_pairings": [
+        "Displacement / Displacement Candle",
+        "Order Block (Module 6)",
+        "Market Structure Shift (Module 3)"
+      ],
+      "common_pairings_narrative": "A Fair Value Gap is the direct, mechanical product of a displacement candle; it is frequently found alongside an Order Block (the last opposing candle before the displacement, covered in Module 6) at the same location; and the highest-quality FVGs are those created by the same displacement that confirms a Market Structure Shift.",
+      "framework_placement": {
+        "comes_before": "Requires Displacement, Displacement Candle, and Imbalance.",
+        "comes_after": "Concludes Module 5 and feeds directly into Module 6 (PD Arrays), where the Fair Value Gap is formally treated as one of several \"Price Delivery Array\" tools used to plan entries, alongside the Order Block, Mitigation Block, and Breaker Block."
+      },
+      "beginner_mistakes_or_misinterpretations": [
+        "Marking a gap that only appears to exist due to how a charting platform displays candles, without carefully checking the actual high/low values for genuine non-overlap.",
+        "Treating every three-candle gap as equally significant, ignoring whether the middle candle was genuine displacement.",
+        "Trading an FVG that formed without a preceding liquidity sweep and without breaking any meaningful structural level, and being surprised when it fails to produce a reaction.",
+        "Entering a trade the instant the displacement candle closes, rather than waiting for price to actually retrace back into the FVG zone."
+      ],
+      "qualification_or_limits": "A Fair Value Gap is a mappable, objective zone, but it is not a guaranteed support/resistance level or a certain trade signal. Its reliability depends heavily on the surrounding context - whether it followed a liquidity sweep, whether it aligns with higher-timeframe bias, and whether the displacement that created it broke a genuinely significant structural level.",
+      "dependencies": [
+        "Displacement",
+        "Displacement Candle",
+        "Imbalance"
+      ],
+      "timeframe_relationship": "unspecified",
+      "attribution_type": "research_compiled_secondary",
+      "cited_sources_in_text": [
+        "equiti.com - \"Understanding fair value gap (FVG) in ICT trading.\"",
+        "innercircletrader.net - \"ICT Fair Value Gap (FVG) - 6-Step Strategy & FVG Family\" and \"Valid ICT Fair Value Gap: Weak vs Strong 3-Candle Pattern Explained\" and \"ICT Inverse Fair Value Gap (IFVG).\"",
+        "priceactionninja.com - \"ICT Fair Value Gap Complete FVG Trading Guide.\"",
+        "financialtechwiz.com - \"Fair Value Gap (FVG): The ICT Trader's Complete Guide.\"",
+        "luxalgo.com - \"Fair Value Gap - Smart Money Concepts / ICT Concept\" (Consequent Encroachment, balanced price range, inversion FVG)."
+      ],
+      "book_location": {
+        "level": "beginner",
+        "module_number": 5,
+        "module_title": "Displacement & Imbalance",
+        "section_heading": "Fair Value Gap (FVG)"
+      },
+      "confidence_note": "unspecified"
+    }
+  ],
+  "rules": [
+    {
+      "id": "BEG-M05-R01",
+      "kind": "rule",
+      "rule_type": "detection_criteria",
+      "statement": "A displacement candle must: (1) have a range unusually large relative to recent candles on the same timeframe; (2) have a body-to-range ratio where the body makes up the large majority of the range, with only small wicks; (3) move in one clear direction without significant overlap with the candle(s) immediately before it; (4) actually break a meaningful prior swing high or swing low -- a large candle in open space that breaks nothing is not treated as structurally significant displacement.",
+      "applies_to": [
+        "Displacement",
+        "Displacement Candle"
+      ],
+      "conditions": [],
+      "exceptions_or_qualifiers": "Exact quantitative thresholds (e.g. specific body-to-range percentage) vary across ICT-focused secondary sources; the book presents these as commonly used heuristics, not a single fixed, universally agreed rule.",
+      "book_location": {
+        "level": "beginner",
+        "module_number": 5,
+        "module_title": "Displacement & Imbalance",
+        "section_heading": "Displacement / Displacement Candle"
+      },
+      "attribution_type": "community_interpretation"
+    },
+    {
+      "id": "BEG-M05-R02",
+      "kind": "rule",
+      "rule_type": "detection_criteria",
+      "statement": "Fair Value Gap (FVG) identification: three consecutive candles where the middle candle is a genuine displacement candle. Bullish FVG: low of the third candle is higher than the high of the first candle, with no overlap; zone marked from the first candle's high up to the third candle's low. Bearish FVG: high of the third candle is lower than the low of the first candle, with no overlap; zone marked from the third candle's high down to the first candle's low. The midpoint of the zone is marked as the Consequent Encroachment (CE).",
+      "applies_to": [
+        "Fair Value Gap (FVG)"
+      ],
+      "conditions": [],
+      "exceptions_or_qualifiers": "Reliability increases if the FVG followed a liquidity sweep and broke a meaningful structural level.",
+      "book_location": {
+        "level": "beginner",
+        "module_number": 5,
+        "module_title": "Displacement & Imbalance",
+        "section_heading": "Fair Value Gap (FVG)"
+      },
+      "attribution_type": "community_interpretation"
+    },
+    {
+      "id": "BEG-M05-R03",
+      "kind": "rule",
+      "rule_type": "dependency",
+      "statement": "Causation runs from displacement to Fair Value Gap, not the other way around: an FVG that lacks a genuine displacement candle behind it is considered a much weaker, less reliable signal.",
+      "applies_to": [
+        "Fair Value Gap (FVG)",
+        "Displacement"
+      ],
+      "conditions": [],
+      "exceptions_or_qualifiers": "unspecified",
+      "book_location": {
+        "level": "beginner",
+        "module_number": 5,
+        "module_title": "Displacement & Imbalance",
+        "section_heading": "How These Concepts Connect"
+      },
+      "attribution_type": "book_synthesis"
+    }
+  ],
+  "strategies": [],
+  "examples": [],
+  "relationships": [
+    {
+      "id": "BEG-M05-REL01",
+      "kind": "cross_module_relationship",
+      "statement": "This module tells a single, tight cause-and-effect story in four steps. Displacement is the general phenomenon: a fast, forceful, one-sided price move. Displacement Candle narrows that phenomenon down to the specific candle responsible for it - the object a trader actually marks on a chart. Imbalance is the general consequence of that forceful move: a zone of price that was skipped over and never fairly, two-sidedly traded. Fair Value Gap is the specific, most rigorously defined type of imbalance - a precise, three-candle, mechanically identifiable zone built directly from the displacement candle's high or low relative to its neighbors.\n\nNotice the direction of causation: displacement causes the Fair Value Gap, not the other way around. This is why ICT-focused sources are so consistent in warning against trading an FVG that lacks a genuine displacement candle behind it - without the cause, the effect (the gap) is considered a much weaker, less reliable signal. This same logic is why this module was placed immediately after Market Structure Shift and Liquidity Sweep: those two modules described the conditions under which a genuine, reliable displacement is most likely to occur (following a swept liquidity level, breaking a meaningful structural point), and this module shows exactly what that displacement leaves behind for a trader to actually use.",
+      "involved_concepts": [
+        "Displacement",
+        "Displacement Candle",
+        "Imbalance",
+        "Fair Value Gap (FVG)"
+      ],
+      "involved_modules": [
+        "Module 3 (beginner)",
+        "Module 4 (beginner)",
+        "Modules 11-12 (beginner, forward reference)"
+      ],
+      "book_location": {
+        "level": "beginner",
+        "module_number": 5,
+        "module_title": "Displacement & Imbalance",
+        "section_heading": "How These Concepts Connect"
+      }
+    }
+  ],
+  "no_trade_conditions": [
+    {
+      "id": "BEG-M05-NT01",
+      "kind": "no_trade_rule",
+      "statement": "ICT-focused sources consistently warn against trading a Fair Value Gap that lacks a genuine displacement candle behind it -- without the cause (displacement), the effect (the gap) is a much weaker, less reliable signal.",
+      "applies_to_strategy_ids": [
+        "forward reference: ICT Buy Model (Module 11), ICT Sell Model (Module 12)"
+      ],
+      "book_location": {
+        "level": "beginner",
+        "module_number": 5,
+        "module_title": "Displacement & Imbalance",
+        "section_heading": "How These Concepts Connect"
+      }
+    }
+  ],
+  "contradictions_or_ambiguities": [
+    {
+      "id": "BEG-M05-AMB01",
+      "kind": "contradiction_or_ambiguity",
+      "description": "The exact quantitative threshold for what counts as a valid displacement candle (e.g. a specific body-to-range percentage, or how much larger than 'recent average range' is required) is not fixed; it varies across ICT-focused secondary sources and tools. The book presents these as commonly used heuristics rather than a single agreed numeric rule -- meaning displacement identification retains a subjective, comparative element even within a book otherwise built on mechanical tests.",
+      "passage_a": {
+        "text": "Displacement is a matter of degree and relative comparison, not a fixed, universally agreed-upon threshold. Different ICT-focused sources use different specific numeric heuristics (such as body-to-range percentage cutoffs)...",
+        "book_location": {
+          "level": "beginner",
+          "module_number": 5,
+          "module_title": "Displacement & Imbalance",
+          "section_heading": "Displacement"
+        }
+      },
+      "passage_b": {
+        "text": "The exact quantitative threshold for what counts as a valid displacement candle (such as a specific body-to-range percentage) varies across ICT-focused secondary sources and tools; this book presents these thresholds as commonly used heuristics, not as a single fixed, universally agreed rule.",
+        "book_location": {
+          "level": "beginner",
+          "module_number": 5,
+          "module_title": "Displacement & Imbalance",
+          "section_heading": "Displacement Candle"
+        }
+      },
+      "resolution_status": "unresolved_in_source"
+    }
+  ],
+  "empirical_claims": [],
+  "module_review_notes": {
+    "key_terms": [
+      "Displacement",
+      "Displacement Candle",
+      "Imbalance",
+      "Fair Value Gap (FVG)",
+      "Consequent Encroachment (CE)",
+      "Liquidity Void",
+      "Volume Imbalance",
+      "Inverse Fair Value Gap (IFVG)"
+    ],
+    "beginner_summary": "When one side of the market overwhelms the other so strongly that price rockets through a range without normal back-and-forth trading, that forceful move is called displacement, and the specific candle responsible for it is the displacement candle. This kind of move necessarily skips over some prices entirely, leaving behind an imbalance - a zone that was never fairly traded in both directions. The most precisely defined and most commonly used type of imbalance is the Fair Value Gap: a specific three-candle pattern where the first and third candles' wicks don't overlap, because the aggressive middle candle connected them. Traders mark this exact zone, along with its midpoint (the Consequent Encroachment), as a candidate area where price may retrace and react before or during continued movement - but only when the displacement behind it was genuine, and ideally only when it followed a liquidity sweep and broke a meaningful structural level.",
+    "concept_relationships_summary": "Displacement is the general phenomenon. Displacement Candle is the specific object (the individual candle) responsible for it. Imbalance is the general consequence (an untraded zone). Fair Value Gap is the specific, rigorously defined, three-candle version of that consequence that ICT-focused teaching centers its entry planning around.",
+    "practical_chart_exercise": "Given three candles - Candle 1 with high 50 and low 48; Candle 2 opening at 48 and closing at 40 (a large, fast bearish move with almost no wick); Candle 3 with high 39 and low 36 - determine whether Candle 2 qualifies as a displacement candle, construct the resulting Fair Value Gap (state which type, bullish or bearish, and its exact price boundaries), and calculate the Consequent Encroachment (midpoint) of that gap.",
+    "self_test_questions": [
+      "What two specific properties of a candle (beyond simply being \"big\") does ICT-focused teaching use to judge whether it is genuine displacement?",
+      "Why is a large candle that occurs in open price space, without breaking any structural level, generally not treated as significant displacement?",
+      "What is the difference between an imbalance in general and a Fair Value Gap specifically?",
+      "For a bullish Fair Value Gap, which two candle price points define the top and bottom of the zone?",
+      "Why do ICT-focused sources describe an FVG that lacks a preceding displacement candle, or a preceding liquidity sweep, as weaker than one that has both?"
+    ],
+    "common_misconceptions": [
+      "Believing any large candle qualifies as displacement, regardless of its body-to-range ratio or whether it breaks a meaningful level.",
+      "Believing every three-candle gap on a chart is an equally significant, tradable Fair Value Gap.",
+      "Believing a Fair Value Gap guarantees a price reaction on retest, rather than understanding that some gaps are never filled and some filled gaps produce no reaction at all.",
+      "Confusing an imbalance in the general sense with the specific, mechanically defined Fair Value Gap - the two are related but not identical."
+    ],
+    "research_sources_cited_in_text": [
+      "ictkillzone.com - \"ICT Displacement: The Complete Guide.\"",
+      "backtrex.com - \"ICT Displacement Candle: The Market Displacement Concept Explained.\"",
+      "fxnx.com - \"ICT Displacement: The 1-Candle Bank Tell.\"",
+      "thesimpleict.com - \"ICT Displacement Explained: How to Read Real Institutional Moves\" and \"Fair Value Gaps (FVG) in ICT Trading: Complete Guide to 3-Candle Imbalance.\"",
+      "equiti.com - \"Understanding fair value gap (FVG) in ICT trading.\"",
+      "innercircletrader.net - \"ICT Fair Value Gap (FVG) - 6-Step Strategy & FVG Family,\" \"Valid ICT Fair Value Gap: Weak vs Strong 3-Candle Pattern Explained,\" and \"ICT Inverse Fair Value Gap (IFVG).\"",
+      "fxopen.com - \"Fair Value Gaps (FVGs) and Liquidity Voids - Differences & Strategies.\"",
+      "luxalgo.com - \"Fair Value Gap - Smart Money Concepts / ICT Concept.\"",
+      "Note: as in prior modules, this research pass relied on cross-checked secondary/tutorial documentation rather than direct ICT primary-source video transcripts, which were not accessible in this environment. Claims are corroborated across many independent ICT-focused sources."
+    ]
+  }
+}

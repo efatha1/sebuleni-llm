@@ -1,0 +1,595 @@
+{
+  "level": "advanced",
+  "module_number": 11,
+  "module_title": "Advanced ICT Buy Model",
+  "module_intro": "Subtopics: Narrative-Conditioned Bullish Delivery Sequences, Variations, Eligibility Conditions, Invalidation & Model Selection.",
+  "prerequisites_stated_in_text": "Advanced Modules 1--10. This module does not present \"official named ICT buy models.\" It presents recurring bullish delivery sequences that appear throughout ICT teaching, each eligible only when bias, range, liquidity, structure, time and PD-array conditions align. Labels A--D are pedagogical, not ICT doctrine.",
+  "module_objectives": [
+    "Recognise the core bullish delivery sequence that underlies most ICT long examples.",
+    "Distinguish several common variations (FVG/OTE-centred, Breaker-centred, IFVG-centred, pure PD-array reaction) by the element that supplies the entry.",
+    "State the eligibility conditions (bias, range, liquidity event, displacement, MSS, time) that must be present before any variation is traded.",
+    "Select the variation that best matches the active narrative rather than forcing a favourite pattern.",
+    "Define invalidation for each variation at both trade level and narrative level.",
+    "Avoid treating any variation as a standalone setup independent of the multi-timeframe narrative.",
+    "Higher-timeframe bullish narrative / bias with a named buy-side Draw on Liquidity.",
+    "Price in discount (or returning to discount) of the controlling dealing range.",
+    "Sell-side liquidity is raided (SSL, often relative equal lows or session/Asian low).",
+    "Bullish displacement leaves imbalance and breaks structure (MSS).",
+    "Retracement into a PD array (FVG, Order Block, CE, or refined OTE) that sits in discount.",
+    "Continuation toward the named buy-side DOL.",
+    "Higher-timeframe (at least daily) bias is bullish and not invalidated.",
+    "Named buy-side Draw on Liquidity is still active.",
+    "Price is in discount of the controlling dealing range (or has just raided SSL and is returning into discount).",
+    "Sell-side liquidity has been (or is being) raided as the origin of the leg.",
+    "Bullish displacement and MSS are present (internal or external as required by the narrative).",
+    "The entry array sits in the correct half of the range and is unmitigated (or is a valid Breaker/IFVG).",
+    "The expected kill zone supports the phase (manipulation complete, distribution active).",
+    "Trade-level and narrative-level invalidation are defined before entry.",
+    "If the displacement left a clean FVG/OB in discount and OTE aligns -> Variation A.",
+    "If a prior opposing OB was violated and price is returning to it as Breaker -> Variation B.",
+    "If a prior FVG has inverted and is holding -> Variation C.",
+    "If the primary reaction is at a higher-timeframe array and LTF only refines -> Variation D.",
+    "Trade invalidation - close beyond the entry array's protective extreme or the displacement origin; ends the specific entry.",
+    "Narrative / bias invalidation - the level or condition defined in the bias statement (Module 10); retires the bullish hypothesis and forbids further long models until a new bias is constructed."
+  ],
+  "concepts": [
+    {
+      "id": "ADV-M11-C01",
+      "kind": "concept",
+      "name": "Core Bullish Delivery Sequence",
+      "definition": "Across ICT examples, high-quality longs share a common skeleton:\n- Higher-timeframe bullish narrative / bias with a named buy-side Draw on Liquidity.\n- Price in discount (or returning to discount) of the controlling dealing range.\n- Sell-side liquidity is raided (SSL, often relative equal lows or session/Asian low).\n- Bullish displacement leaves imbalance and breaks structure (MSS).\n- Retracement into a PD array (FVG, Order Block, CE, or refined OTE) that sits in discount.\n- Continuation toward the named buy-side DOL.",
+      "ict_specific_meaning": "Across ICT examples, high-quality longs share a common skeleton:\n- Higher-timeframe bullish narrative / bias with a named buy-side Draw on Liquidity.\n- Price in discount (or returning to discount) of the controlling dealing range.\n- Sell-side liquidity is raided (SSL, often relative equal lows or session/Asian low).\n- Bullish displacement leaves imbalance and breaks structure (MSS).\n- Retracement into a PD array (FVG, Order Block, CE, or refined OTE) that sits in discount.\n- Continuation toward the named buy-side DOL.",
+      "what_changed_from_beginner_level": "unspecified",
+      "detection_criteria": [
+        "unspecified - see raw_sections"
+      ],
+      "numeric_or_narrative_example": "unspecified",
+      "why_it_matters": "unspecified",
+      "beginner_mistakes_or_misinterpretations": [],
+      "raw_sections": {
+        "The Common Thread": "Across ICT examples, high-quality longs share a common skeleton:\n\n1324. Higher-timeframe bullish narrative / bias with a named buy-side Draw on Liquidity.\n\n1325. Price in discount (or returning to discount) of the controlling dealing range.\n\n1326. Sell-side liquidity is raided (SSL, often relative equal lows or session/Asian low).\n\n1327. Bullish displacement leaves imbalance and breaks structure (MSS).\n\n1328. Retracement into a PD array (FVG, Order Block, CE, or refined OTE) that sits in discount.\n\n1329. Continuation toward the named buy-side DOL.",
+        "What Varies": "What varies is which PD array or refined level supplies the precise entry, whether a Breaker or IFVG is the reactive array, and how much lower-timeframe confirmation is required. The skeleton does not vary.\n\n**Evidence Classification:** *A/B - The skeleton (HTF bias, SSL raid, displacement, MSS, discount PD-array entry, target buy-side liquidity) is repeatedly demonstrated in ICT teaching. Named \"Model A/B/C/D\" labels are pedagogical constructs for this textbook, not official ICT model names.*"
+      },
+      "dependencies": [],
+      "attribution_type": "ICT_primary",
+      "cited_sources_in_text": [],
+      "book_location": {
+        "level": "advanced",
+        "module_number": 11,
+        "module_title": "Advanced ICT Buy Model",
+        "section_heading": "Core Bullish Delivery Sequence"
+      },
+      "confidence_note": "unspecified"
+    },
+    {
+      "id": "ADV-M11-C06",
+      "kind": "concept",
+      "name": "Eligibility Checklist (All Variations)",
+      "definition": "Before any bullish variation is traded, confirm:\n\n- Higher-timeframe (at least daily) bias is bullish and not invalidated.\n\n- Named buy-side Draw on Liquidity is still active.\n\n- Price is in discount of the controlling dealing range (or has just raided SSL and is returning into discount).\n\n- Sell-side liquidity has been (or is being) raided as the origin of the leg.\n\n- Bullish displacement and MSS are present (internal or external as required by the narrative).\n\n- The entry array sits in the correct half of the range and is unmitigated (or is a valid Breaker/IFVG).\n\n- The expected kill zone supports the phase (manipulation complete, distribution active).\n\n- Trade-level and narrative-level invalidation are defined before entry.\n\nIf any item fails, the variation is not eligible.",
+      "ict_specific_meaning": "Before any bullish variation is traded, confirm:\n\n- Higher-timeframe (at least daily) bias is bullish and not invalidated.\n\n- Named buy-side Draw on Liquidity is still active.\n\n- Price is in discount of the controlling dealing range (or has just raided SSL and is returning into discount).\n\n- Sell-side liquidity has been (or is being) raided as the origin of the leg.\n\n- Bullish displacement and MSS are present (internal or external as required by the narrative).\n\n- The entry array sits in the correct half of the range and is unmitigated (or is a valid Breaker/IFVG).\n\n- The expected kill zone supports the phase (manipulation complete, distribution active).\n\n- Trade-level and narrative-level invalidation are defined before entry.\n\nIf any item fails, the variation is not eligible.",
+      "what_changed_from_beginner_level": "unspecified",
+      "detection_criteria": [
+        "Higher-timeframe (at least daily) bias is bullish and not invalidated.",
+        "Named buy-side Draw on Liquidity is still active.",
+        "Price is in discount of the controlling dealing range (or has just raided SSL and is returning into discount).",
+        "Sell-side liquidity has been (or is being) raided as the origin of the leg.",
+        "Bullish displacement and MSS are present (internal or external as required by the narrative).",
+        "The entry array sits in the correct half of the range and is unmitigated (or is a valid Breaker/IFVG).",
+        "The expected kill zone supports the phase (manipulation complete, distribution active).",
+        "Trade-level and narrative-level invalidation are defined before entry."
+      ],
+      "numeric_or_narrative_example": "unspecified",
+      "why_it_matters": "unspecified",
+      "beginner_mistakes_or_misinterpretations": [],
+      "raw_sections": {
+        "Full Text": "Before any bullish variation is traded, confirm:\n\n- Higher-timeframe (at least daily) bias is bullish and not invalidated.\n\n- Named buy-side Draw on Liquidity is still active.\n\n- Price is in discount of the controlling dealing range (or has just raided SSL and is returning into discount).\n\n- Sell-side liquidity has been (or is being) raided as the origin of the leg.\n\n- Bullish displacement and MSS are present (internal or external as required by the narrative).\n\n- The entry array sits in the correct half of the range and is unmitigated (or is a valid Breaker/IFVG).\n\n- The expected kill zone supports the phase (manipulation complete, distribution active).\n\n- Trade-level and narrative-level invalidation are defined before entry.\n\nIf any item fails, the variation is not eligible."
+      },
+      "dependencies": [],
+      "attribution_type": "research_compiled_secondary",
+      "cited_sources_in_text": [],
+      "book_location": {
+        "level": "advanced",
+        "module_number": 11,
+        "module_title": "Advanced ICT Buy Model",
+        "section_heading": "Eligibility Checklist (All Variations)"
+      },
+      "confidence_note": "unspecified"
+    },
+    {
+      "id": "ADV-M11-C07",
+      "kind": "concept",
+      "name": "Selecting Among Variations",
+      "definition": "Selection is narrative-driven, not preference-driven:\n- If the displacement left a clean FVG/OB in discount and OTE aligns -> Variation A.\n- If a prior opposing OB was violated and price is returning to it as Breaker -> Variation B.\n- If a prior FVG has inverted and is holding -> Variation C.\n- If the primary reaction is at a higher-timeframe array and LTF only refines -> Variation D.\n- Often more than one variation is visible on the same leg; the student chooses the array that offers the best combination of narrative alignment, location and risk distance.",
+      "ict_specific_meaning": "Selection is narrative-driven, not preference-driven:\n- If the displacement left a clean FVG/OB in discount and OTE aligns -> Variation A.\n- If a prior opposing OB was violated and price is returning to it as Breaker -> Variation B.\n- If a prior FVG has inverted and is holding -> Variation C.\n- If the primary reaction is at a higher-timeframe array and LTF only refines -> Variation D.\n- Often more than one variation is visible on the same leg; the student chooses the array that offers the best combination of narrative alignment, location and risk distance.",
+      "what_changed_from_beginner_level": "unspecified",
+      "detection_criteria": [
+        "If the displacement left a clean FVG/OB in discount and OTE aligns -> Variation A.",
+        "If a prior opposing OB was violated and price is returning to it as Breaker -> Variation B.",
+        "If a prior FVG has inverted and is holding -> Variation C.",
+        "If the primary reaction is at a higher-timeframe array and LTF only refines -> Variation D."
+      ],
+      "numeric_or_narrative_example": "unspecified",
+      "why_it_matters": "unspecified",
+      "beginner_mistakes_or_misinterpretations": [],
+      "raw_sections": {
+        "Full Text": "Selection is narrative-driven, not preference-driven:\n\n1330. If the displacement left a clean FVG/OB in discount and OTE aligns -> Variation A.\n\n1331. If a prior opposing OB was violated and price is returning to it as Breaker -> Variation B.\n\n1332. If a prior FVG has inverted and is holding -> Variation C.\n\n1333. If the primary reaction is at a higher-timeframe array and LTF only refines -> Variation D.\n\nOften more than one variation is visible on the same leg; the student chooses the array that offers the best combination of narrative alignment, location and risk distance."
+      },
+      "dependencies": [],
+      "attribution_type": "research_compiled_secondary",
+      "cited_sources_in_text": [],
+      "book_location": {
+        "level": "advanced",
+        "module_number": 11,
+        "module_title": "Advanced ICT Buy Model",
+        "section_heading": "Selecting Among Variations"
+      },
+      "confidence_note": "unspecified"
+    },
+    {
+      "id": "ADV-M11-C08",
+      "kind": "concept",
+      "name": "Invalidation Hierarchy",
+      "definition": "Every long carries two invalidation levels:\n- Trade invalidation - close beyond the entry array's protective extreme or the displacement origin; ends the specific entry.\n- Narrative / bias invalidation - the level or condition defined in the bias statement (Module 10); retires the bullish hypothesis and forbids further long models until a new bias is constructed.\n- A trade stop-out does not automatically equal narrative failure. Narrative failure does automatically retire open bullish assumptions.",
+      "ict_specific_meaning": "Every long carries two invalidation levels:\n- Trade invalidation - close beyond the entry array's protective extreme or the displacement origin; ends the specific entry.\n- Narrative / bias invalidation - the level or condition defined in the bias statement (Module 10); retires the bullish hypothesis and forbids further long models until a new bias is constructed.\n- A trade stop-out does not automatically equal narrative failure. Narrative failure does automatically retire open bullish assumptions.",
+      "what_changed_from_beginner_level": "unspecified",
+      "detection_criteria": [
+        "Trade invalidation - close beyond the entry array's protective extreme or the displacement origin; ends the specific entry.",
+        "Narrative / bias invalidation - the level or condition defined in the bias statement (Module 10); retires the bullish hypothesis and forbids further long models until a new bias is constructed."
+      ],
+      "numeric_or_narrative_example": "unspecified",
+      "why_it_matters": "unspecified",
+      "beginner_mistakes_or_misinterpretations": [],
+      "raw_sections": {
+        "Full Text": "Every long carries two invalidation levels:\n\n1334. Trade invalidation - close beyond the entry array's protective extreme or the displacement origin; ends the specific entry.\n\n1335. Narrative / bias invalidation - the level or condition defined in the bias statement (Module 10); retires the bullish hypothesis and forbids further long models until a new bias is constructed.\n\nA trade stop-out does not automatically equal narrative failure. Narrative failure does automatically retire open bullish assumptions."
+      },
+      "dependencies": [],
+      "attribution_type": "research_compiled_secondary",
+      "cited_sources_in_text": [],
+      "book_location": {
+        "level": "advanced",
+        "module_number": 11,
+        "module_title": "Advanced ICT Buy Model",
+        "section_heading": "Invalidation Hierarchy"
+      },
+      "confidence_note": "unspecified"
+    }
+  ],
+  "module_synthesis": {
+    "relationship_to_prior_level": [],
+    "worked_narrative_examples": [
+      {
+        "id": "ADV-M11-C09",
+        "kind": "concept",
+        "name": "Worked Example - Variation A in Context",
+        "definition": "Weekly bias: bullish toward 1.1200; discount; distribution phase. Daily bias (conditional): bullish after London SSL sweep + displacement + MSS.\n\nLondon: Asian low and relative equal lows swept; bullish displacement; daily and 15-minute MSS; FVG at 1.0635 - 1.0665 (discount). OTE of the displacement leg overlaps the FVG.\n\nEntry: retracement into FVG/CE during London or early New York. Stop below displacement origin. Targets: daily intermediate buy-side, then 1.1200.\n\nThis is Variation A fully nested inside the multi-timeframe narrative and bias. No element is traded in isolation.",
+        "ict_specific_meaning": "Weekly bias: bullish toward 1.1200; discount; distribution phase. Daily bias (conditional): bullish after London SSL sweep + displacement + MSS.\n\nLondon: Asian low and relative equal lows swept; bullish displacement; daily and 15-minute MSS; FVG at 1.0635 - 1.0665 (discount). OTE of the displacement leg overlaps the FVG.\n\nEntry: retracement into FVG/CE during London or early New York. Stop below displacement origin. Targets: daily intermediate buy-side, then 1.1200.\n\nThis is Variation A fully nested inside the multi-timeframe narrative and bias. No element is traded in isolation.",
+        "what_changed_from_beginner_level": "unspecified",
+        "detection_criteria": [
+          "unspecified - see definition field"
+        ],
+        "numeric_or_narrative_example": "unspecified",
+        "why_it_matters": "unspecified",
+        "beginner_mistakes_or_misinterpretations": [],
+        "raw_sections": {
+          "Full Text": "Weekly bias: bullish toward 1.1200; discount; distribution phase. Daily bias (conditional): bullish after London SSL sweep + displacement + MSS.\n\nLondon: Asian low and relative equal lows swept; bullish displacement; daily and 15-minute MSS; FVG at 1.0635 - 1.0665 (discount). OTE of the displacement leg overlaps the FVG.\n\nEntry: retracement into FVG/CE during London or early New York. Stop below displacement origin. Targets: daily intermediate buy-side, then 1.1200.\n\nThis is Variation A fully nested inside the multi-timeframe narrative and bias. No element is traded in isolation."
+        },
+        "dependencies": [],
+        "attribution_type": "community_interpretation",
+        "cited_sources_in_text": [],
+        "book_location": {
+          "level": "advanced",
+          "module_number": 11,
+          "module_title": "Advanced ICT Buy Model",
+          "section_heading": "Worked Example - Variation A in Context"
+        },
+        "confidence_note": "unspecified"
+      }
+    ],
+    "failure_conditions": [],
+    "common_misinterpretations": [
+      {
+        "id": "ADV-M11-C10",
+        "kind": "concept",
+        "name": "Common Misinterpretations",
+        "definition": "1336. Trading a long FVG or OTE without HTF bullish bias and discount location.\n\n1337. Treating any of the variations as an official, named ICT \"model\" that can be applied mechanically.\n\n1338. Entering before the SSL raid and displacement have printed.\n\n1339. Using a Breaker or IFVG that has not been properly formed or demonstrated.\n\n1340. Ignoring narrative invalidation after a series of trade-level stop-outs.\n\n1341. Forcing Variation A when the chart is clearly offering a higher-quality Breaker or HTF-array reaction.",
+        "ict_specific_meaning": "1336. Trading a long FVG or OTE without HTF bullish bias and discount location.\n\n1337. Treating any of the variations as an official, named ICT \"model\" that can be applied mechanically.\n\n1338. Entering before the SSL raid and displacement have printed.\n\n1339. Using a Breaker or IFVG that has not been properly formed or demonstrated.\n\n1340. Ignoring narrative invalidation after a series of trade-level stop-outs.\n\n1341. Forcing Variation A when the chart is clearly offering a higher-quality Breaker or HTF-array reaction.",
+        "what_changed_from_beginner_level": "unspecified",
+        "detection_criteria": [
+          "Trading a long FVG or OTE without HTF bullish bias and discount location.",
+          "Treating any of the variations as an official, named ICT \"model\" that can be applied mechanically.",
+          "Entering before the SSL raid and displacement have printed.",
+          "Using a Breaker or IFVG that has not been properly formed or demonstrated.",
+          "Ignoring narrative invalidation after a series of trade-level stop-outs.",
+          "Forcing Variation A when the chart is clearly offering a higher-quality Breaker or HTF-array reaction."
+        ],
+        "numeric_or_narrative_example": "unspecified",
+        "why_it_matters": "unspecified",
+        "beginner_mistakes_or_misinterpretations": [],
+        "raw_sections": {
+          "Full Text": "1336. Trading a long FVG or OTE without HTF bullish bias and discount location.\n\n1337. Treating any of the variations as an official, named ICT \"model\" that can be applied mechanically.\n\n1338. Entering before the SSL raid and displacement have printed.\n\n1339. Using a Breaker or IFVG that has not been properly formed or demonstrated.\n\n1340. Ignoring narrative invalidation after a series of trade-level stop-outs.\n\n1341. Forcing Variation A when the chart is clearly offering a higher-quality Breaker or HTF-array reaction."
+        },
+        "dependencies": [],
+        "attribution_type": "community_interpretation",
+        "cited_sources_in_text": [],
+        "book_location": {
+          "level": "advanced",
+          "module_number": 11,
+          "module_title": "Advanced ICT Buy Model",
+          "section_heading": "Common Misinterpretations"
+        },
+        "confidence_note": "unspecified"
+      }
+    ],
+    "evidence_summary": [
+      {
+        "id": "ADV-M11-C11",
+        "kind": "concept",
+        "name": "Evidence Summary",
+        "definition": "The core bullish sequence (HTF bias, SSL, displacement, MSS, discount array, buy-side target) is primary ICT. FVG, Order Block, OTE, Breaker and IFVG as entry arrays are primary. The pedagogical grouping into Variations A - D is this textbook's organising device, not ICT doctrine. Community \"buy model\" labels that add rules not present in primary teaching are classified as community interpretation.\n\n***Source / Research note:** Primary orientation: ICT chart examples and mentorship demonstrating long entries after sell-side liquidity raids, displacement, structure shifts and discount PD-array retracements. Variation labels and eligibility checklists are advanced synthesis for consistent application.*",
+        "ict_specific_meaning": "The core bullish sequence (HTF bias, SSL, displacement, MSS, discount array, buy-side target) is primary ICT. FVG, Order Block, OTE, Breaker and IFVG as entry arrays are primary. The pedagogical grouping into Variations A - D is this textbook's organising device, not ICT doctrine. Community \"buy model\" labels that add rules not present in primary teaching are classified as community interpretation.\n\n***Source / Research note:** Primary orientation: ICT chart examples and mentorship demonstrating long entries after sell-side liquidity raids, displacement, structure shifts and discount PD-array retracements. Variation labels and eligibility checklists are advanced synthesis for consistent application.*",
+        "what_changed_from_beginner_level": "unspecified",
+        "detection_criteria": [
+          "unspecified - see definition field"
+        ],
+        "numeric_or_narrative_example": "unspecified",
+        "why_it_matters": "unspecified",
+        "beginner_mistakes_or_misinterpretations": [],
+        "raw_sections": {
+          "Full Text": "The core bullish sequence (HTF bias, SSL, displacement, MSS, discount array, buy-side target) is primary ICT. FVG, Order Block, OTE, Breaker and IFVG as entry arrays are primary. The pedagogical grouping into Variations A - D is this textbook's organising device, not ICT doctrine. Community \"buy model\" labels that add rules not present in primary teaching are classified as community interpretation.\n\n***Source / Research note:** Primary orientation: ICT chart examples and mentorship demonstrating long entries after sell-side liquidity raids, displacement, structure shifts and discount PD-array retracements. Variation labels and eligibility checklists are advanced synthesis for consistent application.*"
+        },
+        "dependencies": [],
+        "attribution_type": "community_interpretation",
+        "cited_sources_in_text": [
+          "Primary orientation: ICT chart examples and mentorship demonstrating long entries after sell-side liquidity raids, displacement, structure shifts and discount PD-array retracements. Variation labels and eligibility checklists are advanced synthesis for consistent application."
+        ],
+        "book_location": {
+          "level": "advanced",
+          "module_number": 11,
+          "module_title": "Advanced ICT Buy Model",
+          "section_heading": "Evidence Summary"
+        },
+        "confidence_note": "Primary orientation: ICT chart examples and mentorship demonstrating long entries after sell-side liquidity raids, displacement, structure shifts and discount PD-array retracements. Variation labels and eligibility checklists are advanced synthesis for consistent application."
+      }
+    ]
+  },
+  "rules": [
+    {
+      "id": "ADV-M11-R01",
+      "kind": "rule",
+      "rule_type": "detection_criteria",
+      "statement": "Eligibility checklist (all bullish variations) -- before any variation is traded, confirm: HTF (at least daily) bias is bullish and not invalidated; named buy-side DOL is still active; price is in discount of the controlling dealing range (or has just raided SSL and is returning into discount); sell-side liquidity has been (or is being) raided as the origin of the leg; bullish displacement and MSS are present (internal or external as required); the entry array sits in the correct half of the range and is unmitigated (or is a valid Breaker/IFVG); the expected kill zone supports the phase (manipulation complete, distribution active); trade-level and narrative-level invalidation are defined before entry. If any item fails, the variation is not eligible.",
+      "applies_to": [
+        "ADV-M11-S01",
+        "ADV-M11-S02",
+        "ADV-M11-S03",
+        "ADV-M11-S04"
+      ],
+      "conditions": [],
+      "exceptions_or_qualifiers": "unspecified",
+      "book_location": {
+        "level": "advanced",
+        "module_number": 11,
+        "module_title": "Advanced ICT Buy Model",
+        "section_heading": "Eligibility Checklist (All Variations)"
+      },
+      "attribution_type": "community_interpretation"
+    },
+    {
+      "id": "ADV-M11-R02",
+      "kind": "rule",
+      "rule_type": "selection_procedure",
+      "statement": "Selecting among variations is narrative-driven, not preference-driven: if displacement left a clean FVG/OB in discount and OTE aligns -> Variation A; if a prior opposing OB was violated and price is returning to it as Breaker -> Variation B; if a prior FVG has inverted and is holding -> Variation C; if the primary reaction is at a higher-timeframe array and LTF only refines -> Variation D. Often more than one variation is visible on the same leg; choose the array offering the best combination of narrative alignment, location and risk distance.",
+      "applies_to": [
+        "ADV-M11-S01",
+        "ADV-M11-S02",
+        "ADV-M11-S03",
+        "ADV-M11-S04"
+      ],
+      "conditions": [],
+      "exceptions_or_qualifiers": "unspecified",
+      "book_location": {
+        "level": "advanced",
+        "module_number": 11,
+        "module_title": "Advanced ICT Buy Model",
+        "section_heading": "Selecting Among Variations"
+      },
+      "attribution_type": "book_synthesis"
+    },
+    {
+      "id": "ADV-M11-R03",
+      "kind": "rule",
+      "rule_type": "invalidation",
+      "statement": "Every long carries two invalidation levels: Trade invalidation -- close beyond the entry array's protective extreme or the displacement origin; ends the specific entry only. Narrative/bias invalidation -- the level or condition defined in the bias statement (Module 10); retires the bullish hypothesis and forbids further long models until a new bias is constructed. A trade stop-out does not automatically equal narrative failure; narrative failure does automatically retire open bullish assumptions.",
+      "applies_to": [
+        "ADV-M11-S00",
+        "ADV-M11-S01",
+        "ADV-M11-S02",
+        "ADV-M11-S03",
+        "ADV-M11-S04"
+      ],
+      "conditions": [],
+      "exceptions_or_qualifiers": "unspecified",
+      "book_location": {
+        "level": "advanced",
+        "module_number": 11,
+        "module_title": "Advanced ICT Buy Model",
+        "section_heading": "Invalidation Hierarchy"
+      },
+      "attribution_type": "community_interpretation"
+    }
+  ],
+  "strategies": [
+    {
+      "id": "ADV-M11-S00",
+      "kind": "strategy_component",
+      "name": "Core Bullish Delivery Sequence (Skeleton)",
+      "parent_strategy_id": "BEG-M11-S01",
+      "context": {
+        "htf_bias_required": "Higher-timeframe bullish narrative/bias with a named buy-side Draw on Liquidity.",
+        "session_or_time": "unspecified generically (kill-zone dependent per variation)",
+        "other_context": "Price in discount (or returning to discount) of the controlling dealing range."
+      },
+      "setup": [
+        "Sell-side liquidity is raided (SSL, often relative equal lows or session/Asian low).",
+        "Bullish displacement leaves imbalance and breaks structure (MSS)."
+      ],
+      "entry_condition": "Retracement into a PD array (FVG, Order Block, CE, or refined OTE) that sits in discount.",
+      "invalidation_or_stop": "unspecified generically -- defined per variation (A-D) below.",
+      "target_or_exit": "Continuation toward the named buy-side DOL.",
+      "trade_management_rules": [],
+      "sequencing_steps_verbatim_order": [
+        "HTF bullish bias + named BSL DOL",
+        "Price in discount",
+        "SSL raid",
+        "Bullish displacement + MSS",
+        "Retracement into discount PD array",
+        "Continuation to DOL"
+      ],
+      "eligibility_checklist": [],
+      "specificity_status": "partially_specified",
+      "missing_elements": [
+        "Generic skeleton -- specific array type and invalidation vary by Variation A-D."
+      ],
+      "worked_example_ref": null,
+      "book_location": {
+        "level": "advanced",
+        "module_number": 11,
+        "module_title": "Advanced ICT Buy Model",
+        "section_heading": "Core Bullish Delivery Sequence"
+      },
+      "attribution_type": "community_interpretation",
+      "note": "'Model A/B/C/D' labels are explicitly pedagogical constructs for this textbook, not official ICT model names."
+    },
+    {
+      "id": "ADV-M11-S01",
+      "kind": "strategy_variant",
+      "name": "Variation A - Classic FVG / OTE Continuation",
+      "parent_strategy_id": "ADV-M11-S00",
+      "context": {
+        "htf_bias_required": "Daily (or higher) bias bullish and not invalidated.",
+        "session_or_time": "Expected kill zone produces the SSL raid and displacement.",
+        "other_context": "Price in discount of controlling range."
+      },
+      "setup": [
+        "HTF bullish narrative.",
+        "SSL raid.",
+        "Bullish displacement + MSS.",
+        "FVG (and/or Order Block) forms in discount."
+      ],
+      "entry_condition": "Retracement into FVG / Consequent Encroachment / OTE of the displacement leg.",
+      "invalidation_or_stop": "Trade-level: decisive close below the displacement origin or below the far side of the entry array. Narrative-level: daily or weekly invalidation as defined in the bias statement (Module 10).",
+      "target_or_exit": "Continuation toward buy-side DOL.",
+      "trade_management_rules": [],
+      "sequencing_steps_verbatim_order": [
+        "HTF bullish narrative",
+        "SSL raid",
+        "bullish displacement + MSS",
+        "FVG/OB in discount",
+        "retracement into FVG/CE/OTE",
+        "continuation to BSL DOL"
+      ],
+      "eligibility_checklist": [],
+      "specificity_status": "fully_specified",
+      "missing_elements": [],
+      "worked_example_ref": null,
+      "book_location": {
+        "level": "advanced",
+        "module_number": 11,
+        "module_title": "Advanced ICT Buy Model",
+        "section_heading": "Variation A - Classic FVG / OTE Continuation"
+      },
+      "attribution_type": "ICT_primary",
+      "duplicate_concept_id_removed": "ADV-M11-C02"
+    },
+    {
+      "id": "ADV-M11-S02",
+      "kind": "strategy_variant",
+      "name": "Variation B - Breaker Continuation",
+      "parent_strategy_id": "ADV-M11-S00",
+      "context": {
+        "htf_bias_required": "HTF bias remains bullish.",
+        "session_or_time": "unspecified",
+        "other_context": "The violated OB was itself high-quality; violation accompanied by genuine displacement and MSS."
+      },
+      "setup": [
+        "External or significant SSL is taken.",
+        "A prior bearish Order Block is violated by bullish displacement (the OB becomes a bullish Breaker)."
+      ],
+      "entry_condition": "Price returns to the Breaker in discount of the controlling range.",
+      "invalidation_or_stop": "Trade-level: close back below the Breaker extreme or below the origin of the bullish displacement that created it. Narrative-level: higher-timeframe invalidation.",
+      "target_or_exit": "Continuation higher (toward buy-side DOL, per skeleton).",
+      "trade_management_rules": [],
+      "sequencing_steps_verbatim_order": [
+        "HTF bullish narrative",
+        "SSL taken",
+        "bearish OB violated by bullish displacement -> becomes bullish Breaker",
+        "price returns to Breaker in discount",
+        "continuation higher"
+      ],
+      "eligibility_checklist": [],
+      "specificity_status": "fully_specified",
+      "missing_elements": [],
+      "worked_example_ref": null,
+      "book_location": {
+        "level": "advanced",
+        "module_number": 11,
+        "module_title": "Advanced ICT Buy Model",
+        "section_heading": "Variation B - Breaker Continuation"
+      },
+      "attribution_type": "community_interpretation",
+      "duplicate_concept_id_removed": "ADV-M11-C03"
+    },
+    {
+      "id": "ADV-M11-S03",
+      "kind": "strategy_variant",
+      "name": "Variation C - IFVG Continuation",
+      "parent_strategy_id": "ADV-M11-S00",
+      "context": {
+        "htf_bias_required": "HTF bias is bullish.",
+        "session_or_time": "unspecified",
+        "other_context": "The original FVG has been decisively traded through; the IFVG sits in discount relative to the controlling range."
+      },
+      "setup": [
+        "Liquidity sweep (often of sell-side).",
+        "A prior bearish FVG is traded through and later acts as support (IFVG)."
+      ],
+      "entry_condition": "Continuation higher after the inversion (IFVG holding as support) is demonstrated -- not assumed at the first trade-through.",
+      "invalidation_or_stop": "unspecified precisely beyond general narrative-level invalidation; polarity inversion must be demonstrated before entry (premature IFVG entries flagged as a common error).",
+      "target_or_exit": "Continuation higher toward buy-side DOL (per skeleton).",
+      "trade_management_rules": [],
+      "sequencing_steps_verbatim_order": [
+        "HTF bullish narrative",
+        "liquidity sweep",
+        "bearish FVG traded through",
+        "inversion (IFVG) demonstrated as support",
+        "continuation higher"
+      ],
+      "eligibility_checklist": [],
+      "specificity_status": "partially_specified",
+      "missing_elements": [
+        "Precise trade-level invalidation price not explicitly stated (unlike Variations A and B)."
+      ],
+      "worked_example_ref": null,
+      "book_location": {
+        "level": "advanced",
+        "module_number": 11,
+        "module_title": "Advanced ICT Buy Model",
+        "section_heading": "Variation C - IFVG Continuation"
+      },
+      "attribution_type": "community_interpretation",
+      "duplicate_concept_id_removed": "ADV-M11-C04"
+    },
+    {
+      "id": "ADV-M11-S04",
+      "kind": "strategy_variant",
+      "name": "Variation D - PD-Array Reaction with LTF Confirmation",
+      "parent_strategy_id": "ADV-M11-S00",
+      "context": {
+        "htf_bias_required": "HTF bullish narrative and discount location.",
+        "session_or_time": "unspecified",
+        "other_context": "The HTF array is unmitigated and correctly located; no higher-timeframe invalidation has printed."
+      },
+      "setup": [
+        "Price reaches a higher-timeframe PD array (weekly/daily OB or FVG) in discount.",
+        "Lower-timeframe liquidity sweep + displacement + MSS confirms."
+      ],
+      "entry_condition": "Entry on LTF array inside the HTF array.",
+      "invalidation_or_stop": "unspecified precisely beyond general narrative/trade invalidation hierarchy.",
+      "target_or_exit": "Continuation toward DOL.",
+      "trade_management_rules": [],
+      "sequencing_steps_verbatim_order": [
+        "HTF bullish narrative + discount location",
+        "price reaches HTF PD array in discount",
+        "LTF sweep + displacement + MSS",
+        "entry on LTF array inside HTF array",
+        "continuation to DOL"
+      ],
+      "eligibility_checklist": [],
+      "specificity_status": "partially_specified",
+      "missing_elements": [
+        "Precise trade-level invalidation price not explicitly restated for this variation."
+      ],
+      "worked_example_ref": null,
+      "book_location": {
+        "level": "advanced",
+        "module_number": 11,
+        "module_title": "Advanced ICT Buy Model",
+        "section_heading": "Variation D - PD-Array Reaction with LTF Confirmation"
+      },
+      "attribution_type": "community_interpretation",
+      "note": "This variation emphasises multi-timeframe nesting of arrays rather than a specific array type; it is often the practical form in which Variations A-C appear on the chart.",
+      "duplicate_concept_id_removed": "ADV-M11-C05"
+    }
+  ],
+  "examples": [],
+  "relationships": [],
+  "no_trade_conditions": [
+    {
+      "id": "ADV-M11-NT01",
+      "kind": "no_trade_rule",
+      "statement": "Do not trade a long FVG or OTE without HTF bullish bias and discount location. Do not treat any of the variations as an official, named ICT 'model' that can be applied mechanically. Do not enter before the SSL raid and displacement have printed. Do not use a Breaker or IFVG that has not been properly formed or demonstrated. Do not ignore narrative invalidation after a series of trade-level stop-outs. Do not force Variation A when the chart is clearly offering a higher-quality Breaker or HTF-array reaction (Variations B/D).",
+      "applies_to_strategy_ids": [
+        "ADV-M11-S01",
+        "ADV-M11-S02",
+        "ADV-M11-S03",
+        "ADV-M11-S04"
+      ],
+      "book_location": {
+        "level": "advanced",
+        "module_number": 11,
+        "module_title": "Advanced ICT Buy Model",
+        "section_heading": "Common Misinterpretations"
+      }
+    }
+  ],
+  "contradictions_or_ambiguities": [
+    {
+      "id": "ADV-M11-AMB01",
+      "kind": "contradiction_or_ambiguity",
+      "description": "The book explicitly states that the 'Variation A/B/C/D' naming scheme is a pedagogical construct created for this textbook, not official ICT model names -- distinguishing the underlying skeleton (which is directly and repeatedly ICT-supported) from the book's own organizational labels. Resolution: this is not a community-vs-ICT terminology dispute -- it is the book's own explicit, resolved disclosure that it authored the 'Variation A/B/C/D' labels itself for pedagogical organisation, while the underlying delivery skeleton remains directly ICT-supported.",
+      "passage_a": {
+        "text": "The skeleton (HTF bias, SSL raid, displacement, MSS, discount PD-array entry, target buy-side liquidity) is repeatedly demonstrated in ICT teaching. Named \"Model A/B/C/D\" labels are pedagogical constructs for this textbook, not official ICT model names.",
+        "book_location": {
+          "level": "advanced",
+          "module_number": 11,
+          "module_title": "Advanced ICT Buy Model",
+          "section_heading": "Core Bullish Delivery Sequence"
+        }
+      },
+      "passage_b": {
+        "text": "Treating any of the variations as an official, named ICT \"model\" that can be applied mechanically [is a common misinterpretation].",
+        "book_location": {
+          "level": "advanced",
+          "module_number": 11,
+          "module_title": "Advanced ICT Buy Model",
+          "section_heading": "Common Misinterpretations"
+        }
+      },
+      "resolution_status": "resolved_in_source"
+    }
+  ],
+  "empirical_claims": [],
+  "module_review_notes": {
+    "key_terms": [
+      "Core bullish delivery sequence - HTF bias + SSL + displacement + MSS + discount array + buy-side DOL.",
+      "Variation A - FVG / CE / OTE-centred continuation entry.",
+      "Variation B - Bullish Breaker continuation entry.",
+      "Variation C - IFVG continuation entry.",
+      "Variation D - HTF PD-array reaction refined by LTF confirmation.",
+      "Eligibility checklist - the set of narrative conditions required before any variation is traded.",
+      "Trade vs narrative invalidation - entry-specific stop versus bias-level retirement."
+    ],
+    "beginner_summary": "unspecified",
+    "concept_relationships_summary": "unspecified",
+    "practical_chart_exercise": "unspecified",
+    "self_test_questions": [
+      "What elements are common to all high-quality ICT long sequences?",
+      "When is Variation B preferred over Variation A?",
+      "Why must IFVG polarity be demonstrated before entry?",
+      "List the eight items on the eligibility checklist.",
+      "How does trade invalidation differ from narrative invalidation?"
+    ],
+    "common_misconceptions": [],
+    "research_sources_cited_in_text": []
+  }
+}

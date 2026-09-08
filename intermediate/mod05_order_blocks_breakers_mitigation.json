@@ -1,0 +1,431 @@
+{
+  "level": "intermediate",
+  "module_number": 5,
+  "module_title": "Order Blocks, Breakers & Mitigation",
+  "module_intro": "Treats institutional candle arrays in depth: Order Block formation and quality, Mitigation, Mitigation Block, Breaker Block, Failed Order Block, confluence (OB+FVG, OB+Liquidity, OB+MSS), and a practical PD-array hierarchy for ranking competing arrays.",
+  "prerequisites_stated_in_text": "Requires Beginner Module 6 (PD Arrays) and Intermediate Modules 1-4.",
+  "module_objectives": [
+    "Identify Order Block formation in the context of displacement and liquidity.",
+    "Distinguish valid/high-quality Order Blocks from weak or low-probability ones.",
+    "Understand mitigation of an Order Block and the conditions under which it remains useful.",
+    "Differentiate a Mitigation Block from a Breaker Block with a clear operational test.",
+    "Recognise a failed Order Block and the implications for polarity.",
+    "Combine Order Blocks with Fair Value Gaps, liquidity events and Market Structure Shifts.",
+    "Apply a practical PD-array hierarchy when multiple arrays compete inside the same dealing range."
+  ],
+  "concepts": [
+    {
+      "id": "INT-M05-C01",
+      "kind": "concept",
+      "name": "Order Block Formation",
+      "definition": "A bullish Order Block is typically the last down-close candle (or the last bearish candle) immediately before a bullish displacement that breaks structure. A bearish Order Block is the last up-close candle immediately before a bearish displacement that breaks structure.",
+      "ict_specific_meaning": "A bullish Order Block is typically the last down-close candle (or the last bearish candle) immediately before a bullish displacement that breaks structure. A bearish Order Block is the last up-close candle immediately before a bearish displacement that breaks structure.",
+      "what_changed_from_beginner_level": "unspecified",
+      "detection_criteria": [
+        "unspecified - see raw_sections"
+      ],
+      "numeric_or_narrative_example": "unspecified",
+      "why_it_matters": "unspecified",
+      "beginner_mistakes_or_misinterpretations": [],
+      "raw_sections": {
+        "Basic Definition": "A bullish Order Block is typically the last down-close candle (or the last bearish candle) immediately before a bullish displacement that breaks structure. A bearish Order Block is the last up-close candle immediately before a bearish displacement that breaks structure.",
+        "Context Requirements for Quality": "High-quality Order Blocks are those that:\n\n635. Form in association with a liquidity event (the displacement that leaves the OB often follows a raid).\n\n636. Are followed by genuine displacement (large-range candles, preferably leaving an FVG).\n\n637. Produce or accompany a Market Structure Shift.\n\n638. Remain unmitigated (price has not yet returned to fully trade through the zone).\n\n639. Sit in the correct half of the dealing range relative to the intended trade direction (discount for bullish OBs, premium for bearish OBs).",
+        "Weak Order Blocks": "Weak Order Blocks include those formed without displacement, without a preceding liquidity event, deep in the wrong half of the dealing range, or already heavily mitigated. These should be de-prioritised."
+      },
+      "dependencies": [],
+      "attribution_type": "research_compiled_secondary",
+      "cited_sources_in_text": [],
+      "book_location": {
+        "level": "intermediate",
+        "module_number": 5,
+        "module_title": "Order Blocks, Breakers & Mitigation",
+        "section_heading": "Order Block Formation"
+      },
+      "confidence_note": "unspecified"
+    },
+    {
+      "id": "INT-M05-C02",
+      "kind": "concept",
+      "name": "Mitigation",
+      "definition": "Mitigation occurs when price returns to an Order Block (or other PD array) and trades into or through part or all of the zone, thereby \"filling\" or satisfying residual institutional interest at that level.",
+      "ict_specific_meaning": "Mitigation occurs when price returns to an Order Block (or other PD array) and trades into or through part or all of the zone, thereby \"filling\" or satisfying residual institutional interest at that level.",
+      "what_changed_from_beginner_level": "unspecified",
+      "detection_criteria": [
+        "unspecified - see raw_sections"
+      ],
+      "numeric_or_narrative_example": "unspecified",
+      "why_it_matters": "An unmitigated Order Block is generally preferred. A partially mitigated Order Block may still be usable if higher-timeframe context remains supportive. A fully mitigated Order Block in its original polarity is usually retired or re-evaluated as a potential Breaker.",
+      "beginner_mistakes_or_misinterpretations": [],
+      "raw_sections": {
+        "Definition": "Mitigation occurs when price returns to an Order Block (or other PD array) and trades into or through part or all of the zone, thereby \"filling\" or satisfying residual institutional interest at that level.",
+        "Degrees of Mitigation": "Partial mitigation leaves part of the zone untouched and can still support a reaction. Full mitigation (price trading through the entire zone, especially with a body close beyond the far boundary) significantly reduces or eliminates the original supportive/resistive character of the array.",
+        "Practical Implication": "An unmitigated Order Block is generally preferred. A partially mitigated Order Block may still be usable if higher-timeframe context remains supportive. A fully mitigated Order Block in its original polarity is usually retired or re-evaluated as a potential Breaker."
+      },
+      "dependencies": [],
+      "attribution_type": "research_compiled_secondary",
+      "cited_sources_in_text": [],
+      "book_location": {
+        "level": "intermediate",
+        "module_number": 5,
+        "module_title": "Order Blocks, Breakers & Mitigation",
+        "section_heading": "Mitigation"
+      },
+      "confidence_note": "unspecified"
+    },
+    {
+      "id": "INT-M05-C03",
+      "kind": "concept",
+      "name": "Mitigation Block",
+      "definition": "A Mitigation Block, in the sense most consistently useful for intermediate practice, is an Order Block that is retested after the original displacement has played out, where price returns to the zone but does not decisively close through its far boundary, and the original directional intent continues. The return is understood as institutions completing or adjusting residual interest before continuation.",
+      "ict_specific_meaning": "A Mitigation Block, in the sense most consistently useful for intermediate practice, is an Order Block that is retested after the original displacement has played out, where price returns to the zone but does not decisively close through its far boundary, and the original directional intent continues. The return is understood as institutions completing or adjusting residual interest before continuation.",
+      "what_changed_from_beginner_level": "unspecified",
+      "detection_criteria": [
+        "unspecified - see raw_sections"
+      ],
+      "numeric_or_narrative_example": "unspecified",
+      "why_it_matters": "unspecified",
+      "beginner_mistakes_or_misinterpretations": [],
+      "raw_sections": {
+        "Working Definition (Intermediate)": "A Mitigation Block, in the sense most consistently useful for intermediate practice, is an Order Block that is retested after the original displacement has played out, where price returns to the zone but does not decisively close through its far boundary, and the original directional intent continues. The return is understood as institutions completing or adjusting residual interest before continuation.",
+        "Operational Distinction": "If price returns to the Order Block and respects it (no body close beyond the far side), the zone can still be traded in the original direction - this is the Mitigation Block / respected-OB continuation case.\n\n> *Community definitions of Mitigation Block vary. Some presentations emphasise a failed expansion that never swept liquidity; others emphasise a simple retest that holds. The intermediate student should prioritise the observable test: did a body close through the far boundary or not?*"
+      },
+      "dependencies": [],
+      "attribution_type": "research_compiled_secondary",
+      "cited_sources_in_text": [],
+      "book_location": {
+        "level": "intermediate",
+        "module_number": 5,
+        "module_title": "Order Blocks, Breakers & Mitigation",
+        "section_heading": "Mitigation Block"
+      },
+      "confidence_note": "unspecified"
+    },
+    {
+      "id": "INT-M05-C04",
+      "kind": "concept",
+      "name": "Breaker Block",
+      "definition": "A Breaker Block forms when a previously valid Order Block is violated - typically by a candle body closing beyond the far boundary of the zone - after which the zone is expected to act with inverted polarity. A bullish Order Block that fails becomes a bearish Breaker (resistance on the return). A bearish Order Block that fails becomes a bullish Breaker (support on the return).",
+      "ict_specific_meaning": "A Breaker Block forms when a previously valid Order Block is violated - typically by a candle body closing beyond the far boundary of the zone - after which the zone is expected to act with inverted polarity. A bullish Order Block that fails becomes a bearish Breaker (resistance on the return). A bearish Order Block that fails becomes a bullish Breaker (support on the return).",
+      "what_changed_from_beginner_level": "unspecified",
+      "detection_criteria": [
+        "unspecified - see raw_sections"
+      ],
+      "numeric_or_narrative_example": "unspecified",
+      "why_it_matters": "unspecified",
+      "beginner_mistakes_or_misinterpretations": [],
+      "raw_sections": {
+        "Definition": "A Breaker Block forms when a previously valid Order Block is violated - typically by a candle body closing beyond the far boundary of the zone - after which the zone is expected to act with inverted polarity. A bullish Order Block that fails becomes a bearish Breaker (resistance on the return). A bearish Order Block that fails becomes a bullish Breaker (support on the return).",
+        "Confirmation": "Breaker quality is elevated when:\n\n640. The original Order Block was itself high-quality (liquidity + displacement + MSS).\n\n641. The violation is accompanied by displacement in the new direction.\n\n642. A liquidity event (sweep) occurs in conjunction with the failure.\n\n643. The subsequent return to the Breaker occurs in the correct premium/discount location for the new direction.",
+        "Breaker vs Mitigation - The Practical Test": "The cleanest intermediate filter is:\n\n644. Body close through the far boundary of the original OB -> treat as Breaker (inverted polarity).\n\n645. Return into the zone without a body close through the far boundary -> treat as potential Mitigation / continuation in the original direction."
+      },
+      "dependencies": [],
+      "attribution_type": "research_compiled_secondary",
+      "cited_sources_in_text": [],
+      "book_location": {
+        "level": "intermediate",
+        "module_number": 5,
+        "module_title": "Order Blocks, Breakers & Mitigation",
+        "section_heading": "Breaker Block"
+      },
+      "confidence_note": "unspecified"
+    },
+    {
+      "id": "INT-M05-C05",
+      "kind": "concept",
+      "name": "Failed Order Block",
+      "definition": "unspecified - see raw_sections",
+      "ict_specific_meaning": "unspecified",
+      "what_changed_from_beginner_level": "unspecified",
+      "detection_criteria": [
+        "unspecified - see raw_sections"
+      ],
+      "numeric_or_narrative_example": "unspecified",
+      "why_it_matters": "unspecified",
+      "beginner_mistakes_or_misinterpretations": [],
+      "raw_sections": {
+        "Meaning": "A failed Order Block is simply an Order Block that did not hold when price returned. Failure is the precursor to Breaker classification. Not every failure produces a high-quality Breaker; the quality filters listed above still apply.",
+        "Response": "Once an Order Block has failed with a body close beyond its far side, the trader stops treating it as support/resistance in the original direction and re-evaluates it under the Breaker framework (or discards it if context is poor)."
+      },
+      "dependencies": [],
+      "attribution_type": "research_compiled_secondary",
+      "cited_sources_in_text": [],
+      "book_location": {
+        "level": "intermediate",
+        "module_number": 5,
+        "module_title": "Order Blocks, Breakers & Mitigation",
+        "section_heading": "Failed Order Block"
+      },
+      "confidence_note": "unspecified"
+    },
+    {
+      "id": "INT-M05-C06",
+      "kind": "concept",
+      "name": "Confluence: Order Block + FVG, Liquidity, MSS",
+      "definition": "unspecified - see raw_sections",
+      "ict_specific_meaning": "unspecified",
+      "what_changed_from_beginner_level": "unspecified",
+      "detection_criteria": [
+        "unspecified - see raw_sections"
+      ],
+      "numeric_or_narrative_example": "unspecified",
+      "why_it_matters": "unspecified",
+      "beginner_mistakes_or_misinterpretations": [],
+      "raw_sections": {
+        "Order Block + Fair Value Gap": "When an Order Block and a Fair Value Gap overlap (or the FVG sits immediately adjacent to the OB), the combined zone is higher confluence. Price is simultaneously at an institutional origin candle and inside an imbalance created by the same displacement leg.",
+        "Order Block + Liquidity": "The highest-quality Order Blocks are those that form after a liquidity raid and are themselves the origin of the displacement that leaves the raid behind. An OB that has no relationship to a liquidity event is lower priority.",
+        "Order Block + Market Structure Shift": "An Order Block that is the last opposing candle before a displacement that produces an MSS is structurally validated. The subsequent return to that OB is a return to the origin of a confirmed shift."
+      },
+      "dependencies": [],
+      "attribution_type": "research_compiled_secondary",
+      "cited_sources_in_text": [],
+      "book_location": {
+        "level": "intermediate",
+        "module_number": 5,
+        "module_title": "Order Blocks, Breakers & Mitigation",
+        "section_heading": "Confluence: Order Block + FVG, Liquidity, MSS"
+      },
+      "confidence_note": "unspecified"
+    },
+    {
+      "id": "INT-M05-C07",
+      "kind": "concept",
+      "name": "Practical PD-Array Hierarchy",
+      "definition": "unspecified - see raw_sections",
+      "ict_specific_meaning": "unspecified",
+      "what_changed_from_beginner_level": "unspecified",
+      "detection_criteria": [
+        "unspecified - see raw_sections"
+      ],
+      "numeric_or_narrative_example": "unspecified",
+      "why_it_matters": "unspecified",
+      "beginner_mistakes_or_misinterpretations": [],
+      "raw_sections": {
+        "Working Ranking (Intermediate)": "When multiple PD arrays exist in the same region of a dealing range, a practical intermediate ranking (strongest to weaker, all else equal) is:\n\n- Higher-timeframe structural levels and unmitigated higher-timeframe Order Blocks / FVGs.\n\n- Unmitigated Order Blocks that originated the most recent displacement + MSS.\n\n- Fair Value Gaps created by that same displacement (especially at Consequent Encroachment).\n\n- Breaker Blocks that meet quality filters.\n\n- Mitigation / partially mitigated arrays that still show reaction potential.\n\n- Lower-timeframe or heavily mitigated arrays.",
+        "Important Qualification": "Hierarchy is subordinate to context. A lower-ranked array that sits in perfect premium/discount location, after a clear liquidity event, and inside a higher-timeframe PD array can outrank a higher-ranked array that sits in the wrong half of the range or lacks displacement confirmation.\n\n***Source / Research note:** ICT presents Order Blocks, Breakers and related arrays as members of the broader PD-array family. Exact numerical rankings vary across community sources; the ranking above is a practical intermediate synthesis that prioritises unmitigated, displacement-validated, context-aligned arrays.*"
+      },
+      "dependencies": [],
+      "attribution_type": "research_compiled_secondary",
+      "cited_sources_in_text": [
+        "ICT presents Order Blocks, Breakers and related arrays as members of the broader PD-array family. Exact numerical rankings vary across community sources; the ranking above is a practical intermediate synthesis that prioritises unmitigated, displacement-validated, context-aligned arrays."
+      ],
+      "book_location": {
+        "level": "intermediate",
+        "module_number": 5,
+        "module_title": "Order Blocks, Breakers & Mitigation",
+        "section_heading": "Practical PD-Array Hierarchy"
+      },
+      "confidence_note": "ICT presents Order Blocks, Breakers and related arrays as members of the broader PD-array family. Exact numerical rankings vary across community sources; the ranking above is a practical intermediate synthesis that prioritises unmitigated, displacement-validated, context-aligned arrays."
+    }
+  ],
+  "rules": [
+    {
+      "id": "INT-M05-R01",
+      "kind": "rule",
+      "rule_type": "detection_criteria",
+      "statement": "High-quality Order Blocks: (1) form in association with a liquidity event (the displacement that leaves the OB often follows a raid); (2) are followed by genuine displacement (large-range candles, preferably leaving an FVG); (3) produce or accompany a Market Structure Shift; (4) remain unmitigated; (5) sit in the correct half of the dealing range relative to the intended trade direction (discount for bullish OBs, premium for bearish OBs). Weak Order Blocks: formed without displacement, without a preceding liquidity event, deep in the wrong half of the dealing range, or already heavily mitigated -- should be de-prioritised.",
+      "applies_to": [
+        "Order Block Formation"
+      ],
+      "conditions": [],
+      "exceptions_or_qualifiers": "unspecified",
+      "book_location": {
+        "level": "intermediate",
+        "module_number": 5,
+        "module_title": "Order Blocks, Breakers & Mitigation",
+        "section_heading": "Order Block Formation"
+      },
+      "attribution_type": "community_interpretation"
+    },
+    {
+      "id": "INT-M05-R02",
+      "kind": "rule",
+      "rule_type": "detection_criteria",
+      "statement": "Breaker vs Mitigation practical test: body close through the far boundary of the original Order Block -> treat as Breaker (inverted polarity). Return into the zone without a body close through the far boundary -> treat as potential Mitigation / continuation in the original direction.",
+      "applies_to": [
+        "Breaker Block",
+        "Mitigation Block"
+      ],
+      "conditions": [],
+      "exceptions_or_qualifiers": "Community definitions of Mitigation Block vary -- some presentations emphasise a failed expansion that never swept liquidity; others emphasise a simple retest that holds. The intermediate student should prioritise the observable test (body close through far boundary or not).",
+      "book_location": {
+        "level": "intermediate",
+        "module_number": 5,
+        "module_title": "Order Blocks, Breakers & Mitigation",
+        "section_heading": "Breaker Block / Mitigation Block"
+      },
+      "attribution_type": "community_interpretation"
+    },
+    {
+      "id": "INT-M05-R03",
+      "kind": "rule",
+      "rule_type": "detection_criteria",
+      "statement": "Breaker quality is elevated when: (1) the original Order Block was itself high-quality (liquidity + displacement + MSS); (2) the violation is accompanied by displacement in the new direction; (3) a liquidity event (sweep) occurs in conjunction with the violation.",
+      "applies_to": [
+        "Breaker Block"
+      ],
+      "conditions": [],
+      "exceptions_or_qualifiers": "unspecified",
+      "book_location": {
+        "level": "intermediate",
+        "module_number": 5,
+        "module_title": "Order Blocks, Breakers & Mitigation",
+        "section_heading": "Breaker Block"
+      },
+      "attribution_type": "community_interpretation"
+    },
+    {
+      "id": "INT-M05-R04",
+      "kind": "rule",
+      "rule_type": "confluence",
+      "statement": "Confluence rules: (1) Order Block + Fair Value Gap overlapping (or FVG immediately adjacent to OB) = higher confluence -- price is simultaneously at an institutional origin candle and inside an imbalance created by the same displacement. (2) Order Block + Liquidity: highest-quality OBs form after a liquidity raid and are themselves the origin of the displacement that leaves the raid behind; an OB with no relationship to a liquidity event is lower priority. (3) Order Block + MSS: an OB that is the last opposing candle before a displacement producing an MSS is structurally validated; the subsequent return to that OB is a return to the origin of a confirmed shift.",
+      "applies_to": [
+        "Confluence: Order Block + FVG, Liquidity, MSS"
+      ],
+      "conditions": [],
+      "exceptions_or_qualifiers": "unspecified",
+      "book_location": {
+        "level": "intermediate",
+        "module_number": 5,
+        "module_title": "Order Blocks, Breakers & Mitigation",
+        "section_heading": "Confluence: Order Block + FVG, Liquidity, MSS"
+      },
+      "attribution_type": "community_interpretation"
+    },
+    {
+      "id": "INT-M05-R05",
+      "kind": "rule",
+      "rule_type": "selection_procedure",
+      "statement": "Practical PD-array hierarchy (strongest to weaker, all else equal) when multiple PD arrays exist in the same region of a dealing range: (1) higher-timeframe structural levels and unmitigated HTF Order Blocks/FVGs; (2) unmitigated Order Blocks that originated the most recent displacement + MSS; (3) Fair Value Gaps created by that same displacement (especially at Consequent Encroachment); (4) Breaker Blocks that meet quality filters; (5) Mitigation / partially mitigated arrays that still show reaction potential; (6) lower-timeframe or heavily mitigated arrays.",
+      "applies_to": [
+        "Practical PD-Array Hierarchy"
+      ],
+      "conditions": [],
+      "exceptions_or_qualifiers": "Hierarchy is subordinate to context. A lower-ranked array in perfect premium/discount location, after a clear liquidity event, and inside a higher-timeframe PD array can outrank a higher-ranked array that sits in the wrong half of the range.",
+      "book_location": {
+        "level": "intermediate",
+        "module_number": 5,
+        "module_title": "Order Blocks, Breakers & Mitigation",
+        "section_heading": "Practical PD-Array Hierarchy"
+      },
+      "attribution_type": "community_interpretation"
+    }
+  ],
+  "strategies": [],
+  "examples": [
+    {
+      "id": "INT-M05-EX01",
+      "kind": "example",
+      "example_type": "worked_narrative",
+      "linked_concept_or_strategy_ids": [
+        "Order Block Formation",
+        "Mitigation Block",
+        "Breaker Block"
+      ],
+      "content": "Context: Bullish higher-timeframe bias. 1-hour dealing range in discount.\n\nPath A - Respected Order Block / Mitigation:\n\n646. Sell-side liquidity is raided. The last down-close candle before the subsequent bullish displacement is marked as a bullish Order Block.\n\n647. Displacement breaks a short-term high and leaves an FVG.\n\n648. Price later retraces into the Order Block (and the overlapping FVG), finds support without a body close below the OB low, and continues higher.\n\n649. This is a classic continuation / mitigation-style respect of the original OB.\n\nPath B - Breaker:\n\n650. The same bullish Order Block is later violated by a decisive body close below its low, accompanied by bearish displacement.\n\n651. Structure shifts bearishly.\n\n652. On the subsequent return to the former OB zone from below, the zone is treated as a bearish Breaker (resistance).\n\n653. Trade direction is now short, provided higher-timeframe context permits.",
+      "interpretation_given_in_text": "Traces the possible paths an Order Block can take (respected/mitigation vs failed/breaker) through a worked scenario.",
+      "book_location": {
+        "level": "intermediate",
+        "module_number": 5,
+        "module_title": "Order Blocks, Breakers & Mitigation",
+        "section_heading": "Worked Example - OB, Mitigation and Breaker Paths"
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "id": "INT-M05-REL01",
+      "kind": "cross_module_relationship",
+      "statement": "Liquidity and displacement (Modules 2 - 3) create the conditions for a high-quality Order Block. The FVG (Module 4) often sits in or next to that Order Block, supplying confluence. Mitigation describes the return visit. Failure of the Order Block produces the Breaker with inverted polarity. The PD-array hierarchy ranks these tools when several compete inside the same dealing range. All of them remain subordinate to the higher-timeframe narrative and the Draw on Liquidity.",
+      "involved_concepts": [
+        "Order Block Formation",
+        "Mitigation",
+        "Mitigation Block",
+        "Breaker Block",
+        "Failed Order Block",
+        "Confluence: Order Block + FVG, Liquidity, MSS",
+        "Practical PD-Array Hierarchy"
+      ],
+      "involved_modules": [
+        "Beginner Module 6",
+        "Intermediate Modules 1-4",
+        "Intermediate Module 6 (forward reference)"
+      ],
+      "book_location": {
+        "level": "intermediate",
+        "module_number": 5,
+        "module_title": "Order Blocks, Breakers & Mitigation",
+        "section_heading": "How These Concepts Connect"
+      }
+    }
+  ],
+  "no_trade_conditions": [
+    {
+      "id": "INT-M05-NT01",
+      "kind": "no_trade_rule",
+      "statement": "A fully mitigated Order Block in its original polarity is usually retired or re-evaluated as a potential Breaker rather than continuing to be traded as if the original zone still holds.",
+      "applies_to_strategy_ids": [],
+      "book_location": {
+        "level": "intermediate",
+        "module_number": 5,
+        "module_title": "Order Blocks, Breakers & Mitigation",
+        "section_heading": "Mitigation"
+      }
+    }
+  ],
+  "contradictions_or_ambiguities": [
+    {
+      "id": "INT-M05-AMB01",
+      "kind": "contradiction_or_ambiguity",
+      "description": "Community definitions of Mitigation Block vary -- some presentations emphasise a failed expansion that never swept liquidity; others emphasise a simple retest that holds. The book resolves this by prioritising the observable body-close test over competing definitions.",
+      "passage_a": {
+        "text": "Community definitions of Mitigation Block vary. Some presentations emphasise a failed expansion that never swept liquidity; others emphasise a simple retest that holds. The intermediate student should prioritise the observable test: did a body close through the far boundary or not?",
+        "book_location": {
+          "level": "intermediate",
+          "module_number": 5,
+          "module_title": "Order Blocks, Breakers & Mitigation",
+          "section_heading": "Mitigation Block"
+        }
+      },
+      "passage_b": {
+        "text": "unspecified - no single directly conflicting passage; multiple community variants are described generically.",
+        "book_location": {
+          "level": "intermediate",
+          "module_number": 5,
+          "module_title": "Order Blocks, Breakers & Mitigation",
+          "section_heading": "Mitigation Block"
+        }
+      },
+      "resolution_status": "resolved_in_source"
+    }
+  ],
+  "empirical_claims": [],
+  "module_review_notes": {
+    "key_terms": [
+      "Order Block (OB) - last opposing candle before displacement; presumed institutional origin.",
+      "Mitigation - return of price into a PD array that fills residual interest.",
+      "Mitigation Block - retest of an OB that holds (no body close through far side) and continues original direction.",
+      "Breaker Block - violated OB whose polarity inverts after a body close beyond the far boundary.",
+      "Failed Order Block - OB that does not hold on return; precursor to Breaker classification.",
+      "PD-array hierarchy - practical ranking of competing arrays by quality and context."
+    ],
+    "beginner_summary": "Beginner teaching introduced Order Blocks as the last candle before a strong move. Intermediate teaching adds quality filters (liquidity, displacement, MSS, premium/discount), the explicit concepts of mitigation and failure, the Breaker as inverted polarity after violation, and a working hierarchy among PD arrays.",
+    "concept_relationships_summary": "Displacement creates both the Order Block (origin) and the FVG (imbalance). Liquidity events raise the quality of both. Structure (MSS) validates the shift. Mitigation and Breaker describe the two main outcomes when price returns. Hierarchy decides which array to prioritise when several are present.",
+    "practical_chart_exercise": "On a liquid instrument, review the last several sessions on the 15-minute and 1-hour charts:\n\n- Mark every candidate Order Block that preceded a clear displacement.\n\n- Note which of those OBs were later revisited.\n\n- For each revisit, apply the body-close test and classify the outcome as respect/mitigation or violation/Breaker.\n\n- Record any confluence with an FVG or liquidity pool.\n\n- Rank the arrays that were present at the moment of the revisit using the hierarchy in this module.\n\n- Write a short assessment of which classifications would have led to the correct directional expectation.",
+    "self_test_questions": [
+      "What is the basic formation rule for a bullish Order Block?",
+      "List three quality filters that elevate an Order Block above a random down-close candle.",
+      "What is the practical body-close test that distinguishes a Mitigation-style respect from a Breaker?",
+      "When a bullish Order Block fails with a body close below its low, what polarity does the zone acquire on the return?",
+      "Why does overlap between an Order Block and a Fair Value Gap raise confluence?",
+      "How should a trader rank an unmitigated higher-timeframe Order Block against a lower-timeframe FVG in the same region?"
+    ],
+    "common_misconceptions": [
+      "\"Every down-close candle before an up-move is a high-probability Order Block.\" - False. Context and displacement quality are required.",
+      "\"Once marked, an Order Block is permanent support/resistance.\" - False. Mitigation and failure change its status.",
+      "\"Breaker and Mitigation Block are interchangeable terms.\" - False. The body-close test and resulting polarity differ.",
+      "\"The highest-ranked PD array always wins.\" - Overstated. Context (premium/discount, liquidity, HTF narrative) can override pure ranking.",
+      "\"If price wicks through an OB it has failed.\" - Not necessarily; a body close beyond the far boundary is the clearer failure signal."
+    ],
+    "research_sources_cited_in_text": []
+  }
+}

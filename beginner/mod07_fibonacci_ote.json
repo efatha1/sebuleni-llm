@@ -1,0 +1,553 @@
+{
+  "level": "beginner",
+  "module_number": 7,
+  "module_title": "Fibonacci & OTE",
+  "module_intro": "Every module so far has built toward one recurring question: once direction (bias) is known and a specific zone of interest (a PD array from Module 6) is known, exactly where, within a retracement, should an entry be placed? This module adapts the conventional Fibonacci retracement tool into a stricter ICT-specific framework -- dividing a price swing into premium and discount halves around an equilibrium midpoint, then narrowing into the Optimal Trade Entry (OTE) sub-zone -- and arrives at a complete entry zone: entry price, stop-loss, and profit target.",
+  "prerequisites_stated_in_text": "Assumes fluency with Displacement (Module 5), Market Structure Shift (Module 3), and PD Arrays (Module 6).",
+  "module_objectives": [
+    "correctly draw a Fibonacci retracement tool on a confirmed swing, anchored to candle bodies and in the correct direction",
+    "identify the equilibrium (50%) level of a dealing range and correctly classify price above and below it as premium or discount",
+    "name the four specific ICT Fibonacci levels emphasized in this framework and explain why 70.5% is treated as the \"sweet spot\"",
+    "identify the 62% - 79% OTE band on a simple price swing",
+    "explain why ICT-focused teaching insists on waiting for a genuine retracement into the OTE band rather than anticipating one",
+    "construct a complete entry zone from a price example, including an entry point refined by PD array confluence, a stop-loss, and a profit target"
+  ],
+  "concepts": [
+    {
+      "id": "BEG-M07-C01",
+      "kind": "concept",
+      "name": "Fibonacci Retracement",
+      "definition": "Fibonacci retracement is a charting tool that divides the vertical distance of a price swing into a series of horizontal levels based on ratios derived from the Fibonacci number sequence (most commonly 23.6%, 38.2%, 50%, 61.8%, and 78.6%), used to identify potential zones where a pullback within a larger move might pause or reverse.",
+      "ict_specific_meaning": "ICT-focused teaching adopts the general Fibonacci retracement tool from conventional technical analysis but applies it with a distinct set of rules and a narrower purpose. Rather than treating every standard Fibonacci level as an equally valid target, ICT-focused sources describe a specific, smaller set of levels - centered on 50%, 62%, 70.5%, and 79% - as the ones that matter most within this framework, discussed fully in the next two concepts.\n\nA specific and consistently repeated procedural rule across ICT-focused sources is that the Fibonacci tool should be drawn from candle body to candle body (open-to-close), not from wick to wick. The stated reasoning is that wicks are frequently the product of brief liquidity sweeps and vary in size across different brokers and data feeds, whereas candle bodies are considered to give a cleaner, more broker-consistent, and more repeatable set of levels.\n\nICT-focused sources are also consistent that the specific direction the tool is drawn in matters: for a bullish swing, the tool is drawn from the swing low up to the swing high; for a bearish swing, it is drawn from the swing high down to the swing low. Drawing the tool backward is described as a common and consequential beginner error, since it inverts which side of the range counts as a discount versus a premium (see Premium/Discount, developed further below).",
+      "beginner_explanation": "Imagine measuring the full height of a single up-and-down movement on a chart, then marking off that height in specific fractional slices - a third of the way back down, halfway back down, about two-thirds of the way back down, and so on. Fibonacci retracement is simply this act of slicing a price move into these specific fractional levels, based on a mathematical sequence of numbers that has, for reasons debated well beyond ICT's own framework, repeatedly shown up as a level where price pauses or reverses across many markets and historical periods.",
+      "detection_criteria": [
+        "Identify a clear, confirmed swing - a genuine impulse move formed by displacement (Module 5), not a slow, indecisive drift.",
+        "For a bullish swing, apply the Fibonacci retracement tool from the swing low (anchored at 100%) to the swing high (anchored at 0%), using candle body prices rather than wicks.",
+        "For a bearish swing, apply the tool from the swing high (anchored at 100%) down to the swing low (anchored at 0%), again using candle bodies.",
+        "Note the resulting horizontal levels, paying particular attention to 50%, 62%, 70.5%, and 79% - the specific levels ICT-focused teaching emphasizes, covered in the next two concepts."
+      ],
+      "preconditions": [
+        "unspecified"
+      ],
+      "numeric_or_narrative_example": "Bullish swing from a low of 100 to a high of 200 (candle body values)\n\nThe full swing spans 100 points (from 100 to 200). A 50% retracement of this swing sits at 150 (halfway back down). A 62% retracement sits at 138 (62% of the way back down from 200 toward 100). These specific price levels - 150, 138, and others - are what the Fibonacci retracement tool calculates and displays once anchored correctly to this swing.",
+      "what_it_tells_the_trader": "Fibonacci retracement tells the trader a set of specific, mathematically derived candidate price levels within a pullback where a reaction is historically plausible, giving an objective, repeatable way to anticipate how deep a retracement might go before the original move potentially resumes.\n\nIt does not tell the trader that price will retrace to any specific level, or that a level, once reached, will definitely produce a reaction rather than a continued move through it.",
+      "common_pairings": [
+        "ICT Fibonacci Framework",
+        "ICT Fibonacci Levels",
+        "Optimal Trade Entry (OTE)"
+      ],
+      "common_pairings_narrative": "Fibonacci retracement is the general mathematical tool; the next two concepts in this module describe specifically how ICT-focused teaching applies and restricts this general tool, and the Optimal Trade Entry concept describes the single most emphasized zone that results from this application.",
+      "framework_placement": {
+        "comes_before": "Requires Retracement (Module 1) and Displacement (Module 5) - a Fibonacci retracement is only meaningfully applied to a genuine, displacement-driven swing.",
+        "comes_after": "Feeds directly into the ICT Fibonacci Framework and ICT Fibonacci Levels."
+      },
+      "beginner_mistakes_or_misinterpretations": [
+        "Drawing the Fibonacci tool backward (high to low for a bullish swing, or low to high for a bearish swing), which inverts the resulting premium/discount reading.",
+        "Anchoring the tool to candle wicks instead of candle bodies, producing less consistent levels.",
+        "Applying Fibonacci retracement to a slow, indecisive drift rather than a genuine displacement-driven swing."
+      ],
+      "qualification_or_limits": "Fibonacci retracement levels are historically observed tendencies, not guaranteed turning points. Price frequently overshoots or falls short of any specific level, which is part of why ICT-focused teaching narrows its focus to a specific zone (OTE) and requires additional confirmation (structure, liquidity, PD arrays) rather than trading a bare Fibonacci level in isolation.",
+      "dependencies": [
+        "Retracement",
+        "Displacement  - a Fibonacci retracement is only meaningfully applied to a genuine",
+        "displacement-driven swing"
+      ],
+      "timeframe_relationship": "unspecified",
+      "attribution_type": "research_compiled_secondary",
+      "cited_sources_in_text": [
+        "arongroups.co - \"Optimal Trade Entry Techniques for ICT Traders.\"",
+        "tradingstrategyguides.com - \"Understanding ICT Optimal Trade Entry OTE With Fibonacci\" (candle-body-to-body drawing rule).",
+        "innercircletrader.net - \"ICT Fibonacci Settings - Exact Fib Levels, OTE 70.5% & Std Deviation.\""
+      ],
+      "book_location": {
+        "level": "beginner",
+        "module_number": 7,
+        "module_title": "Fibonacci & OTE",
+        "section_heading": "Fibonacci Retracement"
+      },
+      "confidence_note": "unspecified"
+    },
+    {
+      "id": "BEG-M07-C02",
+      "kind": "concept",
+      "name": "ICT Fibonacci Framework",
+      "definition": "The ICT Fibonacci framework is the specific set of rules governing how Fibonacci retracement is applied within ICT's method: drawn strictly from a genuine, displacement-confirmed swing, anchored on candle bodies, used to divide the swing into a premium half and a discount half around a 50% equilibrium point, with particular emphasis on the 62% - 79% sub-zone as the preferred entry area.",
+      "ict_specific_meaning": "ICT-focused sources describe this framework as distinct from a generic retail use of Fibonacci retracement in several specific ways: the swing being measured must be a genuine impulse formed by displacement (not an arbitrary or unconfirmed move); the direction and anchor points of the tool must be drawn precisely (candle body to candle body, in the correct direction for the trend); and Fibonacci is explicitly paired with a value-based framing - premium and discount - rather than being used as a standalone, self-sufficient signal.\n\nThe central organizing idea, described consistently across ICT-focused sources, is what several sources call the equilibrium rule: any given price swing (formally, the \"dealing range\" - the range between two alternating swing extremes) is divided exactly at its 50% midpoint into two halves. The lower half (below 50%) is the discount, the zone from which ICT-focused teaching favors buying. The upper half (above 50%) is the premium, the zone from which ICT-focused teaching favors selling.\n\nThis premium/discount framing is described as fractal and fully compatible with the multi-timeframe approach from Module 2: what counts as premium on a smaller timeframe's dealing range can simultaneously sit within the discount of a larger timeframe's dealing range, and vice versa - ICT-focused sources note this is exactly why higher-timeframe context remains essential even when a lower-timeframe premium/discount reading looks compelling on its own.",
+      "beginner_explanation": "Imagine a single up-move or down-move on a chart as a full price range, like a see-saw with a middle balance point. The ICT Fibonacci framework's first job is to find that exact middle balance point (equilibrium) and to label everything above it as \"expensive\" (premium, a good place to sell) and everything below it as \"cheap\" (discount, a good place to buy) - before then narrowing further, using the specific fractional levels of Fibonacci retracement, to pinpoint exactly how deep into \"cheap\" or \"expensive\" territory a trader should wait for price to go before acting.",
+      "detection_criteria": [
+        "Confirm a genuine, displacement-driven swing (the dealing range) using Module 5's criteria.",
+        "Apply the Fibonacci retracement tool correctly (body-to-body, correct direction) as described in the previous concept.",
+        "Mark the 50% level as equilibrium, dividing the dealing range into premium (above 50%) and discount (below 50%).",
+        "For a bullish bias, plan to look for entries only within the discount half; for a bearish bias, plan to look for entries only within the premium half.",
+        "Narrow further within the correct half using the specific 62% - 79% zone, developed fully in the next two concepts."
+      ],
+      "preconditions": [
+        "unspecified"
+      ],
+      "numeric_or_narrative_example": "Bullish dealing range from a low of 100 to a high of 200\n\nEquilibrium sits at 150 (the 50% midpoint). Prices from 100 to 150 are the discount half - the zone ICT's framework favors for buying, since a bullish bias is in play. Prices from 150 to 200 are the premium half - a zone this framework would generally avoid for new long entries, since buying there would mean paying a relatively expensive price relative to the full swing.",
+      "what_it_tells_the_trader": "The ICT Fibonacci framework tells the trader not just where a retracement level sits mathematically, but which half of the current swing represents good relative value for the intended direction of a trade - turning a generic Fibonacci tool into a value-oriented decision aid tied to the prevailing bias.\n\nIt does not tell the trader that price is guaranteed to reach the discount (or premium) half before continuing, nor does it replace the need for structural and liquidity confirmation covered in earlier modules.",
+      "common_pairings": [
+        "ICT Fibonacci Levels",
+        "Optimal Trade Entry (OTE)",
+        "HTF/LTF Relationship (Module 2)"
+      ],
+      "common_pairings_narrative": "This framework is the direct conceptual bridge between the general Fibonacci retracement tool and the specific, narrow OTE zone ICT-focused teaching centers on; its fractal, multi-timeframe nature also directly reuses the HTF/LTF relationship established in Module 2.",
+      "framework_placement": {
+        "comes_before": "Requires Fibonacci Retracement.",
+        "comes_after": "Feeds directly into ICT Fibonacci Levels and Optimal Trade Entry (OTE)."
+      },
+      "beginner_mistakes_or_misinterpretations": [
+        "Treating premium and discount as fixed price levels rather than relative positions within a specific, currently relevant dealing range.",
+        "Buying in premium or selling in discount purely because a trade \"feels\" right, ignoring the framework's core value-based logic.",
+        "Forgetting that premium/discount is fractal - a price that is discount on a smaller timeframe's range can simultaneously be premium on a larger timeframe's range."
+      ],
+      "qualification_or_limits": "The premium/discount, equilibrium-based framing describes a preference for relative value, not a guarantee that price will behave accordingly. A strongly trending market can remain in premium (during an uptrend) or discount (during a downtrend) for extended periods without ever retracing to the \"preferred\" half, particularly as the dealing range itself expands with each new high or low.",
+      "dependencies": [
+        "Fibonacci Retracement"
+      ],
+      "timeframe_relationship": "unspecified",
+      "attribution_type": "research_compiled_secondary",
+      "cited_sources_in_text": [
+        "fxnx.com - \"ICT Dealing Range: Institutional Order Flow Guide\" and \"ICT Fibonacci & OTE: A Trader's Guide to the Golden Entry.\"",
+        "theinnercircletraders.com - \"ICT Premium and Discount Zones: Where to Buy and Sell.\"",
+        "TradingView (FibAlgo) - \"ICT Premium & Discount\" indicator documentation (equilibrium/premium/discount mechanics)."
+      ],
+      "book_location": {
+        "level": "beginner",
+        "module_number": 7,
+        "module_title": "Fibonacci & OTE",
+        "section_heading": "ICT Fibonacci Framework"
+      },
+      "confidence_note": "unspecified"
+    },
+    {
+      "id": "BEG-M07-C03",
+      "kind": "concept",
+      "name": "ICT Fibonacci Levels",
+      "definition": "The ICT Fibonacci levels are the specific, restricted subset of retracement percentages ICT-focused teaching emphasizes: 50% (equilibrium), 62% (the entry zone's shallow boundary), 70.5% (the \"sweet spot\"), and 79% (the entry zone's deep boundary) - together with negative extension levels (commonly −27% and −62%) used for profit targets.",
+      "ict_specific_meaning": "ICT-focused sources consistently describe 70.5% as functioning as the equilibrium of the narrower 62% - 79% band itself - that is, 70.5% is described across multiple sources as the mathematical midpoint between 62% and 79%, treated as a kind of \"equilibrium within the equilibrium zone,\" and cited as the single most emphasized specific level in the entire ICT Fibonacci framework.\n\nSeveral ICT-focused sources attribute the specific significance of the 70.5% level directly to Michael J. Huddleston, describing it as the level he identified as the center of the zone where institutional order flow is expected to be most concentrated during a retracement - distinguishing this from a standard retail use of the 61.8% (\"golden ratio\") level alone.\n\nFor profit targets, ICT-focused sources commonly cite negative Fibonacci extension levels - most frequently −27% and −62% (occasionally −100% or further) - projected beyond the 0% end of the original swing, used as candidate objectives once a trade taken from the OTE zone begins to move favorably.",
+      "beginner_explanation": "If the ICT Fibonacci framework is the overall idea of \"expensive versus cheap,\" the ICT Fibonacci levels are the exact numbered rungs on that ladder that this method cares about most: a broad halfway marker (50%), a starting gate for the zone of interest (62%), a specifically favored bullseye in the middle of that zone (70.5%), and a fallback boundary marking how far the ladder is allowed to go before the whole idea is considered broken (79%).",
+      "detection_criteria": [
+        "On a properly drawn Fibonacci retracement (body-to-body, correct direction), locate the 50%, 62%, 70.5%, and 79% levels specifically.",
+        "Mark the 62% - 79% span visually as a distinct zone, separate from the rest of the retracement tool.",
+        "Give particular attention to the 70.5% level within that span as the highest-emphasized single price.",
+        "For profit-target planning, locate the −27% and −62% extension levels projected beyond the original swing's 0% point."
+      ],
+      "preconditions": [
+        "unspecified"
+      ],
+      "numeric_or_narrative_example": "Bullish dealing range from a low of 100 to a high of 200 (100-point swing)\n\n50% (equilibrium) = 150. 62% = 138. 70.5% (the sweet spot) = 129.5. 79% = 121. The zone from 138 down to 121 is the area of specific interest, with 129.5 as the most emphasized single level within it. A −27% extension beyond the original 200 high would sit at approximately 227, and a −62% extension would sit at approximately 262 - both candidate profit targets if a long trade taken near 129.5 moves favorably.",
+      "what_it_tells_the_trader": "The ICT Fibonacci levels tell the trader precisely which handful of prices, out of the many percentages a generic Fibonacci tool can display, are worth focused attention for both entries (62% - 79%, especially 70.5%) and targets (the negative extensions).\n\nThey do not tell the trader that price will reach any specific one of these levels exactly, nor do the specific numbers (such as 70.5%) carry any claimed predictive power outside the context of a genuine displacement-driven swing with proper structural and liquidity confirmation.",
+      "common_pairings": [
+        "ICT Fibonacci Framework",
+        "Optimal Trade Entry (OTE)",
+        "Order Block / FVG (Module 6, for confluence)"
+      ],
+      "common_pairings_narrative": "These specific levels are the mechanical foundation the OTE concept is built directly on top of, and ICT-focused sources consistently recommend checking whether an Order Block or Fair Value Gap happens to overlap with the 62% - 79% zone, treating such an overlap as meaningful confluence.",
+      "framework_placement": {
+        "comes_before": "Requires ICT Fibonacci Framework.",
+        "comes_after": "Feeds directly into Optimal Trade Entry (OTE), Retracement into OTE, and Entry Zone."
+      },
+      "beginner_mistakes_or_misinterpretations": [
+        "Using only the standard retail 61.8% level and assuming it is equivalent to ICT's 70.5% \"sweet spot\" - the two are related but are not treated as the same specific level within this framework.",
+        "Ignoring the 79% boundary and continuing to treat a retracement beyond it as still within a valid entry zone.",
+        "Forgetting to check for PD array confluence (Module 6) within the 62% - 79% band, and instead trading the Fibonacci levels in complete isolation."
+      ],
+      "qualification_or_limits": "The specific numeric levels described here (particularly 70.5%) are widely and consistently documented across ICT-focused secondary sources as central to the method, but this book was unable to directly verify the exact original ICT lecture in which these numbers were first introduced. The consistency of the numbers across many independent sources supports treating them as genuinely representative of ICT-focused teaching, even without a directly quoted primary transcript.",
+      "dependencies": [
+        "ICT Fibonacci Framework"
+      ],
+      "timeframe_relationship": "unspecified",
+      "attribution_type": "research_compiled_secondary",
+      "cited_sources_in_text": [
+        "grandalgo.com - \"ICT OTE: How to Trade the 62% to 79% Optimal Trade Entry Zone\" (70.5% as midpoint/equilibrium of the OTE zone).",
+        "backtrex.com - \"ICT OTE: mastering Optimal Trade Entry with Fibonacci\" (70.5% attributed to Michael Huddleston as \"the official OTE level\").",
+        "innercircletrader.net - \"ICT Fibonacci Settings - Exact Fib Levels, OTE 70.5% & Std Deviation\" (specific extension levels: −0.27, −0.62, −1.0, −2.0, −2.5, −4.0).",
+        "fxnx.com - \"ICT Fibonacci Settings: The OTE Levels Pro Traders Use\" and \"ICT Fibonacci Retracement: Master the OTE Zone.\""
+      ],
+      "book_location": {
+        "level": "beginner",
+        "module_number": 7,
+        "module_title": "Fibonacci & OTE",
+        "section_heading": "ICT Fibonacci Levels"
+      },
+      "confidence_note": "unspecified"
+    },
+    {
+      "id": "BEG-M07-C04",
+      "kind": "concept",
+      "name": "OTE (Optimal Trade Entry)",
+      "definition": "The Optimal Trade Entry (OTE) is the specific 62% - 79% Fibonacci retracement zone of a confirmed, displacement-driven swing, treated within ICT's framework as the highest-probability, most favorable-risk-to-reward area to enter a trade in the direction of the original swing once price retraces into it.",
+      "ict_specific_meaning": "ICT-focused sources are highly consistent that OTE is a location, not a standalone signal - several sources explicitly warn against treating the mere arrival of price within the 62% - 79% band as sufficient reason to enter, emphasizing instead that OTE must be combined with higher-timeframe bias, genuine displacement in the swing being measured, and ideally confluence with a PD array (Order Block, Fair Value Gap, or Breaker Block) from Module 6.\n\nThe reasoning given for why this specific zone is favored, repeated across many sources, is a risk-to-reward argument: entering deep into a retracement (62% - 79% back toward the swing's origin) keeps a trader's stop-loss (placed just beyond the 100% level, the original swing extreme) relatively tight, while the potential reward - targeting the prior swing high/low and beyond - remains large, producing a favorable ratio between risk taken and reward sought.\n\nMultiple sources describe OTE as fractal, usable on any timeframe from monthly charts down to one-minute charts, but most powerful when a lower-timeframe OTE setup aligns with the higher-timeframe trend - directly reusing the HTF/LTF relationship from Module 2.",
+      "beginner_explanation": "After a strong move in one direction, price often doesn't just keep going in a straight line - it pulls back first. OTE describes a specific, fairly deep portion of that pullback (roughly two-thirds to four-fifths of the way back toward where the move started) that ICT-focused teaching treats as an especially good place to consider joining the original move, because you're getting a relatively good price (close to where the move began) while still expecting the original direction to resume.",
+      "detection_criteria": [
+        "Confirm a higher-timeframe bias (Module 2/10) supporting the direction of the swing being measured.",
+        "Identify a genuine, displacement-confirmed impulse swing (Module 5) rather than a slow, indecisive move.",
+        "Draw the Fibonacci retracement tool correctly (body-to-body, correct direction) across this swing.",
+        "Mark the 62% - 79% band, with particular attention to 70.5%.",
+        "Wait for price to actually retrace into this band - do not anticipate or enter before the retracement occurs."
+      ],
+      "preconditions": [
+        "unspecified"
+      ],
+      "numeric_or_narrative_example": "Bullish swing from 100 (low) to 200 (high); price retraces to 130\n\nThe 62% level of this swing sits at 138, the 70.5% sweet spot sits at approximately 129.5, and the 79% level sits at 121. A retracement to 130 places price essentially right at the 70.5% sweet spot, inside the broader 62% - 79% OTE band - under ICT's framework, this would be marked as the zone of specific interest for a potential long entry, assuming higher-timeframe bias and PD array confluence also support it.\n\n200 (0%, swing high)\n|\n150 (50%, equilibrium)\n|\n138 (62%) - OTE zone start\n129.5 (70.5%) - sweet spot <- price retraces to ~130\n121 (79%) - OTE zone end\n|\n100 (100%, swing low / invalidation)",
+      "what_it_tells_the_trader": "OTE tells the trader a specific, favorable-risk-to-reward zone within an already-confirmed retracement, providing an objective location to focus attention rather than guessing at an arbitrary entry price during the pullback.\n\nIt does not tell the trader that price will necessarily reach this zone at all, or that a genuine reaction will occur there rather than a continued move through it toward the full 100% invalidation level. ICT-focused sources are explicit that OTE alone, without HTF context and PD array confluence, produces a meaningfully lower success rate than OTE combined with that additional confirmation.",
+      "common_pairings": [
+        "ICT Fibonacci Levels",
+        "Order Block / Fair Value Gap (Module 6)",
+        "Market Structure Shift (Module 3)"
+      ],
+      "common_pairings_narrative": "OTE is most reliable, according to consistently repeated guidance across sources, when the 62% - 79% zone overlaps with an Order Block or Fair Value Gap, and when the retracement follows a confirmed Market Structure Shift establishing the new directional bias being retraced within.",
+      "framework_placement": {
+        "comes_before": "Requires ICT Fibonacci Levels.",
+        "comes_after": "Feeds directly into Retracement into OTE and Entry Zone, and ultimately into the ICT Buy/Sell Models (Modules 11 - 12), where OTE is one of the specific tools used to time entries."
+      },
+      "beginner_mistakes_or_misinterpretations": [
+        "Entering a trade as soon as price approaches the 62% level, without waiting to see whether it continues deeper into the zone or reacts immediately.",
+        "Treating OTE as a complete, standalone trading system rather than one component that still requires HTF bias and PD array confirmation.",
+        "Placing a stop-loss inside the OTE zone itself rather than beyond the full 100% swing extreme, risking a premature stop-out from ordinary volatility within the zone."
+      ],
+      "qualification_or_limits": "OTE describes a favorable location for a retracement entry, not a guaranteed reversal point. Multiple sources cite an approximate 55 - 60% standalone success rate for OTE used without additional confluence, rising notably higher when combined with Order Block or Fair Value Gap confirmation - figures that should be understood as general, source-reported approximations rather than precisely verified statistics.",
+      "dependencies": [
+        "ICT Fibonacci Levels"
+      ],
+      "timeframe_relationship": "unspecified",
+      "attribution_type": "community_interpretation",
+      "cited_sources_in_text": [
+        "liquidityhunters.cl - \"Optimal Trade Entry (OTE) - ICT 62-79% Fibonacci Zone Explained\" (55 - 60% standalone win-rate figure, rising above 70% with OB/FVG confluence, as reported by this source).",
+        "theinnercircletraders.com - \"OTE in Trading: The ICT Optimal Trade Entry Explained.\"",
+        "grandalgo.com - \"ICT OTE: How to Trade the 62% to 79% Optimal Trade Entry Zone.\"",
+        "tradingfinder.com - \"What Is the OTE Strategy? Optimal Entry & Key Fibonacci Levels in ICT.\""
+      ],
+      "book_location": {
+        "level": "beginner",
+        "module_number": 7,
+        "module_title": "Fibonacci & OTE",
+        "section_heading": "OTE (Optimal Trade Entry)"
+      },
+      "confidence_note": "The specific standalone-versus-confluence win-rate percentages cited above come from one secondary source's stated figures and should be treated as an illustrative, source-reported claim rather than an independently verified statistic; no primary ICT source with formal win-rate statistics was accessible in this research pass."
+    },
+    {
+      "id": "BEG-M07-C05",
+      "kind": "concept",
+      "name": "Retracement into OTE",
+      "definition": "Retracement into OTE describes the specific process, following a confirmed displacement move and Market Structure Shift, of waiting for price to pull back and actually enter the 62% - 79% Fibonacci zone of that move before considering an entry - the practical, procedural application of the OTE concept within a live trading sequence.",
+      "ict_specific_meaning": "Where the previous concept (OTE) defines what the zone is, this concept addresses the specific sequencing and patience required to use it correctly. ICT-focused sources repeatedly stress a specific order of operations: first confirm HTF bias, then wait for a genuine displacement move and Market Structure Shift establishing a new directional leg, then draw the Fibonacci tool on that specific leg, and only then wait - without anticipating - for price to actually retrace into the 62% - 79% band.\n\nMultiple sources explicitly warn against \"chasing\" - entering before the retracement into OTE has actually occurred, based on an assumption that it will happen - describing this as one of the most common and costly mistakes among traders newer to the concept.\n\nSources also describe watching for a specific confirmation once price is inside the zone: some form of lower-timeframe reaction (a candlestick rejection pattern, a lower-timeframe Market Structure Shift, or a reaction precisely at the 70.5% sweet spot) rather than treating mere arrival within the band as sufficient by itself.",
+      "beginner_explanation": "This concept is really about patience and sequencing rather than a new idea: having already learned what the OTE zone is, this is the specific discipline of waiting for price to genuinely travel into that zone - not jumping in early because you expect it to get there, and not giving up on the idea just because the pullback is taking a while to develop.",
+      "detection_criteria": [
+        "Confirm HTF bias, a genuine displacement move, and (per this book's working definition) a Market Structure Shift establishing the new directional leg (Modules 2, 3, and 5).",
+        "Draw the Fibonacci retracement tool on this specific leg, correctly anchored.",
+        "Wait, without entering, while price begins to pull back.",
+        "Only once price actually trades into the 62% - 79% band should the trader begin watching closely for a specific lower-timeframe confirmation signal."
+      ],
+      "preconditions": [
+        "unspecified"
+      ],
+      "numeric_or_narrative_example": "Bullish MSS confirmed at 200 (swing high). Price retraces: 200 → 180 → 160 → 140 → 129 (inside OTE) → 145 (reaction)\n\nA trader following this process would not act at 180, 160, or even 140 - all are still short of the OTE zone (138 - 121, given a 100 - 200 swing). Only once price reaches 129 - genuinely inside the 62% - 79% band - would the trader begin watching closely for a reaction, such as the subsequent move back up to 145, before considering an entry.",
+      "what_it_tells_the_trader": "This concept tells the trader specifically when, in the sequence of events, it becomes appropriate to start paying close attention for an entry signal - distinguishing between the zone existing on a chart (which can be drawn immediately after a swing forms) and the zone actually being reached (which may or may not happen, and may take considerable time).\n\nIt does not tell the trader that a retracement into OTE, once it occurs, is itself sufficient grounds for an entry - a specific confirmation signal, discussed further in the next concept, is still expected.",
+      "common_pairings": [
+        "OTE",
+        "Entry Zone",
+        "Lower-Timeframe Uses (Module 2)"
+      ],
+      "common_pairings_narrative": "This concept is the connective, procedural link between the general OTE definition and the specific mechanics of actually executing an entry, which is where the lower-timeframe confirmation tools from Module 2 are put into practice.",
+      "framework_placement": {
+        "comes_before": "Requires OTE.",
+        "comes_after": "Feeds directly into Entry Zone."
+      },
+      "beginner_mistakes_or_misinterpretations": [
+        "Entering before price has genuinely reached the 62% - 79% band, based on an assumption or hope that it will get there.",
+        "Abandoning a valid setup too early because the retracement is taking longer to develop than expected, without a specific invalidation reason (such as a break of the 100% level).",
+        "Treating the mere arrival of price inside the OTE band as itself sufficient confirmation, without waiting for any further lower-timeframe signal."
+      ],
+      "qualification_or_limits": "Waiting for a retracement into OTE means some valid moves will never be entered at all, if price never pulls back far enough - this is treated as an acceptable trade-off for a more favorable risk-to-reward ratio on the setups that do occur, not a flaw in the method.",
+      "dependencies": [
+        "OTE"
+      ],
+      "timeframe_relationship": "unspecified",
+      "attribution_type": "research_compiled_secondary",
+      "cited_sources_in_text": [
+        "tradingstrategyguides.com - \"Understanding ICT Optimal Trade Entry OTE With Fibonacci\" (five-step OTE entry checklist).",
+        "tradingfinder.com - \"What Is the OTE Strategy? Optimal Entry & Key Fibonacci Levels in ICT\" (entry checklist emphasizing candlestick confirmation before entry)."
+      ],
+      "book_location": {
+        "level": "beginner",
+        "module_number": 7,
+        "module_title": "Fibonacci & OTE",
+        "section_heading": "Retracement into OTE"
+      },
+      "confidence_note": "unspecified"
+    },
+    {
+      "id": "BEG-M07-C06",
+      "kind": "concept",
+      "name": "Entry Zone",
+      "definition": "The entry zone is the final, specific price area - typically the 62% - 79% OTE band, narrowed further by confluence with a PD array such as an Order Block or Fair Value Gap - where a trader actually places an order, together with the accompanying stop-loss (beyond the 100% swing extreme) and profit target (at prior liquidity or a negative Fibonacci extension).",
+      "ict_specific_meaning": "ICT-focused sources describe the entry zone as the practical output of everything covered so far in this module and the preceding ones: a location defined by OTE, refined by PD array confluence (Module 6), aligned with HTF bias (Module 2), and triggered by a lower-timeframe confirmation signal such as a candlestick rejection or lower-timeframe structure shift.\n\nA consistent stop-loss placement rule across sources is to place the stop just beyond the 100% Fibonacci level - the original swing extreme the retracement was measured from - reasoning that a break beyond this point would invalidate the entire premise of the retracement (the swing would no longer be intact).\n\nA consistent profit-target rule across sources is to use either the prior opposing swing high/low (a liquidity target, per Module 4) or the negative Fibonacci extension levels (commonly −27% and −62%) projected beyond the original 0% point of the measured swing.",
+      "beginner_explanation": "The entry zone is where all the earlier ideas in this module finally turn into an actual decision: not just \"this general area looks interesting,\" but a specific price to buy or sell at, a specific price where you'd admit the idea was wrong (the stop-loss), and a specific price where you'd consider the idea successful enough to take profit (the target).",
+      "detection_criteria": [
+        "Confirm price has retraced into the OTE band (62% - 79%) following a genuine displacement move and HTF-aligned bias.",
+        "Check for confluence: does an Order Block, Fair Value Gap, or Breaker Block (Module 6) overlap with this same band?",
+        "Wait for a lower-timeframe confirmation signal at or near this zone.",
+        "Set the entry near the confirmed reaction point (often near the 70.5% sweet spot, or the specific boundary of the overlapping PD array).",
+        "Place the stop-loss just beyond the 100% level (the original swing extreme).",
+        "Set the profit target at the prior opposing liquidity pool (Module 4) or at a negative Fibonacci extension level."
+      ],
+      "preconditions": [
+        "unspecified"
+      ],
+      "numeric_or_narrative_example": "Bullish swing 100→200. OTE band: 138 (62%) to 121 (79%). A bullish Order Block also sits at 125 - 128. Price reacts at 127.\n\nBecause the Order Block (125 - 128) overlaps with the OTE band (121 - 138), this confluence zone is treated as the specific entry zone. A trader might place a long entry near 127, a stop-loss just below 100 (the original swing low), and a target at the prior swing high (200) or beyond, at a negative extension level such as approximately 227 (a −27% extension).",
+      "what_it_tells_the_trader": "The entry zone tells the trader the complete, specific plan for a trade - not just a vague area of interest, but an entry price, an invalidation point, and a target - turning the accumulated analysis from this entire book so far into an executable decision.\n\nIt does not tell the trader that the trade will succeed. Every component of the entry zone (OTE, PD array confluence, HTF bias, lower-timeframe confirmation) improves the presumed quality of the setup without eliminating the underlying uncertainty of any individual trade.",
+      "common_pairings": [
+        "Retracement into OTE",
+        "Order Block / FVG confluence (Module 6)",
+        "Target Liquidity (Modules 11 - 12)"
+      ],
+      "common_pairings_narrative": "The entry zone is the culmination of the retracement-into-OTE process, refined by PD array confluence, and directly feeds into the target liquidity concept used in the ICT Buy and Sell Models to determine where a trade is ultimately aimed.",
+      "framework_placement": {
+        "comes_before": "Requires Retracement into OTE and, ideally, Order Block / Fair Value Gap confluence (Module 6).",
+        "comes_after": "Concludes Module 7 and feeds directly into Module 8 (Time & Trading Sessions, since entries are further refined by session timing) and ultimately into the full ICT Buy/Sell Models (Modules 11 - 12)."
+      },
+      "beginner_mistakes_or_misinterpretations": [
+        "Entering at the first touch of the OTE band without confirming PD array confluence or a lower-timeframe signal.",
+        "Placing a stop-loss too close to the entry (inside the OTE zone itself) rather than beyond the full 100% swing extreme.",
+        "Setting a profit target without reference to actual prior liquidity or a specific Fibonacci extension, relying instead on an arbitrary number."
+      ],
+      "qualification_or_limits": "An entry zone, however carefully constructed, remains a probabilistic setup, not a certainty. This book, consistent with the guidance found across ICT-focused sources, treats every component covered in this module as a way of improving the quality and consistency of a trader's decision-making process, not as a way of eliminating risk.",
+      "dependencies": [
+        "Retracement into OTE",
+        "ideally Order Block / Fair Value Gap confluence (Module 6)"
+      ],
+      "timeframe_relationship": "unspecified",
+      "attribution_type": "research_compiled_secondary",
+      "cited_sources_in_text": [
+        "fxnx.com - \"ICT Optimal Trade Entry: Mastering the Time-Price Matrix\" and \"ICT OTE: Precision Entries for Forex Traders\" (stop and target placement rules).",
+        "theinnercircletraders.com - \"OTE in Trading: The ICT Optimal Trade Entry Explained\" (100% level as stop reference).",
+        "ictsniperkills.substack.com - \"Optimal Trade Entry (OTE) in Trading\" (full bullish/bearish setup checklists, target and stop placement)."
+      ],
+      "book_location": {
+        "level": "beginner",
+        "module_number": 7,
+        "module_title": "Fibonacci & OTE",
+        "section_heading": "Entry Zone"
+      },
+      "confidence_note": "unspecified"
+    }
+  ],
+  "rules": [
+    {
+      "id": "BEG-M07-R01",
+      "kind": "rule",
+      "rule_type": "detection_criteria",
+      "statement": "Fibonacci retracement must be drawn body-to-body (using candle body prices rather than wicks), anchored correctly by direction: bullish swing anchored from the swing low (100%) to swing high (0%); bearish swing anchored from swing high (100%) down to swing low (0%).",
+      "applies_to": [
+        "Fibonacci Retracement",
+        "ICT Fibonacci Framework"
+      ],
+      "conditions": [],
+      "exceptions_or_qualifiers": "unspecified",
+      "book_location": {
+        "level": "beginner",
+        "module_number": 7,
+        "module_title": "Fibonacci & OTE",
+        "section_heading": "Fibonacci Retracement"
+      },
+      "attribution_type": "community_interpretation"
+    },
+    {
+      "id": "BEG-M07-R02",
+      "kind": "rule",
+      "rule_type": "confluence",
+      "statement": "The 50% level marks equilibrium, dividing the dealing range into premium (above 50%) and discount (below 50%). For a bullish bias, look for entries only within the discount half; for a bearish bias, look for entries only within the premium half.",
+      "applies_to": [
+        "ICT Fibonacci Framework"
+      ],
+      "conditions": [],
+      "exceptions_or_qualifiers": "A strongly trending market can remain in premium (uptrend) or discount (downtrend) for extended periods without retracing to the 'preferred' half, particularly as the dealing range expands with each new high or low.",
+      "book_location": {
+        "level": "beginner",
+        "module_number": 7,
+        "module_title": "Fibonacci & OTE",
+        "section_heading": "ICT Fibonacci Framework"
+      },
+      "attribution_type": "community_interpretation"
+    },
+    {
+      "id": "BEG-M07-R03",
+      "kind": "rule",
+      "rule_type": "detection_criteria",
+      "statement": "The Optimal Trade Entry (OTE) band is the 62%-79% Fibonacci retracement zone, with particular emphasis on the 70.5% level. Profit-target planning uses the -27% and -62% extension levels projected beyond the original swing's 0% point.",
+      "applies_to": [
+        "ICT Fibonacci Levels",
+        "OTE (Optimal Trade Entry)"
+      ],
+      "conditions": [],
+      "exceptions_or_qualifiers": "The book could not directly verify the exact original ICT lecture introducing these specific numbers (especially 70.5%), though they are widely and consistently documented across ICT-focused secondary sources.",
+      "book_location": {
+        "level": "beginner",
+        "module_number": 7,
+        "module_title": "Fibonacci & OTE",
+        "section_heading": "ICT Fibonacci Levels"
+      },
+      "attribution_type": "community_interpretation"
+    }
+  ],
+  "strategies": [
+    {
+      "id": "BEG-M07-S01",
+      "kind": "strategy_component",
+      "name": "OTE Entry Zone Construction",
+      "parent_strategy_id": null,
+      "context": {
+        "htf_bias_required": "A higher-timeframe bias (Module 2/10) supporting the direction of the swing being measured.",
+        "session_or_time": "unspecified in this module",
+        "other_context": "A genuine, displacement-confirmed impulse swing (Module 5) must exist -- not a slow, indecisive move."
+      },
+      "setup": [
+        "Draw the Fibonacci retracement tool correctly (body-to-body, correct direction) across the displacement swing.",
+        "Mark the 62%-79% band, with particular attention to 70.5%.",
+        "Wait, without entering, while price begins to pull back -- do not anticipate or enter before the retracement occurs.",
+        "Once price actually trades into the 62%-79% band, check for confluence: does an Order Block, Fair Value Gap, or Breaker Block (Module 6) overlap with this same band?",
+        "Wait for a lower-timeframe confirmation signal at or near this zone."
+      ],
+      "entry_condition": "Set the entry near the confirmed reaction point, often near the 70.5% 'sweet spot,' or the specific boundary of the overlapping PD array, once an LTF confirmation signal appears.",
+      "invalidation_or_stop": "Stop-loss placed just beyond the 100% level (the original swing extreme).",
+      "target_or_exit": "Profit target at the prior opposing liquidity pool (Module 4) or at a negative Fibonacci extension level (-27% or -62%).",
+      "trade_management_rules": [
+        "unspecified in this module (developed further in Modules 11-12 and Intermediate Module 12)"
+      ],
+      "sequencing_steps_verbatim_order": [
+        "Confirm HTF bias, a genuine displacement move, and (per this book's working definition) a Market Structure Shift establishing the new directional leg.",
+        "Draw the Fibonacci retracement tool on this specific leg, correctly anchored.",
+        "Wait, without entering, while price begins to pull back.",
+        "Only once price actually trades into the 62%-79% band should the trader begin watching closely for a specific lower-timeframe confirmation signal.",
+        "Check for PD array confluence in that band.",
+        "Enter near the confirmed reaction point once LTF confirmation appears.",
+        "Place stop beyond the 100% level.",
+        "Set target at prior opposing liquidity or a negative Fibonacci extension."
+      ],
+      "eligibility_checklist": [],
+      "specificity_status": "partially_specified",
+      "missing_elements": [
+        "The exact lower-timeframe confirmation signal/trigger is not precisely defined within this module -- it is developed via Market Structure Shift sequencing in Modules 11-12."
+      ],
+      "worked_example_ref": null,
+      "book_location": {
+        "level": "beginner",
+        "module_number": 7,
+        "module_title": "Fibonacci & OTE",
+        "section_heading": "Entry Zone / Retracement into OTE"
+      },
+      "attribution_type": "community_interpretation"
+    }
+  ],
+  "examples": [],
+  "relationships": [
+    {
+      "id": "BEG-M07-REL01",
+      "kind": "cross_module_relationship",
+      "statement": "This module narrows its focus in four clear stages. Fibonacci Retracement introduces the general mathematical tool. The ICT Fibonacci Framework restricts and directs that tool with ICT-specific rules - body-to-body anchoring, correct directionality, and the premium/discount, equilibrium-based value framing. ICT Fibonacci Levels then narrows the many possible retracement percentages down to the small handful ICT-focused teaching actually emphasizes: 50%, 62%, 70.5%, and 79%, plus the negative extensions used for targets.\n\nThe remaining three concepts move from definition to execution. OTE names the specific 62% - 79% zone as the preferred entry area. Retracement into OTE is the procedural discipline of waiting for price to genuinely reach that zone, rather than anticipating it. Entry Zone is the final, complete output: an actual entry price (refined by confluence with a Module 6 PD array), a stop-loss beyond the swing's 100% extreme, and a profit target at prior liquidity or a Fibonacci extension. Notice that this module does not introduce anything usable in isolation - every concept here explicitly depends on HTF bias (Module 2), a genuine displacement swing (Module 5), and PD array confluence (Module 6) to function as intended.",
+      "involved_concepts": [
+        "Fibonacci Retracement",
+        "ICT Fibonacci Framework",
+        "ICT Fibonacci Levels",
+        "OTE (Optimal Trade Entry)",
+        "Retracement into OTE",
+        "Entry Zone"
+      ],
+      "involved_modules": [
+        "Module 2 (beginner)",
+        "Module 5 (beginner)",
+        "Module 6 (beginner)",
+        "Module 3 (beginner)"
+      ],
+      "book_location": {
+        "level": "beginner",
+        "module_number": 7,
+        "module_title": "Fibonacci & OTE",
+        "section_heading": "How These Concepts Connect"
+      }
+    }
+  ],
+  "no_trade_conditions": [
+    {
+      "id": "BEG-M07-NT01",
+      "kind": "no_trade_rule",
+      "statement": "Do not anticipate or enter before price actually retraces into the 62%-79% OTE band -- wait, without entering, while price begins to pull back.",
+      "applies_to_strategy_ids": [
+        "BEG-M07-S01"
+      ],
+      "book_location": {
+        "level": "beginner",
+        "module_number": 7,
+        "module_title": "Fibonacci & OTE",
+        "section_heading": "Retracement into OTE"
+      }
+    }
+  ],
+  "contradictions_or_ambiguities": [],
+  "module_review_notes": {
+    "key_terms": [
+      "Fibonacci Retracement",
+      "ICT Fibonacci Framework",
+      "Premium",
+      "Discount",
+      "Equilibrium",
+      "Dealing Range",
+      "ICT Fibonacci Levels",
+      "Optimal Trade Entry (OTE)",
+      "70.5% Sweet Spot",
+      "Retracement into OTE",
+      "Entry Zone",
+      "Negative Fibonacci Extension"
+    ],
+    "beginner_summary": "ICT-focused teaching takes the conventional Fibonacci retracement tool and applies it with specific rules: anchor it to candle bodies, draw it in the correct direction for the trend, and use its 50% midpoint (equilibrium) to divide a price swing into a premium half (favored for selling) and a discount half (favored for buying). Within the favored half, a narrower band from 62% to 79% - the Optimal Trade Entry, or OTE - is treated as the single best area to look for an entry, with the 70.5% level inside that band receiving special emphasis as the \"sweet spot.\" A trader is expected to wait patiently for price to actually retrace into this zone, ideally where it overlaps with an Order Block or Fair Value Gap from Module 6, before finalizing a complete entry zone: an entry price, a stop-loss placed beyond the original swing extreme, and a profit target at prior liquidity or a Fibonacci extension level.",
+    "concept_relationships_summary": "Fibonacci Retracement is the general tool. The ICT Fibonacci Framework restricts and directs it (body-to-body, correct direction, premium/discount). ICT Fibonacci Levels narrows the levels of interest to a specific few. OTE names the specific 62% - 79% zone. Retracement into OTE is the procedural discipline of waiting for that zone to actually be reached. Entry Zone is the final, complete, executable output.",
+    "practical_chart_exercise": "Given a confirmed bearish swing from a low of 300 (candle body) rising to a high of 500 (candle body), draw the Fibonacci retracement correctly for this bearish leg, calculate the equilibrium (50%) level, calculate the 62%, 70.5%, and 79% levels, and state which half of the range (premium or discount) a short entry should be sought within, and why.",
+    "self_test_questions": [
+      "Why does ICT-focused teaching recommend anchoring the Fibonacci tool to candle bodies rather than candle wicks?",
+      "What does it mean for a price to be in \"discount,\" and in which type of setup (bullish or bearish) does ICT's framework favor entries from discount?",
+      "Why is the 70.5% level described as the equilibrium of the OTE zone itself, rather than just an arbitrary point within it?",
+      "What is the specific mistake described by the phrase \"chasing price\" in the context of retracing into OTE?",
+      "What are the two most commonly cited places to set a stop-loss and a profit target when building a complete entry zone?"
+    ],
+    "common_misconceptions": [
+      "Believing OTE is a complete, standalone trading strategy rather than one component that requires HTF bias, genuine displacement, and PD array confluence to be used as intended.",
+      "Believing the standard retail 61.8% Fibonacci level is identical to ICT's 70.5% sweet spot, rather than understanding them as related but distinct reference points.",
+      "Believing that arriving at the OTE zone is itself sufficient reason to enter, without waiting for any further lower-timeframe confirmation signal.",
+      "Believing premium and discount are fixed, permanent price levels rather than positions relative to a specific, currently relevant dealing range that changes as new swings form."
+    ],
+    "research_sources_cited_in_text": [
+      "arongroups.co - \"Optimal Trade Entry Techniques for ICT Traders.\"",
+      "tradingstrategyguides.com - \"Understanding ICT Optimal Trade Entry OTE With Fibonacci.\"",
+      "dailypriceaction.com - \"Premium And Discount Trading Strategy (How Smart Money Uses OTE).\"",
+      "tradingfinder.com - \"What Is the OTE Strategy? Optimal Entry & Key Fibonacci Levels in ICT.\"",
+      "liquidityhunters.cl - \"Optimal Trade Entry (OTE) - ICT 62-79% Fibonacci Zone Explained.\"",
+      "fxnx.com - \"ICT Fibonacci Retracement: Master the OTE Zone,\" \"ICT Fibonacci & OTE: A Trader's Guide to the Golden Entry,\" \"ICT Fibonacci Settings: The OTE Levels Pro Traders Use,\" \"ICT Optimal Trade Entry: Mastering the Time-Price Matrix,\" \"ICT Dealing Range: Institutional Order Flow Guide,\" and \"ICT OTE: Precision Entries for Forex Traders.\"",
+      "grandalgo.com - \"ICT OTE: How to Trade the 62% to 79% Optimal Trade Entry Zone.\"",
+      "backtrex.com - \"ICT OTE: mastering Optimal Trade Entry with Fibonacci.\"",
+      "innercircletrader.net - \"ICT Fibonacci Settings - Exact Fib Levels, OTE 70.5% & Std Deviation.\"",
+      "theinnercircletraders.com - \"OTE in Trading: The ICT Optimal Trade Entry Explained\" and \"ICT Premium and Discount Zones: Where to Buy and Sell.\"",
+      "Note: as in prior modules, this research pass relied on cross-checked secondary/tutorial documentation rather than direct ICT primary-source video transcripts, which were not accessible in this environment. The specific numeric levels used throughout this module (particularly 70.5%) are exceptionally consistently corroborated across a very large number of independent sources."
+    ]
+  },
+  "empirical_claims": [
+    {
+      "id": "BEG-M07-EMP01",
+      "kind": "empirical_claim",
+      "claim": "Multiple ICT-focused secondary sources cite a standalone success rate for OTE used without additional confluence, rising notably higher when OTE is combined with Order Block or Fair Value Gap confirmation.",
+      "figures_given": "Approximately 55-60% for standalone OTE (without additional confluence). No numeric figure is given in the book for the 'notably higher' combined (OTE + PD array confluence) success rate.",
+      "hedge_language": "The book explicitly frames these as 'general, source-reported approximations rather than precisely verified statistics,' attributed to multiple secondary sources rather than a directly cited ICT primary-source statistic.",
+      "linked_concept_or_strategy_ids": [
+        "BEG-M07-C04"
+      ],
+      "book_location": {
+        "level": "beginner",
+        "module_number": 7,
+        "module_title": "Fibonacci & OTE",
+        "section_heading": "OTE (Optimal Trade Entry)"
+      },
+      "attribution_type": "research_compiled_secondary"
+    }
+  ]
+}

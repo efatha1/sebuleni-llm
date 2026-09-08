@@ -1,0 +1,443 @@
+{
+  "level": "intermediate",
+  "module_number": 11,
+  "module_title": "Advanced Bias Construction",
+  "module_intro": "Treats bias as a testable hypothesis: weekly bias construction, daily bias construction, intraday bias, the Draw on Liquidity as the core of bias, conditioning factors, invalidation, when bias is unclear, and updating bias.",
+  "prerequisites_stated_in_text": "Requires Beginner Module 10 (Bias) and Intermediate Modules 1-10.",
+  "module_objectives": [
+    "Construct a weekly bias from higher-timeframe structure, liquidity and PD arrays.",
+    "Derive a daily bias that is subordinate to the weekly bias and conditioned by the daily dealing range and Power of 3 profile.",
+    "Form an intraday bias that is used only for timing inside the higher-timeframe story.",
+    "State explicit conditioning factors and clear invalidation levels for every bias.",
+    "Treat the Draw on Liquidity as the core of bias rather than a vague directional \"feeling.\"",
+    "Recognise when bias is unclear and stand aside.",
+    "Update bias when new information (structure shift, liquidity raid, PD-array failure) arrives."
+  ],
+  "concepts": [
+    {
+      "id": "INT-M11-C01",
+      "kind": "concept",
+      "name": "Weekly Bias Construction",
+      "definition": "unspecified - see raw_sections",
+      "ict_specific_meaning": "unspecified",
+      "what_changed_from_beginner_level": "unspecified",
+      "detection_criteria": [
+        "unspecified - see raw_sections"
+      ],
+      "numeric_or_narrative_example": "unspecified",
+      "why_it_matters": "unspecified",
+      "beginner_mistakes_or_misinterpretations": [],
+      "raw_sections": {
+        "Inputs": "Weekly bias is built from:\n\n868. Weekly (and if useful monthly) market structure - sequence of highs and lows, presence of a Market Structure Shift.\n\n869. Weekly dealing range and equilibrium - is price in premium or discount relative to the active weekly container?\n\n870. Weekly Draw on Liquidity - which external or internal liquidity pool is the most logical next magnet?\n\n871. Unmitigated weekly PD arrays (Order Blocks, FVGs, Breakers) that sit in the correct half of the range relative to the expected direction.\n\n872. Weekly Power of 3 context - is the week still in accumulation, has manipulation occurred, is distribution underway?",
+        "Output": "A one- or two-sentence weekly bias statement, for example: \"Weekly bias is bullish. Price is in discount relative to the weekly dealing range; primary Draw on Liquidity is the buy-side pool above last week's high; invalidation is a decisive weekly close below the origin of the most recent bullish displacement.\"",
+        "Priority": "Weekly bias is the highest-priority filter for the intermediate student. Daily and intraday ideas that conflict with a clear weekly bias are lower quality."
+      },
+      "dependencies": [],
+      "attribution_type": "research_compiled_secondary",
+      "cited_sources_in_text": [],
+      "book_location": {
+        "level": "intermediate",
+        "module_number": 11,
+        "module_title": "Advanced Bias Construction",
+        "section_heading": "Weekly Bias Construction"
+      },
+      "confidence_note": "unspecified"
+    },
+    {
+      "id": "INT-M11-C02",
+      "kind": "concept",
+      "name": "Daily Bias Construction",
+      "definition": "unspecified - see raw_sections",
+      "ict_specific_meaning": "unspecified",
+      "what_changed_from_beginner_level": "unspecified",
+      "detection_criteria": [
+        "unspecified - see raw_sections"
+      ],
+      "numeric_or_narrative_example": "unspecified",
+      "why_it_matters": "unspecified",
+      "beginner_mistakes_or_misinterpretations": [],
+      "raw_sections": {
+        "Relationship to Weekly": "Daily bias is formed inside the weekly story. When weekly and daily agree, confluence is high. When they conflict, the daily move is treated as a corrective or counter-trend opportunity at best, and often as a stand-aside condition.",
+        "Inputs": "Daily bias draws on:\n\n873. Daily market structure and any recent daily MSS.\n\n874. Daily dealing range, equilibrium, and premium/discount location.\n\n875. Daily Draw on Liquidity (often previous day high/low, equal highs/lows, or a higher-timeframe pool nested on the daily).\n\n876. Unmitigated daily PD arrays in the correct half of the range.\n\n877. Expected daily Power of 3 profile (which side is likely to be manipulated, which side is the distribution target).\n\n878. Alignment or conflict with the weekly bias.",
+        "Output": "A concise daily bias statement written before London (or before the student's primary kill zone), including the expected Draw on Liquidity and the level that would invalidate the idea."
+      },
+      "dependencies": [],
+      "attribution_type": "research_compiled_secondary",
+      "cited_sources_in_text": [],
+      "book_location": {
+        "level": "intermediate",
+        "module_number": 11,
+        "module_title": "Advanced Bias Construction",
+        "section_heading": "Daily Bias Construction"
+      },
+      "confidence_note": "unspecified"
+    },
+    {
+      "id": "INT-M11-C03",
+      "kind": "concept",
+      "name": "Intraday Bias",
+      "definition": "unspecified - see raw_sections",
+      "ict_specific_meaning": "unspecified",
+      "what_changed_from_beginner_level": "unspecified",
+      "detection_criteria": [
+        "unspecified - see raw_sections"
+      ],
+      "numeric_or_narrative_example": "unspecified",
+      "why_it_matters": "unspecified",
+      "beginner_mistakes_or_misinterpretations": [],
+      "raw_sections": {
+        "Role": "Intraday bias is not an independent directional call. It is the short-term expression of the daily (and weekly) bias inside the current session. It answers: \"Given the higher-timeframe story, which side of the Asian range is likely to be raided, and which direction is the subsequent distribution expected to take?\"",
+        "Limitation": "An intraday bias that contradicts the daily bias is treated as noise or as a potential trap unless the daily bias itself has been invalidated."
+      },
+      "dependencies": [],
+      "attribution_type": "research_compiled_secondary",
+      "cited_sources_in_text": [],
+      "book_location": {
+        "level": "intermediate",
+        "module_number": 11,
+        "module_title": "Advanced Bias Construction",
+        "section_heading": "Intraday Bias"
+      },
+      "confidence_note": "unspecified"
+    },
+    {
+      "id": "INT-M11-C04",
+      "kind": "concept",
+      "name": "The Draw on Liquidity as the Core of Bias",
+      "definition": "The Draw on Liquidity is the pool (or sequence of pools) that price is expected to seek next. Bias without a named Draw on Liquidity is incomplete.",
+      "ict_specific_meaning": "The Draw on Liquidity is the pool (or sequence of pools) that price is expected to seek next. Bias without a named Draw on Liquidity is incomplete.",
+      "what_changed_from_beginner_level": "unspecified",
+      "detection_criteria": [
+        "unspecified - see raw_sections"
+      ],
+      "numeric_or_narrative_example": "unspecified",
+      "why_it_matters": "unspecified",
+      "beginner_mistakes_or_misinterpretations": [],
+      "raw_sections": {
+        "Definition Recap": "The Draw on Liquidity is the pool (or sequence of pools) that price is expected to seek next. Bias without a named Draw on Liquidity is incomplete.",
+        "Practical Requirement": "Every bias statement at intermediate level should name the target liquidity. \"Bullish\" is insufficient. \"Bullish toward the buy-side liquidity above 1.1000 / the weekly high\" is complete."
+      },
+      "dependencies": [],
+      "attribution_type": "research_compiled_secondary",
+      "cited_sources_in_text": [],
+      "book_location": {
+        "level": "intermediate",
+        "module_number": 11,
+        "module_title": "Advanced Bias Construction",
+        "section_heading": "The Draw on Liquidity as the Core of Bias"
+      },
+      "confidence_note": "unspecified"
+    },
+    {
+      "id": "INT-M11-C05",
+      "kind": "concept",
+      "name": "Conditioning Factors",
+      "definition": "unspecified - see raw_sections",
+      "ict_specific_meaning": "unspecified",
+      "what_changed_from_beginner_level": "unspecified",
+      "detection_criteria": [
+        "unspecified - see raw_sections"
+      ],
+      "numeric_or_narrative_example": "unspecified",
+      "why_it_matters": "unspecified",
+      "beginner_mistakes_or_misinterpretations": [],
+      "raw_sections": {
+        "What Conditioning Means": "Conditioning factors are the additional requirements that must be present before the bias is allowed to generate trades. Examples:\n\n879. Price must first raid the opposing liquidity (e.g., sell-side raid before a bullish distribution day).\n\n880. Displacement and MSS must confirm the transition from manipulation to distribution.\n\n881. The entry PD array must sit in the correct premium/discount half of the dealing range.\n\n882. The setup should preferably form inside a relevant kill zone.",
+        "Purpose": "Conditioning prevents the trader from entering solely because the bias is bullish. The bias authorises the direction; conditioning authorises the individual trade."
+      },
+      "dependencies": [],
+      "attribution_type": "research_compiled_secondary",
+      "cited_sources_in_text": [],
+      "book_location": {
+        "level": "intermediate",
+        "module_number": 11,
+        "module_title": "Advanced Bias Construction",
+        "section_heading": "Conditioning Factors"
+      },
+      "confidence_note": "unspecified"
+    },
+    {
+      "id": "INT-M11-C06",
+      "kind": "concept",
+      "name": "Invalidation",
+      "definition": "unspecified - see raw_sections",
+      "ict_specific_meaning": "unspecified",
+      "what_changed_from_beginner_level": "unspecified",
+      "detection_criteria": [
+        "unspecified - see raw_sections"
+      ],
+      "numeric_or_narrative_example": "unspecified",
+      "why_it_matters": "unspecified",
+      "beginner_mistakes_or_misinterpretations": [],
+      "raw_sections": {
+        "Explicit Levels": "Every bias must carry an explicit invalidation level or condition. Typical forms:\n\n883. A decisive close beyond the origin of the displacement that defined the current structural sequence.\n\n884. A decisive close beyond the dealing-range extreme that framed the bias.\n\n885. A higher-timeframe Market Structure Shift against the bias.",
+        "Discipline": "When invalidation is met, the bias is retired. The trader does not \"hope\" it recovers. A new bias is constructed from the updated information."
+      },
+      "dependencies": [],
+      "attribution_type": "research_compiled_secondary",
+      "cited_sources_in_text": [],
+      "book_location": {
+        "level": "intermediate",
+        "module_number": 11,
+        "module_title": "Advanced Bias Construction",
+        "section_heading": "Invalidation"
+      },
+      "confidence_note": "unspecified"
+    },
+    {
+      "id": "INT-M11-C07",
+      "kind": "concept",
+      "name": "When Bias Is Unclear",
+      "definition": "unspecified - see raw_sections",
+      "ict_specific_meaning": "unspecified",
+      "what_changed_from_beginner_level": "unspecified",
+      "detection_criteria": [
+        "unspecified - see raw_sections"
+      ],
+      "numeric_or_narrative_example": "unspecified",
+      "why_it_matters": "unspecified",
+      "beginner_mistakes_or_misinterpretations": [],
+      "raw_sections": {
+        "Recognition": "Bias is unclear when:\n\n886. Weekly and daily structure conflict without a clear corrective interpretation.\n\n887. No obvious Draw on Liquidity stands out.\n\n888. Price is at equilibrium of the relevant dealing range with no displacement.\n\n889. Multiple opposing PD arrays are equally plausible.\n\n890. A major news event is imminent and the narrative is suspended.",
+        "Response": "Stand aside. Clarity is a precondition for intermediate engagement. Trading without a clear bias is gambling with ICT tools."
+      },
+      "dependencies": [],
+      "attribution_type": "research_compiled_secondary",
+      "cited_sources_in_text": [],
+      "book_location": {
+        "level": "intermediate",
+        "module_number": 11,
+        "module_title": "Advanced Bias Construction",
+        "section_heading": "When Bias Is Unclear"
+      },
+      "confidence_note": "unspecified"
+    },
+    {
+      "id": "INT-M11-C08",
+      "kind": "concept",
+      "name": "Updating Bias",
+      "definition": "unspecified - see raw_sections",
+      "ict_specific_meaning": "unspecified",
+      "what_changed_from_beginner_level": "unspecified",
+      "detection_criteria": [
+        "unspecified - see raw_sections"
+      ],
+      "numeric_or_narrative_example": "unspecified",
+      "why_it_matters": "unspecified",
+      "beginner_mistakes_or_misinterpretations": [],
+      "raw_sections": {
+        "Continuous Process": "Bias is not set once and forgotten. It is reviewed at the close of each session and before the next kill zone. New liquidity raids, new PD arrays, and new structural breaks are incorporated.",
+        "Hierarchy of Updates": "A weekly structural change overrides daily bias. A daily structural change overrides intraday bias. Lower-timeframe noise does not override higher-timeframe structure."
+      },
+      "dependencies": [],
+      "attribution_type": "research_compiled_secondary",
+      "cited_sources_in_text": [],
+      "book_location": {
+        "level": "intermediate",
+        "module_number": 11,
+        "module_title": "Advanced Bias Construction",
+        "section_heading": "Updating Bias"
+      },
+      "confidence_note": "unspecified"
+    }
+  ],
+  "rules": [
+    {
+      "id": "INT-M11-R01",
+      "kind": "rule",
+      "rule_type": "detection_criteria",
+      "statement": "Weekly bias inputs: weekly (and if useful monthly) market structure -- sequence of highs/lows, presence of an MSS; weekly dealing range and equilibrium -- premium or discount location. Output: a one- or two-sentence weekly bias statement naming direction, premium/discount location, primary Draw on Liquidity, and invalidation. Weekly bias is the highest-priority filter; daily and intraday ideas conflicting with a clear weekly bias are lower quality.",
+      "applies_to": [
+        "Weekly Bias Construction"
+      ],
+      "conditions": [],
+      "exceptions_or_qualifiers": "unspecified",
+      "book_location": {
+        "level": "intermediate",
+        "module_number": 11,
+        "module_title": "Advanced Bias Construction",
+        "section_heading": "Weekly Bias Construction"
+      },
+      "attribution_type": "community_interpretation"
+    },
+    {
+      "id": "INT-M11-R02",
+      "kind": "rule",
+      "rule_type": "detection_criteria",
+      "statement": "Bias must always name the target liquidity: 'Bullish' alone is insufficient; 'Bullish toward the buy-side liquidity above 1.1000 / the weekly high' is complete. The Draw on Liquidity is the pool (or sequence of pools) price is expected to seek next -- bias without a named Draw on Liquidity is incomplete.",
+      "applies_to": [
+        "The Draw on Liquidity as the Core of Bias"
+      ],
+      "conditions": [],
+      "exceptions_or_qualifiers": "unspecified",
+      "book_location": {
+        "level": "intermediate",
+        "module_number": 11,
+        "module_title": "Advanced Bias Construction",
+        "section_heading": "The Draw on Liquidity as the Core of Bias"
+      },
+      "attribution_type": "community_interpretation"
+    },
+    {
+      "id": "INT-M11-R03",
+      "kind": "rule",
+      "rule_type": "precondition",
+      "statement": "Conditioning factors (additional requirements before bias is allowed to generate trades): (1) price must first raid the opposing liquidity (e.g. sell-side raid before a bullish distribution day); (2) displacement and MSS must confirm the transition from manipulation to distribution; (3) the entry PD array must sit in the correct premium/discount half of the dealing range; (4) the setup should preferably form inside a relevant kill zone. Conditioning prevents entering solely because the bias is bullish/bearish -- the bias authorises the direction, conditioning authorises the individual trade.",
+      "applies_to": [
+        "Conditioning Factors"
+      ],
+      "conditions": [],
+      "exceptions_or_qualifiers": "unspecified",
+      "book_location": {
+        "level": "intermediate",
+        "module_number": 11,
+        "module_title": "Advanced Bias Construction",
+        "section_heading": "Conditioning Factors"
+      },
+      "attribution_type": "community_interpretation"
+    },
+    {
+      "id": "INT-M11-R04",
+      "kind": "rule",
+      "rule_type": "invalidation",
+      "statement": "Every bias must carry an explicit invalidation level or condition, typically: (1) a decisive close beyond the origin of the displacement that defined the current structural sequence; (2) a decisive close beyond the dealing-range extreme that framed the bias; (3) a higher-timeframe Market Structure Shift against the bias. When invalidation is met, the bias is retired -- the trader does not 'hope' it recovers; a new bias is constructed from updated information.",
+      "applies_to": [
+        "Invalidation"
+      ],
+      "conditions": [],
+      "exceptions_or_qualifiers": "unspecified",
+      "book_location": {
+        "level": "intermediate",
+        "module_number": 11,
+        "module_title": "Advanced Bias Construction",
+        "section_heading": "Invalidation"
+      },
+      "attribution_type": "community_interpretation"
+    },
+    {
+      "id": "INT-M11-R05",
+      "kind": "rule",
+      "rule_type": "other",
+      "statement": "Bias update hierarchy: a weekly structural change overrides daily bias; a daily structural change overrides intraday bias; lower-timeframe noise does not override higher-timeframe structure. Bias is reviewed at the close of each session and before the next kill zone; new liquidity raids, new PD arrays, and new structural breaks are incorporated.",
+      "applies_to": [
+        "Updating Bias"
+      ],
+      "conditions": [],
+      "exceptions_or_qualifiers": "unspecified",
+      "book_location": {
+        "level": "intermediate",
+        "module_number": 11,
+        "module_title": "Advanced Bias Construction",
+        "section_heading": "Updating Bias"
+      },
+      "attribution_type": "community_interpretation"
+    }
+  ],
+  "strategies": [],
+  "examples": [
+    {
+      "id": "INT-M11-EX01",
+      "kind": "example",
+      "example_type": "worked_narrative",
+      "linked_concept_or_strategy_ids": [
+        "Weekly Bias Construction",
+        "Daily Bias Construction",
+        "Intraday Bias"
+      ],
+      "content": "Weekly: Structure is bullish (sequence of higher highs and higher lows). Price is in discount relative to the weekly dealing range. Primary Draw on Liquidity is the buy-side pool above the prior weekly high. Invalidation: weekly close below the origin of the last weekly bullish displacement.\n\nDaily: Daily structure agrees. Asian range has formed. Expected PO3 is bullish: manipulation of the Asian low, then distribution higher toward the daily/weekly buy-side objective. Daily invalidation sits below the Asian low / the origin of the expected bullish displacement.\n\nIntraday (London): Bias remains bullish. Conditioning: wait for the sweep of the Asian low, then displacement and MSS higher, then entry on the retracement into the London-created FVG / OTE that sits in discount.\n\nResult: The student enters only after the conditioning sequence appears. If London instead expands lower and closes below the invalidation, the daily bias is retired and the student reassesses before New York.",
+      "interpretation_given_in_text": "Demonstrates constructing bias top-down from weekly through daily to intraday.",
+      "book_location": {
+        "level": "intermediate",
+        "module_number": 11,
+        "module_title": "Advanced Bias Construction",
+        "section_heading": "Worked Example - Building Bias Top-Down"
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "id": "INT-M11-REL01",
+      "kind": "cross_module_relationship",
+      "statement": "Everything in Modules 1 - 10 feeds the bias process. Structure and dealing ranges supply the container. Liquidity supplies the target. Displacement and MSS supply confirmation. PD arrays and OTE supply the entry location. Sessions and Power of 3 supply the expected phase and timing. Multi-timeframe narrative supplies the hierarchy. Bias is simply the coherent statement that binds all of those elements into a directional hypothesis with explicit conditions and invalidation.",
+      "involved_concepts": [
+        "Weekly Bias Construction",
+        "Daily Bias Construction",
+        "Intraday Bias",
+        "The Draw on Liquidity as the Core of Bias",
+        "Conditioning Factors",
+        "Invalidation",
+        "When Bias Is Unclear",
+        "Updating Bias"
+      ],
+      "involved_modules": [
+        "Beginner Module 10",
+        "Intermediate Modules 1-10",
+        "Intermediate Module 12 (forward reference)"
+      ],
+      "book_location": {
+        "level": "intermediate",
+        "module_number": 11,
+        "module_title": "Advanced Bias Construction",
+        "section_heading": "How These Concepts Connect"
+      }
+    }
+  ],
+  "no_trade_conditions": [
+    {
+      "id": "INT-M11-NT01",
+      "kind": "no_trade_rule",
+      "statement": "Bias is unclear when: weekly and daily structure conflict without a clear corrective interpretation; no obvious Draw on Liquidity stands out; price is at equilibrium of the relevant dealing range with no displacement; multiple opposing PD arrays are equally plausible; a major news event is imminent and the narrative is suspended. Response: stand aside. Clarity is a precondition for intermediate engagement; trading without a clear bias is gambling with ICT tools.",
+      "applies_to_strategy_ids": [],
+      "book_location": {
+        "level": "intermediate",
+        "module_number": 11,
+        "module_title": "Advanced Bias Construction",
+        "section_heading": "When Bias Is Unclear"
+      }
+    },
+    {
+      "id": "INT-M11-NT02",
+      "kind": "no_trade_rule",
+      "statement": "An intraday bias that contradicts the daily bias is treated as noise or as a potential trap unless the daily bias itself has been invalidated.",
+      "applies_to_strategy_ids": [],
+      "book_location": {
+        "level": "intermediate",
+        "module_number": 11,
+        "module_title": "Advanced Bias Construction",
+        "section_heading": "Intraday Bias"
+      }
+    }
+  ],
+  "contradictions_or_ambiguities": [],
+  "empirical_claims": [],
+  "module_review_notes": {
+    "key_terms": [
+      "Weekly bias - highest-priority directional hypothesis for the week.",
+      "Daily bias - directional hypothesis for the session/day, subordinate to weekly.",
+      "Intraday bias - short-term expression of the daily bias used for timing.",
+      "Draw on Liquidity (as core of bias) - the named pool price is expected to seek.",
+      "Conditioning factors - additional requirements that must be present before entry.",
+      "Invalidation - explicit level or condition that retires the bias.",
+      "Unclear bias - environment in which no coherent directional hypothesis can be formed; stand-aside."
+    ],
+    "beginner_summary": "Beginner teaching often treated bias as a simple bullish or bearish label. Intermediate teaching makes bias a structured, multi-timeframe hypothesis built from structure, range, liquidity and PD arrays, equipped with conditioning factors and explicit invalidation, and retired when those conditions fail.",
+    "concept_relationships_summary": "Bias is the decision layer that sits above all prior tools. Those tools do not generate trades in isolation; they generate trades only when they appear inside a coherent bias that has not been invalidated.",
+    "practical_chart_exercise": "Before the next trading week:\n\n- Write the weekly bias statement (structure, range location, DOL, invalidation).\n\n- Each day before London, write the daily bias statement and its relationship to the weekly bias.\n\n- List the conditioning sequence required for entry.\n\n- At the end of each day, record whether the bias was confirmed, conditioned successfully, or invalidated, and one sentence of learning.\n\n- At the end of the week, review how often the weekly bias correctly framed the daily opportunities.",
+    "self_test_questions": [
+      "Why must every intermediate bias statement name a Draw on Liquidity?",
+      "What is the correct response when daily bias conflicts with a clear weekly bias?",
+      "Give three examples of conditioning factors that might be attached to a bullish daily bias.",
+      "What should the trader do when no clear Draw on Liquidity or structural sequence is present?",
+      "How does invalidation differ from a simple stop-loss on an individual trade?",
+      "Why is bias described as a testable hypothesis rather than a prediction?"
+    ],
+    "common_misconceptions": [
+      "\"Bias means I must be in a trade.\" - False. Bias authorises direction; conditioning authorises the trade.",
+      "\"If I have a bias I can ignore lower-timeframe structure.\" - False. Conditioning still requires displacement and MSS.",
+      "\"Invalidation is the same as my stop-loss.\" - Related but not identical; bias invalidation can retire the idea even if a particular entry was not stopped.",
+      "\"I need a bias every day.\" - False. Unclear days are stand-aside days.",
+      "\"Weekly bias never changes intra-week.\" - False. A decisive weekly structural break can and should update it."
+    ],
+    "research_sources_cited_in_text": []
+  }
+}

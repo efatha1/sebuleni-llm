@@ -1,0 +1,441 @@
+{
+  "level": "beginner",
+  "module_number": 3,
+  "module_title": "Market Structure",
+  "module_intro": "Modules 1 and 2 gave the vocabulary to describe individual swing points and read them across multiple timeframes. This module assembles that vocabulary into ICT's central analytical tool: market structure -- the ongoing, continuously updated read of whether a market is bullish, bearish, or undecided, and the precise mechanism by which that read changes. This module also documents the single most debated piece of terminology in ICT-adjacent trading education: the distinction between Market Structure Shift (MSS), Break of Structure (BOS), and Change of Character (CHoCH), and adopts one specific, clearly labeled working definition for consistency through the rest of the book.",
+  "prerequisites_stated_in_text": "Requires Module 1 (Price Fundamentals) and Module 2 (Timeframe Analysis).",
+  "module_objectives": [
+    "explain what market structure is without referencing any indicator",
+    "distinguish a minor, insignificant swing point from a structurally significant (governing) high or low",
+    "correctly classify a chart as exhibiting bullish structure, bearish structure, or neither",
+    "state, in your own words, the disagreement across ICT-focused sources regarding MSS, BOS, and CHoCH, and identify which working definition this book uses",
+    "identify a candidate Market Structure Shift on a simple price sequence, including checking for a genuine close beyond the governing level and for displacement",
+    "explain why a Market Structure Shift signals the possible start of a new direction rather than its confirmed completion"
+  ],
+  "concepts": [
+    {
+      "id": "BEG-M03-C01",
+      "kind": "concept",
+      "name": "Market Structure",
+      "definition": "Market structure is the pattern formed by a market's sequence of swing highs and swing lows, used to classify price as trending up, trending down, or ranging, and to identify the specific points where that classification changes.",
+      "ict_specific_meaning": "Within ICT's framework, market structure is the foundational lens through which all price action is read. Rather than relying on indicators, ICT-focused teaching treats the raw sequence of confirmed swing points (Module 1) as the primary evidence of who is in control of the market - buyers or sellers - at any given moment.\n\nICT-focused sources consistently describe market structure as operating on a hierarchy of swing-point significance (short-term, intermediate-term, and long-term, introduced in Module 1), and as being read simultaneously across multiple timeframes (Module 2): the higher-timeframe structure sets the dominant bias, while lower-timeframe structure is used to time entries within that bias.\n\nA recurring point across ICT-focused sources is that structure is not static - it is continuously monitored for breaks and shifts, which is why this module dedicates dedicated concepts to Bullish Structure, Bearish Structure, and Market Structure Shift rather than treating market structure as a single fixed label.",
+      "beginner_explanation": "If you strip away every indicator, every color, every added tool from a price chart, you are left with just the zigzag line of price going up and down over time. Market structure is the discipline of reading that raw zigzag line carefully: is it making progress upward, progress downward, or just wandering sideways? And at what exact point does that answer change?",
+      "detection_criteria": [
+        "Map every confirmed swing high and swing low on the chart using Module 1's three-candle method.",
+        "Classify each swing high as higher or lower than the one before it, and each swing low as higher or lower than the one before it.",
+        "Determine whether the resulting pattern is a consistent run of higher highs and higher lows (bullish structure), a consistent run of lower highs and lower lows (bearish structure), or an inconsistent mix (range/undetermined structure).",
+        "Continue this mapping forward in time, watching specifically for the moment a swing point is broken in a way that contradicts the current classification (covered in Market Structure Shift, below)."
+      ],
+      "preconditions": [
+        "unspecified"
+      ],
+      "numeric_or_narrative_example": "100 → 108 → 104 → 115 → 109 → 122\n\nSwing highs: 108, 115, 122 - each higher than the last. Swing lows: 104, 109 - each higher than the last.\n\nReading this sequence as market structure: the market is bullish, because both the highs and lows are rising together in a consistent pattern, exactly as defined in Module 1's Trend concept - market structure is simply this same reading formalized as an ongoing, continuously updated framework rather than a one-time observation.",
+      "what_it_tells_the_trader": "Market structure tells the trader, in an objective and repeatable way, whether the market is currently favoring buyers, favoring sellers, or undecided - the starting point for every other decision in ICT's framework.\n\nIt does not tell the trader when the current structure will change, or guarantee that a classification will persist. Structure is a description of the past and present, continuously subject to revision as new swing points form.",
+      "common_pairings": [
+        "Bullish/Bearish Market Structure",
+        "Market Structure Shift",
+        "Liquidity (Module 4)"
+      ],
+      "common_pairings_narrative": "Market structure is the umbrella concept that Bullish Structure, Bearish Structure, and Market Structure Shift all sit underneath. It is also the direct prerequisite for Liquidity in Module 4, since liquidity pools are defined relative to structural swing points.",
+      "framework_placement": {
+        "comes_before": "Requires all of Module 1 (Price Fundamentals) and Module 2 (Timeframe Analysis).",
+        "comes_after": "Splits into Structural Highs/Lows, Bullish Market Structure, Bearish Market Structure, and Market Structure Shift - then feeds into Liquidity (Module 4)."
+      },
+      "beginner_mistakes_or_misinterpretations": [
+        "Reading structure on only one timeframe and ignoring how it may differ on a higher or lower timeframe.",
+        "Treating structure as a single permanent label rather than continuously re-evaluating it as new candles close.",
+        "Forcing a bullish or bearish label onto a genuinely mixed, range-bound sequence of swing points."
+      ],
+      "qualification_or_limits": "Market structure describes the objective, historical pattern of swing points; it does not by itself predict what comes next. ICT's framework pairs structure with liquidity and displacement (Modules 4 - 5) specifically because structure alone cannot distinguish a genuine trend from one that is about to reverse.",
+      "dependencies": [
+        "all of Module 1",
+        "Module 2 "
+      ],
+      "timeframe_relationship": "unspecified",
+      "attribution_type": "research_compiled_secondary",
+      "cited_sources_in_text": [
+        "fairvaluehub.de - \"ICT Market Structure - BOS, CHoCH and MSS Explained.\"",
+        "atas.net - \"Understanding Market Structure and Market Structure Shift (MSS).\"",
+        "completetradersedge.com - \"ICT Trading Explained: Inner Circle Trader Method.\""
+      ],
+      "book_location": {
+        "level": "beginner",
+        "module_number": 3,
+        "module_title": "Market Structure",
+        "section_heading": "Market Structure"
+      },
+      "confidence_note": "unspecified"
+    },
+    {
+      "id": "BEG-M03-C02",
+      "kind": "concept",
+      "name": "Structural Highs/Lows",
+      "definition": "Structural highs and lows are the specific swing highs and swing lows that are currently governing the market's structural classification - the exact reference points a break of which would confirm continuation or signal a reversal.",
+      "ict_specific_meaning": "Not every swing high or swing low carries equal weight for determining structure. ICT-focused teaching (building on the STH/ITH/LTH and STL/ITL/LTL hierarchy from Module 1) treats certain swing points as the currently governing, or structurally significant, highs and lows - the ones that must hold for the current bullish or bearish classification to remain valid.\n\nMultiple ICT-focused sources emphasize that identifying the correct tier of swing point matters: reacting to a minor, short-term swing point as if it were a major structural level is described as one of the most common sources of false structural reads.",
+      "beginner_explanation": "Not every bump on the price chart matters equally. Some highs and lows are just minor wiggles; others are the specific levels that, if broken, would genuinely change the story of the chart. A structural high or low is one of these load-bearing points - the ones actually holding the current trend label up.",
+      "detection_criteria": [
+        "From your full map of swing highs and lows (Module 1), identify the most recent significant swing high and swing low relevant to the current structure.",
+        "In an uptrend, the governing structural low is the most recent confirmed higher low - a close below it would challenge the bullish classification.",
+        "In a downtrend, the governing structural high is the most recent confirmed lower high - a close above it would challenge the bearish classification.",
+        "Distinguish this governing point from smaller, more recent swing points that have formed inside the current leg but do not yet carry the same structural weight."
+      ],
+      "preconditions": [
+        "unspecified"
+      ],
+      "numeric_or_narrative_example": "100 → 108 → 104 → 115 → 109 → 122 → 112\n\nIn this bullish sequence, 109 is the most recent confirmed higher low and is therefore the current governing structural low. A break and close below 109 would be the specific event that calls the bullish structure into question - a break below 104 or 100, while further away, is less immediately relevant than the closer, more recent 109.",
+      "what_it_tells_the_trader": "Structural highs/lows tell the trader precisely which price level to watch to confirm continuation or to flag a potential reversal - turning a general sense of \"the market is bullish\" into a specific, actionable price.\n\nThey do not tell the trader with certainty that a break of that level will lead to a lasting reversal - only that such a break is structurally significant enough to warrant re-evaluating the current classification.",
+      "common_pairings": [
+        "Market Structure Shift",
+        "Bullish/Bearish Market Structure",
+        "Liquidity"
+      ],
+      "common_pairings_narrative": "The structural high or low is the exact level whose break defines a Market Structure Shift. It is also frequently the same level where resting liquidity accumulates (Module 4), since traders commonly place stop-loss orders just beyond these governing points.",
+      "framework_placement": {
+        "comes_before": "Requires Market Structure and the STH/ITH/LTH hierarchy from Module 1.",
+        "comes_after": "Feeds directly into Market Structure Shift."
+      },
+      "beginner_mistakes_or_misinterpretations": [
+        "Treating every recent swing point as equally structurally significant.",
+        "Losing track of which specific swing high or low is currently governing the structure as price makes several smaller moves."
+      ],
+      "qualification_or_limits": "Identifying the correct governing structural point is a matter of judgment informed by the swing-point hierarchy, not a purely mechanical calculation - this is one of the more subjective skills in ICT's framework and is a common source of disagreement between traders reading the same chart.",
+      "dependencies": [
+        "Market Structure",
+        "the STH/ITH/LTH hierarchy from Module 1"
+      ],
+      "timeframe_relationship": "unspecified",
+      "attribution_type": "research_compiled_secondary",
+      "cited_sources_in_text": [
+        "ictkillzone.com - \"ICT MSS - Market Structure Shift: The Complete Deep Dive\" (discussion of \"the right swing tier\" as a validity requirement).",
+        "innercircletrader.net - \"What Is ICT Market Structure? BOS Highs, Lows & Liquidity\" (STH/ITH/LTH framework, referenced in Module 1)."
+      ],
+      "book_location": {
+        "level": "beginner",
+        "module_number": 3,
+        "module_title": "Market Structure",
+        "section_heading": "Structural Highs/Lows"
+      },
+      "confidence_note": "unspecified"
+    },
+    {
+      "id": "BEG-M03-C03",
+      "kind": "concept",
+      "name": "Bullish Market Structure",
+      "definition": "Bullish market structure is the classification applied to a market that is consistently forming higher highs and higher lows, indicating buyers are currently in control.",
+      "ict_specific_meaning": "This is a direct, formal restatement of the Higher High / Higher Low concepts from Module 1, elevated to describe the market's overall governing condition rather than a single pair of swing points. ICT-focused teaching treats bullish structure as the default context in which a trader looks only for buying (long) opportunities, deferring or avoiding short opportunities until structure changes.\n\nMultiple sources note that bullish structure remains the operating assumption until it is specifically challenged and broken (see Market Structure Shift) - it is not treated as expiring automatically after some fixed amount of time or number of candles.",
+      "beginner_explanation": "Bullish structure is just the formal name for \"the market keeps making higher highs and higher lows.\" It's the green light, within this framework, for looking to buy rather than sell.",
+      "detection_criteria": [
+        "Confirm at least two consecutive higher highs and two consecutive higher lows.",
+        "Identify the current governing structural low (see Structural Highs/Lows).",
+        "Confirm price remains above that governing low.",
+        "Continue monitoring for a new higher high (confirming continued bullish structure) versus a break below the governing low (which would challenge it)."
+      ],
+      "preconditions": [
+        "unspecified"
+      ],
+      "numeric_or_narrative_example": "100 → 108 → 104 → 115 → 109 → 122\n\nHighs: 108 → 115 → 122 (rising). Lows: 104 → 109 (rising). This is a clean example of bullish market structure: a trader operating under this framework would, at this point, be looking exclusively for long (buy) opportunities and would treat 109 as the level whose breakdown would be the first sign of trouble for that bullish view.",
+      "what_it_tells_the_trader": "Bullish structure tells the trader that, up to this point, buyers have consistently overpowered sellers at every test, and provides the directional bias context used before looking at liquidity, displacement, or entry-level concepts.\n\nIt does not tell the trader that the bullish structure will continue indefinitely, or that every pullback within it is a buying opportunity without further confirmation.",
+      "common_pairings": [
+        "Bias (Module 10)",
+        "Buy-side liquidity as a target (Module 4)",
+        "ICT Buy Model (Module 11)"
+      ],
+      "common_pairings_narrative": "Bullish structure is the structural precondition for forming a bullish bias and for the entire ICT Buy Model sequence - none of the later buy-side concepts are applied without first confirming bullish structure on the relevant timeframe.",
+      "framework_placement": {
+        "comes_before": "Requires Higher High, Higher Low (Module 1), and Structural Highs/Lows.",
+        "comes_after": "Feeds into Bias (Module 10) and the ICT Buy Model (Module 11), and is directly challenged by a bearish Market Structure Shift."
+      },
+      "beginner_mistakes_or_misinterpretations": [
+        "Continuing to assume bullish structure after it has already been broken by a confirmed close below the governing structural low.",
+        "Buying every dip in a bullish structure without waiting for a specific PD array or confirmation (Modules 5 - 6)."
+      ],
+      "qualification_or_limits": "Bullish structure describes the current, ongoing condition of the market - it is a working assumption maintained until specifically broken, not a static or permanent fact about an instrument.",
+      "dependencies": [
+        "Higher High",
+        "Higher Low",
+        "Structural Highs/Lows"
+      ],
+      "timeframe_relationship": "unspecified",
+      "attribution_type": "research_compiled_secondary",
+      "cited_sources_in_text": [
+        "alphametrixx.com - \"ICT Market Structure: BOS, CHoCH, and MSS Explained\" (\"Bullish structure: Higher highs (HH) and higher lows (HL)\").",
+        "litefinance.org - \"ICT Trading Strategy: Complete Guide to Inner Circle Trader Method\" (cited previously in Module 1)."
+      ],
+      "book_location": {
+        "level": "beginner",
+        "module_number": 3,
+        "module_title": "Market Structure",
+        "section_heading": "Bullish Market Structure"
+      },
+      "confidence_note": "unspecified"
+    },
+    {
+      "id": "BEG-M03-C04",
+      "kind": "concept",
+      "name": "Bearish Market Structure",
+      "definition": "Bearish market structure is the classification applied to a market that is consistently forming lower highs and lower lows, indicating sellers are currently in control.",
+      "ict_specific_meaning": "The mirror of bullish structure, and a direct restatement of the Lower High / Lower Low concepts from Module 1 elevated to a governing market condition. ICT-focused teaching treats bearish structure as the context in which a trader looks only for selling (short) opportunities, deferring or avoiding long opportunities until structure changes.",
+      "beginner_explanation": "Bearish structure is the formal name for \"the market keeps making lower highs and lower lows.\" It's the green light, within this framework, for looking to sell rather than buy.",
+      "detection_criteria": [
+        "Confirm at least two consecutive lower highs and two consecutive lower lows.",
+        "Identify the current governing structural high (see Structural Highs/Lows).",
+        "Confirm price remains below that governing high.",
+        "Continue monitoring for a new lower low (confirming continued bearish structure) versus a break above the governing high (which would challenge it)."
+      ],
+      "preconditions": [
+        "unspecified"
+      ],
+      "numeric_or_narrative_example": "122 → 112 → 118 → 105 → 111 → 98\n\nHighs: 122 → 118 → 111 (falling). Lows: 112 → 105 (falling). This is bearish market structure: a trader would be looking exclusively for short (sell) opportunities here, and would treat 111 as the governing structural high whose breakdown (a close back above it) would be the first sign of trouble for the bearish view.",
+      "what_it_tells_the_trader": "Bearish structure tells the trader that sellers have consistently overpowered buyers at every test so far, and provides the directional bias context used before looking at liquidity, displacement, or entry-level concepts on the sell side.\n\nIt does not guarantee the bearish structure will continue, nor does it mean every rally within it should automatically be sold without further confirmation.",
+      "common_pairings": [
+        "Bias (Module 10)",
+        "Sell-side liquidity as a target (Module 4)",
+        "ICT Sell Model (Module 12)"
+      ],
+      "common_pairings_narrative": "Bearish structure is the structural precondition for a bearish bias and the entire ICT Sell Model sequence.",
+      "framework_placement": {
+        "comes_before": "Requires Lower High, Lower Low (Module 1), and Structural Highs/Lows.",
+        "comes_after": "Feeds into Bias (Module 10) and the ICT Sell Model (Module 12), and is directly challenged by a bullish Market Structure Shift."
+      },
+      "beginner_mistakes_or_misinterpretations": [
+        "Continuing to assume bearish structure after it has already been broken by a confirmed close above the governing structural high.",
+        "Selling every rally in a bearish structure without waiting for a specific PD array or confirmation (Modules 5 - 6)."
+      ],
+      "qualification_or_limits": "Bearish structure, like bullish structure, describes the current ongoing condition and is a working assumption maintained until specifically broken.",
+      "dependencies": [
+        "Lower High",
+        "Lower Low",
+        "Structural Highs/Lows"
+      ],
+      "timeframe_relationship": "unspecified",
+      "attribution_type": "research_compiled_secondary",
+      "cited_sources_in_text": [
+        "alphametrixx.com - \"ICT Market Structure: BOS, CHoCH, and MSS Explained.\"",
+        "chartinglens.com - \"ICT Trading Strategy: The Complete Guide to Inner Circle Trader Concepts\" (cited in Module 1)."
+      ],
+      "book_location": {
+        "level": "beginner",
+        "module_number": 3,
+        "module_title": "Market Structure",
+        "section_heading": "Bearish Market Structure"
+      },
+      "confidence_note": "unspecified"
+    },
+    {
+      "id": "BEG-M03-C05",
+      "kind": "concept",
+      "name": "Market Structure Shift (MSS)",
+      "definition": "A Market Structure Shift is a break of the governing structural swing point against the prevailing trend, generally required to occur with strong, impulsive price movement (displacement), used within ICT's framework as the primary signal that the market's structural classification may be reversing.",
+      "ict_specific_meaning": "This concept requires an explicit conflicting-sources notice. ICT-focused secondary sources do not use a single, uniform definition of MSS relative to the related terms Break of Structure (BOS) and Change of Character (CHoCH):\n\nOne common framing (used by sources such as fairvaluehub.de, alphametrixx.com, and grandalgo.com) treats CHoCH as the first, unconfirmed break of a counter-trend swing point, and MSS as a stricter, higher-quality version of that same event - specifically requiring the break to happen with displacement (a strong, impulsive move, often leaving behind a Fair Value Gap). Under this framing, every MSS is a CHoCH, but not every CHoCH qualifies as a full MSS.\n\nA second framing (used by sources such as ATAS and Equiti) treats MSS and CHoCH as closely related synonyms for the same reversal event, both contrasted against BOS as the continuation event.\n\nA third framing (used by tradingfinder.com's abbreviation glossary) defines MSS more broadly as any \"short or long-term directional trend shift,\" without specifying that it must be counter-trend or must include displacement - closer to a general umbrella term covering any structural change, continuation or reversal.\n\nThis book adopts the first framing (MSS = a counter-trend structural break confirmed by displacement) as its working definition for the remainder of the book, because it is the most specific, most commonly cross-corroborated, and most operationally useful definition for the Buy/Sell Models taught in Modules 11 - 12. Readers should be aware that other ICT-focused material may use \"MSS\" more loosely, and should not assume every source means exactly the same thing by the term.",
+      "beginner_explanation": "Imagine a market has been climbing steadily, making higher highs and higher lows for weeks. Then, in a single sharp, forceful move, price drops through the most recent higher low - not a slow drift, but a fast, decisive break. That sharp break through a level that was supposed to hold, done with real force, is what this book calls a Market Structure Shift: the first solid piece of evidence that the uptrend may be ending and a new downtrend may be starting.",
+      "detection_criteria": [
+        "Confirm the market is currently in a defined bullish or bearish structure (see Bullish/Bearish Market Structure).",
+        "Identify the current governing structural swing point (see Structural Highs/Lows) - the most recent higher low in an uptrend, or the most recent lower high in a downtrend.",
+        "Watch for a full candle-body close beyond that governing point, against the prevailing trend (a wick alone, without a close beyond the level, is generally treated as insufficient).",
+        "Confirm the breaking move is impulsive - large candle bodies, minimal overlapping wicks, and ideally leaving behind a visible Fair Value Gap (Module 5) - rather than a slow, grinding move.",
+        "If both the structural break and the displacement condition are met, classify the event as a Market Structure Shift."
+      ],
+      "preconditions": [
+        "unspecified"
+      ],
+      "numeric_or_narrative_example": "100 → 108 → 104 → 115 → 109 → 122 → 101 (sharp, fast drop)\n\nThe market was bullish (108→115→122 highs, 104→109 lows). The governing structural low was 109. The final move to 101 breaks decisively below 109 - and if this move happens quickly, with large bearish candles and minimal retracement along the way, it qualifies as a bearish Market Structure Shift under this book's working definition: a specific, forceful signal that the prior bullish structure may be ending.\n\n122\n115 / \n/ / \n108 109 \n/ \n100 101 <- MSS: sharp close below\ngoverning low (109)",
+      "what_it_tells_the_trader": "A Market Structure Shift tells the trader that the balance of control between buyers and sellers has changed forcefully enough, at a structurally significant level, to warrant treating the prior trend as potentially over and to begin looking for opportunities in the new direction.\n\nIt does not, on its own, confirm the reversal is complete or permanent. ICT-focused sources are explicit that an MSS marks the start of a possible new direction, not a guarantee - the new direction typically still needs to be confirmed by a subsequent Break of Structure in the new direction.",
+      "common_pairings": [
+        "Liquidity sweep (Module 4)",
+        "Displacement (Module 5)",
+        "Fair Value Gap / Order Block (Modules 5 - 6)"
+      ],
+      "common_pairings_narrative": "ICT-focused sources consistently describe the highest-quality MSS as one that occurs immediately after a liquidity sweep (the market grabbing resting stop orders beyond the old extreme before reversing) and that leaves behind a Fair Value Gap or Order Block at the point of the shift - this specific combination (sweep, then displacement-confirmed MSS, then a PD array left behind) is the backbone of the ICT Buy and Sell Models in Modules 11 - 12.",
+      "framework_placement": {
+        "comes_before": "Requires Market Structure, Structural Highs/Lows, and Bullish/Bearish Structure.",
+        "comes_after": "Feeds directly into Liquidity (Module 4, since the highest-quality shifts follow a sweep), Displacement and Imbalance (Module 5), and is one of the central pillars of the ICT Buy/Sell Models (Modules 11 - 12)."
+      },
+      "beginner_mistakes_or_misinterpretations": [
+        "Treating a simple wick through a structural level, without a confirmed close beyond it, as a valid MSS.",
+        "Treating every break of every minor swing point as a Market Structure Shift, rather than reserving the label for breaks of the correctly identified governing structural point.",
+        "Trading immediately off a suspected MSS without confirming the displacement (impulsive, forceful) requirement.",
+        "Confusing this book's working definition of MSS with looser usages of the term found elsewhere, and assuming all ICT-focused content means exactly the same thing by \"MSS.\""
+      ],
+      "qualification_or_limits": "A Market Structure Shift, even when identified correctly under this book's stricter definition, is not a guaranteed reversal signal. ICT-focused sources are explicit that it signals the beginning of a possible shift, not its completion, and that a shift can still fail and be followed by a resumption of the original trend.",
+      "dependencies": [
+        "Market Structure",
+        "Structural Highs/Lows",
+        "Bullish/Bearish Structure"
+      ],
+      "timeframe_relationship": "unspecified",
+      "attribution_type": "community_interpretation",
+      "cited_sources_in_text": [
+        "fairvaluehub.de - \"ICT Market Structure - BOS, CHoCH and MSS Explained.\"",
+        "alphametrixx.com - \"ICT Market Structure: BOS, CHoCH, and MSS Explained.\"",
+        "grandalgo.com - \"Market Structure Shift (MSS) Trading: Complete ICT/SMC Guide.\"",
+        "innercircletrader.net - \"ICT Market Structure Shift (MSS) - Complete Guide with Examples.\"",
+        "backtrex.com - \"ICT Market Structure Shift (MSS): Complete Guide\" (notes MSS mandatorily requires a preceding liquidity sweep, per this source)."
+      ],
+      "book_location": {
+        "level": "beginner",
+        "module_number": 3,
+        "module_title": "Market Structure",
+        "section_heading": "Market Structure Shift (MSS)"
+      },
+      "confidence_note": "As detailed in the ICT's Meaning section above, ICT-focused sources genuinely disagree on whether MSS requires displacement, whether it is synonymous with CHoCH, and whether it strictly requires a preceding liquidity sweep. This book adopts the displacement-required, counter-trend-specific definition as its working standard for consistency across later modules, and flags this as a documented area of inconsistent secondary usage rather than a single settled ICT definition confirmed from primary source material."
+    }
+  ],
+  "rules": [
+    {
+      "id": "BEG-M03-R01",
+      "kind": "rule",
+      "rule_type": "detection_criteria",
+      "statement": "A Market Structure Shift requires a full candle-body close beyond the governing structural swing point, against the prevailing trend; a wick alone, without a close beyond the level, is generally treated as insufficient.",
+      "applies_to": [
+        "Market Structure Shift (MSS)"
+      ],
+      "conditions": [
+        "Price must close (not merely wick) beyond the governing structural high (bearish MSS) or governing structural low (bullish MSS)."
+      ],
+      "exceptions_or_qualifiers": "unspecified",
+      "book_location": {
+        "level": "beginner",
+        "module_number": 3,
+        "module_title": "Market Structure",
+        "section_heading": "Market Structure Shift (MSS)"
+      },
+      "attribution_type": "community_interpretation"
+    },
+    {
+      "id": "BEG-M03-R02",
+      "kind": "rule",
+      "rule_type": "detection_criteria",
+      "statement": "Under this book's adopted working definition, an MSS also requires the breaking move to be impulsive (displacement): large candle bodies, minimal overlapping wicks, and ideally leaving behind a visible Fair Value Gap -- as opposed to a slow, grinding move through the level.",
+      "applies_to": [
+        "Market Structure Shift (MSS)"
+      ],
+      "conditions": [
+        "Structural break present",
+        "Displacement (impulsive move) present",
+        "Ideally a Fair Value Gap left behind"
+      ],
+      "exceptions_or_qualifiers": "This is the book's adopted working definition (the 'first framing'); other ICT-focused sources (ATAS/Equiti framing, tradingfinder.com framing) use looser or different definitions -- see BEG-M03-AMB01.",
+      "book_location": {
+        "level": "beginner",
+        "module_number": 3,
+        "module_title": "Market Structure",
+        "section_heading": "Market Structure Shift (MSS)"
+      },
+      "attribution_type": "book_synthesis"
+    },
+    {
+      "id": "BEG-M03-R03",
+      "kind": "rule",
+      "rule_type": "invalidation",
+      "statement": "An MSS marks the start of a possible new direction, not a guarantee; the new direction typically still needs to be confirmed by a subsequent Break of Structure in the new direction, and a shift can still fail and be followed by a resumption of the original trend.",
+      "applies_to": [
+        "Market Structure Shift (MSS)"
+      ],
+      "conditions": [],
+      "exceptions_or_qualifiers": "unspecified",
+      "book_location": {
+        "level": "beginner",
+        "module_number": 3,
+        "module_title": "Market Structure",
+        "section_heading": "Market Structure Shift (MSS)"
+      },
+      "attribution_type": "community_interpretation"
+    }
+  ],
+  "strategies": [],
+  "examples": [],
+  "relationships": [
+    {
+      "id": "BEG-M03-REL01",
+      "kind": "cross_module_relationship",
+      "statement": "Market Structure is the umbrella concept for this entire module: it is simply the name for continuously classifying price using the swing-point comparisons from Module 1. Structural Highs/Lows narrows that classification down to the specific, currently governing swing points - the exact levels that matter right now, as opposed to every swing point that has ever formed.\n\nBullish Market Structure and Bearish Market Structure are the two possible ongoing classifications a market can hold, each acting as a working assumption that governs which direction a trader looks to trade, right up until that assumption is challenged.\n\nMarket Structure Shift is the event that challenges and potentially overturns that working assumption. It is deliberately the most detailed concept in this module because it functions as the connective tissue between everything taught so far (structure, swing points, timeframes) and everything still to come (liquidity, displacement, and the entry models in Modules 11 - 12). A shift is not just \"a break\" - under this book's adopted definition, it specifically requires a break of the correct governing point, done with force (displacement), which is why Module 5 on Displacement immediately follows this module rather than jumping straight to liquidity or entries.",
+      "involved_concepts": [
+        "Market Structure",
+        "Structural Highs/Lows",
+        "Bullish Market Structure",
+        "Bearish Market Structure",
+        "Market Structure Shift (MSS)"
+      ],
+      "involved_modules": [
+        "Module 1 (beginner)",
+        "Module 2 (beginner)",
+        "Module 4 (beginner, forward reference)",
+        "Module 5 (beginner, forward reference)",
+        "Modules 11-12 (beginner, forward reference)"
+      ],
+      "book_location": {
+        "level": "beginner",
+        "module_number": 3,
+        "module_title": "Market Structure",
+        "section_heading": "How These Concepts Connect"
+      }
+    }
+  ],
+  "no_trade_conditions": [],
+  "contradictions_or_ambiguities": [
+    {
+      "id": "BEG-M03-AMB01",
+      "kind": "contradiction_or_ambiguity",
+      "description": "ICT-focused secondary sources do not use a single, uniform definition of Market Structure Shift (MSS) relative to Break of Structure (BOS) and Change of Character (CHoCH). Three distinct framings are documented: (1) fairvaluehub.de/alphametrixx.com/grandalgo.com framing -- CHoCH is the first, unconfirmed break of a counter-trend swing point, MSS is a stricter version requiring displacement (every MSS is a CHoCH, not every CHoCH is an MSS); (2) ATAS/Equiti framing -- MSS and CHoCH are near-synonyms for the same reversal event, both contrasted against BOS as the continuation event; (3) tradingfinder.com framing -- MSS is broadly any 'short or long-term directional trend shift' without requiring counter-trend or displacement, closer to a general umbrella term. The book explicitly adopts framing (1) as its working definition for the rest of the book and flags that other ICT-focused material may use 'MSS' more loosely. Resolution: the book itself adopts framing (1) as its explicit working definition for the remainder of the book, so this is resolved within the source (not an unresolved gap), even though it transparently documents that other secondary sources vary.",
+      "passage_a": {
+        "text": "One common framing... treats CHoCH as the first, unconfirmed break of a counter-trend swing point, and MSS as a stricter, higher-quality version of that same event... every MSS is a CHoCH, but not every CHoCH qualifies as a full MSS.",
+        "book_location": {
+          "level": "beginner",
+          "module_number": 3,
+          "module_title": "Market Structure",
+          "section_heading": "Market Structure Shift (MSS)"
+        }
+      },
+      "passage_b": {
+        "text": "A third framing... defines MSS more broadly as any 'short or long-term directional trend shift,' without specifying that it must be counter-trend or must include displacement -- closer to a general umbrella term covering any structural change, continuation or reversal.",
+        "book_location": {
+          "level": "beginner",
+          "module_number": 3,
+          "module_title": "Market Structure",
+          "section_heading": "Market Structure Shift (MSS)"
+        }
+      },
+      "resolution_status": "resolved_in_source"
+    }
+  ],
+  "empirical_claims": [],
+  "module_review_notes": {
+    "key_terms": [
+      "Market Structure",
+      "Structural Highs/Lows",
+      "Bullish Market Structure",
+      "Bearish Market Structure",
+      "Market Structure Shift (MSS)",
+      "Break of Structure (BOS)",
+      "Change of Character (CHoCH)",
+      "Displacement (preview)"
+    ],
+    "beginner_summary": "Market structure is the ongoing, updated conclusion drawn from comparing swing highs and lows over time: is the market currently bullish (higher highs and higher lows), bearish (lower highs and lower lows), or undecided? Not every swing point matters equally - the currently governing structural high or low is the specific level that, if broken, would call the current classification into question. When that governing level is broken by a forceful, decisive move against the prevailing trend, ICT-focused teaching calls this a Market Structure Shift - the first real evidence that control of the market may be changing hands. Sources disagree on the exact technical boundary between this event and two related terms, Break of Structure and Change of Character; this book adopts one specific, clearly stated definition for consistency.",
+    "concept_relationships_summary": "Market Structure is the umbrella concept. Structural Highs/Lows identifies the specific governing points within it. Bullish and Bearish Market Structure are the two possible classifications the umbrella concept can produce. Market Structure Shift is the event that overturns one classification in favor of the other, by breaking a structural high/low with displacement.",
+    "practical_chart_exercise": "Using the sequence 200 → 215 → 208 → 225 → 217 → 190 (with the final move happening sharply and with large, decisive candles), classify the structure through 217 as bullish or bearish, identify the governing structural point at that stage, determine whether the final move to 190 qualifies as a Market Structure Shift under this book's working definition, and explain what additional information (not present in this simplified sequence) you would want to see on a real chart before being fully confident in that classification.",
+    "self_test_questions": [
+      "What is the difference between market structure in general and a structural high or low specifically?",
+      "What two conditions does this book's working definition require for an event to qualify as a full Market Structure Shift, rather than a weaker Change of Character?",
+      "Why does a wick through a governing structural level, without a candle-body close beyond it, generally not qualify as a valid structural break?",
+      "Name the three different ways ICT-focused secondary sources define the relationship between MSS, BOS, and CHoCH, as documented in this module.",
+      "Why does a confirmed Market Structure Shift not guarantee that the new direction will continue?"
+    ],
+    "common_misconceptions": [
+      "Believing MSS, BOS, and CHoCH are universally defined the same way by every ICT-focused source - as this module documents, they are not.",
+      "Believing every broken swing point, regardless of its structural significance or the force behind the break, qualifies as a Market Structure Shift.",
+      "Believing a confirmed Market Structure Shift means the reversal is already complete, rather than understanding it as the first piece of evidence that a reversal may be underway.",
+      "Believing market structure can be read once and then ignored, rather than continuously monitored as new candles close."
+    ],
+    "research_sources_cited_in_text": [
+      "fairvaluehub.de - \"ICT Market Structure - BOS, CHoCH and MSS Explained.\"",
+      "alphametrixx.com - \"ICT Market Structure: BOS, CHoCH, and MSS Explained.\"",
+      "grandalgo.com - \"Market Structure Shift (MSS) Trading: Complete ICT/SMC Guide.\"",
+      "innercircletrader.net - \"ICT Market Structure Shift (MSS) - Complete Guide with Examples\" and \"What Is ICT Market Structure? BOS Highs, Lows & Liquidity.\"",
+      "backtrex.com - \"ICT Market Structure Shift (MSS): Complete Guide.\"",
+      "atas.net - \"Understanding Market Structure and Market Structure Shift (MSS).\"",
+      "equiti.com - \"Why MSS vs BOS matters in market structure.\"",
+      "tradingfinder.com - \"ICT Trading Style: Abbreviations & Terms\" and \"Market Structure Inducements ICT.\"",
+      "Note: This module documents a genuine, unresolved terminology disagreement across ICT-focused secondary sources regarding MSS/BOS/CHoCH boundaries. No direct ICT primary-source transcript was accessible in this research pass to resolve the disagreement definitively; this book's adopted working definition is stated explicitly wherever the term MSS is used going forward."
+    ]
+  }
+}

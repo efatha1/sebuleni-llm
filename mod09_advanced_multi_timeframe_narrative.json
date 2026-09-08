@@ -1,0 +1,501 @@
+{
+  "level": "advanced",
+  "module_number": 9,
+  "module_title": "Advanced Multi-Timeframe Narrative",
+  "module_intro": "Subtopics: Monthly → Weekly → Daily → Intraday, Nested Liquidity & PD Arrays, Conflict vs Synchronization, Top-Down Construction.",
+  "prerequisites_stated_in_text": "Advanced Modules 1--8. This module does not introduce new elementary concepts. It trains the student to assemble every prior element into a single coherent top-down narrative and to keep lower-timeframe activity strictly subordinate to higher-timeframe delivery.",
+  "module_objectives": [
+    "Construct a monthly narrative that states structure, controlling range, Draw on Liquidity and PO3 phase.",
+    "Nest a weekly narrative inside the monthly narrative without contradiction.",
+    "Nest a daily narrative inside the weekly narrative, including expected session behaviour and kill-zone timing.",
+    "Restrict intraday / LTF analysis to confirmation and precision execution inside the higher-timeframe story.",
+    "Identify nested liquidity and nested PD arrays and rank them by timeframe authority.",
+    "Recognise timeframe conflict and resolve it by higher-timeframe priority.",
+    "Produce a complete top-down narrative on an unfamiliar chart without being told which model is present.",
+    "What is the structural sequence and is it intact?",
+    "What is the controlling dealing range and where is price relative to equilibrium?",
+    "What is the Draw on Liquidity?",
+    "What PO3 phase (or alternative path) is active?",
+    "What time window is most likely to advance delivery?",
+    "What would invalidate this layer's narrative?",
+    "Monthly structure (sequence of monthly highs and lows).",
+    "Monthly dealing range (or the relevant multi-month range) and premium/discount location.",
+    "Long-term Draw on Liquidity (untested monthly or multi-month external pools).",
+    "Monthly PO3 phase if discernible.",
+    "Monthly invalidation level.",
+    "Weekly structure and its alignment with monthly structure.",
+    "Weekly dealing range and location.",
+    "Weekly Draw on Liquidity (often a prior weekly high/low or equal highs/lows).",
+    "Weekly PO3 phase (early-week accumulation, mid-week manipulation, later-week distribution, or alternative).",
+    "Weekly invalidation.",
+    "Daily structure and alignment with weekly.",
+    "Daily dealing range (nested inside weekly) and premium/discount.",
+    "Daily Draw on Liquidity (intermediate pool on the path to the weekly DOL, or the weekly DOL itself if proximate).",
+    "Expected daily PO3 profile and the kill zones that should advance it.",
+    "Daily invalidation.",
+    "Has the expected liquidity event (raid of the pool named in the daily narrative) occurred?",
+    "Has displacement and internal MSS confirmed the daily direction?",
+    "Which PD array / imbalance inside the correct half of the range is the precise entry?",
+    "What is the trade-level invalidation (distinct from daily or weekly invalidation)?",
+    "Monthly: structure, range, long-term DOL, invalidation. One or two sentences.",
+    "Weekly: structure, range, weekly DOL, PO3 phase, alignment with monthly, invalidation.",
+    "Daily: structure, range, daily DOL (or intermediate pool), expected PO3 and kill zone, alignment with weekly, invalidation. Written before the primary session.",
+    "Intraday: wait for the liquidity event named in the daily narrative; require displacement + internal MSS; select PD array in the correct half of the range; define trade-level invalidation and targets (intermediate then terminal).",
+    "Execution only when the above layers are synchronized or when a deliberate, sized counter-narrative decision has been made.",
+    "Post-session: update each layer that has changed; retire invalid narratives; prepare the next day's daily narrative."
+  ],
+  "concepts": [
+    {
+      "id": "ADV-M09-C01",
+      "kind": "concept",
+      "name": "Narrative Hierarchy - The Governing Principle",
+      "definition": "Monthly narrative governs weekly. Weekly governs daily. Daily governs intraday. At every scale the lower timeframe may refine timing and entry; it may not silently overwrite the higher-timeframe Draw on Liquidity or structural invalidation.",
+      "ict_specific_meaning": "Monthly narrative governs weekly. Weekly governs daily. Daily governs intraday. At every scale the lower timeframe may refine timing and entry; it may not silently overwrite the higher-timeframe Draw on Liquidity or structural invalidation.",
+      "what_changed_from_beginner_level": "unspecified",
+      "detection_criteria": [
+        "unspecified - see raw_sections"
+      ],
+      "numeric_or_narrative_example": "unspecified",
+      "why_it_matters": "unspecified",
+      "beginner_mistakes_or_misinterpretations": [],
+      "raw_sections": {
+        "Authority Order": "Monthly narrative governs weekly. Weekly governs daily. Daily governs intraday. At every scale the lower timeframe may refine timing and entry; it may not silently overwrite the higher-timeframe Draw on Liquidity or structural invalidation.",
+        "What Each Layer Must Contain": "Every layer of the narrative answers the same questions at its own scale:\n\n1231. What is the structural sequence and is it intact?\n\n1232. What is the controlling dealing range and where is price relative to equilibrium?\n\n1233. What is the Draw on Liquidity?\n\n1234. What PO3 phase (or alternative path) is active?\n\n1235. What time window is most likely to advance delivery?\n\n1236. What would invalidate this layer's narrative?"
+      },
+      "dependencies": [],
+      "attribution_type": "community_interpretation",
+      "cited_sources_in_text": [],
+      "book_location": {
+        "level": "advanced",
+        "module_number": 9,
+        "module_title": "Advanced Multi-Timeframe Narrative",
+        "section_heading": "Narrative Hierarchy - The Governing Principle"
+      },
+      "confidence_note": "unspecified"
+    },
+    {
+      "id": "ADV-M09-C02",
+      "kind": "concept",
+      "name": "Monthly Narrative",
+      "definition": "The monthly narrative is the slowest and highest-authority frame. It states:\n\n1237. Monthly structure (sequence of monthly highs and lows).\n\n1238. Monthly dealing range (or the relevant multi-month range) and premium/discount location.\n\n1239. Long-term Draw on Liquidity (untested monthly or multi-month external pools).\n\n1240. Monthly PO3 phase if discernible.\n\n1241. Monthly invalidation level.\n\nMost intraday and even daily decisions will never touch monthly invalidation. The monthly narrative exists to constrain the weekly and daily stories and to prevent the student from treating a strong daily move as a change in macro delivery when the monthly objective remains intact.",
+      "ict_specific_meaning": "The monthly narrative is the slowest and highest-authority frame. It states:\n\n1237. Monthly structure (sequence of monthly highs and lows).\n\n1238. Monthly dealing range (or the relevant multi-month range) and premium/discount location.\n\n1239. Long-term Draw on Liquidity (untested monthly or multi-month external pools).\n\n1240. Monthly PO3 phase if discernible.\n\n1241. Monthly invalidation level.\n\nMost intraday and even daily decisions will never touch monthly invalidation. The monthly narrative exists to constrain the weekly and daily stories and to prevent the student from treating a strong daily move as a change in macro delivery when the monthly objective remains intact.",
+      "what_changed_from_beginner_level": "unspecified",
+      "detection_criteria": [
+        "Monthly structure (sequence of monthly highs and lows).",
+        "Monthly dealing range (or the relevant multi-month range) and premium/discount location.",
+        "Long-term Draw on Liquidity (untested monthly or multi-month external pools).",
+        "Monthly PO3 phase if discernible.",
+        "Monthly invalidation level."
+      ],
+      "numeric_or_narrative_example": "unspecified",
+      "why_it_matters": "unspecified",
+      "beginner_mistakes_or_misinterpretations": [],
+      "raw_sections": {
+        "Full Text": "The monthly narrative is the slowest and highest-authority frame. It states:\n\n1237. Monthly structure (sequence of monthly highs and lows).\n\n1238. Monthly dealing range (or the relevant multi-month range) and premium/discount location.\n\n1239. Long-term Draw on Liquidity (untested monthly or multi-month external pools).\n\n1240. Monthly PO3 phase if discernible.\n\n1241. Monthly invalidation level.\n\nMost intraday and even daily decisions will never touch monthly invalidation. The monthly narrative exists to constrain the weekly and daily stories and to prevent the student from treating a strong daily move as a change in macro delivery when the monthly objective remains intact."
+      },
+      "dependencies": [],
+      "attribution_type": "community_interpretation",
+      "cited_sources_in_text": [],
+      "book_location": {
+        "level": "advanced",
+        "module_number": 9,
+        "module_title": "Advanced Multi-Timeframe Narrative",
+        "section_heading": "Monthly Narrative"
+      },
+      "confidence_note": "unspecified"
+    },
+    {
+      "id": "ADV-M09-C03",
+      "kind": "concept",
+      "name": "Weekly Narrative",
+      "definition": "The weekly narrative sits inside the monthly frame and is the primary swing-trading and higher-timeframe day-trading reference. It states:\n\n1242. Weekly structure and its alignment with monthly structure.\n\n1243. Weekly dealing range and location.\n\n1244. Weekly Draw on Liquidity (often a prior weekly high/low or equal highs/lows).\n\n1245. Weekly PO3 phase (early-week accumulation, mid-week manipulation, later-week distribution, or alternative).\n\n1246. Weekly invalidation.\n\nWhen weekly and monthly agree, confluence is high. When they conflict, the monthly narrative retains priority for macro bias; the weekly may be treated as a corrective phase inside the monthly story.",
+      "ict_specific_meaning": "The weekly narrative sits inside the monthly frame and is the primary swing-trading and higher-timeframe day-trading reference. It states:\n\n1242. Weekly structure and its alignment with monthly structure.\n\n1243. Weekly dealing range and location.\n\n1244. Weekly Draw on Liquidity (often a prior weekly high/low or equal highs/lows).\n\n1245. Weekly PO3 phase (early-week accumulation, mid-week manipulation, later-week distribution, or alternative).\n\n1246. Weekly invalidation.\n\nWhen weekly and monthly agree, confluence is high. When they conflict, the monthly narrative retains priority for macro bias; the weekly may be treated as a corrective phase inside the monthly story.",
+      "what_changed_from_beginner_level": "unspecified",
+      "detection_criteria": [
+        "Weekly structure and its alignment with monthly structure.",
+        "Weekly dealing range and location.",
+        "Weekly Draw on Liquidity (often a prior weekly high/low or equal highs/lows).",
+        "Weekly PO3 phase (early-week accumulation, mid-week manipulation, later-week distribution, or alternative).",
+        "Weekly invalidation."
+      ],
+      "numeric_or_narrative_example": "unspecified",
+      "why_it_matters": "unspecified",
+      "beginner_mistakes_or_misinterpretations": [],
+      "raw_sections": {
+        "Full Text": "The weekly narrative sits inside the monthly frame and is the primary swing-trading and higher-timeframe day-trading reference. It states:\n\n1242. Weekly structure and its alignment with monthly structure.\n\n1243. Weekly dealing range and location.\n\n1244. Weekly Draw on Liquidity (often a prior weekly high/low or equal highs/lows).\n\n1245. Weekly PO3 phase (early-week accumulation, mid-week manipulation, later-week distribution, or alternative).\n\n1246. Weekly invalidation.\n\nWhen weekly and monthly agree, confluence is high. When they conflict, the monthly narrative retains priority for macro bias; the weekly may be treated as a corrective phase inside the monthly story."
+      },
+      "dependencies": [],
+      "attribution_type": "community_interpretation",
+      "cited_sources_in_text": [],
+      "book_location": {
+        "level": "advanced",
+        "module_number": 9,
+        "module_title": "Advanced Multi-Timeframe Narrative",
+        "section_heading": "Weekly Narrative"
+      },
+      "confidence_note": "unspecified"
+    },
+    {
+      "id": "ADV-M09-C04",
+      "kind": "concept",
+      "name": "Daily Narrative",
+      "definition": "The daily narrative is the working frame for most execution decisions. It states:\n\n1247. Daily structure and alignment with weekly.\n\n1248. Daily dealing range (nested inside weekly) and premium/discount.\n\n1249. Daily Draw on Liquidity (intermediate pool on the path to the weekly DOL, or the weekly DOL itself if proximate).\n\n1250. Expected daily PO3 profile and the kill zones that should advance it.\n\n1251. Daily invalidation.\n\nThe daily narrative must be writable before London Open. If it cannot be written clearly, the advanced response is to stand aside or to trade only with reduced size and tighter higher-timeframe alignment requirements.",
+      "ict_specific_meaning": "The daily narrative is the working frame for most execution decisions. It states:\n\n1247. Daily structure and alignment with weekly.\n\n1248. Daily dealing range (nested inside weekly) and premium/discount.\n\n1249. Daily Draw on Liquidity (intermediate pool on the path to the weekly DOL, or the weekly DOL itself if proximate).\n\n1250. Expected daily PO3 profile and the kill zones that should advance it.\n\n1251. Daily invalidation.\n\nThe daily narrative must be writable before London Open. If it cannot be written clearly, the advanced response is to stand aside or to trade only with reduced size and tighter higher-timeframe alignment requirements.",
+      "what_changed_from_beginner_level": "unspecified",
+      "detection_criteria": [
+        "Daily structure and alignment with weekly.",
+        "Daily dealing range (nested inside weekly) and premium/discount.",
+        "Daily Draw on Liquidity (intermediate pool on the path to the weekly DOL, or the weekly DOL itself if proximate).",
+        "Expected daily PO3 profile and the kill zones that should advance it.",
+        "Daily invalidation."
+      ],
+      "numeric_or_narrative_example": "unspecified",
+      "why_it_matters": "unspecified",
+      "beginner_mistakes_or_misinterpretations": [],
+      "raw_sections": {
+        "Full Text": "The daily narrative is the working frame for most execution decisions. It states:\n\n1247. Daily structure and alignment with weekly.\n\n1248. Daily dealing range (nested inside weekly) and premium/discount.\n\n1249. Daily Draw on Liquidity (intermediate pool on the path to the weekly DOL, or the weekly DOL itself if proximate).\n\n1250. Expected daily PO3 profile and the kill zones that should advance it.\n\n1251. Daily invalidation.\n\nThe daily narrative must be writable before London Open. If it cannot be written clearly, the advanced response is to stand aside or to trade only with reduced size and tighter higher-timeframe alignment requirements."
+      },
+      "dependencies": [],
+      "attribution_type": "community_interpretation",
+      "cited_sources_in_text": [],
+      "book_location": {
+        "level": "advanced",
+        "module_number": 9,
+        "module_title": "Advanced Multi-Timeframe Narrative",
+        "section_heading": "Daily Narrative"
+      },
+      "confidence_note": "unspecified"
+    },
+    {
+      "id": "ADV-M09-C05",
+      "kind": "concept",
+      "name": "Intraday / LTF Narrative",
+      "definition": "The intraday narrative has one job: confirm and time. It does not generate independent bias. It answers:\n\n1252. Has the expected liquidity event (raid of the pool named in the daily narrative) occurred?\n\n1253. Has displacement and internal MSS confirmed the daily direction?\n\n1254. Which PD array / imbalance inside the correct half of the range is the precise entry?\n\n1255. What is the trade-level invalidation (distinct from daily or weekly invalidation)?\n\nAny intraday signal that conflicts with the daily narrative is either a trap, a deep retracement, or evidence that the daily narrative itself is failing - and only the last of those permits a rewrite of daily bias.",
+      "ict_specific_meaning": "The intraday narrative has one job: confirm and time. It does not generate independent bias. It answers:\n\n1252. Has the expected liquidity event (raid of the pool named in the daily narrative) occurred?\n\n1253. Has displacement and internal MSS confirmed the daily direction?\n\n1254. Which PD array / imbalance inside the correct half of the range is the precise entry?\n\n1255. What is the trade-level invalidation (distinct from daily or weekly invalidation)?\n\nAny intraday signal that conflicts with the daily narrative is either a trap, a deep retracement, or evidence that the daily narrative itself is failing - and only the last of those permits a rewrite of daily bias.",
+      "what_changed_from_beginner_level": "unspecified",
+      "detection_criteria": [
+        "Has the expected liquidity event (raid of the pool named in the daily narrative) occurred?",
+        "Has displacement and internal MSS confirmed the daily direction?",
+        "Which PD array / imbalance inside the correct half of the range is the precise entry?",
+        "What is the trade-level invalidation (distinct from daily or weekly invalidation)?"
+      ],
+      "numeric_or_narrative_example": "unspecified",
+      "why_it_matters": "unspecified",
+      "beginner_mistakes_or_misinterpretations": [],
+      "raw_sections": {
+        "Full Text": "The intraday narrative has one job: confirm and time. It does not generate independent bias. It answers:\n\n1252. Has the expected liquidity event (raid of the pool named in the daily narrative) occurred?\n\n1253. Has displacement and internal MSS confirmed the daily direction?\n\n1254. Which PD array / imbalance inside the correct half of the range is the precise entry?\n\n1255. What is the trade-level invalidation (distinct from daily or weekly invalidation)?\n\nAny intraday signal that conflicts with the daily narrative is either a trap, a deep retracement, or evidence that the daily narrative itself is failing - and only the last of those permits a rewrite of daily bias."
+      },
+      "dependencies": [],
+      "attribution_type": "community_interpretation",
+      "cited_sources_in_text": [],
+      "book_location": {
+        "level": "advanced",
+        "module_number": 9,
+        "module_title": "Advanced Multi-Timeframe Narrative",
+        "section_heading": "Intraday / LTF Narrative"
+      },
+      "confidence_note": "unspecified"
+    },
+    {
+      "id": "ADV-M09-C06",
+      "kind": "concept",
+      "name": "Nested Liquidity and Nested PD Arrays",
+      "definition": "A weekly buy-side DOL contains intermediate daily buy-side pools and short-term session pools. The student always knows which pool is the current intermediate objective and which is the terminal objective. Reaching a daily pool does not end the weekly narrative.",
+      "ict_specific_meaning": "A weekly buy-side DOL contains intermediate daily buy-side pools and short-term session pools. The student always knows which pool is the current intermediate objective and which is the terminal objective. Reaching a daily pool does not end the weekly narrative.",
+      "what_changed_from_beginner_level": "unspecified",
+      "detection_criteria": [
+        "unspecified - see raw_sections"
+      ],
+      "numeric_or_narrative_example": "unspecified",
+      "why_it_matters": "unspecified",
+      "beginner_mistakes_or_misinterpretations": [],
+      "raw_sections": {
+        "Nested Liquidity": "A weekly buy-side DOL contains intermediate daily buy-side pools and short-term session pools. The student always knows which pool is the current intermediate objective and which is the terminal objective. Reaching a daily pool does not end the weekly narrative.",
+        "Nested PD Arrays": "A weekly FVG or Order Block may contain daily and session arrays. The highest-timeframe array that still aligns with the delivery direction and the controlling range location carries the greatest narrative weight. Lower-timeframe arrays refine entry inside it."
+      },
+      "dependencies": [],
+      "attribution_type": "community_interpretation",
+      "cited_sources_in_text": [],
+      "book_location": {
+        "level": "advanced",
+        "module_number": 9,
+        "module_title": "Advanced Multi-Timeframe Narrative",
+        "section_heading": "Nested Liquidity and Nested PD Arrays"
+      },
+      "confidence_note": "unspecified"
+    },
+    {
+      "id": "ADV-M09-C07",
+      "kind": "concept",
+      "name": "Timeframe Conflict vs Synchronization",
+      "definition": "Synchronization exists when monthly, weekly and daily narratives agree on direction, the controlling ranges show aligned premium/discount location for that direction, and the expected kill zone is producing the expected liquidity event and displacement. Synchronized narratives are the highest-quality environment for execution.",
+      "ict_specific_meaning": "Synchronization exists when monthly, weekly and daily narratives agree on direction, the controlling ranges show aligned premium/discount location for that direction, and the expected kill zone is producing the expected liquidity event and displacement. Synchronized narratives are the highest-quality environment for execution.",
+      "what_changed_from_beginner_level": "unspecified",
+      "detection_criteria": [
+        "unspecified - see raw_sections"
+      ],
+      "numeric_or_narrative_example": "unspecified",
+      "why_it_matters": "unspecified",
+      "beginner_mistakes_or_misinterpretations": [],
+      "raw_sections": {
+        "Synchronization": "Synchronization exists when monthly, weekly and daily narratives agree on direction, the controlling ranges show aligned premium/discount location for that direction, and the expected kill zone is producing the expected liquidity event and displacement. Synchronized narratives are the highest-quality environment for execution.",
+        "Conflict": "Conflict exists when a lower timeframe prints structure, displacement or a PD-array signal opposite to the higher-timeframe narrative. Resolution rule: higher timeframe governs bias and DOL; lower timeframe may be used for counter-narrative scalps only with explicit acknowledgment of reduced probability and tight invalidation. Most advanced practitioners simply stand aside during unresolved conflict.",
+        "False Conflict": "A deep intraday retracement that undercuts a prior low but remains inside the daily and weekly bullish narrative (and is followed by displacement back in the narrative direction) is not true conflict; it is often the manipulation phase of the daily PO3."
+      },
+      "dependencies": [],
+      "attribution_type": "community_interpretation",
+      "cited_sources_in_text": [],
+      "book_location": {
+        "level": "advanced",
+        "module_number": 9,
+        "module_title": "Advanced Multi-Timeframe Narrative",
+        "section_heading": "Timeframe Conflict vs Synchronization"
+      },
+      "confidence_note": "unspecified"
+    },
+    {
+      "id": "ADV-M09-C08",
+      "kind": "concept",
+      "name": "Top-Down Narrative Construction - Procedure",
+      "definition": "- Monthly: structure, range, long-term DOL, invalidation. One or two sentences.\n\n- Weekly: structure, range, weekly DOL, PO3 phase, alignment with monthly, invalidation.\n\n- Daily: structure, range, daily DOL (or intermediate pool), expected PO3 and kill zone, alignment with weekly, invalidation. Written before the primary session.\n\n- Intraday: wait for the liquidity event named in the daily narrative; require displacement + internal MSS; select PD array in the correct half of the range; define trade-level invalidation and targets (intermediate then terminal).\n\n- Execution only when the above layers are synchronized or when a deliberate, sized counter-narrative decision has been made.\n\n- Post-session: update each layer that has changed; retire invalid narratives; prepare the next day's daily narrative.",
+      "ict_specific_meaning": "- Monthly: structure, range, long-term DOL, invalidation. One or two sentences.\n\n- Weekly: structure, range, weekly DOL, PO3 phase, alignment with monthly, invalidation.\n\n- Daily: structure, range, daily DOL (or intermediate pool), expected PO3 and kill zone, alignment with weekly, invalidation. Written before the primary session.\n\n- Intraday: wait for the liquidity event named in the daily narrative; require displacement + internal MSS; select PD array in the correct half of the range; define trade-level invalidation and targets (intermediate then terminal).\n\n- Execution only when the above layers are synchronized or when a deliberate, sized counter-narrative decision has been made.\n\n- Post-session: update each layer that has changed; retire invalid narratives; prepare the next day's daily narrative.",
+      "what_changed_from_beginner_level": "unspecified",
+      "detection_criteria": [
+        "Monthly: structure, range, long-term DOL, invalidation. One or two sentences.",
+        "Weekly: structure, range, weekly DOL, PO3 phase, alignment with monthly, invalidation.",
+        "Daily: structure, range, daily DOL (or intermediate pool), expected PO3 and kill zone, alignment with weekly, invalidation. Written before the primary session.",
+        "Intraday: wait for the liquidity event named in the daily narrative; require displacement + internal MSS; select PD array in the correct half of the range; define trade-level invalidation and targets (intermediate then terminal).",
+        "Execution only when the above layers are synchronized or when a deliberate, sized counter-narrative decision has been made.",
+        "Post-session: update each layer that has changed; retire invalid narratives; prepare the next day's daily narrative."
+      ],
+      "numeric_or_narrative_example": "unspecified",
+      "why_it_matters": "unspecified",
+      "beginner_mistakes_or_misinterpretations": [],
+      "raw_sections": {
+        "Full Text": "- Monthly: structure, range, long-term DOL, invalidation. One or two sentences.\n\n- Weekly: structure, range, weekly DOL, PO3 phase, alignment with monthly, invalidation.\n\n- Daily: structure, range, daily DOL (or intermediate pool), expected PO3 and kill zone, alignment with weekly, invalidation. Written before the primary session.\n\n- Intraday: wait for the liquidity event named in the daily narrative; require displacement + internal MSS; select PD array in the correct half of the range; define trade-level invalidation and targets (intermediate then terminal).\n\n- Execution only when the above layers are synchronized or when a deliberate, sized counter-narrative decision has been made.\n\n- Post-session: update each layer that has changed; retire invalid narratives; prepare the next day's daily narrative."
+      },
+      "dependencies": [],
+      "attribution_type": "community_interpretation",
+      "cited_sources_in_text": [],
+      "book_location": {
+        "level": "advanced",
+        "module_number": 9,
+        "module_title": "Advanced Multi-Timeframe Narrative",
+        "section_heading": "Top-Down Narrative Construction - Procedure"
+      },
+      "confidence_note": "unspecified"
+    }
+  ],
+  "module_synthesis": {
+    "relationship_to_prior_level": [],
+    "worked_narrative_examples": [
+      {
+        "id": "ADV-M09-C09",
+        "kind": "concept",
+        "name": "Worked Complete Narrative",
+        "definition": "Monthly: Bullish sequence intact. Monthly range in discount. Long-term DOL = buy-side above multi-month high. Invalidation = monthly close below origin of last monthly bullish displacement.\n\nWeekly: Aligned bullish. Weekly range 1.0500 - 1.1200, equilibrium 1.0850, price in discount. Weekly DOL = buy-side above 1.1200. Early-week accumulation complete; mid-week manipulation of weekly SSL has printed; distribution phase active. Invalidation = weekly close below manipulation extreme.\n\nDaily: Aligned. Daily range nested in weekly discount. Daily SSL swept in London; daily bullish MSS and FVG in discount. Expected New York continuation toward daily intermediate buy-side then weekly DOL. Daily invalidation = close below daily displacement origin.\n\nIntraday: New York retracement into daily FVG / CE holds; 5-minute MSS confirms; entry taken. Targets: daily internal buy-side first, weekly ERL as terminal. Trade invalidation below the 5-minute displacement origin (tighter than daily invalidation).\n\nThis is a fully synchronized multi-timeframe narrative. Every lower layer refines; none contradicts.",
+        "ict_specific_meaning": "Monthly: Bullish sequence intact. Monthly range in discount. Long-term DOL = buy-side above multi-month high. Invalidation = monthly close below origin of last monthly bullish displacement.\n\nWeekly: Aligned bullish. Weekly range 1.0500 - 1.1200, equilibrium 1.0850, price in discount. Weekly DOL = buy-side above 1.1200. Early-week accumulation complete; mid-week manipulation of weekly SSL has printed; distribution phase active. Invalidation = weekly close below manipulation extreme.\n\nDaily: Aligned. Daily range nested in weekly discount. Daily SSL swept in London; daily bullish MSS and FVG in discount. Expected New York continuation toward daily intermediate buy-side then weekly DOL. Daily invalidation = close below daily displacement origin.\n\nIntraday: New York retracement into daily FVG / CE holds; 5-minute MSS confirms; entry taken. Targets: daily internal buy-side first, weekly ERL as terminal. Trade invalidation below the 5-minute displacement origin (tighter than daily invalidation).\n\nThis is a fully synchronized multi-timeframe narrative. Every lower layer refines; none contradicts.",
+        "what_changed_from_beginner_level": "unspecified",
+        "detection_criteria": [
+          "unspecified - see definition field"
+        ],
+        "numeric_or_narrative_example": "unspecified",
+        "why_it_matters": "unspecified",
+        "beginner_mistakes_or_misinterpretations": [],
+        "raw_sections": {
+          "Full Text": "Monthly: Bullish sequence intact. Monthly range in discount. Long-term DOL = buy-side above multi-month high. Invalidation = monthly close below origin of last monthly bullish displacement.\n\nWeekly: Aligned bullish. Weekly range 1.0500 - 1.1200, equilibrium 1.0850, price in discount. Weekly DOL = buy-side above 1.1200. Early-week accumulation complete; mid-week manipulation of weekly SSL has printed; distribution phase active. Invalidation = weekly close below manipulation extreme.\n\nDaily: Aligned. Daily range nested in weekly discount. Daily SSL swept in London; daily bullish MSS and FVG in discount. Expected New York continuation toward daily intermediate buy-side then weekly DOL. Daily invalidation = close below daily displacement origin.\n\nIntraday: New York retracement into daily FVG / CE holds; 5-minute MSS confirms; entry taken. Targets: daily internal buy-side first, weekly ERL as terminal. Trade invalidation below the 5-minute displacement origin (tighter than daily invalidation).\n\nThis is a fully synchronized multi-timeframe narrative. Every lower layer refines; none contradicts."
+        },
+        "dependencies": [],
+        "attribution_type": "community_interpretation",
+        "cited_sources_in_text": [],
+        "book_location": {
+          "level": "advanced",
+          "module_number": 9,
+          "module_title": "Advanced Multi-Timeframe Narrative",
+          "section_heading": "Worked Complete Narrative"
+        },
+        "confidence_note": "unspecified"
+      }
+    ],
+    "failure_conditions": [],
+    "common_misinterpretations": [
+      {
+        "id": "ADV-M09-C10",
+        "kind": "concept",
+        "name": "Common Misinterpretations",
+        "definition": "1256. Allowing a clean LTF setup to overwrite a clear weekly opposing narrative.\n\n1257. Treating arrival at a daily pool as completion of the weekly DOL.\n\n1258. Writing only a daily narrative and ignoring weekly/monthly constraints.\n\n1259. Confusing a PO3 manipulation undercut with a higher-timeframe structural failure.\n\n1260. Executing in timeframe conflict without acknowledging reduced probability.\n\n1261. Failing to update the narrative stack when a higher-timeframe invalidation prints.",
+        "ict_specific_meaning": "1256. Allowing a clean LTF setup to overwrite a clear weekly opposing narrative.\n\n1257. Treating arrival at a daily pool as completion of the weekly DOL.\n\n1258. Writing only a daily narrative and ignoring weekly/monthly constraints.\n\n1259. Confusing a PO3 manipulation undercut with a higher-timeframe structural failure.\n\n1260. Executing in timeframe conflict without acknowledging reduced probability.\n\n1261. Failing to update the narrative stack when a higher-timeframe invalidation prints.",
+        "what_changed_from_beginner_level": "unspecified",
+        "detection_criteria": [
+          "Allowing a clean LTF setup to overwrite a clear weekly opposing narrative.",
+          "Treating arrival at a daily pool as completion of the weekly DOL.",
+          "Writing only a daily narrative and ignoring weekly/monthly constraints.",
+          "Confusing a PO3 manipulation undercut with a higher-timeframe structural failure.",
+          "Executing in timeframe conflict without acknowledging reduced probability.",
+          "Failing to update the narrative stack when a higher-timeframe invalidation prints."
+        ],
+        "numeric_or_narrative_example": "unspecified",
+        "why_it_matters": "unspecified",
+        "beginner_mistakes_or_misinterpretations": [],
+        "raw_sections": {
+          "Full Text": "1256. Allowing a clean LTF setup to overwrite a clear weekly opposing narrative.\n\n1257. Treating arrival at a daily pool as completion of the weekly DOL.\n\n1258. Writing only a daily narrative and ignoring weekly/monthly constraints.\n\n1259. Confusing a PO3 manipulation undercut with a higher-timeframe structural failure.\n\n1260. Executing in timeframe conflict without acknowledging reduced probability.\n\n1261. Failing to update the narrative stack when a higher-timeframe invalidation prints."
+        },
+        "dependencies": [],
+        "attribution_type": "community_interpretation",
+        "cited_sources_in_text": [],
+        "book_location": {
+          "level": "advanced",
+          "module_number": 9,
+          "module_title": "Advanced Multi-Timeframe Narrative",
+          "section_heading": "Common Misinterpretations"
+        },
+        "confidence_note": "unspecified"
+      }
+    ],
+    "evidence_summary": [
+      {
+        "id": "ADV-M09-C11",
+        "kind": "concept",
+        "name": "Evidence Summary",
+        "definition": "Top-down, multi-timeframe analysis is foundational ICT. The explicit stacking of monthly -> weekly -> daily -> intraday narratives, the subordination of LTF execution to HTF DOL, and the resolution of conflict by higher-timeframe priority are the advanced operational synthesis of that foundation. Nested liquidity and nested PD arrays follow directly from the fractal character of ICT structure and dealing ranges.\n\n***Source / Research note:** Primary orientation: ICT multi-timeframe teaching, higher-timeframe bias and Draw on Liquidity priority, and repeated chart examples in which lower-timeframe activity is interpreted only inside the higher-timeframe story. The formal narrative-stack procedure is the advanced synthesis required for consistent model selection and execution.*",
+        "ict_specific_meaning": "Top-down, multi-timeframe analysis is foundational ICT. The explicit stacking of monthly -> weekly -> daily -> intraday narratives, the subordination of LTF execution to HTF DOL, and the resolution of conflict by higher-timeframe priority are the advanced operational synthesis of that foundation. Nested liquidity and nested PD arrays follow directly from the fractal character of ICT structure and dealing ranges.\n\n***Source / Research note:** Primary orientation: ICT multi-timeframe teaching, higher-timeframe bias and Draw on Liquidity priority, and repeated chart examples in which lower-timeframe activity is interpreted only inside the higher-timeframe story. The formal narrative-stack procedure is the advanced synthesis required for consistent model selection and execution.*",
+        "what_changed_from_beginner_level": "unspecified",
+        "detection_criteria": [
+          "unspecified - see definition field"
+        ],
+        "numeric_or_narrative_example": "unspecified",
+        "why_it_matters": "unspecified",
+        "beginner_mistakes_or_misinterpretations": [],
+        "raw_sections": {
+          "Full Text": "Top-down, multi-timeframe analysis is foundational ICT. The explicit stacking of monthly -> weekly -> daily -> intraday narratives, the subordination of LTF execution to HTF DOL, and the resolution of conflict by higher-timeframe priority are the advanced operational synthesis of that foundation. Nested liquidity and nested PD arrays follow directly from the fractal character of ICT structure and dealing ranges.\n\n***Source / Research note:** Primary orientation: ICT multi-timeframe teaching, higher-timeframe bias and Draw on Liquidity priority, and repeated chart examples in which lower-timeframe activity is interpreted only inside the higher-timeframe story. The formal narrative-stack procedure is the advanced synthesis required for consistent model selection and execution.*"
+        },
+        "dependencies": [],
+        "attribution_type": "community_interpretation",
+        "cited_sources_in_text": [
+          "Primary orientation: ICT multi-timeframe teaching, higher-timeframe bias and Draw on Liquidity priority, and repeated chart examples in which lower-timeframe activity is interpreted only inside the higher-timeframe story. The formal narrative-stack procedure is the advanced synthesis required for consistent model selection and execution."
+        ],
+        "book_location": {
+          "level": "advanced",
+          "module_number": 9,
+          "module_title": "Advanced Multi-Timeframe Narrative",
+          "section_heading": "Evidence Summary"
+        },
+        "confidence_note": "Primary orientation: ICT multi-timeframe teaching, higher-timeframe bias and Draw on Liquidity priority, and repeated chart examples in which lower-timeframe activity is interpreted only inside the higher-timeframe story. The formal narrative-stack procedure is the advanced synthesis required for consistent model selection and execution."
+      }
+    ]
+  },
+  "rules": [
+    {
+      "id": "ADV-M09-R01",
+      "kind": "rule",
+      "rule_type": "timeframe_relationship",
+      "statement": "Narrative hierarchy authority order: Monthly governs weekly; weekly governs daily; daily governs intraday. At every scale the lower timeframe may refine timing and entry but may not silently overwrite the higher-timeframe Draw on Liquidity or structural invalidation. Every layer must answer: what is the structural sequence and is it intact; what is the controlling dealing range and premium/discount location; what is the Draw on Liquidity; what PO3 phase (or alternative path) is active; what time window is most likely to advance delivery; what would invalidate this layer's narrative.",
+      "applies_to": [
+        "Narrative Hierarchy - The Governing Principle"
+      ],
+      "conditions": [],
+      "exceptions_or_qualifiers": "unspecified",
+      "book_location": {
+        "level": "advanced",
+        "module_number": 9,
+        "module_title": "Advanced Multi-Timeframe Narrative",
+        "section_heading": "Narrative Hierarchy - The Governing Principle"
+      },
+      "attribution_type": "community_interpretation"
+    },
+    {
+      "id": "ADV-M09-R02",
+      "kind": "rule",
+      "rule_type": "detection_criteria",
+      "statement": "Synchronization exists when monthly, weekly and daily narratives agree on direction, the controlling ranges show aligned premium/discount location for that direction, and the expected kill zone is producing the expected liquidity event and displacement -- the highest-quality environment for execution. Conflict exists when a lower timeframe prints structure, displacement or a PD-array signal opposite to the higher-timeframe narrative; resolution: higher timeframe governs bias and DOL, lower timeframe may be used for counter-narrative scalps only with explicit acknowledgment of reduced probability and tight invalidation (most advanced practitioners simply stand aside during unresolved conflict). False conflict: a deep intraday retracement that undercuts a prior low but remains inside the daily/weekly bullish narrative (followed by displacement back in the narrative direction) is not true conflict -- often the manipulation phase of daily PO3.",
+      "applies_to": [
+        "Timeframe Conflict vs Synchronization"
+      ],
+      "conditions": [],
+      "exceptions_or_qualifiers": "unspecified",
+      "book_location": {
+        "level": "advanced",
+        "module_number": 9,
+        "module_title": "Advanced Multi-Timeframe Narrative",
+        "section_heading": "Timeframe Conflict vs Synchronization"
+      },
+      "attribution_type": "community_interpretation"
+    },
+    {
+      "id": "ADV-M09-R03",
+      "kind": "rule",
+      "rule_type": "selection_procedure",
+      "statement": "Top-down narrative construction procedure: (1) Monthly -- structure, range, long-term DOL, invalidation (one or two sentences); (2) Weekly -- structure, range, weekly DOL, PO3 phase, alignment with monthly, invalidation; (3) Daily -- structure, range, daily DOL (or intermediate pool), expected PO3 and kill zone, alignment with weekly, invalidation, written before the primary session; (4) Intraday -- wait for the liquidity event named in the daily narrative, require displacement + internal MSS, select PD array in the correct half of the range, define trade-level invalidation and targets (intermediate then terminal); (5) Execution only when the above layers are synchronized or when a deliberate, sized counter-narrative decision has been made; (6) Post-session -- update each layer that has changed, retire invalid narratives, prepare the next day's daily narrative.",
+      "applies_to": [
+        "Top-Down Narrative Construction - Procedure"
+      ],
+      "conditions": [],
+      "exceptions_or_qualifiers": "unspecified",
+      "book_location": {
+        "level": "advanced",
+        "module_number": 9,
+        "module_title": "Advanced Multi-Timeframe Narrative",
+        "section_heading": "Top-Down Narrative Construction - Procedure"
+      },
+      "attribution_type": "community_interpretation"
+    },
+    {
+      "id": "ADV-M09-R04",
+      "kind": "rule",
+      "rule_type": "other",
+      "statement": "Nested liquidity: a weekly buy-side DOL contains intermediate daily buy-side pools and short-term session pools -- always know which pool is the current intermediate objective vs the terminal objective; reaching a daily pool does not end the weekly narrative. Nested PD arrays: a weekly FVG or Order Block may contain daily and session arrays; the highest-timeframe array that still aligns with the delivery direction and controlling range location carries the greatest narrative weight, with lower-timeframe arrays refining entry inside it.",
+      "applies_to": [
+        "Nested Liquidity and Nested PD Arrays"
+      ],
+      "conditions": [],
+      "exceptions_or_qualifiers": "unspecified",
+      "book_location": {
+        "level": "advanced",
+        "module_number": 9,
+        "module_title": "Advanced Multi-Timeframe Narrative",
+        "section_heading": "Nested Liquidity and Nested PD Arrays"
+      },
+      "attribution_type": "community_interpretation"
+    }
+  ],
+  "strategies": [],
+  "examples": [],
+  "relationships": [],
+  "no_trade_conditions": [
+    {
+      "id": "ADV-M09-NT01",
+      "kind": "no_trade_rule",
+      "statement": "Do not allow a clean LTF setup to overwrite a clear weekly opposing narrative. Do not treat arrival at a daily pool as completion of the weekly DOL. Do not write only a daily narrative while ignoring weekly/monthly constraints. Do not confuse a PO3 manipulation undercut with a higher-timeframe structural failure. Do not execute in timeframe conflict without acknowledging reduced probability. Do not fail to update the narrative stack when a higher-timeframe invalidation prints. Most advanced practitioners simply stand aside during unresolved timeframe conflict.",
+      "applies_to_strategy_ids": [],
+      "book_location": {
+        "level": "advanced",
+        "module_number": 9,
+        "module_title": "Advanced Multi-Timeframe Narrative",
+        "section_heading": "Common Misinterpretations"
+      }
+    }
+  ],
+  "contradictions_or_ambiguities": [],
+  "module_review_notes": {
+    "key_terms": [
+      "Narrative hierarchy - monthly > weekly > daily > intraday authority.",
+      "Nested liquidity - lower-timeframe pools that sit on the path to higher-timeframe DOL.",
+      "Nested PD arrays - lower-timeframe arrays that refine entry inside higher-timeframe arrays.",
+      "Timeframe synchronization - agreement of direction, range location and expected time window across layers.",
+      "Timeframe conflict - lower-timeframe signal opposite to higher-timeframe narrative.",
+      "Top-down narrative construction - the ordered process of building the stack before execution."
+    ],
+    "beginner_summary": "unspecified",
+    "concept_relationships_summary": "unspecified",
+    "practical_chart_exercise": "unspecified",
+    "self_test_questions": [
+      "What six questions must every narrative layer answer?",
+      "How should a daily bullish narrative be treated when the weekly narrative is clearly bearish?",
+      "What is the sole job of the intraday narrative?",
+      "When is a deep intraday undercut not true timeframe conflict?",
+      "Outline the six-step top-down construction procedure."
+    ],
+    "common_misconceptions": [],
+    "research_sources_cited_in_text": []
+  }
+}

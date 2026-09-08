@@ -1,0 +1,610 @@
+{
+  "level": "advanced",
+  "module_number": 13,
+  "module_title": "Intermarket & SMT Concepts",
+  "module_intro": "Subtopics: Smart Money Technique, SMT Divergence, Correlated Instruments, Relative Strength/Weakness, Integration with Narrative.",
+  "prerequisites_stated_in_text": "Advanced Modules 1--12. SMT is not conventional oscillator divergence. It is the comparison of swing extremes between genuinely correlated instruments to detect non-confirmation of liquidity sweeps and potential institutional intent. It confirms or challenges a single-instrument narrative; it does not replace it.",
+  "module_objectives": [
+    "Define SMT (Smart Money Technique) as ICT teaches it and distinguish it from indicator-based divergence.",
+    "Identify valid correlated instrument pairs for SMT analysis.",
+    "Recognise bullish and bearish SMT divergence at matching swing points.",
+    "Integrate SMT with liquidity events, MSS, FVG/PD arrays and higher-timeframe bias.",
+    "Use relative strength / relative weakness (including \"sick sister\" style selection) to choose which instrument to trade.",
+    "State the limitations of SMT and the conditions under which it should be ignored.",
+    "Keep SMT subordinate to the multi-timeframe narrative and bias constructed in Modules 9 - 10.",
+    "US equity index futures: ES (S&P 500) vs NQ (Nasdaq 100); sometimes YM (Dow).",
+    "FX majors: EUR/USD vs GBP/USD (both primarily USD-driven).",
+    "USD index relationships: DXY vs EUR/USD (inverse), DXY vs other dollar pairs.",
+    "Other pairs with demonstrated high correlation (e.g., AUD/USD vs NZD/USD) when the relationship is currently stable.",
+    "Requires genuinely correlated instruments; forced pairs produce noise.",
+    "Correlation itself can break (regime change, risk-on/risk-off shifts, idiosyncratic news).",
+    "SMT at minor, non-liquidity swing points is low value.",
+    "SMT is a confirmation/selection tool, not a complete trading system.",
+    "Over-reliance on SMT can cause the student to neglect single-instrument narrative construction.",
+    "Not every divergence leads to an immediate, large reversal; many are short-lived or produce only limited mean-reversion.",
+    "Monthly / Weekly / Daily narrative and bias are constructed first on the primary instrument (Modules 9 - 10).",
+    "At the expected liquidity event, the correlated instrument is checked for confirmation or SMT divergence.",
+    "If SMT aligns with the bias, confidence in the subsequent displacement, MSS and PD-array entry rises.",
+    "If SMT contradicts the bias, the student tightens requirements (stronger displacement, clearer array, smaller size) or stands aside until the conflict resolves."
+  ],
+  "concepts": [
+    {
+      "id": "ADV-M13-C01",
+      "kind": "concept",
+      "name": "What SMT Is (and Is Not)",
+      "definition": "Smart Money Technique (SMT) divergence is the failure of one of two correlated instruments to confirm a new swing high or swing low printed by the other. When two markets that normally move together disagree at a key structural extreme, the non-confirming instrument is often revealing that the extreme on the confirming instrument was a liquidity sweep rather than genuine continuation.",
+      "ict_specific_meaning": "Smart Money Technique (SMT) divergence is the failure of one of two correlated instruments to confirm a new swing high or swing low printed by the other. When two markets that normally move together disagree at a key structural extreme, the non-confirming instrument is often revealing that the extreme on the confirming instrument was a liquidity sweep rather than genuine continuation.",
+      "what_changed_from_beginner_level": "unspecified",
+      "detection_criteria": [
+        "unspecified - see raw_sections"
+      ],
+      "numeric_or_narrative_example": "unspecified",
+      "why_it_matters": "unspecified",
+      "beginner_mistakes_or_misinterpretations": [],
+      "raw_sections": {
+        "ICT Definition": "Smart Money Technique (SMT) divergence is the failure of one of two correlated instruments to confirm a new swing high or swing low printed by the other. When two markets that normally move together disagree at a key structural extreme, the non-confirming instrument is often revealing that the extreme on the confirming instrument was a liquidity sweep rather than genuine continuation.",
+        "Not Conventional Divergence": "SMT compares price to price across two instruments. It does not compare price to an oscillator (RSI, MACD, etc.). Substituting indicator divergence for SMT is a category error.\n\n**Evidence Classification:** *A/B - SMT as correlated-instrument swing non-confirmation is ICT teaching (notably emphasised with index futures and major FX pairs). Exact terminology has appeared as Smart Money Technique / Tool in community and secondary sources; the underlying comparison method is primary.*"
+      },
+      "dependencies": [],
+      "attribution_type": "community_interpretation",
+      "cited_sources_in_text": [],
+      "book_location": {
+        "level": "advanced",
+        "module_number": 13,
+        "module_title": "Intermarket & SMT Concepts",
+        "section_heading": "What SMT Is (and Is Not)"
+      },
+      "confidence_note": "unspecified"
+    },
+    {
+      "id": "ADV-M13-C02",
+      "kind": "concept",
+      "name": "Correlated Instruments",
+      "definition": "SMT requires instruments that currently exhibit strong, stable correlation on the timeframe being analysed. Historical correlation is not enough if the relationship has broken.",
+      "ict_specific_meaning": "SMT requires instruments that currently exhibit strong, stable correlation on the timeframe being analysed. Historical correlation is not enough if the relationship has broken.",
+      "what_changed_from_beginner_level": "unspecified",
+      "detection_criteria": [
+        "unspecified - see raw_sections"
+      ],
+      "numeric_or_narrative_example": "unspecified",
+      "why_it_matters": "unspecified",
+      "beginner_mistakes_or_misinterpretations": [],
+      "raw_sections": {
+        "Requirements": "SMT requires instruments that currently exhibit strong, stable correlation on the timeframe being analysed. Historical correlation is not enough if the relationship has broken.",
+        "Classic Pairs Used in ICT Contexts": "1401. US equity index futures: ES (S&P 500) vs NQ (Nasdaq 100); sometimes YM (Dow).\n\n1402. FX majors: EUR/USD vs GBP/USD (both primarily USD-driven).\n\n1403. USD index relationships: DXY vs EUR/USD (inverse), DXY vs other dollar pairs.\n\n1404. Other pairs with demonstrated high correlation (e.g., AUD/USD vs NZD/USD) when the relationship is currently stable.",
+        "Inverse Correlation": "When instruments are inversely correlated (e.g., DXY and EUR/USD), the expected confirmation is opposite: a higher high on DXY should correspond to a lower low on EUR/USD. Failure of that inverse relationship is also SMT."
+      },
+      "dependencies": [],
+      "attribution_type": "community_interpretation",
+      "cited_sources_in_text": [],
+      "book_location": {
+        "level": "advanced",
+        "module_number": 13,
+        "module_title": "Intermarket & SMT Concepts",
+        "section_heading": "Correlated Instruments"
+      },
+      "confidence_note": "unspecified"
+    },
+    {
+      "id": "ADV-M13-C03",
+      "kind": "concept",
+      "name": "Bullish and Bearish SMT",
+      "definition": "Both instruments are declining (or testing lows). One makes a lower low; the other makes a higher low (fails to confirm the new low). The non-confirming higher low is often the first sign that sell-side liquidity has been engineered on one instrument without genuine continuation across the complex. Bullish intent is inferred; the weaker (or the non-confirming) instrument is frequently the preferred long.",
+      "ict_specific_meaning": "Both instruments are declining (or testing lows). One makes a lower low; the other makes a higher low (fails to confirm the new low). The non-confirming higher low is often the first sign that sell-side liquidity has been engineered on one instrument without genuine continuation across the complex. Bullish intent is inferred; the weaker (or the non-confirming) instrument is frequently the preferred long.",
+      "what_changed_from_beginner_level": "unspecified",
+      "detection_criteria": [
+        "unspecified - see raw_sections"
+      ],
+      "numeric_or_narrative_example": "unspecified",
+      "why_it_matters": "unspecified",
+      "beginner_mistakes_or_misinterpretations": [],
+      "raw_sections": {
+        "Bullish SMT (Positive Correlation)": "Both instruments are declining (or testing lows). One makes a lower low; the other makes a higher low (fails to confirm the new low). The non-confirming higher low is often the first sign that sell-side liquidity has been engineered on one instrument without genuine continuation across the complex. Bullish intent is inferred; the weaker (or the non-confirming) instrument is frequently the preferred long.",
+        "Bearish SMT (Positive Correlation)": "Both instruments are advancing (or testing highs). One makes a higher high; the other makes a lower high (fails to confirm). The non-confirming lower high suggests buy-side liquidity was taken on one instrument without genuine strength across the complex. Bearish intent is inferred; the weaker instrument is frequently the preferred short.",
+        "Timing": "SMT is most meaningful at the swing extremes that coincide with expected liquidity events and kill zones, not at random mid-range wiggles."
+      },
+      "dependencies": [],
+      "attribution_type": "community_interpretation",
+      "cited_sources_in_text": [],
+      "book_location": {
+        "level": "advanced",
+        "module_number": 13,
+        "module_title": "Intermarket & SMT Concepts",
+        "section_heading": "Bullish and Bearish SMT"
+      },
+      "confidence_note": "unspecified"
+    },
+    {
+      "id": "ADV-M13-C04",
+      "kind": "concept",
+      "name": "Relative Strength and Relative Weakness",
+      "definition": "When correlated instruments diverge, one is relatively strong and one is relatively weak. ICT-style application often favours trading the weaker instrument in the direction implied by the divergence (sometimes called the \"sick sister\" approach in secondary literature): the weak one is the one that failed to confirm and is therefore more likely to lead the subsequent move once the engineered liquidity has been taken.",
+      "ict_specific_meaning": "When correlated instruments diverge, one is relatively strong and one is relatively weak. ICT-style application often favours trading the weaker instrument in the direction implied by the divergence (sometimes called the \"sick sister\" approach in secondary literature): the weak one is the one that failed to confirm and is therefore more likely to lead the subsequent move once the engineered liquidity has been taken.",
+      "what_changed_from_beginner_level": "unspecified",
+      "detection_criteria": [
+        "unspecified - see raw_sections"
+      ],
+      "numeric_or_narrative_example": "unspecified",
+      "why_it_matters": "unspecified",
+      "beginner_mistakes_or_misinterpretations": [],
+      "raw_sections": {
+        "Concept": "When correlated instruments diverge, one is relatively strong and one is relatively weak. ICT-style application often favours trading the weaker instrument in the direction implied by the divergence (sometimes called the \"sick sister\" approach in secondary literature): the weak one is the one that failed to confirm and is therefore more likely to lead the subsequent move once the engineered liquidity has been taken.",
+        "Practical Selection": "Bullish SMT -> prefer the instrument that held the higher low (or the one that shows relative strength on the reversal). Bearish SMT -> prefer the instrument that printed the lower high (relative weakness). Exact selection also depends on which instrument offers the cleaner PD-array entry and the better alignment with the higher-timeframe narrative of that specific market.\n\n**Evidence Classification:** *B/C - Relative-strength selection of the divergent leg is a consistent practical application of SMT; \"sick sister\" is secondary/community phrasing.*"
+      },
+      "dependencies": [],
+      "attribution_type": "community_interpretation",
+      "cited_sources_in_text": [],
+      "book_location": {
+        "level": "advanced",
+        "module_number": 13,
+        "module_title": "Intermarket & SMT Concepts",
+        "section_heading": "Relative Strength and Relative Weakness"
+      },
+      "confidence_note": "unspecified"
+    },
+    {
+      "id": "ADV-M13-C05",
+      "kind": "concept",
+      "name": "SMT + Liquidity",
+      "definition": "SMT is most powerful when the swing that fails to confirm is itself a liquidity event on one instrument. Example: EUR/USD sweeps a clear sell-side pool and makes a lower low while GBP/USD holds above its corresponding low. The EUR/USD low is more likely a manipulation; the GBP/USD non-confirmation supports a bullish delivery narrative for the dollar-sensitive complex.\n\nSMT does not replace the Draw on Liquidity analysis of Module 3; it adds intermarket confirmation or warning at the moment the liquidity is taken.",
+      "ict_specific_meaning": "SMT is most powerful when the swing that fails to confirm is itself a liquidity event on one instrument. Example: EUR/USD sweeps a clear sell-side pool and makes a lower low while GBP/USD holds above its corresponding low. The EUR/USD low is more likely a manipulation; the GBP/USD non-confirmation supports a bullish delivery narrative for the dollar-sensitive complex.\n\nSMT does not replace the Draw on Liquidity analysis of Module 3; it adds intermarket confirmation or warning at the moment the liquidity is taken.",
+      "what_changed_from_beginner_level": "unspecified",
+      "detection_criteria": [
+        "unspecified - see definition field"
+      ],
+      "numeric_or_narrative_example": "unspecified",
+      "why_it_matters": "unspecified",
+      "beginner_mistakes_or_misinterpretations": [],
+      "raw_sections": {
+        "Full Text": "SMT is most powerful when the swing that fails to confirm is itself a liquidity event on one instrument. Example: EUR/USD sweeps a clear sell-side pool and makes a lower low while GBP/USD holds above its corresponding low. The EUR/USD low is more likely a manipulation; the GBP/USD non-confirmation supports a bullish delivery narrative for the dollar-sensitive complex.\n\nSMT does not replace the Draw on Liquidity analysis of Module 3; it adds intermarket confirmation or warning at the moment the liquidity is taken."
+      },
+      "dependencies": [],
+      "attribution_type": "community_interpretation",
+      "cited_sources_in_text": [],
+      "book_location": {
+        "level": "advanced",
+        "module_number": 13,
+        "module_title": "Intermarket & SMT Concepts",
+        "section_heading": "SMT + Liquidity"
+      },
+      "confidence_note": "unspecified"
+    },
+    {
+      "id": "ADV-M13-C06",
+      "kind": "concept",
+      "name": "SMT + Market Structure Shift",
+      "definition": "Ideal sequence: SMT divergence at the liquidity extreme -> subsequent displacement and MSS on the instrument being traded (or on both) in the direction implied by the SMT. SMT without a following MSS is only a warning; SMT followed by MSS is confirmation that the single-instrument narrative is aligning with intermarket order flow.",
+      "ict_specific_meaning": "Ideal sequence: SMT divergence at the liquidity extreme -> subsequent displacement and MSS on the instrument being traded (or on both) in the direction implied by the SMT. SMT without a following MSS is only a warning; SMT followed by MSS is confirmation that the single-instrument narrative is aligning with intermarket order flow.",
+      "what_changed_from_beginner_level": "unspecified",
+      "detection_criteria": [
+        "unspecified - see definition field"
+      ],
+      "numeric_or_narrative_example": "unspecified",
+      "why_it_matters": "unspecified",
+      "beginner_mistakes_or_misinterpretations": [],
+      "raw_sections": {
+        "Full Text": "Ideal sequence: SMT divergence at the liquidity extreme -> subsequent displacement and MSS on the instrument being traded (or on both) in the direction implied by the SMT. SMT without a following MSS is only a warning; SMT followed by MSS is confirmation that the single-instrument narrative is aligning with intermarket order flow."
+      },
+      "dependencies": [],
+      "attribution_type": "community_interpretation",
+      "cited_sources_in_text": [],
+      "book_location": {
+        "level": "advanced",
+        "module_number": 13,
+        "module_title": "Intermarket & SMT Concepts",
+        "section_heading": "SMT + Market Structure Shift"
+      },
+      "confidence_note": "unspecified"
+    },
+    {
+      "id": "ADV-M13-C07",
+      "kind": "concept",
+      "name": "SMT + FVG / PD Arrays",
+      "definition": "After SMT and MSS, the entry is still taken at a PD array in the correct half of the controlling range of the traded instrument (Modules 5 - 6, 11 - 12). SMT improves the probability that the array will hold; it does not replace the array or the premium/discount filter.",
+      "ict_specific_meaning": "After SMT and MSS, the entry is still taken at a PD array in the correct half of the controlling range of the traded instrument (Modules 5 - 6, 11 - 12). SMT improves the probability that the array will hold; it does not replace the array or the premium/discount filter.",
+      "what_changed_from_beginner_level": "unspecified",
+      "detection_criteria": [
+        "unspecified - see definition field"
+      ],
+      "numeric_or_narrative_example": "unspecified",
+      "why_it_matters": "unspecified",
+      "beginner_mistakes_or_misinterpretations": [],
+      "raw_sections": {
+        "Full Text": "After SMT and MSS, the entry is still taken at a PD array in the correct half of the controlling range of the traded instrument (Modules 5 - 6, 11 - 12). SMT improves the probability that the array will hold; it does not replace the array or the premium/discount filter."
+      },
+      "dependencies": [],
+      "attribution_type": "community_interpretation",
+      "cited_sources_in_text": [],
+      "book_location": {
+        "level": "advanced",
+        "module_number": 13,
+        "module_title": "Intermarket & SMT Concepts",
+        "section_heading": "SMT + FVG / PD Arrays"
+      },
+      "confidence_note": "unspecified"
+    },
+    {
+      "id": "ADV-M13-C08",
+      "kind": "concept",
+      "name": "SMT + Higher-Timeframe Bias",
+      "definition": "SMT is highest quality when it aligns with the higher-timeframe bias of the instrument being traded. Bullish SMT that appears while the weekly and daily bias of that instrument are already bullish is confirmatory. Bullish SMT that appears against a clear higher-timeframe bearish bias is either an early warning of possible narrative failure or a lower-probability counter-narrative signal. Advanced practice does not let SMT alone overturn a well-constructed higher-timeframe bias without structural and liquidity confirmation on that instrument.",
+      "ict_specific_meaning": "SMT is highest quality when it aligns with the higher-timeframe bias of the instrument being traded. Bullish SMT that appears while the weekly and daily bias of that instrument are already bullish is confirmatory. Bullish SMT that appears against a clear higher-timeframe bearish bias is either an early warning of possible narrative failure or a lower-probability counter-narrative signal. Advanced practice does not let SMT alone overturn a well-constructed higher-timeframe bias without structural and liquidity confirmation on that instrument.",
+      "what_changed_from_beginner_level": "unspecified",
+      "detection_criteria": [
+        "unspecified - see definition field"
+      ],
+      "numeric_or_narrative_example": "unspecified",
+      "why_it_matters": "unspecified",
+      "beginner_mistakes_or_misinterpretations": [],
+      "raw_sections": {
+        "Full Text": "SMT is highest quality when it aligns with the higher-timeframe bias of the instrument being traded. Bullish SMT that appears while the weekly and daily bias of that instrument are already bullish is confirmatory. Bullish SMT that appears against a clear higher-timeframe bearish bias is either an early warning of possible narrative failure or a lower-probability counter-narrative signal. Advanced practice does not let SMT alone overturn a well-constructed higher-timeframe bias without structural and liquidity confirmation on that instrument."
+      },
+      "dependencies": [],
+      "attribution_type": "community_interpretation",
+      "cited_sources_in_text": [],
+      "book_location": {
+        "level": "advanced",
+        "module_number": 13,
+        "module_title": "Intermarket & SMT Concepts",
+        "section_heading": "SMT + Higher-Timeframe Bias"
+      },
+      "confidence_note": "unspecified"
+    },
+    {
+      "id": "ADV-M13-C09",
+      "kind": "concept",
+      "name": "Limitations of SMT",
+      "definition": "1405. Requires genuinely correlated instruments; forced pairs produce noise.\n\n1406. Correlation itself can break (regime change, risk-on/risk-off shifts, idiosyncratic news).\n\n1407. SMT at minor, non-liquidity swing points is low value.\n\n1408. SMT is a confirmation/selection tool, not a complete trading system.\n\n1409. Over-reliance on SMT can cause the student to neglect single-instrument narrative construction.\n\n1410. Not every divergence leads to an immediate, large reversal; many are short-lived or produce only limited mean-reversion.\n\nWhen correlation is unstable or the divergence occurs far from any relevant liquidity or kill zone, SMT is ignored.",
+      "ict_specific_meaning": "1405. Requires genuinely correlated instruments; forced pairs produce noise.\n\n1406. Correlation itself can break (regime change, risk-on/risk-off shifts, idiosyncratic news).\n\n1407. SMT at minor, non-liquidity swing points is low value.\n\n1408. SMT is a confirmation/selection tool, not a complete trading system.\n\n1409. Over-reliance on SMT can cause the student to neglect single-instrument narrative construction.\n\n1410. Not every divergence leads to an immediate, large reversal; many are short-lived or produce only limited mean-reversion.\n\nWhen correlation is unstable or the divergence occurs far from any relevant liquidity or kill zone, SMT is ignored.",
+      "what_changed_from_beginner_level": "unspecified",
+      "detection_criteria": [
+        "Requires genuinely correlated instruments; forced pairs produce noise.",
+        "Correlation itself can break (regime change, risk-on/risk-off shifts, idiosyncratic news).",
+        "SMT at minor, non-liquidity swing points is low value.",
+        "SMT is a confirmation/selection tool, not a complete trading system.",
+        "Over-reliance on SMT can cause the student to neglect single-instrument narrative construction.",
+        "Not every divergence leads to an immediate, large reversal; many are short-lived or produce only limited mean-reversion."
+      ],
+      "numeric_or_narrative_example": "unspecified",
+      "why_it_matters": "unspecified",
+      "beginner_mistakes_or_misinterpretations": [],
+      "raw_sections": {
+        "Full Text": "1405. Requires genuinely correlated instruments; forced pairs produce noise.\n\n1406. Correlation itself can break (regime change, risk-on/risk-off shifts, idiosyncratic news).\n\n1407. SMT at minor, non-liquidity swing points is low value.\n\n1408. SMT is a confirmation/selection tool, not a complete trading system.\n\n1409. Over-reliance on SMT can cause the student to neglect single-instrument narrative construction.\n\n1410. Not every divergence leads to an immediate, large reversal; many are short-lived or produce only limited mean-reversion.\n\nWhen correlation is unstable or the divergence occurs far from any relevant liquidity or kill zone, SMT is ignored."
+      },
+      "dependencies": [],
+      "attribution_type": "community_interpretation",
+      "cited_sources_in_text": [],
+      "book_location": {
+        "level": "advanced",
+        "module_number": 13,
+        "module_title": "Intermarket & SMT Concepts",
+        "section_heading": "Limitations of SMT"
+      },
+      "confidence_note": "unspecified"
+    },
+    {
+      "id": "ADV-M13-C10",
+      "kind": "concept",
+      "name": "Integration into the Full Narrative",
+      "definition": "SMT is inserted into the narrative stack as an intermarket confirmation layer:\n\n1411. Monthly / Weekly / Daily narrative and bias are constructed first on the primary instrument (Modules 9 - 10).\n\n1412. At the expected liquidity event, the correlated instrument is checked for confirmation or SMT divergence.\n\n1413. If SMT aligns with the bias, confidence in the subsequent displacement, MSS and PD-array entry rises.\n\n1414. If SMT contradicts the bias, the student tightens requirements (stronger displacement, clearer array, smaller size) or stands aside until the conflict resolves.\n\nSMT never stands alone as the reason for a trade.",
+      "ict_specific_meaning": "SMT is inserted into the narrative stack as an intermarket confirmation layer:\n\n1411. Monthly / Weekly / Daily narrative and bias are constructed first on the primary instrument (Modules 9 - 10).\n\n1412. At the expected liquidity event, the correlated instrument is checked for confirmation or SMT divergence.\n\n1413. If SMT aligns with the bias, confidence in the subsequent displacement, MSS and PD-array entry rises.\n\n1414. If SMT contradicts the bias, the student tightens requirements (stronger displacement, clearer array, smaller size) or stands aside until the conflict resolves.\n\nSMT never stands alone as the reason for a trade.",
+      "what_changed_from_beginner_level": "unspecified",
+      "detection_criteria": [
+        "Monthly / Weekly / Daily narrative and bias are constructed first on the primary instrument (Modules 9 - 10).",
+        "At the expected liquidity event, the correlated instrument is checked for confirmation or SMT divergence.",
+        "If SMT aligns with the bias, confidence in the subsequent displacement, MSS and PD-array entry rises.",
+        "If SMT contradicts the bias, the student tightens requirements (stronger displacement, clearer array, smaller size) or stands aside until the conflict resolves."
+      ],
+      "numeric_or_narrative_example": "unspecified",
+      "why_it_matters": "unspecified",
+      "beginner_mistakes_or_misinterpretations": [],
+      "raw_sections": {
+        "Full Text": "SMT is inserted into the narrative stack as an intermarket confirmation layer:\n\n1411. Monthly / Weekly / Daily narrative and bias are constructed first on the primary instrument (Modules 9 - 10).\n\n1412. At the expected liquidity event, the correlated instrument is checked for confirmation or SMT divergence.\n\n1413. If SMT aligns with the bias, confidence in the subsequent displacement, MSS and PD-array entry rises.\n\n1414. If SMT contradicts the bias, the student tightens requirements (stronger displacement, clearer array, smaller size) or stands aside until the conflict resolves.\n\nSMT never stands alone as the reason for a trade."
+      },
+      "dependencies": [],
+      "attribution_type": "community_interpretation",
+      "cited_sources_in_text": [],
+      "book_location": {
+        "level": "advanced",
+        "module_number": 13,
+        "module_title": "Intermarket & SMT Concepts",
+        "section_heading": "Integration into the Full Narrative"
+      },
+      "confidence_note": "unspecified"
+    }
+  ],
+  "module_synthesis": {
+    "relationship_to_prior_level": [],
+    "worked_narrative_examples": [
+      {
+        "id": "ADV-M13-C11",
+        "kind": "concept",
+        "name": "Worked Example",
+        "definition": "Primary instrument: EUR/USD. Weekly and daily bias bullish toward buy-side DOL; price in discount; London expected to raid Asian sell-side.\n\nLondon: EUR/USD sweeps Asian low and a prior equal low. GBP/USD, the correlated pair, fails to make a new low and holds a higher low (bullish SMT).\n\nEUR/USD then prints bullish displacement and MSS; FVG forms in discount. Entry is taken on the retracement into the FVG/CE.\n\nSMT confirmed that the EUR/USD low was more likely engineered liquidity than genuine complex-wide selling. The single-instrument narrative (bias, range, displacement, array) remained the primary decision framework; SMT raised its quality.",
+        "ict_specific_meaning": "Primary instrument: EUR/USD. Weekly and daily bias bullish toward buy-side DOL; price in discount; London expected to raid Asian sell-side.\n\nLondon: EUR/USD sweeps Asian low and a prior equal low. GBP/USD, the correlated pair, fails to make a new low and holds a higher low (bullish SMT).\n\nEUR/USD then prints bullish displacement and MSS; FVG forms in discount. Entry is taken on the retracement into the FVG/CE.\n\nSMT confirmed that the EUR/USD low was more likely engineered liquidity than genuine complex-wide selling. The single-instrument narrative (bias, range, displacement, array) remained the primary decision framework; SMT raised its quality.",
+        "what_changed_from_beginner_level": "unspecified",
+        "detection_criteria": [
+          "unspecified - see definition field"
+        ],
+        "numeric_or_narrative_example": "unspecified",
+        "why_it_matters": "unspecified",
+        "beginner_mistakes_or_misinterpretations": [],
+        "raw_sections": {
+          "Full Text": "Primary instrument: EUR/USD. Weekly and daily bias bullish toward buy-side DOL; price in discount; London expected to raid Asian sell-side.\n\nLondon: EUR/USD sweeps Asian low and a prior equal low. GBP/USD, the correlated pair, fails to make a new low and holds a higher low (bullish SMT).\n\nEUR/USD then prints bullish displacement and MSS; FVG forms in discount. Entry is taken on the retracement into the FVG/CE.\n\nSMT confirmed that the EUR/USD low was more likely engineered liquidity than genuine complex-wide selling. The single-instrument narrative (bias, range, displacement, array) remained the primary decision framework; SMT raised its quality."
+        },
+        "dependencies": [],
+        "attribution_type": "community_interpretation",
+        "cited_sources_in_text": [],
+        "book_location": {
+          "level": "advanced",
+          "module_number": 13,
+          "module_title": "Intermarket & SMT Concepts",
+          "section_heading": "Worked Example"
+        },
+        "confidence_note": "unspecified"
+      }
+    ],
+    "failure_conditions": [],
+    "common_misinterpretations": [
+      {
+        "id": "ADV-M13-C12",
+        "kind": "concept",
+        "name": "Common Misinterpretations",
+        "definition": "1415. Treating SMT as RSI/MACD-style divergence.\n\n1416. Forcing SMT on weakly or temporarily correlated pairs.\n\n1417. Trading every SMT without a single-instrument narrative, bias, and PD-array entry.\n\n1418. Allowing SMT alone to override a clear higher-timeframe opposing bias.\n\n1419. Ignoring SMT limitations when correlation is breaking.\n\n1420. Looking for SMT at every swing instead of at liquidity-relevant extremes in kill zones.",
+        "ict_specific_meaning": "1415. Treating SMT as RSI/MACD-style divergence.\n\n1416. Forcing SMT on weakly or temporarily correlated pairs.\n\n1417. Trading every SMT without a single-instrument narrative, bias, and PD-array entry.\n\n1418. Allowing SMT alone to override a clear higher-timeframe opposing bias.\n\n1419. Ignoring SMT limitations when correlation is breaking.\n\n1420. Looking for SMT at every swing instead of at liquidity-relevant extremes in kill zones.",
+        "what_changed_from_beginner_level": "unspecified",
+        "detection_criteria": [
+          "Treating SMT as RSI/MACD-style divergence.",
+          "Forcing SMT on weakly or temporarily correlated pairs.",
+          "Trading every SMT without a single-instrument narrative, bias, and PD-array entry.",
+          "Allowing SMT alone to override a clear higher-timeframe opposing bias.",
+          "Ignoring SMT limitations when correlation is breaking.",
+          "Looking for SMT at every swing instead of at liquidity-relevant extremes in kill zones."
+        ],
+        "numeric_or_narrative_example": "unspecified",
+        "why_it_matters": "unspecified",
+        "beginner_mistakes_or_misinterpretations": [],
+        "raw_sections": {
+          "Full Text": "1415. Treating SMT as RSI/MACD-style divergence.\n\n1416. Forcing SMT on weakly or temporarily correlated pairs.\n\n1417. Trading every SMT without a single-instrument narrative, bias, and PD-array entry.\n\n1418. Allowing SMT alone to override a clear higher-timeframe opposing bias.\n\n1419. Ignoring SMT limitations when correlation is breaking.\n\n1420. Looking for SMT at every swing instead of at liquidity-relevant extremes in kill zones."
+        },
+        "dependencies": [],
+        "attribution_type": "community_interpretation",
+        "cited_sources_in_text": [],
+        "book_location": {
+          "level": "advanced",
+          "module_number": 13,
+          "module_title": "Intermarket & SMT Concepts",
+          "section_heading": "Common Misinterpretations"
+        },
+        "confidence_note": "unspecified"
+      }
+    ],
+    "evidence_summary": [
+      {
+        "id": "ADV-M13-C13",
+        "kind": "concept",
+        "name": "Evidence Summary",
+        "definition": "Comparison of swing extremes between correlated instruments (especially ES/NQ and EUR/USD - GBP/USD) as a non-confirmation / liquidity-engineering signal is ICT teaching. The term SMT (Smart Money Technique / Tool) is used in ICT-related material for this method. Relative-strength selection of the divergent leg is a consistent practical application. Indicator-style divergence and mechanical SMT systems that ignore single-instrument narrative are community elaborations or errors.\n\n***Source / Research note:** Primary orientation: ICT demonstrations of correlated-instrument non-confirmation at liquidity extremes (index futures and major FX). Secondary sources used to locate pair examples and terminology; all application remains subordinated to the narrative framework of Modules 1 - 12.*",
+        "ict_specific_meaning": "Comparison of swing extremes between correlated instruments (especially ES/NQ and EUR/USD - GBP/USD) as a non-confirmation / liquidity-engineering signal is ICT teaching. The term SMT (Smart Money Technique / Tool) is used in ICT-related material for this method. Relative-strength selection of the divergent leg is a consistent practical application. Indicator-style divergence and mechanical SMT systems that ignore single-instrument narrative are community elaborations or errors.\n\n***Source / Research note:** Primary orientation: ICT demonstrations of correlated-instrument non-confirmation at liquidity extremes (index futures and major FX). Secondary sources used to locate pair examples and terminology; all application remains subordinated to the narrative framework of Modules 1 - 12.*",
+        "what_changed_from_beginner_level": "unspecified",
+        "detection_criteria": [
+          "unspecified - see definition field"
+        ],
+        "numeric_or_narrative_example": "unspecified",
+        "why_it_matters": "unspecified",
+        "beginner_mistakes_or_misinterpretations": [],
+        "raw_sections": {
+          "Full Text": "Comparison of swing extremes between correlated instruments (especially ES/NQ and EUR/USD - GBP/USD) as a non-confirmation / liquidity-engineering signal is ICT teaching. The term SMT (Smart Money Technique / Tool) is used in ICT-related material for this method. Relative-strength selection of the divergent leg is a consistent practical application. Indicator-style divergence and mechanical SMT systems that ignore single-instrument narrative are community elaborations or errors.\n\n***Source / Research note:** Primary orientation: ICT demonstrations of correlated-instrument non-confirmation at liquidity extremes (index futures and major FX). Secondary sources used to locate pair examples and terminology; all application remains subordinated to the narrative framework of Modules 1 - 12.*"
+        },
+        "dependencies": [],
+        "attribution_type": "community_interpretation",
+        "cited_sources_in_text": [
+          "Primary orientation: ICT demonstrations of correlated-instrument non-confirmation at liquidity extremes (index futures and major FX). Secondary sources used to locate pair examples and terminology; all application remains subordinated to the narrative framework of Modules 1 - 12."
+        ],
+        "book_location": {
+          "level": "advanced",
+          "module_number": 13,
+          "module_title": "Intermarket & SMT Concepts",
+          "section_heading": "Evidence Summary"
+        },
+        "confidence_note": "Primary orientation: ICT demonstrations of correlated-instrument non-confirmation at liquidity extremes (index futures and major FX). Secondary sources used to locate pair examples and terminology; all application remains subordinated to the narrative framework of Modules 1 - 12."
+      }
+    ]
+  },
+  "rules": [
+    {
+      "id": "ADV-M13-R01",
+      "kind": "rule",
+      "rule_type": "detection_criteria",
+      "statement": "SMT (Smart Money Technique) divergence = failure of one of two correlated instruments to confirm a new swing high/low printed by the other. SMT compares price to price across two instruments -- it does NOT compare price to an oscillator (RSI, MACD, etc.); substituting indicator divergence for SMT is a category error. Requires instruments with strong, stable correlation on the timeframe analyzed (historical correlation alone is insufficient). Classic pairs: ES vs NQ (sometimes YM); EUR/USD vs GBP/USD; DXY vs EUR/USD (inverse); AUD/USD vs NZD/USD (when stable). For inversely correlated instruments, expected confirmation is opposite (e.g. DXY higher high should correspond to EUR/USD lower low); failure of that inverse relationship is also SMT.",
+      "applies_to": [
+        "What SMT Is (and Is Not)",
+        "Correlated Instruments"
+      ],
+      "conditions": [],
+      "exceptions_or_qualifiers": "unspecified",
+      "book_location": {
+        "level": "advanced",
+        "module_number": 13,
+        "module_title": "Intermarket & SMT Concepts",
+        "section_heading": "What SMT Is (and Is Not) / Correlated Instruments"
+      },
+      "attribution_type": "ICT_primary"
+    },
+    {
+      "id": "ADV-M13-R02",
+      "kind": "rule",
+      "rule_type": "detection_criteria",
+      "statement": "Bullish SMT (positive correlation): both instruments declining/testing lows; one makes a lower low, the other makes a higher low (non-confirmation) -- the non-confirming higher low often signals engineered sell-side liquidity without genuine continuation; the non-confirming (weaker-move) instrument is frequently the preferred long. Bearish SMT (positive correlation): both instruments advancing/testing highs; one makes a higher high, the other a lower high (non-confirmation) -- suggests engineered buy-side liquidity; the non-confirming instrument is frequently the preferred short. SMT is most meaningful at swing extremes coinciding with expected liquidity events and kill zones, not at random mid-range wiggles.",
+      "applies_to": [
+        "Bullish and Bearish SMT"
+      ],
+      "conditions": [],
+      "exceptions_or_qualifiers": "unspecified",
+      "book_location": {
+        "level": "advanced",
+        "module_number": 13,
+        "module_title": "Intermarket & SMT Concepts",
+        "section_heading": "Bullish and Bearish SMT"
+      },
+      "attribution_type": "community_interpretation"
+    },
+    {
+      "id": "ADV-M13-R03",
+      "kind": "rule",
+      "rule_type": "selection_procedure",
+      "statement": "Relative strength/weakness selection ('sick sister' approach in secondary literature): Bullish SMT -> prefer the instrument that held the higher low (relative strength on the reversal). Bearish SMT -> prefer the instrument that printed the lower high (relative weakness). Exact selection also depends on which instrument offers the cleaner PD-array entry and better alignment with that market's own higher-timeframe narrative.",
+      "applies_to": [
+        "Relative Strength and Relative Weakness"
+      ],
+      "conditions": [],
+      "exceptions_or_qualifiers": "'Sick sister' is secondary/community phrasing; relative-strength selection itself is a consistent practical application of SMT (Evidence B/C).",
+      "book_location": {
+        "level": "advanced",
+        "module_number": 13,
+        "module_title": "Intermarket & SMT Concepts",
+        "section_heading": "Relative Strength and Relative Weakness"
+      },
+      "attribution_type": "community_interpretation"
+    },
+    {
+      "id": "ADV-M13-R04",
+      "kind": "rule",
+      "rule_type": "sequencing",
+      "statement": "Ideal sequence: SMT divergence at the liquidity extreme -> subsequent displacement and MSS on the instrument being traded (or on both) in the direction implied by the SMT. SMT without a following MSS is only a warning; SMT followed by MSS is confirmation the single-instrument narrative is aligning with intermarket order flow. After SMT and MSS, entry is still taken at a PD array in the correct half of the controlling range -- SMT improves the probability the array will hold, it does not replace the array or the premium/discount filter.",
+      "applies_to": [
+        "SMT + Market Structure Shift",
+        "SMT + FVG / PD Arrays"
+      ],
+      "conditions": [],
+      "exceptions_or_qualifiers": "unspecified",
+      "book_location": {
+        "level": "advanced",
+        "module_number": 13,
+        "module_title": "Intermarket & SMT Concepts",
+        "section_heading": "SMT + Market Structure Shift / SMT + FVG / PD Arrays"
+      },
+      "attribution_type": "community_interpretation"
+    },
+    {
+      "id": "ADV-M13-R05",
+      "kind": "rule",
+      "rule_type": "confluence",
+      "statement": "SMT is highest quality when it aligns with the higher-timeframe bias of the instrument being traded. Bullish SMT while weekly/daily bias is already bullish is confirmatory. Bullish SMT against a clear HTF bearish bias is either an early warning of possible narrative failure or a lower-probability counter-narrative signal -- SMT alone should not overturn a well-constructed HTF bias without structural and liquidity confirmation on that instrument.",
+      "applies_to": [
+        "SMT + Higher-Timeframe Bias"
+      ],
+      "conditions": [],
+      "exceptions_or_qualifiers": "unspecified",
+      "book_location": {
+        "level": "advanced",
+        "module_number": 13,
+        "module_title": "Intermarket & SMT Concepts",
+        "section_heading": "SMT + Higher-Timeframe Bias"
+      },
+      "attribution_type": "community_interpretation"
+    },
+    {
+      "id": "ADV-M13-R06",
+      "kind": "rule",
+      "rule_type": "other",
+      "statement": "Limitations of SMT: requires genuinely correlated instruments (forced pairs produce noise); correlation itself can break (regime change, risk-on/risk-off shifts, idiosyncratic news); SMT at minor, non-liquidity swing points is low value; SMT is a confirmation/selection tool, not a complete trading system; over-reliance can cause neglect of single-instrument narrative construction; not every divergence leads to an immediate, large reversal -- many are short-lived or produce only limited mean-reversion. When correlation is unstable or divergence occurs far from any relevant liquidity or kill zone, SMT is ignored.",
+      "applies_to": [
+        "Limitations of SMT"
+      ],
+      "conditions": [],
+      "exceptions_or_qualifiers": "unspecified",
+      "book_location": {
+        "level": "advanced",
+        "module_number": 13,
+        "module_title": "Intermarket & SMT Concepts",
+        "section_heading": "Limitations of SMT"
+      },
+      "attribution_type": "community_interpretation"
+    },
+    {
+      "id": "ADV-M13-R07",
+      "kind": "rule",
+      "rule_type": "sequencing",
+      "statement": "SMT integration into the full narrative: (1) monthly/weekly/daily narrative and bias are constructed first on the primary instrument; (2) at the expected liquidity event, the correlated instrument is checked for confirmation or SMT divergence; (3) if SMT aligns with the bias, confidence in the subsequent displacement, MSS and PD-array entry rises; (4) if SMT contradicts the bias, tighten requirements (stronger displacement, clearer array, smaller size) or stand aside until the conflict resolves. SMT never stands alone as the reason for a trade.",
+      "applies_to": [
+        "Integration into the Full Narrative"
+      ],
+      "conditions": [],
+      "exceptions_or_qualifiers": "unspecified",
+      "book_location": {
+        "level": "advanced",
+        "module_number": 13,
+        "module_title": "Intermarket & SMT Concepts",
+        "section_heading": "Integration into the Full Narrative"
+      },
+      "attribution_type": "community_interpretation"
+    }
+  ],
+  "strategies": [],
+  "examples": [],
+  "relationships": [],
+  "no_trade_conditions": [
+    {
+      "id": "ADV-M13-NT01",
+      "kind": "no_trade_rule",
+      "statement": "SMT never stands alone as the reason for a trade -- do not trade every SMT without a single-instrument narrative, bias, and PD-array entry. Do not treat SMT as RSI/MACD-style divergence. Do not force SMT on weakly or temporarily correlated pairs. Do not allow SMT alone to override a clear higher-timeframe opposing bias. Do not ignore SMT limitations when correlation is breaking. Do not look for SMT at every swing instead of at liquidity-relevant extremes in kill zones.",
+      "applies_to_strategy_ids": [],
+      "book_location": {
+        "level": "advanced",
+        "module_number": 13,
+        "module_title": "Intermarket & SMT Concepts",
+        "section_heading": "Common Misinterpretations"
+      }
+    }
+  ],
+  "contradictions_or_ambiguities": [
+    {
+      "id": "ADV-M13-AMB01",
+      "kind": "contradiction_or_ambiguity",
+      "description": "The book distinguishes SMT as a primary ICT price-to-price comparison method from the term 'Smart Money Technique/Tool' terminology and the 'sick sister' relative-strength phrasing, which it flags as appearing in community/secondary sources rather than being confirmed primary ICT phrasing.",
+      "passage_a": {
+        "text": "SMT as correlated-instrument swing non-confirmation is ICT teaching... Exact terminology has appeared as Smart Money Technique / Tool in community and secondary sources; the underlying comparison method is primary.",
+        "book_location": {
+          "level": "advanced",
+          "module_number": 13,
+          "module_title": "Intermarket & SMT Concepts",
+          "section_heading": "What SMT Is (and Is Not)"
+        }
+      },
+      "passage_b": {
+        "text": "Relative-strength selection of the divergent leg is a consistent practical application of SMT; 'sick sister' is secondary/community phrasing.",
+        "book_location": {
+          "level": "advanced",
+          "module_number": 13,
+          "module_title": "Intermarket & SMT Concepts",
+          "section_heading": "Relative Strength and Relative Weakness"
+        }
+      },
+      "resolution_status": "book_flags_as_community_vs_ICT"
+    }
+  ],
+  "module_review_notes": {
+    "key_terms": [
+      "SMT (Smart Money Technique) - non-confirmation of swing extremes between correlated instruments.",
+      "Bullish SMT - one instrument makes a lower low; the correlated instrument makes a higher low.",
+      "Bearish SMT - one instrument makes a higher high; the correlated instrument makes a lower high.",
+      "Relative strength / weakness - which of the divergent instruments is leading or lagging.",
+      "Sick sister (secondary term) - preference for trading the weaker / non-confirming leg.",
+      "Intermarket confirmation - SMT that aligns with the primary instrument's narrative.",
+      "Intermarket conflict - SMT that contradicts the primary instrument's bias."
+    ],
+    "beginner_summary": "unspecified",
+    "concept_relationships_summary": "unspecified",
+    "practical_chart_exercise": "unspecified",
+    "self_test_questions": [
+      "How does SMT differ from conventional oscillator divergence?",
+      "Name two classic positively correlated pairs used for SMT.",
+      "What is bullish SMT on a positively correlated pair?",
+      "Where in the narrative stack does SMT belong?",
+      "List three limitations that should cause the student to ignore an apparent SMT signal."
+    ],
+    "common_misconceptions": [],
+    "research_sources_cited_in_text": []
+  }
+}

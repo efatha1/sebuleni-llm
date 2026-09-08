@@ -1,0 +1,468 @@
+{
+  "level": "advanced",
+  "module_number": 19,
+  "module_title": "Complete ICT Narrative",
+  "module_intro": "Subtopics: The Full Delivery Stack from Monthly Context to Post-Trade Analysis; Final Competency & Capstone Project.",
+  "prerequisites_stated_in_text": "Advanced Modules 1--18. This is the final synthesis. The student must be able to receive an unfamiliar chart and construct the entire narrative without being told which setup is present, and must be able to explain why each layer of that narrative exists.",
+  "module_objectives": [
+    "Construct the complete ICT narrative stack on any liquid instrument without external prompting.",
+    "Explain the purpose of every layer from monthly context through post-trade analysis.",
+    "Move from narrative to bias to model selection to precision execution to risk management in a single continuous process.",
+    "Recognise when the stack is incomplete or conflicted and stand aside.",
+    "Complete the capstone project requirements as the demonstration of advanced competency.",
+    "Before the session: construct or update monthly -> weekly -> daily narrative; extract bias; select the authorised model family; define invalidation and risk limits.",
+    "During the session: wait for the liquidity event and LTF confirmation; refine entry; execute only if the pre-entry checklist passes.",
+    "While in the trade: manage according to the still-valid narrative; take partials at intermediate liquidity; hold or exit the runner according to narrative status.",
+    "After the trade or at session end: update every layer that has changed; retire invalid narratives; prepare the next day's daily narrative; record for research.",
+    "Higher-timeframe (monthly/weekly) narrative.",
+    "Draw on Liquidity (named pool and timeframe).",
+    "Relevant dealing range(s) and controlling range.",
+    "Premium / discount location.",
+    "Expected session behaviour.",
+    "Anticipated liquidity event.",
+    "Structure confirmation criteria (what MSS would confirm).",
+    "Candidate PD array(s) for entry.",
+    "Authorised execution model (or explicit stand-aside).",
+    "Target hierarchy (intermediate and terminal).",
+    "Trade invalidation and narrative invalidation.",
+    "One hundred (100) historical trading days on at least one liquid instrument (FX major, index future, or equivalent).",
+    "Fifty (50) complete ICT setups extracted from those days (or from a larger sample if 50 high-quality setups are not present in 100 days).",
+    "For every setup, a written record of:",
+    "HTF narrative (monthly/weekly)",
+    "Daily narrative",
+    "Draw on Liquidity",
+    "Dealing range and premium/discount",
+    "Session expectation and actual path",
+    "PO3 phase (or alternative)",
+    "Liquidity event",
+    "Displacement and MSS",
+    "PD array and entry refinement",
+    "Model selected",
+    "Entry, trade invalidation, targets",
+    "Outcome (hit target / stopped / narrative invalidated)",
+    "Post-trade notes and process adherence",
+    "Blind chart analysis component: a subset of charts analysed without first looking at the right-hand side of the chart (or with future bars hidden), to demonstrate that the narrative can be constructed without hindsight.",
+    "A short research appendix (optional but recommended) that operationalises one model family and reports in-sample / out-of-sample metrics with the doctrine/research separation required by Module 18.",
+    "Constructing only a daily narrative and ignoring weekly/monthly constraints.",
+    "Naming a direction without a concrete Draw on Liquidity.",
+    "Selecting a model before the narrative stack is written.",
+    "Entering before LTF confirmation.",
+    "Abandoning process after a sequence of stand-aside days or losses.",
+    "Treating the capstone project as a search for winning trades rather than as a demonstration of narrative construction and process fidelity.",
+    "Confusing a favourable research appendix with a licence to increase size beyond risk rules."
+  ],
+  "concepts": [
+    {
+      "id": "ADV-M19-C01",
+      "kind": "concept",
+      "name": "The Complete Narrative Stack",
+      "definition": "The advanced narrative is a single descending chain. Each layer constrains the next. No layer is optional when the information is available.\n\nMONTHLY CONTEXT\n\n↓\n\nWEEKLY CONTEXT\n\n↓\n\nDAILY CONTEXT\n\n↓\n\nDRAW ON LIQUIDITY\n\n↓\n\nDEALING RANGE\n\n↓\n\nPREMIUM / DISCOUNT\n\n↓\n\nSESSION EXPECTATION\n\n↓\n\nLIQUIDITY EVENT\n\n↓\n\nDISPLACEMENT\n\n↓\n\nSTRUCTURE (MSS)\n\n↓\n\nPD ARRAY\n\n↓\n\nRETRACEMENT\n\n↓\n\nLTF CONFIRMATION\n\n↓\n\nEXECUTION\n\n↓\n\nTARGET LIQUIDITY\n\n↓\n\nPOST-TRADE ANALYSIS",
+      "ict_specific_meaning": "The advanced narrative is a single descending chain. Each layer constrains the next. No layer is optional when the information is available.\n\nMONTHLY CONTEXT\n\n↓\n\nWEEKLY CONTEXT\n\n↓\n\nDAILY CONTEXT\n\n↓\n\nDRAW ON LIQUIDITY\n\n↓\n\nDEALING RANGE\n\n↓\n\nPREMIUM / DISCOUNT\n\n↓\n\nSESSION EXPECTATION\n\n↓\n\nLIQUIDITY EVENT\n\n↓\n\nDISPLACEMENT\n\n↓\n\nSTRUCTURE (MSS)\n\n↓\n\nPD ARRAY\n\n↓\n\nRETRACEMENT\n\n↓\n\nLTF CONFIRMATION\n\n↓\n\nEXECUTION\n\n↓\n\nTARGET LIQUIDITY\n\n↓\n\nPOST-TRADE ANALYSIS",
+      "what_changed_from_beginner_level": "unspecified",
+      "detection_criteria": [
+        "unspecified - see definition field"
+      ],
+      "numeric_or_narrative_example": "unspecified",
+      "why_it_matters": "unspecified",
+      "beginner_mistakes_or_misinterpretations": [],
+      "raw_sections": {
+        "Full Text": "The advanced narrative is a single descending chain. Each layer constrains the next. No layer is optional when the information is available.\n\nMONTHLY CONTEXT\n\n↓\n\nWEEKLY CONTEXT\n\n↓\n\nDAILY CONTEXT\n\n↓\n\nDRAW ON LIQUIDITY\n\n↓\n\nDEALING RANGE\n\n↓\n\nPREMIUM / DISCOUNT\n\n↓\n\nSESSION EXPECTATION\n\n↓\n\nLIQUIDITY EVENT\n\n↓\n\nDISPLACEMENT\n\n↓\n\nSTRUCTURE (MSS)\n\n↓\n\nPD ARRAY\n\n↓\n\nRETRACEMENT\n\n↓\n\nLTF CONFIRMATION\n\n↓\n\nEXECUTION\n\n↓\n\nTARGET LIQUIDITY\n\n↓\n\nPOST-TRADE ANALYSIS"
+      },
+      "dependencies": [],
+      "attribution_type": "community_interpretation",
+      "cited_sources_in_text": [],
+      "book_location": {
+        "level": "advanced",
+        "module_number": 19,
+        "module_title": "Complete ICT Narrative",
+        "section_heading": "The Complete Narrative Stack"
+      },
+      "confidence_note": "unspecified"
+    },
+    {
+      "id": "ADV-M19-C02",
+      "kind": "concept",
+      "name": "Why Each Layer Exists",
+      "definition": "Sets the slowest, highest-authority directional frame and the long-term Draw on Liquidity. Prevents the student from treating a strong daily move as a change in macro delivery when the monthly objective remains intact. Invalidation at this scale is rare and decisive.",
+      "ict_specific_meaning": "Sets the slowest, highest-authority directional frame and the long-term Draw on Liquidity. Prevents the student from treating a strong daily move as a change in macro delivery when the monthly objective remains intact. Invalidation at this scale is rare and decisive.",
+      "what_changed_from_beginner_level": "unspecified",
+      "detection_criteria": [
+        "unspecified - see raw_sections"
+      ],
+      "numeric_or_narrative_example": "unspecified",
+      "why_it_matters": "unspecified",
+      "beginner_mistakes_or_misinterpretations": [],
+      "raw_sections": {
+        "Monthly Context": "Sets the slowest, highest-authority directional frame and the long-term Draw on Liquidity. Prevents the student from treating a strong daily move as a change in macro delivery when the monthly objective remains intact. Invalidation at this scale is rare and decisive.",
+        "Weekly Context": "Translates monthly direction into the primary swing frame. Supplies the weekly dealing range, weekly DOL, and weekly PO3 phase. Most day-trading decisions are made inside an intact weekly narrative.",
+        "Daily Context": "The working frame for execution. States daily structure, daily range, expected daily PO3 path, and the kill zone that should advance delivery. Written before the primary session.",
+        "Draw on Liquidity": "The concrete objective of delivery. Without a named pool, \"bullish\" or \"bearish\" is an unfinished sentence. Intermediate pools are milestones; the terminal pool is the narrative destination.",
+        "Dealing Range": "The price container in which delivery is measured. Nested ranges (weekly containing daily containing session) keep lower-timeframe activity inside higher-timeframe location logic.",
+        "Premium / Discount": "The location filter that decides which PD arrays are high-probability participants. Longs are preferred in discount; shorts in premium; relative to the controlling range.",
+        "Session Expectation": "The time map of the day's delivery path (Asian accumulation -> London manipulation -> New York distribution, or an explicit alternative). Prevents trading the right idea at the wrong time.",
+        "Liquidity Event": "The origin of the delivery leg - the raid of the pool that fuels the subsequent expansion. Most high-quality legs begin with a liquidity event.",
+        "Displacement": "The energetic movement that demonstrates commitment, leaves imbalance, and breaks structure. Without displacement the narrative remains a hypothesis.",
+        "Structure (MSS)": "The confirmation that the market has accepted the new or resumed delivery direction. Internal MSS often confirms continuation; external MSS may expand or reverse the leg.",
+        "PD Array": "The precise price level at which the trader may enter in the direction of the narrative (FVG, CE, OB, Breaker, OTE, IFVG). Arrays are selected by hierarchy, location and narrative alignment.",
+        "Retracement": "The return into the array that offers the entry. Retracement is expected after displacement; it is not automatically a reversal.",
+        "LTF Confirmation": "The final execution-timeframe sequence (raid, displacement, MSS, array interaction) that authorises the order. Premature entry is the most common process failure.",
+        "Execution": "The placement of the order at the refined array, with predefined trade invalidation, partial targets and runner plan, inside the authorised time window, and inside the risk limits of Module 17.",
+        "Target Liquidity": "Intermediate pools for partials; terminal Draw on Liquidity for the runner. Targets are drawn from the liquidity hierarchy, not from arbitrary round numbers.",
+        "Post-Trade Analysis": "Recording of the full stack, the outcome, whether trade and/or narrative invalidation was hit, and the lessons for the next narrative construction. Closes the loop and feeds research (Module 18)."
+      },
+      "dependencies": [],
+      "attribution_type": "community_interpretation",
+      "cited_sources_in_text": [],
+      "book_location": {
+        "level": "advanced",
+        "module_number": 19,
+        "module_title": "Complete ICT Narrative",
+        "section_heading": "Why Each Layer Exists"
+      },
+      "confidence_note": "unspecified"
+    },
+    {
+      "id": "ADV-M19-C03",
+      "kind": "concept",
+      "name": "The Continuous Process",
+      "definition": "In live application the layers are not a rigid checklist executed once. They are a continuous process:\n\n- Before the session: construct or update monthly -> weekly -> daily narrative; extract bias; select the authorised model family; define invalidation and risk limits.\n\n- During the session: wait for the liquidity event and LTF confirmation; refine entry; execute only if the pre-entry checklist passes.\n\n- While in the trade: manage according to the still-valid narrative; take partials at intermediate liquidity; hold or exit the runner according to narrative status.\n\n- After the trade or at session end: update every layer that has changed; retire invalid narratives; prepare the next day's daily narrative; record for research.\n\nWhen any higher layer is invalidated, all dependent lower decisions are retired until a new higher layer is constructed.",
+      "ict_specific_meaning": "In live application the layers are not a rigid checklist executed once. They are a continuous process:\n\n- Before the session: construct or update monthly -> weekly -> daily narrative; extract bias; select the authorised model family; define invalidation and risk limits.\n\n- During the session: wait for the liquidity event and LTF confirmation; refine entry; execute only if the pre-entry checklist passes.\n\n- While in the trade: manage according to the still-valid narrative; take partials at intermediate liquidity; hold or exit the runner according to narrative status.\n\n- After the trade or at session end: update every layer that has changed; retire invalid narratives; prepare the next day's daily narrative; record for research.\n\nWhen any higher layer is invalidated, all dependent lower decisions are retired until a new higher layer is constructed.",
+      "what_changed_from_beginner_level": "unspecified",
+      "detection_criteria": [
+        "Before the session: construct or update monthly -> weekly -> daily narrative; extract bias; select the authorised model family; define invalidation and risk limits.",
+        "During the session: wait for the liquidity event and LTF confirmation; refine entry; execute only if the pre-entry checklist passes.",
+        "While in the trade: manage according to the still-valid narrative; take partials at intermediate liquidity; hold or exit the runner according to narrative status.",
+        "After the trade or at session end: update every layer that has changed; retire invalid narratives; prepare the next day's daily narrative; record for research."
+      ],
+      "numeric_or_narrative_example": "unspecified",
+      "why_it_matters": "unspecified",
+      "beginner_mistakes_or_misinterpretations": [],
+      "raw_sections": {
+        "Full Text": "In live application the layers are not a rigid checklist executed once. They are a continuous process:\n\n- Before the session: construct or update monthly -> weekly -> daily narrative; extract bias; select the authorised model family; define invalidation and risk limits.\n\n- During the session: wait for the liquidity event and LTF confirmation; refine entry; execute only if the pre-entry checklist passes.\n\n- While in the trade: manage according to the still-valid narrative; take partials at intermediate liquidity; hold or exit the runner according to narrative status.\n\n- After the trade or at session end: update every layer that has changed; retire invalid narratives; prepare the next day's daily narrative; record for research.\n\nWhen any higher layer is invalidated, all dependent lower decisions are retired until a new higher layer is constructed."
+      },
+      "dependencies": [],
+      "attribution_type": "community_interpretation",
+      "cited_sources_in_text": [],
+      "book_location": {
+        "level": "advanced",
+        "module_number": 19,
+        "module_title": "Complete ICT Narrative",
+        "section_heading": "The Continuous Process"
+      },
+      "confidence_note": "unspecified"
+    },
+    {
+      "id": "ADV-M19-C04",
+      "kind": "concept",
+      "name": "Final Advanced Competency",
+      "definition": "The advanced student, given an unfamiliar chart and no hint about which setup is present, can independently produce:\n\n- Higher-timeframe (monthly/weekly) narrative.\n\n- Draw on Liquidity (named pool and timeframe).\n\n- Relevant dealing range(s) and controlling range.\n\n- Premium / discount location.\n\n- Expected session behaviour.\n\n- Anticipated liquidity event.\n\n- Structure confirmation criteria (what MSS would confirm).\n\n- Candidate PD array(s) for entry.\n\n- Authorised execution model (or explicit stand-aside).\n\n- Target hierarchy (intermediate and terminal).\n\n- Trade invalidation and narrative invalidation.\n\nIf any of these cannot be stated clearly, the correct action is to stand aside until they can.",
+      "ict_specific_meaning": "The advanced student, given an unfamiliar chart and no hint about which setup is present, can independently produce:\n\n- Higher-timeframe (monthly/weekly) narrative.\n\n- Draw on Liquidity (named pool and timeframe).\n\n- Relevant dealing range(s) and controlling range.\n\n- Premium / discount location.\n\n- Expected session behaviour.\n\n- Anticipated liquidity event.\n\n- Structure confirmation criteria (what MSS would confirm).\n\n- Candidate PD array(s) for entry.\n\n- Authorised execution model (or explicit stand-aside).\n\n- Target hierarchy (intermediate and terminal).\n\n- Trade invalidation and narrative invalidation.\n\nIf any of these cannot be stated clearly, the correct action is to stand aside until they can.",
+      "what_changed_from_beginner_level": "unspecified",
+      "detection_criteria": [
+        "Higher-timeframe (monthly/weekly) narrative.",
+        "Draw on Liquidity (named pool and timeframe).",
+        "Relevant dealing range(s) and controlling range.",
+        "Premium / discount location.",
+        "Expected session behaviour.",
+        "Anticipated liquidity event.",
+        "Structure confirmation criteria (what MSS would confirm).",
+        "Candidate PD array(s) for entry.",
+        "Authorised execution model (or explicit stand-aside).",
+        "Target hierarchy (intermediate and terminal).",
+        "Trade invalidation and narrative invalidation."
+      ],
+      "numeric_or_narrative_example": "unspecified",
+      "why_it_matters": "unspecified",
+      "beginner_mistakes_or_misinterpretations": [],
+      "raw_sections": {
+        "Full Text": "The advanced student, given an unfamiliar chart and no hint about which setup is present, can independently produce:\n\n- Higher-timeframe (monthly/weekly) narrative.\n\n- Draw on Liquidity (named pool and timeframe).\n\n- Relevant dealing range(s) and controlling range.\n\n- Premium / discount location.\n\n- Expected session behaviour.\n\n- Anticipated liquidity event.\n\n- Structure confirmation criteria (what MSS would confirm).\n\n- Candidate PD array(s) for entry.\n\n- Authorised execution model (or explicit stand-aside).\n\n- Target hierarchy (intermediate and terminal).\n\n- Trade invalidation and narrative invalidation.\n\nIf any of these cannot be stated clearly, the correct action is to stand aside until they can."
+      },
+      "dependencies": [],
+      "attribution_type": "community_interpretation",
+      "cited_sources_in_text": [],
+      "book_location": {
+        "level": "advanced",
+        "module_number": 19,
+        "module_title": "Complete ICT Narrative",
+        "section_heading": "Final Advanced Competency"
+      },
+      "confidence_note": "unspecified"
+    },
+    {
+      "id": "ADV-M19-C05",
+      "kind": "concept",
+      "name": "Capstone Project - Demonstration of Competency",
+      "definition": "To complete the Advanced Level the student must produce a documented study that satisfies the following:\n\n- One hundred (100) historical trading days on at least one liquid instrument (FX major, index future, or equivalent).\n\n- Fifty (50) complete ICT setups extracted from those days (or from a larger sample if 50 high-quality setups are not present in 100 days).\n\n- For every setup, a written record of:\n\n1637. HTF narrative (monthly/weekly)\n\n1638. Daily narrative\n\n1639. Draw on Liquidity\n\n1640. Dealing range and premium/discount\n\n1641. Session expectation and actual path\n\n1642. PO3 phase (or alternative)\n\n1643. Liquidity event\n\n1644. Displacement and MSS\n\n1645. PD array and entry refinement\n\n1646. Model selected\n\n1647. Entry, trade invalidation, targets\n\n1648. Outcome (hit target / stopped / narrative invalidated)\n\n1649. Post-trade notes and process adherence\n\n- Blind chart analysis component: a subset of charts analysed without first looking at the right-hand side of the chart (or with future bars hidden), to demonstrate that the narrative can be constructed without hindsight.\n\n- A short research appendix (optional but recommended) that operationalises one model family and reports in-sample / out-of-sample metrics with the doctrine/research separation required by Module 18.",
+      "ict_specific_meaning": "To complete the Advanced Level the student must produce a documented study that satisfies the following:\n\n- One hundred (100) historical trading days on at least one liquid instrument (FX major, index future, or equivalent).\n\n- Fifty (50) complete ICT setups extracted from those days (or from a larger sample if 50 high-quality setups are not present in 100 days).\n\n- For every setup, a written record of:\n\n1637. HTF narrative (monthly/weekly)\n\n1638. Daily narrative\n\n1639. Draw on Liquidity\n\n1640. Dealing range and premium/discount\n\n1641. Session expectation and actual path\n\n1642. PO3 phase (or alternative)\n\n1643. Liquidity event\n\n1644. Displacement and MSS\n\n1645. PD array and entry refinement\n\n1646. Model selected\n\n1647. Entry, trade invalidation, targets\n\n1648. Outcome (hit target / stopped / narrative invalidated)\n\n1649. Post-trade notes and process adherence\n\n- Blind chart analysis component: a subset of charts analysed without first looking at the right-hand side of the chart (or with future bars hidden), to demonstrate that the narrative can be constructed without hindsight.\n\n- A short research appendix (optional but recommended) that operationalises one model family and reports in-sample / out-of-sample metrics with the doctrine/research separation required by Module 18.",
+      "what_changed_from_beginner_level": "unspecified",
+      "detection_criteria": [
+        "unspecified - see raw_sections"
+      ],
+      "numeric_or_narrative_example": "unspecified",
+      "why_it_matters": "unspecified",
+      "beginner_mistakes_or_misinterpretations": [],
+      "raw_sections": {
+        "Requirements": "To complete the Advanced Level the student must produce a documented study that satisfies the following:\n\n- One hundred (100) historical trading days on at least one liquid instrument (FX major, index future, or equivalent).\n\n- Fifty (50) complete ICT setups extracted from those days (or from a larger sample if 50 high-quality setups are not present in 100 days).\n\n- For every setup, a written record of:\n\n1637. HTF narrative (monthly/weekly)\n\n1638. Daily narrative\n\n1639. Draw on Liquidity\n\n1640. Dealing range and premium/discount\n\n1641. Session expectation and actual path\n\n1642. PO3 phase (or alternative)\n\n1643. Liquidity event\n\n1644. Displacement and MSS\n\n1645. PD array and entry refinement\n\n1646. Model selected\n\n1647. Entry, trade invalidation, targets\n\n1648. Outcome (hit target / stopped / narrative invalidated)\n\n1649. Post-trade notes and process adherence\n\n- Blind chart analysis component: a subset of charts analysed without first looking at the right-hand side of the chart (or with future bars hidden), to demonstrate that the narrative can be constructed without hindsight.\n\n- A short research appendix (optional but recommended) that operationalises one model family and reports in-sample / out-of-sample metrics with the doctrine/research separation required by Module 18.",
+        "Purpose of the Project": "The project is not a claim of profitability. It is a demonstration that the student can consistently construct the complete narrative, select models under that narrative, execute with precision, and review process without self-deception. Quantity (100 days / 50 setups) forces exposure to alternative profiles, failed narratives and stand-aside days - the conditions in which process is most often abandoned."
+      },
+      "dependencies": [],
+      "attribution_type": "community_interpretation",
+      "cited_sources_in_text": [],
+      "book_location": {
+        "level": "advanced",
+        "module_number": 19,
+        "module_title": "Complete ICT Narrative",
+        "section_heading": "Capstone Project - Demonstration of Competency"
+      },
+      "confidence_note": "unspecified"
+    },
+    {
+      "id": "ADV-M19-C07",
+      "kind": "concept",
+      "name": "Common Final-Stage Failures",
+      "definition": "1650. Constructing only a daily narrative and ignoring weekly/monthly constraints.\n\n1651. Naming a direction without a concrete Draw on Liquidity.\n\n1652. Selecting a model before the narrative stack is written.\n\n1653. Entering before LTF confirmation.\n\n1654. Abandoning process after a sequence of stand-aside days or losses.\n\n1655. Treating the capstone project as a search for winning trades rather than as a demonstration of narrative construction and process fidelity.\n\n1656. Confusing a favourable research appendix with a licence to increase size beyond risk rules.",
+      "ict_specific_meaning": "1650. Constructing only a daily narrative and ignoring weekly/monthly constraints.\n\n1651. Naming a direction without a concrete Draw on Liquidity.\n\n1652. Selecting a model before the narrative stack is written.\n\n1653. Entering before LTF confirmation.\n\n1654. Abandoning process after a sequence of stand-aside days or losses.\n\n1655. Treating the capstone project as a search for winning trades rather than as a demonstration of narrative construction and process fidelity.\n\n1656. Confusing a favourable research appendix with a licence to increase size beyond risk rules.",
+      "what_changed_from_beginner_level": "unspecified",
+      "detection_criteria": [
+        "Constructing only a daily narrative and ignoring weekly/monthly constraints.",
+        "Naming a direction without a concrete Draw on Liquidity.",
+        "Selecting a model before the narrative stack is written.",
+        "Entering before LTF confirmation.",
+        "Abandoning process after a sequence of stand-aside days or losses.",
+        "Treating the capstone project as a search for winning trades rather than as a demonstration of narrative construction and process fidelity.",
+        "Confusing a favourable research appendix with a licence to increase size beyond risk rules."
+      ],
+      "numeric_or_narrative_example": "unspecified",
+      "why_it_matters": "unspecified",
+      "beginner_mistakes_or_misinterpretations": [],
+      "raw_sections": {
+        "Full Text": "1650. Constructing only a daily narrative and ignoring weekly/monthly constraints.\n\n1651. Naming a direction without a concrete Draw on Liquidity.\n\n1652. Selecting a model before the narrative stack is written.\n\n1653. Entering before LTF confirmation.\n\n1654. Abandoning process after a sequence of stand-aside days or losses.\n\n1655. Treating the capstone project as a search for winning trades rather than as a demonstration of narrative construction and process fidelity.\n\n1656. Confusing a favourable research appendix with a licence to increase size beyond risk rules."
+      },
+      "dependencies": [],
+      "attribution_type": "community_interpretation",
+      "cited_sources_in_text": [],
+      "book_location": {
+        "level": "advanced",
+        "module_number": 19,
+        "module_title": "Complete ICT Narrative",
+        "section_heading": "Common Final-Stage Failures"
+      },
+      "confidence_note": "unspecified"
+    }
+  ],
+  "module_synthesis": {
+    "relationship_to_prior_level": [],
+    "worked_narrative_examples": [
+      {
+        "id": "ADV-M19-C06",
+        "kind": "concept",
+        "name": "Worked Complete Narrative (End-to-End)",
+        "definition": "Instrument: EUR/USD. Date context: a mid-week session inside a bullish weekly narrative.\n\nMonthly: Bullish sequence intact; long-term DOL = multi-month buy-side; invalidation = monthly close below last monthly bullish origin.\n\nWeekly: Aligned bullish; range 1.0500 - 1.1200; equilibrium 1.0850; price in discount; weekly DOL = 1.1200; mid-week SSL manipulation already taken; distribution phase active; invalidation = weekly close below manipulation extreme.\n\nDaily: Aligned; daily range nested in weekly discount; expect London raid of Asian SSL -> displacement -> FVG in discount -> New York continuation toward daily intermediate buy-side then 1.1200; daily invalidation = close below daily displacement origin.\n\nSession expectation: Classic path. Asian range 1.0620 - 1.0680.\n\nLiquidity event: London sweeps Asian low and relative equal lows.\n\nDisplacement + Structure: Bullish displacement; 15-minute and daily MSS.\n\nPD Array: FVG 1.0635 - 1.0665; CE 1.0650; OTE overlap.\n\nLTF confirmation: Present. SMT optional confirmation on GBP/USD (higher low).\n\nExecution: Entry at CE/OTE ~1.0650; trade invalidation below 1.0620; risk sized to 0.5 % equity.\n\nTargets: Partial at daily intermediate buy-side ~1.0780; runner toward 1.1200.\n\nPost-trade: Partial filled; runner managed under intact weekly narrative; outcome recorded; process adherence confirmed; next day's daily narrative prepared inside the still-valid weekly frame.\n\nThis is the complete ICT narrative in operation.",
+        "ict_specific_meaning": "Instrument: EUR/USD. Date context: a mid-week session inside a bullish weekly narrative.\n\nMonthly: Bullish sequence intact; long-term DOL = multi-month buy-side; invalidation = monthly close below last monthly bullish origin.\n\nWeekly: Aligned bullish; range 1.0500 - 1.1200; equilibrium 1.0850; price in discount; weekly DOL = 1.1200; mid-week SSL manipulation already taken; distribution phase active; invalidation = weekly close below manipulation extreme.\n\nDaily: Aligned; daily range nested in weekly discount; expect London raid of Asian SSL -> displacement -> FVG in discount -> New York continuation toward daily intermediate buy-side then 1.1200; daily invalidation = close below daily displacement origin.\n\nSession expectation: Classic path. Asian range 1.0620 - 1.0680.\n\nLiquidity event: London sweeps Asian low and relative equal lows.\n\nDisplacement + Structure: Bullish displacement; 15-minute and daily MSS.\n\nPD Array: FVG 1.0635 - 1.0665; CE 1.0650; OTE overlap.\n\nLTF confirmation: Present. SMT optional confirmation on GBP/USD (higher low).\n\nExecution: Entry at CE/OTE ~1.0650; trade invalidation below 1.0620; risk sized to 0.5 % equity.\n\nTargets: Partial at daily intermediate buy-side ~1.0780; runner toward 1.1200.\n\nPost-trade: Partial filled; runner managed under intact weekly narrative; outcome recorded; process adherence confirmed; next day's daily narrative prepared inside the still-valid weekly frame.\n\nThis is the complete ICT narrative in operation.",
+        "what_changed_from_beginner_level": "unspecified",
+        "detection_criteria": [
+          "unspecified - see definition field"
+        ],
+        "numeric_or_narrative_example": "unspecified",
+        "why_it_matters": "unspecified",
+        "beginner_mistakes_or_misinterpretations": [],
+        "raw_sections": {
+          "Full Text": "Instrument: EUR/USD. Date context: a mid-week session inside a bullish weekly narrative.\n\nMonthly: Bullish sequence intact; long-term DOL = multi-month buy-side; invalidation = monthly close below last monthly bullish origin.\n\nWeekly: Aligned bullish; range 1.0500 - 1.1200; equilibrium 1.0850; price in discount; weekly DOL = 1.1200; mid-week SSL manipulation already taken; distribution phase active; invalidation = weekly close below manipulation extreme.\n\nDaily: Aligned; daily range nested in weekly discount; expect London raid of Asian SSL -> displacement -> FVG in discount -> New York continuation toward daily intermediate buy-side then 1.1200; daily invalidation = close below daily displacement origin.\n\nSession expectation: Classic path. Asian range 1.0620 - 1.0680.\n\nLiquidity event: London sweeps Asian low and relative equal lows.\n\nDisplacement + Structure: Bullish displacement; 15-minute and daily MSS.\n\nPD Array: FVG 1.0635 - 1.0665; CE 1.0650; OTE overlap.\n\nLTF confirmation: Present. SMT optional confirmation on GBP/USD (higher low).\n\nExecution: Entry at CE/OTE ~1.0650; trade invalidation below 1.0620; risk sized to 0.5 % equity.\n\nTargets: Partial at daily intermediate buy-side ~1.0780; runner toward 1.1200.\n\nPost-trade: Partial filled; runner managed under intact weekly narrative; outcome recorded; process adherence confirmed; next day's daily narrative prepared inside the still-valid weekly frame.\n\nThis is the complete ICT narrative in operation."
+        },
+        "dependencies": [],
+        "attribution_type": "community_interpretation",
+        "cited_sources_in_text": [],
+        "book_location": {
+          "level": "advanced",
+          "module_number": 19,
+          "module_title": "Complete ICT Narrative",
+          "section_heading": "Worked Complete Narrative (End-to-End)"
+        },
+        "confidence_note": "unspecified"
+      }
+    ],
+    "failure_conditions": [],
+    "common_misinterpretations": [],
+    "evidence_summary": [
+      {
+        "id": "ADV-M19-C08",
+        "kind": "concept",
+        "name": "Evidence Summary",
+        "definition": "Every layer of the complete narrative is drawn from the preceding modules, which themselves rest on ICT teaching of delivery, liquidity, structure, PD arrays, time, PO3, multi-timeframe analysis, bias, model variations, SMT, session behaviour, execution refinement and risk discipline. The stack and the competency standard are the advanced synthesis of that teaching into a single, repeatable process.\n\n***Source / Research note:** Synthesis of Advanced Modules 1 - 18. Capstone project design is a pedagogical requirement of this textbook for demonstrating independent narrative construction.*",
+        "ict_specific_meaning": "Every layer of the complete narrative is drawn from the preceding modules, which themselves rest on ICT teaching of delivery, liquidity, structure, PD arrays, time, PO3, multi-timeframe analysis, bias, model variations, SMT, session behaviour, execution refinement and risk discipline. The stack and the competency standard are the advanced synthesis of that teaching into a single, repeatable process.\n\n***Source / Research note:** Synthesis of Advanced Modules 1 - 18. Capstone project design is a pedagogical requirement of this textbook for demonstrating independent narrative construction.*",
+        "what_changed_from_beginner_level": "unspecified",
+        "detection_criteria": [
+          "unspecified - see definition field"
+        ],
+        "numeric_or_narrative_example": "unspecified",
+        "why_it_matters": "unspecified",
+        "beginner_mistakes_or_misinterpretations": [],
+        "raw_sections": {
+          "Full Text": "Every layer of the complete narrative is drawn from the preceding modules, which themselves rest on ICT teaching of delivery, liquidity, structure, PD arrays, time, PO3, multi-timeframe analysis, bias, model variations, SMT, session behaviour, execution refinement and risk discipline. The stack and the competency standard are the advanced synthesis of that teaching into a single, repeatable process.\n\n***Source / Research note:** Synthesis of Advanced Modules 1 - 18. Capstone project design is a pedagogical requirement of this textbook for demonstrating independent narrative construction.*"
+        },
+        "dependencies": [],
+        "attribution_type": "community_interpretation",
+        "cited_sources_in_text": [
+          "Synthesis of Advanced Modules 1 - 18. Capstone project design is a pedagogical requirement of this textbook for demonstrating independent narrative construction."
+        ],
+        "book_location": {
+          "level": "advanced",
+          "module_number": 19,
+          "module_title": "Complete ICT Narrative",
+          "section_heading": "Evidence Summary"
+        },
+        "confidence_note": "Synthesis of Advanced Modules 1 - 18. Capstone project design is a pedagogical requirement of this textbook for demonstrating independent narrative construction."
+      }
+    ]
+  },
+  "rules": [
+    {
+      "id": "ADV-M19-R01",
+      "kind": "rule",
+      "rule_type": "sequencing",
+      "statement": "The complete narrative stack (a single descending chain, each layer constraining the next, no layer optional when information is available): Monthly Context -> Weekly Context -> Daily Context -> Draw on Liquidity -> Dealing Range -> Premium/Discount -> Session Expectation -> Liquidity Event -> Displacement -> Structure (MSS) -> PD Array -> Retracement -> LTF Confirmation -> Execution -> Target Liquidity -> Post-Trade Analysis.",
+      "applies_to": [
+        "The Complete Narrative Stack"
+      ],
+      "conditions": [],
+      "exceptions_or_qualifiers": "unspecified",
+      "book_location": {
+        "level": "advanced",
+        "module_number": 19,
+        "module_title": "Complete ICT Narrative",
+        "section_heading": "The Complete Narrative Stack"
+      },
+      "attribution_type": "book_synthesis"
+    },
+    {
+      "id": "ADV-M19-R02",
+      "kind": "rule",
+      "rule_type": "other",
+      "statement": "The continuous process (layers are not a rigid checklist executed once): Before the session -- construct/update monthly->weekly->daily narrative, extract bias, select authorised model family, define invalidation and risk limits. During the session -- wait for the liquidity event and LTF confirmation, refine entry, execute only if the pre-entry checklist passes. While in the trade -- manage according to the still-valid narrative, take partials at intermediate liquidity, hold or exit the runner per narrative status. After the trade / at session end -- update every layer that has changed, retire invalid narratives, prepare the next day's daily narrative, record for research. When any higher layer is invalidated, all dependent lower decisions are retired until a new higher layer is constructed.",
+      "applies_to": [
+        "The Continuous Process"
+      ],
+      "conditions": [],
+      "exceptions_or_qualifiers": "unspecified",
+      "book_location": {
+        "level": "advanced",
+        "module_number": 19,
+        "module_title": "Complete ICT Narrative",
+        "section_heading": "The Continuous Process"
+      },
+      "attribution_type": "book_synthesis"
+    },
+    {
+      "id": "ADV-M19-R03",
+      "kind": "rule",
+      "rule_type": "detection_criteria",
+      "statement": "Final advanced competency test: given an unfamiliar chart with no hint about which setup is present, the student can independently produce: HTF (monthly/weekly) narrative; Draw on Liquidity (named pool and timeframe); relevant dealing range(s) and controlling range; premium/discount location; expected session behaviour; anticipated liquidity event; structure confirmation criteria (what MSS would confirm); candidate PD array(s) for entry; authorised execution model (or explicit stand-aside); target hierarchy (intermediate and terminal); trade invalidation and narrative invalidation. If any of these cannot be stated clearly, the correct action is to stand aside until they can.",
+      "applies_to": [
+        "Final Advanced Competency"
+      ],
+      "conditions": [],
+      "exceptions_or_qualifiers": "unspecified",
+      "book_location": {
+        "level": "advanced",
+        "module_number": 19,
+        "module_title": "Complete ICT Narrative",
+        "section_heading": "Final Advanced Competency"
+      },
+      "attribution_type": "book_synthesis"
+    }
+  ],
+  "strategies": [
+    {
+      "id": "ADV-M19-S01",
+      "kind": "complete_strategy",
+      "name": "Capstone Project - Demonstration of Competency",
+      "parent_strategy_id": null,
+      "context": {
+        "htf_bias_required": "unspecified (this is a research/demonstration project, not a single trade)",
+        "session_or_time": "unspecified",
+        "other_context": "Requires at least one liquid instrument (FX major, index future, or equivalent) with 100 historical trading days of data available."
+      },
+      "setup": [
+        "Select 100 historical trading days on at least one liquid instrument.",
+        "Extract 50 complete ICT setups from those days (or a larger sample if 50 high-quality setups are not present in 100 days).",
+        "For every setup, produce a written record of: HTF narrative (monthly/weekly); daily narrative; Draw on Liquidity; dealing range and premium/discount; session expectation and actual path; PO3 phase (or alternative); liquidity event; displacement and MSS; PD array and entry refinement; model selected; entry, trade invalidation, targets; outcome (hit target/stopped/narrative invalidated); post-trade notes and process adherence.",
+        "Include a blind chart analysis component: a subset of charts analysed without first looking at the right-hand side of the chart (or with future bars hidden), to demonstrate the narrative can be constructed without hindsight."
+      ],
+      "entry_condition": "N/A -- this is a documentation/research demonstration project, not a single trade entry.",
+      "invalidation_or_stop": "N/A at the project level; individual setups within the study use the standard trade/narrative invalidation hierarchy (Modules 16-17).",
+      "target_or_exit": "A short research appendix (optional but recommended) that operationalises one model family and reports in-sample/out-of-sample metrics with the doctrine/research separation required by Module 18.",
+      "trade_management_rules": [],
+      "sequencing_steps_verbatim_order": [],
+      "eligibility_checklist": [],
+      "specificity_status": "fully_specified",
+      "missing_elements": [],
+      "worked_example_ref": null,
+      "book_location": {
+        "level": "advanced",
+        "module_number": 19,
+        "module_title": "Complete ICT Narrative",
+        "section_heading": "Capstone Project - Demonstration of Competency"
+      },
+      "attribution_type": "book_synthesis",
+      "note": "The project is explicitly NOT a claim of profitability -- it demonstrates that the student can consistently construct the complete narrative, select models under that narrative, execute with precision, and review process without self-deception. Quantity (100 days/50 setups) forces exposure to alternative profiles, failed narratives and stand-aside days."
+    }
+  ],
+  "examples": [],
+  "relationships": [
+    {
+      "id": "ADV-M19-REL01",
+      "kind": "cross_module_relationship",
+      "statement": "Why each layer of the narrative stack exists: Monthly Context sets the slowest, highest-authority directional frame and long-term DOL. Weekly Context translates monthly direction into the primary swing frame. Daily Context is the working frame for execution. Draw on Liquidity is the concrete objective of delivery. Dealing Range is the price container in which delivery is measured. Premium/Discount is the location filter deciding which PD arrays are high-probability. Session Expectation is the time map of the day's delivery path. Liquidity Event is the origin of the delivery leg. Displacement demonstrates commitment and breaks structure. Structure (MSS) confirms the market has accepted the new/resumed direction. PD Array is the precise entry level. Retracement is the expected return into the array. LTF Confirmation is the final execution-timeframe sequence that authorises the order. Execution is order placement with predefined invalidation/targets/risk limits. Target Liquidity supplies partials and the runner objective. Post-Trade Analysis closes the loop and feeds research (Module 18).",
+      "involved_concepts": [
+        "The Complete Narrative Stack",
+        "Why Each Layer Exists"
+      ],
+      "involved_modules": [
+        "Advanced Modules 1-18 (all)"
+      ],
+      "book_location": {
+        "level": "advanced",
+        "module_number": 19,
+        "module_title": "Complete ICT Narrative",
+        "section_heading": "Why Each Layer Exists"
+      }
+    }
+  ],
+  "no_trade_conditions": [
+    {
+      "id": "ADV-M19-NT01",
+      "kind": "no_trade_rule",
+      "statement": "Common final-stage failures to avoid: constructing only a daily narrative and ignoring weekly/monthly constraints; naming a direction without a concrete Draw on Liquidity; selecting a model before the narrative stack is written; entering before LTF confirmation; abandoning process after a sequence of stand-aside days or losses; treating the capstone project as a search for winning trades rather than a demonstration of narrative construction and process fidelity; confusing a favourable research appendix with a licence to increase size beyond risk rules.",
+      "applies_to_strategy_ids": [
+        "ADV-M19-S01"
+      ],
+      "book_location": {
+        "level": "advanced",
+        "module_number": 19,
+        "module_title": "Complete ICT Narrative",
+        "section_heading": "Common Final-Stage Failures"
+      }
+    }
+  ],
+  "contradictions_or_ambiguities": [],
+  "module_review_notes": {
+    "key_terms": [
+      "Complete narrative stack - the ordered chain from monthly context through post-trade analysis.",
+      "Final advanced competency - the ability to construct the entire stack on an unfamiliar chart without prompting.",
+      "Capstone project - 100 historical days, 50 complete setups, blind-chart component, full written records.",
+      "Process fidelity - adherence to the stack, the filters, the checklists and the risk rules regardless of short-term outcome."
+    ],
+    "beginner_summary": "unspecified",
+    "concept_relationships_summary": "unspecified",
+    "practical_chart_exercise": "unspecified",
+    "self_test_questions": [
+      "List the layers of the complete narrative stack in order.",
+      "Why does the monthly layer exist if most trades are intraday?",
+      "What eleven elements must the student be able to produce on an unfamiliar chart?",
+      "What are the quantitative requirements of the capstone project?",
+      "What is the correct action when the narrative stack cannot be completed clearly?"
+    ],
+    "common_misconceptions": [],
+    "research_sources_cited_in_text": []
+  }
+}

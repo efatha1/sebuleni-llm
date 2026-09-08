@@ -1,0 +1,551 @@
+{
+  "level": "advanced",
+  "module_number": 6,
+  "module_title": "Advanced Imbalance & Repricing",
+  "module_intro": "Subtopics: FVG / BISI / SIBI / IFVG, Consequent Encroachment, Voids, Repricing vs Rebalancing, Multiple Imbalance Relationships, Failure.",
+  "prerequisites_stated_in_text": "Advanced Modules 1--5. This module deepens the imbalance side of the PD-array family and trains the student to read every imbalance as either a retracement opportunity inside an ongoing delivery leg or as evidence that delivery has changed.",
+  "module_objectives": [
+    "Identify and classify every significant imbalance (FVG, void) inside the controlling range and along the current delivery path.",
+    "Distinguish repricing (return to inefficiency inside an ongoing narrative) from rebalancing that precedes a change in delivery objective.",
+    "Apply Consequent Encroachment as a precision refinement without losing the larger FVG context.",
+    "Recognise FVG failure and inversion (IFVG) and state the polarity and narrative implications.",
+    "Read multiple overlapping or sequential imbalances as a single delivery story rather than as competing signals.",
+    "Decide when an imbalance is likely to be left unfilled because higher-timeframe delivery has higher priority.",
+    "Integrate imbalance behaviour into model selection and invalidation.",
+    "Liquidity raid (origin pool) ->",
+    "Displacement (creates FVG / void) ->",
+    "Structural confirmation (MSS) ->",
+    "Retracement into the imbalance (repricing) ->",
+    "Continuation toward the Draw on Liquidity."
+  ],
+  "concepts": [
+    {
+      "id": "ADV-M06-C01",
+      "kind": "concept",
+      "name": "Imbalance as the Signature of Displacement",
+      "definition": "Every energetic delivery leg (Module 1) leaves imbalance. The Fair Value Gap is the most commonly traded expression of that imbalance; the liquidity void is its more extreme form. Advanced practice does not hunt imbalances in isolation. It asks: which delivery leg created this imbalance, is that leg still active, and is a return to the imbalance a retracement within the leg or a sign that the leg has failed?",
+      "ict_specific_meaning": "Every energetic delivery leg (Module 1) leaves imbalance. The Fair Value Gap is the most commonly traded expression of that imbalance; the liquidity void is its more extreme form. Advanced practice does not hunt imbalances in isolation. It asks: which delivery leg created this imbalance, is that leg still active, and is a return to the imbalance a retracement within the leg or a sign that the leg has failed?",
+      "what_changed_from_beginner_level": "unspecified",
+      "detection_criteria": [
+        "unspecified - see raw_sections"
+      ],
+      "numeric_or_narrative_example": "unspecified",
+      "why_it_matters": "unspecified",
+      "beginner_mistakes_or_misinterpretations": [],
+      "raw_sections": {
+        "Advanced Premise": "Every energetic delivery leg (Module 1) leaves imbalance. The Fair Value Gap is the most commonly traded expression of that imbalance; the liquidity void is its more extreme form. Advanced practice does not hunt imbalances in isolation. It asks: which delivery leg created this imbalance, is that leg still active, and is a return to the imbalance a retracement within the leg or a sign that the leg has failed?",
+        "Relationship to PD Arrays": "Imbalances are members of the PD-array family (Module 5). They are graded by the same filters: alignment with the Draw on Liquidity, location in the correct premium/discount half of the controlling range, and structural confirmation."
+      },
+      "dependencies": [],
+      "attribution_type": "community_interpretation",
+      "cited_sources_in_text": [],
+      "book_location": {
+        "level": "advanced",
+        "module_number": 6,
+        "module_title": "Advanced Imbalance & Repricing",
+        "section_heading": "Imbalance as the Signature of Displacement"
+      },
+      "confidence_note": "unspecified"
+    },
+    {
+      "id": "ADV-M06-C02",
+      "kind": "concept",
+      "name": "Fair Value Gap - BISI and SIBI",
+      "definition": "A Fair Value Gap is a three-candle structure in which the wick of candle 1 and the wick of candle 3 do not fully overlap, leaving a range of price that was not traded. A bullish FVG (sometimes called BISI - Buy-side Imbalance, Sell-side Inefficiency) forms in upward displacement. A bearish FVG (SIBI) forms in downward displacement.",
+      "ict_specific_meaning": "A Fair Value Gap is a three-candle structure in which the wick of candle 1 and the wick of candle 3 do not fully overlap, leaving a range of price that was not traded. A bullish FVG (sometimes called BISI - Buy-side Imbalance, Sell-side Inefficiency) forms in upward displacement. A bearish FVG (SIBI) forms in downward displacement.",
+      "what_changed_from_beginner_level": "unspecified",
+      "detection_criteria": [
+        "unspecified - see raw_sections"
+      ],
+      "numeric_or_narrative_example": "unspecified",
+      "why_it_matters": "unspecified",
+      "beginner_mistakes_or_misinterpretations": [],
+      "raw_sections": {
+        "Formation": "A Fair Value Gap is a three-candle structure in which the wick of candle 1 and the wick of candle 3 do not fully overlap, leaving a range of price that was not traded. A bullish FVG (sometimes called BISI - Buy-side Imbalance, Sell-side Inefficiency) forms in upward displacement. A bearish FVG (SIBI) forms in downward displacement.",
+        "Delivery Role": "The FVG records that delivery moved too quickly to balance price. The algorithm may later return to reprice or rebalance that inefficiency. Whether the return is a continuation entry or a reversal signal depends entirely on the higher-timeframe delivery narrative and structure.\n\n**Evidence Classification:** *A - FVG is core ICT. BISI/SIBI labels appear in ICT teaching and later refinements.*"
+      },
+      "dependencies": [],
+      "attribution_type": "community_interpretation",
+      "cited_sources_in_text": [],
+      "book_location": {
+        "level": "advanced",
+        "module_number": 6,
+        "module_title": "Advanced Imbalance & Repricing",
+        "section_heading": "Fair Value Gap - BISI and SIBI"
+      },
+      "confidence_note": "unspecified"
+    },
+    {
+      "id": "ADV-M06-C03",
+      "kind": "concept",
+      "name": "Consequent Encroachment",
+      "definition": "Consequent Encroachment is the 50 % midpoint of the FVG. ICT frequently treats CE as a refined reaction level inside a wide gap. Advanced use: when the full FVG offers too much open risk, CE can tighten the entry and invalidation while the student still respects the outer boundary of the gap as the structural context of the imbalance.\n\n**Evidence Classification:** *A - Explicit ICT terminology.*",
+      "ict_specific_meaning": "Consequent Encroachment is the 50 % midpoint of the FVG. ICT frequently treats CE as a refined reaction level inside a wide gap. Advanced use: when the full FVG offers too much open risk, CE can tighten the entry and invalidation while the student still respects the outer boundary of the gap as the structural context of the imbalance.\n\n**Evidence Classification:** *A - Explicit ICT terminology.*",
+      "what_changed_from_beginner_level": "unspecified",
+      "detection_criteria": [
+        "unspecified - see definition field"
+      ],
+      "numeric_or_narrative_example": "unspecified",
+      "why_it_matters": "unspecified",
+      "beginner_mistakes_or_misinterpretations": [],
+      "raw_sections": {
+        "Full Text": "Consequent Encroachment is the 50 % midpoint of the FVG. ICT frequently treats CE as a refined reaction level inside a wide gap. Advanced use: when the full FVG offers too much open risk, CE can tighten the entry and invalidation while the student still respects the outer boundary of the gap as the structural context of the imbalance.\n\n**Evidence Classification:** *A - Explicit ICT terminology.*"
+      },
+      "dependencies": [],
+      "attribution_type": "community_interpretation",
+      "cited_sources_in_text": [],
+      "book_location": {
+        "level": "advanced",
+        "module_number": 6,
+        "module_title": "Advanced Imbalance & Repricing",
+        "section_heading": "Consequent Encroachment"
+      },
+      "confidence_note": "unspecified"
+    },
+    {
+      "id": "ADV-M06-C04",
+      "kind": "concept",
+      "name": "Liquidity Void",
+      "definition": "A liquidity void is an area of especially rapid movement with minimal trading activity - imbalance in its extreme form. In practice it is read similarly to a large FVG: a candidate for later repricing unless higher-timeframe delivery has already committed to leaving it behind. Voids that sit in the correct half of the controlling range and that were created by the current delivery displacement rank higher than incidental voids.\n\n**Evidence Classification:** *B/C - Used in ICT material in connection with rapid delivery and imbalance; boundary with FVG is sometimes fluid.*",
+      "ict_specific_meaning": "A liquidity void is an area of especially rapid movement with minimal trading activity - imbalance in its extreme form. In practice it is read similarly to a large FVG: a candidate for later repricing unless higher-timeframe delivery has already committed to leaving it behind. Voids that sit in the correct half of the controlling range and that were created by the current delivery displacement rank higher than incidental voids.\n\n**Evidence Classification:** *B/C - Used in ICT material in connection with rapid delivery and imbalance; boundary with FVG is sometimes fluid.*",
+      "what_changed_from_beginner_level": "unspecified",
+      "detection_criteria": [
+        "unspecified - see definition field"
+      ],
+      "numeric_or_narrative_example": "unspecified",
+      "why_it_matters": "unspecified",
+      "beginner_mistakes_or_misinterpretations": [],
+      "raw_sections": {
+        "Full Text": "A liquidity void is an area of especially rapid movement with minimal trading activity - imbalance in its extreme form. In practice it is read similarly to a large FVG: a candidate for later repricing unless higher-timeframe delivery has already committed to leaving it behind. Voids that sit in the correct half of the controlling range and that were created by the current delivery displacement rank higher than incidental voids.\n\n**Evidence Classification:** *B/C - Used in ICT material in connection with rapid delivery and imbalance; boundary with FVG is sometimes fluid.*"
+      },
+      "dependencies": [],
+      "attribution_type": "community_interpretation",
+      "cited_sources_in_text": [],
+      "book_location": {
+        "level": "advanced",
+        "module_number": 6,
+        "module_title": "Advanced Imbalance & Repricing",
+        "section_heading": "Liquidity Void"
+      },
+      "confidence_note": "unspecified"
+    },
+    {
+      "id": "ADV-M06-C05",
+      "kind": "concept",
+      "name": "Balanced Price Range",
+      "definition": "A Balanced Price Range is an area in which opposing imbalances have been filled or in which price has spent enough time to leave the region relatively efficient. Fresh, unmitigated imbalances are preferred over balanced ranges for immediate retracement entries. A previously imbalanced area that has become balanced loses priority as a magnet.\n\n**Evidence Classification:** *B/C - Appears in ICT discussions of efficiency and imbalance.*",
+      "ict_specific_meaning": "A Balanced Price Range is an area in which opposing imbalances have been filled or in which price has spent enough time to leave the region relatively efficient. Fresh, unmitigated imbalances are preferred over balanced ranges for immediate retracement entries. A previously imbalanced area that has become balanced loses priority as a magnet.\n\n**Evidence Classification:** *B/C - Appears in ICT discussions of efficiency and imbalance.*",
+      "what_changed_from_beginner_level": "unspecified",
+      "detection_criteria": [
+        "unspecified - see definition field"
+      ],
+      "numeric_or_narrative_example": "unspecified",
+      "why_it_matters": "unspecified",
+      "beginner_mistakes_or_misinterpretations": [],
+      "raw_sections": {
+        "Full Text": "A Balanced Price Range is an area in which opposing imbalances have been filled or in which price has spent enough time to leave the region relatively efficient. Fresh, unmitigated imbalances are preferred over balanced ranges for immediate retracement entries. A previously imbalanced area that has become balanced loses priority as a magnet.\n\n**Evidence Classification:** *B/C - Appears in ICT discussions of efficiency and imbalance.*"
+      },
+      "dependencies": [],
+      "attribution_type": "community_interpretation",
+      "cited_sources_in_text": [],
+      "book_location": {
+        "level": "advanced",
+        "module_number": 6,
+        "module_title": "Advanced Imbalance & Repricing",
+        "section_heading": "Balanced Price Range"
+      },
+      "confidence_note": "unspecified"
+    },
+    {
+      "id": "ADV-M06-C06",
+      "kind": "concept",
+      "name": "Repricing vs Rebalancing",
+      "definition": "Repricing is the return of price into an inefficiency (FVG or void) so that the inefficiency is reduced or closed, while the higher-timeframe delivery objective remains intact. The return is a retracement inside the ongoing delivery leg. This is the classic environment for FVG or CE entries in the direction of the Draw on Liquidity.",
+      "ict_specific_meaning": "Repricing is the return of price into an inefficiency (FVG or void) so that the inefficiency is reduced or closed, while the higher-timeframe delivery objective remains intact. The return is a retracement inside the ongoing delivery leg. This is the classic environment for FVG or CE entries in the direction of the Draw on Liquidity.",
+      "what_changed_from_beginner_level": "unspecified",
+      "detection_criteria": [
+        "unspecified - see raw_sections"
+      ],
+      "numeric_or_narrative_example": "unspecified",
+      "why_it_matters": "unspecified",
+      "beginner_mistakes_or_misinterpretations": [],
+      "raw_sections": {
+        "Repricing": "Repricing is the return of price into an inefficiency (FVG or void) so that the inefficiency is reduced or closed, while the higher-timeframe delivery objective remains intact. The return is a retracement inside the ongoing delivery leg. This is the classic environment for FVG or CE entries in the direction of the Draw on Liquidity.",
+        "Rebalancing that Signals Change": "Sometimes the return to imbalance is accompanied by opposing displacement and an external MSS. In that case the \"rebalancing\" is part of a larger reversal: the prior delivery leg has failed and a new opposing leg is beginning. The distinction is not in the imbalance itself; it is in the structural and liquidity context that surrounds the return.",
+        "Practical Test": "When price returns to an FVG, ask: Does structure and the higher-timeframe DOL still support continuation after the return, or has opposing structure and opposing liquidity taken control? The answer determines whether the student treats the event as a continuation entry or as a narrative rewrite."
+      },
+      "dependencies": [],
+      "attribution_type": "community_interpretation",
+      "cited_sources_in_text": [],
+      "book_location": {
+        "level": "advanced",
+        "module_number": 6,
+        "module_title": "Advanced Imbalance & Repricing",
+        "section_heading": "Repricing vs Rebalancing"
+      },
+      "confidence_note": "unspecified"
+    },
+    {
+      "id": "ADV-M06-C07",
+      "kind": "concept",
+      "name": "FVG Failure and Inversion (IFVG)",
+      "definition": "An FVG fails when price trades through the entire gap with decisive displacement and closes beyond the far side in a manner that negates its expected supportive or resistive role. Failure does not automatically invert polarity; inversion is a subsequent behaviour.",
+      "ict_specific_meaning": "An FVG fails when price trades through the entire gap with decisive displacement and closes beyond the far side in a manner that negates its expected supportive or resistive role. Failure does not automatically invert polarity; inversion is a subsequent behaviour.",
+      "what_changed_from_beginner_level": "unspecified",
+      "detection_criteria": [
+        "unspecified - see raw_sections"
+      ],
+      "numeric_or_narrative_example": "unspecified",
+      "why_it_matters": "unspecified",
+      "beginner_mistakes_or_misinterpretations": [],
+      "raw_sections": {
+        "Failure": "An FVG fails when price trades through the entire gap with decisive displacement and closes beyond the far side in a manner that negates its expected supportive or resistive role. Failure does not automatically invert polarity; inversion is a subsequent behaviour.",
+        "Inversion Fair Value Gap": "After an FVG has been traded through, the same price range may later act with inverted polarity - a former bullish FVG acting as resistance, or a former bearish FVG acting as support. This is the Inversion FVG (IFVG). IFVG is a candidate array only after the failure and the new polarity have been demonstrated; it is not assumed at the moment of the first trade-through.\n\n**Evidence Classification:** *A/B - IFVG appears in ICT teaching as the inverted behaviour of a previously traded FVG.*"
+      },
+      "dependencies": [],
+      "attribution_type": "community_interpretation",
+      "cited_sources_in_text": [],
+      "book_location": {
+        "level": "advanced",
+        "module_number": 6,
+        "module_title": "Advanced Imbalance & Repricing",
+        "section_heading": "FVG Failure and Inversion (IFVG)"
+      },
+      "confidence_note": "unspecified"
+    },
+    {
+      "id": "ADV-M06-C08",
+      "kind": "concept",
+      "name": "Multiple Imbalance Relationships",
+      "definition": "A single delivery leg often leaves multiple FVGs at different scales. A weekly displacement leaves a weekly FVG; inside it, daily and session displacements leave smaller gaps. Advanced practice reads these as a nested set belonging to one narrative, not as competing independent signals.",
+      "ict_specific_meaning": "A single delivery leg often leaves multiple FVGs at different scales. A weekly displacement leaves a weekly FVG; inside it, daily and session displacements leave smaller gaps. Advanced practice reads these as a nested set belonging to one narrative, not as competing independent signals.",
+      "what_changed_from_beginner_level": "unspecified",
+      "detection_criteria": [
+        "unspecified - see raw_sections"
+      ],
+      "numeric_or_narrative_example": "unspecified",
+      "why_it_matters": "unspecified",
+      "beginner_mistakes_or_misinterpretations": [],
+      "raw_sections": {
+        "Nested and Sequential Gaps": "A single delivery leg often leaves multiple FVGs at different scales. A weekly displacement leaves a weekly FVG; inside it, daily and session displacements leave smaller gaps. Advanced practice reads these as a nested set belonging to one narrative, not as competing independent signals.",
+        "Overlapping Imbalances": "When an Order Block and an FVG overlap, or when CE of one FVG sits inside another array, confluence rises (Module 5). The student still selects only the arrays that satisfy the location filter and the delivery direction.",
+        "Imbalances Left Behind": "Not every imbalance is filled. When higher-timeframe delivery is strong and the Draw on Liquidity is distant, intermediate imbalances may be left unfilled or only partially filled. Forcing a return to every gap is a common intermediate error that advanced practice avoids."
+      },
+      "dependencies": [],
+      "attribution_type": "community_interpretation",
+      "cited_sources_in_text": [],
+      "book_location": {
+        "level": "advanced",
+        "module_number": 6,
+        "module_title": "Advanced Imbalance & Repricing",
+        "section_heading": "Multiple Imbalance Relationships"
+      },
+      "confidence_note": "unspecified"
+    },
+    {
+      "id": "ADV-M06-C09",
+      "kind": "concept",
+      "name": "Imbalance in the Delivery Sequence",
+      "definition": "Canonical relationship:\n\n1124. Liquidity raid (origin pool) ->\n\n1125. Displacement (creates FVG / void) ->\n\n1126. Structural confirmation (MSS) ->\n\n1127. Retracement into the imbalance (repricing) ->\n\n1128. Continuation toward the Draw on Liquidity.\n\nIf the retracement into the imbalance instead produces opposing displacement and external MSS, the sequence is rewritten: the imbalance return becomes part of the new opposing delivery leg.",
+      "ict_specific_meaning": "Canonical relationship:\n\n1124. Liquidity raid (origin pool) ->\n\n1125. Displacement (creates FVG / void) ->\n\n1126. Structural confirmation (MSS) ->\n\n1127. Retracement into the imbalance (repricing) ->\n\n1128. Continuation toward the Draw on Liquidity.\n\nIf the retracement into the imbalance instead produces opposing displacement and external MSS, the sequence is rewritten: the imbalance return becomes part of the new opposing delivery leg.",
+      "what_changed_from_beginner_level": "unspecified",
+      "detection_criteria": [
+        "Liquidity raid (origin pool) ->",
+        "Displacement (creates FVG / void) ->",
+        "Structural confirmation (MSS) ->",
+        "Retracement into the imbalance (repricing) ->",
+        "Continuation toward the Draw on Liquidity."
+      ],
+      "numeric_or_narrative_example": "unspecified",
+      "why_it_matters": "unspecified",
+      "beginner_mistakes_or_misinterpretations": [],
+      "raw_sections": {
+        "Full Text": "Canonical relationship:\n\n1124. Liquidity raid (origin pool) ->\n\n1125. Displacement (creates FVG / void) ->\n\n1126. Structural confirmation (MSS) ->\n\n1127. Retracement into the imbalance (repricing) ->\n\n1128. Continuation toward the Draw on Liquidity.\n\nIf the retracement into the imbalance instead produces opposing displacement and external MSS, the sequence is rewritten: the imbalance return becomes part of the new opposing delivery leg."
+      },
+      "dependencies": [],
+      "attribution_type": "community_interpretation",
+      "cited_sources_in_text": [],
+      "book_location": {
+        "level": "advanced",
+        "module_number": 6,
+        "module_title": "Advanced Imbalance & Repricing",
+        "section_heading": "Imbalance in the Delivery Sequence"
+      },
+      "confidence_note": "unspecified"
+    }
+  ],
+  "module_synthesis": {
+    "relationship_to_prior_level": [],
+    "worked_narrative_examples": [
+      {
+        "id": "ADV-M06-C10",
+        "kind": "concept",
+        "name": "Worked Narrative - Repricing Inside Ongoing Delivery",
+        "definition": "Weekly DOL remains buy-side above 1.1200. Daily displacement from a sell-side raid left a daily bullish FVG at 1.0640 - 1.0680 (discount). Price returns in New York to the CE of that FVG, finds support, and continues higher. Structure remains higher highs / higher lows. No opposing external MSS appears.\n\nReading: This is repricing inside the ongoing bullish delivery leg. The FVG (and its CE) supplied the entry. The imbalance was not a reversal signal.\n\nCounter-reading: Had the return to the FVG been accompanied by a decisive daily close below the displacement origin and a new daily bearish MSS, the same imbalance return would have been re-read as part of a failed daily delivery and a potential new bearish leg.",
+        "ict_specific_meaning": "Weekly DOL remains buy-side above 1.1200. Daily displacement from a sell-side raid left a daily bullish FVG at 1.0640 - 1.0680 (discount). Price returns in New York to the CE of that FVG, finds support, and continues higher. Structure remains higher highs / higher lows. No opposing external MSS appears.\n\nReading: This is repricing inside the ongoing bullish delivery leg. The FVG (and its CE) supplied the entry. The imbalance was not a reversal signal.\n\nCounter-reading: Had the return to the FVG been accompanied by a decisive daily close below the displacement origin and a new daily bearish MSS, the same imbalance return would have been re-read as part of a failed daily delivery and a potential new bearish leg.",
+        "what_changed_from_beginner_level": "unspecified",
+        "detection_criteria": [
+          "unspecified - see definition field"
+        ],
+        "numeric_or_narrative_example": "unspecified",
+        "why_it_matters": "unspecified",
+        "beginner_mistakes_or_misinterpretations": [],
+        "raw_sections": {
+          "Full Text": "Weekly DOL remains buy-side above 1.1200. Daily displacement from a sell-side raid left a daily bullish FVG at 1.0640 - 1.0680 (discount). Price returns in New York to the CE of that FVG, finds support, and continues higher. Structure remains higher highs / higher lows. No opposing external MSS appears.\n\nReading: This is repricing inside the ongoing bullish delivery leg. The FVG (and its CE) supplied the entry. The imbalance was not a reversal signal.\n\nCounter-reading: Had the return to the FVG been accompanied by a decisive daily close below the displacement origin and a new daily bearish MSS, the same imbalance return would have been re-read as part of a failed daily delivery and a potential new bearish leg."
+        },
+        "dependencies": [],
+        "attribution_type": "community_interpretation",
+        "cited_sources_in_text": [],
+        "book_location": {
+          "level": "advanced",
+          "module_number": 6,
+          "module_title": "Advanced Imbalance & Repricing",
+          "section_heading": "Worked Narrative - Repricing Inside Ongoing Delivery"
+        },
+        "confidence_note": "unspecified"
+      }
+    ],
+    "failure_conditions": [
+      {
+        "id": "ADV-M06-C11",
+        "kind": "concept",
+        "name": "Failure Conditions and Model Implications",
+        "definition": "When the imbalance that was expected to hold is traded through with opposing displacement and external MSS:\n\n1129. Continuation models that relied on that imbalance are invalidated.\n\n1130. IFVG behaviour may later offer entries in the new direction.\n\n1131. The Draw on Liquidity and structural narrative must be updated before any new model is selected.\n\nLeaving an imbalance unfilled while delivery continues toward a higher-timeframe DOL is not failure; it is prioritisation.",
+        "ict_specific_meaning": "When the imbalance that was expected to hold is traded through with opposing displacement and external MSS:\n\n1129. Continuation models that relied on that imbalance are invalidated.\n\n1130. IFVG behaviour may later offer entries in the new direction.\n\n1131. The Draw on Liquidity and structural narrative must be updated before any new model is selected.\n\nLeaving an imbalance unfilled while delivery continues toward a higher-timeframe DOL is not failure; it is prioritisation.",
+        "what_changed_from_beginner_level": "unspecified",
+        "detection_criteria": [
+          "Continuation models that relied on that imbalance are invalidated.",
+          "IFVG behaviour may later offer entries in the new direction.",
+          "The Draw on Liquidity and structural narrative must be updated before any new model is selected."
+        ],
+        "numeric_or_narrative_example": "unspecified",
+        "why_it_matters": "unspecified",
+        "beginner_mistakes_or_misinterpretations": [],
+        "raw_sections": {
+          "Full Text": "When the imbalance that was expected to hold is traded through with opposing displacement and external MSS:\n\n1129. Continuation models that relied on that imbalance are invalidated.\n\n1130. IFVG behaviour may later offer entries in the new direction.\n\n1131. The Draw on Liquidity and structural narrative must be updated before any new model is selected.\n\nLeaving an imbalance unfilled while delivery continues toward a higher-timeframe DOL is not failure; it is prioritisation."
+        },
+        "dependencies": [],
+        "attribution_type": "community_interpretation",
+        "cited_sources_in_text": [],
+        "book_location": {
+          "level": "advanced",
+          "module_number": 6,
+          "module_title": "Advanced Imbalance & Repricing",
+          "section_heading": "Failure Conditions and Model Implications"
+        },
+        "confidence_note": "unspecified"
+      }
+    ],
+    "common_misinterpretations": [
+      {
+        "id": "ADV-M06-C12",
+        "kind": "concept",
+        "name": "Common Misinterpretations",
+        "definition": "1132. Treating every return to an FVG as a reversal.\n\n1133. Requiring every imbalance to be filled before delivery can continue.\n\n1134. Ignoring CE and always using the full width of a wide FVG for risk.\n\n1135. Assuming inversion at the moment of first trade-through rather than after demonstrated opposing polarity.\n\n1136. Trading a lower-timeframe imbalance that sits in the wrong half of the controlling range.\n\n1137. Reading multiple nested gaps as conflicting signals instead of as one delivery story.",
+        "ict_specific_meaning": "1132. Treating every return to an FVG as a reversal.\n\n1133. Requiring every imbalance to be filled before delivery can continue.\n\n1134. Ignoring CE and always using the full width of a wide FVG for risk.\n\n1135. Assuming inversion at the moment of first trade-through rather than after demonstrated opposing polarity.\n\n1136. Trading a lower-timeframe imbalance that sits in the wrong half of the controlling range.\n\n1137. Reading multiple nested gaps as conflicting signals instead of as one delivery story.",
+        "what_changed_from_beginner_level": "unspecified",
+        "detection_criteria": [
+          "Treating every return to an FVG as a reversal.",
+          "Requiring every imbalance to be filled before delivery can continue.",
+          "Ignoring CE and always using the full width of a wide FVG for risk.",
+          "Assuming inversion at the moment of first trade-through rather than after demonstrated opposing polarity.",
+          "Trading a lower-timeframe imbalance that sits in the wrong half of the controlling range.",
+          "Reading multiple nested gaps as conflicting signals instead of as one delivery story."
+        ],
+        "numeric_or_narrative_example": "unspecified",
+        "why_it_matters": "unspecified",
+        "beginner_mistakes_or_misinterpretations": [],
+        "raw_sections": {
+          "Full Text": "1132. Treating every return to an FVG as a reversal.\n\n1133. Requiring every imbalance to be filled before delivery can continue.\n\n1134. Ignoring CE and always using the full width of a wide FVG for risk.\n\n1135. Assuming inversion at the moment of first trade-through rather than after demonstrated opposing polarity.\n\n1136. Trading a lower-timeframe imbalance that sits in the wrong half of the controlling range.\n\n1137. Reading multiple nested gaps as conflicting signals instead of as one delivery story."
+        },
+        "dependencies": [],
+        "attribution_type": "community_interpretation",
+        "cited_sources_in_text": [],
+        "book_location": {
+          "level": "advanced",
+          "module_number": 6,
+          "module_title": "Advanced Imbalance & Repricing",
+          "section_heading": "Common Misinterpretations"
+        },
+        "confidence_note": "unspecified"
+      }
+    ],
+    "evidence_summary": [
+      {
+        "id": "ADV-M06-C13",
+        "kind": "concept",
+        "name": "Evidence Summary",
+        "definition": "Fair Value Gap, Consequent Encroachment, and the return to imbalance for rebalancing/repricing are primary ICT. BISI/SIBI and IFVG appear in ICT teaching. Liquidity void and balanced price range are used in connection with efficiency and extreme imbalance. The operational distinction between repricing inside an ongoing leg and rebalancing that accompanies narrative failure is the advanced synthesis required for correct model selection.\n\n***Source / Research note:** Primary orientation: ICT teaching on Fair Value Gaps, Consequent Encroachment, inversion behaviour, and the algorithmic return to inefficiency. Secondary elaborations of void and balanced-range terminology are used only where consistent with primary imbalance logic.*",
+        "ict_specific_meaning": "Fair Value Gap, Consequent Encroachment, and the return to imbalance for rebalancing/repricing are primary ICT. BISI/SIBI and IFVG appear in ICT teaching. Liquidity void and balanced price range are used in connection with efficiency and extreme imbalance. The operational distinction between repricing inside an ongoing leg and rebalancing that accompanies narrative failure is the advanced synthesis required for correct model selection.\n\n***Source / Research note:** Primary orientation: ICT teaching on Fair Value Gaps, Consequent Encroachment, inversion behaviour, and the algorithmic return to inefficiency. Secondary elaborations of void and balanced-range terminology are used only where consistent with primary imbalance logic.*",
+        "what_changed_from_beginner_level": "unspecified",
+        "detection_criteria": [
+          "unspecified - see definition field"
+        ],
+        "numeric_or_narrative_example": "unspecified",
+        "why_it_matters": "unspecified",
+        "beginner_mistakes_or_misinterpretations": [],
+        "raw_sections": {
+          "Full Text": "Fair Value Gap, Consequent Encroachment, and the return to imbalance for rebalancing/repricing are primary ICT. BISI/SIBI and IFVG appear in ICT teaching. Liquidity void and balanced price range are used in connection with efficiency and extreme imbalance. The operational distinction between repricing inside an ongoing leg and rebalancing that accompanies narrative failure is the advanced synthesis required for correct model selection.\n\n***Source / Research note:** Primary orientation: ICT teaching on Fair Value Gaps, Consequent Encroachment, inversion behaviour, and the algorithmic return to inefficiency. Secondary elaborations of void and balanced-range terminology are used only where consistent with primary imbalance logic.*"
+        },
+        "dependencies": [],
+        "attribution_type": "community_interpretation",
+        "cited_sources_in_text": [
+          "Primary orientation: ICT teaching on Fair Value Gaps, Consequent Encroachment, inversion behaviour, and the algorithmic return to inefficiency. Secondary elaborations of void and balanced-range terminology are used only where consistent with primary imbalance logic."
+        ],
+        "book_location": {
+          "level": "advanced",
+          "module_number": 6,
+          "module_title": "Advanced Imbalance & Repricing",
+          "section_heading": "Evidence Summary"
+        },
+        "confidence_note": "Primary orientation: ICT teaching on Fair Value Gaps, Consequent Encroachment, inversion behaviour, and the algorithmic return to inefficiency. Secondary elaborations of void and balanced-range terminology are used only where consistent with primary imbalance logic."
+      }
+    ]
+  },
+  "rules": [
+    {
+      "id": "ADV-M06-R01",
+      "kind": "rule",
+      "rule_type": "detection_criteria",
+      "statement": "Fair Value Gap (three-candle structure where the wick of candle 1 and candle 3 do not fully overlap): bullish FVG (BISI = Buy-side Imbalance, Sell-side Inefficiency) forms in upward displacement; bearish FVG (SIBI) forms in downward displacement. The FVG records that delivery moved too quickly to balance price; whether a later return is a continuation entry or a reversal signal depends entirely on the higher-timeframe delivery narrative and structure.",
+      "applies_to": [
+        "Fair Value Gap - BISI and SIBI"
+      ],
+      "conditions": [],
+      "exceptions_or_qualifiers": "unspecified",
+      "book_location": {
+        "level": "advanced",
+        "module_number": 6,
+        "module_title": "Advanced Imbalance & Repricing",
+        "section_heading": "Fair Value Gap - BISI and SIBI"
+      },
+      "attribution_type": "ICT_primary"
+    },
+    {
+      "id": "ADV-M06-R02",
+      "kind": "rule",
+      "rule_type": "detection_criteria",
+      "statement": "Repricing vs Rebalancing-that-signals-change: Repricing = return of price into an inefficiency (FVG/void) so the inefficiency is reduced/closed while the HTF delivery objective remains intact -- a retracement inside the ongoing delivery leg, the classic environment for FVG/CE entries in the DOL direction. Rebalancing-that-signals-change = the return is accompanied by opposing displacement and an external MSS -- the prior delivery leg has failed and a new opposing leg is beginning. Practical test: when price returns to an FVG, ask whether structure and the HTF DOL still support continuation, or whether opposing structure/liquidity has taken control -- this determines continuation entry vs narrative rewrite.",
+      "applies_to": [
+        "Repricing vs Rebalancing"
+      ],
+      "conditions": [],
+      "exceptions_or_qualifiers": "unspecified",
+      "book_location": {
+        "level": "advanced",
+        "module_number": 6,
+        "module_title": "Advanced Imbalance & Repricing",
+        "section_heading": "Repricing vs Rebalancing"
+      },
+      "attribution_type": "community_interpretation"
+    },
+    {
+      "id": "ADV-M06-R03",
+      "kind": "rule",
+      "rule_type": "invalidation",
+      "statement": "An FVG fails when price trades through the entire gap with decisive displacement and closes beyond the far side, negating its expected supportive/resistive role. Failure does not automatically invert polarity -- inversion (IFVG) is a subsequent behaviour, a candidate array only after the failure AND the new polarity have been demonstrated, not assumed at the moment of first trade-through.",
+      "applies_to": [
+        "FVG Failure and Inversion (IFVG)"
+      ],
+      "conditions": [],
+      "exceptions_or_qualifiers": "unspecified",
+      "book_location": {
+        "level": "advanced",
+        "module_number": 6,
+        "module_title": "Advanced Imbalance & Repricing",
+        "section_heading": "FVG Failure and Inversion (IFVG)"
+      },
+      "attribution_type": "community_interpretation"
+    },
+    {
+      "id": "ADV-M06-R04",
+      "kind": "rule",
+      "rule_type": "sequencing",
+      "statement": "Canonical imbalance-in-delivery relationship: liquidity raid (origin pool) -> displacement (creates FVG/void) -> structural confirmation (MSS) -> retracement into the imbalance (repricing) -> continuation toward the Draw on Liquidity. If the retracement into the imbalance instead produces opposing displacement and external MSS, the sequence is rewritten: the imbalance return becomes part of the new opposing delivery leg.",
+      "applies_to": [
+        "Imbalance in the Delivery Sequence"
+      ],
+      "conditions": [],
+      "exceptions_or_qualifiers": "unspecified",
+      "book_location": {
+        "level": "advanced",
+        "module_number": 6,
+        "module_title": "Advanced Imbalance & Repricing",
+        "section_heading": "Imbalance in the Delivery Sequence"
+      },
+      "attribution_type": "community_interpretation"
+    },
+    {
+      "id": "ADV-M06-R05",
+      "kind": "rule",
+      "rule_type": "other",
+      "statement": "Not every imbalance is filled. When HTF delivery is strong and the Draw on Liquidity is distant, intermediate imbalances may be left unfilled or only partially filled -- leaving an imbalance unfilled while delivery continues toward a higher-timeframe DOL is not failure, it is prioritisation. A single delivery leg often leaves multiple, nested FVGs at different scales (e.g. weekly FVG containing smaller daily/session gaps); these should be read as one nested narrative, not competing independent signals.",
+      "applies_to": [
+        "Multiple Imbalance Relationships"
+      ],
+      "conditions": [],
+      "exceptions_or_qualifiers": "unspecified",
+      "book_location": {
+        "level": "advanced",
+        "module_number": 6,
+        "module_title": "Advanced Imbalance & Repricing",
+        "section_heading": "Multiple Imbalance Relationships"
+      },
+      "attribution_type": "community_interpretation"
+    }
+  ],
+  "strategies": [],
+  "examples": [],
+  "relationships": [],
+  "no_trade_conditions": [
+    {
+      "id": "ADV-M06-NT01",
+      "kind": "no_trade_rule",
+      "statement": "Do not treat every return to an FVG as a reversal. Do not require every imbalance to be filled before delivery can continue. Do not assume inversion (IFVG) at the moment of first trade-through rather than after demonstrated opposing polarity. Do not trade a lower-timeframe imbalance that sits in the wrong half of the controlling range. Do not read multiple nested gaps as conflicting signals instead of one delivery story.",
+      "applies_to_strategy_ids": [],
+      "book_location": {
+        "level": "advanced",
+        "module_number": 6,
+        "module_title": "Advanced Imbalance & Repricing",
+        "section_heading": "Common Misinterpretations"
+      }
+    },
+    {
+      "id": "ADV-M06-NT02",
+      "kind": "no_trade_rule",
+      "statement": "When the imbalance that was expected to hold is traded through with opposing displacement and external MSS, continuation models that relied on that imbalance are invalidated; the Draw on Liquidity and structural narrative must be updated before any new model is selected.",
+      "applies_to_strategy_ids": [],
+      "book_location": {
+        "level": "advanced",
+        "module_number": 6,
+        "module_title": "Advanced Imbalance & Repricing",
+        "section_heading": "Failure Conditions and Model Implications"
+      }
+    }
+  ],
+  "contradictions_or_ambiguities": [],
+  "module_review_notes": {
+    "key_terms": [
+      "Imbalance / FVG - price range left untraded by displacement.",
+      "BISI / SIBI - bullish / bearish imbalance labels used in ICT.",
+      "Consequent Encroachment - 50 % of the FVG; refined reaction reference.",
+      "Liquidity void - extreme imbalance with minimal activity.",
+      "Balanced Price Range - area that has become relatively efficient.",
+      "Repricing - return to inefficiency inside an ongoing delivery leg.",
+      "IFVG - FVG that has inverted polarity after being traded through.",
+      "FVG failure - decisive trade-through that negates expected polarity."
+    ],
+    "beginner_summary": "unspecified",
+    "concept_relationships_summary": "unspecified",
+    "practical_chart_exercise": "unspecified",
+    "self_test_questions": [
+      "What is the practical test that distinguishes repricing from a narrative-changing return to an FVG?",
+      "When is Consequent Encroachment preferred?",
+      "At what point does an FVG become an IFVG candidate?",
+      "Why might a higher-timeframe delivery leave an intermediate FVG unfilled?",
+      "How should multiple nested FVGs created by one delivery leg be read?"
+    ],
+    "common_misconceptions": [],
+    "research_sources_cited_in_text": []
+  }
+}

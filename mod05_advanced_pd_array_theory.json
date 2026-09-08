@@ -1,0 +1,574 @@
+{
+  "level": "advanced",
+  "module_number": 5,
+  "module_title": "Advanced PD Array Theory",
+  "module_intro": "Subtopics: PD-Array Framework & Hierarchy, FVG / OB / Breaker / Mitigation / IFVG, Confluence, Failure & Repricing.",
+  "prerequisites_stated_in_text": "Advanced Modules 1--4. PD arrays are no longer isolated entry tools; they are the specific price levels at which the delivery narrative (liquidity + structure + range) is expected to react, continue or fail.",
+  "module_objectives": [
+    "Locate every relevant PD array inside the controlling dealing range and grade it by hierarchy and location (premium/discount).",
+    "Distinguish Order Block, Breaker, Mitigation Block and Inversion FVG by formation and polarity behaviour.",
+    "Apply Consequent Encroachment as a refinement inside an FVG.",
+    "Recognise PD-array confluence and PD-array failure and state the narrative implication of each.",
+    "Select the highest-probability array for entry given the current delivery leg, Draw on Liquidity and structural confirmation.",
+    "Classify less-supported constructs (e.g. Rejection Block) appropriately and avoid elevating them above primary ICT arrays.",
+    "Integrate PD-array choice into the multi-timeframe delivery narrative rather than treating arrays as standalone signals.",
+    "Higher-timeframe unmitigated structural levels and unmitigated higher-timeframe Order Blocks / FVGs that align with the delivery narrative.",
+    "Unmitigated Order Blocks that originated the most recent displacement + MSS.",
+    "Fair Value Gaps created by that same displacement (especially at Consequent Encroachment).",
+    "Breaker Blocks that meet quality filters (prior high-quality OB, clear violation, displacement in the new direction).",
+    "Mitigation / partially mitigated arrays that still show reaction potential.",
+    "Lower-timeframe or heavily mitigated arrays.",
+    "State the controlling dealing range and whether price is in premium or discount relative to the intended direction.",
+    "State the Draw on Liquidity and the structural confirmation status.",
+    "List the unmitigated PD arrays that sit in the correct half of the range and that were created by (or align with) the current delivery displacement.",
+    "Rank them by the practical hierarchy and by confluence.",
+    "Select the highest-ranked array that still offers acceptable invalidation distance.",
+    "Require lower-timeframe conditioning (liquidity raid + displacement + MSS) before entry if the narrative demands it.",
+    "If no array satisfies location, hierarchy and narrative alignment, stand aside."
+  ],
+  "concepts": [
+    {
+      "id": "ADV-M05-C01",
+      "kind": "concept",
+      "name": "PD Array Framework - Advanced Premise",
+      "definition": "A PD Array (Premium / Discount Array) is any ICT price reference that the algorithm is expected to respect or reprice when price returns to it, conditioned by its location in premium or discount relative to the controlling dealing range. Arrays are not zones of magic; they are the recorded footprints of prior institutional activity and imbalance.",
+      "ict_specific_meaning": "A PD Array (Premium / Discount Array) is any ICT price reference that the algorithm is expected to respect or reprice when price returns to it, conditioned by its location in premium or discount relative to the controlling dealing range. Arrays are not zones of magic; they are the recorded footprints of prior institutional activity and imbalance.",
+      "what_changed_from_beginner_level": "unspecified",
+      "detection_criteria": [
+        "unspecified - see raw_sections"
+      ],
+      "numeric_or_narrative_example": "unspecified",
+      "why_it_matters": "unspecified",
+      "beginner_mistakes_or_misinterpretations": [],
+      "raw_sections": {
+        "Definition": "A PD Array (Premium / Discount Array) is any ICT price reference that the algorithm is expected to respect or reprice when price returns to it, conditioned by its location in premium or discount relative to the controlling dealing range. Arrays are not zones of magic; they are the recorded footprints of prior institutional activity and imbalance.",
+        "Role in Delivery": "Within the delivery sequence (Module 1), PD arrays form during displacement and become the retracement objectives during the retracement / rebalancing phase. They are the precise locations at which the trader may enter in the direction of the Draw on Liquidity after structural confirmation (Module 4).\n\n**Evidence Classification:** *A - PD Array terminology and the premium/discount conditioning of arrays are core ICT.*"
+      },
+      "dependencies": [],
+      "attribution_type": "community_interpretation",
+      "cited_sources_in_text": [],
+      "book_location": {
+        "level": "advanced",
+        "module_number": 5,
+        "module_title": "Advanced PD Array Theory",
+        "section_heading": "PD Array Framework - Advanced Premise"
+      },
+      "confidence_note": "unspecified"
+    },
+    {
+      "id": "ADV-M05-C02",
+      "kind": "concept",
+      "name": "Core PD Arrays",
+      "definition": "A three-candle imbalance in which the wick of the first and third candles do not fully overlap, leaving a gap in price delivery. Bullish FVG is sometimes labelled BISI (Buy-side Imbalance, Sell-side Inefficiency); bearish FVG is sometimes labelled SIBI. The FVG is both a record of displacement and a potential retracement magnet.",
+      "ict_specific_meaning": "A three-candle imbalance in which the wick of the first and third candles do not fully overlap, leaving a gap in price delivery. Bullish FVG is sometimes labelled BISI (Buy-side Imbalance, Sell-side Inefficiency); bearish FVG is sometimes labelled SIBI. The FVG is both a record of displacement and a potential retracement magnet.",
+      "what_changed_from_beginner_level": "unspecified",
+      "detection_criteria": [
+        "unspecified - see raw_sections"
+      ],
+      "numeric_or_narrative_example": "unspecified",
+      "why_it_matters": "unspecified",
+      "beginner_mistakes_or_misinterpretations": [],
+      "raw_sections": {
+        "Fair Value Gap (FVG) / Imbalance": "A three-candle imbalance in which the wick of the first and third candles do not fully overlap, leaving a gap in price delivery. Bullish FVG is sometimes labelled BISI (Buy-side Imbalance, Sell-side Inefficiency); bearish FVG is sometimes labelled SIBI. The FVG is both a record of displacement and a potential retracement magnet.",
+        "Order Block (OB)": "The last opposing candle (or small cluster) before a displacement that breaks structure. It is the presumed origin of the institutional order flow that produced the energetic move. High-quality OBs are those that form after a liquidity event and are followed by genuine displacement and MSS.",
+        "Breaker Block": "A previously valid Order Block that has been violated by a body close beyond its far boundary, after which the zone is expected to act with inverted polarity. A failed bullish OB becomes a bearish Breaker (resistance on the return); a failed bearish OB becomes a bullish Breaker.",
+        "Mitigation Block": "An Order Block that is retested without a decisive body close beyond its far boundary, and from which price continues in the original direction. The return is understood as residual interest being satisfied before continuation. (Note: community definitions of Mitigation vs Breaker vary; the body-close test remains the clearest operational delimiter.)",
+        "Inversion Fair Value Gap (IFVG)": "A Fair Value Gap that has been traded through and that subsequently acts with inverted polarity. The former bullish FVG, once mitigated and closed through, may act as resistance on the return, and vice versa.\n\n**Evidence Classification:** *A/B - FVG, Order Block, Breaker and Mitigation are primary ICT. BISI/SIBI and IFVG appear in ICT teaching and later refinements. Exact Mitigation vs Breaker boundary shows some variation across presentations.*"
+      },
+      "dependencies": [],
+      "attribution_type": "community_interpretation",
+      "cited_sources_in_text": [],
+      "book_location": {
+        "level": "advanced",
+        "module_number": 5,
+        "module_title": "Advanced PD Array Theory",
+        "section_heading": "Core PD Arrays"
+      },
+      "confidence_note": "unspecified"
+    },
+    {
+      "id": "ADV-M05-C03",
+      "kind": "concept",
+      "name": "Consequent Encroachment",
+      "definition": "Consequent Encroachment (CE) is the midpoint (50 %) of a Fair Value Gap. ICT often treats the CE as a refined entry or reaction reference inside the larger FVG. Advanced practice uses CE when the full FVG is wide and a tighter invalidation or more precise entry is desired, while still respecting the higher-timeframe narrative.\n\n**Evidence Classification:** *A - Consequent Encroachment is explicit ICT terminology.*",
+      "ict_specific_meaning": "Consequent Encroachment (CE) is the midpoint (50 %) of a Fair Value Gap. ICT often treats the CE as a refined entry or reaction reference inside the larger FVG. Advanced practice uses CE when the full FVG is wide and a tighter invalidation or more precise entry is desired, while still respecting the higher-timeframe narrative.\n\n**Evidence Classification:** *A - Consequent Encroachment is explicit ICT terminology.*",
+      "what_changed_from_beginner_level": "unspecified",
+      "detection_criteria": [
+        "unspecified - see definition field"
+      ],
+      "numeric_or_narrative_example": "unspecified",
+      "why_it_matters": "unspecified",
+      "beginner_mistakes_or_misinterpretations": [],
+      "raw_sections": {
+        "Full Text": "Consequent Encroachment (CE) is the midpoint (50 %) of a Fair Value Gap. ICT often treats the CE as a refined entry or reaction reference inside the larger FVG. Advanced practice uses CE when the full FVG is wide and a tighter invalidation or more precise entry is desired, while still respecting the higher-timeframe narrative.\n\n**Evidence Classification:** *A - Consequent Encroachment is explicit ICT terminology.*"
+      },
+      "dependencies": [],
+      "attribution_type": "community_interpretation",
+      "cited_sources_in_text": [],
+      "book_location": {
+        "level": "advanced",
+        "module_number": 5,
+        "module_title": "Advanced PD Array Theory",
+        "section_heading": "Consequent Encroachment"
+      },
+      "confidence_note": "unspecified"
+    },
+    {
+      "id": "ADV-M05-C04",
+      "kind": "concept",
+      "name": "Liquidity Void and Balanced Price Range",
+      "definition": "An area of rapid price movement with little to no trading activity - the extreme expression of imbalance. Closely related to FVG; some presentations treat voids as the more extreme form. Price may return to rebalance the void as part of the delivery narrative.",
+      "ict_specific_meaning": "An area of rapid price movement with little to no trading activity - the extreme expression of imbalance. Closely related to FVG; some presentations treat voids as the more extreme form. Price may return to rebalance the void as part of the delivery narrative.",
+      "what_changed_from_beginner_level": "unspecified",
+      "detection_criteria": [
+        "unspecified - see raw_sections"
+      ],
+      "numeric_or_narrative_example": "unspecified",
+      "why_it_matters": "unspecified",
+      "beginner_mistakes_or_misinterpretations": [],
+      "raw_sections": {
+        "Liquidity Void": "An area of rapid price movement with little to no trading activity - the extreme expression of imbalance. Closely related to FVG; some presentations treat voids as the more extreme form. Price may return to rebalance the void as part of the delivery narrative.",
+        "Balanced Price Range": "A range in which opposing imbalances have been filled or in which price has spent sufficient time to leave the area relatively efficient. Balanced ranges are less attractive as immediate retracement magnets than fresh, unmitigated imbalances.\n\n**Evidence Classification:** *B/C - Liquidity void and balanced price range language appears in ICT material in connection with imbalance and efficiency; precise boundaries with FVG terminology are sometimes fluid.*"
+      },
+      "dependencies": [],
+      "attribution_type": "community_interpretation",
+      "cited_sources_in_text": [],
+      "book_location": {
+        "level": "advanced",
+        "module_number": 5,
+        "module_title": "Advanced PD Array Theory",
+        "section_heading": "Liquidity Void and Balanced Price Range"
+      },
+      "confidence_note": "unspecified"
+    },
+    {
+      "id": "ADV-M05-C05",
+      "kind": "concept",
+      "name": "Rejection Block - Classification Note",
+      "definition": "Rejection Block (a wick-based rejection zone after a liquidity sweep) appears frequently in community PD-array matrices and secondary materials. Primary ICT teaching emphasises Order Blocks, FVGs, Breakers and related constructs more consistently than a distinct \"Rejection Block\" category. Advanced students may observe wick rejections as price action, but should not elevate Rejection Block above the primary arrays without explicit primary support for the specific trade.\n\n**Evidence Classification:** *D - Community terminology / secondary emphasis. Use with caution; do not treat as equal to core ICT arrays.*",
+      "ict_specific_meaning": "Rejection Block (a wick-based rejection zone after a liquidity sweep) appears frequently in community PD-array matrices and secondary materials. Primary ICT teaching emphasises Order Blocks, FVGs, Breakers and related constructs more consistently than a distinct \"Rejection Block\" category. Advanced students may observe wick rejections as price action, but should not elevate Rejection Block above the primary arrays without explicit primary support for the specific trade.\n\n**Evidence Classification:** *D - Community terminology / secondary emphasis. Use with caution; do not treat as equal to core ICT arrays.*",
+      "what_changed_from_beginner_level": "unspecified",
+      "detection_criteria": [
+        "unspecified - see definition field"
+      ],
+      "numeric_or_narrative_example": "unspecified",
+      "why_it_matters": "unspecified",
+      "beginner_mistakes_or_misinterpretations": [],
+      "raw_sections": {
+        "Full Text": "Rejection Block (a wick-based rejection zone after a liquidity sweep) appears frequently in community PD-array matrices and secondary materials. Primary ICT teaching emphasises Order Blocks, FVGs, Breakers and related constructs more consistently than a distinct \"Rejection Block\" category. Advanced students may observe wick rejections as price action, but should not elevate Rejection Block above the primary arrays without explicit primary support for the specific trade.\n\n**Evidence Classification:** *D - Community terminology / secondary emphasis. Use with caution; do not treat as equal to core ICT arrays.*"
+      },
+      "dependencies": [],
+      "attribution_type": "community_interpretation",
+      "cited_sources_in_text": [],
+      "book_location": {
+        "level": "advanced",
+        "module_number": 5,
+        "module_title": "Advanced PD Array Theory",
+        "section_heading": "Rejection Block - Classification Note"
+      },
+      "confidence_note": "unspecified"
+    },
+    {
+      "id": "ADV-M05-C06",
+      "kind": "concept",
+      "name": "PD-Array Hierarchy (Practical Advanced Ranking)",
+      "definition": "When multiple arrays compete inside the same region of the controlling range, a practical hierarchy (strongest to weaker, all else equal) is:\n\n- Higher-timeframe unmitigated structural levels and unmitigated higher-timeframe Order Blocks / FVGs that align with the delivery narrative.\n\n- Unmitigated Order Blocks that originated the most recent displacement + MSS.\n\n- Fair Value Gaps created by that same displacement (especially at Consequent Encroachment).\n\n- Breaker Blocks that meet quality filters (prior high-quality OB, clear violation, displacement in the new direction).\n\n- Mitigation / partially mitigated arrays that still show reaction potential.\n\n- Lower-timeframe or heavily mitigated arrays.\n\nHierarchy is always subordinate to: (1) alignment with the Draw on Liquidity, (2) location in the correct premium/discount half of the controlling range, and (3) structural confirmation.\n\n**Evidence Classification:** *C - Practical synthesis. ICT presents the family of arrays; exact numerical rankings are community refinements of that family.*",
+      "ict_specific_meaning": "When multiple arrays compete inside the same region of the controlling range, a practical hierarchy (strongest to weaker, all else equal) is:\n\n- Higher-timeframe unmitigated structural levels and unmitigated higher-timeframe Order Blocks / FVGs that align with the delivery narrative.\n\n- Unmitigated Order Blocks that originated the most recent displacement + MSS.\n\n- Fair Value Gaps created by that same displacement (especially at Consequent Encroachment).\n\n- Breaker Blocks that meet quality filters (prior high-quality OB, clear violation, displacement in the new direction).\n\n- Mitigation / partially mitigated arrays that still show reaction potential.\n\n- Lower-timeframe or heavily mitigated arrays.\n\nHierarchy is always subordinate to: (1) alignment with the Draw on Liquidity, (2) location in the correct premium/discount half of the controlling range, and (3) structural confirmation.\n\n**Evidence Classification:** *C - Practical synthesis. ICT presents the family of arrays; exact numerical rankings are community refinements of that family.*",
+      "what_changed_from_beginner_level": "unspecified",
+      "detection_criteria": [
+        "Higher-timeframe unmitigated structural levels and unmitigated higher-timeframe Order Blocks / FVGs that align with the delivery narrative.",
+        "Unmitigated Order Blocks that originated the most recent displacement + MSS.",
+        "Fair Value Gaps created by that same displacement (especially at Consequent Encroachment).",
+        "Breaker Blocks that meet quality filters (prior high-quality OB, clear violation, displacement in the new direction).",
+        "Mitigation / partially mitigated arrays that still show reaction potential.",
+        "Lower-timeframe or heavily mitigated arrays."
+      ],
+      "numeric_or_narrative_example": "unspecified",
+      "why_it_matters": "unspecified",
+      "beginner_mistakes_or_misinterpretations": [],
+      "raw_sections": {
+        "Full Text": "When multiple arrays compete inside the same region of the controlling range, a practical hierarchy (strongest to weaker, all else equal) is:\n\n- Higher-timeframe unmitigated structural levels and unmitigated higher-timeframe Order Blocks / FVGs that align with the delivery narrative.\n\n- Unmitigated Order Blocks that originated the most recent displacement + MSS.\n\n- Fair Value Gaps created by that same displacement (especially at Consequent Encroachment).\n\n- Breaker Blocks that meet quality filters (prior high-quality OB, clear violation, displacement in the new direction).\n\n- Mitigation / partially mitigated arrays that still show reaction potential.\n\n- Lower-timeframe or heavily mitigated arrays.\n\nHierarchy is always subordinate to: (1) alignment with the Draw on Liquidity, (2) location in the correct premium/discount half of the controlling range, and (3) structural confirmation.\n\n**Evidence Classification:** *C - Practical synthesis. ICT presents the family of arrays; exact numerical rankings are community refinements of that family.*"
+      },
+      "dependencies": [],
+      "attribution_type": "community_interpretation",
+      "cited_sources_in_text": [],
+      "book_location": {
+        "level": "advanced",
+        "module_number": 5,
+        "module_title": "Advanced PD Array Theory",
+        "section_heading": "PD-Array Hierarchy (Practical Advanced Ranking)"
+      },
+      "confidence_note": "unspecified"
+    },
+    {
+      "id": "ADV-M05-C07",
+      "kind": "concept",
+      "name": "PD-Array Confluence",
+      "definition": "Confluence exists when two or more arrays overlap or sit immediately adjacent (e.g., Order Block overlapping an FVG, or CE of an FVG sitting inside a higher-timeframe OB). Confluence raises the quality of the location provided the higher-timeframe narrative and range filter are satisfied. Confluence does not override a conflicting Draw on Liquidity or a wrong-half location.",
+      "ict_specific_meaning": "Confluence exists when two or more arrays overlap or sit immediately adjacent (e.g., Order Block overlapping an FVG, or CE of an FVG sitting inside a higher-timeframe OB). Confluence raises the quality of the location provided the higher-timeframe narrative and range filter are satisfied. Confluence does not override a conflicting Draw on Liquidity or a wrong-half location.",
+      "what_changed_from_beginner_level": "unspecified",
+      "detection_criteria": [
+        "unspecified - see definition field"
+      ],
+      "numeric_or_narrative_example": "unspecified",
+      "why_it_matters": "unspecified",
+      "beginner_mistakes_or_misinterpretations": [],
+      "raw_sections": {
+        "Full Text": "Confluence exists when two or more arrays overlap or sit immediately adjacent (e.g., Order Block overlapping an FVG, or CE of an FVG sitting inside a higher-timeframe OB). Confluence raises the quality of the location provided the higher-timeframe narrative and range filter are satisfied. Confluence does not override a conflicting Draw on Liquidity or a wrong-half location."
+      },
+      "dependencies": [],
+      "attribution_type": "community_interpretation",
+      "cited_sources_in_text": [],
+      "book_location": {
+        "level": "advanced",
+        "module_number": 5,
+        "module_title": "Advanced PD Array Theory",
+        "section_heading": "PD-Array Confluence"
+      },
+      "confidence_note": "unspecified"
+    },
+    {
+      "id": "ADV-M05-C08",
+      "kind": "concept",
+      "name": "PD-Array Failure",
+      "definition": "An array fails when price trades through it with decisive displacement and closes beyond its far boundary in a manner that negates its expected polarity. Failure of an Order Block produces a Breaker candidate. Failure of an FVG may produce an IFVG candidate. Failure of the array that was expected to hold the delivery leg challenges the current narrative.",
+      "ict_specific_meaning": "An array fails when price trades through it with decisive displacement and closes beyond its far boundary in a manner that negates its expected polarity. Failure of an Order Block produces a Breaker candidate. Failure of an FVG may produce an IFVG candidate. Failure of the array that was expected to hold the delivery leg challenges the current narrative.",
+      "what_changed_from_beginner_level": "unspecified",
+      "detection_criteria": [
+        "unspecified - see raw_sections"
+      ],
+      "numeric_or_narrative_example": "unspecified",
+      "why_it_matters": "unspecified",
+      "beginner_mistakes_or_misinterpretations": [],
+      "raw_sections": {
+        "Definition": "An array fails when price trades through it with decisive displacement and closes beyond its far boundary in a manner that negates its expected polarity. Failure of an Order Block produces a Breaker candidate. Failure of an FVG may produce an IFVG candidate. Failure of the array that was expected to hold the delivery leg challenges the current narrative.",
+        "Narrative Implication": "Array failure is information. It may mean: the retracement is deeper than expected (still inside the delivery leg), or the delivery leg itself is failing and opposing liquidity is being promoted. Structure (Module 4) and the higher-timeframe DOL decide which interpretation applies."
+      },
+      "dependencies": [],
+      "attribution_type": "community_interpretation",
+      "cited_sources_in_text": [],
+      "book_location": {
+        "level": "advanced",
+        "module_number": 5,
+        "module_title": "Advanced PD Array Theory",
+        "section_heading": "PD-Array Failure"
+      },
+      "confidence_note": "unspecified"
+    },
+    {
+      "id": "ADV-M05-C09",
+      "kind": "concept",
+      "name": "Selection Procedure - Which Array to Trade",
+      "definition": "- State the controlling dealing range and whether price is in premium or discount relative to the intended direction.\n\n- State the Draw on Liquidity and the structural confirmation status.\n\n- List the unmitigated PD arrays that sit in the correct half of the range and that were created by (or align with) the current delivery displacement.\n\n- Rank them by the practical hierarchy and by confluence.\n\n- Select the highest-ranked array that still offers acceptable invalidation distance.\n\n- Require lower-timeframe conditioning (liquidity raid + displacement + MSS) before entry if the narrative demands it.\n\n- If no array satisfies location, hierarchy and narrative alignment, stand aside.",
+      "ict_specific_meaning": "- State the controlling dealing range and whether price is in premium or discount relative to the intended direction.\n\n- State the Draw on Liquidity and the structural confirmation status.\n\n- List the unmitigated PD arrays that sit in the correct half of the range and that were created by (or align with) the current delivery displacement.\n\n- Rank them by the practical hierarchy and by confluence.\n\n- Select the highest-ranked array that still offers acceptable invalidation distance.\n\n- Require lower-timeframe conditioning (liquidity raid + displacement + MSS) before entry if the narrative demands it.\n\n- If no array satisfies location, hierarchy and narrative alignment, stand aside.",
+      "what_changed_from_beginner_level": "unspecified",
+      "detection_criteria": [
+        "State the controlling dealing range and whether price is in premium or discount relative to the intended direction.",
+        "State the Draw on Liquidity and the structural confirmation status.",
+        "List the unmitigated PD arrays that sit in the correct half of the range and that were created by (or align with) the current delivery displacement.",
+        "Rank them by the practical hierarchy and by confluence.",
+        "Select the highest-ranked array that still offers acceptable invalidation distance.",
+        "Require lower-timeframe conditioning (liquidity raid + displacement + MSS) before entry if the narrative demands it.",
+        "If no array satisfies location, hierarchy and narrative alignment, stand aside."
+      ],
+      "numeric_or_narrative_example": "unspecified",
+      "why_it_matters": "unspecified",
+      "beginner_mistakes_or_misinterpretations": [],
+      "raw_sections": {
+        "Full Text": "- State the controlling dealing range and whether price is in premium or discount relative to the intended direction.\n\n- State the Draw on Liquidity and the structural confirmation status.\n\n- List the unmitigated PD arrays that sit in the correct half of the range and that were created by (or align with) the current delivery displacement.\n\n- Rank them by the practical hierarchy and by confluence.\n\n- Select the highest-ranked array that still offers acceptable invalidation distance.\n\n- Require lower-timeframe conditioning (liquidity raid + displacement + MSS) before entry if the narrative demands it.\n\n- If no array satisfies location, hierarchy and narrative alignment, stand aside."
+      },
+      "dependencies": [],
+      "attribution_type": "community_interpretation",
+      "cited_sources_in_text": [],
+      "book_location": {
+        "level": "advanced",
+        "module_number": 5,
+        "module_title": "Advanced PD Array Theory",
+        "section_heading": "Selection Procedure - Which Array to Trade"
+      },
+      "confidence_note": "unspecified"
+    }
+  ],
+  "module_synthesis": {
+    "relationship_to_prior_level": [],
+    "worked_narrative_examples": [
+      {
+        "id": "ADV-M05-C10",
+        "kind": "concept",
+        "name": "Worked Narrative - PD Array Inside Delivery",
+        "definition": "Weekly DOL: buy-side above 1.1200. Weekly and daily ranges in discount. Daily SSL swept; daily bullish displacement and MSS printed; daily bullish FVG and Order Block overlap at 1.0630 - 1.0660 (discount of both ranges).\n\nLondon: further sell-side raid; 15-minute bullish MSS; 15-minute FVG forms inside the daily array.\n\nSelection: The daily OB/FVG confluence in discount is the primary array. The 15-minute FVG is the refinement. Entry on retracement into the 15-minute FVG / CE, invalidation below the daily displacement origin. Target hierarchy: daily internal buy-side, then weekly ERL.\n\nThis is PD-array selection fully subordinated to delivery, range and structure.",
+        "ict_specific_meaning": "Weekly DOL: buy-side above 1.1200. Weekly and daily ranges in discount. Daily SSL swept; daily bullish displacement and MSS printed; daily bullish FVG and Order Block overlap at 1.0630 - 1.0660 (discount of both ranges).\n\nLondon: further sell-side raid; 15-minute bullish MSS; 15-minute FVG forms inside the daily array.\n\nSelection: The daily OB/FVG confluence in discount is the primary array. The 15-minute FVG is the refinement. Entry on retracement into the 15-minute FVG / CE, invalidation below the daily displacement origin. Target hierarchy: daily internal buy-side, then weekly ERL.\n\nThis is PD-array selection fully subordinated to delivery, range and structure.",
+        "what_changed_from_beginner_level": "unspecified",
+        "detection_criteria": [
+          "unspecified - see definition field"
+        ],
+        "numeric_or_narrative_example": "unspecified",
+        "why_it_matters": "unspecified",
+        "beginner_mistakes_or_misinterpretations": [],
+        "raw_sections": {
+          "Full Text": "Weekly DOL: buy-side above 1.1200. Weekly and daily ranges in discount. Daily SSL swept; daily bullish displacement and MSS printed; daily bullish FVG and Order Block overlap at 1.0630 - 1.0660 (discount of both ranges).\n\nLondon: further sell-side raid; 15-minute bullish MSS; 15-minute FVG forms inside the daily array.\n\nSelection: The daily OB/FVG confluence in discount is the primary array. The 15-minute FVG is the refinement. Entry on retracement into the 15-minute FVG / CE, invalidation below the daily displacement origin. Target hierarchy: daily internal buy-side, then weekly ERL.\n\nThis is PD-array selection fully subordinated to delivery, range and structure."
+        },
+        "dependencies": [],
+        "attribution_type": "community_interpretation",
+        "cited_sources_in_text": [],
+        "book_location": {
+          "level": "advanced",
+          "module_number": 5,
+          "module_title": "Advanced PD Array Theory",
+          "section_heading": "Worked Narrative - PD Array Inside Delivery"
+        },
+        "confidence_note": "unspecified"
+      }
+    ],
+    "failure_conditions": [],
+    "common_misinterpretations": [
+      {
+        "id": "ADV-M05-C11",
+        "kind": "concept",
+        "name": "Common Misinterpretations",
+        "definition": "1096. Trading every FVG or Order Block regardless of premium/discount location and higher-timeframe DOL.\n\n1097. Treating Breaker and Mitigation as interchangeable.\n\n1098. Elevating Rejection Block or other community labels above core ICT arrays.\n\n1099. Ignoring array failure and continuing to treat a violated zone as supportive in its original polarity.\n\n1100. Selecting a lower-timeframe array that conflicts with the controlling range's location filter.\n\n1101. Using PD arrays as standalone signals without a delivery narrative.",
+        "ict_specific_meaning": "1096. Trading every FVG or Order Block regardless of premium/discount location and higher-timeframe DOL.\n\n1097. Treating Breaker and Mitigation as interchangeable.\n\n1098. Elevating Rejection Block or other community labels above core ICT arrays.\n\n1099. Ignoring array failure and continuing to treat a violated zone as supportive in its original polarity.\n\n1100. Selecting a lower-timeframe array that conflicts with the controlling range's location filter.\n\n1101. Using PD arrays as standalone signals without a delivery narrative.",
+        "what_changed_from_beginner_level": "unspecified",
+        "detection_criteria": [
+          "Trading every FVG or Order Block regardless of premium/discount location and higher-timeframe DOL.",
+          "Treating Breaker and Mitigation as interchangeable.",
+          "Elevating Rejection Block or other community labels above core ICT arrays.",
+          "Ignoring array failure and continuing to treat a violated zone as supportive in its original polarity.",
+          "Selecting a lower-timeframe array that conflicts with the controlling range's location filter.",
+          "Using PD arrays as standalone signals without a delivery narrative."
+        ],
+        "numeric_or_narrative_example": "unspecified",
+        "why_it_matters": "unspecified",
+        "beginner_mistakes_or_misinterpretations": [],
+        "raw_sections": {
+          "Full Text": "1096. Trading every FVG or Order Block regardless of premium/discount location and higher-timeframe DOL.\n\n1097. Treating Breaker and Mitigation as interchangeable.\n\n1098. Elevating Rejection Block or other community labels above core ICT arrays.\n\n1099. Ignoring array failure and continuing to treat a violated zone as supportive in its original polarity.\n\n1100. Selecting a lower-timeframe array that conflicts with the controlling range's location filter.\n\n1101. Using PD arrays as standalone signals without a delivery narrative."
+        },
+        "dependencies": [],
+        "attribution_type": "community_interpretation",
+        "cited_sources_in_text": [],
+        "book_location": {
+          "level": "advanced",
+          "module_number": 5,
+          "module_title": "Advanced PD Array Theory",
+          "section_heading": "Common Misinterpretations"
+        },
+        "confidence_note": "unspecified"
+      }
+    ],
+    "evidence_summary": [
+      {
+        "id": "ADV-M05-C12",
+        "kind": "concept",
+        "name": "Evidence Summary",
+        "definition": "Fair Value Gap, Order Block, Breaker, Mitigation, Consequent Encroachment and the PD-array framing are primary ICT. BISI/SIBI and IFVG appear in ICT teaching. Liquidity void and balanced price range are used in connection with imbalance. Rejection Block is primarily community/secondary. Practical hierarchy rankings are synthesis; ICT supplies the family of arrays and the premium/discount conditioning, not a rigid numerical scorecard.\n\n***Source / Research note:** Primary orientation: ICT teaching on Order Blocks, Fair Value Gaps, Breakers, Mitigation, Consequent Encroachment and PD arrays in premium/discount. Secondary matrices and rankings used only as practical synthesis and clearly labelled.*",
+        "ict_specific_meaning": "Fair Value Gap, Order Block, Breaker, Mitigation, Consequent Encroachment and the PD-array framing are primary ICT. BISI/SIBI and IFVG appear in ICT teaching. Liquidity void and balanced price range are used in connection with imbalance. Rejection Block is primarily community/secondary. Practical hierarchy rankings are synthesis; ICT supplies the family of arrays and the premium/discount conditioning, not a rigid numerical scorecard.\n\n***Source / Research note:** Primary orientation: ICT teaching on Order Blocks, Fair Value Gaps, Breakers, Mitigation, Consequent Encroachment and PD arrays in premium/discount. Secondary matrices and rankings used only as practical synthesis and clearly labelled.*",
+        "what_changed_from_beginner_level": "unspecified",
+        "detection_criteria": [
+          "unspecified - see definition field"
+        ],
+        "numeric_or_narrative_example": "unspecified",
+        "why_it_matters": "unspecified",
+        "beginner_mistakes_or_misinterpretations": [],
+        "raw_sections": {
+          "Full Text": "Fair Value Gap, Order Block, Breaker, Mitigation, Consequent Encroachment and the PD-array framing are primary ICT. BISI/SIBI and IFVG appear in ICT teaching. Liquidity void and balanced price range are used in connection with imbalance. Rejection Block is primarily community/secondary. Practical hierarchy rankings are synthesis; ICT supplies the family of arrays and the premium/discount conditioning, not a rigid numerical scorecard.\n\n***Source / Research note:** Primary orientation: ICT teaching on Order Blocks, Fair Value Gaps, Breakers, Mitigation, Consequent Encroachment and PD arrays in premium/discount. Secondary matrices and rankings used only as practical synthesis and clearly labelled.*"
+        },
+        "dependencies": [],
+        "attribution_type": "community_interpretation",
+        "cited_sources_in_text": [
+          "Primary orientation: ICT teaching on Order Blocks, Fair Value Gaps, Breakers, Mitigation, Consequent Encroachment and PD arrays in premium/discount. Secondary matrices and rankings used only as practical synthesis and clearly labelled."
+        ],
+        "book_location": {
+          "level": "advanced",
+          "module_number": 5,
+          "module_title": "Advanced PD Array Theory",
+          "section_heading": "Evidence Summary"
+        },
+        "confidence_note": "Primary orientation: ICT teaching on Order Blocks, Fair Value Gaps, Breakers, Mitigation, Consequent Encroachment and PD arrays in premium/discount. Secondary matrices and rankings used only as practical synthesis and clearly labelled."
+      }
+    ]
+  },
+  "rules": [
+    {
+      "id": "ADV-M05-R01",
+      "kind": "rule",
+      "rule_type": "detection_criteria",
+      "statement": "Consequent Encroachment (CE) is the midpoint (50%) of a Fair Value Gap, used as a refined entry or reaction reference inside the larger FVG -- especially when the full FVG is wide and a tighter invalidation or more precise entry is desired, while still respecting the HTF narrative.",
+      "applies_to": [
+        "Consequent Encroachment"
+      ],
+      "conditions": [],
+      "exceptions_or_qualifiers": "unspecified",
+      "book_location": {
+        "level": "advanced",
+        "module_number": 5,
+        "module_title": "Advanced PD Array Theory",
+        "section_heading": "Consequent Encroachment"
+      },
+      "attribution_type": "ICT_primary"
+    },
+    {
+      "id": "ADV-M05-R02",
+      "kind": "rule",
+      "rule_type": "selection_procedure",
+      "statement": "Practical PD-array hierarchy (strongest to weaker, all else equal): (1) higher-timeframe unmitigated structural levels and unmitigated HTF Order Blocks/FVGs aligned with the delivery narrative; (2) unmitigated Order Blocks that originated the most recent displacement + MSS; (3) Fair Value Gaps created by that same displacement (especially at Consequent Encroachment); (4) Breaker Blocks meeting quality filters (prior high-quality OB, clear violation, displacement in the new direction); (5) Mitigation/partially mitigated arrays still showing reaction potential; (6) lower-timeframe or heavily mitigated arrays. Hierarchy is always subordinate to: (1) alignment with the Draw on Liquidity; (2) location in the correct premium/discount half of the controlling range; (3) structural confirmation.",
+      "applies_to": [
+        "PD-Array Hierarchy (Practical Advanced Ranking)"
+      ],
+      "conditions": [],
+      "exceptions_or_qualifiers": "Evidence classified as C -- practical synthesis; ICT presents the family of arrays, exact numerical rankings are community refinements.",
+      "book_location": {
+        "level": "advanced",
+        "module_number": 5,
+        "module_title": "Advanced PD Array Theory",
+        "section_heading": "PD-Array Hierarchy (Practical Advanced Ranking)"
+      },
+      "attribution_type": "community_interpretation"
+    },
+    {
+      "id": "ADV-M05-R03",
+      "kind": "rule",
+      "rule_type": "confluence",
+      "statement": "PD-array confluence exists when two or more arrays overlap or sit immediately adjacent (e.g. Order Block overlapping an FVG, or CE of an FVG sitting inside a higher-timeframe OB). Confluence raises the quality of the location provided the HTF narrative and range filter are satisfied. Confluence does not override a conflicting Draw on Liquidity or a wrong-half location.",
+      "applies_to": [
+        "PD-Array Confluence"
+      ],
+      "conditions": [],
+      "exceptions_or_qualifiers": "unspecified",
+      "book_location": {
+        "level": "advanced",
+        "module_number": 5,
+        "module_title": "Advanced PD Array Theory",
+        "section_heading": "PD-Array Confluence"
+      },
+      "attribution_type": "community_interpretation"
+    },
+    {
+      "id": "ADV-M05-R04",
+      "kind": "rule",
+      "rule_type": "selection_procedure",
+      "statement": "Selection procedure for which PD array to trade: (1) state the controlling dealing range and whether price is in premium or discount relative to the intended direction; (2) state the Draw on Liquidity and structural confirmation status; (3) list unmitigated PD arrays sitting in the correct half of the range that were created by (or align with) the current delivery displacement; (4) rank them by the practical hierarchy and by confluence; (5) select the highest-ranked array that still offers acceptable invalidation distance; (6) require LTF conditioning (liquidity raid + displacement + MSS) before entry if the narrative demands it; (7) if no array satisfies location, hierarchy and narrative alignment, stand aside.",
+      "applies_to": [
+        "Selection Procedure - Which Array to Trade"
+      ],
+      "conditions": [],
+      "exceptions_or_qualifiers": "unspecified",
+      "book_location": {
+        "level": "advanced",
+        "module_number": 5,
+        "module_title": "Advanced PD Array Theory",
+        "section_heading": "Selection Procedure - Which Array to Trade"
+      },
+      "attribution_type": "community_interpretation"
+    },
+    {
+      "id": "ADV-M05-R05",
+      "kind": "rule",
+      "rule_type": "invalidation",
+      "statement": "An array fails when price trades through it with decisive displacement and closes beyond its far boundary in a manner that negates its expected polarity. Failure of an Order Block produces a Breaker candidate. Failure of an FVG may produce an IFVG (Inversion Fair Value Gap) candidate. Array failure is information: it may mean the retracement is deeper than expected (still inside the delivery leg), or the delivery leg itself is failing and opposing liquidity is being promoted -- Structure (Module 4) and the HTF DOL decide which interpretation applies.",
+      "applies_to": [
+        "PD-Array Failure"
+      ],
+      "conditions": [],
+      "exceptions_or_qualifiers": "unspecified",
+      "book_location": {
+        "level": "advanced",
+        "module_number": 5,
+        "module_title": "Advanced PD Array Theory",
+        "section_heading": "PD-Array Failure"
+      },
+      "attribution_type": "community_interpretation"
+    }
+  ],
+  "strategies": [],
+  "examples": [],
+  "relationships": [],
+  "no_trade_conditions": [
+    {
+      "id": "ADV-M05-NT01",
+      "kind": "no_trade_rule",
+      "statement": "If no PD array satisfies location (correct premium/discount half), hierarchy ranking, and narrative alignment (Draw on Liquidity), stand aside rather than trading. Do not trade every FVG or Order Block regardless of premium/discount location and higher-timeframe DOL. Do not use PD arrays as standalone signals without a delivery narrative. Do not continue treating a violated (failed) zone as supportive in its original polarity.",
+      "applies_to_strategy_ids": [],
+      "book_location": {
+        "level": "advanced",
+        "module_number": 5,
+        "module_title": "Advanced PD Array Theory",
+        "section_heading": "Selection Procedure - Which Array to Trade / Common Misinterpretations"
+      }
+    }
+  ],
+  "contradictions_or_ambiguities": [
+    {
+      "id": "ADV-M05-AMB01",
+      "kind": "contradiction_or_ambiguity",
+      "description": "Rejection Block is explicitly classified as low-confidence community terminology (Evidence Classification D), distinct from the core ICT PD arrays (Order Block, FVG, Breaker, Mitigation -- classified A/B). The book explicitly warns against elevating Rejection Block or other community labels above core ICT arrays.",
+      "passage_a": {
+        "text": "Rejection Block (a wick-based rejection zone after a liquidity sweep) appears frequently in community PD-array matrices and secondary materials. Primary ICT teaching emphasises Order Blocks, FVGs, Breakers and related constructs more consistently than a distinct 'Rejection Block' category.",
+        "book_location": {
+          "level": "advanced",
+          "module_number": 5,
+          "module_title": "Advanced PD Array Theory",
+          "section_heading": "Rejection Block - Classification Note"
+        }
+      },
+      "passage_b": {
+        "text": "Evidence Classification: D - Community terminology / secondary emphasis. Use with caution; do not treat as equal to core ICT arrays.",
+        "book_location": {
+          "level": "advanced",
+          "module_number": 5,
+          "module_title": "Advanced PD Array Theory",
+          "section_heading": "Rejection Block - Classification Note"
+        }
+      },
+      "resolution_status": "book_flags_as_community_vs_ICT"
+    },
+    {
+      "id": "ADV-M05-AMB02",
+      "kind": "contradiction_or_ambiguity",
+      "description": "Community definitions of Mitigation Block vs Breaker Block vary; the book resolves this by adopting the body-close test as the clearest operational delimiter, while flagging that other framings exist.",
+      "passage_a": {
+        "text": "An Order Block that is retested without a decisive body close beyond its far boundary, and from which price continues in the original direction... (Note: community definitions of Mitigation vs Breaker vary; the body-close test remains the clearest operational delimiter.)",
+        "book_location": {
+          "level": "advanced",
+          "module_number": 5,
+          "module_title": "Advanced PD Array Theory",
+          "section_heading": "Core PD Arrays"
+        }
+      },
+      "passage_b": {
+        "text": "unspecified - no single opposing passage; generic community variance noted.",
+        "book_location": {
+          "level": "advanced",
+          "module_number": 5,
+          "module_title": "Advanced PD Array Theory",
+          "section_heading": "Core PD Arrays"
+        }
+      },
+      "resolution_status": "resolved_in_source (book adopts the body-close test as its working definition)"
+    }
+  ],
+  "module_review_notes": {
+    "key_terms": [
+      "PD Array - any ICT price reference conditioned by premium/discount location inside the dealing range.",
+      "Fair Value Gap (FVG) / BISI / SIBI - three-candle imbalance left by displacement.",
+      "Order Block - last opposing candle before displacement.",
+      "Breaker - violated Order Block with inverted polarity.",
+      "Mitigation Block - retested OB that holds and continues original direction.",
+      "IFVG - Fair Value Gap that has inverted polarity after being traded through.",
+      "Consequent Encroachment - midpoint of an FVG; refined reaction reference.",
+      "PD-array confluence - overlap or adjacency of two or more arrays.",
+      "PD-array failure - decisive trade-through that negates expected polarity."
+    ],
+    "beginner_summary": "unspecified",
+    "concept_relationships_summary": "unspecified",
+    "practical_chart_exercise": "unspecified",
+    "self_test_questions": [
+      "What three filters must a PD array satisfy before it is eligible for entry?",
+      "How does a Breaker differ from a Mitigation Block on the body-close test?",
+      "When is Consequent Encroachment preferred over the full FVG?",
+      "What is the narrative implication of failure of the array that was expected to hold the delivery leg?",
+      "How should Rejection Block be classified relative to core ICT arrays?"
+    ],
+    "common_misconceptions": [],
+    "research_sources_cited_in_text": []
+  }
+}

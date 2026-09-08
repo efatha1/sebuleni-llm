@@ -1,0 +1,298 @@
+{
+  "level": "beginner",
+  "module_number": 2,
+  "module_title": "Timeframe Analysis",
+  "module_intro": "Introduces that the same price history looks different depending on how much time is compressed into each candle. Covers higher timeframe (HTF), lower timeframe (LTF), their respective uses, the governing HTF/LTF relationship, and timeframe selection.",
+  "prerequisites_stated_in_text": "Assumes comfort with Module 1: swing highs/lows, HH/HL/LH/LL, trend, key support/resistance. Everything from Module 3 onward is applied on a specific timeframe in the HTF-then-LTF order this module establishes.",
+  "module_objectives": [
+    "explain why 'higher timeframe' and 'lower timeframe' are relative roles rather than fixed chart intervals",
+    "state the three main jobs a higher timeframe chart performs",
+    "state the two main jobs a lower timeframe chart performs",
+    "apply the rule that lower-timeframe signals must be checked against higher-timeframe bias before being treated as significant",
+    "choose an appropriate timeframe stack for a given trading style",
+    "recognize the mistake of trading an LTF signal that contradicts established HTF bias"
+  ],
+  "concepts": [
+    {
+      "id": "BEG-M02-C01",
+      "kind": "concept",
+      "name": "Higher Timeframe (HTF)",
+      "definition": "Any chart interval that aggregates more time into each candle than the chart used to place an entry -- commonly monthly, weekly, daily, 4-hour, or 1-hour -- used to establish the dominant directional context.",
+      "ict_specific_meaning": "The HTF is not a fixed chart interval but a role: whichever chart is used to establish bias and identify the major structural levels and PD arrays governing the trading session is the HTF relative to whichever chart is later used for entry. The HTF carries interpretive authority over the LTF: narrative is established here first; LTF only refines timing, never overrides it. Common HTF stacks: Monthly/Weekly/Daily for macro bias, Daily/4-Hour for operational bias.",
+      "detection_criteria": [
+        "Open a chart and set the interval larger than the intended entry chart (e.g., Daily if entry chart is 15-minute).",
+        "Confirm this chart shows meaningfully fewer, more compressed candles over a longer period than the entry chart.",
+        "Use this chart to map swing highs/lows, trend, and key levels (Module 1) before looking at any smaller chart.",
+        "Treat conclusions from this chart as the standing context a lower-timeframe chart must not be allowed to override."
+      ],
+      "preconditions": ["Requires Module 1 (Price Fundamentals) tools already known."],
+      "numeric_or_narrative_example": "Daily candles: 100 -> 108 -> 104 -> 115 (four daily candles show a clear uptrend). Each value = one full day compressed into a data point; already shows HH/HL -- bullish structure -- without hour-by-hour detail. This becomes the HTF context carried into a smaller chart later in the day.",
+      "what_it_tells_the_trader": "The dominant directional bias and location of the most significant support/resistance, liquidity, and PD-array levels. Does not tell the trader the exact moment/price to enter -- that is the LTF's job.",
+      "common_pairings": ["Lower timeframe", "Daily bias (Module 10)", "PD Arrays (Module 6)"],
+      "framework_placement": {
+        "comes_before": "Requires Module 1 (Price Fundamentals).",
+        "comes_after": "Feeds into Lower Timeframe, HTF/LTF Relationship, and later Daily Bias (Module 10)."
+      },
+      "beginner_mistakes_or_misinterpretations": [
+        "Assuming a single fixed chart interval (like 'the daily') is always the HTF in every situation, rather than a relative role.",
+        "Skipping HTF analysis entirely and jumping straight to a small chart for entries.",
+        "Reading HTF structure once and never revisiting it as new candles close."
+      ],
+      "qualification_or_limits": "A higher timeframe read is not a guarantee of future direction -- it is the most reliable available context, not a certainty. HTF bias can and does change as new HTF candles close and new structure forms.",
+      "dependencies": ["Swing High", "Swing Low", "Trend (Module 1)"],
+      "timeframe_relationship": "HTF is defined only relative to whatever LTF is chosen for entries; it is a role, not a fixed interval.",
+      "attribution_type": "community_interpretation",
+      "cited_sources_in_text": [
+        "opofinance.com -- '7 Steps to Master ICT Top-Down Analysis.'",
+        "tradingfinder.com -- 'Choose Timeframe in ICT - Top-Down Market Analysis' and 'ICT Timeframe Selection -- Advanced ICT Structure Analysis.'",
+        "chartinglens.com -- 'ICT Trading Strategy: The Complete Guide to Inner Circle Trader Concepts.'"
+      ],
+      "book_location": {"level": "beginner", "module_number": 2, "module_title": "Timeframe Analysis", "section_heading": "Higher Timeframe (HTF)"},
+      "confidence_note": "The 'relative roles' framing is described as a well-corroborated inference, not a single verbatim ICT quotation confirmed in this research pass."
+    },
+    {
+      "id": "BEG-M02-C02",
+      "kind": "concept",
+      "name": "Higher-Timeframe Uses",
+      "definition": "The specific analytical jobs a higher timeframe chart performs: establishing directional bias, marking major structural levels, and identifying significant liquidity pools and PD arrays that the lower timeframe will later trade around.",
+      "ict_specific_meaning": "Three jobs assigned to HTF: (1) determine bullish/bearish/ranging; (2) mark levels that matter most -- previous day/week/month highs/lows, key swing points, unfilled PD arrays; (3) identify the HTF 'draw on liquidity' -- the level price appears to be gravitating toward. A community-labeled 'magnet rule' heuristic holds price is expected to reach a significant HTF PD array/liquidity pool before a major narrative shift is considered likely.",
+      "detection_criteria": [
+        "On the HTF chart, mark the current trend using the swing-point method from Module 1.",
+        "Mark the most recent significant highs and lows (previous day/week/month depending on HTF).",
+        "Note any large, unfilled gaps or reaction zones (formally defined later as Fair Value Gaps and Order Blocks, Modules 5-6).",
+        "Identify which of these levels price appears to be moving toward -- this becomes the HTF 'target' context for later liquidity analysis (Module 4)."
+      ],
+      "preconditions": ["Requires Higher Timeframe."],
+      "numeric_or_narrative_example": "Daily chart: current price 100, unfilled daily-level gap at 108, previous week's high at 115. Two HTF reference points above current price (108 and 115) become candidates for where price may be headed next -- invisible if only viewing a 5-minute chart near 100.",
+      "what_it_tells_the_trader": "Which price levels are significant enough to matter at the HTF level -- a map of probable destinations/turning points before the session begins. Does not tell the trader price will reach every marked level on any particular day, or in a straight line.",
+      "common_pairings": ["Daily Bias (Module 10)", "Liquidity Pools (Module 4)", "PD Arrays (Module 6)"],
+      "framework_placement": {
+        "comes_before": "Requires Higher Timeframe.",
+        "comes_after": "Feeds into Lower-Timeframe Uses and the HTF/LTF Relationship."
+      },
+      "beginner_mistakes_or_misinterpretations": [
+        "Marking too many levels on the HTF chart, diluting focus from the ones that matter most.",
+        "Forgetting to revisit HTF analysis regularly as price evolves and new candles close."
+      ],
+      "qualification_or_limits": "HTF-marked levels describe probable areas of significance, not certainties. A marked level can be reached, ignored for an extended period, or invalidated by a larger structural shift.",
+      "dependencies": ["Higher Timeframe"],
+      "timeframe_relationship": "unspecified beyond HTF role definition",
+      "attribution_type": "community_interpretation",
+      "cited_sources_in_text": [
+        "fxnx.com -- 'ICT Macro Narrative: Aligning Weekly and Monthly Profiles.'",
+        "writofinance.com -- 'ICT Time and Price Theory -- SMC Foundational Concept.'"
+      ],
+      "book_location": {"level": "beginner", "module_number": 2, "module_title": "Timeframe Analysis", "section_heading": "Higher-Timeframe Uses"},
+      "confidence_note": "The 'magnet rule' terminology is explicitly a community/secondary-source label, not confirmed as ICT's own coinage."
+    },
+    {
+      "id": "BEG-M02-C03",
+      "kind": "concept",
+      "name": "Lower Timeframe (LTF)",
+      "definition": "Any chart interval that compresses less time into each candle than the higher timeframe chart being used for context -- commonly 15-minute, 5-minute, or 1-minute -- used to time and refine trade entries.",
+      "ict_specific_meaning": "Where the HTF narrative gets executed: the trader looks for the detailed sequence -- liquidity sweep, displacement, market structure shift, entry into a Fair Value Gap or Order Block -- that makes up the ICT Buy/Sell Models (Modules 11-12). An LTF signal is only meaningful when it agrees with HTF bias; a contradicting LTF setup is treated as lower-quality/counter-trend risk, not an independent trade idea.",
+      "detection_criteria": [
+        "Open a chart interval smaller than the one used for HTF context (e.g., 15-minute or 5-minute if HTF was Daily or 4-Hour).",
+        "Confirm this chart shows considerably more, smaller candles over a much shorter period than the HTF chart.",
+        "Use this chart to watch for the detailed sequence -- liquidity sweep, displacement, structure shift, PD array reaction (later modules).",
+        "Cross-check every signal seen here against the HTF bias before treating it as a valid setup."
+      ],
+      "preconditions": ["Requires Higher Timeframe."],
+      "numeric_or_narrative_example": "15-minute candles inside one daily candle: 100 -> 98 -> 103 -> 101 -> 106. The daily chart alone would only show the day opened near 100 and moved higher overall; the 15-minute chart reveals the detailed dip to 98 and the specific path -- useful for timing entry, invisible on the daily chart alone.",
+      "what_it_tells_the_trader": "The fine-grained detail of current price behavior, allowing a more precise entry price and tighter, more defined stop-loss than HTF alone could provide. Does not tell the trader the overall direction that matters most -- that comes from HTF. An LTF chart viewed alone, without HTF context, can be actively misleading about the larger picture.",
+      "common_pairings": ["Higher timeframe", "Market Structure Shift (Module 3)", "Entry (Modules 11-12)"],
+      "framework_placement": {
+        "comes_before": "Requires Higher Timeframe.",
+        "comes_after": "Feeds into Lower-Timeframe Uses and the HTF/LTF Relationship, ultimately into LTF Execution (Module 13)."
+      },
+      "beginner_mistakes_or_misinterpretations": [
+        "Trading LTF signals in isolation without checking whether they align with HTF bias.",
+        "Using an LTF chart that is too small relative to the HTF chart, producing excessive noise and false signals.",
+        "Treating every LTF wiggle as a tradable event."
+      ],
+      "qualification_or_limits": "A lower-timeframe signal that contradicts the higher-timeframe bias is not automatically invalid, but ICT-focused teaching treats it as materially lower-probability and generally advises against trading against HTF context.",
+      "dependencies": ["Higher Timeframe"],
+      "timeframe_relationship": "LTF is only meaningful relative to, and checked against, HTF bias.",
+      "attribution_type": "community_interpretation",
+      "cited_sources_in_text": [
+        "tradingstrategyguides.com -- 'Day 10: Multi-Timeframe Analysis ICT & SMC -- The Top-Down Approach Explained.'",
+        "smartinggoods.com -- 'ICT Trading Strategy: The Complete 2026 Guide.'"
+      ],
+      "book_location": {"level": "beginner", "module_number": 2, "module_title": "Timeframe Analysis", "section_heading": "Lower Timeframe (LTF)"},
+      "confidence_note": "unspecified"
+    },
+    {
+      "id": "BEG-M02-C04",
+      "kind": "concept",
+      "name": "Lower-Timeframe Uses",
+      "definition": "The specific analytical jobs a lower timeframe chart performs: confirming that price is behaving consistently with HTF bias, and identifying the precise sequence -- liquidity sweep, displacement, structure shift, PD-array reaction -- used to time an entry.",
+      "ict_specific_meaning": "LTF's job is confirmation and execution, not independent decision-making: watch for a market structure shift (Module 3) confirming a reversal/continuation already anticipated from HTF analysis, and locate a specific PD array (Module 6) close to current price as a tight, defined entry point. A recurring secondary-source theme: LTF is also used for managing an open trade -- monitoring for signs the original premise is failing faster than a slower HTF chart would show.",
+      "detection_criteria": [
+        "Wait for price, in HTF context, to approach a level of interest identified in HTF analysis.",
+        "Switch to the lower timeframe once price is near that level.",
+        "Watch for a liquidity sweep (Module 4) and a market structure shift (Module 3) on this smaller chart.",
+        "Identify a Fair Value Gap or Order Block (Modules 5-6) on the LTF near the point of the structure shift as a candidate entry zone."
+      ],
+      "preconditions": ["Requires Lower Timeframe and Higher-Timeframe Uses."],
+      "numeric_or_narrative_example": "HTF target zone reached at 108; LTF shows: 108 -> 106 -> 110 -> 107 (sweep of 106 then reversal). Once price reaches the HTF zone near 108, the LTF reveals a brief dip to 106 (possible liquidity sweep) before reversing back through 110 -- detail only visible on LTF, used to time entry near 107 rather than guessing blindly at 108.",
+      "what_it_tells_the_trader": "Whether detailed, real-time price action at a level of interest is confirming or contradicting what the HTF anticipated -- turning a general area of interest into a specific, timed decision point. Does not, by itself, establish the overall bias; without HTF context, an LTF structure shift could just as easily be a meaningless short-term wiggle.",
+      "common_pairings": ["Market Structure Shift (Module 3)", "Liquidity Sweep (Module 4)", "FVG / Order Block (Modules 5-6)"],
+      "framework_placement": {
+        "comes_before": "Requires Lower Timeframe and Higher-Timeframe Uses.",
+        "comes_after": "Feeds into the HTF/LTF Relationship and, later, LTF Execution (Module 13)."
+      },
+      "beginner_mistakes_or_misinterpretations": [
+        "Switching to the LTF too early, before price has actually reached the HTF level of interest.",
+        "Ignoring HTF bias and trading every LTF structure shift regardless of direction."
+      ],
+      "qualification_or_limits": "LTF confirmation increases the precision of an entry; it does not create certainty. A structure shift on a very low timeframe can still fail, especially if it is not backed by genuine displacement (Module 5).",
+      "dependencies": ["Lower Timeframe", "Higher-Timeframe Uses"],
+      "timeframe_relationship": "LTF signal is only actioned once price reaches an HTF-identified level of interest.",
+      "attribution_type": "community_interpretation",
+      "cited_sources_in_text": [
+        "r2ftrading.com -- 'Best Timeframes for ICT Trading: How to Combine Them.'",
+        "tradingfinder.com -- 'ICT Timeframe Selection -- Advanced ICT Structure Analysis.'"
+      ],
+      "book_location": {"level": "beginner", "module_number": 2, "module_title": "Timeframe Analysis", "section_heading": "Lower-Timeframe Uses"},
+      "confidence_note": "unspecified"
+    },
+    {
+      "id": "BEG-M02-C05",
+      "kind": "concept",
+      "name": "HTF/LTF Relationship",
+      "definition": "The governing rule that the higher timeframe sets the directional context (bias) the lower timeframe must operate within, with the LTF used only to refine timing/entry precision, never to override the HTF narrative.",
+      "ict_specific_meaning": "Hierarchical and, per some secondary sources, close to non-negotiable: narrative is written on HTF first, execution follows on LTF second. A trader is expected to only look for long setups on LTF when HTF is bullish, and only short setups when HTF is bearish. Frequently summarized as 'timeframe alignment' or 'confluence': the more timeframes that agree, the higher the perceived quality of a setup.",
+      "detection_criteria": [
+        "Establish a clear directional bias on the higher timeframe using Module 1's structure tools.",
+        "Note that bias (bullish, bearish, or undetermined/ranging).",
+        "Move to the lower timeframe only to look for setups matching that same direction.",
+        "Discard, or treat as lower-priority, any lower-timeframe setup that points in the opposite direction of established HTF bias."
+      ],
+      "preconditions": ["Requires Higher Timeframe and Lower Timeframe."],
+      "numeric_or_narrative_example": "Daily chart: bullish structure (HH/HL). 15-minute chart: shows a temporary lower low. The daily chart's bullish structure governs; the 15-minute lower low does not, by itself, overturn daily bias -- it is more likely read as a retracement or liquidity sweep within the larger uptrend rather than a signal to sell.",
+      "what_it_tells_the_trader": "Which signals to prioritize when different timeframes disagree -- the higher timeframe generally wins. Does not mean the LTF is irrelevant, or that HTF bias never changes; a sufficiently strong, sustained LTF move can eventually be the first sign of a larger HTF structure shift.",
+      "common_pairings": ["Higher Timeframe", "Lower Timeframe", "Bias (Module 10)"],
+      "framework_placement": {
+        "comes_before": "Requires Higher Timeframe and Lower Timeframe.",
+        "comes_after": "Feeds directly into Timeframe Selection and, much later, Bias (Module 10) and the Buy/Sell Models (Modules 11-12)."
+      },
+      "beginner_mistakes_or_misinterpretations": [
+        "Treating HTF and LTF analysis as two separate, unrelated exercises instead of one continuous top-down process.",
+        "Abandoning a correct HTF bias because of noise on a very small LTF chart.",
+        "Failing to recognize when persistent LTF counter-trend pressure may be an early warning that HTF bias itself is starting to change."
+      ],
+      "qualification_or_limits": "The HTF-governs-LTF rule is a working discipline, not an infallible law of markets. HTF bias itself changes over time as new HTF structure forms; the relationship describes which chart to defer to at any given moment, not a guarantee today's HTF bias is permanent.",
+      "dependencies": ["Higher Timeframe", "Lower Timeframe"],
+      "timeframe_relationship": "This IS the timeframe relationship rule itself -- HTF governs, LTF refines/executes.",
+      "attribution_type": "community_interpretation",
+      "cited_sources_in_text": [
+        "tradingstrategyguides.com -- 'Day 10: Multi-Timeframe Analysis ICT & SMC -- The Top-Down Approach Explained.'",
+        "smartinggoods.com -- 'ICT Trading Strategy: The Complete 2026 Guide' (explicit HTF-veto rule: \"Only take long setups when the 4H is bullish... Do not fight the higher-timeframe structure\")."
+      ],
+      "book_location": {"level": "beginner", "module_number": 2, "module_title": "Timeframe Analysis", "section_heading": "HTF/LTF Relationship"},
+      "confidence_note": "unspecified"
+    },
+    {
+      "id": "BEG-M02-C06",
+      "kind": "concept",
+      "name": "Timeframe Selection",
+      "definition": "The practical, pre-analysis decision of which specific chart intervals will serve as the higher timeframe and which as the lower timeframe, based on a trader's intended holding period and trading style.",
+      "ict_specific_meaning": "Several common timeframe stacks rather than one mandatory combination: swing trading -- Daily/4-Hour/1-Hour frequently cited; day trading/scalping -- 4-Hour or 1-Hour for bias with 15-Minute or 5-Minute for entries; some sources describe a broader Monthly/Weekly/Daily macro layer above the operational bias layer. The consistent underlying principle: whatever timeframe decides bias must never be the same timeframe used for execution; each timeframe should be meaningfully larger than the one below it -- commonly cited as roughly a four-to-six times difference.",
+      "detection_criteria": [
+        "Decide intended trade duration first: days/weeks (swing) vs minutes/hours within a day (day trading/scalping).",
+        "For swing trading, a common ICT-associated stack: Daily (bias) -> 4-Hour (structure) -> 1-Hour (entry refinement).",
+        "For day trading, a common stack: 4-Hour or 1-Hour (bias) -> 15-Minute (structure/entry) -> 5-Minute or 1-Minute (precise entry timing).",
+        "Confirm each chosen timeframe is meaningfully larger than the one below it so each layer adds genuinely new information."
+      ],
+      "preconditions": ["Requires the HTF/LTF Relationship."],
+      "numeric_or_narrative_example": "Swing trader's stack: Daily (bias) -> 4-Hour (structure) -> 1-Hour (entry). Checks Daily once for bias, then 4-Hour for structure/key levels within that bias, then 1-Hour only to fine-tune entry price and stop-loss -- three distinct jobs matched to a multi-day holding period.",
+      "what_it_tells_the_trader": "Which specific charts to open and in what order, turning the general HTF/LTF relationship into a concrete, repeatable routine. Does not by itself determine profitability or accuracy -- an organizational choice that must still be paired correctly with structure/liquidity/displacement concepts.",
+      "common_pairings": ["HTF/LTF Relationship", "Daily Bias (Module 10)", "Daily Execution routine (Module 13)"],
+      "framework_placement": {
+        "comes_before": "Requires the HTF/LTF Relationship.",
+        "comes_after": "Concludes Module 2; feeds directly into the pre-market analysis routine (Module 13)."
+      },
+      "beginner_mistakes_or_misinterpretations": [
+        "Choosing timeframes too close together (e.g., 5-minute for bias and 1-minute for entry), producing excessive noise and little genuine separation of information.",
+        "Constantly switching timeframe stacks day to day without a consistent routine.",
+        "Copying another trader's exact timeframe stack without considering one's own intended holding period."
+      ],
+      "qualification_or_limits": "There is no single ICT-mandated timeframe combination that applies to every trader in every market. Specific intervals matter less than maintaining a genuine, consistent hierarchy where a distinctly higher timeframe sets bias and a distinctly lower timeframe handles execution.",
+      "dependencies": ["HTF/LTF Relationship"],
+      "timeframe_relationship": "Defines concrete stacks: Daily/4H/1H (swing); 4H or 1H/15m/5m or 1m (day trading); Monthly/Weekly/Daily (macro layer).",
+      "attribution_type": "community_interpretation",
+      "cited_sources_in_text": [
+        "writofinance.com -- 'ICT Timeframe Selection -- Advanced ICT Structure Analysis' (Daily/4H/1H swing-trading stack).",
+        "smartinggoods.com -- 'ICT Trading Strategy: The Complete 2026 Guide' (weekly/daily/4H/1H/15m/1m stack).",
+        "luxalgo.com -- 'Top-down Analysis -- Meta & Composition Concept' (four-to-six-times timeframe spacing heuristic)."
+      ],
+      "book_location": {"level": "beginner", "module_number": 2, "module_title": "Timeframe Analysis", "section_heading": "Timeframe Selection"},
+      "confidence_note": "The 'four-to-six times' spacing ratio is explicitly a community/secondary-source heuristic, not confirmed as an ICT-stated rule."
+    }
+  ],
+  "rules": [
+    {
+      "id": "BEG-M02-R01",
+      "kind": "rule",
+      "rule_type": "confluence",
+      "statement": "Timeframe alignment/confluence: the more timeframes that agree on the same directional bias, the higher the perceived quality of a setup, since it means institutional order flow appears consistent across multiple scales rather than being a short-lived anomaly on one small chart.",
+      "applies_to": ["HTF/LTF Relationship", "Bias (Module 10)"],
+      "conditions": ["unspecified precise number of timeframes required or scoring method"],
+      "exceptions_or_qualifiers": "unspecified",
+      "book_location": {"level": "beginner", "module_number": 2, "module_title": "Timeframe Analysis", "section_heading": "HTF/LTF Relationship"},
+      "attribution_type": "community_interpretation"
+    },
+    {
+      "id": "BEG-M02-R02",
+      "kind": "rule",
+      "rule_type": "selection_procedure",
+      "statement": "Whatever timeframe decides bias must never be the same timeframe used for execution.",
+      "applies_to": ["Timeframe Selection"],
+      "conditions": [],
+      "exceptions_or_qualifiers": "unspecified",
+      "book_location": {"level": "beginner", "module_number": 2, "module_title": "Timeframe Analysis", "section_heading": "Timeframe Selection"},
+      "attribution_type": "community_interpretation"
+    }
+  ],
+  "strategies": [],
+  "examples": [],
+  "relationships": [
+    {
+      "id": "BEG-M02-REL01",
+      "kind": "cross_module_relationship",
+      "statement": "The six concepts describe a single top-down workflow: Higher Timeframe and Lower Timeframe are the two roles a chart can play; Higher-Timeframe Uses and Lower-Timeframe Uses describe the specific jobs each role performs; the HTF/LTF Relationship is the rule connecting them; Timeframe Selection is the practical step of choosing actual chart intervals to fill each role. None of these concepts introduce new price-action vocabulary -- they reuse Module 1's swing-point, trend, and support/resistance tools at different zoom levels. This module establishes the pattern repeated throughout the book: establish context on a larger, slower chart before acting on a smaller, faster one.",
+      "involved_concepts": ["Higher Timeframe (HTF)", "Higher-Timeframe Uses", "Lower Timeframe (LTF)", "Lower-Timeframe Uses", "HTF/LTF Relationship", "Timeframe Selection"],
+      "involved_modules": ["Module 1 (beginner)", "Module 2 (beginner)", "Module 3 (beginner, forward reference)", "Module 4 (beginner, forward reference)"],
+      "book_location": {"level": "beginner", "module_number": 2, "module_title": "Timeframe Analysis", "section_heading": "How These Concepts Connect"}
+    }
+  ],
+  "no_trade_conditions": [],
+  "contradictions_or_ambiguities": [],
+  "module_review_notes": {
+    "key_terms": ["Higher Timeframe (HTF)", "Higher-Timeframe Uses", "Lower Timeframe (LTF)", "Lower-Timeframe Uses", "HTF/LTF Relationship", "Timeframe Selection", "Top-Down Analysis"],
+    "common_misconceptions": [
+      "Believing there is one single 'correct' higher timeframe (such as always the Daily chart) rather than understanding it as a role relative to whatever lower timeframe is being used for entries.",
+      "Believing a lower-timeframe signal is just as significant as a higher-timeframe signal, rather than understanding the working hierarchy between them.",
+      "Believing HTF bias is permanent and cannot change, rather than understanding it is reassessed as new HTF structure forms.",
+      "Believing timeframe selection is arbitrary rather than tied to a trader's intended holding period and trading style."
+    ],
+    "self_test_questions": [
+      "Why does ICT's method describe 'higher timeframe' and 'lower timeframe' as relative roles rather than specific, fixed chart intervals?",
+      "What is the difference between what a higher timeframe chart is used for and what a lower timeframe chart is used for?",
+      "According to the HTF/LTF relationship, what should a trader generally do when a lower-timeframe signal contradicts the established higher-timeframe bias?",
+      "Name one common ICT-associated timeframe stack for swing trading and one for day trading.",
+      "Why is spacing timeframes too closely together (for example, 5-minute for bias and 1-minute for entry) considered a mistake?"
+    ],
+    "research_sources_cited_in_text": [
+      "opofinance.com -- '7 Steps to Master ICT Top-Down Analysis.'",
+      "tradingfinder.com -- 'Choose Timeframe in ICT - Top-Down Market Analysis' and 'ICT Timeframe Selection -- Advanced ICT Structure Analysis.'",
+      "writofinance.com -- 'ICT Time and Price Theory -- SMC Foundational Concept.'",
+      "r2ftrading.com -- 'Best Timeframes for ICT Trading: How to Combine Them.'",
+      "smartinggoods.com -- 'ICT Trading Strategy: The Complete 2026 Guide.'",
+      "chartinglens.com -- 'ICT Trading Strategy: The Complete Guide to Inner Circle Trader Concepts.'",
+      "tradingstrategyguides.com -- 'Day 10: Multi-Timeframe Analysis ICT & SMC -- The Top-Down Approach Explained.'",
+      "Note: as in Module 1, this research pass relied on cross-checked secondary/tutorial documentation rather than direct ICT primary-source video transcripts, which were not accessible in this environment."
+    ],
+    "practical_chart_exercise": "Pick any two chart intervals where one is meaningfully larger than the other (e.g., Daily and 15-minute). On the larger chart, apply Module 1's tools to determine the current trend and mark the two or three most significant recent highs and lows. Then switch to the smaller chart and identify one moment where price action on the smaller chart would have been easy to misread as a trend reversal if you had not already known the larger chart's context."
+  }
+}

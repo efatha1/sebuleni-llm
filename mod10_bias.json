@@ -1,0 +1,523 @@
+{
+  "level": "beginner",
+  "module_number": 10,
+  "module_title": "Bias",
+  "module_intro": "Every module so far has built a specific analytical tool: structure, liquidity, displacement, PD arrays, OTE, sessions, and Power of 3. This module brings all of them together to answer the question every one of those tools has been building toward: which direction should a trader be looking to trade at all? Covers Bias as a disciplined, repeatable analytical process, HTF Bias (macro level) and Daily Bias (single-day level), Bullish/Bearish Conditions checklists, and a consolidated step-by-step procedure for establishing one clear daily directional expectation before the trading day begins.",
+  "prerequisites_stated_in_text": "Integrates Modules 1-9 (structure, liquidity, displacement, PD arrays, OTE, sessions, Power of 3).",
+  "module_objectives": [
+    "explain why ICT-focused teaching treats bias as a disciplined, repeatable process rather than a hunch or prediction",
+    "determine HTF bias using the monthly and weekly opening prices",
+    "determine daily bias using daily structure, the relevant opening price, and nearby unswept liquidity",
+    "list the specific checklist of conditions supporting a bullish bias, and the mirrored checklist supporting a bearish bias",
+    "explain why a neutral or unclear bias is an explicitly valid and professionally appropriate outcome of this process",
+    "write a single, explicit daily directional statement combining HTF bias, daily bias, and an expected liquidity target"
+  ],
+  "concepts": [
+    {
+      "id": "BEG-M10-C01",
+      "kind": "concept",
+      "name": "Bias",
+      "definition": "Bias, within ICT's framework, is a trader's working directional expectation - bullish, bearish, or neutral/undetermined - for a given instrument over a given period, formed from top-down structural and liquidity analysis rather than from opinion, and used to filter which trade setups are considered valid.",
+      "ict_specific_meaning": "ICT-focused sources are consistent that establishing bias is meant to be a disciplined, repeatable analytical process - reading market structure, locating unswept liquidity, and noting premium/discount positioning - rather than a gut feeling or a prediction of exactly what will happen. Several sources explicitly attribute this framing to Michael J. Huddleston, quoting the emphasis that the goal is not to correctly predict every single day's direction in advance, but to equip a trader with a repeatable, independent method for determining bias in any market.\n\nBias is described across sources as operating at multiple nested timeframes simultaneously (monthly, weekly, daily, and even session-level or hourly), directly reusing the HTF/LTF relationship from Module 2: a bias formed on a higher timeframe is treated as the dominant, governing context, with lower-timeframe bias expected to align with it for the highest-confidence setups.\n\nOnce a bias is established, ICT-focused sources describe a clear behavioral consequence: a trader is expected to look only for entries in the direction of that bias, deliberately ignoring or discounting setups that point the opposite way - described across sources as the primary discipline bias is meant to enforce.",
+      "beginner_explanation": "Bias is simply your best, most carefully reasoned guess about which direction - up or down - a market is more likely to move over some period of time, based on the specific tools this book has already covered (structure, liquidity, premium/discount), rather than a hunch or a feeling. Once you've formed that guess, ICT-focused teaching says you should mostly stick to looking for trades that agree with it, rather than jumping back and forth chasing every price move regardless of direction.",
+      "detection_criteria": [
+        "Select the specific timeframe and period for which bias is being determined (for example, the current trading week, or the current trading day).",
+        "Read market structure on the corresponding chart (Module 3): higher highs and higher lows suggest bullish bias; lower highs and lower lows suggest bearish bias; a mixed, inconsistent pattern suggests neutral or undetermined bias.",
+        "Check for unswept liquidity above and below current price (Module 4), noting which side represents the more likely \"draw\" for price.",
+        "Note the instrument's premium/discount position relative to the relevant dealing range (Module 7).",
+        "Combine these inputs into a single working directional statement (bullish, bearish, or neutral) for the period in question."
+      ],
+      "preconditions": [
+        "unspecified"
+      ],
+      "numeric_or_narrative_example": "Weekly chart shows a clear sequence of higher highs and higher lows over the past several weeks; unswept sell-side liquidity rests below the most recent higher low\n\nThis combination - bullish structure, plus an unswept liquidity pool below current price that would need to be revisited before further downside, absent any structural shift - would lead a trader following this framework to form a bullish bias for the period in question, expecting the more likely path forward to eventually favor upside, potentially after a move down to collect that resting liquidity first.",
+      "what_it_tells_the_trader": "Bias tells the trader which direction to prioritize when evaluating potential setups, providing a filter that reduces the number of trade ideas considered and keeps analysis aligned with the broader structural and liquidity picture.\n\nIt does not tell the trader that the anticipated direction is guaranteed, nor does it specify the exact entry, target, or timing - those are supplied by the more specific tools covered in Modules 6, 7, and 11 - 12. Bias is a starting filter, not a complete trade plan.",
+      "common_pairings": [
+        "Market Structure (Module 3)",
+        "Liquidity (Module 4)",
+        "HTF Bias / Daily Bias (this module)"
+      ],
+      "common_pairings_narrative": "Bias is the direct output of applying Module 3's structure-reading tools and Module 4's liquidity concepts to a specific period, and it is immediately specialized in this module into the two most commonly discussed applications: HTF Bias and Daily Bias.",
+      "framework_placement": {
+        "comes_before": "Requires Market Structure (Module 3), Liquidity (Module 4), and Premium/Discount (Module 7).",
+        "comes_after": "Feeds directly into HTF Bias and Daily Bias, the next two concepts in this module."
+      },
+      "beginner_mistakes_or_misinterpretations": [
+        "Forming a bias based on a feeling or a headline rather than the specific structural and liquidity criteria this framework specifies.",
+        "Treating an established bias as permanent and refusing to update it even after a genuine, confirmed structural shift.",
+        "Taking counter-bias trades opportunistically, undermining the discipline bias is specifically meant to enforce."
+      ],
+      "qualification_or_limits": "Bias is a probabilistic working assumption, not a certainty. ICT-focused sources are explicit that the purpose of teaching bias is to give traders an independent, repeatable method for forming this assumption - not to claim that any specific day's or week's direction can be predicted with certainty in advance.",
+      "dependencies": [
+        "Market Structure",
+        "Liquidity",
+        "Premium/Discount "
+      ],
+      "timeframe_relationship": "unspecified",
+      "attribution_type": "research_compiled_secondary",
+      "cited_sources_in_text": [
+        "grandalgo.com - \"ICT Trading Strategy: The Complete Playbook From Bias to Entry\" (\"Context - establish directional bias from higher-timeframe structure and premium/discount\").",
+        "writofinance.com - \"A Complete guide to ICT Daily Bias Trading\" (direct attribution to Michael Huddleston: \"teaching daily bias is not about predicting the exact bias for every trading day... it is about equipping traders with tools and concepts to independently determine bias\").",
+        "backtrex.com - \"ICT Method: Michael Huddleston's Inner Circle Trader Guide\" (\"Once the daily bias is set... traders look only for entries in that direction, ignoring counter-signals\")."
+      ],
+      "book_location": {
+        "level": "beginner",
+        "module_number": 10,
+        "module_title": "Bias",
+        "section_heading": "Bias"
+      },
+      "confidence_note": "unspecified"
+    },
+    {
+      "id": "BEG-M10-C02",
+      "kind": "concept",
+      "name": "HTF Bias",
+      "definition": "HTF Bias is the directional expectation formed specifically from higher-timeframe analysis - commonly the monthly and weekly charts - treated within ICT's framework as the macro-level, most dominant layer of bias that all lower-timeframe bias readings are expected to align with for the highest-confidence setups.",
+      "ict_specific_meaning": "ICT-focused sources describe a specific, commonly taught procedure for HTF bias: begin by identifying the monthly opening price, and classify the current bias as bullish if price trades above that open, bearish if it trades below. The weekly chart is then read similarly, using the weekly opening price, with the expectation that weekly bias should generally agree with monthly bias for a fully aligned macro picture.\n\nMultiple sources describe monthly and weekly opens as reference levels institutions and algorithmic systems are believed to use directly, distinguishing this specific open-price-based method from the pure structural (HH/HL vs. LH/LL) method also used for bias at other timeframes.\n\nThis HTF bias is described consistently as the top layer of a nested decision process - several sources present an explicit sequence such as \"HTF bias → daily bias → draw on liquidity → AMD phase → kill zone timing → PD array entry\" - with HTF bias positioned as the very first and most foundational step.",
+      "beginner_explanation": "HTF Bias is your biggest-picture directional read - essentially, zooming all the way out to the monthly and weekly charts and asking a very simple question: is price, right now, sitting above or below where this month (or week) actually began? That simple comparison is treated, within this framework, as a surprisingly powerful clue about the dominant institutional direction.",
+      "detection_criteria": [
+        "Identify the current month's opening price.",
+        "Determine whether current price is trading above (bullish HTF bias) or below (bearish HTF bias) that monthly open.",
+        "Identify the current week's opening price and repeat the same comparison for weekly bias.",
+        "Check whether the monthly and weekly bias readings agree; if they do, treat the combined HTF bias as more reliable than either reading alone."
+      ],
+      "preconditions": [
+        "unspecified"
+      ],
+      "numeric_or_narrative_example": "Monthly open at 1.2000; current price at 1.2150. Weekly open at 1.2100; current price at 1.2150.\n\nPrice is trading above both the monthly open (1.2000) and the weekly open (1.2100), so both readings agree: this produces a bullish HTF bias, since price sits above where both the current month and the current week began.",
+      "what_it_tells_the_trader": "HTF Bias tells the trader the dominant, macro-level directional lean expected to govern all lower-timeframe analysis, and gives two specific, objective reference prices (the monthly and weekly opens) rather than a vague sense of \"the bigger trend.\"\n\nIt does not tell the trader the exact timing or entry for any individual trade - it is explicitly the top, most general layer of a longer decision chain that narrows down through Daily Bias and eventually into a specific entry model in Modules 11 - 12.",
+      "common_pairings": [
+        "Bias (general)",
+        "Daily Bias",
+        "Monthly/Weekly Open (reference levels)"
+      ],
+      "common_pairings_narrative": "HTF Bias is the top of the bias hierarchy this module builds; it is expected to be checked before, and to constrain, the Daily Bias process covered next.",
+      "framework_placement": {
+        "comes_before": "Requires Bias and Market Structure (Module 3).",
+        "comes_after": "Feeds directly into Daily Bias."
+      },
+      "beginner_mistakes_or_misinterpretations": [
+        "Skipping HTF bias entirely and jumping straight to daily-level analysis without any macro context.",
+        "Ignoring a disagreement between monthly and weekly bias readings, rather than treating this disagreement as a signal for reduced confidence or a neutral macro stance."
+      ],
+      "qualification_or_limits": "The monthly/weekly-open method described here is one commonly documented approach to HTF bias among several; some sources instead emphasize pure structural readings (HH/HL vs. LH/LL) at these same timeframes. This book presents the open-price method as the most specifically and consistently documented version, while noting that structural confirmation from Module 3 remains a valuable and compatible cross-check.",
+      "dependencies": [
+        "Bias",
+        "Market Structure "
+      ],
+      "timeframe_relationship": "unspecified",
+      "attribution_type": "community_interpretation",
+      "cited_sources_in_text": [
+        "writofinance.com - \"ICT Time and Price Theory - SMC Foundational Concept\" (explicit monthly-open and weekly-open bias procedure).",
+        "innercircletrader.net - \"ICT Weekly Profiles - 12 Patterns to Identify the Weekly High & Low\" (weekly bias read against higher-timeframe premium/discount arrays).",
+        "theinnercircletraders.com - \"ICT 2022 Model: The Core Teaching Framework\" (\"HTF bias → daily bias → DOL target → AMD phase → kill zone/macro → PD array entry\")."
+      ],
+      "book_location": {
+        "level": "beginner",
+        "module_number": 10,
+        "module_title": "Bias",
+        "section_heading": "HTF Bias"
+      },
+      "confidence_note": "unspecified"
+    },
+    {
+      "id": "BEG-M10-C03",
+      "kind": "concept",
+      "name": "Daily Bias",
+      "definition": "Daily Bias is the directional expectation formed specifically for a single trading day, derived from daily-timeframe structure, the day's or prior day's opening price, and the nearest unswept liquidity, and treated across ICT-focused sources as the single most heavily emphasized and most frequently taught application of the general bias concept.",
+      "ict_specific_meaning": "ICT-focused sources describe several complementary methods for establishing daily bias, most commonly used together rather than in isolation: (1) daily-timeframe market structure (higher highs/higher lows for bullish, lower highs/lower lows for bearish); (2) price's position relative to the daily opening price (trading above the open for most of the session suggests bullish bias, below suggests bearish); and (3) the location of the nearest significant unswept liquidity (the previous day's high or low, or the weekly high or low), used to infer which direction price is more likely to be \"drawn\" toward.\n\nMultiple sources attribute directly to Michael J. Huddleston the specific guidance that daily bias should be established before the New York session opens, and that the market typically accumulates liquidity on one side before moving in the opposite direction - directly reusing the Power of 3 (Module 9) and liquidity sweep (Module 4) concepts as the mechanism by which a correctly identified daily bias plays out over the course of the day.\n\nA specific, named simplified method documented in secondary ICT-focused material - sometimes called the \"daily bias trick\" - uses only the most recent daily-timeframe Market Structure Shift as the single deciding input: a bullish MSS locks in a bullish daily bias, and a bearish MSS locks in a bearish daily bias, after which a bias-aligned PD array is marked and a lower-timeframe (15-minute or higher) confirmation is required before entry.",
+      "beginner_explanation": "Daily Bias narrows the same basic question - which direction is more likely? - down from an entire month or week to a single trading day. You're asking: given how the daily chart has been structured recently, and given where today's price sits relative to where the day (or the prior day) opened, which direction does today more plausibly favor? This is described as one of the most important single judgments a trader following this framework makes each day, since nearly everything else in the daily routine (Module 13) is built on top of it.",
+      "detection_criteria": [
+        "Read the daily chart's recent structure (Module 3): consistent higher highs/higher lows suggest bullish daily bias; consistent lower highs/lower lows suggest bearish daily bias.",
+        "Note the most recent daily-timeframe Market Structure Shift, if one has occurred, and let its direction inform (or, under the simplified method, directly set) the daily bias.",
+        "Check current price relative to the day's (or, before the day begins, the prior day's) opening price.",
+        "Identify the nearest significant unswept liquidity (previous day's high/low, weekly high/low) and consider which side is more likely to be targeted.",
+        "Combine these inputs into a single daily bias statement, ideally finalized before the New York session opens."
+      ],
+      "preconditions": [
+        "unspecified"
+      ],
+      "numeric_or_narrative_example": "Daily chart shows a recent bullish MSS. Current price trades above the prior day's open. Unswept sell-side liquidity rests just below the prior day's low.\n\nAll three inputs point the same direction here: a confirmed bullish structural shift, price holding above the relevant opening reference, and an unswept liquidity pool just below current price that would fit the Power of 3 pattern (a brief dip to collect that liquidity before the day's real, bullish move). A trader following this framework would establish a bullish daily bias, expecting to look specifically for long setups.",
+      "what_it_tells_the_trader": "Daily Bias tells the trader the specific directional filter to apply for the current trading day's intraday decisions, and - when combined with the Power of 3 framework from Module 9 - gives a concrete expectation for how the day might unfold (a possible dip to sweep liquidity before the day's real move, in a bullish-bias example).\n\nIt does not tell the trader that the day will unquestionably move in the anticipated direction. Sources are explicit that daily bias is a probabilistic read, subject to being overturned by a genuine, confirmed structural shift on the daily chart itself as the day develops.",
+      "common_pairings": [
+        "HTF Bias",
+        "Power of 3 (Module 9)",
+        "Market Structure Shift (Module 3)"
+      ],
+      "common_pairings_narrative": "Daily Bias is expected to be read within the context HTF Bias already established, and it directly sets up the Power of 3 expectation for how the day is likely to unfold (which side is accumulated/manipulated versus which side is the eventual distribution target).",
+      "framework_placement": {
+        "comes_before": "Requires HTF Bias, Power of 3 (Module 9), and Market Structure Shift (Module 3).",
+        "comes_after": "Feeds directly into Bullish Conditions, Bearish Conditions, and Establishing Daily Directional Expectation - the remaining concepts in this module."
+      },
+      "beginner_mistakes_or_misinterpretations": [
+        "Forming daily bias after the New York session has already opened, missing the window several sources describe as the appropriate time to finalize it.",
+        "Relying on only one of the three inputs (structure, opening price, liquidity) while ignoring the other two.",
+        "Refusing to update daily bias even after a genuine, confirmed structural shift contradicts the original read."
+      ],
+      "qualification_or_limits": "Multiple documented methods exist for establishing daily bias (full three-factor analysis versus the simplified single-MSS \"trick\"), and this book presents the fuller three-factor version as the primary method while noting the simplified version as a documented, faster alternative used by some ICT-focused sources. Neither method eliminates the underlying uncertainty of predicting a single day's price action.",
+      "dependencies": [
+        "HTF Bias",
+        "Power of 3",
+        "Market Structure Shift "
+      ],
+      "timeframe_relationship": "unspecified",
+      "attribution_type": "community_interpretation",
+      "cited_sources_in_text": [
+        "arongroups.co - \"ICT Daily Bias: Complete Guide to Market Direction and Liquidity Analysis\" and \"How to Identify the Daily Bias and Trade in the Market's Direction\" (direct attribution to Michael Huddleston regarding timing before New York open and liquidity-then-reversal behavior).",
+        "innercircletrader.net - \"ICT Daily Bias Explained\" and \"ICT Daily Bias Trick - Single-Timeframe MSS Bias Method.\"",
+        "tradingfinder.com - \"What is the Daily Bias? Identifying Market Direction in the ICT Method.\"",
+        "forexfactory.com (TFlab thread) - \"ICT Daily Bias Training.\""
+      ],
+      "book_location": {
+        "level": "beginner",
+        "module_number": 10,
+        "module_title": "Bias",
+        "section_heading": "Daily Bias"
+      },
+      "confidence_note": "unspecified"
+    },
+    {
+      "id": "BEG-M10-C04",
+      "kind": "concept",
+      "name": "Bullish Conditions",
+      "definition": "Bullish conditions are the specific, checkable set of criteria - bullish market structure, price holding above a relevant opening reference, and unswept sell-side liquidity resting below current price - that together support forming a bullish bias for a given period.",
+      "ict_specific_meaning": "ICT-focused sources describe bullish conditions as a checklist rather than a single signal: bullish order flow (consistent higher highs and higher lows) on the relevant timeframe; price generally trading above the day's, week's, or month's opening price; and unswept sell-side liquidity below current price, consistent with the expectation that price may need to dip and collect that liquidity before (or while) delivering the anticipated bullish move.\n\nSources also describe specific execution-level bullish conditions once a bullish bias is already established: waiting for price to retrace into a discount-zone PD array (an Order Block, Fair Value Gap, or the OTE sweet spot from Module 7), and requiring a lower-timeframe Market Structure Shift in the bullish direction at that PD array before an entry is considered valid.",
+      "beginner_explanation": "Bullish conditions are simply the specific, concrete things a trader following this framework looks for on a chart to decide \"yes, calling this bullish makes sense\" - not a single obvious sign, but several pieces of evidence (the shape of recent structure, where price sits relative to a reference open, and where nearby liquidity is resting) that, together, paint a consistent bullish picture.",
+      "detection_criteria": [
+        "Confirm the relevant timeframe shows a pattern of higher highs and higher lows (Module 1/3).",
+        "Confirm current price is trading above the relevant period's opening price (daily, weekly, or monthly, depending on the bias being assessed).",
+        "Identify unswept sell-side liquidity resting below current price.",
+        "For execution-level confirmation, wait for a retracement into a discount-zone PD array, followed by a lower-timeframe bullish Market Structure Shift."
+      ],
+      "preconditions": [
+        "unspecified"
+      ],
+      "numeric_or_narrative_example": "Daily structure: higher highs and higher lows over the past week. Price above today's open. Unswept SSL below the prior day's low.\n\nAll three bias-level bullish conditions are present here, supporting a bullish daily bias. If price subsequently retraces into a discount-zone Order Block and a 15-minute bullish MSS confirms, the execution-level bullish conditions would also be satisfied, completing the full checklist this framework uses before considering a long entry.",
+      "what_it_tells_the_trader": "Bullish conditions tell the trader specifically which pieces of evidence to check before committing to a bullish bias or a long entry, replacing a vague, impressionistic sense of \"looks bullish\" with a concrete, repeatable checklist.\n\nIt does not tell the trader that satisfying these conditions guarantees a successful bullish outcome - each condition improves the quality of the read without eliminating the underlying uncertainty.",
+      "common_pairings": [
+        "Daily Bias",
+        "Discount / PD Arrays (Modules 6 - 7)",
+        "ICT Buy Model (Module 11)"
+      ],
+      "common_pairings_narrative": "This checklist of bullish conditions is the direct input into forming a bullish Daily Bias, and its execution-level component (discount PD array plus lower-timeframe MSS) is the same specific sequence formalized in full in Module 11's ICT Buy Model.",
+      "framework_placement": {
+        "comes_before": "Requires Daily Bias, Discount (Module 7), and PD Arrays (Module 6).",
+        "comes_after": "Feeds into Establishing Daily Directional Expectation and, later, the ICT Buy Model (Module 11)."
+      },
+      "beginner_mistakes_or_misinterpretations": [
+        "Treating a single bullish condition (such as price being above the day's open) as sufficient on its own, without checking the others.",
+        "Ignoring the execution-level requirement for a lower-timeframe structure shift and entering purely because the bias-level conditions are met."
+      ],
+      "qualification_or_limits": "Satisfying the bullish conditions checklist supports forming a bullish bias; it does not by itself constitute a complete, ready-to-execute trade setup. Modules 6, 7, and 11 supply the further specificity (exact PD array, exact entry zone, exact target) required for that.",
+      "dependencies": [
+        "Daily Bias",
+        "Discount",
+        "PD Arrays "
+      ],
+      "timeframe_relationship": "unspecified",
+      "attribution_type": "community_interpretation",
+      "cited_sources_in_text": [
+        "tradingfinder.com - \"What is the Daily Bias? Identifying Market Direction in the ICT Method\" (\"In bullish order flow, prices create higher highs and higher lows while moving upward to absorb liquidity... focus on buying opportunities\").",
+        "forexfactory.com (TFlab thread) - \"ICT Daily Bias Training\" (execution-level bullish checklist: structure confirmation, PD array approach, lower-timeframe MSS)."
+      ],
+      "book_location": {
+        "level": "beginner",
+        "module_number": 10,
+        "module_title": "Bias",
+        "section_heading": "Bullish Conditions"
+      },
+      "confidence_note": "unspecified"
+    },
+    {
+      "id": "BEG-M10-C05",
+      "kind": "concept",
+      "name": "Bearish Conditions",
+      "definition": "Bearish conditions are the specific, checkable set of criteria - bearish market structure, price holding below a relevant opening reference, and unswept buy-side liquidity resting above current price - that together support forming a bearish bias for a given period.",
+      "ict_specific_meaning": "The mirror of bullish conditions. ICT-focused sources describe bearish order flow (consistent lower highs and lower lows) on the relevant timeframe, price generally trading below the day's, week's, or month's opening price, and unswept buy-side liquidity above current price, consistent with the expectation that price may need to spike and collect that liquidity before (or while) delivering the anticipated bearish move.\n\nAs with bullish conditions, execution-level bearish conditions require waiting for a retracement into a premium-zone PD array (a bearish Order Block, Fair Value Gap, or Breaker Block), followed by a lower-timeframe bearish Market Structure Shift before an entry is considered valid.",
+      "beginner_explanation": "Bearish conditions are the mirror image of bullish conditions: the specific, concrete signs - falling structure, price below a reference open, and liquidity resting above current price - that together support calling a period bearish rather than bullish.",
+      "detection_criteria": [
+        "Confirm the relevant timeframe shows a pattern of lower highs and lower lows.",
+        "Confirm current price is trading below the relevant period's opening price.",
+        "Identify unswept buy-side liquidity resting above current price.",
+        "For execution-level confirmation, wait for a retracement into a premium-zone PD array, followed by a lower-timeframe bearish Market Structure Shift."
+      ],
+      "preconditions": [
+        "unspecified"
+      ],
+      "numeric_or_narrative_example": "Daily structure: lower highs and lower lows over the past week. Price below today's open. Unswept BSL above the prior day's high.\n\nAll three bias-level bearish conditions are present, supporting a bearish daily bias. If price subsequently retraces into a premium-zone Order Block and a 15-minute bearish MSS confirms, the execution-level bearish conditions would also be satisfied, completing the checklist before a short entry is considered.",
+      "what_it_tells_the_trader": "Bearish conditions tell the trader specifically which pieces of evidence to check before committing to a bearish bias or a short entry.\n\nIt does not guarantee a successful bearish outcome even when fully satisfied - as with bullish conditions, this checklist improves the quality of the read without eliminating underlying uncertainty.",
+      "common_pairings": [
+        "Daily Bias",
+        "Premium / PD Arrays (Modules 6 - 7)",
+        "ICT Sell Model (Module 12)"
+      ],
+      "common_pairings_narrative": "This checklist is the direct input into forming a bearish Daily Bias, and its execution-level component (premium PD array plus lower-timeframe MSS) is the same specific sequence formalized in full in Module 12's ICT Sell Model.",
+      "framework_placement": {
+        "comes_before": "Requires Daily Bias, Premium (Module 7), and PD Arrays (Module 6).",
+        "comes_after": "Feeds into Establishing Daily Directional Expectation and, later, the ICT Sell Model (Module 12)."
+      },
+      "beginner_mistakes_or_misinterpretations": [
+        "Treating a single bearish condition as sufficient on its own, without checking the others.",
+        "Ignoring the execution-level requirement for a lower-timeframe structure shift and entering purely because the bias-level conditions are met."
+      ],
+      "qualification_or_limits": "As with bullish conditions, satisfying the bearish conditions checklist supports forming a bearish bias but does not by itself constitute a complete, ready-to-execute trade setup.",
+      "dependencies": [
+        "Daily Bias",
+        "Premium",
+        "PD Arrays "
+      ],
+      "timeframe_relationship": "unspecified",
+      "attribution_type": "community_interpretation",
+      "cited_sources_in_text": [
+        "tradingfinder.com - \"What is the Daily Bias? Identifying Market Direction in the ICT Method\" (\"In bearish order flow, prices create lower lows and lower highs while moving downward to capture liquidity... focus on selling opportunities\").",
+        "forexfactory.com (TFlab thread) - \"ICT Daily Bias Training\" (mirrored bearish checklist: Breaker Blocks/FVGs, lower-timeframe MSS before short entries)."
+      ],
+      "book_location": {
+        "level": "beginner",
+        "module_number": 10,
+        "module_title": "Bias",
+        "section_heading": "Bearish Conditions"
+      },
+      "confidence_note": "unspecified"
+    },
+    {
+      "id": "BEG-M10-C06",
+      "kind": "concept",
+      "name": "Establishing Daily Directional Expectation",
+      "definition": "This concept consolidates HTF Bias, Daily Bias, and the Bullish/Bearish Conditions checklists into a single, ordered, repeatable pre-market procedure for arriving at one clear directional statement for the day ahead - the specific output this entire module has been building toward.",
+      "ict_specific_meaning": "ICT-focused sources describe a consistent step-by-step sequence for this process: establish macro (monthly/weekly) bias first; narrow to daily-timeframe structure and the daily/prior-day opening price; identify the nearest significant unswept liquidity as the likely draw; and combine these into a single, explicit bias statement - several sources recommend literally writing this statement out (for example: \"Bullish today, targeting the prior week high at [price], expecting manipulation below the Asia low during the London open kill zone before the NY session delivers higher\").\n\nThis process is explicitly described as needing to be completed before the New York session opens (and ideally before the London session begins), directly connecting this module back to the session and Kill Zone vocabulary from Module 8 and the Power of 3 phase-timing from Module 9.\n\nSources are consistent that a fourth, explicitly permitted outcome of this process is a neutral or unclear bias - when the higher timeframe fails to give a clean read, disciplined inaction (staying on the sidelines until a clearer picture develops) is described as the professionally correct response, not a failure of the process.",
+      "beginner_explanation": "This concept is the payoff of the whole module: a specific, step-by-step morning routine for turning everything you've learned about bias into one clear, written-down sentence describing what you expect the day to do, why, and roughly how. Rather than vaguely feeling bullish or bearish, you end this process with a specific, falsifiable statement you can check your actual results against once the day is over.",
+      "detection_criteria": [
+        "Establish HTF Bias first, using the monthly and weekly opens.",
+        "Narrow to Daily Bias, using daily structure, the relevant opening price, and the nearest unswept liquidity.",
+        "Check the Bullish or Bearish Conditions checklist (whichever applies) to confirm the read is well-supported rather than based on a single factor.",
+        "Write out a single, explicit directional statement for the day, ideally naming the expected liquidity target and the session in which the move is expected to develop.",
+        "If the higher timeframe fails to produce a clean, consistent read across these steps, explicitly label the bias as neutral/unclear and plan to stay on the sidelines rather than forcing a directional call."
+      ],
+      "preconditions": [
+        "unspecified"
+      ],
+      "numeric_or_narrative_example": "HTF Bias: bullish (price above both monthly and weekly opens). Daily Bias: bullish (recent daily bullish MSS, price above prior day's open, unswept SSL below prior day's low).\n\nCombining these into a single directional statement: \"Bullish today, targeting the buy-side liquidity above the prior week's high; expecting a possible dip to sweep the prior day's low during the London Kill Zone before the New York session delivers the main move higher.\" This single sentence is the concrete output this entire module has been building toward - a specific, checkable expectation rather than a vague hunch.",
+      "what_it_tells_the_trader": "This process tells the trader exactly how to convert the individual bias-related concepts covered throughout this module into one specific, actionable statement each trading day, and gives a concrete basis for later reviewing whether that day's expectation played out as anticipated (a practice formalized in Module 13's daily review/journaling concept).\n\nIt does not tell the trader that following this process correctly guarantees a correct call on any individual day - the explicit inclusion of \"neutral/unclear\" as a valid, professionally appropriate outcome is itself an acknowledgment that this process will not always produce a confident, actionable read.",
+      "common_pairings": [
+        "All prior concepts in this module",
+        "Kill Zones (Module 8)",
+        "Daily Trading & Scalping (Module 13)"
+      ],
+      "common_pairings_narrative": "This concept is the capstone of the entire Bias module, and it is the specific pre-market step that Module 13's full daily trading workflow builds directly on top of.",
+      "framework_placement": {
+        "comes_before": "Requires all preceding concepts in this module.",
+        "comes_after": "Concludes Module 10 and feeds directly into the ICT Buy Model (Module 11) and ICT Sell Model (Module 12), both of which assume a directional bias has already been established using this process, and into the full daily workflow in Module 13."
+      },
+      "beginner_mistakes_or_misinterpretations": [
+        "Skipping the written, explicit statement step and relying on a vague mental impression instead.",
+        "Forcing a bullish or bearish call even when the higher timeframe genuinely fails to produce a clean, consistent read, rather than accepting neutral/unclear as a valid outcome.",
+        "Failing to revisit and update the daily statement if a genuine structural shift occurs later in the day, contradicting the original read."
+      ],
+      "qualification_or_limits": "This process improves the discipline and consistency of daily directional analysis; it does not convert bias into a certainty. This book, echoing ICT-focused sources throughout this module, treats a well-reasoned but ultimately incorrect daily bias as a normal, expected outcome of a probabilistic process, not evidence that the process itself has failed.",
+      "dependencies": [
+        "all preceding concepts in this module"
+      ],
+      "timeframe_relationship": "unspecified",
+      "attribution_type": "community_interpretation",
+      "cited_sources_in_text": [
+        "theinnercircletraders.com - \"ICT 2022 Model: The Core Teaching Framework\" (explicit written daily bias statement example, pre-session routine, decision-tree sequence).",
+        "writofinance.com - \"A Complete guide to ICT Daily Bias Trading\" (Michael Huddleston attribution regarding the purpose and discipline of the daily bias process).",
+        "citytradersimperium.com - \"Daily Bias In ICT Trading: How To Find It & Trade It.\""
+      ],
+      "book_location": {
+        "level": "beginner",
+        "module_number": 10,
+        "module_title": "Bias",
+        "section_heading": "Establishing Daily Directional Expectation"
+      },
+      "confidence_note": "unspecified"
+    }
+  ],
+  "rules": [
+    {
+      "id": "BEG-M10-R01",
+      "kind": "rule",
+      "rule_type": "detection_criteria",
+      "statement": "HTF Bias method: identify the current month's opening price; price trading above it = bullish HTF bias, below = bearish. Repeat the same comparison using the current week's opening price for weekly bias. If monthly and weekly bias readings agree, treat the combined HTF bias as more reliable than either reading alone.",
+      "applies_to": [
+        "HTF Bias"
+      ],
+      "conditions": [],
+      "exceptions_or_qualifiers": "One commonly documented approach among several; some sources instead emphasize pure structural readings (HH/HL vs LH/LL) at these timeframes rather than the open-price method.",
+      "book_location": {
+        "level": "beginner",
+        "module_number": 10,
+        "module_title": "Bias",
+        "section_heading": "HTF Bias"
+      },
+      "attribution_type": "community_interpretation"
+    },
+    {
+      "id": "BEG-M10-R02",
+      "kind": "rule",
+      "rule_type": "selection_procedure",
+      "statement": "Daily Directional Expectation procedure: (1) Establish HTF Bias using monthly and weekly opens. (2) Narrow to Daily Bias using daily structure, relevant opening price, and nearest unswept liquidity. (3) Check the applicable Bullish or Bearish Conditions checklist to confirm the read is well-supported rather than based on a single factor. (4) Write an explicit directional statement for the day, ideally naming the expected liquidity target and the session in which the move is expected to develop. (5) If the higher timeframe fails to produce a clean, consistent read, explicitly label the bias as neutral/unclear and plan to stay on the sidelines.",
+      "applies_to": [
+        "Establishing Daily Directional Expectation"
+      ],
+      "conditions": [],
+      "exceptions_or_qualifiers": "unspecified",
+      "book_location": {
+        "level": "beginner",
+        "module_number": 10,
+        "module_title": "Bias",
+        "section_heading": "Establishing Daily Directional Expectation"
+      },
+      "attribution_type": "book_synthesis"
+    },
+    {
+      "id": "BEG-M10-R03",
+      "kind": "rule",
+      "rule_type": "detection_criteria",
+      "statement": "Bullish Conditions checklist: (1) relevant timeframe shows higher highs and higher lows; (2) current price trades above the relevant period's opening price; (3) unswept sell-side liquidity rests below current price; (4) execution-level confirmation requires a retracement into a discount-zone PD array followed by a lower-timeframe bullish Market Structure Shift.",
+      "applies_to": [
+        "Bullish Conditions"
+      ],
+      "conditions": [],
+      "exceptions_or_qualifiers": "Satisfying this checklist supports forming a bullish bias; it does not by itself constitute a complete, ready-to-execute trade setup (Modules 6, 7, 11 supply further specificity).",
+      "book_location": {
+        "level": "beginner",
+        "module_number": 10,
+        "module_title": "Bias",
+        "section_heading": "Bullish Conditions"
+      },
+      "attribution_type": "community_interpretation"
+    },
+    {
+      "id": "BEG-M10-R04",
+      "kind": "rule",
+      "rule_type": "detection_criteria",
+      "statement": "Bearish Conditions checklist: (1) relevant timeframe shows lower highs and lower lows; (2) current price trades below the relevant period's opening price; (3) unswept buy-side liquidity rests above current price; (4) execution-level confirmation requires a retracement into a premium-zone PD array followed by a lower-timeframe bearish Market Structure Shift.",
+      "applies_to": [
+        "Bearish Conditions"
+      ],
+      "conditions": [],
+      "exceptions_or_qualifiers": "Satisfying this checklist supports forming a bearish bias; it does not by itself constitute a complete, ready-to-execute trade setup.",
+      "book_location": {
+        "level": "beginner",
+        "module_number": 10,
+        "module_title": "Bias",
+        "section_heading": "Bearish Conditions"
+      },
+      "attribution_type": "community_interpretation"
+    }
+  ],
+  "strategies": [],
+  "examples": [],
+  "relationships": [
+    {
+      "id": "BEG-M10-REL01",
+      "kind": "cross_module_relationship",
+      "statement": "This module narrows from the general to the specific, then builds back out into a single procedure. Bias introduces the general concept and its disciplined, checklist-based nature. HTF Bias applies this at the macro level, using the monthly and weekly opening prices as objective reference points. Daily Bias narrows further to the single trading day, combining daily structure, the daily opening price, and nearby unswept liquidity - and directly reusing the Power of 3 framework from Module 9 to anticipate how the day might unfold once a bias is set.\n\nBullish Conditions and Bearish Conditions make explicit the specific, checkable criteria that support each type of bias, at both the broad bias-forming level and the more specific execution level (a PD array retracement plus a lower-timeframe structure shift) - directly previewing the full ICT Buy and Sell Models covered in Modules 11 and 12. Establishing Daily Directional Expectation closes the module by consolidating all of this into one concrete, ordered, repeatable pre-market procedure, ending in a single written statement that turns everything learned in this book so far into one clear, checkable daily plan.",
+      "involved_concepts": [
+        "Bias",
+        "HTF Bias",
+        "Daily Bias",
+        "Bullish Conditions",
+        "Bearish Conditions",
+        "Establishing Daily Directional Expectation"
+      ],
+      "involved_modules": [
+        "Module 3 (beginner)",
+        "Module 4 (beginner)",
+        "Module 7 (beginner)",
+        "Module 9 (beginner)",
+        "Modules 11-12 (beginner, forward reference)"
+      ],
+      "book_location": {
+        "level": "beginner",
+        "module_number": 10,
+        "module_title": "Bias",
+        "section_heading": "How These Concepts Connect"
+      }
+    }
+  ],
+  "no_trade_conditions": [
+    {
+      "id": "BEG-M10-NT01",
+      "kind": "no_trade_rule",
+      "statement": "If the higher timeframe fails to produce a clean, consistent read across the bias-forming steps, explicitly label the bias as neutral/unclear and plan to stay on the sidelines rather than forcing a directional call.",
+      "applies_to_strategy_ids": [
+        "forward reference: ICT Buy Model (Module 11), ICT Sell Model (Module 12)"
+      ],
+      "book_location": {
+        "level": "beginner",
+        "module_number": 10,
+        "module_title": "Bias",
+        "section_heading": "Establishing Daily Directional Expectation"
+      }
+    }
+  ],
+  "contradictions_or_ambiguities": [
+    {
+      "id": "BEG-M10-AMB01",
+      "kind": "contradiction_or_ambiguity",
+      "description": "Multiple documented methods exist for establishing Daily Bias: the fuller three-factor analysis (structure + opening price + unswept liquidity) versus a simplified single-MSS 'trick' method. The book presents the fuller version as primary while noting the simplified version as a documented, faster alternative used by some ICT-focused sources; neither method eliminates underlying predictive uncertainty.",
+      "passage_a": {
+        "text": "Multiple documented methods exist for establishing daily bias (full three-factor analysis versus the simplified single-MSS \"trick\"), and this book presents the fuller three-factor version as the primary method while noting the simplified version as a documented, faster alternative used by some ICT-focused sources.",
+        "book_location": {
+          "level": "beginner",
+          "module_number": 10,
+          "module_title": "Bias",
+          "section_heading": "Daily Bias"
+        }
+      },
+      "passage_b": {
+        "text": "Note the most recent daily-timeframe Market Structure Shift, if one has occurred, and let its direction inform (or, under the simplified method, directly set) the daily bias.",
+        "book_location": {
+          "level": "beginner",
+          "module_number": 10,
+          "module_title": "Bias",
+          "section_heading": "Daily Bias"
+        }
+      },
+      "resolution_status": "resolved_in_source (book adopts the fuller three-factor method as primary, notes the simplified method as a documented alternative)"
+    }
+  ],
+  "module_review_notes": {
+    "key_terms": [
+      "Bias",
+      "HTF Bias",
+      "Daily Bias",
+      "Bullish Conditions",
+      "Bearish Conditions",
+      "Establishing Daily Directional Expectation",
+      "Monthly/Weekly Open",
+      "Neutral/Unclear Bias"
+    ],
+    "beginner_summary": "Bias is a trader's disciplined, evidence-based directional expectation for a given period, built from structure, liquidity, and premium/discount analysis rather than from feeling or prediction. HTF Bias applies this at the macro level, comparing current price to the monthly and weekly opening prices. Daily Bias narrows this to a single trading day, combining daily-timeframe structure, the day's opening price, and the nearest unswept liquidity pool - with the expectation, drawn directly from Module 9's Power of 3, that price may first sweep liquidity on one side before delivering its real move in the biased direction. Bullish and Bearish Conditions are the specific, checkable criteria supporting each type of bias, both at the broad level (structure, opening price, liquidity) and the execution level (a PD array retracement confirmed by a lower-timeframe structure shift). The module closes with a single, repeatable procedure for combining all of this into one explicit, written daily directional statement - with a neutral or unclear bias treated as an entirely valid and professionally correct outcome when the evidence does not support a clean directional call.",
+    "concept_relationships_summary": "Bias is the general concept. HTF Bias and Daily Bias are its two most commonly applied, nested layers. Bullish Conditions and Bearish Conditions are the specific evidence checklists supporting each direction. Establishing Daily Directional Expectation is the consolidated, ordered procedure combining all of the above into a single, concrete output.",
+    "practical_chart_exercise": "Given the following information - Monthly open: 4500, current price: 4620. Weekly open: 4580, current price: 4620. Daily chart: recent bullish Market Structure Shift. Current price above yesterday's open. Unswept sell-side liquidity resting below yesterday's low - determine the HTF bias, determine the daily bias, identify which specific bullish conditions from this module's checklist are satisfied, and write a single explicit daily directional statement combining all of this information, including a named liquidity target and an expected session for the main move.",
+    "self_test_questions": [
+      "Why does ICT-focused teaching emphasize that daily bias is not about predicting every single day correctly, but about having a repeatable method for forming the expectation?",
+      "What two specific reference prices are used to establish HTF Bias?",
+      "What three factors are combined to establish Daily Bias?",
+      "What is the difference between the bias-level bullish conditions and the execution-level bullish conditions?",
+      "Why is a neutral or unclear bias treated as a valid, professionally appropriate outcome rather than a failure of the bias-forming process?"
+    ],
+    "common_misconceptions": [
+      "Believing bias is a prediction that must be correct every single day for the framework to be considered valid.",
+      "Forming a directional call based on only one piece of evidence (such as price being above the daily open) while ignoring structure and liquidity.",
+      "Treating an established bias as permanent, rather than being willing to update it after a genuine, confirmed structural shift.",
+      "Believing a trader must always produce a bullish or bearish call, rather than accepting neutral/unclear as a legitimate, disciplined outcome."
+    ],
+    "research_sources_cited_in_text": [
+      "arongroups.co - \"ICT Daily Bias: Complete Guide to Market Direction and Liquidity Analysis\" and \"How to Identify the Daily Bias and Trade in the Market's Direction.\"",
+      "tradingfinder.com - \"What is the Daily Bias? Identifying Market Direction in the ICT Method.\"",
+      "forexfactory.com (TFlab thread) - \"ICT Daily Bias Training.\"",
+      "writofinance.com - \"A Complete guide to ICT Daily Bias Trading\" and \"ICT Time and Price Theory - SMC Foundational Concept.\"",
+      "innercircletrader.net - \"ICT Daily Bias Explained,\" \"ICT Daily Bias Trick - Single-Timeframe MSS Bias Method,\" and \"ICT Weekly Profiles - 12 Patterns to Identify the Weekly High & Low.\"",
+      "backtrex.com - \"ICT Method: Michael Huddleston's Inner Circle Trader Guide.\"",
+      "theinnercircletraders.com - \"ICT 2022 Model: The Core Teaching Framework.\"",
+      "grandalgo.com - \"ICT Trading Strategy: The Complete Playbook From Bias to Entry.\"",
+      "citytradersimperium.com - \"Daily Bias In ICT Trading: How To Find It & Trade It.\"",
+      "Note: as in prior modules, this research pass relied on cross-checked secondary/tutorial documentation rather than direct ICT primary-source video transcripts, which were not accessible in this environment. Direct attribution to Michael J. Huddleston for the core daily bias philosophy is repeated consistently across a large number of independent sources."
+    ]
+  }
+}

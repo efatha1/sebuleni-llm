@@ -1,0 +1,492 @@
+{
+  "level": "advanced",
+  "module_number": 7,
+  "module_title": "Advanced Market Timing",
+  "module_intro": "Subtopics: Time & Price Theory, Opening Price, Kill Zones, Session Relationships, Time-Based Liquidity & Expansion.",
+  "prerequisites_stated_in_text": "Advanced Modules 1--6. Time is no longer a secondary filter applied after a setup appears; it is a primary constraint on when the delivery narrative is most likely to advance from one phase to the next.",
+  "module_objectives": [
+    "State the relationship between time and price delivery as taught by ICT.",
+    "Use daily, weekly and session opening prices as reference points for manipulation and expansion.",
+    "Map the major kill zones (London Open, New York Open, and related windows) onto the expected phase of the daily delivery narrative.",
+    "Anticipate time-based liquidity events and time-based expansion windows.",
+    "Recognise session transitions and the typical change in delivery behaviour that accompanies them.",
+    "Subordinate lower-timeframe timing to the higher-timeframe delivery objective and controlling range.",
+    "Stand aside when time, liquidity and structure do not align, even if a PD array is present.",
+    "Delivery objective (Draw on Liquidity) - Modules 1 & 3",
+    "Controlling dealing range and premium/discount - Module 2",
+    "Structural confirmation status - Module 4",
+    "PD-array / imbalance location for entry - Modules 5 & 6",
+    "Time window in which the next phase of delivery is expected - this module"
+  ],
+  "concepts": [
+    {
+      "id": "ADV-M07-C01",
+      "kind": "concept",
+      "name": "Time & Price Theory - Advanced Premise",
+      "definition": "ICT teaches that algorithmic price delivery is conditioned by time. Specific windows of the day and week concentrate institutional participation; outside those windows the same price levels often produce lower-quality or incomplete delivery. Time does not replace liquidity, structure or PD arrays; it decides when those elements are most likely to be activated.",
+      "ict_specific_meaning": "ICT teaches that algorithmic price delivery is conditioned by time. Specific windows of the day and week concentrate institutional participation; outside those windows the same price levels often produce lower-quality or incomplete delivery. Time does not replace liquidity, structure or PD arrays; it decides when those elements are most likely to be activated.",
+      "what_changed_from_beginner_level": "unspecified",
+      "detection_criteria": [
+        "unspecified - see raw_sections"
+      ],
+      "numeric_or_narrative_example": "unspecified",
+      "why_it_matters": "unspecified",
+      "beginner_mistakes_or_misinterpretations": [],
+      "raw_sections": {
+        "Core ICT Claim": "ICT teaches that algorithmic price delivery is conditioned by time. Specific windows of the day and week concentrate institutional participation; outside those windows the same price levels often produce lower-quality or incomplete delivery. Time does not replace liquidity, structure or PD arrays; it decides when those elements are most likely to be activated.",
+        "Operational Consequence": "An advanced narrative always includes a time component: \"Delivery from pool A toward pool B is expected to advance during [kill zone / session], conditioned by the opening price and the current dealing-range location.\"\n\n**Evidence Classification:** *A/B - Time conditioning of delivery, kill zones and session behaviour are core ICT. Exact minute boundaries vary slightly across presentations and must be adjusted for DST and broker server time.*"
+      },
+      "dependencies": [],
+      "attribution_type": "community_interpretation",
+      "cited_sources_in_text": [],
+      "book_location": {
+        "level": "advanced",
+        "module_number": 7,
+        "module_title": "Advanced Market Timing",
+        "section_heading": "Time & Price Theory - Advanced Premise"
+      },
+      "confidence_note": "unspecified"
+    },
+    {
+      "id": "ADV-M07-C02",
+      "kind": "concept",
+      "name": "Higher-Timeframe Ranges as Time Containers",
+      "definition": "The monthly and weekly ranges set the macro time horizon for delivery. A weekly Draw on Liquidity that has not been reached by late week may still be active, but the probability of completion inside the current week declines if expansion has not begun by the middle of the week. Weekly opening behaviour often frames the first manipulation of the week.",
+      "ict_specific_meaning": "The monthly and weekly ranges set the macro time horizon for delivery. A weekly Draw on Liquidity that has not been reached by late week may still be active, but the probability of completion inside the current week declines if expansion has not begun by the middle of the week. Weekly opening behaviour often frames the first manipulation of the week.",
+      "what_changed_from_beginner_level": "unspecified",
+      "detection_criteria": [
+        "unspecified - see raw_sections"
+      ],
+      "numeric_or_narrative_example": "unspecified",
+      "why_it_matters": "unspecified",
+      "beginner_mistakes_or_misinterpretations": [],
+      "raw_sections": {
+        "Monthly and Weekly Ranges": "The monthly and weekly ranges set the macro time horizon for delivery. A weekly Draw on Liquidity that has not been reached by late week may still be active, but the probability of completion inside the current week declines if expansion has not begun by the middle of the week. Weekly opening behaviour often frames the first manipulation of the week.",
+        "Daily Range": "The daily range is the primary intraday time container. Its opening price is a central reference for the daily Power of 3 profile (Module 8 will deepen this). Expansion away from the daily open, after a manipulation that raids liquidity, is a classic signature of daily delivery.",
+        "Session Range": "Each session (Asian, London, New York) prints its own high and low. These session extremes become short-term liquidity and the boundaries of session-scale dealing ranges. Session ranges nest inside the daily range exactly as lower-timeframe price ranges nest inside higher-timeframe ones."
+      },
+      "dependencies": [],
+      "attribution_type": "community_interpretation",
+      "cited_sources_in_text": [],
+      "book_location": {
+        "level": "advanced",
+        "module_number": 7,
+        "module_title": "Advanced Market Timing",
+        "section_heading": "Higher-Timeframe Ranges as Time Containers"
+      },
+      "confidence_note": "unspecified"
+    },
+    {
+      "id": "ADV-M07-C03",
+      "kind": "concept",
+      "name": "Opening Price",
+      "definition": "The daily open is a repeated ICT reference. On many classic bullish PO3 days, manipulation occurs below the open (sell-side raid) and distribution carries price above the open toward buy-side objectives. The mirror image appears on classic bearish days. The open is not a magic level; it is a reference that helps classify the day's profile.",
+      "ict_specific_meaning": "The daily open is a repeated ICT reference. On many classic bullish PO3 days, manipulation occurs below the open (sell-side raid) and distribution carries price above the open toward buy-side objectives. The mirror image appears on classic bearish days. The open is not a magic level; it is a reference that helps classify the day's profile.",
+      "what_changed_from_beginner_level": "unspecified",
+      "detection_criteria": [
+        "unspecified - see raw_sections"
+      ],
+      "numeric_or_narrative_example": "unspecified",
+      "why_it_matters": "unspecified",
+      "beginner_mistakes_or_misinterpretations": [],
+      "raw_sections": {
+        "Daily Opening Price": "The daily open is a repeated ICT reference. On many classic bullish PO3 days, manipulation occurs below the open (sell-side raid) and distribution carries price above the open toward buy-side objectives. The mirror image appears on classic bearish days. The open is not a magic level; it is a reference that helps classify the day's profile.",
+        "Midnight / New York Midnight": "ICT has referenced New York midnight and related overnight opens as timing anchors for certain algorithmic behaviours and for the start of the daily cycle in some instruments. Where primary support exists, the advanced student notes the midnight open as an additional reference; where support is thin, the daily open and session opens remain the primary anchors.\n\n**Evidence Classification:** *A/B - Daily open is heavily used. Midnight / New York midnight references appear in ICT material; weight them according to the specific instrument and the clarity of primary examples.*"
+      },
+      "dependencies": [],
+      "attribution_type": "community_interpretation",
+      "cited_sources_in_text": [],
+      "book_location": {
+        "level": "advanced",
+        "module_number": 7,
+        "module_title": "Advanced Market Timing",
+        "section_heading": "Opening Price"
+      },
+      "confidence_note": "unspecified"
+    },
+    {
+      "id": "ADV-M07-C04",
+      "kind": "concept",
+      "name": "Kill Zones and Session Timing",
+      "definition": "Approximately 02:00 - 05:00 New York time (adjust for DST). Frequently the first major liquidity event of the FX day: sweep of Asian-range liquidity (manipulation), followed by displacement and the first clear daily directional expansion. High-probability window for the transition from accumulation/manipulation into distribution.",
+      "ict_specific_meaning": "Approximately 02:00 - 05:00 New York time (adjust for DST). Frequently the first major liquidity event of the FX day: sweep of Asian-range liquidity (manipulation), followed by displacement and the first clear daily directional expansion. High-probability window for the transition from accumulation/manipulation into distribution.",
+      "what_changed_from_beginner_level": "unspecified",
+      "detection_criteria": [
+        "unspecified - see raw_sections"
+      ],
+      "numeric_or_narrative_example": "unspecified",
+      "why_it_matters": "unspecified",
+      "beginner_mistakes_or_misinterpretations": [],
+      "raw_sections": {
+        "London Open Kill Zone": "Approximately 02:00 - 05:00 New York time (adjust for DST). Frequently the first major liquidity event of the FX day: sweep of Asian-range liquidity (manipulation), followed by displacement and the first clear daily directional expansion. High-probability window for the transition from accumulation/manipulation into distribution.",
+        "New York Open Kill Zone": "Approximately 07:00 - 10:00 New York time (windows vary slightly by source; many focus on 07:00 - 09:00 or the 08:30 - 11:00 equity-linked period). Often continues or expands the London direction, or delivers a second liquidity event and displacement if London was only the manipulation phase. The London - New York overlap is typically the highest-volume period.",
+        "Asian Range": "Primarily a range-building / accumulation window. Its high and low are the most important intraday liquidity references for London. Aggressive directional trading during Asia is lower probability for most pairs.",
+        "Other Windows": "London Close and New York PM windows can produce reversals, continuations or profit-taking depending on the day's profile. They are secondary to the Open kill zones for most advanced models. Midday dead zones are stand-aside periods unless a higher-timeframe narrative is already in active expansion."
+      },
+      "dependencies": [],
+      "attribution_type": "community_interpretation",
+      "cited_sources_in_text": [],
+      "book_location": {
+        "level": "advanced",
+        "module_number": 7,
+        "module_title": "Advanced Market Timing",
+        "section_heading": "Kill Zones and Session Timing"
+      },
+      "confidence_note": "unspecified"
+    },
+    {
+      "id": "ADV-M07-C05",
+      "kind": "concept",
+      "name": "Kill-Zone Relationships and Session Transitions",
+      "definition": "Asian consolidation -> London manipulation (sweep of Asian extreme) + initial displacement -> New York continuation or secondary expansion toward the daily / higher-timeframe Draw on Liquidity. This sequence is the time-map of many daily delivery legs.",
+      "ict_specific_meaning": "Asian consolidation -> London manipulation (sweep of Asian extreme) + initial displacement -> New York continuation or secondary expansion toward the daily / higher-timeframe Draw on Liquidity. This sequence is the time-map of many daily delivery legs.",
+      "what_changed_from_beginner_level": "unspecified",
+      "detection_criteria": [
+        "unspecified - see raw_sections"
+      ],
+      "numeric_or_narrative_example": "unspecified",
+      "why_it_matters": "unspecified",
+      "beginner_mistakes_or_misinterpretations": [],
+      "raw_sections": {
+        "Classic Sequence": "Asian consolidation -> London manipulation (sweep of Asian extreme) + initial displacement -> New York continuation or secondary expansion toward the daily / higher-timeframe Draw on Liquidity. This sequence is the time-map of many daily delivery legs.",
+        "Transition Behaviour": "At session transitions, liquidity and volatility often increase. The advanced student expects the possibility of a final raid of the outgoing session's extreme and the start of the incoming session's delivery phase. Narratives that ignore the transition frequently mis-time entries.",
+        "Relationship to Delivery Conditions": "Consolidation is common in Asia. Expansion is common in London and New York kill zones. Retracement often occurs after the first expansion, still inside the kill zone or in the early continuation window. Reversal that ends a daily leg is more likely to print with external MSS and opposing displacement, often near session extremes or during the opposing kill zone."
+      },
+      "dependencies": [],
+      "attribution_type": "community_interpretation",
+      "cited_sources_in_text": [],
+      "book_location": {
+        "level": "advanced",
+        "module_number": 7,
+        "module_title": "Advanced Market Timing",
+        "section_heading": "Kill-Zone Relationships and Session Transitions"
+      },
+      "confidence_note": "unspecified"
+    },
+    {
+      "id": "ADV-M07-C06",
+      "kind": "concept",
+      "name": "Time-Based Liquidity Events and Expansion",
+      "definition": "Certain liquidity pools are more likely to be raided at specific times: Asian high/low at London Open, prior day high/low around New York Open, weekly extremes mid-week, etc. Linking the Draw on Liquidity to the kill zone that is most likely to attack it raises narrative precision.",
+      "ict_specific_meaning": "Certain liquidity pools are more likely to be raided at specific times: Asian high/low at London Open, prior day high/low around New York Open, weekly extremes mid-week, etc. Linking the Draw on Liquidity to the kill zone that is most likely to attack it raises narrative precision.",
+      "what_changed_from_beginner_level": "unspecified",
+      "detection_criteria": [
+        "unspecified - see raw_sections"
+      ],
+      "numeric_or_narrative_example": "unspecified",
+      "why_it_matters": "unspecified",
+      "beginner_mistakes_or_misinterpretations": [],
+      "raw_sections": {
+        "Time-Based Liquidity": "Certain liquidity pools are more likely to be raided at specific times: Asian high/low at London Open, prior day high/low around New York Open, weekly extremes mid-week, etc. Linking the Draw on Liquidity to the kill zone that is most likely to attack it raises narrative precision.",
+        "Time-Based Expansion": "Expansion that begins inside a kill zone and is supported by displacement and MSS is higher quality than expansion that begins in a dead zone. Time does not create the expansion; it conditions the probability that an expansion will be sustained."
+      },
+      "dependencies": [],
+      "attribution_type": "community_interpretation",
+      "cited_sources_in_text": [],
+      "book_location": {
+        "level": "advanced",
+        "module_number": 7,
+        "module_title": "Advanced Market Timing",
+        "section_heading": "Time-Based Liquidity Events and Expansion"
+      },
+      "confidence_note": "unspecified"
+    },
+    {
+      "id": "ADV-M07-C07",
+      "kind": "concept",
+      "name": "Integrating Time into the Full Narrative",
+      "definition": "A complete advanced narrative now contains:\n\n1159. Delivery objective (Draw on Liquidity) - Modules 1 & 3\n\n1160. Controlling dealing range and premium/discount - Module 2\n\n1161. Structural confirmation status - Module 4\n\n1162. PD-array / imbalance location for entry - Modules 5 & 6\n\n1163. Time window in which the next phase of delivery is expected - this module\n\nMissing the time component produces correct levels traded at the wrong moment.",
+      "ict_specific_meaning": "A complete advanced narrative now contains:\n\n1159. Delivery objective (Draw on Liquidity) - Modules 1 & 3\n\n1160. Controlling dealing range and premium/discount - Module 2\n\n1161. Structural confirmation status - Module 4\n\n1162. PD-array / imbalance location for entry - Modules 5 & 6\n\n1163. Time window in which the next phase of delivery is expected - this module\n\nMissing the time component produces correct levels traded at the wrong moment.",
+      "what_changed_from_beginner_level": "unspecified",
+      "detection_criteria": [
+        "Delivery objective (Draw on Liquidity) - Modules 1 & 3",
+        "Controlling dealing range and premium/discount - Module 2",
+        "Structural confirmation status - Module 4",
+        "PD-array / imbalance location for entry - Modules 5 & 6",
+        "Time window in which the next phase of delivery is expected - this module"
+      ],
+      "numeric_or_narrative_example": "unspecified",
+      "why_it_matters": "unspecified",
+      "beginner_mistakes_or_misinterpretations": [],
+      "raw_sections": {
+        "Full Text": "A complete advanced narrative now contains:\n\n1159. Delivery objective (Draw on Liquidity) - Modules 1 & 3\n\n1160. Controlling dealing range and premium/discount - Module 2\n\n1161. Structural confirmation status - Module 4\n\n1162. PD-array / imbalance location for entry - Modules 5 & 6\n\n1163. Time window in which the next phase of delivery is expected - this module\n\nMissing the time component produces correct levels traded at the wrong moment."
+      },
+      "dependencies": [],
+      "attribution_type": "community_interpretation",
+      "cited_sources_in_text": [],
+      "book_location": {
+        "level": "advanced",
+        "module_number": 7,
+        "module_title": "Advanced Market Timing",
+        "section_heading": "Integrating Time into the Full Narrative"
+      },
+      "confidence_note": "unspecified"
+    }
+  ],
+  "module_synthesis": {
+    "relationship_to_prior_level": [],
+    "worked_narrative_examples": [
+      {
+        "id": "ADV-M07-C08",
+        "kind": "concept",
+        "name": "Worked Narrative - Time-Conditioned Delivery",
+        "definition": "Weekly DOL: buy-side above 1.1200. Daily range in discount. Asian range: 1.0620 - 1.0680.\n\nPre-London narrative: Expect London to raid Asian low (sell-side), then displace higher if the weekly bullish delivery is active. Kill zone of interest: London Open.\n\nLondon: Asian low swept at 1.0610; bullish displacement and 15-minute MSS; FVG left at 1.0635 - 1.0660. Entry on retracement into FVG/CE during London or early New York.\n\nNew York: Continues the expansion toward daily and then weekly buy-side objectives.\n\nTime statement: \"The liquidity raid and the first displacement were expected in the London Open kill zone; continuation was expected in the New York window. Outside those windows the same levels would have been lower probability.\"",
+        "ict_specific_meaning": "Weekly DOL: buy-side above 1.1200. Daily range in discount. Asian range: 1.0620 - 1.0680.\n\nPre-London narrative: Expect London to raid Asian low (sell-side), then displace higher if the weekly bullish delivery is active. Kill zone of interest: London Open.\n\nLondon: Asian low swept at 1.0610; bullish displacement and 15-minute MSS; FVG left at 1.0635 - 1.0660. Entry on retracement into FVG/CE during London or early New York.\n\nNew York: Continues the expansion toward daily and then weekly buy-side objectives.\n\nTime statement: \"The liquidity raid and the first displacement were expected in the London Open kill zone; continuation was expected in the New York window. Outside those windows the same levels would have been lower probability.\"",
+        "what_changed_from_beginner_level": "unspecified",
+        "detection_criteria": [
+          "unspecified - see definition field"
+        ],
+        "numeric_or_narrative_example": "unspecified",
+        "why_it_matters": "unspecified",
+        "beginner_mistakes_or_misinterpretations": [],
+        "raw_sections": {
+          "Full Text": "Weekly DOL: buy-side above 1.1200. Daily range in discount. Asian range: 1.0620 - 1.0680.\n\nPre-London narrative: Expect London to raid Asian low (sell-side), then displace higher if the weekly bullish delivery is active. Kill zone of interest: London Open.\n\nLondon: Asian low swept at 1.0610; bullish displacement and 15-minute MSS; FVG left at 1.0635 - 1.0660. Entry on retracement into FVG/CE during London or early New York.\n\nNew York: Continues the expansion toward daily and then weekly buy-side objectives.\n\nTime statement: \"The liquidity raid and the first displacement were expected in the London Open kill zone; continuation was expected in the New York window. Outside those windows the same levels would have been lower probability.\""
+        },
+        "dependencies": [],
+        "attribution_type": "community_interpretation",
+        "cited_sources_in_text": [],
+        "book_location": {
+          "level": "advanced",
+          "module_number": 7,
+          "module_title": "Advanced Market Timing",
+          "section_heading": "Worked Narrative - Time-Conditioned Delivery"
+        },
+        "confidence_note": "unspecified"
+      }
+    ],
+    "failure_conditions": [
+      {
+        "id": "ADV-M07-C09",
+        "kind": "concept",
+        "name": "Failure Conditions",
+        "definition": "Time-based expectations fail when:\n\n1164. The expected kill zone produces no liquidity event and no displacement (narrative may be delayed or incorrect).\n\n1165. Expansion begins in a dead zone and is immediately reversed (low-quality expansion).\n\n1166. A higher-timeframe opposing force overrides the daily time map.\n\nFailure of the time map requires a re-check of the liquidity and structural narrative, not a forced trade in the next window.",
+        "ict_specific_meaning": "Time-based expectations fail when:\n\n1164. The expected kill zone produces no liquidity event and no displacement (narrative may be delayed or incorrect).\n\n1165. Expansion begins in a dead zone and is immediately reversed (low-quality expansion).\n\n1166. A higher-timeframe opposing force overrides the daily time map.\n\nFailure of the time map requires a re-check of the liquidity and structural narrative, not a forced trade in the next window.",
+        "what_changed_from_beginner_level": "unspecified",
+        "detection_criteria": [
+          "The expected kill zone produces no liquidity event and no displacement (narrative may be delayed or incorrect).",
+          "Expansion begins in a dead zone and is immediately reversed (low-quality expansion).",
+          "A higher-timeframe opposing force overrides the daily time map."
+        ],
+        "numeric_or_narrative_example": "unspecified",
+        "why_it_matters": "unspecified",
+        "beginner_mistakes_or_misinterpretations": [],
+        "raw_sections": {
+          "Full Text": "Time-based expectations fail when:\n\n1164. The expected kill zone produces no liquidity event and no displacement (narrative may be delayed or incorrect).\n\n1165. Expansion begins in a dead zone and is immediately reversed (low-quality expansion).\n\n1166. A higher-timeframe opposing force overrides the daily time map.\n\nFailure of the time map requires a re-check of the liquidity and structural narrative, not a forced trade in the next window."
+        },
+        "dependencies": [],
+        "attribution_type": "community_interpretation",
+        "cited_sources_in_text": [],
+        "book_location": {
+          "level": "advanced",
+          "module_number": 7,
+          "module_title": "Advanced Market Timing",
+          "section_heading": "Failure Conditions"
+        },
+        "confidence_note": "unspecified"
+      }
+    ],
+    "common_misinterpretations": [
+      {
+        "id": "ADV-M07-C10",
+        "kind": "concept",
+        "name": "Common Misinterpretations",
+        "definition": "1167. Trading every kill zone regardless of whether a delivery narrative is active.\n\n1168. Ignoring the daily or weekly open when classifying the day's profile.\n\n1169. Treating kill-zone times as exact to the minute on every broker without DST/server adjustment.\n\n1170. Elevating a lower-timeframe signal that appears outside any relevant kill zone to the same quality as an in-window signal.\n\n1171. Assuming that if London did nothing, New York must reverse (the higher-timeframe narrative still governs).",
+        "ict_specific_meaning": "1167. Trading every kill zone regardless of whether a delivery narrative is active.\n\n1168. Ignoring the daily or weekly open when classifying the day's profile.\n\n1169. Treating kill-zone times as exact to the minute on every broker without DST/server adjustment.\n\n1170. Elevating a lower-timeframe signal that appears outside any relevant kill zone to the same quality as an in-window signal.\n\n1171. Assuming that if London did nothing, New York must reverse (the higher-timeframe narrative still governs).",
+        "what_changed_from_beginner_level": "unspecified",
+        "detection_criteria": [
+          "Trading every kill zone regardless of whether a delivery narrative is active.",
+          "Ignoring the daily or weekly open when classifying the day's profile.",
+          "Treating kill-zone times as exact to the minute on every broker without DST/server adjustment.",
+          "Elevating a lower-timeframe signal that appears outside any relevant kill zone to the same quality as an in-window signal.",
+          "Assuming that if London did nothing, New York must reverse (the higher-timeframe narrative still governs)."
+        ],
+        "numeric_or_narrative_example": "unspecified",
+        "why_it_matters": "unspecified",
+        "beginner_mistakes_or_misinterpretations": [],
+        "raw_sections": {
+          "Full Text": "1167. Trading every kill zone regardless of whether a delivery narrative is active.\n\n1168. Ignoring the daily or weekly open when classifying the day's profile.\n\n1169. Treating kill-zone times as exact to the minute on every broker without DST/server adjustment.\n\n1170. Elevating a lower-timeframe signal that appears outside any relevant kill zone to the same quality as an in-window signal.\n\n1171. Assuming that if London did nothing, New York must reverse (the higher-timeframe narrative still governs)."
+        },
+        "dependencies": [],
+        "attribution_type": "community_interpretation",
+        "cited_sources_in_text": [],
+        "book_location": {
+          "level": "advanced",
+          "module_number": 7,
+          "module_title": "Advanced Market Timing",
+          "section_heading": "Common Misinterpretations"
+        },
+        "confidence_note": "unspecified"
+      }
+    ],
+    "evidence_summary": [
+      {
+        "id": "ADV-M07-C11",
+        "kind": "concept",
+        "name": "Evidence Summary",
+        "definition": "Kill zones, session behaviour, the role of the Asian range, the daily open as a PO3 reference, and the conditioning of delivery by time are core ICT. Exact minute boundaries show minor variation; New York local time is the usual reference. Midnight-open emphasis appears in specific ICT contexts. Community timing tables are useful only when they remain faithful to primary kill-zone and session logic.\n\n***Source / Research note:** Primary orientation: ICT mentorship and public material on kill zones, session profiles, daily open, and time-conditioned algorithmic delivery. Secondary timing tables used only for cross-reference and always subordinated to primary teaching and broker-specific time.*",
+        "ict_specific_meaning": "Kill zones, session behaviour, the role of the Asian range, the daily open as a PO3 reference, and the conditioning of delivery by time are core ICT. Exact minute boundaries show minor variation; New York local time is the usual reference. Midnight-open emphasis appears in specific ICT contexts. Community timing tables are useful only when they remain faithful to primary kill-zone and session logic.\n\n***Source / Research note:** Primary orientation: ICT mentorship and public material on kill zones, session profiles, daily open, and time-conditioned algorithmic delivery. Secondary timing tables used only for cross-reference and always subordinated to primary teaching and broker-specific time.*",
+        "what_changed_from_beginner_level": "unspecified",
+        "detection_criteria": [
+          "unspecified - see definition field"
+        ],
+        "numeric_or_narrative_example": "unspecified",
+        "why_it_matters": "unspecified",
+        "beginner_mistakes_or_misinterpretations": [],
+        "raw_sections": {
+          "Full Text": "Kill zones, session behaviour, the role of the Asian range, the daily open as a PO3 reference, and the conditioning of delivery by time are core ICT. Exact minute boundaries show minor variation; New York local time is the usual reference. Midnight-open emphasis appears in specific ICT contexts. Community timing tables are useful only when they remain faithful to primary kill-zone and session logic.\n\n***Source / Research note:** Primary orientation: ICT mentorship and public material on kill zones, session profiles, daily open, and time-conditioned algorithmic delivery. Secondary timing tables used only for cross-reference and always subordinated to primary teaching and broker-specific time.*"
+        },
+        "dependencies": [],
+        "attribution_type": "community_interpretation",
+        "cited_sources_in_text": [
+          "Primary orientation: ICT mentorship and public material on kill zones, session profiles, daily open, and time-conditioned algorithmic delivery. Secondary timing tables used only for cross-reference and always subordinated to primary teaching and broker-specific time."
+        ],
+        "book_location": {
+          "level": "advanced",
+          "module_number": 7,
+          "module_title": "Advanced Market Timing",
+          "section_heading": "Evidence Summary"
+        },
+        "confidence_note": "Primary orientation: ICT mentorship and public material on kill zones, session profiles, daily open, and time-conditioned algorithmic delivery. Secondary timing tables used only for cross-reference and always subordinated to primary teaching and broker-specific time."
+      }
+    ]
+  },
+  "rules": [
+    {
+      "id": "ADV-M07-R01",
+      "kind": "rule",
+      "rule_type": "time_session_constraint",
+      "statement": "Kill zones and session timing (Eastern/New York time, adjust for DST): London Open Kill Zone approx. 02:00-05:00 -- frequently the first major FX liquidity event (sweep of Asian-range liquidity/manipulation, followed by displacement and the first clear daily directional expansion). New York Open Kill Zone approx. 07:00-10:00 (varies by source; many focus on 07:00-09:00 or the 08:30-11:00 equity-linked period) -- often continues/expands London's direction or delivers a second liquidity event if London was only manipulation; the London-New York overlap is typically highest-volume. Asian Range -- primarily range-building/accumulation; aggressive directional trading during Asia is lower probability for most pairs. Other windows (London Close, New York PM) can produce reversals/continuations/profit-taking but are secondary; midday dead zones are stand-aside periods unless a HTF narrative is already in active expansion.",
+      "applies_to": [
+        "Kill Zones and Session Timing"
+      ],
+      "conditions": [],
+      "exceptions_or_qualifiers": "Exact minute boundaries vary slightly across presentations and must be adjusted for DST and broker server time.",
+      "book_location": {
+        "level": "advanced",
+        "module_number": 7,
+        "module_title": "Advanced Market Timing",
+        "section_heading": "Kill Zones and Session Timing"
+      },
+      "attribution_type": "community_interpretation"
+    },
+    {
+      "id": "ADV-M07-R02",
+      "kind": "rule",
+      "rule_type": "sequencing",
+      "statement": "Classic daily time-map sequence: Asian consolidation -> London manipulation (sweep of Asian extreme) + initial displacement -> New York continuation or secondary expansion toward the daily/HTF Draw on Liquidity. Consolidation is common in Asia; expansion is common in London and New York kill zones; retracement often occurs after the first expansion (still inside the kill zone or in the early continuation window); reversal ending a daily leg is more likely to print with external MSS and opposing displacement, often near session extremes or during the opposing kill zone.",
+      "applies_to": [
+        "Kill-Zone Relationships and Session Transitions"
+      ],
+      "conditions": [],
+      "exceptions_or_qualifiers": "unspecified",
+      "book_location": {
+        "level": "advanced",
+        "module_number": 7,
+        "module_title": "Advanced Market Timing",
+        "section_heading": "Kill-Zone Relationships and Session Transitions"
+      },
+      "attribution_type": "community_interpretation"
+    },
+    {
+      "id": "ADV-M07-R03",
+      "kind": "rule",
+      "rule_type": "other",
+      "statement": "A complete advanced narrative contains: (1) delivery objective (Draw on Liquidity); (2) controlling dealing range and premium/discount; (3) structural confirmation status; (4) PD-array/imbalance location for entry; (5) time window in which the next phase of delivery is expected. Missing the time component produces correct levels traded at the wrong moment.",
+      "applies_to": [
+        "Integrating Time into the Full Narrative"
+      ],
+      "conditions": [],
+      "exceptions_or_qualifiers": "unspecified",
+      "book_location": {
+        "level": "advanced",
+        "module_number": 7,
+        "module_title": "Advanced Market Timing",
+        "section_heading": "Integrating Time into the Full Narrative"
+      },
+      "attribution_type": "book_synthesis"
+    },
+    {
+      "id": "ADV-M07-R04",
+      "kind": "rule",
+      "rule_type": "detection_criteria",
+      "statement": "Time-based expansion quality: expansion that begins inside a kill zone and is supported by displacement and MSS is higher quality than expansion that begins in a dead zone. Time does not create the expansion; it conditions the probability that an expansion will be sustained. Certain liquidity pools are more likely to be raided at specific times (Asian high/low at London Open, prior day high/low around New York Open, weekly extremes mid-week, etc.) -- linking the DOL to the kill zone most likely to attack it raises narrative precision.",
+      "applies_to": [
+        "Time-Based Liquidity Events and Expansion"
+      ],
+      "conditions": [],
+      "exceptions_or_qualifiers": "unspecified",
+      "book_location": {
+        "level": "advanced",
+        "module_number": 7,
+        "module_title": "Advanced Market Timing",
+        "section_heading": "Time-Based Liquidity Events and Expansion"
+      },
+      "attribution_type": "community_interpretation"
+    }
+  ],
+  "strategies": [],
+  "examples": [],
+  "relationships": [],
+  "no_trade_conditions": [
+    {
+      "id": "ADV-M07-NT01",
+      "kind": "no_trade_rule",
+      "statement": "When time-based expectations fail (expected kill zone produces no liquidity event and no displacement; expansion begins in a dead zone and is immediately reversed; a higher-timeframe opposing force overrides the daily time map), require a re-check of the liquidity and structural narrative, not a forced trade in the next window. Do not trade every kill zone regardless of whether a delivery narrative is active. Do not elevate a lower-timeframe signal appearing outside any relevant kill zone to the same quality as an in-window signal. Do not assume that if London did nothing, New York must reverse -- the higher-timeframe narrative still governs.",
+      "applies_to_strategy_ids": [],
+      "book_location": {
+        "level": "advanced",
+        "module_number": 7,
+        "module_title": "Advanced Market Timing",
+        "section_heading": "Failure Conditions and Model Implications / Common Misinterpretations"
+      }
+    }
+  ],
+  "contradictions_or_ambiguities": [
+    {
+      "id": "ADV-M07-AMB01",
+      "kind": "contradiction_or_ambiguity",
+      "description": "New York midnight / overnight opens are noted as timing anchors for certain algorithmic behaviours in some instruments, but the book flags that primary support for this reference is thinner than for the daily/session opens, and instructs weighting it according to the specific instrument and clarity of primary examples.",
+      "passage_a": {
+        "text": "ICT has referenced New York midnight and related overnight opens as timing anchors for certain algorithmic behaviours and for the start of the daily cycle in some instruments.",
+        "book_location": {
+          "level": "advanced",
+          "module_number": 7,
+          "module_title": "Advanced Market Timing",
+          "section_heading": "Opening Price"
+        }
+      },
+      "passage_b": {
+        "text": "Where primary support exists, the advanced student notes the midnight open as an additional reference; where support is thin, the daily open and session opens remain the primary anchors.",
+        "book_location": {
+          "level": "advanced",
+          "module_number": 7,
+          "module_title": "Advanced Market Timing",
+          "section_heading": "Opening Price"
+        }
+      },
+      "resolution_status": "unresolved_in_source"
+    }
+  ],
+  "module_review_notes": {
+    "key_terms": [
+      "Time & Price Theory - ICT premise that delivery is conditioned by specific time windows.",
+      "Daily / Weekly / Session open - reference prices for manipulation and expansion profiles.",
+      "Kill zone - concentrated institutional participation window (London Open, New York Open, etc.).",
+      "Session transition - changeover between sessions at which liquidity events and phase shifts are common.",
+      "Time-based liquidity event - raid of a pool that is statistically more likely at a particular time.",
+      "Time-based expansion - displacement that begins inside a high-probability time window."
+    ],
+    "beginner_summary": "unspecified",
+    "concept_relationships_summary": "unspecified",
+    "practical_chart_exercise": "unspecified",
+    "self_test_questions": [
+      "Why must an advanced delivery narrative include a time component?",
+      "What is the classic Asian -> London -> New York sequence of delivery phases?",
+      "How does the daily open help classify a PO3-style day?",
+      "What should the student do when a clean PD array forms outside any relevant kill zone?",
+      "How are kill-zone times adjusted in practice?"
+    ],
+    "common_misconceptions": [],
+    "research_sources_cited_in_text": []
+  }
+}

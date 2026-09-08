@@ -1,0 +1,574 @@
+{
+  "level": "advanced",
+  "module_number": 16,
+  "module_title": "Precision Execution",
+  "module_intro": "Subtopics: HTF Location, LTF Confirmation, Entry & Invalidation Refinement, Target Selection, Partial Exits, Trade Management, Avoiding Premature Entry.",
+  "prerequisites_stated_in_text": "Advanced Modules 1--15. The model has been selected. This module addresses the final refinement of entry, stop, targets and management so that execution expresses the narrative with precision rather than approximation.",
+  "module_objectives": [
+    "Confirm HTF location (premium/discount of controlling ranges) immediately before entry.",
+    "Require and recognise LTF confirmation (liquidity event, displacement, MSS) before committing.",
+    "Refine entry using the most precise valid PD array (FVG, CE, OB, Breaker, OTE) available.",
+    "Define trade invalidation that is tight enough to protect capital and wide enough to avoid noise.",
+    "Select intermediate and terminal targets from the liquidity hierarchy.",
+    "Apply partial exits and trade management rules that do not contradict the narrative.",
+    "Avoid premature entry by enforcing the full conditioning sequence.",
+    "Which dealing range is controlling (weekly / daily).",
+    "Whether price is still in the correct half of that range for the intended direction.",
+    "Whether any higher-timeframe invalidation has printed while the student was waiting for LTF confirmation.",
+    "The liquidity event named in the daily narrative (raid of the origin pool),",
+    "Displacement away from that pool,",
+    "An internal (or external) Market Structure Shift in the bias direction.",
+    "Consequent Encroachment of a high-quality FVG that sits inside a higher-timeframe array.",
+    "Unmitigated FVG or Order Block in the correct half of the range.",
+    "OTE of the displacement leg when it overlaps a valid FVG or OB.",
+    "Breaker or IFVG that has been properly formed and demonstrated.",
+    "A lower-timeframe array nested inside any of the above.",
+    "Beyond the far side of the entry array (FVG, OB, Breaker),",
+    "Beyond the origin of the displacement that created the array,",
+    "Beyond a recent LTF swing that, if broken, negates the internal MSS.",
+    "First target (partial): nearest significant internal range liquidity or intermediate pool in the direction of the DOL.",
+    "Terminal target: the named Draw on Liquidity of the bias statement (often external or higher-timeframe).",
+    "Optional intermediate targets: additional IRL pools or opposing session extremes on the path.",
+    "If the narrative remains intact, the runner is held toward the terminal target.",
+    "If narrative invalidation prints, the runner is closed regardless of current profit or loss.",
+    "Trailing stops, if used, are placed only at levels that would themselves constitute a structural or array failure (e.g., beyond a new higher low in a bullish trade).",
+    "Adding to a position is permitted only if the addition has its own valid entry array and does not violate overall risk limits (Module 17).",
+    "HTF location still correct; no higher-timeframe invalidation.",
+    "LTF liquidity event, displacement and MSS have printed.",
+    "Selected entry array is still unmitigated and correctly located.",
+    "Trade invalidation is defined and risk is acceptable.",
+    "First target and terminal target are named from the liquidity hierarchy.",
+    "Partial-exit plan and runner plan are predetermined.",
+    "Execution is inside the authorised time window.",
+    "Bias and model selection have not been retired."
+  ],
+  "concepts": [
+    {
+      "id": "ADV-M16-C01",
+      "kind": "concept",
+      "name": "HTF Location - Final Check",
+      "definition": "Immediately before entry, reconfirm:\n\n1501. Which dealing range is controlling (weekly / daily).\n\n1502. Whether price is still in the correct half of that range for the intended direction.\n\n1503. Whether any higher-timeframe invalidation has printed while the student was waiting for LTF confirmation.",
+      "ict_specific_meaning": "Immediately before entry, reconfirm:\n\n1501. Which dealing range is controlling (weekly / daily).\n\n1502. Whether price is still in the correct half of that range for the intended direction.\n\n1503. Whether any higher-timeframe invalidation has printed while the student was waiting for LTF confirmation.",
+      "what_changed_from_beginner_level": "unspecified",
+      "detection_criteria": [
+        "unspecified - see raw_sections"
+      ],
+      "numeric_or_narrative_example": "unspecified",
+      "why_it_matters": "unspecified",
+      "beginner_mistakes_or_misinterpretations": [],
+      "raw_sections": {
+        "Controlling Range Recheck": "Immediately before entry, reconfirm:\n\n1501. Which dealing range is controlling (weekly / daily).\n\n1502. Whether price is still in the correct half of that range for the intended direction.\n\n1503. Whether any higher-timeframe invalidation has printed while the student was waiting for LTF confirmation.",
+        "Nested Location": "Ideal entries occur when LTF, daily and weekly location filters agree (e.g., discount of all three for a long). When they conflict, the higher-timeframe filter retains priority; the student either waits for alignment or reduces size and tightens invalidation."
+      },
+      "dependencies": [],
+      "attribution_type": "community_interpretation",
+      "cited_sources_in_text": [],
+      "book_location": {
+        "level": "advanced",
+        "module_number": 16,
+        "module_title": "Precision Execution",
+        "section_heading": "HTF Location - Final Check"
+      },
+      "confidence_note": "unspecified"
+    },
+    {
+      "id": "ADV-M16-C02",
+      "kind": "concept",
+      "name": "LTF Confirmation - The Non-Negotiable Gate",
+      "definition": "For most continuation models the LTF must still print:\n\n1504. The liquidity event named in the daily narrative (raid of the origin pool),\n\n1505. Displacement away from that pool,\n\n1506. An internal (or external) Market Structure Shift in the bias direction.",
+      "ict_specific_meaning": "For most continuation models the LTF must still print:\n\n1504. The liquidity event named in the daily narrative (raid of the origin pool),\n\n1505. Displacement away from that pool,\n\n1506. An internal (or external) Market Structure Shift in the bias direction.",
+      "what_changed_from_beginner_level": "unspecified",
+      "detection_criteria": [
+        "unspecified - see raw_sections"
+      ],
+      "numeric_or_narrative_example": "unspecified",
+      "why_it_matters": "unspecified",
+      "beginner_mistakes_or_misinterpretations": [],
+      "raw_sections": {
+        "Required Sequence": "For most continuation models the LTF must still print:\n\n1504. The liquidity event named in the daily narrative (raid of the origin pool),\n\n1505. Displacement away from that pool,\n\n1506. An internal (or external) Market Structure Shift in the bias direction.",
+        "Premature Entry": "Entering before the liquidity event or before displacement and MSS is the most common execution error. The array may look perfect; the narrative is not yet confirmed at the execution timeframe. Advanced discipline waits."
+      },
+      "dependencies": [],
+      "attribution_type": "community_interpretation",
+      "cited_sources_in_text": [],
+      "book_location": {
+        "level": "advanced",
+        "module_number": 16,
+        "module_title": "Precision Execution",
+        "section_heading": "LTF Confirmation - The Non-Negotiable Gate"
+      },
+      "confidence_note": "unspecified"
+    },
+    {
+      "id": "ADV-M16-C03",
+      "kind": "concept",
+      "name": "Entry Refinement",
+      "definition": "Once the model family is authorised and LTF confirmation is present, refine the entry in this order of preference (all else equal):\n\n- Consequent Encroachment of a high-quality FVG that sits inside a higher-timeframe array.\n\n- Unmitigated FVG or Order Block in the correct half of the range.\n\n- OTE of the displacement leg when it overlaps a valid FVG or OB.\n\n- Breaker or IFVG that has been properly formed and demonstrated.\n\n- A lower-timeframe array nested inside any of the above.",
+      "ict_specific_meaning": "Once the model family is authorised and LTF confirmation is present, refine the entry in this order of preference (all else equal):\n\n- Consequent Encroachment of a high-quality FVG that sits inside a higher-timeframe array.\n\n- Unmitigated FVG or Order Block in the correct half of the range.\n\n- OTE of the displacement leg when it overlaps a valid FVG or OB.\n\n- Breaker or IFVG that has been properly formed and demonstrated.\n\n- A lower-timeframe array nested inside any of the above.",
+      "what_changed_from_beginner_level": "unspecified",
+      "detection_criteria": [
+        "unspecified - see raw_sections"
+      ],
+      "numeric_or_narrative_example": "unspecified",
+      "why_it_matters": "unspecified",
+      "beginner_mistakes_or_misinterpretations": [],
+      "raw_sections": {
+        "Hierarchy of Precision": "Once the model family is authorised and LTF confirmation is present, refine the entry in this order of preference (all else equal):\n\n- Consequent Encroachment of a high-quality FVG that sits inside a higher-timeframe array.\n\n- Unmitigated FVG or Order Block in the correct half of the range.\n\n- OTE of the displacement leg when it overlaps a valid FVG or OB.\n\n- Breaker or IFVG that has been properly formed and demonstrated.\n\n- A lower-timeframe array nested inside any of the above.",
+        "What Not to Do": "Do not chase price after the array has been left behind. Do not enter at the far edge of a wide FVG when CE or a tighter nested array is available. Do not invent precision that the chart does not offer; if the only available array is wide and the invalidation is unacceptable, stand aside."
+      },
+      "dependencies": [],
+      "attribution_type": "community_interpretation",
+      "cited_sources_in_text": [],
+      "book_location": {
+        "level": "advanced",
+        "module_number": 16,
+        "module_title": "Precision Execution",
+        "section_heading": "Entry Refinement"
+      },
+      "confidence_note": "unspecified"
+    },
+    {
+      "id": "ADV-M16-C04",
+      "kind": "concept",
+      "name": "Invalidation Refinement",
+      "definition": "Trade invalidation is the level at which the specific entry is wrong. Common placements:\n\n1507. Beyond the far side of the entry array (FVG, OB, Breaker),\n\n1508. Beyond the origin of the displacement that created the array,\n\n1509. Beyond a recent LTF swing that, if broken, negates the internal MSS.\n\nThe stop must be far enough to avoid routine noise and close enough that the resulting risk is acceptable relative to the distance to the first target.",
+      "ict_specific_meaning": "Trade invalidation is the level at which the specific entry is wrong. Common placements:\n\n1507. Beyond the far side of the entry array (FVG, OB, Breaker),\n\n1508. Beyond the origin of the displacement that created the array,\n\n1509. Beyond a recent LTF swing that, if broken, negates the internal MSS.\n\nThe stop must be far enough to avoid routine noise and close enough that the resulting risk is acceptable relative to the distance to the first target.",
+      "what_changed_from_beginner_level": "unspecified",
+      "detection_criteria": [
+        "unspecified - see raw_sections"
+      ],
+      "numeric_or_narrative_example": "unspecified",
+      "why_it_matters": "unspecified",
+      "beginner_mistakes_or_misinterpretations": [],
+      "raw_sections": {
+        "Trade Invalidation": "Trade invalidation is the level at which the specific entry is wrong. Common placements:\n\n1507. Beyond the far side of the entry array (FVG, OB, Breaker),\n\n1508. Beyond the origin of the displacement that created the array,\n\n1509. Beyond a recent LTF swing that, if broken, negates the internal MSS.\n\nThe stop must be far enough to avoid routine noise and close enough that the resulting risk is acceptable relative to the distance to the first target.",
+        "Narrative Invalidation": "Narrative invalidation remains the higher-timeframe level or condition defined in the bias statement. A trade stop-out does not automatically equal narrative failure. Narrative failure does automatically require the retirement of further entries in the old direction.",
+        "Invalidation Discipline": "Invalidation levels are defined before entry and are not moved farther away after entry. Tightening (trailing) is a management decision; widening is usually an emotional decision and is forbidden."
+      },
+      "dependencies": [],
+      "attribution_type": "community_interpretation",
+      "cited_sources_in_text": [],
+      "book_location": {
+        "level": "advanced",
+        "module_number": 16,
+        "module_title": "Precision Execution",
+        "section_heading": "Invalidation Refinement"
+      },
+      "confidence_note": "unspecified"
+    },
+    {
+      "id": "ADV-M16-C05",
+      "kind": "concept",
+      "name": "Target Selection",
+      "definition": "Targets are drawn from the liquidity hierarchy of Module 3:\n\n1510. First target (partial): nearest significant internal range liquidity or intermediate pool in the direction of the DOL.\n\n1511. Terminal target: the named Draw on Liquidity of the bias statement (often external or higher-timeframe).\n\n1512. Optional intermediate targets: additional IRL pools or opposing session extremes on the path.",
+      "ict_specific_meaning": "Targets are drawn from the liquidity hierarchy of Module 3:\n\n1510. First target (partial): nearest significant internal range liquidity or intermediate pool in the direction of the DOL.\n\n1511. Terminal target: the named Draw on Liquidity of the bias statement (often external or higher-timeframe).\n\n1512. Optional intermediate targets: additional IRL pools or opposing session extremes on the path.",
+      "what_changed_from_beginner_level": "unspecified",
+      "detection_criteria": [
+        "unspecified - see raw_sections"
+      ],
+      "numeric_or_narrative_example": "unspecified",
+      "why_it_matters": "unspecified",
+      "beginner_mistakes_or_misinterpretations": [],
+      "raw_sections": {
+        "Liquidity Hierarchy as Target Map": "Targets are drawn from the liquidity hierarchy of Module 3:\n\n1510. First target (partial): nearest significant internal range liquidity or intermediate pool in the direction of the DOL.\n\n1511. Terminal target: the named Draw on Liquidity of the bias statement (often external or higher-timeframe).\n\n1512. Optional intermediate targets: additional IRL pools or opposing session extremes on the path.",
+        "Range and Structure Constraints": "Targets that sit beyond a higher-timeframe invalidation or beyond a major opposing structural level that has not been broken are lower probability. The student does not assume that every DOL will be reached in a single trade."
+      },
+      "dependencies": [],
+      "attribution_type": "community_interpretation",
+      "cited_sources_in_text": [],
+      "book_location": {
+        "level": "advanced",
+        "module_number": 16,
+        "module_title": "Precision Execution",
+        "section_heading": "Target Selection"
+      },
+      "confidence_note": "unspecified"
+    },
+    {
+      "id": "ADV-M16-C06",
+      "kind": "concept",
+      "name": "Partial Exits and Trade Management",
+      "definition": "A common advanced practice is to take a partial at the first high-quality intermediate liquidity pool and to leave a runner toward the terminal DOL. Partial size is predetermined (e.g., 50 % or a fixed fraction) and is not altered by emotion after entry.",
+      "ict_specific_meaning": "A common advanced practice is to take a partial at the first high-quality intermediate liquidity pool and to leave a runner toward the terminal DOL. Partial size is predetermined (e.g., 50 % or a fixed fraction) and is not altered by emotion after entry.",
+      "what_changed_from_beginner_level": "unspecified",
+      "detection_criteria": [
+        "unspecified - see raw_sections"
+      ],
+      "numeric_or_narrative_example": "unspecified",
+      "why_it_matters": "unspecified",
+      "beginner_mistakes_or_misinterpretations": [],
+      "raw_sections": {
+        "Partials": "A common advanced practice is to take a partial at the first high-quality intermediate liquidity pool and to leave a runner toward the terminal DOL. Partial size is predetermined (e.g., 50 % or a fixed fraction) and is not altered by emotion after entry.",
+        "Management Rules": "Management must not contradict the narrative:\n\n1513. If the narrative remains intact, the runner is held toward the terminal target.\n\n1514. If narrative invalidation prints, the runner is closed regardless of current profit or loss.\n\n1515. Trailing stops, if used, are placed only at levels that would themselves constitute a structural or array failure (e.g., beyond a new higher low in a bullish trade).\n\n1516. Adding to a position is permitted only if the addition has its own valid entry array and does not violate overall risk limits (Module 17)."
+      },
+      "dependencies": [],
+      "attribution_type": "community_interpretation",
+      "cited_sources_in_text": [],
+      "book_location": {
+        "level": "advanced",
+        "module_number": 16,
+        "module_title": "Precision Execution",
+        "section_heading": "Partial Exits and Trade Management"
+      },
+      "confidence_note": "unspecified"
+    },
+    {
+      "id": "ADV-M16-C07",
+      "kind": "concept",
+      "name": "Execution Timing",
+      "definition": "Entry is preferred inside the kill zone or session window that the narrative assigned to the distribution or continuation phase. Entries far outside that window require additional confluence or are skipped.",
+      "ict_specific_meaning": "Entry is preferred inside the kill zone or session window that the narrative assigned to the distribution or continuation phase. Entries far outside that window require additional confluence or are skipped.",
+      "what_changed_from_beginner_level": "unspecified",
+      "detection_criteria": [
+        "unspecified - see raw_sections"
+      ],
+      "numeric_or_narrative_example": "unspecified",
+      "why_it_matters": "unspecified",
+      "beginner_mistakes_or_misinterpretations": [],
+      "raw_sections": {
+        "Inside the Authorised Window": "Entry is preferred inside the kill zone or session window that the narrative assigned to the distribution or continuation phase. Entries far outside that window require additional confluence or are skipped.",
+        "Avoiding the Dead Zone": "Midday or thin-liquidity periods that were not part of the expected path are not used for new directional entries even if an array is present."
+      },
+      "dependencies": [],
+      "attribution_type": "community_interpretation",
+      "cited_sources_in_text": [],
+      "book_location": {
+        "level": "advanced",
+        "module_number": 16,
+        "module_title": "Precision Execution",
+        "section_heading": "Execution Timing"
+      },
+      "confidence_note": "unspecified"
+    },
+    {
+      "id": "ADV-M16-C08",
+      "kind": "concept",
+      "name": "Pre-Entry Checklist",
+      "definition": "Immediately before order placement:\n\n- HTF location still correct; no higher-timeframe invalidation.\n\n- LTF liquidity event, displacement and MSS have printed.\n\n- Selected entry array is still unmitigated and correctly located.\n\n- Trade invalidation is defined and risk is acceptable.\n\n- First target and terminal target are named from the liquidity hierarchy.\n\n- Partial-exit plan and runner plan are predetermined.\n\n- Execution is inside the authorised time window.\n\n- Bias and model selection have not been retired.\n\nIf any item fails, the entry is not taken.",
+      "ict_specific_meaning": "Immediately before order placement:\n\n- HTF location still correct; no higher-timeframe invalidation.\n\n- LTF liquidity event, displacement and MSS have printed.\n\n- Selected entry array is still unmitigated and correctly located.\n\n- Trade invalidation is defined and risk is acceptable.\n\n- First target and terminal target are named from the liquidity hierarchy.\n\n- Partial-exit plan and runner plan are predetermined.\n\n- Execution is inside the authorised time window.\n\n- Bias and model selection have not been retired.\n\nIf any item fails, the entry is not taken.",
+      "what_changed_from_beginner_level": "unspecified",
+      "detection_criteria": [
+        "HTF location still correct; no higher-timeframe invalidation.",
+        "LTF liquidity event, displacement and MSS have printed.",
+        "Selected entry array is still unmitigated and correctly located.",
+        "Trade invalidation is defined and risk is acceptable.",
+        "First target and terminal target are named from the liquidity hierarchy.",
+        "Partial-exit plan and runner plan are predetermined.",
+        "Execution is inside the authorised time window.",
+        "Bias and model selection have not been retired."
+      ],
+      "numeric_or_narrative_example": "unspecified",
+      "why_it_matters": "unspecified",
+      "beginner_mistakes_or_misinterpretations": [],
+      "raw_sections": {
+        "Full Text": "Immediately before order placement:\n\n- HTF location still correct; no higher-timeframe invalidation.\n\n- LTF liquidity event, displacement and MSS have printed.\n\n- Selected entry array is still unmitigated and correctly located.\n\n- Trade invalidation is defined and risk is acceptable.\n\n- First target and terminal target are named from the liquidity hierarchy.\n\n- Partial-exit plan and runner plan are predetermined.\n\n- Execution is inside the authorised time window.\n\n- Bias and model selection have not been retired.\n\nIf any item fails, the entry is not taken."
+      },
+      "dependencies": [],
+      "attribution_type": "community_interpretation",
+      "cited_sources_in_text": [],
+      "book_location": {
+        "level": "advanced",
+        "module_number": 16,
+        "module_title": "Precision Execution",
+        "section_heading": "Pre-Entry Checklist"
+      },
+      "confidence_note": "unspecified"
+    }
+  ],
+  "module_synthesis": {
+    "relationship_to_prior_level": [],
+    "worked_narrative_examples": [
+      {
+        "id": "ADV-M16-C09",
+        "kind": "concept",
+        "name": "Worked Precision Execution",
+        "definition": "Model selected (Module 15): FVG / OTE continuation long after London SSL raid.\n\nHTF location: weekly and daily discount confirmed; no invalidation.\n\nLTF: London swept Asian low; 15-minute displacement and MSS printed; FVG at 1.0635 - 1.0665; CE at 1.0650; OTE of the displacement leg overlaps CE.\n\nEntry: limit or market on return to CE / OTE confluence at ~1.0650.\n\nTrade invalidation: close below 1.0620 (below displacement origin and Asian low).\n\nTargets: first partial at daily intermediate buy-side ~1.0780; runner toward weekly DOL 1.1200.\n\nManagement: 50 % off at first target; stop of runner moved only if a new higher low forms that itself would be narrative-relevant; full exit if daily bias invalidation prints.\n\nThis is precision execution fully subordinated to the narrative.",
+        "ict_specific_meaning": "Model selected (Module 15): FVG / OTE continuation long after London SSL raid.\n\nHTF location: weekly and daily discount confirmed; no invalidation.\n\nLTF: London swept Asian low; 15-minute displacement and MSS printed; FVG at 1.0635 - 1.0665; CE at 1.0650; OTE of the displacement leg overlaps CE.\n\nEntry: limit or market on return to CE / OTE confluence at ~1.0650.\n\nTrade invalidation: close below 1.0620 (below displacement origin and Asian low).\n\nTargets: first partial at daily intermediate buy-side ~1.0780; runner toward weekly DOL 1.1200.\n\nManagement: 50 % off at first target; stop of runner moved only if a new higher low forms that itself would be narrative-relevant; full exit if daily bias invalidation prints.\n\nThis is precision execution fully subordinated to the narrative.",
+        "what_changed_from_beginner_level": "unspecified",
+        "detection_criteria": [
+          "unspecified - see definition field"
+        ],
+        "numeric_or_narrative_example": "unspecified",
+        "why_it_matters": "unspecified",
+        "beginner_mistakes_or_misinterpretations": [],
+        "raw_sections": {
+          "Full Text": "Model selected (Module 15): FVG / OTE continuation long after London SSL raid.\n\nHTF location: weekly and daily discount confirmed; no invalidation.\n\nLTF: London swept Asian low; 15-minute displacement and MSS printed; FVG at 1.0635 - 1.0665; CE at 1.0650; OTE of the displacement leg overlaps CE.\n\nEntry: limit or market on return to CE / OTE confluence at ~1.0650.\n\nTrade invalidation: close below 1.0620 (below displacement origin and Asian low).\n\nTargets: first partial at daily intermediate buy-side ~1.0780; runner toward weekly DOL 1.1200.\n\nManagement: 50 % off at first target; stop of runner moved only if a new higher low forms that itself would be narrative-relevant; full exit if daily bias invalidation prints.\n\nThis is precision execution fully subordinated to the narrative."
+        },
+        "dependencies": [],
+        "attribution_type": "community_interpretation",
+        "cited_sources_in_text": [],
+        "book_location": {
+          "level": "advanced",
+          "module_number": 16,
+          "module_title": "Precision Execution",
+          "section_heading": "Worked Precision Execution"
+        },
+        "confidence_note": "unspecified"
+      }
+    ],
+    "failure_conditions": [],
+    "common_misinterpretations": [
+      {
+        "id": "ADV-M16-C10",
+        "kind": "concept",
+        "name": "Common Misinterpretations",
+        "definition": "1517. Entering as soon as price reaches the array without LTF confirmation.\n\n1518. Using a wide FVG edge when CE or a tighter nested array is available.\n\n1519. Placing invalidation so tight that routine noise stops a valid narrative.\n\n1520. Moving the stop farther away after entry.\n\n1521. Taking the entire position off at the first partial and abandoning a still-valid terminal DOL.\n\n1522. Adding to losers or averaging without a new valid entry array.\n\n1523. Executing outside the authorised session window because \"the array is there.\"",
+        "ict_specific_meaning": "1517. Entering as soon as price reaches the array without LTF confirmation.\n\n1518. Using a wide FVG edge when CE or a tighter nested array is available.\n\n1519. Placing invalidation so tight that routine noise stops a valid narrative.\n\n1520. Moving the stop farther away after entry.\n\n1521. Taking the entire position off at the first partial and abandoning a still-valid terminal DOL.\n\n1522. Adding to losers or averaging without a new valid entry array.\n\n1523. Executing outside the authorised session window because \"the array is there.\"",
+        "what_changed_from_beginner_level": "unspecified",
+        "detection_criteria": [
+          "Entering as soon as price reaches the array without LTF confirmation.",
+          "Using a wide FVG edge when CE or a tighter nested array is available.",
+          "Placing invalidation so tight that routine noise stops a valid narrative.",
+          "Moving the stop farther away after entry.",
+          "Taking the entire position off at the first partial and abandoning a still-valid terminal DOL.",
+          "Adding to losers or averaging without a new valid entry array.",
+          "Executing outside the authorised session window because \"the array is there.\""
+        ],
+        "numeric_or_narrative_example": "unspecified",
+        "why_it_matters": "unspecified",
+        "beginner_mistakes_or_misinterpretations": [],
+        "raw_sections": {
+          "Full Text": "1517. Entering as soon as price reaches the array without LTF confirmation.\n\n1518. Using a wide FVG edge when CE or a tighter nested array is available.\n\n1519. Placing invalidation so tight that routine noise stops a valid narrative.\n\n1520. Moving the stop farther away after entry.\n\n1521. Taking the entire position off at the first partial and abandoning a still-valid terminal DOL.\n\n1522. Adding to losers or averaging without a new valid entry array.\n\n1523. Executing outside the authorised session window because \"the array is there.\""
+        },
+        "dependencies": [],
+        "attribution_type": "community_interpretation",
+        "cited_sources_in_text": [],
+        "book_location": {
+          "level": "advanced",
+          "module_number": 16,
+          "module_title": "Precision Execution",
+          "section_heading": "Common Misinterpretations"
+        },
+        "confidence_note": "unspecified"
+      }
+    ],
+    "evidence_summary": [
+      {
+        "id": "ADV-M16-C11",
+        "kind": "concept",
+        "name": "Evidence Summary",
+        "definition": "Refinement of entry to FVG, CE, Order Block, Breaker and OTE; use of structure for invalidation; targeting of liquidity pools; and multi-timeframe location filters are all grounded in ICT teaching. The ordered pre-entry checklist and the strict separation of trade invalidation from narrative invalidation are the advanced operational synthesis that turns those elements into precise, repeatable execution.\n\n***Source / Research note:** Primary orientation: ICT entry refinement (FVG, CE, OB, OTE), liquidity targeting, and multi-timeframe context. Checklist and management rules are advanced process controls consistent with that teaching.*",
+        "ict_specific_meaning": "Refinement of entry to FVG, CE, Order Block, Breaker and OTE; use of structure for invalidation; targeting of liquidity pools; and multi-timeframe location filters are all grounded in ICT teaching. The ordered pre-entry checklist and the strict separation of trade invalidation from narrative invalidation are the advanced operational synthesis that turns those elements into precise, repeatable execution.\n\n***Source / Research note:** Primary orientation: ICT entry refinement (FVG, CE, OB, OTE), liquidity targeting, and multi-timeframe context. Checklist and management rules are advanced process controls consistent with that teaching.*",
+        "what_changed_from_beginner_level": "unspecified",
+        "detection_criteria": [
+          "unspecified - see definition field"
+        ],
+        "numeric_or_narrative_example": "unspecified",
+        "why_it_matters": "unspecified",
+        "beginner_mistakes_or_misinterpretations": [],
+        "raw_sections": {
+          "Full Text": "Refinement of entry to FVG, CE, Order Block, Breaker and OTE; use of structure for invalidation; targeting of liquidity pools; and multi-timeframe location filters are all grounded in ICT teaching. The ordered pre-entry checklist and the strict separation of trade invalidation from narrative invalidation are the advanced operational synthesis that turns those elements into precise, repeatable execution.\n\n***Source / Research note:** Primary orientation: ICT entry refinement (FVG, CE, OB, OTE), liquidity targeting, and multi-timeframe context. Checklist and management rules are advanced process controls consistent with that teaching.*"
+        },
+        "dependencies": [],
+        "attribution_type": "community_interpretation",
+        "cited_sources_in_text": [
+          "Primary orientation: ICT entry refinement (FVG, CE, OB, OTE), liquidity targeting, and multi-timeframe context. Checklist and management rules are advanced process controls consistent with that teaching."
+        ],
+        "book_location": {
+          "level": "advanced",
+          "module_number": 16,
+          "module_title": "Precision Execution",
+          "section_heading": "Evidence Summary"
+        },
+        "confidence_note": "Primary orientation: ICT entry refinement (FVG, CE, OB, OTE), liquidity targeting, and multi-timeframe context. Checklist and management rules are advanced process controls consistent with that teaching."
+      }
+    ]
+  },
+  "rules": [
+    {
+      "id": "ADV-M16-R01",
+      "kind": "rule",
+      "rule_type": "precondition",
+      "statement": "HTF location final check immediately before entry: reconfirm which dealing range is controlling (weekly/daily); whether price is still in the correct half of that range for the intended direction; whether any HTF invalidation has printed while waiting for LTF confirmation. Ideal entries occur when LTF, daily and weekly location filters agree (e.g. discount of all three for a long); when they conflict, the HTF filter retains priority -- wait for alignment or reduce size and tighten invalidation.",
+      "applies_to": [
+        "HTF Location - Final Check"
+      ],
+      "conditions": [],
+      "exceptions_or_qualifiers": "unspecified",
+      "book_location": {
+        "level": "advanced",
+        "module_number": 16,
+        "module_title": "Precision Execution",
+        "section_heading": "HTF Location - Final Check"
+      },
+      "attribution_type": "community_interpretation"
+    },
+    {
+      "id": "ADV-M16-R02",
+      "kind": "rule",
+      "rule_type": "precondition",
+      "statement": "LTF confirmation non-negotiable gate: for most continuation models the LTF must still print the liquidity event named in the daily narrative (raid of origin pool), displacement away from that pool, and an internal (or external) Market Structure Shift in the bias direction. Entering before the liquidity event or before displacement and MSS is the most common execution error -- the array may look perfect but the narrative is not yet confirmed at the execution timeframe.",
+      "applies_to": [
+        "LTF Confirmation - The Non-Negotiable Gate"
+      ],
+      "conditions": [],
+      "exceptions_or_qualifiers": "unspecified",
+      "book_location": {
+        "level": "advanced",
+        "module_number": 16,
+        "module_title": "Precision Execution",
+        "section_heading": "LTF Confirmation - The Non-Negotiable Gate"
+      },
+      "attribution_type": "community_interpretation"
+    },
+    {
+      "id": "ADV-M16-R03",
+      "kind": "rule",
+      "rule_type": "selection_procedure",
+      "statement": "Entry refinement hierarchy of precision (once model family authorised and LTF confirmation present), in order of preference: (1) Consequent Encroachment of a high-quality FVG sitting inside a higher-timeframe array; (2) unmitigated FVG or Order Block in the correct half of the range; (3) OTE of the displacement leg when it overlaps a valid FVG or OB; (4) Breaker or IFVG properly formed and demonstrated; (5) a lower-timeframe array nested inside any of the above. Do not chase price after the array has been left behind; do not enter at the far edge of a wide FVG when CE or a tighter nested array is available; do not invent precision the chart does not offer -- if the only available array is wide and invalidation is unacceptable, stand aside.",
+      "applies_to": [
+        "Entry Refinement"
+      ],
+      "conditions": [],
+      "exceptions_or_qualifiers": "unspecified",
+      "book_location": {
+        "level": "advanced",
+        "module_number": 16,
+        "module_title": "Precision Execution",
+        "section_heading": "Entry Refinement"
+      },
+      "attribution_type": "community_interpretation"
+    },
+    {
+      "id": "ADV-M16-R04",
+      "kind": "rule",
+      "rule_type": "invalidation",
+      "statement": "Trade invalidation placements: beyond the far side of the entry array (FVG, OB, Breaker); beyond the origin of the displacement that created the array; beyond a recent LTF swing that, if broken, negates the internal MSS. Stop must be far enough to avoid routine noise, close enough that resulting risk is acceptable relative to distance to first target. Narrative invalidation remains the HTF level/condition defined in the bias statement -- a trade stop-out does not automatically equal narrative failure; narrative failure does automatically require retirement of further entries in the old direction. Invalidation levels are defined before entry and not moved farther away after entry -- tightening (trailing) is a management decision, widening is an emotional decision and is forbidden.",
+      "applies_to": [
+        "Invalidation Refinement"
+      ],
+      "conditions": [],
+      "exceptions_or_qualifiers": "unspecified",
+      "book_location": {
+        "level": "advanced",
+        "module_number": 16,
+        "module_title": "Precision Execution",
+        "section_heading": "Invalidation Refinement"
+      },
+      "attribution_type": "community_interpretation"
+    },
+    {
+      "id": "ADV-M16-R05",
+      "kind": "rule",
+      "rule_type": "other",
+      "statement": "Target selection drawn from the liquidity hierarchy (Module 3): first target (partial) = nearest significant internal range liquidity or intermediate pool in the DOL direction; terminal target = the named Draw on Liquidity of the bias statement (often external or HTF); optional intermediate targets = additional IRL pools or opposing session extremes on the path. Targets beyond a HTF invalidation or beyond a major unbroken opposing structural level are lower probability -- do not assume every DOL will be reached in a single trade.",
+      "applies_to": [
+        "Target Selection"
+      ],
+      "conditions": [],
+      "exceptions_or_qualifiers": "unspecified",
+      "book_location": {
+        "level": "advanced",
+        "module_number": 16,
+        "module_title": "Precision Execution",
+        "section_heading": "Target Selection"
+      },
+      "attribution_type": "community_interpretation"
+    },
+    {
+      "id": "ADV-M16-R06",
+      "kind": "rule",
+      "rule_type": "trade_management",
+      "statement": "Partial exits: take a partial at the first high-quality intermediate liquidity pool and leave a runner toward the terminal DOL; partial size predetermined (e.g. 50% or a fixed fraction), not altered by emotion after entry. Management rules: if narrative remains intact, the runner is held toward the terminal target; if narrative invalidation prints, the runner is closed regardless of current profit or loss; trailing stops, if used, are placed only at levels that would themselves constitute a structural/array failure (e.g. beyond a new higher low in a bullish trade); adding to a position is permitted only if the addition has its own valid entry array and does not violate overall risk limits (Module 17).",
+      "applies_to": [
+        "Partial Exits and Trade Management"
+      ],
+      "conditions": [],
+      "exceptions_or_qualifiers": "unspecified",
+      "book_location": {
+        "level": "advanced",
+        "module_number": 16,
+        "module_title": "Precision Execution",
+        "section_heading": "Partial Exits and Trade Management"
+      },
+      "attribution_type": "community_interpretation"
+    },
+    {
+      "id": "ADV-M16-R07",
+      "kind": "rule",
+      "rule_type": "time_session_constraint",
+      "statement": "Entry is preferred inside the kill zone or session window the narrative assigned to the distribution/continuation phase; entries far outside that window require additional confluence or are skipped. Midday or thin-liquidity periods not part of the expected path are not used for new directional entries even if an array is present.",
+      "applies_to": [
+        "Execution Timing"
+      ],
+      "conditions": [],
+      "exceptions_or_qualifiers": "unspecified",
+      "book_location": {
+        "level": "advanced",
+        "module_number": 16,
+        "module_title": "Precision Execution",
+        "section_heading": "Execution Timing"
+      },
+      "attribution_type": "community_interpretation"
+    },
+    {
+      "id": "ADV-M16-R08",
+      "kind": "rule",
+      "rule_type": "detection_criteria",
+      "statement": "Pre-entry checklist (immediately before order placement): HTF location still correct, no HTF invalidation; LTF liquidity event, displacement and MSS have printed; selected entry array is still unmitigated and correctly located; trade invalidation is defined and risk is acceptable; first target and terminal target are named from the liquidity hierarchy; partial-exit plan and runner plan are predetermined; execution is inside the authorised time window; bias and model selection have not been retired. If any item fails, the entry is not taken.",
+      "applies_to": [
+        "Pre-Entry Checklist"
+      ],
+      "conditions": [],
+      "exceptions_or_qualifiers": "unspecified",
+      "book_location": {
+        "level": "advanced",
+        "module_number": 16,
+        "module_title": "Precision Execution",
+        "section_heading": "Pre-Entry Checklist"
+      },
+      "attribution_type": "book_synthesis"
+    }
+  ],
+  "strategies": [],
+  "examples": [],
+  "relationships": [],
+  "no_trade_conditions": [
+    {
+      "id": "ADV-M16-NT01",
+      "kind": "no_trade_rule",
+      "statement": "Do not enter as soon as price reaches the array without LTF confirmation. Do not use a wide FVG edge when CE or a tighter nested array is available. Do not place invalidation so tight that routine noise stops a valid narrative. Do not move the stop farther away after entry. Do not take the entire position off at the first partial and abandon a still-valid terminal DOL. Do not add to losers or average without a new valid entry array. Do not execute outside the authorised session window because 'the array is there.' If any item on the Pre-Entry Checklist fails, the entry is not taken.",
+      "applies_to_strategy_ids": [
+        "ADV-M11-S01",
+        "ADV-M11-S02",
+        "ADV-M11-S03",
+        "ADV-M11-S04",
+        "ADV-M12-S01",
+        "ADV-M12-S02",
+        "ADV-M12-S03",
+        "ADV-M12-S04"
+      ],
+      "book_location": {
+        "level": "advanced",
+        "module_number": 16,
+        "module_title": "Precision Execution",
+        "section_heading": "Common Misinterpretations / Pre-Entry Checklist"
+      }
+    }
+  ],
+  "contradictions_or_ambiguities": [],
+  "module_review_notes": {
+    "key_terms": [
+      "HTF location check - final confirmation of premium/discount and higher-timeframe invalidation status.",
+      "LTF confirmation - liquidity event + displacement + MSS at the execution timeframe.",
+      "Entry refinement - selection of the tightest valid PD array (CE, FVG, OB, OTE, Breaker, IFVG).",
+      "Trade invalidation - level that ends the specific entry.",
+      "Narrative invalidation - level or condition that retires the bias.",
+      "Partial exit - predetermined reduction at intermediate liquidity.",
+      "Runner - remaining position aimed at the terminal DOL.",
+      "Premature entry - entry before the required LTF sequence has completed."
+    ],
+    "beginner_summary": "unspecified",
+    "concept_relationships_summary": "unspecified",
+    "practical_chart_exercise": "unspecified",
+    "self_test_questions": [
+      "What three LTF events must usually print before a continuation entry?",
+      "What is the preferred order of entry refinement?",
+      "How does trade invalidation differ from narrative invalidation?",
+      "Where do partial and terminal targets come from?",
+      "List the eight items on the pre-entry checklist."
+    ],
+    "common_misconceptions": [],
+    "research_sources_cited_in_text": []
+  }
+}

@@ -1,0 +1,606 @@
+{
+  "level": "advanced",
+  "module_number": 17,
+  "module_title": "Advanced Risk & Trade Management",
+  "module_intro": "Subtopics: Invalidation, Position Sizing, Daily Risk Limits, Partials, R:R as Outcome, Overtrading, Revenge Trading, Model Invalidation, Psychological Discipline.",
+  "prerequisites_stated_in_text": "Advanced Modules 1--16. Risk management is treated strictly inside the execution of ICT models. Generic trading-psychology content is omitted; only the disciplines that protect narrative-driven process are included.",
+  "module_objectives": [
+    "Place logical stops at narrative-relevant invalidation levels rather than arbitrary distances.",
+    "Size positions so that a single trade risk stays inside a predefined fraction of equity.",
+    "Enforce a maximum daily risk and a daily loss limit that terminate trading for the session.",
+    "Treat risk/reward as an outcome of the narrative's geometry, not as a filter that rejects valid ICT models.",
+    "Apply partial profit-taking without abandoning a still-valid terminal Draw on Liquidity.",
+    "Recognise and stop overtrading and revenge trading the moment they appear.",
+    "Retire models and bias immediately upon narrative invalidation.",
+    "Maintain the psychological discipline required to stand aside when no model is authorised.",
+    "Beyond the far side of the entry PD array,",
+    "Beyond the origin of the displacement that created the array,",
+    "Beyond a structural point whose breach would invalidate the internal or external MSS.",
+    "Open positions that depended on the old narrative are closed or managed to the new invalidation.",
+    "No new entries in the old direction are permitted.",
+    "A new narrative and bias must be constructed before any opposing model is authorised.",
+    "Stand aside when bias is unclear or no model is authorised.",
+    "Wait for the full LTF conditioning sequence; do not anticipate.",
+    "Respect both trade and narrative invalidation without moving stops farther away.",
+    "Accept \"no trade today\" as a successful process outcome.",
+    "Do not increase size to recover losses.",
+    "Do not trade a model that the selection filters have rejected.",
+    "Daily risk ceiling and daily loss limit are set and visible.",
+    "Position-sizing rule is fixed for the day.",
+    "Model selection shortlist is written (or explicitly empty).",
+    "Invalidation philosophy (logical, narrative-based) is reaffirmed.",
+    "Record entry, invalidation, targets, size, and outcome.",
+    "Record whether trade invalidation and/or narrative invalidation was hit.",
+    "Update remaining daily risk capacity.",
+    "If daily loss limit is reached, stop trading.",
+    "If narrative is invalidated, rewrite bias before any new model is considered."
+  ],
+  "concepts": [
+    {
+      "id": "ADV-M17-C01",
+      "kind": "concept",
+      "name": "Invalidation as the Core Risk Concept",
+      "definition": "Stops are placed at levels that, if reached, negate the premise of the trade:\n\n1546. Beyond the far side of the entry PD array,\n\n1547. Beyond the origin of the displacement that created the array,\n\n1548. Beyond a structural point whose breach would invalidate the internal or external MSS.\n\nArbitrary fixed-pip or fixed-percentage stops that ignore the narrative geometry are inferior. A stop that is \"too wide\" relative to the first target may simply mean the trade is not worth taking; it does not justify moving the stop closer to a non-logical level.",
+      "ict_specific_meaning": "Stops are placed at levels that, if reached, negate the premise of the trade:\n\n1546. Beyond the far side of the entry PD array,\n\n1547. Beyond the origin of the displacement that created the array,\n\n1548. Beyond a structural point whose breach would invalidate the internal or external MSS.\n\nArbitrary fixed-pip or fixed-percentage stops that ignore the narrative geometry are inferior. A stop that is \"too wide\" relative to the first target may simply mean the trade is not worth taking; it does not justify moving the stop closer to a non-logical level.",
+      "what_changed_from_beginner_level": "unspecified",
+      "detection_criteria": [
+        "unspecified - see raw_sections"
+      ],
+      "numeric_or_narrative_example": "unspecified",
+      "why_it_matters": "unspecified",
+      "beginner_mistakes_or_misinterpretations": [],
+      "raw_sections": {
+        "Logical Stop Placement": "Stops are placed at levels that, if reached, negate the premise of the trade:\n\n1546. Beyond the far side of the entry PD array,\n\n1547. Beyond the origin of the displacement that created the array,\n\n1548. Beyond a structural point whose breach would invalidate the internal or external MSS.\n\nArbitrary fixed-pip or fixed-percentage stops that ignore the narrative geometry are inferior. A stop that is \"too wide\" relative to the first target may simply mean the trade is not worth taking; it does not justify moving the stop closer to a non-logical level.",
+        "Trade vs Narrative Invalidation": "As established in Module 16: trade invalidation ends the specific entry; narrative invalidation ends the bias and forbids further models in the old direction. Both are defined before entry and are respected without negotiation.\n\n**Evidence Classification:** *A/B - Logical, structure- and array-based invalidation is consistent with ICT practice; fixed-pip stops are not ICT doctrine.*"
+      },
+      "dependencies": [],
+      "attribution_type": "community_interpretation",
+      "cited_sources_in_text": [],
+      "book_location": {
+        "level": "advanced",
+        "module_number": 17,
+        "module_title": "Advanced Risk & Trade Management",
+        "section_heading": "Invalidation as the Core Risk Concept"
+      },
+      "confidence_note": "unspecified"
+    },
+    {
+      "id": "ADV-M17-C02",
+      "kind": "concept",
+      "name": "Position Sizing",
+      "definition": "Position size is calculated from the distance between entry and trade invalidation so that the monetary (or percentage) loss at the stop equals a predetermined risk unit (commonly 0.25 - 1 % of equity, chosen by the individual and held constant). Formula conceptually: Size = (Account risk amount) / (Entry - Invalidation distance).",
+      "ict_specific_meaning": "Position size is calculated from the distance between entry and trade invalidation so that the monetary (or percentage) loss at the stop equals a predetermined risk unit (commonly 0.25 - 1 % of equity, chosen by the individual and held constant). Formula conceptually: Size = (Account risk amount) / (Entry - Invalidation distance).",
+      "what_changed_from_beginner_level": "unspecified",
+      "detection_criteria": [
+        "unspecified - see raw_sections"
+      ],
+      "numeric_or_narrative_example": "unspecified",
+      "why_it_matters": "unspecified",
+      "beginner_mistakes_or_misinterpretations": [],
+      "raw_sections": {
+        "Risk per Trade": "Position size is calculated from the distance between entry and trade invalidation so that the monetary (or percentage) loss at the stop equals a predetermined risk unit (commonly 0.25 - 1 % of equity, chosen by the individual and held constant). Formula conceptually: Size = (Account risk amount) / (Entry - Invalidation distance).",
+        "No Size Negotiation After the Fact": "Once the invalidation is set by the narrative, size is the residual. The student does not enlarge size by tightening a non-logical stop, nor reduce a valid stop to justify a larger size."
+      },
+      "dependencies": [],
+      "attribution_type": "community_interpretation",
+      "cited_sources_in_text": [],
+      "book_location": {
+        "level": "advanced",
+        "module_number": 17,
+        "module_title": "Advanced Risk & Trade Management",
+        "section_heading": "Position Sizing"
+      },
+      "confidence_note": "unspecified"
+    },
+    {
+      "id": "ADV-M17-C03",
+      "kind": "concept",
+      "name": "Maximum Daily Risk and Daily Loss Limit",
+      "definition": "A hard ceiling on the sum of risk committed across all trades in a session (e.g., 1 - 2 % of equity). When the ceiling is reached, no new risk is added even if a perfect model appears.",
+      "ict_specific_meaning": "A hard ceiling on the sum of risk committed across all trades in a session (e.g., 1 - 2 % of equity). When the ceiling is reached, no new risk is added even if a perfect model appears.",
+      "what_changed_from_beginner_level": "unspecified",
+      "detection_criteria": [
+        "unspecified - see raw_sections"
+      ],
+      "numeric_or_narrative_example": "unspecified",
+      "why_it_matters": "unspecified",
+      "beginner_mistakes_or_misinterpretations": [],
+      "raw_sections": {
+        "Maximum Daily Risk": "A hard ceiling on the sum of risk committed across all trades in a session (e.g., 1 - 2 % of equity). When the ceiling is reached, no new risk is added even if a perfect model appears.",
+        "Daily Loss Limit": "A hard floor on realised plus unrealised loss for the day (e.g., 1 - 3 % of equity). When the limit is hit, trading for that session terminates. The purpose is to protect the account from the sequence of decisions that often follows early losses.",
+        "Relationship to Narrative": "Daily limits are process controls. They do not improve the quality of any single ICT model; they prevent the destruction of capital when the day's narrative is difficult or the trader's execution is impaired."
+      },
+      "dependencies": [],
+      "attribution_type": "community_interpretation",
+      "cited_sources_in_text": [],
+      "book_location": {
+        "level": "advanced",
+        "module_number": 17,
+        "module_title": "Advanced Risk & Trade Management",
+        "section_heading": "Maximum Daily Risk and Daily Loss Limit"
+      },
+      "confidence_note": "unspecified"
+    },
+    {
+      "id": "ADV-M17-C04",
+      "kind": "concept",
+      "name": "Risk/Reward as Outcome, Not Filter",
+      "definition": "In ICT narrative trading, the geometry of the delivery leg (entry at a discount/premium array, target at a liquidity pool) produces a risk/reward ratio as a consequence. That ratio is observed and recorded; it is not used as a primary filter that rejects an otherwise perfect narrative-aligned model solely because the ratio is \"only\" 1.5 : 1 or 2 : 1. Conversely, a high R:R that requires a non-logical stop or a fantasy target is not a justification for taking a low-quality narrative. Narrative quality first; R:R is the measured result.\n\n**Evidence Classification:** *C - The explicit ranking of narrative quality above a fixed R:R threshold is advanced process synthesis consistent with ICT's emphasis on delivery and liquidity over mechanical filters.*",
+      "ict_specific_meaning": "In ICT narrative trading, the geometry of the delivery leg (entry at a discount/premium array, target at a liquidity pool) produces a risk/reward ratio as a consequence. That ratio is observed and recorded; it is not used as a primary filter that rejects an otherwise perfect narrative-aligned model solely because the ratio is \"only\" 1.5 : 1 or 2 : 1. Conversely, a high R:R that requires a non-logical stop or a fantasy target is not a justification for taking a low-quality narrative. Narrative quality first; R:R is the measured result.\n\n**Evidence Classification:** *C - The explicit ranking of narrative quality above a fixed R:R threshold is advanced process synthesis consistent with ICT's emphasis on delivery and liquidity over mechanical filters.*",
+      "what_changed_from_beginner_level": "unspecified",
+      "detection_criteria": [
+        "unspecified - see definition field"
+      ],
+      "numeric_or_narrative_example": "unspecified",
+      "why_it_matters": "unspecified",
+      "beginner_mistakes_or_misinterpretations": [],
+      "raw_sections": {
+        "Full Text": "In ICT narrative trading, the geometry of the delivery leg (entry at a discount/premium array, target at a liquidity pool) produces a risk/reward ratio as a consequence. That ratio is observed and recorded; it is not used as a primary filter that rejects an otherwise perfect narrative-aligned model solely because the ratio is \"only\" 1.5 : 1 or 2 : 1. Conversely, a high R:R that requires a non-logical stop or a fantasy target is not a justification for taking a low-quality narrative. Narrative quality first; R:R is the measured result.\n\n**Evidence Classification:** *C - The explicit ranking of narrative quality above a fixed R:R threshold is advanced process synthesis consistent with ICT's emphasis on delivery and liquidity over mechanical filters.*"
+      },
+      "dependencies": [],
+      "attribution_type": "community_interpretation",
+      "cited_sources_in_text": [],
+      "book_location": {
+        "level": "advanced",
+        "module_number": 17,
+        "module_title": "Advanced Risk & Trade Management",
+        "section_heading": "Risk/Reward as Outcome, Not Filter"
+      },
+      "confidence_note": "unspecified"
+    },
+    {
+      "id": "ADV-M17-C05",
+      "kind": "concept",
+      "name": "Partial Profit-Taking and Target Liquidity",
+      "definition": "Partial exits at the first high-quality intermediate pool (Module 3 liquidity hierarchy) reduce risk and lock a portion of the narrative's expected delivery. The remaining runner continues toward the terminal Draw on Liquidity while the narrative remains valid.",
+      "ict_specific_meaning": "Partial exits at the first high-quality intermediate pool (Module 3 liquidity hierarchy) reduce risk and lock a portion of the narrative's expected delivery. The remaining runner continues toward the terminal Draw on Liquidity while the narrative remains valid.",
+      "what_changed_from_beginner_level": "unspecified",
+      "detection_criteria": [
+        "unspecified - see raw_sections"
+      ],
+      "numeric_or_narrative_example": "unspecified",
+      "why_it_matters": "unspecified",
+      "beginner_mistakes_or_misinterpretations": [],
+      "raw_sections": {
+        "Partials at Intermediate Liquidity": "Partial exits at the first high-quality intermediate pool (Module 3 liquidity hierarchy) reduce risk and lock a portion of the narrative's expected delivery. The remaining runner continues toward the terminal Draw on Liquidity while the narrative remains valid.",
+        "No Abandonment of the Terminal DOL": "Taking a partial does not authorise closing the entire position simply because \"some profit is banked.\" The runner is closed when the terminal target is reached, when narrative invalidation prints, or when a predetermined trailing rule tied to structure is triggered."
+      },
+      "dependencies": [],
+      "attribution_type": "community_interpretation",
+      "cited_sources_in_text": [],
+      "book_location": {
+        "level": "advanced",
+        "module_number": 17,
+        "module_title": "Advanced Risk & Trade Management",
+        "section_heading": "Partial Profit-Taking and Target Liquidity"
+      },
+      "confidence_note": "unspecified"
+    },
+    {
+      "id": "ADV-M17-C06",
+      "kind": "concept",
+      "name": "Model Invalidation",
+      "definition": "When the narrative or bias is invalidated:\n\n1549. Open positions that depended on the old narrative are closed or managed to the new invalidation.\n\n1550. No new entries in the old direction are permitted.\n\n1551. A new narrative and bias must be constructed before any opposing model is authorised.\n\nModel invalidation is not optional. Continuing to trade a retired model is a process failure.",
+      "ict_specific_meaning": "When the narrative or bias is invalidated:\n\n1549. Open positions that depended on the old narrative are closed or managed to the new invalidation.\n\n1550. No new entries in the old direction are permitted.\n\n1551. A new narrative and bias must be constructed before any opposing model is authorised.\n\nModel invalidation is not optional. Continuing to trade a retired model is a process failure.",
+      "what_changed_from_beginner_level": "unspecified",
+      "detection_criteria": [
+        "Open positions that depended on the old narrative are closed or managed to the new invalidation.",
+        "No new entries in the old direction are permitted.",
+        "A new narrative and bias must be constructed before any opposing model is authorised."
+      ],
+      "numeric_or_narrative_example": "unspecified",
+      "why_it_matters": "unspecified",
+      "beginner_mistakes_or_misinterpretations": [],
+      "raw_sections": {
+        "Full Text": "When the narrative or bias is invalidated:\n\n1549. Open positions that depended on the old narrative are closed or managed to the new invalidation.\n\n1550. No new entries in the old direction are permitted.\n\n1551. A new narrative and bias must be constructed before any opposing model is authorised.\n\nModel invalidation is not optional. Continuing to trade a retired model is a process failure."
+      },
+      "dependencies": [],
+      "attribution_type": "community_interpretation",
+      "cited_sources_in_text": [],
+      "book_location": {
+        "level": "advanced",
+        "module_number": 17,
+        "module_title": "Advanced Risk & Trade Management",
+        "section_heading": "Model Invalidation"
+      },
+      "confidence_note": "unspecified"
+    },
+    {
+      "id": "ADV-M17-C07",
+      "kind": "concept",
+      "name": "Overtrading",
+      "definition": "Overtrading is the taking of trades that fail the model-selection filters of Module 15 or the pre-entry checklist of Module 16, usually because the student feels the need to be in the market. It includes: trading outside the authorised session window, trading when bias is unclear, trading lower-quality arrays, and adding risk after the daily risk ceiling has been reached.",
+      "ict_specific_meaning": "Overtrading is the taking of trades that fail the model-selection filters of Module 15 or the pre-entry checklist of Module 16, usually because the student feels the need to be in the market. It includes: trading outside the authorised session window, trading when bias is unclear, trading lower-quality arrays, and adding risk after the daily risk ceiling has been reached.",
+      "what_changed_from_beginner_level": "unspecified",
+      "detection_criteria": [
+        "unspecified - see raw_sections"
+      ],
+      "numeric_or_narrative_example": "unspecified",
+      "why_it_matters": "unspecified",
+      "beginner_mistakes_or_misinterpretations": [],
+      "raw_sections": {
+        "Definition in This Framework": "Overtrading is the taking of trades that fail the model-selection filters of Module 15 or the pre-entry checklist of Module 16, usually because the student feels the need to be in the market. It includes: trading outside the authorised session window, trading when bias is unclear, trading lower-quality arrays, and adding risk after the daily risk ceiling has been reached.",
+        "Counter-Measure": "The pre-session model-selection procedure and the pre-entry checklist are the primary defences. When the shortlist is empty, the correct action is zero trades."
+      },
+      "dependencies": [],
+      "attribution_type": "community_interpretation",
+      "cited_sources_in_text": [],
+      "book_location": {
+        "level": "advanced",
+        "module_number": 17,
+        "module_title": "Advanced Risk & Trade Management",
+        "section_heading": "Overtrading"
+      },
+      "confidence_note": "unspecified"
+    },
+    {
+      "id": "ADV-M17-C08",
+      "kind": "concept",
+      "name": "Revenge Trading",
+      "definition": "Revenge trading is the attempt to recover a loss by immediately taking another trade that would not have been authorised by the narrative and filters. It is almost always accompanied by increased size, loosened invalidation, or both.",
+      "ict_specific_meaning": "Revenge trading is the attempt to recover a loss by immediately taking another trade that would not have been authorised by the narrative and filters. It is almost always accompanied by increased size, loosened invalidation, or both.",
+      "what_changed_from_beginner_level": "unspecified",
+      "detection_criteria": [
+        "unspecified - see raw_sections"
+      ],
+      "numeric_or_narrative_example": "unspecified",
+      "why_it_matters": "unspecified",
+      "beginner_mistakes_or_misinterpretations": [],
+      "raw_sections": {
+        "Definition": "Revenge trading is the attempt to recover a loss by immediately taking another trade that would not have been authorised by the narrative and filters. It is almost always accompanied by increased size, loosened invalidation, or both.",
+        "Counter-Measure": "After a losing trade, the student returns to the narrative stack and the selection procedure. If the narrative is still valid and a new qualifying sequence appears, a normal-sized trade may be taken. If the narrative is invalidated or no sequence appears, the session continues with no further risk. The daily loss limit is the final backstop."
+      },
+      "dependencies": [],
+      "attribution_type": "community_interpretation",
+      "cited_sources_in_text": [],
+      "book_location": {
+        "level": "advanced",
+        "module_number": 17,
+        "module_title": "Advanced Risk & Trade Management",
+        "section_heading": "Revenge Trading"
+      },
+      "confidence_note": "unspecified"
+    },
+    {
+      "id": "ADV-M17-C09",
+      "kind": "concept",
+      "name": "Psychological Discipline Specific to ICT Process",
+      "definition": "The disciplines required by this textbook are narrow and concrete:\n\n1552. Stand aside when bias is unclear or no model is authorised.\n\n1553. Wait for the full LTF conditioning sequence; do not anticipate.\n\n1554. Respect both trade and narrative invalidation without moving stops farther away.\n\n1555. Accept \"no trade today\" as a successful process outcome.\n\n1556. Do not increase size to recover losses.\n\n1557. Do not trade a model that the selection filters have rejected.\n\nThese are process rules, not personality goals. They are either followed or they are not; the equity curve records the difference.",
+      "ict_specific_meaning": "The disciplines required by this textbook are narrow and concrete:\n\n1552. Stand aside when bias is unclear or no model is authorised.\n\n1553. Wait for the full LTF conditioning sequence; do not anticipate.\n\n1554. Respect both trade and narrative invalidation without moving stops farther away.\n\n1555. Accept \"no trade today\" as a successful process outcome.\n\n1556. Do not increase size to recover losses.\n\n1557. Do not trade a model that the selection filters have rejected.\n\nThese are process rules, not personality goals. They are either followed or they are not; the equity curve records the difference.",
+      "what_changed_from_beginner_level": "unspecified",
+      "detection_criteria": [
+        "Stand aside when bias is unclear or no model is authorised.",
+        "Wait for the full LTF conditioning sequence; do not anticipate.",
+        "Respect both trade and narrative invalidation without moving stops farther away.",
+        "Accept \"no trade today\" as a successful process outcome.",
+        "Do not increase size to recover losses.",
+        "Do not trade a model that the selection filters have rejected."
+      ],
+      "numeric_or_narrative_example": "unspecified",
+      "why_it_matters": "unspecified",
+      "beginner_mistakes_or_misinterpretations": [],
+      "raw_sections": {
+        "Full Text": "The disciplines required by this textbook are narrow and concrete:\n\n1552. Stand aside when bias is unclear or no model is authorised.\n\n1553. Wait for the full LTF conditioning sequence; do not anticipate.\n\n1554. Respect both trade and narrative invalidation without moving stops farther away.\n\n1555. Accept \"no trade today\" as a successful process outcome.\n\n1556. Do not increase size to recover losses.\n\n1557. Do not trade a model that the selection filters have rejected.\n\nThese are process rules, not personality goals. They are either followed or they are not; the equity curve records the difference."
+      },
+      "dependencies": [],
+      "attribution_type": "community_interpretation",
+      "cited_sources_in_text": [],
+      "book_location": {
+        "level": "advanced",
+        "module_number": 17,
+        "module_title": "Advanced Risk & Trade Management",
+        "section_heading": "Psychological Discipline Specific to ICT Process"
+      },
+      "confidence_note": "unspecified"
+    },
+    {
+      "id": "ADV-M17-C10",
+      "kind": "concept",
+      "name": "Pre-Session and Post-Trade Risk Checklist",
+      "definition": "- Daily risk ceiling and daily loss limit are set and visible.\n\n- Position-sizing rule is fixed for the day.\n\n- Model selection shortlist is written (or explicitly empty).\n\n- Invalidation philosophy (logical, narrative-based) is reaffirmed.",
+      "ict_specific_meaning": "- Daily risk ceiling and daily loss limit are set and visible.\n\n- Position-sizing rule is fixed for the day.\n\n- Model selection shortlist is written (or explicitly empty).\n\n- Invalidation philosophy (logical, narrative-based) is reaffirmed.",
+      "what_changed_from_beginner_level": "unspecified",
+      "detection_criteria": [
+        "unspecified - see raw_sections"
+      ],
+      "numeric_or_narrative_example": "unspecified",
+      "why_it_matters": "unspecified",
+      "beginner_mistakes_or_misinterpretations": [],
+      "raw_sections": {
+        "Pre-Session": "- Daily risk ceiling and daily loss limit are set and visible.\n\n- Position-sizing rule is fixed for the day.\n\n- Model selection shortlist is written (or explicitly empty).\n\n- Invalidation philosophy (logical, narrative-based) is reaffirmed.",
+        "After Each Trade": "- Record entry, invalidation, targets, size, and outcome.\n\n- Record whether trade invalidation and/or narrative invalidation was hit.\n\n- Update remaining daily risk capacity.\n\n- If daily loss limit is reached, stop trading.\n\n- If narrative is invalidated, rewrite bias before any new model is considered."
+      },
+      "dependencies": [],
+      "attribution_type": "community_interpretation",
+      "cited_sources_in_text": [],
+      "book_location": {
+        "level": "advanced",
+        "module_number": 17,
+        "module_title": "Advanced Risk & Trade Management",
+        "section_heading": "Pre-Session and Post-Trade Risk Checklist"
+      },
+      "confidence_note": "unspecified"
+    }
+  ],
+  "module_synthesis": {
+    "relationship_to_prior_level": [],
+    "worked_narrative_examples": [
+      {
+        "id": "ADV-M17-C11",
+        "kind": "concept",
+        "name": "Worked Risk Example",
+        "definition": "Account equity: 100 000. Risk per trade: 0.5 % = 500. Daily loss limit: 1.5 % = 1 500. Daily risk ceiling: 1.5 %.\n\nSelected model: long at 1.0650, trade invalidation 1.0620 (30 pips). Position size is set so that 30 pips = 500 risk.\n\nFirst target: 1.0780 (partial 50 %). Terminal: 1.1200 (runner).\n\nIf stopped: loss 500; remaining daily risk capacity 1 000; narrative still intact, so a second qualifying trade remains possible.\n\nIf daily loss limit is later reached: trading stops for the session even if a third perfect model appears.\n\nIf weekly invalidation prints while the runner is open: runner is closed; bias is rewritten; no further longs until a new bullish narrative is constructed.",
+        "ict_specific_meaning": "Account equity: 100 000. Risk per trade: 0.5 % = 500. Daily loss limit: 1.5 % = 1 500. Daily risk ceiling: 1.5 %.\n\nSelected model: long at 1.0650, trade invalidation 1.0620 (30 pips). Position size is set so that 30 pips = 500 risk.\n\nFirst target: 1.0780 (partial 50 %). Terminal: 1.1200 (runner).\n\nIf stopped: loss 500; remaining daily risk capacity 1 000; narrative still intact, so a second qualifying trade remains possible.\n\nIf daily loss limit is later reached: trading stops for the session even if a third perfect model appears.\n\nIf weekly invalidation prints while the runner is open: runner is closed; bias is rewritten; no further longs until a new bullish narrative is constructed.",
+        "what_changed_from_beginner_level": "unspecified",
+        "detection_criteria": [
+          "unspecified - see definition field"
+        ],
+        "numeric_or_narrative_example": "unspecified",
+        "why_it_matters": "unspecified",
+        "beginner_mistakes_or_misinterpretations": [],
+        "raw_sections": {
+          "Full Text": "Account equity: 100 000. Risk per trade: 0.5 % = 500. Daily loss limit: 1.5 % = 1 500. Daily risk ceiling: 1.5 %.\n\nSelected model: long at 1.0650, trade invalidation 1.0620 (30 pips). Position size is set so that 30 pips = 500 risk.\n\nFirst target: 1.0780 (partial 50 %). Terminal: 1.1200 (runner).\n\nIf stopped: loss 500; remaining daily risk capacity 1 000; narrative still intact, so a second qualifying trade remains possible.\n\nIf daily loss limit is later reached: trading stops for the session even if a third perfect model appears.\n\nIf weekly invalidation prints while the runner is open: runner is closed; bias is rewritten; no further longs until a new bullish narrative is constructed."
+        },
+        "dependencies": [],
+        "attribution_type": "community_interpretation",
+        "cited_sources_in_text": [],
+        "book_location": {
+          "level": "advanced",
+          "module_number": 17,
+          "module_title": "Advanced Risk & Trade Management",
+          "section_heading": "Worked Risk Example"
+        },
+        "confidence_note": "unspecified"
+      }
+    ],
+    "failure_conditions": [],
+    "common_misinterpretations": [
+      {
+        "id": "ADV-M17-C12",
+        "kind": "concept",
+        "name": "Common Misinterpretations",
+        "definition": "1558. Using fixed-pip stops that ignore the array and structure.\n\n1559. Rejecting a high-quality narrative solely because R:R is below an arbitrary number.\n\n1560. Widening the stop after entry to \"give it room.\"\n\n1561. Continuing to trade after the daily loss limit has been hit.\n\n1562. Revenge-sizing the next trade after a loss.\n\n1563. Treating \"I need to make back the loss\" as a valid reason to select a model.\n\n1564. Ignoring narrative invalidation because the trade is still open and \"might come back.\"",
+        "ict_specific_meaning": "1558. Using fixed-pip stops that ignore the array and structure.\n\n1559. Rejecting a high-quality narrative solely because R:R is below an arbitrary number.\n\n1560. Widening the stop after entry to \"give it room.\"\n\n1561. Continuing to trade after the daily loss limit has been hit.\n\n1562. Revenge-sizing the next trade after a loss.\n\n1563. Treating \"I need to make back the loss\" as a valid reason to select a model.\n\n1564. Ignoring narrative invalidation because the trade is still open and \"might come back.\"",
+        "what_changed_from_beginner_level": "unspecified",
+        "detection_criteria": [
+          "Using fixed-pip stops that ignore the array and structure.",
+          "Rejecting a high-quality narrative solely because R:R is below an arbitrary number.",
+          "Widening the stop after entry to \"give it room.\"",
+          "Continuing to trade after the daily loss limit has been hit.",
+          "Revenge-sizing the next trade after a loss.",
+          "Treating \"I need to make back the loss\" as a valid reason to select a model.",
+          "Ignoring narrative invalidation because the trade is still open and \"might come back.\""
+        ],
+        "numeric_or_narrative_example": "unspecified",
+        "why_it_matters": "unspecified",
+        "beginner_mistakes_or_misinterpretations": [],
+        "raw_sections": {
+          "Full Text": "1558. Using fixed-pip stops that ignore the array and structure.\n\n1559. Rejecting a high-quality narrative solely because R:R is below an arbitrary number.\n\n1560. Widening the stop after entry to \"give it room.\"\n\n1561. Continuing to trade after the daily loss limit has been hit.\n\n1562. Revenge-sizing the next trade after a loss.\n\n1563. Treating \"I need to make back the loss\" as a valid reason to select a model.\n\n1564. Ignoring narrative invalidation because the trade is still open and \"might come back.\""
+        },
+        "dependencies": [],
+        "attribution_type": "community_interpretation",
+        "cited_sources_in_text": [],
+        "book_location": {
+          "level": "advanced",
+          "module_number": 17,
+          "module_title": "Advanced Risk & Trade Management",
+          "section_heading": "Common Misinterpretations"
+        },
+        "confidence_note": "unspecified"
+      }
+    ],
+    "evidence_summary": [
+      {
+        "id": "ADV-M17-C13",
+        "kind": "concept",
+        "name": "Evidence Summary",
+        "definition": "Logical, structure- and liquidity-based invalidation, targeting of liquidity pools, and the subordination of risk parameters to narrative quality are consistent with ICT emphasis on delivery and institutional order flow. Specific percentage risk limits, daily loss limits, and the formal ranking of narrative above fixed R:R thresholds are advanced process controls that protect the application of ICT models; they are not themselves ICT price-action doctrine.\n\n***Source / Research note:** Primary orientation: ICT practice of array- and structure-based stops and liquidity targets. Position-sizing formulas, daily limits, and anti-revenge rules are standard professional risk process applied to the ICT narrative framework.*",
+        "ict_specific_meaning": "Logical, structure- and liquidity-based invalidation, targeting of liquidity pools, and the subordination of risk parameters to narrative quality are consistent with ICT emphasis on delivery and institutional order flow. Specific percentage risk limits, daily loss limits, and the formal ranking of narrative above fixed R:R thresholds are advanced process controls that protect the application of ICT models; they are not themselves ICT price-action doctrine.\n\n***Source / Research note:** Primary orientation: ICT practice of array- and structure-based stops and liquidity targets. Position-sizing formulas, daily limits, and anti-revenge rules are standard professional risk process applied to the ICT narrative framework.*",
+        "what_changed_from_beginner_level": "unspecified",
+        "detection_criteria": [
+          "unspecified - see definition field"
+        ],
+        "numeric_or_narrative_example": "unspecified",
+        "why_it_matters": "unspecified",
+        "beginner_mistakes_or_misinterpretations": [],
+        "raw_sections": {
+          "Full Text": "Logical, structure- and liquidity-based invalidation, targeting of liquidity pools, and the subordination of risk parameters to narrative quality are consistent with ICT emphasis on delivery and institutional order flow. Specific percentage risk limits, daily loss limits, and the formal ranking of narrative above fixed R:R thresholds are advanced process controls that protect the application of ICT models; they are not themselves ICT price-action doctrine.\n\n***Source / Research note:** Primary orientation: ICT practice of array- and structure-based stops and liquidity targets. Position-sizing formulas, daily limits, and anti-revenge rules are standard professional risk process applied to the ICT narrative framework.*"
+        },
+        "dependencies": [],
+        "attribution_type": "community_interpretation",
+        "cited_sources_in_text": [
+          "Primary orientation: ICT practice of array- and structure-based stops and liquidity targets. Position-sizing formulas, daily limits, and anti-revenge rules are standard professional risk process applied to the ICT narrative framework."
+        ],
+        "book_location": {
+          "level": "advanced",
+          "module_number": 17,
+          "module_title": "Advanced Risk & Trade Management",
+          "section_heading": "Evidence Summary"
+        },
+        "confidence_note": "Primary orientation: ICT practice of array- and structure-based stops and liquidity targets. Position-sizing formulas, daily limits, and anti-revenge rules are standard professional risk process applied to the ICT narrative framework."
+      }
+    ]
+  },
+  "rules": [
+    {
+      "id": "ADV-M17-R01",
+      "kind": "rule",
+      "rule_type": "invalidation",
+      "statement": "Logical stop placement: beyond the far side of the entry PD array; beyond the origin of the displacement that created the array; beyond a structural point whose breach would invalidate the internal/external MSS. Arbitrary fixed-pip or fixed-percentage stops that ignore narrative geometry are inferior. A stop 'too wide' relative to the first target may simply mean the trade is not worth taking -- it does not justify moving the stop closer to a non-logical level.",
+      "applies_to": [
+        "Invalidation as the Core Risk Concept"
+      ],
+      "conditions": [],
+      "exceptions_or_qualifiers": "unspecified",
+      "book_location": {
+        "level": "advanced",
+        "module_number": 17,
+        "module_title": "Advanced Risk & Trade Management",
+        "section_heading": "Invalidation as the Core Risk Concept"
+      },
+      "attribution_type": "community_interpretation"
+    },
+    {
+      "id": "ADV-M17-R02",
+      "kind": "rule",
+      "rule_type": "risk",
+      "statement": "Position sizing: size is calculated from the distance between entry and trade invalidation so the monetary/percentage loss at the stop equals a predetermined risk unit (commonly 0.25-1% of equity, chosen by the individual and held constant). Formula: Size = (Account risk amount) / (Entry - Invalidation distance). Once invalidation is set by the narrative, size is the residual -- do not enlarge size by tightening a non-logical stop, nor reduce a valid stop to justify a larger size.",
+      "applies_to": [
+        "Position Sizing"
+      ],
+      "conditions": [],
+      "exceptions_or_qualifiers": "unspecified",
+      "book_location": {
+        "level": "advanced",
+        "module_number": 17,
+        "module_title": "Advanced Risk & Trade Management",
+        "section_heading": "Position Sizing"
+      },
+      "attribution_type": "community_interpretation"
+    },
+    {
+      "id": "ADV-M17-R03",
+      "kind": "rule",
+      "rule_type": "risk",
+      "statement": "Maximum daily risk: a hard ceiling on the sum of risk committed across all trades in a session (e.g. 1-2% of equity) -- when reached, no new risk is added even if a perfect model appears. Daily loss limit: a hard floor on realised plus unrealised loss for the day (e.g. 1-3% of equity) -- when hit, trading for that session terminates. These are process controls that do not improve the quality of any single model; they prevent capital destruction when the day's narrative is difficult or execution is impaired.",
+      "applies_to": [
+        "Maximum Daily Risk and Daily Loss Limit"
+      ],
+      "conditions": [],
+      "exceptions_or_qualifiers": "unspecified",
+      "book_location": {
+        "level": "advanced",
+        "module_number": 17,
+        "module_title": "Advanced Risk & Trade Management",
+        "section_heading": "Maximum Daily Risk and Daily Loss Limit"
+      },
+      "attribution_type": "community_interpretation"
+    },
+    {
+      "id": "ADV-M17-R04",
+      "kind": "rule",
+      "rule_type": "other",
+      "statement": "Risk/reward is an outcome, not a filter: the geometry of the delivery leg (entry at a discount/premium array, target at a liquidity pool) produces an R:R ratio as a consequence -- observed and recorded, not used as a primary filter to reject an otherwise perfect narrative-aligned model solely because the ratio is 'only' 1.5:1 or 2:1. Conversely, a high R:R requiring a non-logical stop or fantasy target does not justify a low-quality narrative. Narrative quality first; R:R is the measured result.",
+      "applies_to": [
+        "Risk/Reward as Outcome, Not Filter"
+      ],
+      "conditions": [],
+      "exceptions_or_qualifiers": "Evidence classified as C: explicit ranking of narrative quality above a fixed R:R threshold is advanced process synthesis consistent with ICT's emphasis on delivery/liquidity over mechanical filters, not a directly quoted ICT rule.",
+      "book_location": {
+        "level": "advanced",
+        "module_number": 17,
+        "module_title": "Advanced Risk & Trade Management",
+        "section_heading": "Risk/Reward as Outcome, Not Filter"
+      },
+      "attribution_type": "book_synthesis"
+    },
+    {
+      "id": "ADV-M17-R05",
+      "kind": "rule",
+      "rule_type": "trade_management",
+      "statement": "Partial exits at the first high-quality intermediate liquidity pool reduce risk and lock a portion of expected delivery; the runner continues toward the terminal DOL while narrative remains valid. Taking a partial does not authorise closing the entire position simply because 'some profit is banked' -- the runner is closed when the terminal target is reached, when narrative invalidation prints, or when a predetermined trailing rule tied to structure is triggered.",
+      "applies_to": [
+        "Partial Profit-Taking and Target Liquidity"
+      ],
+      "conditions": [],
+      "exceptions_or_qualifiers": "unspecified",
+      "book_location": {
+        "level": "advanced",
+        "module_number": 17,
+        "module_title": "Advanced Risk & Trade Management",
+        "section_heading": "Partial Profit-Taking and Target Liquidity"
+      },
+      "attribution_type": "community_interpretation"
+    },
+    {
+      "id": "ADV-M17-R06",
+      "kind": "rule",
+      "rule_type": "other",
+      "statement": "Psychological discipline required (process rules, not personality goals): stand aside when bias is unclear or no model is authorised; wait for the full LTF conditioning sequence, do not anticipate; respect both trade and narrative invalidation without moving stops farther away; accept 'no trade today' as a successful process outcome; do not increase size to recover losses; do not trade a model that the selection filters have rejected.",
+      "applies_to": [
+        "Psychological Discipline Specific to ICT Process"
+      ],
+      "conditions": [],
+      "exceptions_or_qualifiers": "unspecified",
+      "book_location": {
+        "level": "advanced",
+        "module_number": 17,
+        "module_title": "Advanced Risk & Trade Management",
+        "section_heading": "Psychological Discipline Specific to ICT Process"
+      },
+      "attribution_type": "book_synthesis"
+    },
+    {
+      "id": "ADV-M17-R07",
+      "kind": "rule",
+      "rule_type": "other",
+      "statement": "Pre-session risk checklist: daily risk ceiling and daily loss limit set and visible; position-sizing rule fixed for the day; model selection shortlist written (or explicitly empty); invalidation philosophy (logical, narrative-based) reaffirmed. After each trade: record entry, invalidation, targets, size, and outcome; record whether trade invalidation and/or narrative invalidation was hit; update remaining daily risk capacity; if daily loss limit is reached, stop trading; if narrative is invalidated, rewrite bias before any new model is considered.",
+      "applies_to": [
+        "Pre-Session and Post-Trade Risk Checklist"
+      ],
+      "conditions": [],
+      "exceptions_or_qualifiers": "unspecified",
+      "book_location": {
+        "level": "advanced",
+        "module_number": 17,
+        "module_title": "Advanced Risk & Trade Management",
+        "section_heading": "Pre-Session and Post-Trade Risk Checklist"
+      },
+      "attribution_type": "book_synthesis"
+    }
+  ],
+  "strategies": [],
+  "examples": [],
+  "relationships": [],
+  "no_trade_conditions": [
+    {
+      "id": "ADV-M17-NT01",
+      "kind": "no_trade_rule",
+      "statement": "Overtrading = taking trades that fail the model-selection filters (Module 15) or the pre-entry checklist (Module 16), usually from feeling the need to be in the market -- includes trading outside the authorised session window, trading when bias is unclear, trading lower-quality arrays, and adding risk after the daily risk ceiling has been reached. When the model shortlist is empty, the correct action is zero trades. Revenge trading = attempting to recover a loss by immediately taking another trade not authorised by the narrative and filters, almost always accompanied by increased size or loosened invalidation -- after a loss, return to the narrative stack and selection procedure; if invalidated or no sequence appears, take no further risk (daily loss limit is the final backstop). Do not use fixed-pip stops that ignore the array and structure. Do not reject a high-quality narrative solely because R:R is below an arbitrary number. Do not widen the stop after entry 'to give it room.' Do not continue trading after the daily loss limit has been hit. Do not revenge-size the next trade after a loss. Do not treat 'I need to make back the loss' as a valid reason to select a model. Do not ignore narrative invalidation because the trade is still open and 'might come back.'",
+      "applies_to_strategy_ids": [],
+      "book_location": {
+        "level": "advanced",
+        "module_number": 17,
+        "module_title": "Advanced Risk & Trade Management",
+        "section_heading": "Overtrading / Revenge Trading / Common Misinterpretations"
+      }
+    },
+    {
+      "id": "ADV-M17-NT02",
+      "kind": "no_trade_rule",
+      "statement": "When the narrative or bias is invalidated: open positions that depended on the old narrative are closed or managed to the new invalidation; no new entries in the old direction are permitted; a new narrative and bias must be constructed before any opposing model is authorised. Continuing to trade a retired model is a process failure.",
+      "applies_to_strategy_ids": [],
+      "book_location": {
+        "level": "advanced",
+        "module_number": 17,
+        "module_title": "Advanced Risk & Trade Management",
+        "section_heading": "Model Invalidation"
+      }
+    }
+  ],
+  "contradictions_or_ambiguities": [],
+  "module_review_notes": {
+    "key_terms": [
+      "Logical stop - invalidation placed at array, displacement origin, or structural failure point.",
+      "Risk per trade - predetermined fraction of equity risked on a single idea.",
+      "Daily risk ceiling - maximum sum of risk committed in one session.",
+      "Daily loss limit - maximum realised + unrealised loss that terminates the session.",
+      "R:R as outcome - risk/reward measured from narrative geometry, not used as a primary filter.",
+      "Model invalidation - retirement of a model when its supporting narrative fails.",
+      "Overtrading - taking trades that fail the selection or pre-entry filters.",
+      "Revenge trading - attempting to recover a loss with an unauthorised or oversized trade."
+    ],
+    "beginner_summary": "unspecified",
+    "concept_relationships_summary": "unspecified",
+    "practical_chart_exercise": "unspecified",
+    "self_test_questions": [
+      "Where should a logical stop be placed?",
+      "How is position size determined once invalidation is fixed?",
+      "What is the correct action when the daily loss limit is hit?",
+      "Why is R:R treated as an outcome rather than a primary filter?",
+      "What distinguishes a normal subsequent trade after a loss from revenge trading?"
+    ],
+    "common_misconceptions": [],
+    "research_sources_cited_in_text": []
+  }
+}

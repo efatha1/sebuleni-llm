@@ -1,0 +1,697 @@
+{
+  "level": "advanced",
+  "module_number": 12,
+  "module_title": "Advanced ICT Sell Model",
+  "module_intro": "Subtopics: Narrative-Conditioned Bearish Delivery Sequences, Variations, Eligibility Conditions, Invalidation & Model Selection.",
+  "prerequisites_stated_in_text": "Advanced Modules 1--11. This module is the exact mirror of Module 11. Labels A--D remain pedagogical organising devices, not official ICT model names. Every short is an expression of the multi-timeframe narrative and bearish bias, never a standalone pattern.",
+  "module_objectives": [
+    "State the core bearish delivery sequence that underlies most ICT short examples.",
+    "Distinguish the common bearish variations (FVG/OTE-centred, Breaker-centred, IFVG-centred, pure PD-array reaction) by the element that supplies the entry.",
+    "Apply the full eligibility checklist before any short entry.",
+    "Select the variation that best matches the active bearish narrative.",
+    "Define trade-level and narrative-level invalidation for every short.",
+    "Maintain full symmetry with the buy-side framework so that directional bias, not preference, decides whether a long or short model is used.",
+    "Higher-timeframe bearish narrative / bias with a named sell-side Draw on Liquidity.",
+    "Price in premium (or returning to premium) of the controlling dealing range.",
+    "Buy-side liquidity is raided (BSL, often relative equal highs or session/Asian high).",
+    "Bearish displacement leaves imbalance and breaks structure (MSS).",
+    "Retracement into a PD array (FVG, Order Block, CE, or refined OTE) that sits in premium.",
+    "Continuation toward the named sell-side DOL.",
+    "Higher-timeframe (at least daily) bias is bearish and not invalidated.",
+    "Named sell-side Draw on Liquidity is still active.",
+    "Price is in premium of the controlling dealing range (or has just raided BSL and is returning into premium).",
+    "Buy-side liquidity has been (or is being) raided as the origin of the leg.",
+    "Bearish displacement and MSS are present.",
+    "The entry array sits in the correct (premium) half of the range and is unmitigated (or is a valid bearish Breaker/IFVG).",
+    "The expected kill zone supports the phase (manipulation complete, distribution active).",
+    "Trade-level and narrative-level invalidation are defined before entry.",
+    "Clean FVG/OB in premium with OTE alignment -> Variation A.",
+    "Prior bullish OB violated and returning as bearish Breaker -> Variation B.",
+    "Prior bullish FVG inverted and holding as resistance -> Variation C.",
+    "Primary reaction at HTF array, LTF only refines -> Variation D.",
+    "Trade invalidation - close beyond the entry array's protective extreme or the displacement origin; ends the specific entry.",
+    "Narrative / bias invalidation - the level or condition in the bearish bias statement; retires the bearish hypothesis and forbids further short models until a new bias is constructed."
+  ],
+  "concepts": [
+    {
+      "id": "ADV-M12-C01",
+      "kind": "concept",
+      "name": "Core Bearish Delivery Sequence",
+      "definition": "High-quality ICT shorts share this skeleton:\n\n1361. Higher-timeframe bearish narrative / bias with a named sell-side Draw on Liquidity.\n\n1362. Price in premium (or returning to premium) of the controlling dealing range.\n\n1363. Buy-side liquidity is raided (BSL, often relative equal highs or session/Asian high).\n\n1364. Bearish displacement leaves imbalance and breaks structure (MSS).\n\n1365. Retracement into a PD array (FVG, Order Block, CE, or refined OTE) that sits in premium.\n\n1366. Continuation toward the named sell-side DOL.",
+      "ict_specific_meaning": "High-quality ICT shorts share this skeleton:\n\n1361. Higher-timeframe bearish narrative / bias with a named sell-side Draw on Liquidity.\n\n1362. Price in premium (or returning to premium) of the controlling dealing range.\n\n1363. Buy-side liquidity is raided (BSL, often relative equal highs or session/Asian high).\n\n1364. Bearish displacement leaves imbalance and breaks structure (MSS).\n\n1365. Retracement into a PD array (FVG, Order Block, CE, or refined OTE) that sits in premium.\n\n1366. Continuation toward the named sell-side DOL.",
+      "what_changed_from_beginner_level": "unspecified",
+      "detection_criteria": [
+        "unspecified - see raw_sections"
+      ],
+      "numeric_or_narrative_example": "unspecified",
+      "why_it_matters": "unspecified",
+      "beginner_mistakes_or_misinterpretations": [],
+      "raw_sections": {
+        "The Common Thread": "High-quality ICT shorts share this skeleton:\n\n1361. Higher-timeframe bearish narrative / bias with a named sell-side Draw on Liquidity.\n\n1362. Price in premium (or returning to premium) of the controlling dealing range.\n\n1363. Buy-side liquidity is raided (BSL, often relative equal highs or session/Asian high).\n\n1364. Bearish displacement leaves imbalance and breaks structure (MSS).\n\n1365. Retracement into a PD array (FVG, Order Block, CE, or refined OTE) that sits in premium.\n\n1366. Continuation toward the named sell-side DOL.",
+        "Symmetry with Module 11": "Every element is the mirror of the bullish skeleton. The advanced student who has internalised Module 11 needs only to invert direction, liquidity side, and premium/discount location.\n\n**Evidence Classification:** *A/B - The bearish skeleton is the consistent mirror of the bullish sequences demonstrated throughout ICT teaching. Pedagogical variation labels are not official ICT names.*"
+      },
+      "dependencies": [],
+      "attribution_type": "community_interpretation",
+      "cited_sources_in_text": [],
+      "book_location": {
+        "level": "advanced",
+        "module_number": 12,
+        "module_title": "Advanced ICT Sell Model",
+        "section_heading": "Core Bearish Delivery Sequence"
+      },
+      "confidence_note": "unspecified"
+    },
+    {
+      "id": "ADV-M12-C02",
+      "kind": "concept",
+      "name": "Variation A - Classic FVG / OTE Continuation (Bearish)",
+      "definition": "HTF bearish narrative -> BSL raid -> bearish displacement + MSS -> FVG (and/or Order Block) in premium -> retracement into FVG / Consequent Encroachment / OTE of the displacement leg -> continuation toward sell-side DOL.",
+      "ict_specific_meaning": "HTF bearish narrative -> BSL raid -> bearish displacement + MSS -> FVG (and/or Order Block) in premium -> retracement into FVG / Consequent Encroachment / OTE of the displacement leg -> continuation toward sell-side DOL.",
+      "what_changed_from_beginner_level": "unspecified",
+      "detection_criteria": [
+        "unspecified - see raw_sections"
+      ],
+      "numeric_or_narrative_example": "unspecified",
+      "why_it_matters": "unspecified",
+      "beginner_mistakes_or_misinterpretations": [],
+      "raw_sections": {
+        "Sequence": "HTF bearish narrative -> BSL raid -> bearish displacement + MSS -> FVG (and/or Order Block) in premium -> retracement into FVG / Consequent Encroachment / OTE of the displacement leg -> continuation toward sell-side DOL.",
+        "Eligibility": "Daily (or higher) bias bearish and not invalidated; price in premium of controlling range; expected kill zone produces the BSL raid and displacement; FVG/OB remains unmitigated and correctly located.",
+        "Invalidation": "Trade-level: decisive close above the displacement origin or above the far side of the entry array. Narrative-level: daily or weekly invalidation as defined in the bearish bias statement.\n\n**Evidence Classification:** *A - Directly and repeatedly supported by ICT examples.*"
+      },
+      "dependencies": [],
+      "attribution_type": "community_interpretation",
+      "cited_sources_in_text": [],
+      "book_location": {
+        "level": "advanced",
+        "module_number": 12,
+        "module_title": "Advanced ICT Sell Model",
+        "section_heading": "Variation A - Classic FVG / OTE Continuation (Bearish)"
+      },
+      "confidence_note": "unspecified"
+    },
+    {
+      "id": "ADV-M12-C03",
+      "kind": "concept",
+      "name": "Variation B - Breaker Continuation (Bearish)",
+      "definition": "HTF bearish narrative -> external or significant BSL is taken -> a prior bullish Order Block is violated by bearish displacement (the OB becomes a bearish Breaker) -> price returns to the Breaker in premium -> continuation lower.",
+      "ict_specific_meaning": "HTF bearish narrative -> external or significant BSL is taken -> a prior bullish Order Block is violated by bearish displacement (the OB becomes a bearish Breaker) -> price returns to the Breaker in premium -> continuation lower.",
+      "what_changed_from_beginner_level": "unspecified",
+      "detection_criteria": [
+        "unspecified - see raw_sections"
+      ],
+      "numeric_or_narrative_example": "unspecified",
+      "why_it_matters": "unspecified",
+      "beginner_mistakes_or_misinterpretations": [],
+      "raw_sections": {
+        "Sequence": "HTF bearish narrative -> external or significant BSL is taken -> a prior bullish Order Block is violated by bearish displacement (the OB becomes a bearish Breaker) -> price returns to the Breaker in premium -> continuation lower.",
+        "Eligibility": "The violated OB was high-quality; violation is accompanied by genuine displacement and MSS; return to the Breaker occurs in premium; HTF bias remains bearish.",
+        "Invalidation": "Trade-level: close back above the Breaker extreme or above the origin of the bearish displacement. Narrative-level: higher-timeframe invalidation.\n\n**Evidence Classification:** *A/B - Consistent with primary ICT Breaker teaching.*"
+      },
+      "dependencies": [],
+      "attribution_type": "community_interpretation",
+      "cited_sources_in_text": [],
+      "book_location": {
+        "level": "advanced",
+        "module_number": 12,
+        "module_title": "Advanced ICT Sell Model",
+        "section_heading": "Variation B - Breaker Continuation (Bearish)"
+      },
+      "confidence_note": "unspecified"
+    },
+    {
+      "id": "ADV-M12-C04",
+      "kind": "concept",
+      "name": "Variation C - IFVG Continuation (Bearish)",
+      "definition": "HTF bearish narrative -> liquidity sweep (often of buy-side) -> a prior bullish FVG is traded through and later acts as resistance (IFVG) -> continuation lower after inversion is demonstrated.",
+      "ict_specific_meaning": "HTF bearish narrative -> liquidity sweep (often of buy-side) -> a prior bullish FVG is traded through and later acts as resistance (IFVG) -> continuation lower after inversion is demonstrated.",
+      "what_changed_from_beginner_level": "unspecified",
+      "detection_criteria": [
+        "unspecified - see raw_sections"
+      ],
+      "numeric_or_narrative_example": "unspecified",
+      "why_it_matters": "unspecified",
+      "beginner_mistakes_or_misinterpretations": [],
+      "raw_sections": {
+        "Sequence": "HTF bearish narrative -> liquidity sweep (often of buy-side) -> a prior bullish FVG is traded through and later acts as resistance (IFVG) -> continuation lower after inversion is demonstrated.",
+        "Eligibility & Caution": "Original FVG decisively traded through; subsequent action shows inverted polarity holding; IFVG sits in premium; HTF bias bearish. Do not assume inversion at the first trade-through.\n\n**Evidence Classification:** *A/B - IFVG application in the bearish direction is the mirror of the bullish case.*"
+      },
+      "dependencies": [],
+      "attribution_type": "community_interpretation",
+      "cited_sources_in_text": [],
+      "book_location": {
+        "level": "advanced",
+        "module_number": 12,
+        "module_title": "Advanced ICT Sell Model",
+        "section_heading": "Variation C - IFVG Continuation (Bearish)"
+      },
+      "confidence_note": "unspecified"
+    },
+    {
+      "id": "ADV-M12-C05",
+      "kind": "concept",
+      "name": "Variation D - PD-Array Reaction with LTF Confirmation (Bearish)",
+      "definition": "HTF bearish narrative and premium location -> price reaches a higher-timeframe PD array (weekly/daily OB or FVG) in premium -> lower-timeframe liquidity sweep + displacement + MSS confirms -> entry on LTF array inside the HTF array -> continuation toward sell-side DOL.",
+      "ict_specific_meaning": "HTF bearish narrative and premium location -> price reaches a higher-timeframe PD array (weekly/daily OB or FVG) in premium -> lower-timeframe liquidity sweep + displacement + MSS confirms -> entry on LTF array inside the HTF array -> continuation toward sell-side DOL.",
+      "what_changed_from_beginner_level": "unspecified",
+      "detection_criteria": [
+        "unspecified - see raw_sections"
+      ],
+      "numeric_or_narrative_example": "unspecified",
+      "why_it_matters": "unspecified",
+      "beginner_mistakes_or_misinterpretations": [],
+      "raw_sections": {
+        "Sequence": "HTF bearish narrative and premium location -> price reaches a higher-timeframe PD array (weekly/daily OB or FVG) in premium -> lower-timeframe liquidity sweep + displacement + MSS confirms -> entry on LTF array inside the HTF array -> continuation toward sell-side DOL.",
+        "Role": "Emphasises multi-timeframe nesting of arrays. Often the practical form in which Variations A - C appear.\n\n**Evidence Classification:** *A/B - Core ICT multi-timeframe practice.*"
+      },
+      "dependencies": [],
+      "attribution_type": "community_interpretation",
+      "cited_sources_in_text": [],
+      "book_location": {
+        "level": "advanced",
+        "module_number": 12,
+        "module_title": "Advanced ICT Sell Model",
+        "section_heading": "Variation D - PD-Array Reaction with LTF Confirmation (Bearish)"
+      },
+      "confidence_note": "unspecified"
+    },
+    {
+      "id": "ADV-M12-C06",
+      "kind": "concept",
+      "name": "Eligibility Checklist (All Bearish Variations)",
+      "definition": "Before any short variation is traded, confirm:\n\n- Higher-timeframe (at least daily) bias is bearish and not invalidated.\n\n- Named sell-side Draw on Liquidity is still active.\n\n- Price is in premium of the controlling dealing range (or has just raided BSL and is returning into premium).\n\n- Buy-side liquidity has been (or is being) raided as the origin of the leg.\n\n- Bearish displacement and MSS are present.\n\n- The entry array sits in the correct (premium) half of the range and is unmitigated (or is a valid bearish Breaker/IFVG).\n\n- The expected kill zone supports the phase (manipulation complete, distribution active).\n\n- Trade-level and narrative-level invalidation are defined before entry.\n\nIf any item fails, the variation is not eligible.",
+      "ict_specific_meaning": "Before any short variation is traded, confirm:\n\n- Higher-timeframe (at least daily) bias is bearish and not invalidated.\n\n- Named sell-side Draw on Liquidity is still active.\n\n- Price is in premium of the controlling dealing range (or has just raided BSL and is returning into premium).\n\n- Buy-side liquidity has been (or is being) raided as the origin of the leg.\n\n- Bearish displacement and MSS are present.\n\n- The entry array sits in the correct (premium) half of the range and is unmitigated (or is a valid bearish Breaker/IFVG).\n\n- The expected kill zone supports the phase (manipulation complete, distribution active).\n\n- Trade-level and narrative-level invalidation are defined before entry.\n\nIf any item fails, the variation is not eligible.",
+      "what_changed_from_beginner_level": "unspecified",
+      "detection_criteria": [
+        "Higher-timeframe (at least daily) bias is bearish and not invalidated.",
+        "Named sell-side Draw on Liquidity is still active.",
+        "Price is in premium of the controlling dealing range (or has just raided BSL and is returning into premium).",
+        "Buy-side liquidity has been (or is being) raided as the origin of the leg.",
+        "Bearish displacement and MSS are present.",
+        "The entry array sits in the correct (premium) half of the range and is unmitigated (or is a valid bearish Breaker/IFVG).",
+        "The expected kill zone supports the phase (manipulation complete, distribution active).",
+        "Trade-level and narrative-level invalidation are defined before entry."
+      ],
+      "numeric_or_narrative_example": "unspecified",
+      "why_it_matters": "unspecified",
+      "beginner_mistakes_or_misinterpretations": [],
+      "raw_sections": {
+        "Full Text": "Before any short variation is traded, confirm:\n\n- Higher-timeframe (at least daily) bias is bearish and not invalidated.\n\n- Named sell-side Draw on Liquidity is still active.\n\n- Price is in premium of the controlling dealing range (or has just raided BSL and is returning into premium).\n\n- Buy-side liquidity has been (or is being) raided as the origin of the leg.\n\n- Bearish displacement and MSS are present.\n\n- The entry array sits in the correct (premium) half of the range and is unmitigated (or is a valid bearish Breaker/IFVG).\n\n- The expected kill zone supports the phase (manipulation complete, distribution active).\n\n- Trade-level and narrative-level invalidation are defined before entry.\n\nIf any item fails, the variation is not eligible."
+      },
+      "dependencies": [],
+      "attribution_type": "community_interpretation",
+      "cited_sources_in_text": [],
+      "book_location": {
+        "level": "advanced",
+        "module_number": 12,
+        "module_title": "Advanced ICT Sell Model",
+        "section_heading": "Eligibility Checklist (All Bearish Variations)"
+      },
+      "confidence_note": "unspecified"
+    },
+    {
+      "id": "ADV-M12-C07",
+      "kind": "concept",
+      "name": "Selecting Among Bearish Variations",
+      "definition": "Narrative-driven selection:\n\n1367. Clean FVG/OB in premium with OTE alignment -> Variation A.\n\n1368. Prior bullish OB violated and returning as bearish Breaker -> Variation B.\n\n1369. Prior bullish FVG inverted and holding as resistance -> Variation C.\n\n1370. Primary reaction at HTF array, LTF only refines -> Variation D.\n\nChoose the array that best combines narrative alignment, premium location and acceptable risk distance.",
+      "ict_specific_meaning": "Narrative-driven selection:\n\n1367. Clean FVG/OB in premium with OTE alignment -> Variation A.\n\n1368. Prior bullish OB violated and returning as bearish Breaker -> Variation B.\n\n1369. Prior bullish FVG inverted and holding as resistance -> Variation C.\n\n1370. Primary reaction at HTF array, LTF only refines -> Variation D.\n\nChoose the array that best combines narrative alignment, premium location and acceptable risk distance.",
+      "what_changed_from_beginner_level": "unspecified",
+      "detection_criteria": [
+        "Clean FVG/OB in premium with OTE alignment -> Variation A.",
+        "Prior bullish OB violated and returning as bearish Breaker -> Variation B.",
+        "Prior bullish FVG inverted and holding as resistance -> Variation C.",
+        "Primary reaction at HTF array, LTF only refines -> Variation D."
+      ],
+      "numeric_or_narrative_example": "unspecified",
+      "why_it_matters": "unspecified",
+      "beginner_mistakes_or_misinterpretations": [],
+      "raw_sections": {
+        "Full Text": "Narrative-driven selection:\n\n1367. Clean FVG/OB in premium with OTE alignment -> Variation A.\n\n1368. Prior bullish OB violated and returning as bearish Breaker -> Variation B.\n\n1369. Prior bullish FVG inverted and holding as resistance -> Variation C.\n\n1370. Primary reaction at HTF array, LTF only refines -> Variation D.\n\nChoose the array that best combines narrative alignment, premium location and acceptable risk distance."
+      },
+      "dependencies": [],
+      "attribution_type": "community_interpretation",
+      "cited_sources_in_text": [],
+      "book_location": {
+        "level": "advanced",
+        "module_number": 12,
+        "module_title": "Advanced ICT Sell Model",
+        "section_heading": "Selecting Among Bearish Variations"
+      },
+      "confidence_note": "unspecified"
+    },
+    {
+      "id": "ADV-M12-C08",
+      "kind": "concept",
+      "name": "Invalidation Hierarchy",
+      "definition": "Every short carries two invalidation levels:\n\n1371. Trade invalidation - close beyond the entry array's protective extreme or the displacement origin; ends the specific entry.\n\n1372. Narrative / bias invalidation - the level or condition in the bearish bias statement; retires the bearish hypothesis and forbids further short models until a new bias is constructed.\n\nTrade stop-out ≠ automatic narrative failure. Narrative failure does automatically retire open bearish assumptions.",
+      "ict_specific_meaning": "Every short carries two invalidation levels:\n\n1371. Trade invalidation - close beyond the entry array's protective extreme or the displacement origin; ends the specific entry.\n\n1372. Narrative / bias invalidation - the level or condition in the bearish bias statement; retires the bearish hypothesis and forbids further short models until a new bias is constructed.\n\nTrade stop-out ≠ automatic narrative failure. Narrative failure does automatically retire open bearish assumptions.",
+      "what_changed_from_beginner_level": "unspecified",
+      "detection_criteria": [
+        "Trade invalidation - close beyond the entry array's protective extreme or the displacement origin; ends the specific entry.",
+        "Narrative / bias invalidation - the level or condition in the bearish bias statement; retires the bearish hypothesis and forbids further short models until a new bias is constructed."
+      ],
+      "numeric_or_narrative_example": "unspecified",
+      "why_it_matters": "unspecified",
+      "beginner_mistakes_or_misinterpretations": [],
+      "raw_sections": {
+        "Full Text": "Every short carries two invalidation levels:\n\n1371. Trade invalidation - close beyond the entry array's protective extreme or the displacement origin; ends the specific entry.\n\n1372. Narrative / bias invalidation - the level or condition in the bearish bias statement; retires the bearish hypothesis and forbids further short models until a new bias is constructed.\n\nTrade stop-out ≠ automatic narrative failure. Narrative failure does automatically retire open bearish assumptions."
+      },
+      "dependencies": [],
+      "attribution_type": "community_interpretation",
+      "cited_sources_in_text": [],
+      "book_location": {
+        "level": "advanced",
+        "module_number": 12,
+        "module_title": "Advanced ICT Sell Model",
+        "section_heading": "Invalidation Hierarchy"
+      },
+      "confidence_note": "unspecified"
+    },
+    {
+      "id": "ADV-M12-C10",
+      "kind": "concept",
+      "name": "Symmetry Discipline",
+      "definition": "The advanced student maintains strict symmetry:\n\n1373. Long models require discount + SSL origin + bullish bias.\n\n1374. Short models require premium + BSL origin + bearish bias.\n\n1375. The same eligibility standards, invalidation hierarchy and narrative subordination apply to both sides.\n\nAny tendency to favour one direction, or to relax standards on one side, is a process failure, not a market feature.",
+      "ict_specific_meaning": "The advanced student maintains strict symmetry:\n\n1373. Long models require discount + SSL origin + bullish bias.\n\n1374. Short models require premium + BSL origin + bearish bias.\n\n1375. The same eligibility standards, invalidation hierarchy and narrative subordination apply to both sides.\n\nAny tendency to favour one direction, or to relax standards on one side, is a process failure, not a market feature.",
+      "what_changed_from_beginner_level": "unspecified",
+      "detection_criteria": [
+        "Long models require discount + SSL origin + bullish bias.",
+        "Short models require premium + BSL origin + bearish bias.",
+        "The same eligibility standards, invalidation hierarchy and narrative subordination apply to both sides."
+      ],
+      "numeric_or_narrative_example": "unspecified",
+      "why_it_matters": "unspecified",
+      "beginner_mistakes_or_misinterpretations": [],
+      "raw_sections": {
+        "Full Text": "The advanced student maintains strict symmetry:\n\n1373. Long models require discount + SSL origin + bullish bias.\n\n1374. Short models require premium + BSL origin + bearish bias.\n\n1375. The same eligibility standards, invalidation hierarchy and narrative subordination apply to both sides.\n\nAny tendency to favour one direction, or to relax standards on one side, is a process failure, not a market feature."
+      },
+      "dependencies": [],
+      "attribution_type": "community_interpretation",
+      "cited_sources_in_text": [],
+      "book_location": {
+        "level": "advanced",
+        "module_number": 12,
+        "module_title": "Advanced ICT Sell Model",
+        "section_heading": "Symmetry Discipline"
+      },
+      "confidence_note": "unspecified"
+    }
+  ],
+  "module_synthesis": {
+    "relationship_to_prior_level": [],
+    "worked_narrative_examples": [
+      {
+        "id": "ADV-M12-C09",
+        "kind": "concept",
+        "name": "Worked Example - Variation A (Bearish) in Context",
+        "definition": "Weekly bias: bearish toward 1.0500; premium; distribution phase. Daily bias (conditional): bearish after London BSL sweep + displacement + MSS.\n\nLondon: Asian high and relative equal highs swept; bearish displacement; daily and 15-minute MSS; FVG at 1.0780 - 1.0810 (premium). OTE of the displacement leg overlaps the FVG.\n\nEntry: retracement into FVG/CE during London or early New York. Stop above displacement origin. Targets: daily intermediate sell-side, then 1.0500.\n\nThis is the bearish mirror of Module 11's worked example, fully nested inside the multi-timeframe narrative and bias.",
+        "ict_specific_meaning": "Weekly bias: bearish toward 1.0500; premium; distribution phase. Daily bias (conditional): bearish after London BSL sweep + displacement + MSS.\n\nLondon: Asian high and relative equal highs swept; bearish displacement; daily and 15-minute MSS; FVG at 1.0780 - 1.0810 (premium). OTE of the displacement leg overlaps the FVG.\n\nEntry: retracement into FVG/CE during London or early New York. Stop above displacement origin. Targets: daily intermediate sell-side, then 1.0500.\n\nThis is the bearish mirror of Module 11's worked example, fully nested inside the multi-timeframe narrative and bias.",
+        "what_changed_from_beginner_level": "unspecified",
+        "detection_criteria": [
+          "unspecified - see definition field"
+        ],
+        "numeric_or_narrative_example": "unspecified",
+        "why_it_matters": "unspecified",
+        "beginner_mistakes_or_misinterpretations": [],
+        "raw_sections": {
+          "Full Text": "Weekly bias: bearish toward 1.0500; premium; distribution phase. Daily bias (conditional): bearish after London BSL sweep + displacement + MSS.\n\nLondon: Asian high and relative equal highs swept; bearish displacement; daily and 15-minute MSS; FVG at 1.0780 - 1.0810 (premium). OTE of the displacement leg overlaps the FVG.\n\nEntry: retracement into FVG/CE during London or early New York. Stop above displacement origin. Targets: daily intermediate sell-side, then 1.0500.\n\nThis is the bearish mirror of Module 11's worked example, fully nested inside the multi-timeframe narrative and bias."
+        },
+        "dependencies": [],
+        "attribution_type": "community_interpretation",
+        "cited_sources_in_text": [],
+        "book_location": {
+          "level": "advanced",
+          "module_number": 12,
+          "module_title": "Advanced ICT Sell Model",
+          "section_heading": "Worked Example - Variation A (Bearish) in Context"
+        },
+        "confidence_note": "unspecified"
+      }
+    ],
+    "failure_conditions": [],
+    "common_misinterpretations": [
+      {
+        "id": "ADV-M12-C11",
+        "kind": "concept",
+        "name": "Common Misinterpretations",
+        "definition": "1376. Shorting a premium FVG without HTF bearish bias.\n\n1377. Treating variation labels as official ICT model names.\n\n1378. Entering before the BSL raid and displacement.\n\n1379. Using an undemonstrated IFVG or low-quality Breaker.\n\n1380. Ignoring narrative invalidation after repeated trade-level stops.\n\n1381. Applying looser standards to shorts than to longs (or vice versa).",
+        "ict_specific_meaning": "1376. Shorting a premium FVG without HTF bearish bias.\n\n1377. Treating variation labels as official ICT model names.\n\n1378. Entering before the BSL raid and displacement.\n\n1379. Using an undemonstrated IFVG or low-quality Breaker.\n\n1380. Ignoring narrative invalidation after repeated trade-level stops.\n\n1381. Applying looser standards to shorts than to longs (or vice versa).",
+        "what_changed_from_beginner_level": "unspecified",
+        "detection_criteria": [
+          "Shorting a premium FVG without HTF bearish bias.",
+          "Treating variation labels as official ICT model names.",
+          "Entering before the BSL raid and displacement.",
+          "Using an undemonstrated IFVG or low-quality Breaker.",
+          "Ignoring narrative invalidation after repeated trade-level stops.",
+          "Applying looser standards to shorts than to longs (or vice versa)."
+        ],
+        "numeric_or_narrative_example": "unspecified",
+        "why_it_matters": "unspecified",
+        "beginner_mistakes_or_misinterpretations": [],
+        "raw_sections": {
+          "Full Text": "1376. Shorting a premium FVG without HTF bearish bias.\n\n1377. Treating variation labels as official ICT model names.\n\n1378. Entering before the BSL raid and displacement.\n\n1379. Using an undemonstrated IFVG or low-quality Breaker.\n\n1380. Ignoring narrative invalidation after repeated trade-level stops.\n\n1381. Applying looser standards to shorts than to longs (or vice versa)."
+        },
+        "dependencies": [],
+        "attribution_type": "community_interpretation",
+        "cited_sources_in_text": [],
+        "book_location": {
+          "level": "advanced",
+          "module_number": 12,
+          "module_title": "Advanced ICT Sell Model",
+          "section_heading": "Common Misinterpretations"
+        },
+        "confidence_note": "unspecified"
+      }
+    ],
+    "evidence_summary": [
+      {
+        "id": "ADV-M12-C12",
+        "kind": "concept",
+        "name": "Evidence Summary",
+        "definition": "The core bearish sequence is the consistent mirror of the bullish sequences in primary ICT teaching. FVG, Order Block, OTE, Breaker and IFVG as short-entry arrays are primary. Pedagogical variation labels and the eligibility checklist are advanced synthesis for symmetric, narrative-driven application.\n\n***Source / Research note:** Primary orientation: ICT chart examples and mentorship demonstrating short entries after buy-side liquidity raids, displacement, structure shifts and premium PD-array retracements. Framework is the exact counterpart of Module 11.*",
+        "ict_specific_meaning": "The core bearish sequence is the consistent mirror of the bullish sequences in primary ICT teaching. FVG, Order Block, OTE, Breaker and IFVG as short-entry arrays are primary. Pedagogical variation labels and the eligibility checklist are advanced synthesis for symmetric, narrative-driven application.\n\n***Source / Research note:** Primary orientation: ICT chart examples and mentorship demonstrating short entries after buy-side liquidity raids, displacement, structure shifts and premium PD-array retracements. Framework is the exact counterpart of Module 11.*",
+        "what_changed_from_beginner_level": "unspecified",
+        "detection_criteria": [
+          "unspecified - see definition field"
+        ],
+        "numeric_or_narrative_example": "unspecified",
+        "why_it_matters": "unspecified",
+        "beginner_mistakes_or_misinterpretations": [],
+        "raw_sections": {
+          "Full Text": "The core bearish sequence is the consistent mirror of the bullish sequences in primary ICT teaching. FVG, Order Block, OTE, Breaker and IFVG as short-entry arrays are primary. Pedagogical variation labels and the eligibility checklist are advanced synthesis for symmetric, narrative-driven application.\n\n***Source / Research note:** Primary orientation: ICT chart examples and mentorship demonstrating short entries after buy-side liquidity raids, displacement, structure shifts and premium PD-array retracements. Framework is the exact counterpart of Module 11.*"
+        },
+        "dependencies": [],
+        "attribution_type": "community_interpretation",
+        "cited_sources_in_text": [
+          "Primary orientation: ICT chart examples and mentorship demonstrating short entries after buy-side liquidity raids, displacement, structure shifts and premium PD-array retracements. Framework is the exact counterpart of Module 11."
+        ],
+        "book_location": {
+          "level": "advanced",
+          "module_number": 12,
+          "module_title": "Advanced ICT Sell Model",
+          "section_heading": "Evidence Summary"
+        },
+        "confidence_note": "Primary orientation: ICT chart examples and mentorship demonstrating short entries after buy-side liquidity raids, displacement, structure shifts and premium PD-array retracements. Framework is the exact counterpart of Module 11."
+      }
+    ]
+  },
+  "rules": [
+    {
+      "id": "ADV-M12-R01",
+      "kind": "rule",
+      "rule_type": "detection_criteria",
+      "statement": "Eligibility checklist (all bearish variations) mirrors the bullish checklist: HTF (at least daily) bias bearish and not invalidated; named sell-side DOL still active; price in premium of the controlling range (or has just raided BSL and is returning into premium); buy-side liquidity has been (or is being) raided as the origin of the leg; bearish displacement and MSS present; entry array sits in the correct half of the range and is unmitigated (or is a valid Breaker/IFVG); expected kill zone supports the phase; trade-level and narrative-level invalidation defined before entry.",
+      "applies_to": [
+        "ADV-M12-S01",
+        "ADV-M12-S02",
+        "ADV-M12-S03",
+        "ADV-M12-S04"
+      ],
+      "conditions": [],
+      "exceptions_or_qualifiers": "unspecified",
+      "book_location": {
+        "level": "advanced",
+        "module_number": 12,
+        "module_title": "Advanced ICT Sell Model",
+        "section_heading": "Eligibility Checklist (All Bearish Variations)"
+      },
+      "attribution_type": "community_interpretation"
+    },
+    {
+      "id": "ADV-M12-R02",
+      "kind": "rule",
+      "rule_type": "other",
+      "statement": "Symmetry discipline: long models require discount + SSL origin + bullish bias; short models require premium + BSL origin + bearish bias. The same eligibility standards, invalidation hierarchy and narrative subordination apply to both sides. Any tendency to favour one direction, or to relax standards on one side, is a process failure, not a market feature.",
+      "applies_to": [
+        "ADV-M12-S00",
+        "ADV-M11-S00"
+      ],
+      "conditions": [],
+      "exceptions_or_qualifiers": "unspecified",
+      "book_location": {
+        "level": "advanced",
+        "module_number": 12,
+        "module_title": "Advanced ICT Sell Model",
+        "section_heading": "Symmetry Discipline"
+      },
+      "attribution_type": "book_synthesis"
+    },
+    {
+      "id": "ADV-M12-R03",
+      "kind": "rule",
+      "rule_type": "invalidation",
+      "statement": "Every short carries two invalidation levels (mirroring the Buy Model): Trade invalidation -- close beyond the entry array's protective extreme or the displacement origin, ends the specific entry only. Narrative/bias invalidation -- the level or condition defined in the bias statement, retires the bearish hypothesis and forbids further short models until a new bias is constructed.",
+      "applies_to": [
+        "ADV-M12-S00",
+        "ADV-M12-S01",
+        "ADV-M12-S02",
+        "ADV-M12-S03",
+        "ADV-M12-S04"
+      ],
+      "conditions": [],
+      "exceptions_or_qualifiers": "unspecified",
+      "book_location": {
+        "level": "advanced",
+        "module_number": 12,
+        "module_title": "Advanced ICT Sell Model",
+        "section_heading": "Invalidation Hierarchy"
+      },
+      "attribution_type": "community_interpretation"
+    }
+  ],
+  "strategies": [
+    {
+      "id": "ADV-M12-S00",
+      "kind": "strategy_component",
+      "name": "Core Bearish Delivery Sequence (Skeleton)",
+      "parent_strategy_id": "BEG-M12-S01",
+      "context": {
+        "htf_bias_required": "Higher-timeframe bearish narrative/bias with a named sell-side Draw on Liquidity.",
+        "session_or_time": "unspecified generically",
+        "other_context": "Price in premium (or returning to premium) of the controlling dealing range."
+      },
+      "setup": [
+        "Buy-side liquidity is raided (BSL, often relative equal highs or session/Asian high).",
+        "Bearish displacement leaves imbalance and breaks structure (MSS)."
+      ],
+      "entry_condition": "Retracement into a PD array (FVG, Order Block, CE, or refined OTE) that sits in premium.",
+      "invalidation_or_stop": "unspecified generically -- defined per variation (A-D).",
+      "target_or_exit": "Continuation toward the named sell-side DOL.",
+      "trade_management_rules": [],
+      "sequencing_steps_verbatim_order": [
+        "HTF bearish bias + named SSL DOL",
+        "Price in premium",
+        "BSL raid",
+        "Bearish displacement + MSS",
+        "Retracement into premium PD array",
+        "Continuation to DOL"
+      ],
+      "eligibility_checklist": [],
+      "specificity_status": "partially_specified",
+      "missing_elements": [
+        "Generic skeleton -- specific array type and invalidation vary by Variation A-D."
+      ],
+      "worked_example_ref": null,
+      "book_location": {
+        "level": "advanced",
+        "module_number": 12,
+        "module_title": "Advanced ICT Sell Model",
+        "section_heading": "Core Bearish Delivery Sequence"
+      },
+      "attribution_type": "community_interpretation"
+    },
+    {
+      "id": "ADV-M12-S01",
+      "kind": "strategy_variant",
+      "name": "Variation A - Classic FVG / OTE Continuation (Bearish)",
+      "parent_strategy_id": "ADV-M12-S00",
+      "context": {
+        "htf_bias_required": "Daily (or higher) bias bearish and not invalidated.",
+        "session_or_time": "Expected kill zone produces the BSL raid and displacement.",
+        "other_context": "Price in premium of controlling range."
+      },
+      "setup": [
+        "HTF bearish narrative.",
+        "BSL raid.",
+        "Bearish displacement + MSS.",
+        "FVG (and/or Order Block) forms in premium."
+      ],
+      "entry_condition": "Retracement into FVG / Consequent Encroachment / OTE of the displacement leg.",
+      "invalidation_or_stop": "Trade-level: decisive close above the displacement origin or above the far side of the entry array. Narrative-level: daily or weekly invalidation as defined in the bias statement.",
+      "target_or_exit": "Continuation toward sell-side DOL.",
+      "trade_management_rules": [],
+      "sequencing_steps_verbatim_order": [],
+      "eligibility_checklist": [],
+      "specificity_status": "fully_specified",
+      "missing_elements": [],
+      "worked_example_ref": null,
+      "book_location": {
+        "level": "advanced",
+        "module_number": 12,
+        "module_title": "Advanced ICT Sell Model",
+        "section_heading": "Variation A - Classic FVG / OTE Continuation (Bearish)"
+      },
+      "attribution_type": "ICT_primary"
+    },
+    {
+      "id": "ADV-M12-S02",
+      "kind": "strategy_variant",
+      "name": "Variation B - Breaker Continuation (Bearish)",
+      "parent_strategy_id": "ADV-M12-S00",
+      "context": {
+        "htf_bias_required": "HTF bias remains bearish.",
+        "session_or_time": "unspecified",
+        "other_context": "The violated OB was itself high-quality; violation accompanied by genuine displacement and MSS."
+      },
+      "setup": [
+        "External or significant BSL is taken.",
+        "A prior bullish Order Block is violated by bearish displacement (the OB becomes a bearish Breaker)."
+      ],
+      "entry_condition": "Price returns to the Breaker in premium of the controlling range.",
+      "invalidation_or_stop": "Trade-level: close back above the Breaker extreme or above the origin of the bearish displacement that created it. Narrative-level: higher-timeframe invalidation.",
+      "target_or_exit": "Continuation lower toward sell-side DOL.",
+      "trade_management_rules": [],
+      "sequencing_steps_verbatim_order": [],
+      "eligibility_checklist": [],
+      "specificity_status": "fully_specified",
+      "missing_elements": [],
+      "worked_example_ref": null,
+      "book_location": {
+        "level": "advanced",
+        "module_number": 12,
+        "module_title": "Advanced ICT Sell Model",
+        "section_heading": "Variation B - Breaker Continuation (Bearish)"
+      },
+      "attribution_type": "community_interpretation"
+    },
+    {
+      "id": "ADV-M12-S03",
+      "kind": "strategy_variant",
+      "name": "Variation C - IFVG Continuation (Bearish)",
+      "parent_strategy_id": "ADV-M12-S00",
+      "context": {
+        "htf_bias_required": "HTF bias is bearish.",
+        "session_or_time": "unspecified",
+        "other_context": "The original FVG has been decisively traded through; the IFVG sits in premium relative to the controlling range."
+      },
+      "setup": [
+        "Liquidity sweep (often of buy-side).",
+        "A prior bullish FVG is traded through and later acts as resistance (IFVG)."
+      ],
+      "entry_condition": "Continuation lower after the inversion (IFVG holding as resistance) is demonstrated -- not assumed at the first trade-through.",
+      "invalidation_or_stop": "unspecified precisely beyond general narrative-level invalidation; polarity inversion must be demonstrated before entry.",
+      "target_or_exit": "Continuation lower toward sell-side DOL.",
+      "trade_management_rules": [],
+      "sequencing_steps_verbatim_order": [],
+      "eligibility_checklist": [],
+      "specificity_status": "partially_specified",
+      "missing_elements": [
+        "Precise trade-level invalidation price not explicitly stated."
+      ],
+      "worked_example_ref": null,
+      "book_location": {
+        "level": "advanced",
+        "module_number": 12,
+        "module_title": "Advanced ICT Sell Model",
+        "section_heading": "Variation C - IFVG Continuation (Bearish)"
+      },
+      "attribution_type": "community_interpretation"
+    },
+    {
+      "id": "ADV-M12-S04",
+      "kind": "strategy_variant",
+      "name": "Variation D - PD-Array Reaction with LTF Confirmation (Bearish)",
+      "parent_strategy_id": "ADV-M12-S00",
+      "context": {
+        "htf_bias_required": "HTF bearish narrative and premium location.",
+        "session_or_time": "unspecified",
+        "other_context": "The HTF array is unmitigated and correctly located; no higher-timeframe invalidation has printed."
+      },
+      "setup": [
+        "Price reaches a higher-timeframe PD array (weekly/daily OB or FVG) in premium.",
+        "Lower-timeframe liquidity sweep + displacement + MSS confirms."
+      ],
+      "entry_condition": "Entry on LTF array inside the HTF array.",
+      "invalidation_or_stop": "unspecified precisely beyond general narrative/trade invalidation hierarchy.",
+      "target_or_exit": "Continuation toward DOL.",
+      "trade_management_rules": [],
+      "sequencing_steps_verbatim_order": [],
+      "eligibility_checklist": [],
+      "specificity_status": "partially_specified",
+      "missing_elements": [
+        "Precise trade-level invalidation price not explicitly restated for this variation."
+      ],
+      "worked_example_ref": null,
+      "book_location": {
+        "level": "advanced",
+        "module_number": 12,
+        "module_title": "Advanced ICT Sell Model",
+        "section_heading": "Variation D - PD-Array Reaction with LTF Confirmation (Bearish)"
+      },
+      "attribution_type": "community_interpretation"
+    }
+  ],
+  "examples": [],
+  "relationships": [
+    {
+      "id": "ADV-M12-REL01",
+      "kind": "cross_module_relationship",
+      "statement": "This module is the exact mirror of Advanced Module 11 (ICT Buy Model): every variation, eligibility rule, and invalidation hierarchy applies symmetrically with direction reversed.",
+      "involved_concepts": [
+        "Core Bullish Delivery Sequence",
+        "Core Bearish Delivery Sequence"
+      ],
+      "involved_modules": [
+        "Advanced Module 11"
+      ],
+      "book_location": {
+        "level": "advanced",
+        "module_number": 12,
+        "module_title": "Advanced ICT Sell Model",
+        "section_heading": "Symmetry Discipline"
+      }
+    }
+  ],
+  "no_trade_conditions": [
+    {
+      "id": "ADV-M12-NT01",
+      "kind": "no_trade_rule",
+      "statement": "Do not short a premium FVG without HTF bearish bias. Do not treat variation labels as official ICT model names. Do not enter before the BSL raid and displacement. Do not use an undemonstrated IFVG or low-quality Breaker. Do not ignore narrative invalidation after repeated trade-level stops. Do not apply looser standards to shorts than to longs (or vice versa).",
+      "applies_to_strategy_ids": [
+        "ADV-M12-S01",
+        "ADV-M12-S02",
+        "ADV-M12-S03",
+        "ADV-M12-S04"
+      ],
+      "book_location": {
+        "level": "advanced",
+        "module_number": 12,
+        "module_title": "Advanced ICT Sell Model",
+        "section_heading": "Common Misinterpretations"
+      }
+    }
+  ],
+  "contradictions_or_ambiguities": [],
+  "module_review_notes": {
+    "key_terms": [
+      "Core bearish delivery sequence - HTF bias + BSL + displacement + MSS + premium array + sell-side DOL.",
+      "Variation A (bearish) - FVG / CE / OTE-centred continuation short.",
+      "Variation B (bearish) - Bearish Breaker continuation short.",
+      "Variation C (bearish) - IFVG continuation short.",
+      "Variation D (bearish) - HTF PD-array reaction refined by LTF confirmation.",
+      "Symmetry discipline - identical standards applied to both long and short models."
+    ],
+    "beginner_summary": "unspecified",
+    "concept_relationships_summary": "unspecified",
+    "practical_chart_exercise": "unspecified",
+    "self_test_questions": [
+      "What elements are common to all high-quality ICT short sequences?",
+      "How does the bearish eligibility checklist differ from the bullish checklist?",
+      "When is a bearish Breaker preferred over a bearish FVG entry?",
+      "What is the correct response if trade-level stops are hit but narrative invalidation has not printed?",
+      "Why is process symmetry between Modules 11 and 12 essential?"
+    ],
+    "common_misconceptions": [],
+    "research_sources_cited_in_text": []
+  }
+}

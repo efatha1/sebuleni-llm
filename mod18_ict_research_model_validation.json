@@ -1,0 +1,586 @@
+{
+  "level": "advanced",
+  "module_number": 18,
+  "module_title": "ICT Research & Model Validation",
+  "module_intro": "Subtopics: Objective Definitions, Testable Rules, Bias Control, Historical / Out-of-Sample / Forward Testing, Statistical Evaluation, Robustness.",
+  "prerequisites_stated_in_text": "Advanced Modules 1--17. This module is about testing ICT concepts. It does not add non-ICT indicators, oscillators, or systems to ICT methodology. ICT doctrine and empirical research results are kept strictly separate: \"ICT teaches X\" is not the same statement as \"when X is operationalised as A+B+C, the historical sample shows Y.\"",
+  "module_objectives": [
+    "Convert a subjective ICT concept into a set of objective, testable rules.",
+    "Define liquidity, MSS, displacement, FVG, session, entry, target and invalidation in unambiguous labeling criteria.",
+    "Design a sample and a testing protocol that minimise hindsight bias and look-ahead bias.",
+    "Distinguish in-sample, out-of-sample and forward testing.",
+    "Compute and interpret expectancy, win rate, distribution of outcomes and maximum drawdown.",
+    "Assess model robustness across regimes and instruments without claiming that statistics \"prove\" ICT doctrine.",
+    "Maintain a clear written separation between ICT teaching and research findings.",
+    "Instrument and timeframe(s).",
+    "Higher-timeframe bias rule (how bias is determined from the data without look-ahead).",
+    "Liquidity origin rule (how the pool is identified and when it is considered raided).",
+    "Displacement rule (what counts as displacement).",
+    "MSS rule (what swing must be broken and by what kind of close).",
+    "Entry array rule (FVG, OB, CE, OTE, Breaker - exact geometric definition).",
+    "Entry trigger (touch, close inside, etc.).",
+    "Invalidation rule.",
+    "Target rule(s) (intermediate and terminal).",
+    "Session or time filter (if any).",
+    "Position-sizing and risk rule (for equity-curve statistics).",
+    "Number of setups / trades.",
+    "Win rate (proportion of trades that reach a predefined success condition).",
+    "Average win and average loss (in R units or currency).",
+    "Expectancy = (Win% × Average Win) - (Loss% × Average Loss).",
+    "Maximum drawdown (peak-to-trough equity decline under the sizing rule).",
+    "Distribution of outcomes (histogram of R-multiples).",
+    "Time in trade / holding period statistics.",
+    "Exact objective rules (so that another person can replicate the labels).",
+    "Instrument(s), timeframe(s), sample period, number of setups.",
+    "In-sample, out-of-sample and (if available) forward results separately.",
+    "All metrics listed above.",
+    "Any rule changes and when they were made.",
+    "Explicit statement: \"These results describe the operationalisation above; they do not constitute a proof or disproof of ICT doctrine.\""
+  ],
+  "concepts": [
+    {
+      "id": "ADV-M18-C01",
+      "kind": "concept",
+      "name": "Doctrine vs Research - The Governing Distinction",
+      "definition": "Claim type A (doctrine): \"ICT teaches that price often delivers from a sell-side liquidity pool to a buy-side liquidity pool after displacement and a Market Structure Shift.\"\n\nClaim type B (research): \"When the following objective rules are applied to EUR/USD 2018 - 2024 on the 15-minute chart, the sample of 412 setups shows a mean expectancy of Z and a maximum drawdown of W.\"\n\nClaim A is about what ICT teaches. Claim B is about what a particular operationalisation produced in a particular sample. Confusing the two is the most common error in ICT research.",
+      "ict_specific_meaning": "Claim type A (doctrine): \"ICT teaches that price often delivers from a sell-side liquidity pool to a buy-side liquidity pool after displacement and a Market Structure Shift.\"\n\nClaim type B (research): \"When the following objective rules are applied to EUR/USD 2018 - 2024 on the 15-minute chart, the sample of 412 setups shows a mean expectancy of Z and a maximum drawdown of W.\"\n\nClaim A is about what ICT teaches. Claim B is about what a particular operationalisation produced in a particular sample. Confusing the two is the most common error in ICT research.",
+      "what_changed_from_beginner_level": "unspecified",
+      "detection_criteria": [
+        "unspecified - see raw_sections"
+      ],
+      "numeric_or_narrative_example": "unspecified",
+      "why_it_matters": "unspecified",
+      "beginner_mistakes_or_misinterpretations": [],
+      "raw_sections": {
+        "Two Different Claims": "Claim type A (doctrine): \"ICT teaches that price often delivers from a sell-side liquidity pool to a buy-side liquidity pool after displacement and a Market Structure Shift.\"\n\nClaim type B (research): \"When the following objective rules are applied to EUR/USD 2018 - 2024 on the 15-minute chart, the sample of 412 setups shows a mean expectancy of Z and a maximum drawdown of W.\"\n\nClaim A is about what ICT teaches. Claim B is about what a particular operationalisation produced in a particular sample. Confusing the two is the most common error in ICT research.",
+        "What Research Cannot Do": "Empirical testing cannot prove that ICT doctrine is true or false in a philosophical sense. It can only show how a specific, fully specified ruleset behaved in historical and forward data. The advanced student reports research results as research results, not as new ICT doctrine.\n\n**Evidence Classification:** *C - The doctrine/research separation is a methodological requirement of this textbook, not an ICT lecture topic.*"
+      },
+      "dependencies": [],
+      "attribution_type": "community_interpretation",
+      "cited_sources_in_text": [],
+      "book_location": {
+        "level": "advanced",
+        "module_number": 18,
+        "module_title": "ICT Research & Model Validation",
+        "section_heading": "Doctrine vs Research - The Governing Distinction"
+      },
+      "confidence_note": "unspecified"
+    },
+    {
+      "id": "ADV-M18-C02",
+      "kind": "concept",
+      "name": "Defining an ICT Setup Objectively",
+      "definition": "1587. Instrument and timeframe(s).\n\n1588. Higher-timeframe bias rule (how bias is determined from the data without look-ahead).\n\n1589. Liquidity origin rule (how the pool is identified and when it is considered raided).\n\n1590. Displacement rule (what counts as displacement).\n\n1591. MSS rule (what swing must be broken and by what kind of close).\n\n1592. Entry array rule (FVG, OB, CE, OTE, Breaker - exact geometric definition).\n\n1593. Entry trigger (touch, close inside, etc.).\n\n1594. Invalidation rule.\n\n1595. Target rule(s) (intermediate and terminal).\n\n1596. Session or time filter (if any).\n\n1597. Position-sizing and risk rule (for equity-curve statistics).",
+      "ict_specific_meaning": "1587. Instrument and timeframe(s).\n\n1588. Higher-timeframe bias rule (how bias is determined from the data without look-ahead).\n\n1589. Liquidity origin rule (how the pool is identified and when it is considered raided).\n\n1590. Displacement rule (what counts as displacement).\n\n1591. MSS rule (what swing must be broken and by what kind of close).\n\n1592. Entry array rule (FVG, OB, CE, OTE, Breaker - exact geometric definition).\n\n1593. Entry trigger (touch, close inside, etc.).\n\n1594. Invalidation rule.\n\n1595. Target rule(s) (intermediate and terminal).\n\n1596. Session or time filter (if any).\n\n1597. Position-sizing and risk rule (for equity-curve statistics).",
+      "what_changed_from_beginner_level": "unspecified",
+      "detection_criteria": [
+        "unspecified - see raw_sections"
+      ],
+      "numeric_or_narrative_example": "unspecified",
+      "why_it_matters": "unspecified",
+      "beginner_mistakes_or_misinterpretations": [],
+      "raw_sections": {
+        "The Problem of Subjectivity": "Many ICT concepts are demonstrated visually and contextually. For research they must be reduced to rules that two independent labelers would apply the same way. Ambiguous rules produce irreproducible results.",
+        "Minimum Elements of an Objective Setup Definition": "1587. Instrument and timeframe(s).\n\n1588. Higher-timeframe bias rule (how bias is determined from the data without look-ahead).\n\n1589. Liquidity origin rule (how the pool is identified and when it is considered raided).\n\n1590. Displacement rule (what counts as displacement).\n\n1591. MSS rule (what swing must be broken and by what kind of close).\n\n1592. Entry array rule (FVG, OB, CE, OTE, Breaker - exact geometric definition).\n\n1593. Entry trigger (touch, close inside, etc.).\n\n1594. Invalidation rule.\n\n1595. Target rule(s) (intermediate and terminal).\n\n1596. Session or time filter (if any).\n\n1597. Position-sizing and risk rule (for equity-curve statistics)."
+      },
+      "dependencies": [],
+      "attribution_type": "community_interpretation",
+      "cited_sources_in_text": [],
+      "book_location": {
+        "level": "advanced",
+        "module_number": 18,
+        "module_title": "ICT Research & Model Validation",
+        "section_heading": "Defining an ICT Setup Objectively"
+      },
+      "confidence_note": "unspecified"
+    },
+    {
+      "id": "ADV-M18-C03",
+      "kind": "concept",
+      "name": "Labeling Criteria - Core Concepts",
+      "definition": "Example objective rule (illustrative): \"A sell-side liquidity pool is the lowest low of the prior N sessions or a relative equal low within X pips that has not been traded through. It is considered raided when price prints a low at least Y pips beyond it and then closes back above it within Z bars.\" Rules must be fixed before testing begins.",
+      "ict_specific_meaning": "Example objective rule (illustrative): \"A sell-side liquidity pool is the lowest low of the prior N sessions or a relative equal low within X pips that has not been traded through. It is considered raided when price prints a low at least Y pips beyond it and then closes back above it within Z bars.\" Rules must be fixed before testing begins.",
+      "what_changed_from_beginner_level": "unspecified",
+      "detection_criteria": [
+        "unspecified - see raw_sections"
+      ],
+      "numeric_or_narrative_example": "unspecified",
+      "why_it_matters": "unspecified",
+      "beginner_mistakes_or_misinterpretations": [],
+      "raw_sections": {
+        "Liquidity": "Example objective rule (illustrative): \"A sell-side liquidity pool is the lowest low of the prior N sessions or a relative equal low within X pips that has not been traded through. It is considered raided when price prints a low at least Y pips beyond it and then closes back above it within Z bars.\" Rules must be fixed before testing begins.",
+        "Displacement": "Example: \"Displacement is a candle (or sequence) whose range exceeds the 20-period average range by a factor of K and that closes beyond the prior swing high/low.\"",
+        "Market Structure Shift": "Example: \"A bullish MSS is a close above the most recent swing high that was formed after the liquidity raid, on the execution timeframe.\"",
+        "Fair Value Gap": "Example: \"A bullish FVG exists when the low of candle 3 is higher than the high of candle 1; the zone is the interval [high of candle 1, low of candle 3]. It is mitigated when a subsequent candle's low enters the zone.\"",
+        "Session Labels": "Sessions must be defined in a fixed timezone (usually New York local, with DST rules stated). Asian, London and New York windows are then unambiguous.\n\nEvery labeling rule is written down and frozen before any performance number is calculated."
+      },
+      "dependencies": [],
+      "attribution_type": "community_interpretation",
+      "cited_sources_in_text": [],
+      "book_location": {
+        "level": "advanced",
+        "module_number": 18,
+        "module_title": "ICT Research & Model Validation",
+        "section_heading": "Labeling Criteria - Core Concepts"
+      },
+      "confidence_note": "unspecified"
+    },
+    {
+      "id": "ADV-M18-C04",
+      "kind": "concept",
+      "name": "Sample Selection",
+      "definition": "The sample should cover multiple market regimes (trending, ranging, high-volatility, low-volatility) and, if claims are to generalise, more than one instrument. Convenience samples of \"only the days that looked good\" are invalid.",
+      "ict_specific_meaning": "The sample should cover multiple market regimes (trending, ranging, high-volatility, low-volatility) and, if claims are to generalise, more than one instrument. Convenience samples of \"only the days that looked good\" are invalid.",
+      "what_changed_from_beginner_level": "unspecified",
+      "detection_criteria": [
+        "unspecified - see raw_sections"
+      ],
+      "numeric_or_narrative_example": "unspecified",
+      "why_it_matters": "unspecified",
+      "beginner_mistakes_or_misinterpretations": [],
+      "raw_sections": {
+        "Representativeness": "The sample should cover multiple market regimes (trending, ranging, high-volatility, low-volatility) and, if claims are to generalise, more than one instrument. Convenience samples of \"only the days that looked good\" are invalid.",
+        "Sample Size": "Small samples produce unstable statistics. The student states the number of setups, the number of trades, and the calendar span. Extrapolation from a handful of examples is research malpractice."
+      },
+      "dependencies": [],
+      "attribution_type": "community_interpretation",
+      "cited_sources_in_text": [],
+      "book_location": {
+        "level": "advanced",
+        "module_number": 18,
+        "module_title": "ICT Research & Model Validation",
+        "section_heading": "Sample Selection"
+      },
+      "confidence_note": "unspecified"
+    },
+    {
+      "id": "ADV-M18-C05",
+      "kind": "concept",
+      "name": "Bias Control",
+      "definition": "Hindsight bias is the use of information that would not have been known at the time of the decision. Classic forms: drawing the \"obvious\" dealing range after seeing the whole move; labeling a swing as \"the\" liquidity pool only because it later worked; adjusting rules after seeing the equity curve.",
+      "ict_specific_meaning": "Hindsight bias is the use of information that would not have been known at the time of the decision. Classic forms: drawing the \"obvious\" dealing range after seeing the whole move; labeling a swing as \"the\" liquidity pool only because it later worked; adjusting rules after seeing the equity curve.",
+      "what_changed_from_beginner_level": "unspecified",
+      "detection_criteria": [
+        "unspecified - see raw_sections"
+      ],
+      "numeric_or_narrative_example": "unspecified",
+      "why_it_matters": "unspecified",
+      "beginner_mistakes_or_misinterpretations": [],
+      "raw_sections": {
+        "Hindsight Bias": "Hindsight bias is the use of information that would not have been known at the time of the decision. Classic forms: drawing the \"obvious\" dealing range after seeing the whole move; labeling a swing as \"the\" liquidity pool only because it later worked; adjusting rules after seeing the equity curve.",
+        "Look-Ahead Bias": "Look-ahead bias is the use of future data in a past decision. Classic forms: using a daily bias that is determined from the daily close when the entry occurred during the day; using a weekly DOL that is only identifiable after the week has completed; using indicators or levels that incorporate future bars.",
+        "Controls": "All bias, range, DOL and array decisions must be computable from data available at the decision timestamp. Walk-forward or strictly sequential labeling is preferred. Rule changes after seeing results are recorded as new research, not as \"the original model.\""
+      },
+      "dependencies": [],
+      "attribution_type": "community_interpretation",
+      "cited_sources_in_text": [],
+      "book_location": {
+        "level": "advanced",
+        "module_number": 18,
+        "module_title": "ICT Research & Model Validation",
+        "section_heading": "Bias Control"
+      },
+      "confidence_note": "unspecified"
+    },
+    {
+      "id": "ADV-M18-C06",
+      "kind": "concept",
+      "name": "Testing Protocol",
+      "definition": "The ruleset is applied to a defined historical window. Results are descriptive of that window only. In-sample results are the starting point for hypothesis formation, not the final claim.",
+      "ict_specific_meaning": "The ruleset is applied to a defined historical window. Results are descriptive of that window only. In-sample results are the starting point for hypothesis formation, not the final claim.",
+      "what_changed_from_beginner_level": "unspecified",
+      "detection_criteria": [
+        "unspecified - see raw_sections"
+      ],
+      "numeric_or_narrative_example": "unspecified",
+      "why_it_matters": "unspecified",
+      "beginner_mistakes_or_misinterpretations": [],
+      "raw_sections": {
+        "Historical (In-Sample) Testing": "The ruleset is applied to a defined historical window. Results are descriptive of that window only. In-sample results are the starting point for hypothesis formation, not the final claim.",
+        "Out-of-Sample Testing": "A portion of historical data is held back and never used to adjust rules. The frozen ruleset is then run on the hold-out sample. Degradation from in-sample to out-of-sample is expected; catastrophic degradation suggests overfitting.",
+        "Forward Testing": "The frozen ruleset is applied to new, previously unseen live or paper data. Forward testing is the strongest practical check on whether the operationalisation still behaves as expected.",
+        "Order of Operations": "Define rules -> label in-sample -> measure -> freeze rules -> test out-of-sample -> freeze again -> forward test. Never reverse the order."
+      },
+      "dependencies": [],
+      "attribution_type": "community_interpretation",
+      "cited_sources_in_text": [],
+      "book_location": {
+        "level": "advanced",
+        "module_number": 18,
+        "module_title": "ICT Research & Model Validation",
+        "section_heading": "Testing Protocol"
+      },
+      "confidence_note": "unspecified"
+    },
+    {
+      "id": "ADV-M18-C07",
+      "kind": "concept",
+      "name": "Statistical Evaluation",
+      "definition": "1598. Number of setups / trades.\n\n1599. Win rate (proportion of trades that reach a predefined success condition).\n\n1600. Average win and average loss (in R units or currency).\n\n1601. Expectancy = (Win% × Average Win) - (Loss% × Average Loss).\n\n1602. Maximum drawdown (peak-to-trough equity decline under the sizing rule).\n\n1603. Distribution of outcomes (histogram of R-multiples).\n\n1604. Time in trade / holding period statistics.",
+      "ict_specific_meaning": "1598. Number of setups / trades.\n\n1599. Win rate (proportion of trades that reach a predefined success condition).\n\n1600. Average win and average loss (in R units or currency).\n\n1601. Expectancy = (Win% × Average Win) - (Loss% × Average Loss).\n\n1602. Maximum drawdown (peak-to-trough equity decline under the sizing rule).\n\n1603. Distribution of outcomes (histogram of R-multiples).\n\n1604. Time in trade / holding period statistics.",
+      "what_changed_from_beginner_level": "unspecified",
+      "detection_criteria": [
+        "unspecified - see raw_sections"
+      ],
+      "numeric_or_narrative_example": "unspecified",
+      "why_it_matters": "unspecified",
+      "beginner_mistakes_or_misinterpretations": [],
+      "raw_sections": {
+        "Core Metrics": "1598. Number of setups / trades.\n\n1599. Win rate (proportion of trades that reach a predefined success condition).\n\n1600. Average win and average loss (in R units or currency).\n\n1601. Expectancy = (Win% × Average Win) - (Loss% × Average Loss).\n\n1602. Maximum drawdown (peak-to-trough equity decline under the sizing rule).\n\n1603. Distribution of outcomes (histogram of R-multiples).\n\n1604. Time in trade / holding period statistics.",
+        "Interpretation": "A positive expectancy in one sample does not authorise unlimited size. Maximum drawdown and the left tail of the outcome distribution determine whether the model is survivable. Win rate alone is almost meaningless without the size of wins and losses.",
+        "Robustness": "Robustness is examined by: repeating the test on different instruments, different years, different volatility regimes, and small perturbations of the labeling thresholds. A model that works only on one instrument in one two-year window is fragile."
+      },
+      "dependencies": [],
+      "attribution_type": "community_interpretation",
+      "cited_sources_in_text": [],
+      "book_location": {
+        "level": "advanced",
+        "module_number": 18,
+        "module_title": "ICT Research & Model Validation",
+        "section_heading": "Statistical Evaluation"
+      },
+      "confidence_note": "unspecified"
+    },
+    {
+      "id": "ADV-M18-C08",
+      "kind": "concept",
+      "name": "Setup Classification",
+      "definition": "Research is clearer when setups are classified (e.g., by variation A/B/C/D of Modules 11 - 12, by session, by presence or absence of SMT, by HTF alignment). Stratified results show which conditions carry the edge and which are noise. Classification rules are defined in advance.",
+      "ict_specific_meaning": "Research is clearer when setups are classified (e.g., by variation A/B/C/D of Modules 11 - 12, by session, by presence or absence of SMT, by HTF alignment). Stratified results show which conditions carry the edge and which are noise. Classification rules are defined in advance.",
+      "what_changed_from_beginner_level": "unspecified",
+      "detection_criteria": [
+        "unspecified - see definition field"
+      ],
+      "numeric_or_narrative_example": "unspecified",
+      "why_it_matters": "unspecified",
+      "beginner_mistakes_or_misinterpretations": [],
+      "raw_sections": {
+        "Full Text": "Research is clearer when setups are classified (e.g., by variation A/B/C/D of Modules 11 - 12, by session, by presence or absence of SMT, by HTF alignment). Stratified results show which conditions carry the edge and which are noise. Classification rules are defined in advance."
+      },
+      "dependencies": [],
+      "attribution_type": "community_interpretation",
+      "cited_sources_in_text": [],
+      "book_location": {
+        "level": "advanced",
+        "module_number": 18,
+        "module_title": "ICT Research & Model Validation",
+        "section_heading": "Setup Classification"
+      },
+      "confidence_note": "unspecified"
+    },
+    {
+      "id": "ADV-M18-C09",
+      "kind": "concept",
+      "name": "Reporting Standard",
+      "definition": "A complete research report states:\n\n1605. Exact objective rules (so that another person can replicate the labels).\n\n1606. Instrument(s), timeframe(s), sample period, number of setups.\n\n1607. In-sample, out-of-sample and (if available) forward results separately.\n\n1608. All metrics listed above.\n\n1609. Any rule changes and when they were made.\n\n1610. Explicit statement: \"These results describe the operationalisation above; they do not constitute a proof or disproof of ICT doctrine.\"",
+      "ict_specific_meaning": "A complete research report states:\n\n1605. Exact objective rules (so that another person can replicate the labels).\n\n1606. Instrument(s), timeframe(s), sample period, number of setups.\n\n1607. In-sample, out-of-sample and (if available) forward results separately.\n\n1608. All metrics listed above.\n\n1609. Any rule changes and when they were made.\n\n1610. Explicit statement: \"These results describe the operationalisation above; they do not constitute a proof or disproof of ICT doctrine.\"",
+      "what_changed_from_beginner_level": "unspecified",
+      "detection_criteria": [
+        "Exact objective rules (so that another person can replicate the labels).",
+        "Instrument(s), timeframe(s), sample period, number of setups.",
+        "In-sample, out-of-sample and (if available) forward results separately.",
+        "All metrics listed above.",
+        "Any rule changes and when they were made.",
+        "Explicit statement: \"These results describe the operationalisation above; they do not constitute a proof or disproof of ICT doctrine.\""
+      ],
+      "numeric_or_narrative_example": "unspecified",
+      "why_it_matters": "unspecified",
+      "beginner_mistakes_or_misinterpretations": [],
+      "raw_sections": {
+        "Full Text": "A complete research report states:\n\n1605. Exact objective rules (so that another person can replicate the labels).\n\n1606. Instrument(s), timeframe(s), sample period, number of setups.\n\n1607. In-sample, out-of-sample and (if available) forward results separately.\n\n1608. All metrics listed above.\n\n1609. Any rule changes and when they were made.\n\n1610. Explicit statement: \"These results describe the operationalisation above; they do not constitute a proof or disproof of ICT doctrine.\""
+      },
+      "dependencies": [],
+      "attribution_type": "community_interpretation",
+      "cited_sources_in_text": [],
+      "book_location": {
+        "level": "advanced",
+        "module_number": 18,
+        "module_title": "ICT Research & Model Validation",
+        "section_heading": "Reporting Standard"
+      },
+      "confidence_note": "unspecified"
+    }
+  ],
+  "module_synthesis": {
+    "relationship_to_prior_level": [],
+    "worked_narrative_examples": [
+      {
+        "id": "ADV-M18-C10",
+        "kind": "concept",
+        "name": "Worked Research Outline (Illustrative)",
+        "definition": "Hypothesis: \"When daily bias is defined by a weekly discount + daily SSL raid + displacement + MSS, and entry is the first touch of the CE of the displacement FVG during London or early New York, with invalidation below the displacement origin and first target at the next daily buy-side pool, the ruleset produces positive expectancy on EUR/USD 15-minute data 2019 - 2023.\"\n\nRules: fully written (bias, raid, displacement, MSS, FVG/CE, session, invalidation, targets, size).\n\nIn-sample: 2019 - 2021. Out-of-sample: 2022 - 2023. Forward: paper trading 2024.\n\nMetrics: reported separately for each window. Robustness: same rules on GBP/USD. Conclusion: research finding only; not a new ICT law.",
+        "ict_specific_meaning": "Hypothesis: \"When daily bias is defined by a weekly discount + daily SSL raid + displacement + MSS, and entry is the first touch of the CE of the displacement FVG during London or early New York, with invalidation below the displacement origin and first target at the next daily buy-side pool, the ruleset produces positive expectancy on EUR/USD 15-minute data 2019 - 2023.\"\n\nRules: fully written (bias, raid, displacement, MSS, FVG/CE, session, invalidation, targets, size).\n\nIn-sample: 2019 - 2021. Out-of-sample: 2022 - 2023. Forward: paper trading 2024.\n\nMetrics: reported separately for each window. Robustness: same rules on GBP/USD. Conclusion: research finding only; not a new ICT law.",
+        "what_changed_from_beginner_level": "unspecified",
+        "detection_criteria": [
+          "unspecified - see definition field"
+        ],
+        "numeric_or_narrative_example": "unspecified",
+        "why_it_matters": "unspecified",
+        "beginner_mistakes_or_misinterpretations": [],
+        "raw_sections": {
+          "Full Text": "Hypothesis: \"When daily bias is defined by a weekly discount + daily SSL raid + displacement + MSS, and entry is the first touch of the CE of the displacement FVG during London or early New York, with invalidation below the displacement origin and first target at the next daily buy-side pool, the ruleset produces positive expectancy on EUR/USD 15-minute data 2019 - 2023.\"\n\nRules: fully written (bias, raid, displacement, MSS, FVG/CE, session, invalidation, targets, size).\n\nIn-sample: 2019 - 2021. Out-of-sample: 2022 - 2023. Forward: paper trading 2024.\n\nMetrics: reported separately for each window. Robustness: same rules on GBP/USD. Conclusion: research finding only; not a new ICT law."
+        },
+        "dependencies": [],
+        "attribution_type": "community_interpretation",
+        "cited_sources_in_text": [],
+        "book_location": {
+          "level": "advanced",
+          "module_number": 18,
+          "module_title": "ICT Research & Model Validation",
+          "section_heading": "Worked Research Outline (Illustrative)"
+        },
+        "confidence_note": "unspecified"
+      }
+    ],
+    "failure_conditions": [],
+    "common_misinterpretations": [
+      {
+        "id": "ADV-M18-C11",
+        "kind": "concept",
+        "name": "Common Misinterpretations",
+        "definition": "1611. Treating a favourable backtest as proof that ICT doctrine is correct.\n\n1612. Changing labeling rules after seeing the equity curve and presenting the result as the original model.\n\n1613. Using future information to determine past bias or DOL.\n\n1614. Reporting win rate without expectancy and drawdown.\n\n1615. Generalising from one instrument and one regime.\n\n1616. Adding non-ICT filters (moving averages, RSI, etc.) and still calling the system \"ICT.\"\n\n1617. Ignoring the difference between in-sample and out-of-sample performance.",
+        "ict_specific_meaning": "1611. Treating a favourable backtest as proof that ICT doctrine is correct.\n\n1612. Changing labeling rules after seeing the equity curve and presenting the result as the original model.\n\n1613. Using future information to determine past bias or DOL.\n\n1614. Reporting win rate without expectancy and drawdown.\n\n1615. Generalising from one instrument and one regime.\n\n1616. Adding non-ICT filters (moving averages, RSI, etc.) and still calling the system \"ICT.\"\n\n1617. Ignoring the difference between in-sample and out-of-sample performance.",
+        "what_changed_from_beginner_level": "unspecified",
+        "detection_criteria": [
+          "Treating a favourable backtest as proof that ICT doctrine is correct.",
+          "Changing labeling rules after seeing the equity curve and presenting the result as the original model.",
+          "Using future information to determine past bias or DOL.",
+          "Reporting win rate without expectancy and drawdown.",
+          "Generalising from one instrument and one regime.",
+          "Adding non-ICT filters (moving averages, RSI, etc.) and still calling the system \"ICT.\"",
+          "Ignoring the difference between in-sample and out-of-sample performance."
+        ],
+        "numeric_or_narrative_example": "unspecified",
+        "why_it_matters": "unspecified",
+        "beginner_mistakes_or_misinterpretations": [],
+        "raw_sections": {
+          "Full Text": "1611. Treating a favourable backtest as proof that ICT doctrine is correct.\n\n1612. Changing labeling rules after seeing the equity curve and presenting the result as the original model.\n\n1613. Using future information to determine past bias or DOL.\n\n1614. Reporting win rate without expectancy and drawdown.\n\n1615. Generalising from one instrument and one regime.\n\n1616. Adding non-ICT filters (moving averages, RSI, etc.) and still calling the system \"ICT.\"\n\n1617. Ignoring the difference between in-sample and out-of-sample performance."
+        },
+        "dependencies": [],
+        "attribution_type": "community_interpretation",
+        "cited_sources_in_text": [],
+        "book_location": {
+          "level": "advanced",
+          "module_number": 18,
+          "module_title": "ICT Research & Model Validation",
+          "section_heading": "Common Misinterpretations"
+        },
+        "confidence_note": "unspecified"
+      }
+    ],
+    "evidence_summary": [
+      {
+        "id": "ADV-M18-C12",
+        "kind": "concept",
+        "name": "Evidence Summary",
+        "definition": "This module is methodological. ICT supplies the concepts to be tested; the testing standards (objective rules, bias control, sample discipline, statistical reporting, doctrine/research separation) are research practice applied to those concepts. No claim is made that ICT itself requires statistical validation; the claim is that any student who chooses to research ICT models must meet these standards or produce unreliable conclusions.\n\n***Source / Research note:** Methodological framework for converting discretionary ICT concepts into testable rules and evaluating them without hindsight or look-ahead bias. Distinct from ICT price-action teaching itself.*",
+        "ict_specific_meaning": "This module is methodological. ICT supplies the concepts to be tested; the testing standards (objective rules, bias control, sample discipline, statistical reporting, doctrine/research separation) are research practice applied to those concepts. No claim is made that ICT itself requires statistical validation; the claim is that any student who chooses to research ICT models must meet these standards or produce unreliable conclusions.\n\n***Source / Research note:** Methodological framework for converting discretionary ICT concepts into testable rules and evaluating them without hindsight or look-ahead bias. Distinct from ICT price-action teaching itself.*",
+        "what_changed_from_beginner_level": "unspecified",
+        "detection_criteria": [
+          "unspecified - see definition field"
+        ],
+        "numeric_or_narrative_example": "unspecified",
+        "why_it_matters": "unspecified",
+        "beginner_mistakes_or_misinterpretations": [],
+        "raw_sections": {
+          "Full Text": "This module is methodological. ICT supplies the concepts to be tested; the testing standards (objective rules, bias control, sample discipline, statistical reporting, doctrine/research separation) are research practice applied to those concepts. No claim is made that ICT itself requires statistical validation; the claim is that any student who chooses to research ICT models must meet these standards or produce unreliable conclusions.\n\n***Source / Research note:** Methodological framework for converting discretionary ICT concepts into testable rules and evaluating them without hindsight or look-ahead bias. Distinct from ICT price-action teaching itself.*"
+        },
+        "dependencies": [],
+        "attribution_type": "community_interpretation",
+        "cited_sources_in_text": [
+          "Methodological framework for converting discretionary ICT concepts into testable rules and evaluating them without hindsight or look-ahead bias. Distinct from ICT price-action teaching itself."
+        ],
+        "book_location": {
+          "level": "advanced",
+          "module_number": 18,
+          "module_title": "ICT Research & Model Validation",
+          "section_heading": "Evidence Summary"
+        },
+        "confidence_note": "Methodological framework for converting discretionary ICT concepts into testable rules and evaluating them without hindsight or look-ahead bias. Distinct from ICT price-action teaching itself."
+      }
+    ]
+  },
+  "rules": [
+    {
+      "id": "ADV-M18-R01",
+      "kind": "rule",
+      "rule_type": "other",
+      "statement": "Doctrine vs research distinction: Claim type A (doctrine) describes what ICT teaches (e.g. 'ICT teaches that price often delivers from a sell-side liquidity pool to a buy-side liquidity pool after displacement and MSS'). Claim type B (research) describes what a particular operationalisation produced in a particular sample (e.g. specific expectancy/drawdown numbers on a stated instrument/period/sample size). Confusing the two is the most common error in ICT research. Empirical testing cannot prove ICT doctrine true or false philosophically -- it can only show how a specific, fully specified ruleset behaved in historical/forward data. Research results must be reported as research results, not as new ICT doctrine.",
+      "applies_to": [
+        "Doctrine vs Research - The Governing Distinction"
+      ],
+      "conditions": [],
+      "exceptions_or_qualifiers": "unspecified",
+      "book_location": {
+        "level": "advanced",
+        "module_number": 18,
+        "module_title": "ICT Research & Model Validation",
+        "section_heading": "Doctrine vs Research - The Governing Distinction"
+      },
+      "attribution_type": "book_synthesis"
+    },
+    {
+      "id": "ADV-M18-R02",
+      "kind": "rule",
+      "rule_type": "detection_criteria",
+      "statement": "Minimum elements of an objective ICT setup definition for research purposes: instrument and timeframe(s); HTF bias rule (computable without look-ahead); liquidity origin rule (identification + raid condition); displacement rule (exact definition); MSS rule (which swing, what kind of close); entry array rule (FVG/OB/CE/OTE/Breaker exact geometric definition); entry trigger (touch, close inside, etc.); invalidation rule; target rule(s) (intermediate and terminal); session/time filter (if any); position-sizing and risk rule (for equity-curve statistics). Ambiguous rules produce irreproducible results.",
+      "applies_to": [
+        "Defining an ICT Setup Objectively",
+        "Labeling Criteria - Core Concepts"
+      ],
+      "conditions": [],
+      "exceptions_or_qualifiers": "Every labeling rule must be written down and frozen before any performance number is calculated.",
+      "book_location": {
+        "level": "advanced",
+        "module_number": 18,
+        "module_title": "ICT Research & Model Validation",
+        "section_heading": "Defining an ICT Setup Objectively / Labeling Criteria - Core Concepts"
+      },
+      "attribution_type": "book_synthesis"
+    },
+    {
+      "id": "ADV-M18-R03",
+      "kind": "rule",
+      "rule_type": "other",
+      "statement": "Sample selection standard: sample should cover multiple market regimes (trending, ranging, high/low-volatility) and, if claims are to generalise, more than one instrument. Convenience samples of 'only the days that looked good' are invalid. Small samples produce unstable statistics -- state the number of setups, number of trades, and calendar span; extrapolation from a handful of examples is research malpractice.",
+      "applies_to": [
+        "Sample Selection"
+      ],
+      "conditions": [],
+      "exceptions_or_qualifiers": "unspecified",
+      "book_location": {
+        "level": "advanced",
+        "module_number": 18,
+        "module_title": "ICT Research & Model Validation",
+        "section_heading": "Sample Selection"
+      },
+      "attribution_type": "book_synthesis"
+    },
+    {
+      "id": "ADV-M18-R04",
+      "kind": "rule",
+      "rule_type": "other",
+      "statement": "Bias control: Hindsight bias = using information not knowable at decision time (e.g. drawing the 'obvious' range after seeing the whole move, labeling a swing as 'the' liquidity pool because it later worked, adjusting rules after seeing the equity curve). Look-ahead bias = using future data in a past decision (e.g. daily bias from the daily close applied to an entry earlier that day; a weekly DOL only identifiable after the week completed; indicators incorporating future bars). Controls: all bias/range/DOL/array decisions must be computable from data available at the decision timestamp; walk-forward or strictly sequential labeling is preferred; rule changes after seeing results are recorded as new research, not as 'the original model.'",
+      "applies_to": [
+        "Bias Control"
+      ],
+      "conditions": [],
+      "exceptions_or_qualifiers": "unspecified",
+      "book_location": {
+        "level": "advanced",
+        "module_number": 18,
+        "module_title": "ICT Research & Model Validation",
+        "section_heading": "Bias Control"
+      },
+      "attribution_type": "book_synthesis"
+    },
+    {
+      "id": "ADV-M18-R05",
+      "kind": "rule",
+      "rule_type": "other",
+      "statement": "Testing protocol order of operations (never reversed): define rules -> label in-sample -> measure -> freeze rules -> test out-of-sample -> freeze again -> forward test. In-sample results are the starting point for hypothesis formation, not the final claim. Out-of-sample: a held-back portion never used to adjust rules; degradation from in-sample is expected, catastrophic degradation suggests overfitting. Forward testing (frozen ruleset on new unseen live/paper data) is the strongest practical check on whether the operationalisation still behaves as expected.",
+      "applies_to": [
+        "Testing Protocol"
+      ],
+      "conditions": [],
+      "exceptions_or_qualifiers": "unspecified",
+      "book_location": {
+        "level": "advanced",
+        "module_number": 18,
+        "module_title": "ICT Research & Model Validation",
+        "section_heading": "Testing Protocol"
+      },
+      "attribution_type": "book_synthesis"
+    },
+    {
+      "id": "ADV-M18-R06",
+      "kind": "rule",
+      "rule_type": "other",
+      "statement": "Core statistical metrics for evaluation: number of setups/trades; win rate; average win and average loss (R units or currency); expectancy = (Win% x Average Win) - (Loss% x Average Loss); maximum drawdown; distribution of outcomes (R-multiple histogram); time in trade/holding period statistics. A positive expectancy in one sample does not authorise unlimited size -- maximum drawdown and the left tail of the outcome distribution determine survivability; win rate alone is almost meaningless without win/loss size. Robustness is examined by repeating the test on different instruments, years, volatility regimes, and small perturbations of labeling thresholds -- a model working only on one instrument in one two-year window is fragile.",
+      "applies_to": [
+        "Statistical Evaluation"
+      ],
+      "conditions": [],
+      "exceptions_or_qualifiers": "unspecified",
+      "book_location": {
+        "level": "advanced",
+        "module_number": 18,
+        "module_title": "ICT Research & Model Validation",
+        "section_heading": "Statistical Evaluation"
+      },
+      "attribution_type": "book_synthesis"
+    },
+    {
+      "id": "ADV-M18-R07",
+      "kind": "rule",
+      "rule_type": "other",
+      "statement": "Complete research reporting standard: exact objective rules (replicable labels); instrument(s), timeframe(s), sample period, number of setups; in-sample, out-of-sample, and (if available) forward results reported separately; all statistical metrics; any rule changes and when made; explicit statement that 'these results describe the operationalisation above; they do not constitute a proof or disproof of ICT doctrine.'",
+      "applies_to": [
+        "Reporting Standard"
+      ],
+      "conditions": [],
+      "exceptions_or_qualifiers": "unspecified",
+      "book_location": {
+        "level": "advanced",
+        "module_number": 18,
+        "module_title": "ICT Research & Model Validation",
+        "section_heading": "Reporting Standard"
+      },
+      "attribution_type": "book_synthesis"
+    }
+  ],
+  "strategies": [],
+  "examples": [],
+  "relationships": [],
+  "no_trade_conditions": [],
+  "contradictions_or_ambiguities": [
+    {
+      "id": "ADV-M18-AMB01",
+      "kind": "contradiction_or_ambiguity",
+      "description": "This entire module is a meta-methodological caution rather than a trading rule: it explicitly warns against treating any backtest as proof of ICT doctrine, and lists specific research malpractices (all classified as empirical-claim-adjacent errors): treating a favourable backtest as proof ICT doctrine is correct; changing labeling rules after seeing the equity curve and presenting the result as the original model; using future information to determine past bias/DOL; reporting win rate without expectancy and drawdown; generalising from one instrument/regime; adding non-ICT filters (moving averages, RSI, etc.) while still calling the system 'ICT'; ignoring the difference between in-sample and out-of-sample performance.",
+      "passage_a": {
+        "text": "Empirical testing cannot prove that ICT doctrine is true or false in a philosophical sense. It can only show how a specific, fully specified ruleset behaved in historical and forward data.",
+        "book_location": {
+          "level": "advanced",
+          "module_number": 18,
+          "module_title": "ICT Research & Model Validation",
+          "section_heading": "Doctrine vs Research - The Governing Distinction"
+        }
+      },
+      "passage_b": {
+        "text": "Treating a favourable backtest as proof that ICT doctrine is correct [is a common misinterpretation].",
+        "book_location": {
+          "level": "advanced",
+          "module_number": 18,
+          "module_title": "ICT Research & Model Validation",
+          "section_heading": "Common Misinterpretations"
+        }
+      },
+      "resolution_status": "resolved_in_source (book explicitly separates doctrine claims from research claims throughout)"
+    }
+  ],
+  "module_review_notes": {
+    "key_terms": [
+      "Objective ruleset - unambiguous labeling and decision criteria frozen before measurement.",
+      "Hindsight bias - using information not available at the decision time.",
+      "Look-ahead bias - using future data in a past decision.",
+      "In-sample / out-of-sample / forward testing - the staged evaluation protocol.",
+      "Expectancy - average amount won per unit risk under the ruleset.",
+      "Maximum drawdown - largest peak-to-trough decline in the equity curve.",
+      "Robustness - stability of results across instruments, regimes and small rule perturbations.",
+      "Doctrine vs research - separation of \"ICT teaches X\" from \"operationalisation Y produced result Z.\""
+    ],
+    "beginner_summary": "unspecified",
+    "concept_relationships_summary": "unspecified",
+    "practical_chart_exercise": "unspecified",
+    "self_test_questions": [
+      "What is the difference between an ICT doctrine claim and a research claim?",
+      "List at least eight elements that belong in an objective setup definition.",
+      "How is look-ahead bias avoided when determining daily bias for an intraday entry?",
+      "Why must rules be frozen before out-of-sample testing?",
+      "What must every research report state about the relationship between its results and ICT doctrine?"
+    ],
+    "common_misconceptions": [],
+    "research_sources_cited_in_text": []
+  }
+}

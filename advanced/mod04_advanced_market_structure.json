@@ -1,0 +1,519 @@
+{
+  "level": "advanced",
+  "module_number": 4,
+  "module_title": "Advanced Market Structure",
+  "module_intro": "Subtopics: Macro / Intermediate / Internal Structure, Internal vs External MSS, Confirmation & Failure, Structural Narrative.",
+  "prerequisites_stated_in_text": "Advanced Modules 1--3. Structure is no longer read as a collection of BOS/CHoCH labels; it is read as the confirmation language of the liquidity delivery narrative.",
+  "module_objectives": [
+    "Rank structure by timeframe significance (macro, intermediate, internal).",
+    "Distinguish internal Market Structure Shift from external Market Structure Shift and state the narrative implication of each.",
+    "Confirm or reject a delivery leg (Module 1) using structural evidence.",
+    "Recognise structural failure and the conditions under which it promotes a new Draw on Liquidity (Module 3).",
+    "Resolve multi-timeframe structure conflict by reference to the controlling narrative and controlling range.",
+    "Write a structural narrative that sits inside the liquidity delivery sequence rather than replacing it.",
+    "Avoid elevating internal structure to macro authority.",
+    "A liquidity event (raid of opposing pool) has occurred or is occurring,",
+    "Displacement away from that pool is present,",
+    "A Market Structure Shift (internal or external as appropriate) has printed,",
+    "The shift aligns with the higher-timeframe Draw on Liquidity.",
+    "A corrective phase inside the higher-timeframe delivery, or",
+    "A potential early warning that requires higher-timeframe confirmation before the macro narrative is abandoned.",
+    "The macro sequence and its current state (intact / under pressure / failed),",
+    "The intermediate sequence and its alignment with macro,",
+    "The most recent internal MSS and whether it confirms or challenges the intermediate delivery,",
+    "The structural invalidation level that would force a rewrite."
+  ],
+  "concepts": [
+    {
+      "id": "ADV-M04-C01",
+      "kind": "concept",
+      "name": "Structure as Confirmation of Delivery",
+      "definition": "Liquidity (Module 3) tells the student where price is being drawn. Structure tells the student whether the market has accepted that delivery. A liquidity objective without structural confirmation remains a hypothesis; a structural break without a liquidity objective is an incomplete story.",
+      "ict_specific_meaning": "Liquidity (Module 3) tells the student where price is being drawn. Structure tells the student whether the market has accepted that delivery. A liquidity objective without structural confirmation remains a hypothesis; a structural break without a liquidity objective is an incomplete story.",
+      "what_changed_from_beginner_level": "unspecified",
+      "detection_criteria": [
+        "unspecified - see raw_sections"
+      ],
+      "numeric_or_narrative_example": "unspecified",
+      "why_it_matters": "unspecified",
+      "beginner_mistakes_or_misinterpretations": [],
+      "raw_sections": {
+        "Advanced Premise": "Liquidity (Module 3) tells the student where price is being drawn. Structure tells the student whether the market has accepted that delivery. A liquidity objective without structural confirmation remains a hypothesis; a structural break without a liquidity objective is an incomplete story.",
+        "Fractal Character": "Structure is fractal. The same sequence of higher highs / higher lows or lower highs / lower lows appears on monthly, weekly, daily and session charts. Advanced practice assigns different narrative authority to each scale."
+      },
+      "dependencies": [],
+      "attribution_type": "research_compiled_secondary",
+      "cited_sources_in_text": [],
+      "book_location": {
+        "level": "advanced",
+        "module_number": 4,
+        "module_title": "Advanced Market Structure",
+        "section_heading": "Structure as Confirmation of Delivery"
+      },
+      "confidence_note": "unspecified"
+    },
+    {
+      "id": "ADV-M04-C02",
+      "kind": "concept",
+      "name": "Structural Hierarchy",
+      "definition": "Weekly and monthly swing sequences. Macro structure defines the highest-authority directional framework and the long-term Draw on Liquidity. A macro bullish sequence (higher highs and higher lows on the weekly) constrains daily and intraday interpretation until it fails.",
+      "ict_specific_meaning": "Weekly and monthly swing sequences. Macro structure defines the highest-authority directional framework and the long-term Draw on Liquidity. A macro bullish sequence (higher highs and higher lows on the weekly) constrains daily and intraday interpretation until it fails.",
+      "what_changed_from_beginner_level": "unspecified",
+      "detection_criteria": [
+        "unspecified - see raw_sections"
+      ],
+      "numeric_or_narrative_example": "unspecified",
+      "why_it_matters": "unspecified",
+      "beginner_mistakes_or_misinterpretations": [],
+      "raw_sections": {
+        "Macro Structure": "Weekly and monthly swing sequences. Macro structure defines the highest-authority directional framework and the long-term Draw on Liquidity. A macro bullish sequence (higher highs and higher lows on the weekly) constrains daily and intraday interpretation until it fails.",
+        "Intermediate Structure": "Daily and 4-hour swing sequences. Intermediate structure refines the macro narrative into the working daily delivery leg. It is the scale on which most daily Draw on Liquidity statements are confirmed or challenged.",
+        "Internal Structure": "Session, 1-hour, 15-minute and lower swing sequences. Internal structure times entries and confirms or denies the immediate conditioning sequence (liquidity raid -> displacement). It does not, by itself, rewrite the intermediate or macro narrative.",
+        "Authority Rule": "Macro > Intermediate > Internal. An internal MSS that opposes intermediate structure is a potential retracement or trap, not an automatic change of intermediate bias."
+      },
+      "dependencies": [],
+      "attribution_type": "research_compiled_secondary",
+      "cited_sources_in_text": [],
+      "book_location": {
+        "level": "advanced",
+        "module_number": 4,
+        "module_title": "Advanced Market Structure",
+        "section_heading": "Structural Hierarchy"
+      },
+      "confidence_note": "unspecified"
+    },
+    {
+      "id": "ADV-M04-C03",
+      "kind": "concept",
+      "name": "Internal MSS vs External MSS",
+      "definition": "An internal MSS occurs inside the current dealing range or inside the current intermediate swing. It often confirms that a retracement has ended and that delivery toward the existing Draw on Liquidity has resumed. It does not necessarily expand the range or change the higher-timeframe objective.",
+      "ict_specific_meaning": "An internal MSS occurs inside the current dealing range or inside the current intermediate swing. It often confirms that a retracement has ended and that delivery toward the existing Draw on Liquidity has resumed. It does not necessarily expand the range or change the higher-timeframe objective.",
+      "what_changed_from_beginner_level": "unspecified",
+      "detection_criteria": [
+        "unspecified - see raw_sections"
+      ],
+      "numeric_or_narrative_example": "unspecified",
+      "why_it_matters": "unspecified",
+      "beginner_mistakes_or_misinterpretations": [],
+      "raw_sections": {
+        "Internal Market Structure Shift": "An internal MSS occurs inside the current dealing range or inside the current intermediate swing. It often confirms that a retracement has ended and that delivery toward the existing Draw on Liquidity has resumed. It does not necessarily expand the range or change the higher-timeframe objective.",
+        "External Market Structure Shift": "An external MSS breaks a dealing-range boundary or a significant intermediate / macro swing point and is accompanied by displacement. It either expands the current delivery leg (continuation that takes ERL) or begins a new opposing delivery leg (reversal).",
+        "Narrative Implication": "Internal MSS -> continue managing the existing narrative. External MSS -> re-evaluate whether the Draw on Liquidity has been satisfied or replaced.\n\n**Evidence Classification:** *A/B - Internal vs external structure and MSS language is consistent with ICT multi-timeframe teaching and Intermediate refinement; exact label usage varies slightly across ICT presentations.*"
+      },
+      "dependencies": [],
+      "attribution_type": "ICT_primary",
+      "cited_sources_in_text": [],
+      "book_location": {
+        "level": "advanced",
+        "module_number": 4,
+        "module_title": "Advanced Market Structure",
+        "section_heading": "Internal MSS vs External MSS"
+      },
+      "confidence_note": "unspecified"
+    },
+    {
+      "id": "ADV-M04-C04",
+      "kind": "concept",
+      "name": "Structural Confirmation",
+      "definition": "For a delivery leg to be considered structurally confirmed:\n- A liquidity event (raid of opposing pool) has occurred or is occurring,\n- Displacement away from that pool is present,\n- A Market Structure Shift (internal or external as appropriate) has printed,\n- The shift aligns with the higher-timeframe Draw on Liquidity.",
+      "ict_specific_meaning": "For a delivery leg to be considered structurally confirmed:\n- A liquidity event (raid of opposing pool) has occurred or is occurring,\n- Displacement away from that pool is present,\n- A Market Structure Shift (internal or external as appropriate) has printed,\n- The shift aligns with the higher-timeframe Draw on Liquidity.",
+      "what_changed_from_beginner_level": "unspecified",
+      "detection_criteria": [
+        "unspecified - see raw_sections"
+      ],
+      "numeric_or_narrative_example": "unspecified",
+      "why_it_matters": "unspecified",
+      "beginner_mistakes_or_misinterpretations": [],
+      "raw_sections": {
+        "What Confirmation Requires": "For a delivery leg to be considered structurally confirmed:\n\n1056. A liquidity event (raid of opposing pool) has occurred or is occurring,\n\n1057. Displacement away from that pool is present,\n\n1058. A Market Structure Shift (internal or external as appropriate) has printed,\n\n1059. The shift aligns with the higher-timeframe Draw on Liquidity.",
+        "Partial Confirmation": "Displacement without MSS, or MSS without a clear liquidity origin, is partial. Advanced practice waits for the combination or reduces size / requires additional confluence."
+      },
+      "dependencies": [],
+      "attribution_type": "research_compiled_secondary",
+      "cited_sources_in_text": [],
+      "book_location": {
+        "level": "advanced",
+        "module_number": 4,
+        "module_title": "Advanced Market Structure",
+        "section_heading": "Structural Confirmation"
+      },
+      "confidence_note": "unspecified"
+    },
+    {
+      "id": "ADV-M04-C05",
+      "kind": "concept",
+      "name": "Structural Failure",
+      "definition": "Structural failure occurs when price violates the swing sequence that defined the current delivery leg with decisive displacement, and the violation is not quickly recovered. Failure promotes the opposing liquidity to candidate Draw on Liquidity status.",
+      "ict_specific_meaning": "Structural failure occurs when price violates the swing sequence that defined the current delivery leg with decisive displacement, and the violation is not quickly recovered. Failure promotes the opposing liquidity to candidate Draw on Liquidity status.",
+      "what_changed_from_beginner_level": "unspecified",
+      "detection_criteria": [
+        "unspecified - see raw_sections"
+      ],
+      "numeric_or_narrative_example": "unspecified",
+      "why_it_matters": "unspecified",
+      "beginner_mistakes_or_misinterpretations": [],
+      "raw_sections": {
+        "Definition": "Structural failure occurs when price violates the swing sequence that defined the current delivery leg with decisive displacement, and the violation is not quickly recovered. Failure promotes the opposing liquidity to candidate Draw on Liquidity status.",
+        "Relationship to Range and Liquidity": "Failure often coincides with expansion beyond a dealing-range boundary (Module 2) and with the activation of previously opposing ERL (Module 3). The three modules are read together: structure fails, range updates, liquidity hierarchy is rewritten."
+      },
+      "dependencies": [],
+      "attribution_type": "research_compiled_secondary",
+      "cited_sources_in_text": [],
+      "book_location": {
+        "level": "advanced",
+        "module_number": 4,
+        "module_title": "Advanced Market Structure",
+        "section_heading": "Structural Failure"
+      },
+      "confidence_note": "unspecified"
+    },
+    {
+      "id": "ADV-M04-C06",
+      "kind": "concept",
+      "name": "Continuation vs Reversal",
+      "definition": "After an internal MSS in the direction of the higher-timeframe DOL, price resumes toward that DOL. Structure is making higher highs and higher lows (bullish) or lower highs and lower lows (bearish) in alignment with the narrative.",
+      "ict_specific_meaning": "After an internal MSS in the direction of the higher-timeframe DOL, price resumes toward that DOL. Structure is making higher highs and higher lows (bullish) or lower highs and lower lows (bearish) in alignment with the narrative.",
+      "what_changed_from_beginner_level": "unspecified",
+      "detection_criteria": [
+        "unspecified - see raw_sections"
+      ],
+      "numeric_or_narrative_example": "unspecified",
+      "why_it_matters": "unspecified",
+      "beginner_mistakes_or_misinterpretations": [],
+      "raw_sections": {
+        "Continuation": "After an internal MSS in the direction of the higher-timeframe DOL, price resumes toward that DOL. Structure is making higher highs and higher lows (bullish) or lower highs and lower lows (bearish) in alignment with the narrative.",
+        "Reversal": "An external MSS against the prior sequence, accompanied by displacement and a new liquidity objective, ends the prior delivery leg. The structural narrative is rewritten from that point.",
+        "Ambiguity": "Not every break is a clean reversal. A deep retracement that undercuts a prior low but immediately recovers and continues higher may be a liquidity raid inside an ongoing bullish structure rather than a failure. Context (displacement quality, higher-timeframe DOL, dealing-range location) decides."
+      },
+      "dependencies": [],
+      "attribution_type": "research_compiled_secondary",
+      "cited_sources_in_text": [],
+      "book_location": {
+        "level": "advanced",
+        "module_number": 4,
+        "module_title": "Advanced Market Structure",
+        "section_heading": "Continuation vs Reversal"
+      },
+      "confidence_note": "unspecified"
+    },
+    {
+      "id": "ADV-M04-C07",
+      "kind": "concept",
+      "name": "Multi-Timeframe Structure Conflict",
+      "definition": "Conflict exists when internal structure points opposite to intermediate structure, or intermediate opposite to macro. Example: daily making lower lows while weekly continues to print higher highs and higher lows.",
+      "ict_specific_meaning": "Conflict exists when internal structure points opposite to intermediate structure, or intermediate opposite to macro. Example: daily making lower lows while weekly continues to print higher highs and higher lows.",
+      "what_changed_from_beginner_level": "unspecified",
+      "detection_criteria": [
+        "unspecified - see raw_sections"
+      ],
+      "numeric_or_narrative_example": "unspecified",
+      "why_it_matters": "unspecified",
+      "beginner_mistakes_or_misinterpretations": [],
+      "raw_sections": {
+        "Recognition": "Conflict exists when internal structure points opposite to intermediate structure, or intermediate opposite to macro. Example: daily making lower lows while weekly continues to print higher highs and higher lows.",
+        "Resolution": "Higher-timeframe structure retains narrative authority. Lower-timeframe opposing structure is treated as:\n\n1060. A corrective phase inside the higher-timeframe delivery, or\n\n1061. A potential early warning that requires higher-timeframe confirmation before the macro narrative is abandoned.\n\nTrading the lower-timeframe signal against the higher-timeframe structure is a deliberate counter-narrative decision and must be sized and invalidated accordingly."
+      },
+      "dependencies": [],
+      "attribution_type": "research_compiled_secondary",
+      "cited_sources_in_text": [],
+      "book_location": {
+        "level": "advanced",
+        "module_number": 4,
+        "module_title": "Advanced Market Structure",
+        "section_heading": "Multi-Timeframe Structure Conflict"
+      },
+      "confidence_note": "unspecified"
+    },
+    {
+      "id": "ADV-M04-C08",
+      "kind": "concept",
+      "name": "Structural Narrative",
+      "definition": "A complete structural narrative states:\n- The macro sequence and its current state (intact / under pressure / failed),\n- The intermediate sequence and its alignment with macro,\n- The most recent internal MSS and whether it confirms or challenges the intermediate delivery,\n- The structural invalidation level that would force a rewrite.",
+      "ict_specific_meaning": "A complete structural narrative states:\n- The macro sequence and its current state (intact / under pressure / failed),\n- The intermediate sequence and its alignment with macro,\n- The most recent internal MSS and whether it confirms or challenges the intermediate delivery,\n- The structural invalidation level that would force a rewrite.",
+      "what_changed_from_beginner_level": "unspecified",
+      "detection_criteria": [
+        "unspecified - see raw_sections"
+      ],
+      "numeric_or_narrative_example": "unspecified",
+      "why_it_matters": "unspecified",
+      "beginner_mistakes_or_misinterpretations": [],
+      "raw_sections": {
+        "Form": "A complete structural narrative states:\n\n1062. The macro sequence and its current state (intact / under pressure / failed),\n\n1063. The intermediate sequence and its alignment with macro,\n\n1064. The most recent internal MSS and whether it confirms or challenges the intermediate delivery,\n\n1065. The structural invalidation level that would force a rewrite.",
+        "Integration": "The structural narrative is always subordinate to the liquidity delivery narrative (Modules 1 and 3). Structure confirms or denies; liquidity defines the objective."
+      },
+      "dependencies": [],
+      "attribution_type": "research_compiled_secondary",
+      "cited_sources_in_text": [],
+      "book_location": {
+        "level": "advanced",
+        "module_number": 4,
+        "module_title": "Advanced Market Structure",
+        "section_heading": "Structural Narrative"
+      },
+      "confidence_note": "unspecified"
+    }
+  ],
+  "module_synthesis": {
+    "relationship_to_prior_level": [],
+    "worked_narrative_examples": [
+      {
+        "id": "ADV-M04-C09",
+        "kind": "concept",
+        "name": "Worked Narrative - Structure Confirming Delivery",
+        "definition": "Macro (Weekly): Higher highs and higher lows intact. Long-term DOL = buy-side above prior weekly high. Invalidation = weekly close below the origin of the last weekly bullish displacement.\n\nIntermediate (Daily): After sweeping daily SSL, price displaced higher and printed a daily bullish MSS (break of prior daily high). Daily sequence now aligns with weekly.\n\nInternal (15-minute): London raided Asian low; New York printed a 15-minute bullish MSS and left an FVG. This internal MSS confirms resumption of the daily delivery leg.\n\nIntegrated statement: \"Macro and intermediate structure are aligned and bullish. The internal MSS confirms that the daily delivery toward weekly buy-side liquidity is active. Structural invalidation remains the weekly level; trade-level invalidation sits below the daily displacement origin.\"",
+        "ict_specific_meaning": "Macro (Weekly): Higher highs and higher lows intact. Long-term DOL = buy-side above prior weekly high. Invalidation = weekly close below the origin of the last weekly bullish displacement.\n\nIntermediate (Daily): After sweeping daily SSL, price displaced higher and printed a daily bullish MSS (break of prior daily high). Daily sequence now aligns with weekly.\n\nInternal (15-minute): London raided Asian low; New York printed a 15-minute bullish MSS and left an FVG. This internal MSS confirms resumption of the daily delivery leg.\n\nIntegrated statement: \"Macro and intermediate structure are aligned and bullish. The internal MSS confirms that the daily delivery toward weekly buy-side liquidity is active. Structural invalidation remains the weekly level; trade-level invalidation sits below the daily displacement origin.\"",
+        "what_changed_from_beginner_level": "unspecified",
+        "detection_criteria": [
+          "unspecified - see definition field"
+        ],
+        "numeric_or_narrative_example": "unspecified",
+        "why_it_matters": "unspecified",
+        "beginner_mistakes_or_misinterpretations": [],
+        "raw_sections": {
+          "Full Text": "Macro (Weekly): Higher highs and higher lows intact. Long-term DOL = buy-side above prior weekly high. Invalidation = weekly close below the origin of the last weekly bullish displacement.\n\nIntermediate (Daily): After sweeping daily SSL, price displaced higher and printed a daily bullish MSS (break of prior daily high). Daily sequence now aligns with weekly.\n\nInternal (15-minute): London raided Asian low; New York printed a 15-minute bullish MSS and left an FVG. This internal MSS confirms resumption of the daily delivery leg.\n\nIntegrated statement: \"Macro and intermediate structure are aligned and bullish. The internal MSS confirms that the daily delivery toward weekly buy-side liquidity is active. Structural invalidation remains the weekly level; trade-level invalidation sits below the daily displacement origin.\""
+        },
+        "dependencies": [],
+        "attribution_type": "community_interpretation",
+        "cited_sources_in_text": [],
+        "book_location": {
+          "level": "advanced",
+          "module_number": 4,
+          "module_title": "Advanced Market Structure",
+          "section_heading": "Worked Narrative - Structure Confirming Delivery"
+        },
+        "confidence_note": "unspecified"
+      }
+    ],
+    "failure_conditions": [
+      {
+        "id": "ADV-M04-C10",
+        "kind": "concept",
+        "name": "Failure Conditions and Model Implications",
+        "definition": "When intermediate or macro structure fails:\n\n1066. The prior Draw on Liquidity is retired or demoted.\n\n1067. Opposing liquidity is promoted.\n\n1068. Models that assumed continuation of the failed sequence are invalidated.\n\n1069. Models that assume the new opposing delivery become candidates.\n\nStructural failure is one of the cleanest signals that model selection must change.",
+        "ict_specific_meaning": "When intermediate or macro structure fails:\n\n1066. The prior Draw on Liquidity is retired or demoted.\n\n1067. Opposing liquidity is promoted.\n\n1068. Models that assumed continuation of the failed sequence are invalidated.\n\n1069. Models that assume the new opposing delivery become candidates.\n\nStructural failure is one of the cleanest signals that model selection must change.",
+        "what_changed_from_beginner_level": "unspecified",
+        "detection_criteria": [
+          "The prior Draw on Liquidity is retired or demoted.",
+          "Opposing liquidity is promoted.",
+          "Models that assumed continuation of the failed sequence are invalidated.",
+          "Models that assume the new opposing delivery become candidates."
+        ],
+        "numeric_or_narrative_example": "unspecified",
+        "why_it_matters": "unspecified",
+        "beginner_mistakes_or_misinterpretations": [],
+        "raw_sections": {
+          "Full Text": "When intermediate or macro structure fails:\n\n1066. The prior Draw on Liquidity is retired or demoted.\n\n1067. Opposing liquidity is promoted.\n\n1068. Models that assumed continuation of the failed sequence are invalidated.\n\n1069. Models that assume the new opposing delivery become candidates.\n\nStructural failure is one of the cleanest signals that model selection must change."
+        },
+        "dependencies": [],
+        "attribution_type": "community_interpretation",
+        "cited_sources_in_text": [],
+        "book_location": {
+          "level": "advanced",
+          "module_number": 4,
+          "module_title": "Advanced Market Structure",
+          "section_heading": "Failure Conditions and Model Implications"
+        },
+        "confidence_note": "unspecified"
+      }
+    ],
+    "common_misinterpretations": [
+      {
+        "id": "ADV-M04-C11",
+        "kind": "concept",
+        "name": "Common Misinterpretations",
+        "definition": "1070. Treating every internal MSS as a change in intermediate or macro bias.\n\n1071. Ignoring higher-timeframe structure because a clean lower-timeframe sequence appeared.\n\n1072. Labeling structure without reference to the liquidity objective it is confirming or denying.\n\n1073. Assuming that a deep undercut of a prior low is automatically a structural failure (it may be a liquidity raid inside an ongoing sequence).\n\n1074. Using structure in isolation from dealing-range location and premium/discount filters.",
+        "ict_specific_meaning": "1070. Treating every internal MSS as a change in intermediate or macro bias.\n\n1071. Ignoring higher-timeframe structure because a clean lower-timeframe sequence appeared.\n\n1072. Labeling structure without reference to the liquidity objective it is confirming or denying.\n\n1073. Assuming that a deep undercut of a prior low is automatically a structural failure (it may be a liquidity raid inside an ongoing sequence).\n\n1074. Using structure in isolation from dealing-range location and premium/discount filters.",
+        "what_changed_from_beginner_level": "unspecified",
+        "detection_criteria": [
+          "Treating every internal MSS as a change in intermediate or macro bias.",
+          "Ignoring higher-timeframe structure because a clean lower-timeframe sequence appeared.",
+          "Labeling structure without reference to the liquidity objective it is confirming or denying.",
+          "Assuming that a deep undercut of a prior low is automatically a structural failure (it may be a liquidity raid inside an ongoing sequence).",
+          "Using structure in isolation from dealing-range location and premium/discount filters."
+        ],
+        "numeric_or_narrative_example": "unspecified",
+        "why_it_matters": "unspecified",
+        "beginner_mistakes_or_misinterpretations": [],
+        "raw_sections": {
+          "Full Text": "1070. Treating every internal MSS as a change in intermediate or macro bias.\n\n1071. Ignoring higher-timeframe structure because a clean lower-timeframe sequence appeared.\n\n1072. Labeling structure without reference to the liquidity objective it is confirming or denying.\n\n1073. Assuming that a deep undercut of a prior low is automatically a structural failure (it may be a liquidity raid inside an ongoing sequence).\n\n1074. Using structure in isolation from dealing-range location and premium/discount filters."
+        },
+        "dependencies": [],
+        "attribution_type": "community_interpretation",
+        "cited_sources_in_text": [],
+        "book_location": {
+          "level": "advanced",
+          "module_number": 4,
+          "module_title": "Advanced Market Structure",
+          "section_heading": "Common Misinterpretations"
+        },
+        "confidence_note": "unspecified"
+      }
+    ],
+    "evidence_summary": [
+      {
+        "id": "ADV-M04-C12",
+        "kind": "concept",
+        "name": "Evidence Summary",
+        "definition": "Market structure, Break of Structure, Change of Character / Market Structure Shift, and the multi-timeframe application of those ideas are foundational ICT. The internal vs external distinction and the explicit subordination of lower-timeframe structure to higher-timeframe narrative are the advanced operational synthesis. Exact label variants (BOS, CHoCH, MSS, CISD) appear across ICT material; the underlying hierarchy of authority is consistent.\n\n***Source / Research note:** Primary orientation: ICT teaching on market structure, MSS/CHoCH, and multi-timeframe analysis. Internal/external framing and the authority hierarchy are the advanced synthesis required for narrative construction. Secondary sources used only to locate and cross-reference primary themes.*",
+        "ict_specific_meaning": "Market structure, Break of Structure, Change of Character / Market Structure Shift, and the multi-timeframe application of those ideas are foundational ICT. The internal vs external distinction and the explicit subordination of lower-timeframe structure to higher-timeframe narrative are the advanced operational synthesis. Exact label variants (BOS, CHoCH, MSS, CISD) appear across ICT material; the underlying hierarchy of authority is consistent.\n\n***Source / Research note:** Primary orientation: ICT teaching on market structure, MSS/CHoCH, and multi-timeframe analysis. Internal/external framing and the authority hierarchy are the advanced synthesis required for narrative construction. Secondary sources used only to locate and cross-reference primary themes.*",
+        "what_changed_from_beginner_level": "unspecified",
+        "detection_criteria": [
+          "unspecified - see definition field"
+        ],
+        "numeric_or_narrative_example": "unspecified",
+        "why_it_matters": "unspecified",
+        "beginner_mistakes_or_misinterpretations": [],
+        "raw_sections": {
+          "Full Text": "Market structure, Break of Structure, Change of Character / Market Structure Shift, and the multi-timeframe application of those ideas are foundational ICT. The internal vs external distinction and the explicit subordination of lower-timeframe structure to higher-timeframe narrative are the advanced operational synthesis. Exact label variants (BOS, CHoCH, MSS, CISD) appear across ICT material; the underlying hierarchy of authority is consistent.\n\n***Source / Research note:** Primary orientation: ICT teaching on market structure, MSS/CHoCH, and multi-timeframe analysis. Internal/external framing and the authority hierarchy are the advanced synthesis required for narrative construction. Secondary sources used only to locate and cross-reference primary themes.*"
+        },
+        "dependencies": [],
+        "attribution_type": "community_interpretation",
+        "cited_sources_in_text": [
+          "Primary orientation: ICT teaching on market structure, MSS/CHoCH, and multi-timeframe analysis. Internal/external framing and the authority hierarchy are the advanced synthesis required for narrative construction. Secondary sources used only to locate and cross-reference primary themes."
+        ],
+        "book_location": {
+          "level": "advanced",
+          "module_number": 4,
+          "module_title": "Advanced Market Structure",
+          "section_heading": "Evidence Summary"
+        },
+        "confidence_note": "Primary orientation: ICT teaching on market structure, MSS/CHoCH, and multi-timeframe analysis. Internal/external framing and the authority hierarchy are the advanced synthesis required for narrative construction. Secondary sources used only to locate and cross-reference primary themes."
+      }
+    ]
+  },
+  "rules": [
+    {
+      "id": "ADV-M04-R01",
+      "kind": "rule",
+      "rule_type": "timeframe_relationship",
+      "statement": "Structural hierarchy: Macro structure (weekly/monthly swing sequences) defines the highest-authority directional framework and long-term DOL, constraining daily/intraday interpretation until it fails. Intermediate structure (daily/4-hour swing sequences) refines the macro narrative into the working daily delivery leg. Internal structure (session/1-hour/15-minute/lower swing sequences) times entries and confirms/denies the immediate conditioning sequence but does not by itself rewrite intermediate or macro narrative. Authority rule: Macro > Intermediate > Internal. An internal MSS opposing intermediate structure is a potential retracement or trap, not an automatic change of intermediate bias.",
+      "applies_to": [
+        "Structural Hierarchy"
+      ],
+      "conditions": [],
+      "exceptions_or_qualifiers": "unspecified",
+      "book_location": {
+        "level": "advanced",
+        "module_number": 4,
+        "module_title": "Advanced Market Structure",
+        "section_heading": "Structural Hierarchy"
+      },
+      "attribution_type": "community_interpretation"
+    },
+    {
+      "id": "ADV-M04-R02",
+      "kind": "rule",
+      "rule_type": "detection_criteria",
+      "statement": "Internal MSS: occurs inside the current dealing range or intermediate swing; often confirms a retracement has ended and delivery toward the existing DOL has resumed; does not necessarily expand the range or change the HTF objective -- continue managing the existing narrative. External MSS: breaks a dealing-range boundary or a significant intermediate/macro swing point, accompanied by displacement; either expands the current delivery leg (continuation, taking ERL) or begins a new opposing delivery leg (reversal) -- re-evaluate whether the DOL has been satisfied or replaced.",
+      "applies_to": [
+        "Internal MSS vs External MSS"
+      ],
+      "conditions": [],
+      "exceptions_or_qualifiers": "Exact label usage varies slightly across ICT presentations.",
+      "book_location": {
+        "level": "advanced",
+        "module_number": 4,
+        "module_title": "Advanced Market Structure",
+        "section_heading": "Internal MSS vs External MSS"
+      },
+      "attribution_type": "community_interpretation"
+    },
+    {
+      "id": "ADV-M04-R03",
+      "kind": "rule",
+      "rule_type": "detection_criteria",
+      "statement": "For a delivery leg to be considered structurally confirmed: (1) a liquidity event (raid of opposing pool) has occurred or is occurring; (2) displacement away from that pool is present; (3) a Market Structure Shift (internal or external as appropriate) has printed; (4) the shift aligns with the higher-timeframe Draw on Liquidity. Partial confirmation (displacement without MSS, or MSS without clear liquidity origin) requires waiting for the full combination or reducing size/requiring additional confluence.",
+      "applies_to": [
+        "Structural Confirmation"
+      ],
+      "conditions": [],
+      "exceptions_or_qualifiers": "unspecified",
+      "book_location": {
+        "level": "advanced",
+        "module_number": 4,
+        "module_title": "Advanced Market Structure",
+        "section_heading": "Structural Confirmation"
+      },
+      "attribution_type": "community_interpretation"
+    },
+    {
+      "id": "ADV-M04-R04",
+      "kind": "rule",
+      "rule_type": "timeframe_relationship",
+      "statement": "Multi-timeframe structure conflict (e.g. daily making lower lows while weekly continues higher highs/higher lows): higher-timeframe structure retains narrative authority. Lower-timeframe opposing structure is treated as either a corrective phase inside the HTF delivery, or a potential early warning requiring HTF confirmation before the macro narrative is abandoned. Trading the LTF signal against HTF structure is a deliberate counter-narrative decision and must be sized and invalidated accordingly.",
+      "applies_to": [
+        "Multi-Timeframe Structure Conflict"
+      ],
+      "conditions": [],
+      "exceptions_or_qualifiers": "unspecified",
+      "book_location": {
+        "level": "advanced",
+        "module_number": 4,
+        "module_title": "Advanced Market Structure",
+        "section_heading": "Multi-Timeframe Structure Conflict"
+      },
+      "attribution_type": "community_interpretation"
+    },
+    {
+      "id": "ADV-M04-R05",
+      "kind": "rule",
+      "rule_type": "other",
+      "statement": "A complete structural narrative states: (1) the macro sequence and its current state (intact/under pressure/failed); (2) the intermediate sequence and its alignment with macro; (3) the most recent internal MSS and whether it confirms or challenges the intermediate delivery; (4) the structural invalidation level that would force a rewrite. The structural narrative is always subordinate to the liquidity delivery narrative -- structure confirms or denies, liquidity defines the objective.",
+      "applies_to": [
+        "Structural Narrative"
+      ],
+      "conditions": [],
+      "exceptions_or_qualifiers": "unspecified",
+      "book_location": {
+        "level": "advanced",
+        "module_number": 4,
+        "module_title": "Advanced Market Structure",
+        "section_heading": "Structural Narrative"
+      },
+      "attribution_type": "community_interpretation"
+    }
+  ],
+  "strategies": [],
+  "examples": [],
+  "relationships": [],
+  "no_trade_conditions": [
+    {
+      "id": "ADV-M04-NT01",
+      "kind": "no_trade_rule",
+      "statement": "Do not assume a deep undercut of a prior low is automatically a structural failure -- it may be a liquidity raid inside an ongoing sequence. Do not treat every internal MSS as a change in intermediate or macro bias. Do not use structure in isolation from dealing-range location and premium/discount filters.",
+      "applies_to_strategy_ids": [],
+      "book_location": {
+        "level": "advanced",
+        "module_number": 4,
+        "module_title": "Advanced Market Structure",
+        "section_heading": "Common Misinterpretations"
+      }
+    }
+  ],
+  "contradictions_or_ambiguities": [],
+  "empirical_claims": [],
+  "module_review_notes": {
+    "key_terms": [
+      "Macro structure - weekly / monthly swing sequence; highest narrative authority.",
+      "Intermediate structure - daily / 4-hour sequence; working delivery confirmation.",
+      "Internal structure - session / LTF sequence; entry timing and local confirmation.",
+      "Internal MSS - shift inside the current range or intermediate swing; often confirms continuation.",
+      "External MSS - shift that breaks a significant boundary; may expand or reverse the delivery leg.",
+      "Structural confirmation - liquidity event + displacement + MSS aligned with the DOL.",
+      "Structural failure - decisive violation of the defining sequence that promotes opposing liquidity.",
+      "Structural narrative - the hierarchical statement of macro / intermediate / internal state and invalidation."
+    ],
+    "beginner_summary": "unspecified",
+    "concept_relationships_summary": "unspecified",
+    "practical_chart_exercise": "unspecified",
+    "self_test_questions": [
+      "What is the authority order among macro, intermediate and internal structure?",
+      "How does an internal MSS differ in narrative implication from an external MSS?",
+      "What four elements constitute structural confirmation of a delivery leg?",
+      "How should an internal bullish MSS be treated when intermediate structure remains bearish?",
+      "What happens to the Draw on Liquidity when intermediate structure fails with opposing displacement?"
+    ],
+    "common_misconceptions": [],
+    "research_sources_cited_in_text": []
+  }
+}

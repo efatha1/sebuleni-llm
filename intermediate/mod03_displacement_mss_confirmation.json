@@ -1,0 +1,441 @@
+{
+  "level": "intermediate",
+  "module_number": 3,
+  "module_title": "Displacement, Market Structure Shift & Confirmation",
+  "module_intro": "Moves from 'displacement happened' to grading the quality of displacement and the resulting Market Structure Shift: strong vs weak displacement, displacement through liquidity vs through structure, MSS confirmation criteria, internal vs external MSS, the displacement+FVG and displacement+liquidity relationships, failed displacement/weak shifts, and confirmation vs anticipation.",
+  "prerequisites_stated_in_text": "Requires Beginner Modules 3 (Market Structure) and 5 (Displacement & Imbalance), and Intermediate Module 1.",
+  "module_objectives": [
+    "Judge the quality of a displacement move (strong vs weak).",
+    "Recognise displacement that occurs through liquidity versus displacement that occurs through structure.",
+    "Distinguish an internal Market Structure Shift from an external Market Structure Shift.",
+    "Require displacement (and preferably an accompanying Fair Value Gap) before treating a structure break as a high-quality MSS.",
+    "Identify failed or weak structure shifts and avoid acting on them.",
+    "Separate confirmation (evidence already present) from anticipation (hoping for evidence).",
+    "Integrate displacement and MSS with the liquidity and dealing-range context established in Modules 1 - 2."
+  ],
+  "concepts": [
+    {
+      "id": "INT-M03-C01",
+      "kind": "concept",
+      "name": "Quality of Displacement",
+      "definition": "Displacement is a forceful, directional price movement characterised by large-range candles, reduced overlap between consecutive candles, and a clear sense of urgency. It is the visual signature that the market is actively repricing rather than oscillating inside a balanced range.",
+      "ict_specific_meaning": "Displacement is a forceful, directional price movement characterised by large-range candles, reduced overlap between consecutive candles, and a clear sense of urgency. It is the visual signature that the market is actively repricing rather than oscillating inside a balanced range.",
+      "what_changed_from_beginner_level": "unspecified",
+      "detection_criteria": [
+        "unspecified - see raw_sections"
+      ],
+      "numeric_or_narrative_example": "unspecified",
+      "why_it_matters": "unspecified",
+      "beginner_mistakes_or_misinterpretations": [],
+      "raw_sections": {
+        "Definition": "Displacement is a forceful, directional price movement characterised by large-range candles, reduced overlap between consecutive candles, and a clear sense of urgency. It is the visual signature that the market is actively repricing rather than oscillating inside a balanced range.",
+        "Strong Displacement": "Strong displacement typically shows:\n\n552. One or more large-bodied candles with relatively small opposing wicks.\n\n553. Minimal overlap between the bodies of successive candles.\n\n554. Creation of a Fair Value Gap (imbalance) as price moves too quickly for two-sided delivery.\n\n555. Immediate follow-through rather than immediate mean-reversion.\n\n556. Occurrence after or in conjunction with a liquidity event (raid or sweep).",
+        "Weak Displacement": "Weak displacement (or the absence of true displacement) shows:\n\n557. Overlapping candles and indecisive bodies.\n\n558. Frequent rejection wicks in both directions.\n\n559. No clear Fair Value Gap or only tiny, quickly filled inefficiencies.\n\n560. Price that struggles to hold beyond the broken level.",
+        "Why Quality Matters": "A structure break delivered by strong displacement carries far more informational value than the same level broken by a slow, overlapping grind. The intermediate student learns to grade the delivery, not merely to notice that a level was crossed."
+      },
+      "dependencies": [],
+      "attribution_type": "research_compiled_secondary",
+      "cited_sources_in_text": [],
+      "book_location": {
+        "level": "intermediate",
+        "module_number": 3,
+        "module_title": "Displacement, Market Structure Shift & Confirmation",
+        "section_heading": "Quality of Displacement"
+      },
+      "confidence_note": "unspecified"
+    },
+    {
+      "id": "INT-M03-C02",
+      "kind": "concept",
+      "name": "Displacement Through Liquidity vs Through Structure",
+      "definition": "unspecified - see raw_sections",
+      "ict_specific_meaning": "unspecified",
+      "what_changed_from_beginner_level": "unspecified",
+      "detection_criteria": [
+        "unspecified - see raw_sections"
+      ],
+      "numeric_or_narrative_example": "unspecified",
+      "why_it_matters": "unspecified",
+      "beginner_mistakes_or_misinterpretations": [],
+      "raw_sections": {
+        "Displacement Through Liquidity": "This occurs when the energetic move is primarily the act of running a liquidity pool (BSL or SSL). The displacement itself is the raid. Subsequent behaviour (rejection and reversal, or acceptance and continuation) determines whether the event is a raid or a continuation (Module 2).",
+        "Displacement Through Structure": "This occurs when the energetic move breaks a protected structural swing (a higher low in a bullish sequence, a lower high in a bearish sequence, or an intermediate-/long-term pivot). When displacement and a structural break coincide, the result is a high-quality Market Structure Shift.",
+        "Preferred Combination": "The highest-quality intermediate setups frequently combine both: a liquidity event is followed by displacement that also breaks structure. Liquidity supplies the fuel; displacement through structure supplies the confirmation of a change in control."
+      },
+      "dependencies": [],
+      "attribution_type": "research_compiled_secondary",
+      "cited_sources_in_text": [],
+      "book_location": {
+        "level": "intermediate",
+        "module_number": 3,
+        "module_title": "Displacement, Market Structure Shift & Confirmation",
+        "section_heading": "Displacement Through Liquidity vs Through Structure"
+      },
+      "confidence_note": "unspecified"
+    },
+    {
+      "id": "INT-M03-C03",
+      "kind": "concept",
+      "name": "Market Structure Shift Confirmation",
+      "definition": "unspecified - see raw_sections",
+      "ict_specific_meaning": "unspecified",
+      "what_changed_from_beginner_level": "unspecified",
+      "detection_criteria": [
+        "unspecified - see raw_sections"
+      ],
+      "numeric_or_narrative_example": "unspecified",
+      "why_it_matters": "unspecified",
+      "beginner_mistakes_or_misinterpretations": [],
+      "raw_sections": {
+        "ICT Emphasis": "Within ICT teaching, a Market Structure Shift is confirmed when price breaks a significant swing point with displacement. A mere wick beyond the level, or a close that is immediately reversed, is insufficient. The preferred confirmation package is:\n\n561. Liquidity event (sweep/raid) preceding or concurrent with the move.\n\n562. Displacement (energetic candles, preferably creating an FVG).\n\n563. Clear break and close beyond the structural reference.\n\n564. Subsequent inability of price to reclaim the broken level in a meaningful way.",
+        "Body Close Preference": "Intermediate practice prefers a candle body close beyond the structural level rather than a wick-only breach. Wick-only events are more often liquidity probes."
+      },
+      "dependencies": [],
+      "attribution_type": "research_compiled_secondary",
+      "cited_sources_in_text": [],
+      "book_location": {
+        "level": "intermediate",
+        "module_number": 3,
+        "module_title": "Displacement, Market Structure Shift & Confirmation",
+        "section_heading": "Market Structure Shift Confirmation"
+      },
+      "confidence_note": "unspecified"
+    },
+    {
+      "id": "INT-M03-C04",
+      "kind": "concept",
+      "name": "Internal MSS vs External MSS",
+      "definition": "unspecified - see raw_sections",
+      "ict_specific_meaning": "unspecified",
+      "what_changed_from_beginner_level": "unspecified",
+      "detection_criteria": [
+        "unspecified - see raw_sections"
+      ],
+      "numeric_or_narrative_example": "unspecified",
+      "why_it_matters": "Many profitable intermediate trades are taken on internal MSS events that align with a higher-timeframe bias and a clear Draw on Liquidity. Treating every internal MSS as a full trend reversal is a common source of bias flip-flops.\n\n***Source / Research note:** The internal/external distinction for structure shifts follows directly from the dealing-range and hierarchical-swing framework established in Module 1 and is consistent with ICT's emphasis on context.*",
+      "beginner_mistakes_or_misinterpretations": [],
+      "raw_sections": {
+        "Internal Market Structure Shift": "An internal MSS is a structure break that occurs inside the current dealing range and affects only short-term or intermediate-term pivots. It is useful for lower-timeframe entry timing but does not, by itself, overturn the higher-timeframe narrative.",
+        "External Market Structure Shift": "An external MSS is a structure break that violates a dealing-range boundary or a long-term / higher-timeframe structural pivot. It carries greater narrative weight and may signal that the prior dealing range is being replaced.",
+        "Practical Implication": "Many profitable intermediate trades are taken on internal MSS events that align with a higher-timeframe bias and a clear Draw on Liquidity. Treating every internal MSS as a full trend reversal is a common source of bias flip-flops.\n\n***Source / Research note:** The internal/external distinction for structure shifts follows directly from the dealing-range and hierarchical-swing framework established in Module 1 and is consistent with ICT's emphasis on context.*"
+      },
+      "dependencies": [],
+      "attribution_type": "research_compiled_secondary",
+      "cited_sources_in_text": [
+        "The internal/external distinction for structure shifts follows directly from the dealing-range and hierarchical-swing framework established in Module 1 and is consistent with ICT's emphasis on context."
+      ],
+      "book_location": {
+        "level": "intermediate",
+        "module_number": 3,
+        "module_title": "Displacement, Market Structure Shift & Confirmation",
+        "section_heading": "Internal MSS vs External MSS"
+      },
+      "confidence_note": "The internal/external distinction for structure shifts follows directly from the dealing-range and hierarchical-swing framework established in Module 1 and is consistent with ICT's emphasis on context."
+    },
+    {
+      "id": "INT-M03-C05",
+      "kind": "concept",
+      "name": "Displacement + Fair Value Gap Relationship",
+      "definition": "unspecified - see raw_sections",
+      "ict_specific_meaning": "unspecified",
+      "what_changed_from_beginner_level": "unspecified",
+      "detection_criteria": [
+        "unspecified - see raw_sections"
+      ],
+      "numeric_or_narrative_example": "unspecified",
+      "why_it_matters": "When a structure break is accompanied by a clean FVG in the direction of the break, the quality of the MSS is elevated. When a structure break occurs with no imbalance and heavy candle overlap, the quality is reduced.",
+      "beginner_mistakes_or_misinterpretations": [],
+      "raw_sections": {
+        "The Natural Pairing": "True displacement often leaves a Fair Value Gap because price moved too quickly for balanced two-sided delivery. The FVG becomes both evidence that displacement occurred and a potential later entry zone (the retracement into the imbalance).",
+        "Practical Reading": "When a structure break is accompanied by a clean FVG in the direction of the break, the quality of the MSS is elevated. When a structure break occurs with no imbalance and heavy candle overlap, the quality is reduced.",
+        "Later Use": "Module 4 will treat the FVG itself in greater depth. For now it is sufficient to recognise that the presence of an FVG created by the displacement leg is a positive quality filter for the MSS."
+      },
+      "dependencies": [],
+      "attribution_type": "research_compiled_secondary",
+      "cited_sources_in_text": [],
+      "book_location": {
+        "level": "intermediate",
+        "module_number": 3,
+        "module_title": "Displacement, Market Structure Shift & Confirmation",
+        "section_heading": "Displacement + Fair Value Gap Relationship"
+      },
+      "confidence_note": "unspecified"
+    },
+    {
+      "id": "INT-M03-C06",
+      "kind": "concept",
+      "name": "Displacement + Liquidity Relationship",
+      "definition": "unspecified - see raw_sections",
+      "ict_specific_meaning": "unspecified",
+      "what_changed_from_beginner_level": "unspecified",
+      "detection_criteria": [
+        "unspecified - see raw_sections"
+      ],
+      "numeric_or_narrative_example": "unspecified",
+      "why_it_matters": "unspecified",
+      "beginner_mistakes_or_misinterpretations": [],
+      "raw_sections": {
+        "Sequence Preference": "The preferred intermediate sequence remains:\n\nLiquidity event (raid or sweep) -> Displacement away from the raided pool -> Market Structure Shift -> Retracement into a PD array created by the displacement (often an FVG or Order Block).\n\nDisplacement that occurs without a preceding or concurrent liquidity event is lower probability; the market has not yet performed the stop-run that frequently precedes institutional repositioning.",
+        "Displacement After a Raid": "When displacement follows a clear liquidity raid and breaks structure, the trader has simultaneous evidence of: (1) liquidity taken, (2) energetic repricing, and (3) structural change. This combination is the foundation of many ICT execution models."
+      },
+      "dependencies": [],
+      "attribution_type": "research_compiled_secondary",
+      "cited_sources_in_text": [],
+      "book_location": {
+        "level": "intermediate",
+        "module_number": 3,
+        "module_title": "Displacement, Market Structure Shift & Confirmation",
+        "section_heading": "Displacement + Liquidity Relationship"
+      },
+      "confidence_note": "unspecified"
+    },
+    {
+      "id": "INT-M03-C07",
+      "kind": "concept",
+      "name": "Failed Displacement and Weak Structure Shifts",
+      "definition": "unspecified - see raw_sections",
+      "ict_specific_meaning": "unspecified",
+      "what_changed_from_beginner_level": "unspecified",
+      "detection_criteria": [
+        "unspecified - see raw_sections"
+      ],
+      "numeric_or_narrative_example": "unspecified",
+      "why_it_matters": "unspecified",
+      "beginner_mistakes_or_misinterpretations": [],
+      "raw_sections": {
+        "Failed Displacement": "A failed displacement occurs when price makes an energetic push that appears to break structure or run liquidity, but is quickly and decisively reversed, leaving the original structure intact. The apparent shift is invalidated.",
+        "Weak Structure Shift": "A weak structure shift is a break that lacks displacement, lacks an FVG, occurs on overlapping candles, or is immediately reclaimed. It should not be treated as high-quality confirmation.",
+        "Intermediate Response": "When displacement fails or the shift is weak, the trader does not force the narrative. The higher-timeframe dealing range and Draw on Liquidity remain the primary references until a higher-quality event appears."
+      },
+      "dependencies": [],
+      "attribution_type": "research_compiled_secondary",
+      "cited_sources_in_text": [],
+      "book_location": {
+        "level": "intermediate",
+        "module_number": 3,
+        "module_title": "Displacement, Market Structure Shift & Confirmation",
+        "section_heading": "Failed Displacement and Weak Structure Shifts"
+      },
+      "confidence_note": "unspecified"
+    },
+    {
+      "id": "INT-M03-C08",
+      "kind": "concept",
+      "name": "Confirmation vs Anticipation",
+      "definition": "Confirmation is the presence of evidence already printed on the chart: the liquidity event has occurred, displacement has printed, structure has shifted, and (preferably) an FVG has formed.\n\nAnticipation is the expectation that these events will occur. Anticipatory entries are taken before the evidence is present.",
+      "ict_specific_meaning": "Confirmation is the presence of evidence already printed on the chart: the liquidity event has occurred, displacement has printed, structure has shifted, and (preferably) an FVG has formed.\n\nAnticipation is the expectation that these events will occur. Anticipatory entries are taken before the evidence is present.",
+      "what_changed_from_beginner_level": "unspecified",
+      "detection_criteria": [
+        "unspecified - see raw_sections"
+      ],
+      "numeric_or_narrative_example": "unspecified",
+      "why_it_matters": "unspecified",
+      "beginner_mistakes_or_misinterpretations": [],
+      "raw_sections": {
+        "Definitions": "Confirmation is the presence of evidence already printed on the chart: the liquidity event has occurred, displacement has printed, structure has shifted, and (preferably) an FVG has formed.\n\nAnticipation is the expectation that these events will occur. Anticipatory entries are taken before the evidence is present.",
+        "Intermediate Discipline": "While experienced practitioners may occasionally anticipate, the intermediate student is trained to wait for confirmation. Entering before the sweep, or before displacement confirms the shift, converts the trader's stop into the liquidity the market is seeking.",
+        "Practical Rule": "If the displacement and MSS have not yet printed, the setup is still in the anticipation phase. The correct action is to wait or to stand aside."
+      },
+      "dependencies": [],
+      "attribution_type": "research_compiled_secondary",
+      "cited_sources_in_text": [],
+      "book_location": {
+        "level": "intermediate",
+        "module_number": 3,
+        "module_title": "Displacement, Market Structure Shift & Confirmation",
+        "section_heading": "Confirmation vs Anticipation"
+      },
+      "confidence_note": "unspecified"
+    }
+  ],
+  "rules": [
+    {
+      "id": "INT-M03-R01",
+      "kind": "rule",
+      "rule_type": "detection_criteria",
+      "statement": "Strong displacement shows: (1) one or more large-bodied candles with relatively small opposing wicks; (2) minimal overlap between bodies of successive candles; (3) creation of a Fair Value Gap as price moves too quickly for two-sided delivery; (4) immediate follow-through rather than immediate mean-reversion; (5) occurrence after or in conjunction with a liquidity event (raid or sweep). Weak displacement (or its absence) shows: overlapping candles and indecisive bodies; frequent rejection wicks in both directions; no clear FVG or only tiny, quickly filled inefficiencies; price that struggles to hold beyond the broken level.",
+      "applies_to": [
+        "Quality of Displacement"
+      ],
+      "conditions": [],
+      "exceptions_or_qualifiers": "unspecified",
+      "book_location": {
+        "level": "intermediate",
+        "module_number": 3,
+        "module_title": "Displacement, Market Structure Shift & Confirmation",
+        "section_heading": "Quality of Displacement"
+      },
+      "attribution_type": "community_interpretation"
+    },
+    {
+      "id": "INT-M03-R02",
+      "kind": "rule",
+      "rule_type": "detection_criteria",
+      "statement": "Market Structure Shift confirmation package (preferred): (1) liquidity event (sweep/raid) preceding or concurrent with the move; (2) displacement (energetic candles, preferably creating an FVG); (3) clear break and close beyond the structural reference; (4) subsequent inability of price to reclaim the broken level in a meaningful way. A mere wick beyond the level, or a close that is immediately reversed, is insufficient. Intermediate practice prefers a candle body close beyond the structural level rather than a wick-only breach -- wick-only events are more often liquidity probes.",
+      "applies_to": [
+        "Market Structure Shift Confirmation"
+      ],
+      "conditions": [],
+      "exceptions_or_qualifiers": "unspecified",
+      "book_location": {
+        "level": "intermediate",
+        "module_number": 3,
+        "module_title": "Displacement, Market Structure Shift & Confirmation",
+        "section_heading": "Market Structure Shift Confirmation"
+      },
+      "attribution_type": "community_interpretation"
+    },
+    {
+      "id": "INT-M03-R03",
+      "kind": "rule",
+      "rule_type": "timeframe_relationship",
+      "statement": "Internal MSS: a structure break occurring inside the current dealing range, affecting only short-term or intermediate-term pivots -- useful for LTF entry timing but does not by itself overturn the higher-timeframe narrative. External MSS: a structure break that violates a dealing-range boundary or a long-term/HTF structural pivot -- carries greater narrative weight and may signal the prior dealing range is being replaced. Many profitable intermediate trades are taken on internal MSS events that align with a higher-timeframe bias and a clear Draw on Liquidity; treating every internal MSS as a full trend reversal is a common source of bias flip-flops.",
+      "applies_to": [
+        "Internal MSS vs External MSS"
+      ],
+      "conditions": [],
+      "exceptions_or_qualifiers": "unspecified",
+      "book_location": {
+        "level": "intermediate",
+        "module_number": 3,
+        "module_title": "Displacement, Market Structure Shift & Confirmation",
+        "section_heading": "Internal MSS vs External MSS"
+      },
+      "attribution_type": "community_interpretation"
+    },
+    {
+      "id": "INT-M03-R04",
+      "kind": "rule",
+      "rule_type": "sequencing",
+      "statement": "Preferred intermediate sequence: liquidity event (raid or sweep) -> displacement away from the raided pool -> Market Structure Shift -> retracement into a PD array created by the displacement (often an FVG or Order Block). When displacement follows a clear liquidity raid and breaks structure, the trader has simultaneous evidence of (1) liquidity taken, (2) energetic repricing, and (3) structural change -- the foundation of many ICT execution models.",
+      "applies_to": [
+        "Displacement + Liquidity Relationship"
+      ],
+      "conditions": [],
+      "exceptions_or_qualifiers": "unspecified",
+      "book_location": {
+        "level": "intermediate",
+        "module_number": 3,
+        "module_title": "Displacement, Market Structure Shift & Confirmation",
+        "section_heading": "Displacement + Liquidity Relationship"
+      },
+      "attribution_type": "community_interpretation"
+    },
+    {
+      "id": "INT-M03-R05",
+      "kind": "rule",
+      "rule_type": "invalidation",
+      "statement": "Failed displacement: an energetic push that appears to break structure or run liquidity, but is quickly and decisively reversed, leaving the original structure intact -- the apparent shift is invalidated. Weak structure shift: a break that lacks displacement, lacks an FVG, occurs on overlapping candles, or is immediately reclaimed -- should not be treated as high-quality confirmation. When displacement fails or the shift is weak, the trader does not force the narrative; the higher-timeframe dealing range and Draw on Liquidity remain the primary references until a higher-quality event appears.",
+      "applies_to": [
+        "Failed Displacement and Weak Structure Shifts"
+      ],
+      "conditions": [],
+      "exceptions_or_qualifiers": "unspecified",
+      "book_location": {
+        "level": "intermediate",
+        "module_number": 3,
+        "module_title": "Displacement, Market Structure Shift & Confirmation",
+        "section_heading": "Failed Displacement and Weak Structure Shifts"
+      },
+      "attribution_type": "community_interpretation"
+    }
+  ],
+  "strategies": [],
+  "examples": [
+    {
+      "id": "INT-M03-EX01",
+      "kind": "example",
+      "example_type": "worked_narrative",
+      "linked_concept_or_strategy_ids": [
+        "Quality of Displacement",
+        "Market Structure Shift Confirmation"
+      ],
+      "content": "Context: 15-minute chart, higher-timeframe bias bullish, price in discount relative to the 1-hour dealing range.\n\nScenario A (High quality):\n\n565. Sell-side liquidity below a short-term low is raided.\n\n566. Price then prints two large bullish candles that close well above the prior short-term high, leaving a clear Fair Value Gap.\n\n567. The broken short-term high is not reclaimed.\n\n568. This is a high-quality internal MSS delivered with displacement after a liquidity event. Entry focus shifts to the FVG on any retracement.\n\nScenario B (Low quality):\n\n569. Price drifts above a short-term high on small, overlapping candles with no FVG.\n\n570. The next candle immediately reverses and closes back below the high.\n\n571. This is a weak or failed shift. No high-quality MSS has occurred; the trader does not treat it as confirmation of a new bullish leg.",
+      "interpretation_given_in_text": "Contrasts a high-quality displacement/MSS event against a low-quality one to illustrate the grading criteria in this module.",
+      "book_location": {
+        "level": "intermediate",
+        "module_number": 3,
+        "module_title": "Displacement, Market Structure Shift & Confirmation",
+        "section_heading": "Worked Example - High-Quality vs Low-Quality Shift"
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "id": "INT-M03-REL01",
+      "kind": "cross_module_relationship",
+      "statement": "Modules 1 and 2 supplied the map (structure, dealing range, liquidity hierarchy, Draw on Liquidity). Module 3 supplies the quality filter for movement on that map. Strong displacement after a liquidity event that also breaks structure produces a high-quality MSS. Weak or failed shifts are ignored. Confirmation is required; anticipation is deferred. The resulting FVG (or Order Block) created by the displacement becomes the refined entry zone examined in later modules.",
+      "involved_concepts": [
+        "Quality of Displacement",
+        "Displacement Through Liquidity vs Through Structure",
+        "Market Structure Shift Confirmation",
+        "Internal MSS vs External MSS",
+        "Displacement + Fair Value Gap Relationship",
+        "Displacement + Liquidity Relationship",
+        "Failed Displacement and Weak Structure Shifts",
+        "Confirmation vs Anticipation"
+      ],
+      "involved_modules": [
+        "Beginner Module 3",
+        "Beginner Module 5",
+        "Intermediate Module 1",
+        "Intermediate Module 2",
+        "Intermediate Module 4 (forward reference)"
+      ],
+      "book_location": {
+        "level": "intermediate",
+        "module_number": 3,
+        "module_title": "Displacement, Market Structure Shift & Confirmation",
+        "section_heading": "How These Concepts Connect"
+      }
+    }
+  ],
+  "no_trade_conditions": [
+    {
+      "id": "INT-M03-NT01",
+      "kind": "no_trade_rule",
+      "statement": "If the displacement and MSS have not yet printed, the setup is still in the anticipation phase; the correct action is to wait or stand aside. Entering before the sweep, or before displacement confirms the shift, converts the trader's stop into the liquidity the market is seeking. The intermediate student is trained to wait for confirmation rather than to anticipate.",
+      "applies_to_strategy_ids": [],
+      "book_location": {
+        "level": "intermediate",
+        "module_number": 3,
+        "module_title": "Displacement, Market Structure Shift & Confirmation",
+        "section_heading": "Confirmation vs Anticipation"
+      }
+    }
+  ],
+  "contradictions_or_ambiguities": [],
+  "empirical_claims": [],
+  "module_review_notes": {
+    "key_terms": [
+      "Displacement - energetic, one-sided price movement indicating active repricing.",
+      "Strong displacement - large bodies, low overlap, often creates FVG, holds beyond the level.",
+      "Weak displacement - overlapping, indecisive, quickly reversed or lacking imbalance.",
+      "Market Structure Shift (MSS) - break of a significant swing with displacement.",
+      "Internal MSS - structure break inside the dealing range; primarily for LTF timing.",
+      "External MSS - structure break of a dealing-range boundary or long-term pivot; higher narrative weight.",
+      "Failed displacement / weak shift - apparent break that is immediately negated or lacks quality.",
+      "Confirmation - evidence already present on the chart.",
+      "Anticipation - expectation of evidence that has not yet printed."
+    ],
+    "beginner_summary": "Beginner teaching introduced MSS as a change in the sequence of highs and lows. Intermediate teaching adds the requirement of displacement quality, the internal/external distinction, the preferred pairing with a liquidity event and an FVG, and the discipline of confirmation over anticipation.",
+    "concept_relationships_summary": "Liquidity (Module 2) supplies the event that often precedes displacement. Displacement supplies the energy that validates an MSS. The MSS updates the structural map (Module 1). The FVG created by displacement becomes a PD-array entry refinement (Module 4). Session timing and multi-timeframe narrative (later modules) further constrain when the entire sequence is permitted.",
+    "practical_chart_exercise": "On a 15-minute or 5-minute chart of a liquid instrument:\n\n- Locate three recent structure breaks.\n\n- For each, grade the displacement as strong, weak, or failed.\n\n- Note whether a Fair Value Gap was created.\n\n- Classify the shift as internal or external relative to the active dealing range on the next higher timeframe.\n\n- Record whether a liquidity event preceded the shift.\n\n- Decide which of the three shifts, if any, would have qualified as high-quality confirmation under the rules of this module, and why.",
+    "self_test_questions": [
+      "What visual features distinguish strong displacement from weak displacement?",
+      "Why is a structure break without displacement considered lower quality?",
+      "What is the difference between an internal MSS and an external MSS?",
+      "How does the presence of a Fair Value Gap improve the reading of a displacement leg?",
+      "Give one example of confirmation and one example of anticipation in the context of an MSS.",
+      "What should the trader do when an apparent displacement is immediately and decisively reversed?"
+    ],
+    "common_misconceptions": [
+      "\"Any close beyond a swing is an MSS.\" - False. Displacement quality is required for a high-probability reading.",
+      "\"Every MSS changes the higher-timeframe bias.\" - False. Internal shifts do not automatically override external structure.",
+      "\"I can enter as soon as I expect the shift.\" - False at the intermediate stage; confirmation is preferred.",
+      "\"If there is no FVG the displacement is worthless.\" - Overstated. An FVG raises quality but is not the sole criterion; candle character and follow-through still matter.",
+      "\"Strong displacement guarantees the move will continue.\" - False. Displacement confirms the shift; subsequent management and opposing liquidity still govern the outcome."
+    ],
+    "research_sources_cited_in_text": []
+  }
+}

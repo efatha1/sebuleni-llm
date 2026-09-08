@@ -4,19 +4,20 @@
   "schema_reference": "_schema/SCHEMA.md",
   "total_modules": 44,
   "totals_across_kb": {
-    "concepts": 324,
+    "concepts": 313,
     "rules": 187,
     "strategies": 21,
     "examples": 16,
     "relationships": 30,
     "no_trade_conditions": 47,
-    "contradictions_or_ambiguities": 20,
+    "contradictions_or_ambiguities": 19,
+    "empirical_claims": 1,
     "module_synthesis_items": 63
   },
   "modules": {
     "beginner": [
       {
-        "file": "mod01_price_fundamentals.json",
+        "file": "beginner/mod01_price_fundamentals.json",
         "level": "beginner",
         "module_number": 1,
         "module_title": "Price Fundamentals",
@@ -28,11 +29,12 @@
           "relationships": 1,
           "no_trade_conditions": 0,
           "contradictions_or_ambiguities": 1,
+          "empirical_claims": 0,
           "module_synthesis_items": 0
         }
       },
       {
-        "file": "mod02_timeframe_analysis.json",
+        "file": "beginner/mod02_timeframe_analysis.json",
         "level": "beginner",
         "module_number": 2,
         "module_title": "Timeframe Analysis",
@@ -44,11 +46,12 @@
           "relationships": 1,
           "no_trade_conditions": 0,
           "contradictions_or_ambiguities": 0,
+          "empirical_claims": 0,
           "module_synthesis_items": 0
         }
       },
       {
-        "file": "mod03_market_structure.json",
+        "file": "beginner/mod03_market_structure.json",
         "level": "beginner",
         "module_number": 3,
         "module_title": "Market Structure",
@@ -60,11 +63,12 @@
           "relationships": 1,
           "no_trade_conditions": 0,
           "contradictions_or_ambiguities": 1,
+          "empirical_claims": 0,
           "module_synthesis_items": 0
         }
       },
       {
-        "file": "mod04_liquidity.json",
+        "file": "beginner/mod04_liquidity.json",
         "level": "beginner",
         "module_number": 4,
         "module_title": "Liquidity",
@@ -76,11 +80,12 @@
           "relationships": 1,
           "no_trade_conditions": 2,
           "contradictions_or_ambiguities": 1,
+          "empirical_claims": 0,
           "module_synthesis_items": 0
         }
       },
       {
-        "file": "mod05_displacement_imbalance.json",
+        "file": "beginner/mod05_displacement_imbalance.json",
         "level": "beginner",
         "module_number": 5,
         "module_title": "Displacement & Imbalance",
@@ -92,11 +97,12 @@
           "relationships": 1,
           "no_trade_conditions": 1,
           "contradictions_or_ambiguities": 1,
+          "empirical_claims": 0,
           "module_synthesis_items": 0
         }
       },
       {
-        "file": "mod06_pd_arrays.json",
+        "file": "beginner/mod06_pd_arrays.json",
         "level": "beginner",
         "module_number": 6,
         "module_title": "ICT Price Delivery / PD Arrays",
@@ -108,11 +114,12 @@
           "relationships": 1,
           "no_trade_conditions": 0,
           "contradictions_or_ambiguities": 1,
+          "empirical_claims": 0,
           "module_synthesis_items": 0
         }
       },
       {
-        "file": "mod07_fibonacci_ote.json",
+        "file": "beginner/mod07_fibonacci_ote.json",
         "level": "beginner",
         "module_number": 7,
         "module_title": "Fibonacci & OTE",
@@ -123,12 +130,13 @@
           "examples": 0,
           "relationships": 1,
           "no_trade_conditions": 1,
-          "contradictions_or_ambiguities": 1,
+          "contradictions_or_ambiguities": 0,
+          "empirical_claims": 1,
           "module_synthesis_items": 0
         }
       },
       {
-        "file": "mod08_time_trading_sessions.json",
+        "file": "beginner/mod08_time_trading_sessions.json",
         "level": "beginner",
         "module_number": 8,
         "module_title": "Time & Trading Sessions",
@@ -140,11 +148,12 @@
           "relationships": 1,
           "no_trade_conditions": 2,
           "contradictions_or_ambiguities": 2,
+          "empirical_claims": 0,
           "module_synthesis_items": 0
         }
       },
       {
-        "file": "mod09_power_of_3.json",
+        "file": "beginner/mod09_power_of_3.json",
         "level": "beginner",
         "module_number": 9,
         "module_title": "Power of 3",
@@ -156,11 +165,12 @@
           "relationships": 1,
           "no_trade_conditions": 2,
           "contradictions_or_ambiguities": 0,
+          "empirical_claims": 0,
           "module_synthesis_items": 0
         }
       },
       {
-        "file": "mod10_bias.json",
+        "file": "beginner/mod10_bias.json",
         "level": "beginner",
         "module_number": 10,
         "module_title": "Bias",
@@ -172,11 +182,12 @@
           "relationships": 1,
           "no_trade_conditions": 1,
           "contradictions_or_ambiguities": 1,
+          "empirical_claims": 0,
           "module_synthesis_items": 0
         }
       },
       {
-        "file": "mod11_ict_buy_model.json",
+        "file": "beginner/mod11_ict_buy_model.json",
         "level": "beginner",
         "module_number": 11,
         "module_title": "ICT Buy Model",
@@ -188,11 +199,12 @@
           "relationships": 1,
           "no_trade_conditions": 2,
           "contradictions_or_ambiguities": 0,
+          "empirical_claims": 0,
           "module_synthesis_items": 0
         }
       },
       {
-        "file": "mod12_ict_sell_model.json",
+        "file": "beginner/mod12_ict_sell_model.json",
         "level": "beginner",
         "module_number": 12,
         "module_title": "ICT Sell Model",
@@ -204,11 +216,12 @@
           "relationships": 1,
           "no_trade_conditions": 2,
           "contradictions_or_ambiguities": 0,
+          "empirical_claims": 0,
           "module_synthesis_items": 0
         }
       },
       {
-        "file": "mod13_daily_trading_scalping.json",
+        "file": "beginner/mod13_daily_trading_scalping.json",
         "level": "beginner",
         "module_number": 13,
         "module_title": "Daily Trading & Scalping",
@@ -220,13 +233,14 @@
           "relationships": 1,
           "no_trade_conditions": 2,
           "contradictions_or_ambiguities": 0,
+          "empirical_claims": 0,
           "module_synthesis_items": 0
         }
       }
     ],
     "intermediate": [
       {
-        "file": "mod01_advanced_market_structure_swings.json",
+        "file": "intermediate/mod01_advanced_market_structure_swings.json",
         "level": "intermediate",
         "module_number": 1,
         "module_title": "Advanced Market Structure & Price Swings",
@@ -238,11 +252,12 @@
           "relationships": 1,
           "no_trade_conditions": 0,
           "contradictions_or_ambiguities": 0,
+          "empirical_claims": 0,
           "module_synthesis_items": 0
         }
       },
       {
-        "file": "mod02_advanced_liquidity_engineering.json",
+        "file": "intermediate/mod02_advanced_liquidity_engineering.json",
         "level": "intermediate",
         "module_number": 2,
         "module_title": "Advanced Liquidity Engineering",
@@ -254,11 +269,12 @@
           "relationships": 1,
           "no_trade_conditions": 1,
           "contradictions_or_ambiguities": 0,
+          "empirical_claims": 0,
           "module_synthesis_items": 0
         }
       },
       {
-        "file": "mod03_displacement_mss_confirmation.json",
+        "file": "intermediate/mod03_displacement_mss_confirmation.json",
         "level": "intermediate",
         "module_number": 3,
         "module_title": "Displacement, Market Structure Shift & Confirmation",
@@ -270,11 +286,12 @@
           "relationships": 1,
           "no_trade_conditions": 1,
           "contradictions_or_ambiguities": 0,
+          "empirical_claims": 0,
           "module_synthesis_items": 0
         }
       },
       {
-        "file": "mod04_fair_value_gaps_imbalances.json",
+        "file": "intermediate/mod04_fair_value_gaps_imbalances.json",
         "level": "intermediate",
         "module_number": 4,
         "module_title": "Fair Value Gaps & Imbalances",
@@ -286,11 +303,12 @@
           "relationships": 1,
           "no_trade_conditions": 0,
           "contradictions_or_ambiguities": 1,
+          "empirical_claims": 0,
           "module_synthesis_items": 0
         }
       },
       {
-        "file": "mod05_order_blocks_breakers_mitigation.json",
+        "file": "intermediate/mod05_order_blocks_breakers_mitigation.json",
         "level": "intermediate",
         "module_number": 5,
         "module_title": "Order Blocks, Breakers & Mitigation",
@@ -302,27 +320,29 @@
           "relationships": 1,
           "no_trade_conditions": 1,
           "contradictions_or_ambiguities": 1,
+          "empirical_claims": 0,
           "module_synthesis_items": 0
         }
       },
       {
-        "file": "mod06_dealing_ranges_premium_discount.json",
+        "file": "intermediate/mod06_dealing_ranges_premium_discount.json",
         "level": "intermediate",
         "module_number": 6,
         "module_title": "Dealing Ranges & Premium/Discount",
         "counts": {
-          "concepts": 7,
+          "concepts": 5,
           "rules": 4,
           "strategies": 2,
           "examples": 1,
           "relationships": 1,
           "no_trade_conditions": 1,
           "contradictions_or_ambiguities": 0,
+          "empirical_claims": 0,
           "module_synthesis_items": 0
         }
       },
       {
-        "file": "mod07_advanced_fib_ote.json",
+        "file": "intermediate/mod07_advanced_fib_ote.json",
         "level": "intermediate",
         "module_number": 7,
         "module_title": "Advanced Fibonacci & Optimal Trade Entry (OTE)",
@@ -334,11 +354,12 @@
           "relationships": 1,
           "no_trade_conditions": 1,
           "contradictions_or_ambiguities": 1,
+          "empirical_claims": 0,
           "module_synthesis_items": 0
         }
       },
       {
-        "file": "mod08_multi_timeframe_narrative.json",
+        "file": "intermediate/mod08_multi_timeframe_narrative.json",
         "level": "intermediate",
         "module_number": 8,
         "module_title": "Multi-Timeframe Narrative",
@@ -350,11 +371,12 @@
           "relationships": 1,
           "no_trade_conditions": 1,
           "contradictions_or_ambiguities": 0,
+          "empirical_claims": 0,
           "module_synthesis_items": 0
         }
       },
       {
-        "file": "mod09_sessions_intraday_delivery.json",
+        "file": "intermediate/mod09_sessions_intraday_delivery.json",
         "level": "intermediate",
         "module_number": 9,
         "module_title": "Sessions & Intraday Price Delivery",
@@ -366,11 +388,12 @@
           "relationships": 1,
           "no_trade_conditions": 2,
           "contradictions_or_ambiguities": 0,
+          "empirical_claims": 0,
           "module_synthesis_items": 0
         }
       },
       {
-        "file": "mod10_po3_in_context.json",
+        "file": "intermediate/mod10_po3_in_context.json",
         "level": "intermediate",
         "module_number": 10,
         "module_title": "Power of 3 in Context",
@@ -382,11 +405,12 @@
           "relationships": 1,
           "no_trade_conditions": 1,
           "contradictions_or_ambiguities": 0,
+          "empirical_claims": 0,
           "module_synthesis_items": 0
         }
       },
       {
-        "file": "mod11_advanced_bias_construction.json",
+        "file": "intermediate/mod11_advanced_bias_construction.json",
         "level": "intermediate",
         "module_number": 11,
         "module_title": "Advanced Bias Construction",
@@ -398,11 +422,12 @@
           "relationships": 1,
           "no_trade_conditions": 2,
           "contradictions_or_ambiguities": 0,
+          "empirical_claims": 0,
           "module_synthesis_items": 0
         }
       },
       {
-        "file": "mod12_risk_trade_mgmt_journaling.json",
+        "file": "intermediate/mod12_risk_trade_mgmt_journaling.json",
         "level": "intermediate",
         "module_number": 12,
         "module_title": "Risk, Trade Management & Journaling",
@@ -414,13 +439,14 @@
           "relationships": 1,
           "no_trade_conditions": 1,
           "contradictions_or_ambiguities": 0,
+          "empirical_claims": 0,
           "module_synthesis_items": 0
         }
       }
     ],
     "advanced": [
       {
-        "file": "mod01_institutional_price_delivery_framework.json",
+        "file": "advanced/mod01_institutional_price_delivery_framework.json",
         "level": "advanced",
         "module_number": 1,
         "module_title": "Institutional Price Delivery Framework",
@@ -432,11 +458,12 @@
           "relationships": 1,
           "no_trade_conditions": 1,
           "contradictions_or_ambiguities": 1,
+          "empirical_claims": 0,
           "module_synthesis_items": 5
         }
       },
       {
-        "file": "mod02_advanced_dealing_ranges.json",
+        "file": "advanced/mod02_advanced_dealing_ranges.json",
         "level": "advanced",
         "module_number": 2,
         "module_title": "Advanced Dealing Ranges",
@@ -448,11 +475,12 @@
           "relationships": 0,
           "no_trade_conditions": 1,
           "contradictions_or_ambiguities": 0,
+          "empirical_claims": 0,
           "module_synthesis_items": 4
         }
       },
       {
-        "file": "mod03_advanced_liquidity_framework.json",
+        "file": "advanced/mod03_advanced_liquidity_framework.json",
         "level": "advanced",
         "module_number": 3,
         "module_title": "Advanced Liquidity Framework",
@@ -464,11 +492,12 @@
           "relationships": 0,
           "no_trade_conditions": 1,
           "contradictions_or_ambiguities": 1,
+          "empirical_claims": 0,
           "module_synthesis_items": 4
         }
       },
       {
-        "file": "mod04_advanced_market_structure.json",
+        "file": "advanced/mod04_advanced_market_structure.json",
         "level": "advanced",
         "module_number": 4,
         "module_title": "Advanced Market Structure",
@@ -480,11 +509,12 @@
           "relationships": 0,
           "no_trade_conditions": 1,
           "contradictions_or_ambiguities": 0,
+          "empirical_claims": 0,
           "module_synthesis_items": 4
         }
       },
       {
-        "file": "mod05_advanced_pd_array_theory.json",
+        "file": "advanced/mod05_advanced_pd_array_theory.json",
         "level": "advanced",
         "module_number": 5,
         "module_title": "Advanced PD Array Theory",
@@ -496,11 +526,12 @@
           "relationships": 0,
           "no_trade_conditions": 1,
           "contradictions_or_ambiguities": 2,
+          "empirical_claims": 0,
           "module_synthesis_items": 3
         }
       },
       {
-        "file": "mod06_advanced_imbalance_repricing.json",
+        "file": "advanced/mod06_advanced_imbalance_repricing.json",
         "level": "advanced",
         "module_number": 6,
         "module_title": "Advanced Imbalance & Repricing",
@@ -512,11 +543,12 @@
           "relationships": 0,
           "no_trade_conditions": 2,
           "contradictions_or_ambiguities": 0,
+          "empirical_claims": 0,
           "module_synthesis_items": 4
         }
       },
       {
-        "file": "mod07_advanced_market_timing.json",
+        "file": "advanced/mod07_advanced_market_timing.json",
         "level": "advanced",
         "module_number": 7,
         "module_title": "Advanced Market Timing",
@@ -528,11 +560,12 @@
           "relationships": 0,
           "no_trade_conditions": 1,
           "contradictions_or_ambiguities": 1,
+          "empirical_claims": 0,
           "module_synthesis_items": 4
         }
       },
       {
-        "file": "mod08_advanced_power_of_3.json",
+        "file": "advanced/mod08_advanced_power_of_3.json",
         "level": "advanced",
         "module_number": 8,
         "module_title": "Advanced Power of 3",
@@ -544,11 +577,12 @@
           "relationships": 0,
           "no_trade_conditions": 1,
           "contradictions_or_ambiguities": 0,
+          "empirical_claims": 0,
           "module_synthesis_items": 3
         }
       },
       {
-        "file": "mod09_advanced_multi_timeframe_narrative.json",
+        "file": "advanced/mod09_advanced_multi_timeframe_narrative.json",
         "level": "advanced",
         "module_number": 9,
         "module_title": "Advanced Multi-Timeframe Narrative",
@@ -560,11 +594,12 @@
           "relationships": 0,
           "no_trade_conditions": 1,
           "contradictions_or_ambiguities": 0,
+          "empirical_claims": 0,
           "module_synthesis_items": 3
         }
       },
       {
-        "file": "mod10_advanced_bias_narrative_construction.json",
+        "file": "advanced/mod10_advanced_bias_narrative_construction.json",
         "level": "advanced",
         "module_number": 10,
         "module_title": "Advanced Bias & Narrative Construction",
@@ -576,43 +611,46 @@
           "relationships": 1,
           "no_trade_conditions": 1,
           "contradictions_or_ambiguities": 0,
+          "empirical_claims": 0,
           "module_synthesis_items": 3
         }
       },
       {
-        "file": "mod11_advanced_ict_buy_model.json",
+        "file": "advanced/mod11_advanced_ict_buy_model.json",
         "level": "advanced",
         "module_number": 11,
         "module_title": "Advanced ICT Buy Model",
         "counts": {
-          "concepts": 8,
+          "concepts": 4,
           "rules": 3,
           "strategies": 5,
           "examples": 0,
           "relationships": 0,
           "no_trade_conditions": 1,
           "contradictions_or_ambiguities": 1,
+          "empirical_claims": 0,
           "module_synthesis_items": 3
         }
       },
       {
-        "file": "mod12_advanced_ict_sell_model.json",
+        "file": "advanced/mod12_advanced_ict_sell_model.json",
         "level": "advanced",
         "module_number": 12,
         "module_title": "Advanced ICT Sell Model",
         "counts": {
-          "concepts": 9,
+          "concepts": 5,
           "rules": 3,
           "strategies": 5,
           "examples": 0,
           "relationships": 1,
           "no_trade_conditions": 1,
           "contradictions_or_ambiguities": 0,
+          "empirical_claims": 0,
           "module_synthesis_items": 3
         }
       },
       {
-        "file": "mod13_intermarket_smt_concepts.json",
+        "file": "advanced/mod13_intermarket_smt_concepts.json",
         "level": "advanced",
         "module_number": 13,
         "module_title": "Intermarket & SMT Concepts",
@@ -624,11 +662,12 @@
           "relationships": 0,
           "no_trade_conditions": 1,
           "contradictions_or_ambiguities": 1,
+          "empirical_claims": 0,
           "module_synthesis_items": 3
         }
       },
       {
-        "file": "mod14_advanced_session_weekly_framework.json",
+        "file": "advanced/mod14_advanced_session_weekly_framework.json",
         "level": "advanced",
         "module_number": 14,
         "module_title": "Advanced Session & Weekly Framework",
@@ -640,11 +679,12 @@
           "relationships": 0,
           "no_trade_conditions": 1,
           "contradictions_or_ambiguities": 0,
+          "empirical_claims": 0,
           "module_synthesis_items": 3
         }
       },
       {
-        "file": "mod15_advanced_model_selection.json",
+        "file": "advanced/mod15_advanced_model_selection.json",
         "level": "advanced",
         "module_number": 15,
         "module_title": "Advanced Model Selection",
@@ -656,11 +696,12 @@
           "relationships": 1,
           "no_trade_conditions": 1,
           "contradictions_or_ambiguities": 0,
+          "empirical_claims": 0,
           "module_synthesis_items": 3
         }
       },
       {
-        "file": "mod16_precision_execution.json",
+        "file": "advanced/mod16_precision_execution.json",
         "level": "advanced",
         "module_number": 16,
         "module_title": "Precision Execution",
@@ -672,11 +713,12 @@
           "relationships": 0,
           "no_trade_conditions": 1,
           "contradictions_or_ambiguities": 0,
+          "empirical_claims": 0,
           "module_synthesis_items": 3
         }
       },
       {
-        "file": "mod17_advanced_risk_trade_management.json",
+        "file": "advanced/mod17_advanced_risk_trade_management.json",
         "level": "advanced",
         "module_number": 17,
         "module_title": "Advanced Risk & Trade Management",
@@ -688,11 +730,12 @@
           "relationships": 0,
           "no_trade_conditions": 2,
           "contradictions_or_ambiguities": 0,
+          "empirical_claims": 0,
           "module_synthesis_items": 3
         }
       },
       {
-        "file": "mod18_ict_research_model_validation.json",
+        "file": "advanced/mod18_ict_research_model_validation.json",
         "level": "advanced",
         "module_number": 18,
         "module_title": "ICT Research & Model Validation",
@@ -704,22 +747,24 @@
           "relationships": 0,
           "no_trade_conditions": 0,
           "contradictions_or_ambiguities": 1,
+          "empirical_claims": 0,
           "module_synthesis_items": 3
         }
       },
       {
-        "file": "mod19_complete_ict_narrative.json",
+        "file": "advanced/mod19_complete_ict_narrative.json",
         "level": "advanced",
         "module_number": 19,
         "module_title": "Complete ICT Narrative",
         "counts": {
-          "concepts": 6,
+          "concepts": 5,
           "rules": 3,
           "strategies": 1,
           "examples": 0,
           "relationships": 1,
           "no_trade_conditions": 1,
           "contradictions_or_ambiguities": 0,
+          "empirical_claims": 0,
           "module_synthesis_items": 2
         }
       }

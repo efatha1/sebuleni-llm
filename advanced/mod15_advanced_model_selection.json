@@ -1,0 +1,466 @@
+{
+  "level": "advanced",
+  "module_number": 15,
+  "module_title": "Advanced Model Selection",
+  "module_intro": "Subtopics: Context → Select the Appropriate Model; Comparison of Liquidity, MSS, FVG, OB, Breaker, OTE, PO3, Session & SMT-Assisted Approaches.",
+  "prerequisites_stated_in_text": "Advanced Modules 1--14. The goal is not to trade every model. The goal is: given the active narrative and bias, select the single most appropriate expression of that narrative and leave the rest unused.",
+  "module_objectives": [
+    "Answer, before the primary session: \"Which ICT model is authorised today, and which are forbidden?\"",
+    "Compare the major model families by the narrative conditions each requires.",
+    "Select one primary model (and at most one supporting confirmation) per delivery leg.",
+    "Recognise when no model is authorised and stand aside.",
+    "Avoid model-hopping and the simultaneous trading of conflicting models.",
+    "Update model selection immediately when the narrative or bias is invalidated.",
+    "Construct / update the multi-timeframe narrative.",
+    "Extract the bias statement (direction, DOL, invalidation, conditioning event).",
+    "Inspect the active session and PO3 phase.",
+    "Ask which model family is the natural expression of that context.",
+    "Authorise only that family (or a tightly related pair) and forbid the rest.",
+    "Bias filter - only models that assume the bias direction are eligible.",
+    "Range filter - only models that enter from the correct premium/discount half are eligible.",
+    "Liquidity-origin filter - models that require a completed or ongoing raid of the named origin pool.",
+    "Phase filter - models that match the active PO3 / session phase (do not trade distribution models during accumulation).",
+    "Array-quality filter - the specific array (FVG, OB, Breaker, OTE) must be unmitigated and correctly located.",
+    "Confirmation filter - displacement and MSS (and SMT if used) must support the entry.",
+    "Invalidation filter - both trade-level and narrative-level invalidation must be defined and acceptable.",
+    "Trading a long model and a short model on the same instrument in the same session without an explicit narrative rewrite.",
+    "Entering a distribution model during the accumulation or early manipulation phase.",
+    "Using a Breaker or IFVG that has not been properly formed.",
+    "Selecting a model that violates the controlling range's premium/discount filter.",
+    "Allowing SMT or a lower-timeframe signal to authorise a model that the higher-timeframe bias forbids.",
+    "Write the narrative stack and bias statement.",
+    "State the expected session path and PO3 phase.",
+    "List the model families that survive the bias and range filters.",
+    "From that shortlist, select the one family whose primary emphasis best matches the expected origin event and array.",
+    "Define the exact entry condition, trade invalidation and narrative invalidation.",
+    "Define the stand-aside conditions (what would cancel the model before entry).",
+    "Execute only if the live chart produces the authorised sequence; otherwise stand aside or switch only after an explicit narrative update."
+  ],
+  "concepts": [
+    {
+      "id": "ADV-M15-C01",
+      "kind": "concept",
+      "name": "The Selection Principle",
+      "definition": "Model selection begins with the narrative stack and bias (Modules 9 - 10), not with a search for patterns. The sequence is always:\n\n- Construct / update the multi-timeframe narrative.\n\n- Extract the bias statement (direction, DOL, invalidation, conditioning event).\n\n- Inspect the active session and PO3 phase.\n\n- Ask which model family is the natural expression of that context.\n\n- Authorise only that family (or a tightly related pair) and forbid the rest.",
+      "ict_specific_meaning": "Model selection begins with the narrative stack and bias (Modules 9 - 10), not with a search for patterns. The sequence is always:\n\n- Construct / update the multi-timeframe narrative.\n\n- Extract the bias statement (direction, DOL, invalidation, conditioning event).\n\n- Inspect the active session and PO3 phase.\n\n- Ask which model family is the natural expression of that context.\n\n- Authorise only that family (or a tightly related pair) and forbid the rest.",
+      "what_changed_from_beginner_level": "unspecified",
+      "detection_criteria": [
+        "unspecified - see raw_sections"
+      ],
+      "numeric_or_narrative_example": "unspecified",
+      "why_it_matters": "unspecified",
+      "beginner_mistakes_or_misinterpretations": [],
+      "raw_sections": {
+        "Context First": "Model selection begins with the narrative stack and bias (Modules 9 - 10), not with a search for patterns. The sequence is always:\n\n- Construct / update the multi-timeframe narrative.\n\n- Extract the bias statement (direction, DOL, invalidation, conditioning event).\n\n- Inspect the active session and PO3 phase.\n\n- Ask which model family is the natural expression of that context.\n\n- Authorise only that family (or a tightly related pair) and forbid the rest.",
+        "One Leg, One Primary Model": "A single delivery leg is expressed by one primary entry model. Additional elements (SMT, session timing, higher-timeframe array) may confirm; they do not each generate a separate trade."
+      },
+      "dependencies": [],
+      "attribution_type": "research_compiled_secondary",
+      "cited_sources_in_text": [],
+      "book_location": {
+        "level": "advanced",
+        "module_number": 15,
+        "module_title": "Advanced Model Selection",
+        "section_heading": "The Selection Principle"
+      },
+      "confidence_note": "unspecified"
+    },
+    {
+      "id": "ADV-M15-C02",
+      "kind": "concept",
+      "name": "Model Families Compared",
+      "definition": "Primary emphasis: the raid of a named pool (SSL or BSL) as the origin of the leg. Entry is taken after the sweep, on the subsequent displacement and PD-array retracement. Best when the narrative has already named a clear liquidity origin and the kill zone is expected to attack it.",
+      "ict_specific_meaning": "Primary emphasis: the raid of a named pool (SSL or BSL) as the origin of the leg. Entry is taken after the sweep, on the subsequent displacement and PD-array retracement. Best when the narrative has already named a clear liquidity origin and the kill zone is expected to attack it.",
+      "what_changed_from_beginner_level": "unspecified",
+      "detection_criteria": [
+        "unspecified - see raw_sections"
+      ],
+      "numeric_or_narrative_example": "unspecified",
+      "why_it_matters": "unspecified",
+      "beginner_mistakes_or_misinterpretations": [],
+      "raw_sections": {
+        "Liquidity-Sweep Model": "Primary emphasis: the raid of a named pool (SSL or BSL) as the origin of the leg. Entry is taken after the sweep, on the subsequent displacement and PD-array retracement. Best when the narrative has already named a clear liquidity origin and the kill zone is expected to attack it.",
+        "MSS Model": "Primary emphasis: the Market Structure Shift that confirms the change or resumption of delivery. Entry is refined after the MSS prints, usually into the displacement array. Best when structure was ambiguous and the MSS is the resolving event.",
+        "FVG Model": "Primary emphasis: the Fair Value Gap (or CE) left by displacement as the precise entry. Best when a clean, unmitigated FVG sits in the correct half of the controlling range and the narrative is already confirmed by liquidity and structure.",
+        "Order Block Model": "Primary emphasis: the last opposing candle before displacement as the entry array. Best when that OB is high-quality (post-liquidity, pre-displacement) and correctly located.",
+        "Breaker Model": "Primary emphasis: a violated prior Order Block that has inverted polarity. Best when the violation itself was the displacement that confirmed the new narrative direction and price is returning to the Breaker in the correct half of the range.",
+        "OTE Model": "Primary emphasis: the Optimal Trade Entry (roughly the 62 - 79 % retracement of the displacement leg, often overlapping an FVG or OB). Best when the displacement leg is clear and the OTE zone coincides with another high-quality array.",
+        "PO3 / AMD Model": "Primary emphasis: trading the distribution phase after accumulation and manipulation have completed. Best when the daily or weekly profile is clearly printing the three-phase template and the student can identify the transition into distribution.",
+        "Session Model": "Primary emphasis: the expected behaviour of a specific session (London manipulation then continuation, New York distribution, etc.). Best when the higher-timeframe narrative strongly predicts a particular session path.",
+        "SMT-Assisted Model": "Primary emphasis: intermarket non-confirmation at the liquidity extreme as additional confirmation before entry. Best when a valid correlated pair is available and the SMT aligns with the single-instrument bias. SMT is almost always a supporting layer, not a standalone model.\n\n**Evidence Classification:** *C - The family names and comparison framework are pedagogical synthesis. Each underlying element (liquidity sweep, MSS, FVG, OB, Breaker, OTE, PO3, session, SMT) is grounded in ICT teaching; the decision procedure for choosing among them is the advanced operational requirement.*"
+      },
+      "dependencies": [],
+      "attribution_type": "book_synthesis",
+      "cited_sources_in_text": [],
+      "book_location": {
+        "level": "advanced",
+        "module_number": 15,
+        "module_title": "Advanced Model Selection",
+        "section_heading": "Model Families Compared"
+      },
+      "confidence_note": "unspecified"
+    },
+    {
+      "id": "ADV-M15-C03",
+      "kind": "concept",
+      "name": "Decision Filters",
+      "definition": "Apply these filters in order:\n\n- Bias filter - only models that assume the bias direction are eligible.\n\n- Range filter - only models that enter from the correct premium/discount half are eligible.\n\n- Liquidity-origin filter - models that require a completed or ongoing raid of the named origin pool.\n\n- Phase filter - models that match the active PO3 / session phase (do not trade distribution models during accumulation).\n\n- Array-quality filter - the specific array (FVG, OB, Breaker, OTE) must be unmitigated and correctly located.\n\n- Confirmation filter - displacement and MSS (and SMT if used) must support the entry.\n\n- Invalidation filter - both trade-level and narrative-level invalidation must be defined and acceptable.\n\nAny model that fails a filter is forbidden for that leg.",
+      "ict_specific_meaning": "Apply these filters in order:\n\n- Bias filter - only models that assume the bias direction are eligible.\n\n- Range filter - only models that enter from the correct premium/discount half are eligible.\n\n- Liquidity-origin filter - models that require a completed or ongoing raid of the named origin pool.\n\n- Phase filter - models that match the active PO3 / session phase (do not trade distribution models during accumulation).\n\n- Array-quality filter - the specific array (FVG, OB, Breaker, OTE) must be unmitigated and correctly located.\n\n- Confirmation filter - displacement and MSS (and SMT if used) must support the entry.\n\n- Invalidation filter - both trade-level and narrative-level invalidation must be defined and acceptable.\n\nAny model that fails a filter is forbidden for that leg.",
+      "what_changed_from_beginner_level": "unspecified",
+      "detection_criteria": [
+        "Bias filter - only models that assume the bias direction are eligible.",
+        "Range filter - only models that enter from the correct premium/discount half are eligible.",
+        "Liquidity-origin filter - models that require a completed or ongoing raid of the named origin pool.",
+        "Phase filter - models that match the active PO3 / session phase (do not trade distribution models during accumulation).",
+        "Array-quality filter - the specific array (FVG, OB, Breaker, OTE) must be unmitigated and correctly located.",
+        "Confirmation filter - displacement and MSS (and SMT if used) must support the entry.",
+        "Invalidation filter - both trade-level and narrative-level invalidation must be defined and acceptable."
+      ],
+      "numeric_or_narrative_example": "unspecified",
+      "why_it_matters": "unspecified",
+      "beginner_mistakes_or_misinterpretations": [],
+      "raw_sections": {
+        "Full Text": "Apply these filters in order:\n\n- Bias filter - only models that assume the bias direction are eligible.\n\n- Range filter - only models that enter from the correct premium/discount half are eligible.\n\n- Liquidity-origin filter - models that require a completed or ongoing raid of the named origin pool.\n\n- Phase filter - models that match the active PO3 / session phase (do not trade distribution models during accumulation).\n\n- Array-quality filter - the specific array (FVG, OB, Breaker, OTE) must be unmitigated and correctly located.\n\n- Confirmation filter - displacement and MSS (and SMT if used) must support the entry.\n\n- Invalidation filter - both trade-level and narrative-level invalidation must be defined and acceptable.\n\nAny model that fails a filter is forbidden for that leg."
+      },
+      "dependencies": [],
+      "attribution_type": "research_compiled_secondary",
+      "cited_sources_in_text": [],
+      "book_location": {
+        "level": "advanced",
+        "module_number": 15,
+        "module_title": "Advanced Model Selection",
+        "section_heading": "Decision Filters"
+      },
+      "confidence_note": "unspecified"
+    },
+    {
+      "id": "ADV-M15-C04",
+      "kind": "concept",
+      "name": "Selection Scenarios",
+      "definition": "HTF bias clear, discount/premium correct, Asian range set, London raids the expected side, displacement + MSS + clean FVG in the right half. Primary model: FVG / OTE continuation (Variation A of Modules 11 - 12). Supporting: session timing and optional SMT. Forbidden: opposing-direction models, Breaker models that have not formed, premature IFVG.",
+      "ict_specific_meaning": "HTF bias clear, discount/premium correct, Asian range set, London raids the expected side, displacement + MSS + clean FVG in the right half. Primary model: FVG / OTE continuation (Variation A of Modules 11 - 12). Supporting: session timing and optional SMT. Forbidden: opposing-direction models, Breaker models that have not formed, premature IFVG.",
+      "what_changed_from_beginner_level": "unspecified",
+      "detection_criteria": [
+        "unspecified - see raw_sections"
+      ],
+      "numeric_or_narrative_example": "unspecified",
+      "why_it_matters": "unspecified",
+      "beginner_mistakes_or_misinterpretations": [],
+      "raw_sections": {
+        "Clean Classic Continuation Day": "HTF bias clear, discount/premium correct, Asian range set, London raids the expected side, displacement + MSS + clean FVG in the right half. Primary model: FVG / OTE continuation (Variation A of Modules 11 - 12). Supporting: session timing and optional SMT. Forbidden: opposing-direction models, Breaker models that have not formed, premature IFVG.",
+        "Breaker Day": "A prior high-quality OB is violated by the displacement that confirms the new (or resumed) narrative; price returns to the Breaker in the correct half of the range. Primary model: Breaker continuation. Supporting: liquidity origin and MSS. Forbidden: treating the old polarity of the OB as still valid.",
+        "HTF Array Day": "Price reaches a weekly or daily PD array in the correct half of the higher-timeframe range; LTF only supplies the conditioning sweep and precise entry. Primary model: HTF PD-array reaction with LTF confirmation (Variation D). Supporting: session and optional SMT.",
+        "Ambiguous or Conflict Day": "Narrative layers conflict, bias is unclear, or the expected session path fails. Authorised model: none. Action: stand aside. Forcing a model is the error.",
+        "SMT-Confirmed Day": "Single-instrument narrative is already bullish/bearish; SMT at the liquidity extreme confirms; displacement and array follow. Primary model: the single-instrument continuation model (FVG/OB/OTE). Supporting: SMT. SMT does not become the primary model."
+      },
+      "dependencies": [],
+      "attribution_type": "research_compiled_secondary",
+      "cited_sources_in_text": [],
+      "book_location": {
+        "level": "advanced",
+        "module_number": 15,
+        "module_title": "Advanced Model Selection",
+        "section_heading": "Selection Scenarios"
+      },
+      "confidence_note": "unspecified"
+    },
+    {
+      "id": "ADV-M15-C05",
+      "kind": "concept",
+      "name": "Forbidden Combinations",
+      "definition": "- Trading a long model and a short model on the same instrument in the same session without an explicit narrative rewrite.\n- Entering a distribution model during the accumulation or early manipulation phase.\n- Using a Breaker or IFVG that has not been properly formed.\n- Selecting a model that violates the controlling range's premium/discount filter.\n- Allowing SMT or a lower-timeframe signal to authorise a model that the higher-timeframe bias forbids.",
+      "ict_specific_meaning": "- Trading a long model and a short model on the same instrument in the same session without an explicit narrative rewrite.\n- Entering a distribution model during the accumulation or early manipulation phase.\n- Using a Breaker or IFVG that has not been properly formed.\n- Selecting a model that violates the controlling range's premium/discount filter.\n- Allowing SMT or a lower-timeframe signal to authorise a model that the higher-timeframe bias forbids.",
+      "what_changed_from_beginner_level": "unspecified",
+      "detection_criteria": [
+        "Trading a long model and a short model on the same instrument in the same session without an explicit narrative rewrite.",
+        "Entering a distribution model during the accumulation or early manipulation phase.",
+        "Using a Breaker or IFVG that has not been properly formed.",
+        "Selecting a model that violates the controlling range's premium/discount filter.",
+        "Allowing SMT or a lower-timeframe signal to authorise a model that the higher-timeframe bias forbids."
+      ],
+      "numeric_or_narrative_example": "unspecified",
+      "why_it_matters": "unspecified",
+      "beginner_mistakes_or_misinterpretations": [],
+      "raw_sections": {
+        "Full Text": "1471. Trading a long model and a short model on the same instrument in the same session without an explicit narrative rewrite.\n\n1472. Entering a distribution model during the accumulation or early manipulation phase.\n\n1473. Using a Breaker or IFVG that has not been properly formed.\n\n1474. Selecting a model that violates the controlling range's premium/discount filter.\n\n1475. Allowing SMT or a lower-timeframe signal to authorise a model that the higher-timeframe bias forbids."
+      },
+      "dependencies": [],
+      "attribution_type": "research_compiled_secondary",
+      "cited_sources_in_text": [],
+      "book_location": {
+        "level": "advanced",
+        "module_number": 15,
+        "module_title": "Advanced Model Selection",
+        "section_heading": "Forbidden Combinations"
+      },
+      "confidence_note": "unspecified"
+    },
+    {
+      "id": "ADV-M15-C06",
+      "kind": "concept",
+      "name": "Model Selection Procedure (Pre-Session)",
+      "definition": "- Write the narrative stack and bias statement.\n\n- State the expected session path and PO3 phase.\n\n- List the model families that survive the bias and range filters.\n\n- From that shortlist, select the one family whose primary emphasis best matches the expected origin event and array.\n\n- Define the exact entry condition, trade invalidation and narrative invalidation.\n\n- Define the stand-aside conditions (what would cancel the model before entry).\n\n- Execute only if the live chart produces the authorised sequence; otherwise stand aside or switch only after an explicit narrative update.",
+      "ict_specific_meaning": "- Write the narrative stack and bias statement.\n\n- State the expected session path and PO3 phase.\n\n- List the model families that survive the bias and range filters.\n\n- From that shortlist, select the one family whose primary emphasis best matches the expected origin event and array.\n\n- Define the exact entry condition, trade invalidation and narrative invalidation.\n\n- Define the stand-aside conditions (what would cancel the model before entry).\n\n- Execute only if the live chart produces the authorised sequence; otherwise stand aside or switch only after an explicit narrative update.",
+      "what_changed_from_beginner_level": "unspecified",
+      "detection_criteria": [
+        "Write the narrative stack and bias statement.",
+        "State the expected session path and PO3 phase.",
+        "List the model families that survive the bias and range filters.",
+        "From that shortlist, select the one family whose primary emphasis best matches the expected origin event and array.",
+        "Define the exact entry condition, trade invalidation and narrative invalidation.",
+        "Define the stand-aside conditions (what would cancel the model before entry).",
+        "Execute only if the live chart produces the authorised sequence; otherwise stand aside or switch only after an explicit narrative update."
+      ],
+      "numeric_or_narrative_example": "unspecified",
+      "why_it_matters": "unspecified",
+      "beginner_mistakes_or_misinterpretations": [],
+      "raw_sections": {
+        "Full Text": "- Write the narrative stack and bias statement.\n\n- State the expected session path and PO3 phase.\n\n- List the model families that survive the bias and range filters.\n\n- From that shortlist, select the one family whose primary emphasis best matches the expected origin event and array.\n\n- Define the exact entry condition, trade invalidation and narrative invalidation.\n\n- Define the stand-aside conditions (what would cancel the model before entry).\n\n- Execute only if the live chart produces the authorised sequence; otherwise stand aside or switch only after an explicit narrative update."
+      },
+      "dependencies": [],
+      "attribution_type": "research_compiled_secondary",
+      "cited_sources_in_text": [],
+      "book_location": {
+        "level": "advanced",
+        "module_number": 15,
+        "module_title": "Advanced Model Selection",
+        "section_heading": "Model Selection Procedure (Pre-Session)"
+      },
+      "confidence_note": "unspecified"
+    }
+  ],
+  "module_synthesis": {
+    "relationship_to_prior_level": [],
+    "worked_narrative_examples": [
+      {
+        "id": "ADV-M15-C07",
+        "kind": "concept",
+        "name": "Worked Selection",
+        "definition": "Narrative: Weekly and daily bias bullish toward 1.1200; both ranges in discount; mid-week weekly SSL already taken; daily expectation = London raid of Asian SSL -> displacement -> FVG in discount -> New York continuation.\n\nSurviving families after bias and range filters: Liquidity-sweep, FVG, OTE, PO3/session continuation. Breaker and IFVG not yet formed. SMT available on GBP/USD.\n\nSelection: Primary = FVG / OTE continuation after the London SSL raid and displacement. Supporting = session timing + optional SMT confirmation. Forbidden = any short model, any Breaker/IFVG that has not printed, any entry during Asian accumulation.\n\nLive: London sweeps Asian low; SMT confirms on GBP/USD; displacement and MSS print; FVG forms at 1.0635 - 1.0665. Entry on retracement into FVG/CE. Model selection matched the narrative and was executed as planned.",
+        "ict_specific_meaning": "Narrative: Weekly and daily bias bullish toward 1.1200; both ranges in discount; mid-week weekly SSL already taken; daily expectation = London raid of Asian SSL -> displacement -> FVG in discount -> New York continuation.\n\nSurviving families after bias and range filters: Liquidity-sweep, FVG, OTE, PO3/session continuation. Breaker and IFVG not yet formed. SMT available on GBP/USD.\n\nSelection: Primary = FVG / OTE continuation after the London SSL raid and displacement. Supporting = session timing + optional SMT confirmation. Forbidden = any short model, any Breaker/IFVG that has not printed, any entry during Asian accumulation.\n\nLive: London sweeps Asian low; SMT confirms on GBP/USD; displacement and MSS print; FVG forms at 1.0635 - 1.0665. Entry on retracement into FVG/CE. Model selection matched the narrative and was executed as planned.",
+        "what_changed_from_beginner_level": "unspecified",
+        "detection_criteria": [
+          "unspecified - see definition field"
+        ],
+        "numeric_or_narrative_example": "unspecified",
+        "why_it_matters": "unspecified",
+        "beginner_mistakes_or_misinterpretations": [],
+        "raw_sections": {
+          "Full Text": "Narrative: Weekly and daily bias bullish toward 1.1200; both ranges in discount; mid-week weekly SSL already taken; daily expectation = London raid of Asian SSL -> displacement -> FVG in discount -> New York continuation.\n\nSurviving families after bias and range filters: Liquidity-sweep, FVG, OTE, PO3/session continuation. Breaker and IFVG not yet formed. SMT available on GBP/USD.\n\nSelection: Primary = FVG / OTE continuation after the London SSL raid and displacement. Supporting = session timing + optional SMT confirmation. Forbidden = any short model, any Breaker/IFVG that has not printed, any entry during Asian accumulation.\n\nLive: London sweeps Asian low; SMT confirms on GBP/USD; displacement and MSS print; FVG forms at 1.0635 - 1.0665. Entry on retracement into FVG/CE. Model selection matched the narrative and was executed as planned."
+        },
+        "dependencies": [],
+        "attribution_type": "community_interpretation",
+        "cited_sources_in_text": [],
+        "book_location": {
+          "level": "advanced",
+          "module_number": 15,
+          "module_title": "Advanced Model Selection",
+          "section_heading": "Worked Selection"
+        },
+        "confidence_note": "unspecified"
+      }
+    ],
+    "failure_conditions": [],
+    "common_misinterpretations": [
+      {
+        "id": "ADV-M15-C08",
+        "kind": "concept",
+        "name": "Common Misinterpretations",
+        "definition": "1476. Trying to trade every model family every day.\n\n1477. Choosing a model because it is a personal favourite rather than because the narrative selects it.\n\n1478. Switching models mid-leg without a narrative invalidation.\n\n1479. Treating SMT or session timing as a complete model that does not need a PD-array entry.\n\n1480. Authorising a model that fails the premium/discount or bias filter because \"the chart looks good.\"\n\n1481. Failing to stand aside when the selection procedure produces an empty shortlist.",
+        "ict_specific_meaning": "1476. Trying to trade every model family every day.\n\n1477. Choosing a model because it is a personal favourite rather than because the narrative selects it.\n\n1478. Switching models mid-leg without a narrative invalidation.\n\n1479. Treating SMT or session timing as a complete model that does not need a PD-array entry.\n\n1480. Authorising a model that fails the premium/discount or bias filter because \"the chart looks good.\"\n\n1481. Failing to stand aside when the selection procedure produces an empty shortlist.",
+        "what_changed_from_beginner_level": "unspecified",
+        "detection_criteria": [
+          "Trying to trade every model family every day.",
+          "Choosing a model because it is a personal favourite rather than because the narrative selects it.",
+          "Switching models mid-leg without a narrative invalidation.",
+          "Treating SMT or session timing as a complete model that does not need a PD-array entry.",
+          "Authorising a model that fails the premium/discount or bias filter because \"the chart looks good.\"",
+          "Failing to stand aside when the selection procedure produces an empty shortlist."
+        ],
+        "numeric_or_narrative_example": "unspecified",
+        "why_it_matters": "unspecified",
+        "beginner_mistakes_or_misinterpretations": [],
+        "raw_sections": {
+          "Full Text": "1476. Trying to trade every model family every day.\n\n1477. Choosing a model because it is a personal favourite rather than because the narrative selects it.\n\n1478. Switching models mid-leg without a narrative invalidation.\n\n1479. Treating SMT or session timing as a complete model that does not need a PD-array entry.\n\n1480. Authorising a model that fails the premium/discount or bias filter because \"the chart looks good.\"\n\n1481. Failing to stand aside when the selection procedure produces an empty shortlist."
+        },
+        "dependencies": [],
+        "attribution_type": "community_interpretation",
+        "cited_sources_in_text": [],
+        "book_location": {
+          "level": "advanced",
+          "module_number": 15,
+          "module_title": "Advanced Model Selection",
+          "section_heading": "Common Misinterpretations"
+        },
+        "confidence_note": "unspecified"
+      }
+    ],
+    "evidence_summary": [
+      {
+        "id": "ADV-M15-C09",
+        "kind": "concept",
+        "name": "Evidence Summary",
+        "definition": "Every individual element (liquidity sweep, MSS, FVG, Order Block, Breaker, OTE, PO3, session behaviour, SMT) is grounded in ICT teaching. The comparative decision procedure that selects one primary model per context is the advanced synthesis required to move from pattern recognition to narrative-driven execution. Community systems that prescribe fixed model sequences without reference to the living narrative are secondary.\n\n***Source / Research note:** Primary orientation: ICT elements as taught across mentorship and chart examples. The selection funnel and pre-session procedure are the advanced operational framework that keeps those elements under narrative control.*",
+        "ict_specific_meaning": "Every individual element (liquidity sweep, MSS, FVG, Order Block, Breaker, OTE, PO3, session behaviour, SMT) is grounded in ICT teaching. The comparative decision procedure that selects one primary model per context is the advanced synthesis required to move from pattern recognition to narrative-driven execution. Community systems that prescribe fixed model sequences without reference to the living narrative are secondary.\n\n***Source / Research note:** Primary orientation: ICT elements as taught across mentorship and chart examples. The selection funnel and pre-session procedure are the advanced operational framework that keeps those elements under narrative control.*",
+        "what_changed_from_beginner_level": "unspecified",
+        "detection_criteria": [
+          "unspecified - see definition field"
+        ],
+        "numeric_or_narrative_example": "unspecified",
+        "why_it_matters": "unspecified",
+        "beginner_mistakes_or_misinterpretations": [],
+        "raw_sections": {
+          "Full Text": "Every individual element (liquidity sweep, MSS, FVG, Order Block, Breaker, OTE, PO3, session behaviour, SMT) is grounded in ICT teaching. The comparative decision procedure that selects one primary model per context is the advanced synthesis required to move from pattern recognition to narrative-driven execution. Community systems that prescribe fixed model sequences without reference to the living narrative are secondary.\n\n***Source / Research note:** Primary orientation: ICT elements as taught across mentorship and chart examples. The selection funnel and pre-session procedure are the advanced operational framework that keeps those elements under narrative control.*"
+        },
+        "dependencies": [],
+        "attribution_type": "community_interpretation",
+        "cited_sources_in_text": [
+          "Primary orientation: ICT elements as taught across mentorship and chart examples. The selection funnel and pre-session procedure are the advanced operational framework that keeps those elements under narrative control."
+        ],
+        "book_location": {
+          "level": "advanced",
+          "module_number": 15,
+          "module_title": "Advanced Model Selection",
+          "section_heading": "Evidence Summary"
+        },
+        "confidence_note": "Primary orientation: ICT elements as taught across mentorship and chart examples. The selection funnel and pre-session procedure are the advanced operational framework that keeps those elements under narrative control."
+      }
+    ]
+  },
+  "rules": [
+    {
+      "id": "ADV-M15-R01",
+      "kind": "rule",
+      "rule_type": "selection_procedure",
+      "statement": "The selection principle: model selection begins with the narrative stack and bias (Modules 9-10), not a search for patterns. Sequence: (1) construct/update the multi-timeframe narrative; (2) extract the bias statement (direction, DOL, invalidation, conditioning event); (3) inspect the active session and PO3 phase; (4) ask which model family is the natural expression of that context; (5) authorise only that family (or a tightly related pair) and forbid the rest. A single delivery leg is expressed by one primary entry model; additional elements (SMT, session timing, HTF array) may confirm but do not each generate a separate trade.",
+      "applies_to": [
+        "The Selection Principle"
+      ],
+      "conditions": [],
+      "exceptions_or_qualifiers": "unspecified",
+      "book_location": {
+        "level": "advanced",
+        "module_number": 15,
+        "module_title": "Advanced Model Selection",
+        "section_heading": "The Selection Principle"
+      },
+      "attribution_type": "book_synthesis"
+    },
+    {
+      "id": "ADV-M15-R02",
+      "kind": "rule",
+      "rule_type": "detection_criteria",
+      "statement": "Nine model families compared: (1) Liquidity-Sweep Model -- emphasis on the raid of a named pool as leg origin, entry after sweep on subsequent displacement/PD-array retracement; (2) MSS Model -- emphasis on the MSS confirming change/resumption of delivery, entry refined after MSS into the displacement array; (3) FVG Model -- emphasis on the FVG/CE left by displacement as precise entry; (4) Order Block Model -- emphasis on the last opposing candle before displacement; (5) Breaker Model -- emphasis on a violated prior OB with inverted polarity; (6) OTE Model -- emphasis on the 62-79% retracement zone, often overlapping FVG/OB; (7) PO3/AMD Model -- trading the distribution phase after accumulation+manipulation complete; (8) Session Model -- expected behaviour of a specific session (London manipulation then continuation, New York distribution); (9) SMT-Assisted Model -- intermarket non-confirmation as additional confirmation, almost always a supporting layer not a standalone model.",
+      "applies_to": [
+        "Model Families Compared"
+      ],
+      "conditions": [],
+      "exceptions_or_qualifiers": "Evidence classified as C: family names and comparison framework are pedagogical synthesis; each underlying element is ICT-grounded, but the decision procedure for choosing among them is the book's own advanced operational requirement.",
+      "book_location": {
+        "level": "advanced",
+        "module_number": 15,
+        "module_title": "Advanced Model Selection",
+        "section_heading": "Model Families Compared"
+      },
+      "attribution_type": "book_synthesis"
+    },
+    {
+      "id": "ADV-M15-R03",
+      "kind": "rule",
+      "rule_type": "selection_procedure",
+      "statement": "Decision filters applied in order (any model failing a filter is forbidden for that leg): (1) Bias filter -- only models assuming the bias direction are eligible; (2) Range filter -- only models entering from the correct premium/discount half; (3) Liquidity-origin filter -- models requiring a completed/ongoing raid of the named origin pool; (4) Phase filter -- models matching the active PO3/session phase (do not trade distribution models during accumulation); (5) Array-quality filter -- the specific array (FVG, OB, Breaker, OTE) must be unmitigated and correctly located; (6) Confirmation filter -- displacement and MSS (and SMT if used) must support the entry; (7) Invalidation filter -- both trade-level and narrative-level invalidation must be defined and acceptable.",
+      "applies_to": [
+        "Decision Filters"
+      ],
+      "conditions": [],
+      "exceptions_or_qualifiers": "unspecified",
+      "book_location": {
+        "level": "advanced",
+        "module_number": 15,
+        "module_title": "Advanced Model Selection",
+        "section_heading": "Decision Filters"
+      },
+      "attribution_type": "book_synthesis"
+    },
+    {
+      "id": "ADV-M15-R04",
+      "kind": "rule",
+      "rule_type": "selection_procedure",
+      "statement": "Model selection procedure (pre-session): (1) write the narrative stack and bias statement; (2) state the expected session path and PO3 phase; (3) list the model families that survive the bias and range filters; (4) from that shortlist, select the one family whose primary emphasis best matches the expected origin event and array; (5) define the exact entry condition, trade invalidation and narrative invalidation; (6) define the stand-aside conditions (what would cancel the model before entry); (7) execute only if the live chart produces the authorised sequence -- otherwise stand aside or switch only after an explicit narrative update.",
+      "applies_to": [
+        "Model Selection Procedure (Pre-Session)"
+      ],
+      "conditions": [],
+      "exceptions_or_qualifiers": "unspecified",
+      "book_location": {
+        "level": "advanced",
+        "module_number": 15,
+        "module_title": "Advanced Model Selection",
+        "section_heading": "Model Selection Procedure (Pre-Session)"
+      },
+      "attribution_type": "book_synthesis"
+    }
+  ],
+  "strategies": [],
+  "examples": [],
+  "relationships": [
+    {
+      "id": "ADV-M15-REL01",
+      "kind": "cross_module_relationship",
+      "statement": "Selection scenarios link model families to context: Clean Classic Continuation Day -> primary model FVG/OTE continuation (Variation A of Modules 11-12), supporting session timing and optional SMT, forbidding opposing-direction models/unformed Breakers/premature IFVG. Breaker Day -> primary model Breaker continuation, supporting liquidity origin and MSS, forbidding treating the old OB polarity as still valid. HTF Array Day -> primary model HTF PD-array reaction with LTF confirmation (Variation D), supporting session and optional SMT. Ambiguous or Conflict Day -> no authorised model, stand aside. SMT-Confirmed Day -> primary model remains the single-instrument continuation model (FVG/OB/OTE) with SMT as a supporting layer only, never the primary model.",
+      "involved_concepts": [
+        "Selection Scenarios",
+        "Model Families Compared"
+      ],
+      "involved_modules": [
+        "Advanced Module 11",
+        "Advanced Module 12",
+        "Advanced Module 13"
+      ],
+      "book_location": {
+        "level": "advanced",
+        "module_number": 15,
+        "module_title": "Advanced Model Selection",
+        "section_heading": "Selection Scenarios"
+      }
+    }
+  ],
+  "no_trade_conditions": [
+    {
+      "id": "ADV-M15-NT01",
+      "kind": "no_trade_rule",
+      "statement": "Forbidden combinations: trading a long model and a short model on the same instrument in the same session without an explicit narrative rewrite; entering a distribution model during the accumulation or early manipulation phase; using a Breaker or IFVG that has not been properly formed; selecting a model that violates the controlling range's premium/discount filter; allowing SMT or a lower-timeframe signal to authorise a model that the higher-timeframe bias forbids. When the selection procedure produces an empty shortlist (ambiguous/conflict day), no model is authorised -- stand aside.",
+      "applies_to_strategy_ids": [],
+      "book_location": {
+        "level": "advanced",
+        "module_number": 15,
+        "module_title": "Advanced Model Selection",
+        "section_heading": "Forbidden Combinations"
+      }
+    }
+  ],
+  "contradictions_or_ambiguities": [],
+  "empirical_claims": [],
+  "module_review_notes": {
+    "key_terms": [
+      "Model family - a category of ICT entry logic defined by its primary emphasis (liquidity, MSS, FVG, OB, Breaker, OTE, PO3, session, SMT-assisted).",
+      "Selection principle - context (narrative + bias) first; model second.",
+      "Decision filters - ordered tests that eliminate ineligible families.",
+      "Primary model - the single authorised expression of the delivery leg.",
+      "Supporting confirmation - secondary element (e.g. SMT) that raises quality but does not generate a separate trade.",
+      "Stand-aside - the correct action when the filter process leaves no authorised model."
+    ],
+    "beginner_summary": "unspecified",
+    "concept_relationships_summary": "unspecified",
+    "practical_chart_exercise": "unspecified",
+    "self_test_questions": [
+      "What is the correct order of operations in model selection?",
+      "Name the seven decision filters.",
+      "When is the Breaker family preferred over the FVG family?",
+      "What is the authorised action when bias is unclear?",
+      "Why must SMT remain a supporting layer rather than a primary model?"
+    ],
+    "common_misconceptions": [],
+    "research_sources_cited_in_text": []
+  }
+}

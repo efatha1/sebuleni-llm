@@ -1,0 +1,444 @@
+{
+  "level": "intermediate",
+  "module_number": 2,
+  "module_title": "Advanced Liquidity Engineering",
+  "module_intro": "Module 1 established the structural map. This module moves from \"there is liquidity here\" to \"which liquidity matters\": buy-side/sell-side liquidity refined for intermediate use, relative equal highs/lows, short/intermediate/long-term liquidity hierarchy, internal-range vs external-range liquidity (deepened), the Draw on Liquidity (DOL), liquidity target selection, sequential liquidity objectives, and liquidity raid vs liquidity continuation.",
+  "prerequisites_stated_in_text": "Requires Intermediate Module 1 (Advanced Market Structure & Price Swings) and Beginner Module 4 (Liquidity).",
+  "module_objectives": [
+    "Identify and prioritise buy-side and sell-side liquidity relative to the current dealing range and higher-timeframe narrative.",
+    "Recognise relative equal highs and relative equal lows as high-density liquidity pools.",
+    "Classify liquidity by structural significance (short-term, intermediate-term, long-term).",
+    "Determine the current Draw on Liquidity (DOL) before a session begins.",
+    "Select sequential liquidity objectives (IRL first, then ERL, or the reverse) consistent with the narrative.",
+    "Distinguish a liquidity raid (stop-hunt / reversal context) from liquidity continuation (trend-aligned run).",
+    "Filter which liquidity pools are most relevant and which should be ignored."
+  ],
+  "concepts": [
+    {
+      "id": "INT-M02-C01",
+      "kind": "concept",
+      "name": "Buy-Side Liquidity and Sell-Side Liquidity (Intermediate Refinement)",
+      "definition": "Buy-side liquidity (BSL) rests above swing highs, equal highs, previous-period highs and other obvious upside reference points. It consists primarily of buy-stop orders (short-covering stops and breakout buy entries).\n\nSell-side liquidity (SSL) rests below swing lows, equal lows, previous-period lows and other obvious downside reference points. It consists primarily of sell-stop orders (long-protective stops and breakout sell entries).",
+      "ict_specific_meaning": "Buy-side liquidity (BSL) rests above swing highs, equal highs, previous-period highs and other obvious upside reference points. It consists primarily of buy-stop orders (short-covering stops and breakout buy entries).\n\nSell-side liquidity (SSL) rests below swing lows, equal lows, previous-period lows and other obvious downside reference points. It consists primarily of sell-stop orders (long-protective stops and breakout sell entries).",
+      "what_changed_from_beginner_level": "unspecified",
+      "detection_criteria": [
+        "unspecified - see raw_sections"
+      ],
+      "numeric_or_narrative_example": "unspecified",
+      "why_it_matters": "unspecified",
+      "beginner_mistakes_or_misinterpretations": [],
+      "raw_sections": {
+        "Core Definitions (Unchanged)": "Buy-side liquidity (BSL) rests above swing highs, equal highs, previous-period highs and other obvious upside reference points. It consists primarily of buy-stop orders (short-covering stops and breakout buy entries).\n\nSell-side liquidity (SSL) rests below swing lows, equal lows, previous-period lows and other obvious downside reference points. It consists primarily of sell-stop orders (long-protective stops and breakout sell entries).",
+        "Intermediate Emphasis": "The location of the pool relative to the dealing-range equilibrium and the higher-timeframe bias determines its interpretive weight. A buy-side pool located deep in premium is a more natural target for a bearish narrative; a sell-side pool located deep in discount is a more natural target for a bullish narrative. Pools that sit against the higher-timeframe narrative require stronger confirmation before they are treated as primary objectives."
+      },
+      "dependencies": [],
+      "attribution_type": "research_compiled_secondary",
+      "cited_sources_in_text": [],
+      "book_location": {
+        "level": "intermediate",
+        "module_number": 2,
+        "module_title": "Advanced Liquidity Engineering",
+        "section_heading": "Buy-Side Liquidity and Sell-Side Liquidity (Intermediate Refinement)"
+      },
+      "confidence_note": "unspecified"
+    },
+    {
+      "id": "INT-M02-C02",
+      "kind": "concept",
+      "name": "Relative Equal Highs and Relative Equal Lows",
+      "definition": "Relative equal highs (also called equal highs or EQH) occur when two or more swing highs form at approximately the same price level, creating a visually obvious horizontal cluster. Relative equal lows (EQL) are the mirror image on the downside.",
+      "ict_specific_meaning": "Relative equal highs (also called equal highs or EQH) occur when two or more swing highs form at approximately the same price level, creating a visually obvious horizontal cluster. Relative equal lows (EQL) are the mirror image on the downside.",
+      "what_changed_from_beginner_level": "unspecified",
+      "detection_criteria": [
+        "The highs (or lows) should be obvious at a glance; micro-swings that require zooming do not qualify.",
+        "Separation in time matters: levels formed hours or days apart generally accumulate more stops than levels formed a few candles apart.",
+        "Context matters: equals that form at session extremes, previous-day extremes, or higher-timeframe structural points carry extra weight."
+      ],
+      "numeric_or_narrative_example": "unspecified",
+      "why_it_matters": "Mark relative equal highs and lows on the higher and intermediate timeframes first. These become candidate Draw-on-Liquidity targets. On the lower timeframe the student watches for the actual sweep (raid) of the pool during a relevant session window.\n\n***Source / Research note:** Equal highs and equal lows as liquidity pools are a recurring theme in ICT chart examples and mentorship discussions of liquidity. Community resources consistently elevate them above single swing points because of stop density.*",
+      "beginner_mistakes_or_misinterpretations": [],
+      "raw_sections": {
+        "Definition": "Relative equal highs (also called equal highs or EQH) occur when two or more swing highs form at approximately the same price level, creating a visually obvious horizontal cluster. Relative equal lows (EQL) are the mirror image on the downside.",
+        "Why They Matter": "Each additional touch at the same level increases the concentration of resting stops and pending orders. Relative equals are therefore among the highest-density liquidity pools available on a chart. In ICT teaching they are treated as primary magnets rather than as classical \"double-top resistance\" or \"double-bottom support.\"",
+        "Identification Criteria": "506. The highs (or lows) should be obvious at a glance; micro-swings that require zooming do not qualify.\n\n507. Separation in time matters: levels formed hours or days apart generally accumulate more stops than levels formed a few candles apart.\n\n508. Context matters: equals that form at session extremes, previous-day extremes, or higher-timeframe structural points carry extra weight.",
+        "Practical Use": "Mark relative equal highs and lows on the higher and intermediate timeframes first. These become candidate Draw-on-Liquidity targets. On the lower timeframe the student watches for the actual sweep (raid) of the pool during a relevant session window.\n\n***Source / Research note:** Equal highs and equal lows as liquidity pools are a recurring theme in ICT chart examples and mentorship discussions of liquidity. Community resources consistently elevate them above single swing points because of stop density.*"
+      },
+      "dependencies": [],
+      "attribution_type": "research_compiled_secondary",
+      "cited_sources_in_text": [
+        "Equal highs and equal lows as liquidity pools are a recurring theme in ICT chart examples and mentorship discussions of liquidity. Community resources consistently elevate them above single swing points because of stop density."
+      ],
+      "book_location": {
+        "level": "intermediate",
+        "module_number": 2,
+        "module_title": "Advanced Liquidity Engineering",
+        "section_heading": "Relative Equal Highs and Relative Equal Lows"
+      },
+      "confidence_note": "Equal highs and equal lows as liquidity pools are a recurring theme in ICT chart examples and mentorship discussions of liquidity. Community resources consistently elevate them above single swing points because of stop density."
+    },
+    {
+      "id": "INT-M02-C03",
+      "kind": "concept",
+      "name": "Short-Term, Intermediate-Term and Long-Term Liquidity",
+      "definition": "unspecified - see raw_sections",
+      "ict_specific_meaning": "unspecified",
+      "what_changed_from_beginner_level": "unspecified",
+      "detection_criteria": [
+        "unspecified - see raw_sections"
+      ],
+      "numeric_or_narrative_example": "unspecified",
+      "why_it_matters": "unspecified",
+      "beginner_mistakes_or_misinterpretations": [],
+      "raw_sections": {
+        "Mapping Hierarchy to Liquidity": "Just as swings are hierarchical (Module 1), the liquidity that rests above or below those swings inherits the same hierarchy:\n\n509. Short-term liquidity - rests above short-term highs or below short-term lows. Frequently taken during normal intraday two-way traffic.\n\n510. Intermediate-term liquidity - rests above intermediate-term highs or below intermediate-term lows. More significant; often the first serious objective after a dealing-range boundary is approached.\n\n511. Long-term liquidity - rests above long-term highs or below long-term lows, or at previous-week / previous-month extremes. These are major narrative targets.",
+        "Practical Filtering": "A short-term liquidity pool inside a dealing range is usually an internal-range objective. A long-term liquidity pool beyond the dealing-range boundary is an external-range objective. Mixing the two without regard to hierarchy leads to premature profit-taking or unrealistic target expectations."
+      },
+      "dependencies": [],
+      "attribution_type": "research_compiled_secondary",
+      "cited_sources_in_text": [],
+      "book_location": {
+        "level": "intermediate",
+        "module_number": 2,
+        "module_title": "Advanced Liquidity Engineering",
+        "section_heading": "Short-Term, Intermediate-Term and Long-Term Liquidity"
+      },
+      "confidence_note": "unspecified"
+    },
+    {
+      "id": "INT-M02-C04",
+      "kind": "concept",
+      "name": "Internal-Range Liquidity vs External-Range Liquidity (Deepened)",
+      "definition": "unspecified - see raw_sections",
+      "ict_specific_meaning": "unspecified",
+      "what_changed_from_beginner_level": "unspecified",
+      "detection_criteria": [
+        "unspecified - see raw_sections"
+      ],
+      "numeric_or_narrative_example": "unspecified",
+      "why_it_matters": "unspecified",
+      "beginner_mistakes_or_misinterpretations": [],
+      "raw_sections": {
+        "Recap from Module 1": "Internal-range liquidity (IRL) resides inside the active dealing range. External-range liquidity (ERL) resides beyond the range high or range low.",
+        "Typical Contents": "IRL commonly includes: Fair Value Gaps, unmitigated Order Blocks, short-term and intermediate-term swing points, relative equal highs/lows that formed inside the range, previous-day or session extremes that still lie inside the larger range.\n\nERL commonly includes: the range high and range low themselves (and the stops beyond them), previous-week and previous-month extremes, long-term swing points, and any relative equal highs/lows that sit outside the current dealing range.",
+        "Delivery Sequences": "Two frequent sequences appear in ICT examples:\n\n512. ERL -> IRL -> ERL: Price raids one external pool, returns into the range to address internal inefficiencies or PD arrays, then expands toward the opposite external pool.\n\n513. IRL -> ERL: Price first clears internal objectives (or rebalances internal gaps) and then expands to the external target.\n\nRecognising which sequence is in play prevents the trader from treating every internal reaction as a full reversal or every external raid as the end of the move."
+      },
+      "dependencies": [],
+      "attribution_type": "research_compiled_secondary",
+      "cited_sources_in_text": [],
+      "book_location": {
+        "level": "intermediate",
+        "module_number": 2,
+        "module_title": "Advanced Liquidity Engineering",
+        "section_heading": "Internal-Range Liquidity vs External-Range Liquidity (Deepened)"
+      },
+      "confidence_note": "unspecified"
+    },
+    {
+      "id": "INT-M02-C05",
+      "kind": "concept",
+      "name": "The Draw on Liquidity (DOL)",
+      "definition": "The Draw on Liquidity is the specific liquidity pool (or sequence of pools) that the market is most likely seeking next, given the higher-timeframe narrative, the active dealing range, and the most recent liquidity event. It is the anticipatory target the trader defines before price arrives.",
+      "ict_specific_meaning": "The Draw on Liquidity is the specific liquidity pool (or sequence of pools) that the market is most likely seeking next, given the higher-timeframe narrative, the active dealing range, and the most recent liquidity event. It is the anticipatory target the trader defines before price arrives.",
+      "what_changed_from_beginner_level": "unspecified",
+      "detection_criteria": [
+        "unspecified - see raw_sections"
+      ],
+      "numeric_or_narrative_example": "unspecified",
+      "why_it_matters": "unspecified",
+      "beginner_mistakes_or_misinterpretations": [],
+      "raw_sections": {
+        "Definition": "The Draw on Liquidity is the specific liquidity pool (or sequence of pools) that the market is most likely seeking next, given the higher-timeframe narrative, the active dealing range, and the most recent liquidity event. It is the anticipatory target the trader defines before price arrives.",
+        "How to Determine the DOL (Practical Process)": "- Establish higher-timeframe bias and the large dealing range (daily / 4-hour).\n\n- Mark the most obvious untouched or lightly tested pools: previous-day high/low, previous-week high/low, relative equal highs/lows, major swing points, and any large unfilled higher-timeframe Fair Value Gaps that act as magnets.\n\n- Ask which side of liquidity is consistent with the bias and the current location relative to equilibrium. In discount with a bullish bias, the natural draw is usually buy-side above. In premium with a bearish bias, the natural draw is usually sell-side below.\n\n- Decide whether the immediate objective is internal or external relative to the operating dealing range.\n\n- Write the DOL down before the session. This becomes the primary target framework for the day.",
+        "Important Qualification": "The DOL is a reasoned expectation, not a guarantee. If price fails to progress toward the stated draw and instead expands in the opposite direction with displacement, the narrative must be reassessed.\n\n***Source / Research note:** \"Draw on liquidity\" and the instruction to know the draw before engaging are central themes in ICT mentorship content. Public lectures and chart examples repeatedly emphasise identifying the next liquidity objective in advance.*"
+      },
+      "dependencies": [],
+      "attribution_type": "research_compiled_secondary",
+      "cited_sources_in_text": [
+        "\"Draw on liquidity\" and the instruction to know the draw before engaging are central themes in ICT mentorship content. Public lectures and chart examples repeatedly emphasise identifying the next liquidity objective in advance."
+      ],
+      "book_location": {
+        "level": "intermediate",
+        "module_number": 2,
+        "module_title": "Advanced Liquidity Engineering",
+        "section_heading": "The Draw on Liquidity (DOL)"
+      },
+      "confidence_note": "\"Draw on liquidity\" and the instruction to know the draw before engaging are central themes in ICT mentorship content. Public lectures and chart examples repeatedly emphasise identifying the next liquidity objective in advance."
+    },
+    {
+      "id": "INT-M02-C06",
+      "kind": "concept",
+      "name": "Liquidity Target Selection",
+      "definition": "unspecified - see raw_sections",
+      "ict_specific_meaning": "unspecified",
+      "what_changed_from_beginner_level": "unspecified",
+      "detection_criteria": [
+        "unspecified - see raw_sections"
+      ],
+      "numeric_or_narrative_example": "unspecified",
+      "why_it_matters": "unspecified",
+      "beginner_mistakes_or_misinterpretations": [],
+      "raw_sections": {
+        "Priority Order (Practical Heuristic)": "When multiple pools compete, the following order of consideration is useful:\n\n- Higher-timeframe pools over lower-timeframe pools.\n\n- Relative equal highs/lows over single swing points of the same timeframe.\n\n- Pools that have not been tested (or have been only lightly tested) over pools that have already been raided multiple times.\n\n- Pools aligned with the higher-timeframe narrative and the current premium/discount location over pools that require price to move against the larger story.\n\n- Pools that sit at or beyond dealing-range boundaries (ERL) as fuller thesis targets; internal pools (IRL) as intermediate or partial-profit objectives.",
+        "Dual-Target Habit": "High-quality intermediate practice is to define both an internal-range target (T1) and an external-range target (T2) before entry. This keeps management decisions mechanical rather than emotional."
+      },
+      "dependencies": [],
+      "attribution_type": "research_compiled_secondary",
+      "cited_sources_in_text": [],
+      "book_location": {
+        "level": "intermediate",
+        "module_number": 2,
+        "module_title": "Advanced Liquidity Engineering",
+        "section_heading": "Liquidity Target Selection"
+      },
+      "confidence_note": "unspecified"
+    },
+    {
+      "id": "INT-M02-C07",
+      "kind": "concept",
+      "name": "Sequential Liquidity Objectives",
+      "definition": "unspecified - see raw_sections",
+      "ict_specific_meaning": "unspecified",
+      "what_changed_from_beginner_level": "unspecified",
+      "detection_criteria": [
+        "unspecified - see raw_sections"
+      ],
+      "numeric_or_narrative_example": "1. Sell-side external liquidity is raided (SSL below a dealing-range low or a significant prior low).\n\n2. Displacement higher and Market Structure Shift occur.\n\n3. Price retraces into an internal PD array (FVG / Order Block) that sits in discount.\n\n4. Continuation expands first toward internal buy-side objectives (relative equal highs or short-term highs inside the range).\n\n5. Further expansion targets the external buy-side liquidity above the dealing-range high or the next long-term high.",
+      "why_it_matters": "unspecified",
+      "beginner_mistakes_or_misinterpretations": [],
+      "raw_sections": {
+        "The Principle": "Price does not usually jump from one major external pool to the opposite external pool without addressing intermediate objectives. Mapping the expected sequence reduces the temptation to exit too early or to hold through an unexpected internal reaction.",
+        "Example Sequence (Bullish)": "1. Sell-side external liquidity is raided (SSL below a dealing-range low or a significant prior low).\n\n2. Displacement higher and Market Structure Shift occur.\n\n3. Price retraces into an internal PD array (FVG / Order Block) that sits in discount.\n\n4. Continuation expands first toward internal buy-side objectives (relative equal highs or short-term highs inside the range).\n\n5. Further expansion targets the external buy-side liquidity above the dealing-range high or the next long-term high.",
+        "Example Sequence (Bearish)": "Mirror the above: BSL raid -> bearish displacement / MSS -> retracement into premium PD array -> expansion toward internal sell-side objectives -> expansion toward external sell-side liquidity."
+      },
+      "dependencies": [],
+      "attribution_type": "research_compiled_secondary",
+      "cited_sources_in_text": [],
+      "book_location": {
+        "level": "intermediate",
+        "module_number": 2,
+        "module_title": "Advanced Liquidity Engineering",
+        "section_heading": "Sequential Liquidity Objectives"
+      },
+      "confidence_note": "unspecified"
+    },
+    {
+      "id": "INT-M02-C08",
+      "kind": "concept",
+      "name": "Liquidity Raid vs Liquidity Continuation",
+      "definition": "unspecified - see raw_sections",
+      "ict_specific_meaning": "unspecified",
+      "what_changed_from_beginner_level": "unspecified",
+      "detection_criteria": [
+        "unspecified - see raw_sections"
+      ],
+      "numeric_or_narrative_example": "unspecified",
+      "why_it_matters": "unspecified",
+      "beginner_mistakes_or_misinterpretations": [],
+      "raw_sections": {
+        "Liquidity Raid (Stop-Hunt / Reversal Context)": "A liquidity raid occurs when price runs a pool (often with a wick) and then reverses with displacement, leaving the pool behind. The raid supplies the liquidity that allows the larger participants to fill orders in the opposite direction. Classic characteristics:\n\n514. Sharp push through the level followed by a close back inside the prior range or a clear rejection.\n\n515. Subsequent Market Structure Shift against the direction of the raid.\n\n516. Often occurs at a higher-timeframe PD array or at a dealing-range boundary that is expected to hold.",
+        "Liquidity Continuation": "Liquidity continuation occurs when price runs a pool and keeps going, treating the pool as fuel rather than as a turning point. Characteristics:\n\n517. Strong displacement through the level with little or no immediate reclaim.\n\n518. The run is aligned with the higher-timeframe narrative and the current expansion phase.\n\n519. Internal structure continues to print in the direction of the run.",
+        "How to Distinguish in Practice": "The distinction is made by context, not by the mere fact that a high or low was taken:\n\n520. If the pool sits against the higher-timeframe bias and at a location where a reversal is expected (for example, SSL in discount after a bullish displacement), a raid-and-reverse is the higher-probability reading.\n\n521. If the pool sits in the direction of the higher-timeframe bias and the market is already in expansion, continuation through the pool is the higher-probability reading.\n\n522. Confirmation always comes from the subsequent price behaviour (displacement, MSS, and whether the level is reclaimed or abandoned).",
+        "Common Intermediate Error": "17. Automatically fading every liquidity run. Not every sweep is a raid; some are the start of the real expansion."
+      },
+      "dependencies": [],
+      "attribution_type": "research_compiled_secondary",
+      "cited_sources_in_text": [],
+      "book_location": {
+        "level": "intermediate",
+        "module_number": 2,
+        "module_title": "Advanced Liquidity Engineering",
+        "section_heading": "Liquidity Raid vs Liquidity Continuation"
+      },
+      "confidence_note": "unspecified"
+    }
+  ],
+  "rules": [
+    {
+      "id": "INT-M02-R01",
+      "kind": "rule",
+      "rule_type": "detection_criteria",
+      "statement": "Relative equal highs/lows identification criteria: (1) the highs (or lows) should be obvious at a glance -- micro-swings requiring zooming do not qualify; (2) separation in time matters -- levels formed hours or days apart generally accumulate more stops than levels formed a few candles apart; (3) context matters -- equals forming at session extremes, previous-day extremes, or higher-timeframe structural points carry extra weight.",
+      "applies_to": [
+        "Relative Equal Highs and Relative Equal Lows"
+      ],
+      "conditions": [],
+      "exceptions_or_qualifiers": "unspecified",
+      "book_location": {
+        "level": "intermediate",
+        "module_number": 2,
+        "module_title": "Advanced Liquidity Engineering",
+        "section_heading": "Relative Equal Highs and Relative Equal Lows"
+      },
+      "attribution_type": "community_interpretation"
+    },
+    {
+      "id": "INT-M02-R02",
+      "kind": "rule",
+      "rule_type": "selection_procedure",
+      "statement": "Practical process for determining the Draw on Liquidity (DOL): (1) establish HTF bias and the large dealing range (daily/4-hour); (2) mark the most obvious untouched or lightly tested pools (previous-day high/low, previous-week high/low, relative equal highs/lows, major swing points, large unfilled HTF FVGs); (3) ask which side of liquidity is consistent with bias and current location relative to equilibrium -- in discount with bullish bias, the natural draw is usually buy-side above; in premium with bearish bias, the natural draw is usually sell-side below; (4) decide whether the immediate objective is internal or external relative to the operating dealing range; (5) write the DOL down before the session as the primary target framework for the day.",
+      "applies_to": [
+        "The Draw on Liquidity (DOL)"
+      ],
+      "conditions": [],
+      "exceptions_or_qualifiers": "The DOL is a reasoned expectation, not a guarantee. If price fails to progress toward the stated draw and instead expands in the opposite direction with displacement, the narrative must be reassessed.",
+      "book_location": {
+        "level": "intermediate",
+        "module_number": 2,
+        "module_title": "Advanced Liquidity Engineering",
+        "section_heading": "The Draw on Liquidity (DOL)"
+      },
+      "attribution_type": "community_interpretation"
+    },
+    {
+      "id": "INT-M02-R03",
+      "kind": "rule",
+      "rule_type": "selection_procedure",
+      "statement": "Liquidity target priority order when multiple pools compete: (1) higher-timeframe pools over lower-timeframe pools; (2) relative equal highs/lows over single swing points of the same timeframe; (3) pools not yet tested (or only lightly tested) over pools already raided multiple times; (4) pools aligned with the higher-timeframe narrative and current premium/discount location over pools requiring price to move against the larger story; (5) pools at or beyond dealing-range boundaries (ERL) as fuller thesis targets; internal pools (IRL) as intermediate or partial-profit objectives.",
+      "applies_to": [
+        "Liquidity Target Selection"
+      ],
+      "conditions": [],
+      "exceptions_or_qualifiers": "unspecified",
+      "book_location": {
+        "level": "intermediate",
+        "module_number": 2,
+        "module_title": "Advanced Liquidity Engineering",
+        "section_heading": "Liquidity Target Selection"
+      },
+      "attribution_type": "community_interpretation"
+    },
+    {
+      "id": "INT-M02-R04",
+      "kind": "rule",
+      "rule_type": "sequencing",
+      "statement": "Sequential liquidity objectives -- bullish example sequence: (1) sell-side external liquidity is raided (SSL below a dealing-range low or significant prior low); (2) displacement higher and Market Structure Shift occur; (3) price retraces into an internal PD array; (4) expansion continues toward internal buy-side objectives; (5) expansion continues toward external buy-side liquidity. Bearish sequence is the mirror: BSL raid -> bearish displacement/MSS -> retracement into premium PD array -> expansion toward internal sell-side objectives -> expansion toward external sell-side liquidity.",
+      "applies_to": [
+        "Sequential Liquidity Objectives"
+      ],
+      "conditions": [],
+      "exceptions_or_qualifiers": "Price does not usually jump from one major external pool to the opposite external pool without addressing intermediate objectives.",
+      "book_location": {
+        "level": "intermediate",
+        "module_number": 2,
+        "module_title": "Advanced Liquidity Engineering",
+        "section_heading": "Sequential Liquidity Objectives"
+      },
+      "attribution_type": "community_interpretation"
+    },
+    {
+      "id": "INT-M02-R05",
+      "kind": "rule",
+      "rule_type": "detection_criteria",
+      "statement": "Distinguishing liquidity raid from liquidity continuation: raid characteristics -- price runs a pool (often with a wick) and reverses with displacement, leaving the pool behind. Continuation characteristics -- (1) strong displacement through the level with little or no immediate reclaim; (2) the run is aligned with the higher-timeframe narrative and current expansion phase; (3) internal structure continues to print in the direction of the run. Practical distinction: if the pool sits against HTF bias and at a location where reversal is expected (e.g. SSL in discount after bullish displacement), raid-and-reverse is higher-probability; if the pool sits in the direction of HTF bias and the market is already expanding, continuation is higher-probability. Confirmation always comes from subsequent price behavior (displacement, MSS, and whether the level is reclaimed or abandoned).",
+      "applies_to": [
+        "Liquidity Raid vs Liquidity Continuation"
+      ],
+      "conditions": [],
+      "exceptions_or_qualifiers": "unspecified",
+      "book_location": {
+        "level": "intermediate",
+        "module_number": 2,
+        "module_title": "Advanced Liquidity Engineering",
+        "section_heading": "Liquidity Raid vs Liquidity Continuation"
+      },
+      "attribution_type": "community_interpretation"
+    }
+  ],
+  "strategies": [],
+  "examples": [
+    {
+      "id": "INT-M02-EX01",
+      "kind": "example",
+      "example_type": "worked_narrative",
+      "linked_concept_or_strategy_ids": [
+        "The Draw on Liquidity (DOL)",
+        "Liquidity Target Selection",
+        "Sequential Liquidity Objectives"
+      ],
+      "content": "Context: Daily bias is bullish. Daily dealing range is 1.0800 - 1.1000 (equilibrium 1.0900). Price is currently trading near 1.0850 (discount).\n\nMarked pools:\n\n523. Sell-side: relative equal lows near 1.0820 (internal) and a prior weekly low at 1.0750 (external).\n\n524. Buy-side: relative equal highs near 1.0960 (internal) and previous-week high at 1.1050 (external).\n\nReasoning:\n\nBecause the bias is bullish and price is in discount, the primary Draw on Liquidity is buy-side. The immediate sequence is likely: any remaining internal sell-side (or a shallow retest) may be addressed, then expansion toward the internal buy-side equals at 1.0960, with the fuller objective at the external previous-week high. A deep raid of the weekly low at 1.0750 would be a more significant event requiring re-evaluation of the daily range itself.\n\nIf price instead expands lower through 1.0820 with strong displacement and no reclaim, the bullish DOL is challenged and the trader stands aside or reassesses.",
+      "interpretation_given_in_text": "Demonstrates selecting and sequencing liquidity objectives using the module's priority order and DOL process.",
+      "book_location": {
+        "level": "intermediate",
+        "module_number": 2,
+        "module_title": "Advanced Liquidity Engineering",
+        "section_heading": "Worked Example - Selecting and Sequencing Liquidity"
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "id": "INT-M02-REL01",
+      "kind": "cross_module_relationship",
+      "statement": "Module 1 supplied the structural map (dealing range, internal vs external structure, hierarchical swings). Module 2 places liquidity on that map. Relative equal highs and lows densify the pools. The short-term / intermediate-term / long-term hierarchy ranks their importance. The Draw on Liquidity selects the active objective. Sequential planning (IRL then ERL, or ERL then IRL) organises the path. The raid-versus-continuation distinction prevents the mechanical fading of every stop run.\n\nLater modules will add displacement quality, PD-array confluence, session timing and multi-timeframe narrative so that the liquidity map becomes an executable model rather than a static list of levels.",
+      "involved_concepts": [
+        "Buy-Side Liquidity and Sell-Side Liquidity (Intermediate Refinement)",
+        "Relative Equal Highs and Relative Equal Lows",
+        "Short-Term, Intermediate-Term and Long-Term Liquidity",
+        "Internal-Range Liquidity vs External-Range Liquidity (Deepened)",
+        "The Draw on Liquidity (DOL)",
+        "Liquidity Target Selection",
+        "Sequential Liquidity Objectives",
+        "Liquidity Raid vs Liquidity Continuation"
+      ],
+      "involved_modules": [
+        "Intermediate Module 1",
+        "Beginner Module 4",
+        "Intermediate Module 3 (forward reference)"
+      ],
+      "book_location": {
+        "level": "intermediate",
+        "module_number": 2,
+        "module_title": "Advanced Liquidity Engineering",
+        "section_heading": "How These Concepts Connect"
+      }
+    }
+  ],
+  "no_trade_conditions": [
+    {
+      "id": "INT-M02-NT01",
+      "kind": "no_trade_rule",
+      "statement": "Do not automatically fade every liquidity run -- not every sweep is a raid; some are the start of the real expansion (continuation). Confirmation must come from subsequent price behavior before acting.",
+      "applies_to_strategy_ids": [],
+      "book_location": {
+        "level": "intermediate",
+        "module_number": 2,
+        "module_title": "Advanced Liquidity Engineering",
+        "section_heading": "Liquidity Raid vs Liquidity Continuation / Common Intermediate Error"
+      }
+    }
+  ],
+  "contradictions_or_ambiguities": [],
+  "empirical_claims": [],
+  "module_review_notes": {
+    "key_terms": [
+      "Buy-side liquidity (BSL) - resting buy stops above highs / equal highs.",
+      "Sell-side liquidity (SSL) - resting sell stops below lows / equal lows.",
+      "Relative equal highs / lows (EQH / EQL) - clustered swing points at approximately the same price; high-density pools.",
+      "Internal-range liquidity (IRL) - liquidity inside the dealing range.",
+      "External-range liquidity (ERL) - liquidity beyond the dealing-range boundaries.",
+      "Draw on Liquidity (DOL) - the specific pool or sequence the market is expected to seek next.",
+      "Liquidity raid - run of a pool followed by rejection and reversal context.",
+      "Liquidity continuation - run of a pool that fuels further expansion in the same direction.",
+      "Sequential objectives - ordered list of IRL and ERL targets consistent with the narrative."
+    ],
+    "beginner_summary": "Beginner liquidity taught that stops rest above highs and below lows and that price seeks those stops. Intermediate liquidity adds hierarchy, density (relative equals), internal/external location, anticipatory Draw-on-Liquidity selection, sequential planning, and the critical distinction between raids and continuations.",
+    "concept_relationships_summary": "Dealing-range structure (Module 1) supplies the container that makes internal vs external meaningful. Hierarchical swings rank the pools. Relative equals increase density. DOL selection chooses the active magnet. Sequence planning organises the path. Raid vs continuation interprets the arrival at each pool.",
+    "practical_chart_exercise": "Before the next London or New York session:\n\n- On the daily and 4-hour charts mark the active dealing range, equilibrium, previous-day and previous-week highs/lows, and any clear relative equal highs or lows.\n\n- State the higher-timeframe bias in one sentence.\n\n- Write the expected Draw on Liquidity and whether it is internal or external.\n\n- List a T1 (internal) and T2 (external) target.\n\n- After the session, record what actually occurred: which pools were taken, whether the behaviour looked like a raid or a continuation, and whether the pre-session DOL was validated or invalidated.\n\n- Note one lesson about target selection or sequence.",
+    "self_test_questions": [
+      "Why are relative equal highs generally higher-priority targets than a single swing high of the same timeframe?",
+      "If the daily bias is bullish and price is in discount, which side of liquidity is the natural Draw on Liquidity?",
+      "Describe a typical ERL -> IRL -> ERL delivery sequence.",
+      "What distinguishes a liquidity raid from liquidity continuation?",
+      "Why is it useful to define both an internal-range and an external-range target before entry?",
+      "When should a trader ignore an otherwise obvious liquidity pool?"
+    ],
+    "common_misconceptions": [
+      "\"Every equal high or low will be raided and reversed.\" - False. Context and narrative decide raid versus continuation.",
+      "\"The closest pool is always the Draw on Liquidity.\" - False. Higher-timeframe and narrative-aligned pools usually outrank nearby noise.",
+      "\"Once a pool is taken the move is over.\" - False. Taking one side of liquidity often enables the expansion toward the opposite side.",
+      "\"Internal liquidity is unimportant.\" - False. IRL frequently supplies the first targets and the rebalancing path.",
+      "\"Liquidity can be seen directly on the chart.\" - False. Only the probable locations of resting orders can be inferred from structure."
+    ],
+    "research_sources_cited_in_text": []
+  }
+}

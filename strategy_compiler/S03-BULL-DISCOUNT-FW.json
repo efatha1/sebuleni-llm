@@ -1,0 +1,1472 @@
+{
+  "dsl_version": "1.0.0",
+  "strategy_id": "S03-BULL-DISCOUNT-FW",
+  "name": "Bullish Discount Framework (dealing-range-conditioned long)",
+  "kind": "base_model",
+  "parent_strategy_id": "S01-BUY-11STEP",
+  "direction": "long",
+  "provenance": {
+    "spec_file": "strategy_reearcher/catalog/strategies.json",
+    "spec_strategy_id": "S03-BULL-DISCOUNT-FW",
+    "kb_source_strategy_ids": [
+      "INT-M06-S01"
+    ],
+    "primitives": [
+      "P-BIAS-02",
+      "P-DISP-01",
+      "P-DOL-01",
+      "P-FVG-01",
+      "P-LIQ-01",
+      "P-LIQ-02",
+      "P-MSS-01",
+      "P-MSS-02",
+      "P-OB-01",
+      "P-RANGE-01",
+      "P-RISK-01",
+      "P-STOP-01",
+      "P-TARGET-01"
+    ],
+    "specificity_status": "fully_specified",
+    "spec_unspecified_elements": [
+      "session filter",
+      "'decisive close' threshold",
+      "which structural reference (displacement origin vs range low) is the stop \u2014 both documented"
+    ],
+    "spec_worked_example": "INT-M06-EX01 (range 1.0800-1.1000; arrays 1.0845-1.0865 in discount; counter-example at 1.0960 premium rejected)"
+  },
+  "timeframes": {
+    "htf": {
+      "purpose": "bias and the large dealing range",
+      "candidates": [
+        "1d",
+        "4h"
+      ],
+      "source": [
+        "INT-M06-S01"
+      ],
+      "min_history": 120
+    },
+    "intermediate": {
+      "purpose": "active dealing range and PD arrays",
+      "candidates": [
+        "1h",
+        "15m"
+      ],
+      "source": [
+        "INT-M06-S01"
+      ],
+      "min_history": 400
+    },
+    "ltf": {
+      "purpose": "entry timing",
+      "candidates": [
+        "5m",
+        "1m"
+      ],
+      "source": [
+        "INT-M06-S01",
+        "INT-M01-R05"
+      ],
+      "min_history": 600
+    }
+  },
+  "data_requirements": {
+    "instrument": "primary",
+    "correlated_instruments": 0,
+    "bars": {
+      "htf": {
+        "min_history": 120
+      },
+      "intermediate": {
+        "min_history": 400
+      },
+      "ltf": {
+        "min_history": 600
+      }
+    },
+    "timezone": "America/New_York",
+    "session_anchored": true,
+    "requires_period_opens": [
+      "daily",
+      "weekly"
+    ],
+    "external_data": [],
+    "warmup_bars": 200
+  },
+  "parameters": [
+    {
+      "name": "governing_swing_tier",
+      "binding": "frozen_choice",
+      "choices": [
+        "short_term",
+        "intermediate",
+        "long_term"
+      ],
+      "kb_status": "unspecified",
+      "kb_value": "judgment informed by the ST/IT/LT hierarchy",
+      "source": [
+        "BEG-M03-C02",
+        "INT-M01-R02"
+      ],
+      "register_id": "governing_structural_point_tier"
+    },
+    {
+      "name": "displacement_range_multiple",
+      "binding": "frozen_required",
+      "kb_status": "unspecified",
+      "kb_value": "'unusually large relative to recent candles'",
+      "source": [
+        "BEG-M05-R01"
+      ],
+      "register_id": "displacement_range_multiple"
+    },
+    {
+      "name": "displacement_lookback",
+      "binding": "frozen_required",
+      "kb_status": "unspecified",
+      "kb_value": "-",
+      "source": [
+        "BEG-M05-R01"
+      ],
+      "register_id": "displacement_lookback_candles"
+    },
+    {
+      "name": "displacement_body_ratio_min",
+      "binding": "frozen_required",
+      "kb_status": "heuristic_unfixed",
+      "kb_value": "~60-70% cited by secondary tools; the book does not fix it",
+      "source": [
+        "BEG-M05-C01",
+        "BEG-M05-C02",
+        "BEG-M05-AMB01"
+      ],
+      "register_id": "displacement_body_to_range_min"
+    },
+    {
+      "name": "sweep_min_penetration",
+      "binding": "frozen_required",
+      "kb_status": "unspecified",
+      "kb_value": "research parameter 'Y' in the knowledge base's own template",
+      "source": [
+        "ADV-M18-C03"
+      ],
+      "register_id": "sweep_min_penetration"
+    },
+    {
+      "name": "sweep_reclaim_bars",
+      "binding": "frozen_required",
+      "kb_status": "alternatives_documented",
+      "kb_value": "~2-3 lower-timeframe candles (Judas) / 'reasonable number' (PO3) / 'Z' bars",
+      "source": [
+        "BEG-M08-R06",
+        "BEG-M09-R02",
+        "ADV-M18-C03"
+      ],
+      "register_id": "sweep_reclaim_window"
+    },
+    {
+      "name": "equal_level_tolerance",
+      "binding": "frozen_required",
+      "kb_status": "heuristic_unfixed",
+      "kb_value": "~5-10 pips forex cited by secondary sources; 'obvious at a glance'",
+      "source": [
+        "BEG-M04-C05",
+        "INT-M02-R01"
+      ],
+      "register_id": "equal_highs_lows_tolerance"
+    },
+    {
+      "name": "risk_fraction",
+      "binding": "frozen_required",
+      "kb_status": "range_given",
+      "kb_value": "~1% (max ~2%) beginner | 0.5-1% intermediate | 0.25-1% advanced",
+      "source": [
+        "BEG-M13-R01",
+        "INT-M12-R01",
+        "ADV-M17-R02"
+      ],
+      "register_id": "risk_per_trade"
+    },
+    {
+      "name": "stop_buffer_ticks",
+      "binding": "frozen_required",
+      "kb_status": "unspecified",
+      "kb_value": "'just beyond' / 'small buffer' (examples ~12 pips EUR/USD, ~0.60 pts gold)",
+      "source": [
+        "BEG-M11-EX01",
+        "BEG-M12-EX01"
+      ],
+      "register_id": "stop_buffer"
+    },
+    {
+      "name": "first_target_allocation",
+      "binding": "frozen_required",
+      "kb_status": "unspecified",
+      "kb_value": "'e.g. 50% or a fixed fraction' \u2014 the fraction is never stated",
+      "source": [
+        "ADV-M16-R06"
+      ],
+      "register_id": "partial_fraction"
+    },
+    {
+      "name": "fib_anchor",
+      "binding": "frozen_choice",
+      "choices": [
+        "body",
+        "wick"
+      ],
+      "kb_status": "alternatives_documented",
+      "kb_value": "body-to-body (BEG-M07-R01) vs liquidity-sweep wick origin (INT-M07-R01)",
+      "source": [
+        "BEG-M07-R01",
+        "INT-M07-R01"
+      ],
+      "register_id": "fib_anchor_price_type"
+    },
+    {
+      "name": "entry_trigger",
+      "binding": "frozen_choice",
+      "choices": [
+        "limit_at_zone",
+        "ltf_confirmation"
+      ],
+      "kb_status": "alternatives_documented",
+      "kb_value": "the documented entry triggers for this specification: limit_at_zone | ltf_confirmation",
+      "source": [
+        "BEG-M11-S01",
+        "ADV-M16-R02",
+        "ADV-M16-NT01"
+      ],
+      "register_id": "stop_reference"
+    },
+    {
+      "name": "ltf_confirmation_signal",
+      "binding": "frozen_choice",
+      "choices": [
+        "ltf_mss"
+      ],
+      "kb_status": "specified_examples",
+      "kb_value": "1-minute MSS or a rejection candle; only the MSS form is defined",
+      "source": [
+        "BEG-M11-S01"
+      ],
+      "register_id": "ltf_confirmation_signal"
+    },
+    {
+      "name": "stop_reference_framework",
+      "binding": "frozen_choice",
+      "choices": [
+        "displacement_origin",
+        "range_boundary"
+      ],
+      "kb_status": "alternatives_documented",
+      "kb_value": "displacement origin, or the dealing-range extreme if that was the structural reference",
+      "source": [
+        "INT-M06-S01",
+        "INT-M12-R02",
+        "ADV-M16-R04"
+      ],
+      "register_id": "stop_reference"
+    },
+    {
+      "name": "decisive_close_definition",
+      "binding": "frozen_choice",
+      "choices": [
+        "body_close_beyond",
+        "body_close_beyond_by_ticks",
+        "full_body_beyond"
+      ],
+      "kb_status": "unspecified",
+      "kb_value": "'decisive' close; the magnitude is never stated",
+      "source": [
+        "INT-M04-R03",
+        "ADV-M06-R03",
+        "INT-M11-R04"
+      ],
+      "register_id": "fvg_failure_close"
+    },
+    {
+      "name": "daily_bias_method",
+      "binding": "frozen_choice",
+      "choices": [
+        "three_factor",
+        "single_mss"
+      ],
+      "kb_status": "alternatives_documented",
+      "kb_value": "three-factor (primary) vs the single-MSS 'daily bias trick'",
+      "source": [
+        "BEG-M10-C03",
+        "BEG-M10-AMB01"
+      ],
+      "register_id": "daily_bias_method"
+    },
+    {
+      "name": "daily_open_definition",
+      "binding": "frozen_choice",
+      "choices": [
+        "new_york_midnight",
+        "instrument_daily_open"
+      ],
+      "kb_status": "alternatives_documented",
+      "kb_value": "daily open (primary) vs New York midnight (thinner support)",
+      "source": [
+        "ADV-M07-C03",
+        "ADV-M07-AMB01"
+      ],
+      "register_id": "daily_open_definition"
+    }
+  ],
+  "features": [
+    "bar",
+    "dealing_range",
+    "displacement",
+    "displacement_leg",
+    "dol",
+    "fvg",
+    "latest_index",
+    "liquidity_pools",
+    "midpoint",
+    "mss",
+    "mss_scope",
+    "offset",
+    "order_block",
+    "pd_location",
+    "position_size",
+    "sweep"
+  ],
+  "market_state": [
+    "bias_state"
+  ],
+  "blocks": {
+    "context": [
+      {
+        "node_id": "S03.ctx.bias",
+        "kind": "predicate",
+        "source": {
+          "block": "context",
+          "index": "htf_bias_required",
+          "text": "HTF bias bullish (or at least not bearish) \u2014 P-BIAS-02."
+        },
+        "kb_refs": [
+          "INT-M11-R01",
+          "ADV-M10-R01"
+        ],
+        "primitives": [
+          "P-BIAS-02"
+        ],
+        "expr": [
+          "!=",
+          [
+            "state",
+            "bias_state",
+            {
+              "tf": "htf",
+              "method": "structural",
+              "field": "direction"
+            }
+          ],
+          [
+            "const",
+            "bearish"
+          ]
+        ]
+      },
+      {
+        "node_id": "S03.ctx.location",
+        "kind": "predicate",
+        "source": {
+          "block": "context",
+          "index": "location",
+          "text": "Price trading in the discount half of the active dealing range, or has just raided SSL and is returning into discount (P-RANGE-01)."
+        },
+        "kb_refs": [
+          "INT-M06-C02",
+          "INT-M06-R02",
+          "INT-M02-R05"
+        ],
+        "primitives": [
+          "P-RANGE-01",
+          "P-LIQ-02"
+        ],
+        "expr": [
+          "or",
+          [
+            "==",
+            [
+              "feature",
+              "pd_location",
+              {
+                "tf": "intermediate",
+                "price_tf": "ltf"
+              }
+            ],
+            [
+              "const",
+              "discount"
+            ]
+          ],
+          [
+            "==",
+            [
+              "feature",
+              "sweep",
+              {
+                "tf": "ltf",
+                "level": [
+                  "feature",
+                  "liquidity_pools",
+                  {
+                    "tf": "ltf",
+                    "side": "sell",
+                    "kinds": [
+                      "swing",
+                      "equal",
+                      "prev_day"
+                    ],
+                    "select": "nearest",
+                    "field": "price"
+                  }
+                ],
+                "side": "ssl",
+                "since_index": [
+                  "feature",
+                  "liquidity_pools",
+                  {
+                    "tf": "ltf",
+                    "side": "sell",
+                    "kinds": [
+                      "swing",
+                      "equal",
+                      "prev_day"
+                    ],
+                    "select": "nearest",
+                    "field": "from_index"
+                  }
+                ],
+                "field": "classification"
+              }
+            ],
+            [
+              "const",
+              "raid"
+            ]
+          ]
+        ]
+      },
+      {
+        "node_id": "S03.ctx.range",
+        "kind": "predicate",
+        "source": {
+          "block": "context",
+          "index": "other",
+          "text": "Active dealing range selected per INT-M06-R01 (tested/engineered boundaries; aligned with narrative timeframe; nested inside HTF container)."
+        },
+        "kb_refs": [
+          "INT-M06-R01",
+          "ADV-M02-R01"
+        ],
+        "primitives": [
+          "P-RANGE-01"
+        ],
+        "expr": [
+          "exists",
+          [
+            "feature",
+            "dealing_range",
+            {
+              "tf": "intermediate"
+            }
+          ]
+        ],
+        "emits": {
+          "range_high": [
+            "feature",
+            "dealing_range",
+            {
+              "tf": "intermediate",
+              "field": "high"
+            }
+          ],
+          "range_low": [
+            "feature",
+            "dealing_range",
+            {
+              "tf": "intermediate",
+              "field": "low"
+            }
+          ],
+          "range_equilibrium": [
+            "feature",
+            "dealing_range",
+            {
+              "tf": "intermediate",
+              "field": "equilibrium"
+            }
+          ]
+        }
+      }
+    ],
+    "prerequisites": [
+      {
+        "node_id": "S03.pre.01",
+        "kind": "predicate",
+        "source": {
+          "block": "prerequisites",
+          "index": 0,
+          "text": "Identify the dealing range; mark high, low, equilibrium; confirm price in (or returning to) discount."
+        },
+        "kb_refs": [
+          "INT-M06-C01",
+          "INT-M06-C02",
+          "INT-M06-R02"
+        ],
+        "primitives": [
+          "P-RANGE-01"
+        ],
+        "expr": [
+          "and",
+          [
+            "exists",
+            [
+              "feature",
+              "dealing_range",
+              {
+                "tf": "intermediate"
+              }
+            ]
+          ],
+          [
+            "==",
+            [
+              "feature",
+              "pd_location",
+              {
+                "tf": "intermediate",
+                "price_tf": "ltf"
+              }
+            ],
+            [
+              "const",
+              "discount"
+            ]
+          ]
+        ]
+      },
+      {
+        "node_id": "S03.pre.02",
+        "kind": "predicate",
+        "source": {
+          "block": "prerequisites",
+          "index": 1,
+          "text": "Note sell-side liquidity that has been or is being raided (P-LIQ-01/02)."
+        },
+        "kb_refs": [
+          "INT-M02-R05",
+          "BEG-M04-C08"
+        ],
+        "primitives": [
+          "P-LIQ-01",
+          "P-LIQ-02"
+        ],
+        "expr": [
+          "==",
+          [
+            "feature",
+            "sweep",
+            {
+              "tf": "ltf",
+              "level": [
+                "feature",
+                "liquidity_pools",
+                {
+                  "tf": "ltf",
+                  "side": "sell",
+                  "kinds": [
+                    "swing",
+                    "equal",
+                    "prev_day"
+                  ],
+                  "select": "nearest",
+                  "field": "price"
+                }
+              ],
+              "side": "ssl",
+              "since_index": [
+                "feature",
+                "liquidity_pools",
+                {
+                  "tf": "ltf",
+                  "side": "sell",
+                  "kinds": [
+                    "swing",
+                    "equal",
+                    "prev_day"
+                  ],
+                  "select": "nearest",
+                  "field": "from_index"
+                }
+              ],
+              "field": "classification"
+            }
+          ],
+          [
+            "const",
+            "raid"
+          ]
+        ],
+        "emits": {
+          "raid": [
+            "feature",
+            "sweep",
+            {
+              "tf": "ltf",
+              "level": [
+                "feature",
+                "liquidity_pools",
+                {
+                  "tf": "ltf",
+                  "side": "sell",
+                  "kinds": [
+                    "swing",
+                    "equal",
+                    "prev_day"
+                  ],
+                  "select": "nearest",
+                  "field": "price"
+                }
+              ],
+              "side": "ssl",
+              "since_index": [
+                "feature",
+                "liquidity_pools",
+                {
+                  "tf": "ltf",
+                  "side": "sell",
+                  "kinds": [
+                    "swing",
+                    "equal",
+                    "prev_day"
+                  ],
+                  "select": "nearest",
+                  "field": "from_index"
+                }
+              ],
+              "field": "side"
+            }
+          ],
+          "raid_extreme": [
+            "feature",
+            "sweep",
+            {
+              "tf": "ltf",
+              "level": [
+                "feature",
+                "liquidity_pools",
+                {
+                  "tf": "ltf",
+                  "side": "sell",
+                  "kinds": [
+                    "swing",
+                    "equal",
+                    "prev_day"
+                  ],
+                  "select": "nearest",
+                  "field": "price"
+                }
+              ],
+              "side": "ssl",
+              "since_index": [
+                "feature",
+                "liquidity_pools",
+                {
+                  "tf": "ltf",
+                  "side": "sell",
+                  "kinds": [
+                    "swing",
+                    "equal",
+                    "prev_day"
+                  ],
+                  "select": "nearest",
+                  "field": "from_index"
+                }
+              ],
+              "field": "extreme"
+            }
+          ],
+          "raid_index": [
+            "feature",
+            "sweep",
+            {
+              "tf": "ltf",
+              "level": [
+                "feature",
+                "liquidity_pools",
+                {
+                  "tf": "ltf",
+                  "side": "sell",
+                  "kinds": [
+                    "swing",
+                    "equal",
+                    "prev_day"
+                  ],
+                  "select": "nearest",
+                  "field": "price"
+                }
+              ],
+              "side": "ssl",
+              "since_index": [
+                "feature",
+                "liquidity_pools",
+                {
+                  "tf": "ltf",
+                  "side": "sell",
+                  "kinds": [
+                    "swing",
+                    "equal",
+                    "prev_day"
+                  ],
+                  "select": "nearest",
+                  "field": "from_index"
+                }
+              ],
+              "field": "sweep_index"
+            }
+          ]
+        }
+      },
+      {
+        "node_id": "S03.pre.03",
+        "kind": "predicate",
+        "source": {
+          "block": "prerequisites",
+          "index": 2,
+          "text": "Name the DOL: internal BSL first, external BSL consistent with HTF narrative (P-DOL-01)."
+        },
+        "kb_refs": [
+          "INT-M02-C05",
+          "INT-M02-R02",
+          "INT-M02-R04",
+          "ADV-M03-R03"
+        ],
+        "primitives": [
+          "P-DOL-01"
+        ],
+        "expr": [
+          "or",
+          [
+            "exists",
+            [
+              "feature",
+              "dol",
+              {
+                "direction": "bullish",
+                "scope": "irl",
+                "tf": "intermediate"
+              }
+            ]
+          ],
+          [
+            "exists",
+            [
+              "feature",
+              "dol",
+              {
+                "direction": "bullish",
+                "scope": "erl",
+                "tf": "htf"
+              }
+            ]
+          ]
+        ],
+        "emits": {
+          "dol_irl": [
+            "feature",
+            "dol",
+            {
+              "direction": "bullish",
+              "scope": "irl",
+              "tf": "intermediate",
+              "field": "price"
+            }
+          ],
+          "dol_erl": [
+            "feature",
+            "dol",
+            {
+              "direction": "bullish",
+              "scope": "erl",
+              "tf": "htf",
+              "field": "price"
+            }
+          ]
+        }
+      }
+    ],
+    "setup_sequence": [
+      {
+        "node_id": "S03.setup.01",
+        "kind": "event",
+        "source": {
+          "block": "setup_sequence",
+          "index": 0,
+          "text": "Bullish displacement (P-DISP-01) and an internal OR external MSS (P-MSS-01/02) after the SSL raid."
+        },
+        "kb_refs": [
+          "INT-M03-R01",
+          "INT-M03-R03",
+          "INT-M03-R04",
+          "BEG-M05-R01"
+        ],
+        "primitives": [
+          "P-DISP-01",
+          "P-MSS-01",
+          "P-MSS-02"
+        ],
+        "expr": [
+          "and",
+          [
+            "feature",
+            "displacement",
+            {
+              "tf": "intermediate",
+              "at_index": -1,
+              "direction": "bullish"
+            }
+          ],
+          [
+            "feature",
+            "mss",
+            {
+              "tf": "intermediate",
+              "at_index": -1,
+              "direction": "bullish"
+            }
+          ],
+          [
+            ">",
+            [
+              "feature",
+              "latest_index",
+              {
+                "tf": "intermediate"
+              }
+            ],
+            [
+              "binding",
+              "raid_index"
+            ]
+          ]
+        ],
+        "emits": {
+          "displacement_index": [
+            "feature",
+            "latest_index",
+            {
+              "tf": "intermediate"
+            }
+          ],
+          "mss_scope": [
+            "feature",
+            "mss_scope",
+            {
+              "tf": "intermediate",
+              "at_index": -1,
+              "range_tf": "htf"
+            }
+          ]
+        }
+      },
+      {
+        "node_id": "S03.setup.02",
+        "kind": "event",
+        "source": {
+          "block": "setup_sequence",
+          "index": 1,
+          "text": "Locate the PD array created by that displacement \u2014 FVG and/or OB \u2014 that sits in discount (P-FVG-01, P-OB-01, INT-M06-R03)."
+        },
+        "kb_refs": [
+          "INT-M06-R03",
+          "INT-M04-R04",
+          "INT-M05-R01",
+          "BEG-M05-C04"
+        ],
+        "primitives": [
+          "P-FVG-01",
+          "P-OB-01"
+        ],
+        "expr": [
+          "and",
+          [
+            "exists",
+            [
+              "feature",
+              "fvg",
+              {
+                "tf": "intermediate",
+                "direction": "bullish",
+                "since_index": [
+                  "binding",
+                  "raid_index"
+                ],
+                "select": "latest"
+              }
+            ]
+          ],
+          [
+            "==",
+            [
+              "feature",
+              "pd_location",
+              {
+                "tf": "intermediate",
+                "price": [
+                  "feature",
+                  "midpoint",
+                  {
+                    "zone": [
+                      "feature",
+                      "fvg",
+                      {
+                        "tf": "intermediate",
+                        "direction": "bullish",
+                        "since_index": [
+                          "binding",
+                          "raid_index"
+                        ],
+                        "select": "latest"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            [
+              "const",
+              "discount"
+            ]
+          ]
+        ],
+        "emits": {
+          "array": [
+            "feature",
+            "fvg",
+            {
+              "tf": "intermediate",
+              "direction": "bullish",
+              "since_index": [
+                "binding",
+                "raid_index"
+              ],
+              "select": "latest"
+            }
+          ],
+          "order_block": [
+            "feature",
+            "order_block",
+            {
+              "tf": "intermediate",
+              "displacement_index": [
+                "binding",
+                "displacement_index"
+              ],
+              "direction": "bullish"
+            }
+          ]
+        }
+      }
+    ],
+    "entry": {
+      "zone": {
+        "node_id": "S03.entry.zone",
+        "kind": "selection",
+        "source": {
+          "block": "entry.entry_zone",
+          "index": "entry_zone",
+          "text": "The discount PD array created by the displacement."
+        },
+        "kb_refs": [
+          "INT-M06-R03",
+          "INT-M04-R02"
+        ],
+        "primitives": [
+          "P-FVG-01"
+        ],
+        "expr": [
+          "binding",
+          "array",
+          "ce"
+        ],
+        "emits": {
+          "entry_zone": [
+            "const",
+            "$value"
+          ]
+        }
+      },
+      "triggers": [
+        {
+          "node_id": "S03.entry.trigger.ce",
+          "kind": "event",
+          "source": {
+            "block": "entry.trigger_options",
+            "index": 0,
+            "text": "Retracement into the array, refined by Consequent Encroachment (P-FVG-01) or by LTF confirmation."
+          },
+          "kb_refs": [
+            "INT-M04-R02",
+            "ADV-M05-R01"
+          ],
+          "primitives": [
+            "P-FVG-01"
+          ],
+          "expr": [
+            "<=",
+            [
+              "feature",
+              "bar",
+              {
+                "tf": "intermediate",
+                "component": "low"
+              }
+            ],
+            [
+              "binding",
+              "array",
+              "high"
+            ]
+          ],
+          "trigger_id": "limit_at_zone",
+          "fill": {
+            "mode": "limit",
+            "price": [
+              "binding",
+              "entry_zone"
+            ]
+          }
+        },
+        {
+          "node_id": "S03.entry.trigger.ltf",
+          "kind": "event",
+          "source": {
+            "block": "entry.trigger_options",
+            "index": 0,
+            "text": "Retracement into the array, refined by Consequent Encroachment (P-FVG-01) or by LTF confirmation."
+          },
+          "kb_refs": [
+            "INT-M01-R05",
+            "ADV-M16-R02"
+          ],
+          "primitives": [
+            "P-MSS-01",
+            "P-GATE-01"
+          ],
+          "expr": [
+            "and",
+            [
+              "<=",
+              [
+                "feature",
+                "bar",
+                {
+                  "tf": "intermediate",
+                  "component": "low"
+                }
+              ],
+              [
+                "binding",
+                "array",
+                "high"
+              ]
+            ],
+            [
+              "==",
+              [
+                "param",
+                "ltf_confirmation_signal"
+              ],
+              [
+                "const",
+                "ltf_mss"
+              ]
+            ],
+            [
+              "feature",
+              "mss",
+              {
+                "tf": "ltf",
+                "at_index": -1,
+                "direction": "bullish"
+              }
+            ]
+          ],
+          "trigger_id": "ltf_confirmation",
+          "fill": {
+            "mode": "market_on_close"
+          },
+          "compilation_note": "The specification names both refinements inside one trigger option ('refined by Consequent Encroachment or by LTF confirmation'); they are compiled as two selectable arms of the same source element."
+        }
+      ]
+    },
+    "stop": {
+      "node_id": "S03.stop",
+      "kind": "selection",
+      "source": {
+        "block": "stop_invalidation",
+        "index": "trade_level",
+        "text": "A decisive close back below the origin of the bullish displacement (P-STOP-01 B), or below the dealing-range low if that low was the structural reference."
+      },
+      "kb_refs": [
+        "INT-M06-S01",
+        "INT-M12-R02",
+        "ADV-M16-R04"
+      ],
+      "primitives": [
+        "P-STOP-01"
+      ],
+      "expr": [
+        "if",
+        [
+          "==",
+          [
+            "param",
+            "stop_reference_framework"
+          ],
+          [
+            "const",
+            "displacement_origin"
+          ]
+        ],
+        [
+          "feature",
+          "offset",
+          {
+            "price": [
+              "feature",
+              "displacement_leg",
+              {
+                "tf": "intermediate",
+                "at_index": [
+                  "binding",
+                  "displacement_index"
+                ],
+                "direction": "bullish",
+                "field": "origin"
+              }
+            ],
+            "ticks": [
+              "param",
+              "stop_buffer_ticks"
+            ],
+            "direction": "below"
+          }
+        ],
+        [
+          "feature",
+          "offset",
+          {
+            "price": [
+              "feature",
+              "dealing_range",
+              {
+                "tf": "intermediate",
+                "field": "low"
+              }
+            ],
+            "ticks": [
+              "param",
+              "stop_buffer_ticks"
+            ],
+            "direction": "below"
+          }
+        ]
+      ],
+      "execution_mode": "close"
+    },
+    "targets": [
+      {
+        "node_id": "S03.target.primary",
+        "kind": "selection",
+        "source": {
+          "block": "target",
+          "index": "primary",
+          "text": "First internal buy-side liquidity (IRL)."
+        },
+        "kb_refs": [
+          "INT-M02-C07",
+          "INT-M06-S01"
+        ],
+        "primitives": [
+          "P-TARGET-01",
+          "P-DOL-01"
+        ],
+        "expr": [
+          "feature",
+          "dol",
+          {
+            "direction": "bullish",
+            "scope": "irl",
+            "tf": "intermediate",
+            "field": "price"
+          }
+        ],
+        "allocation": {
+          "param": "first_target_allocation"
+        }
+      },
+      {
+        "node_id": "S03.target.secondary",
+        "kind": "selection",
+        "source": {
+          "block": "target",
+          "index": "secondary",
+          "text": "External buy-side liquidity (ERL) consistent with the DOL (P-TARGET-01 B)."
+        },
+        "kb_refs": [
+          "INT-M02-C05",
+          "ADV-M03-R03"
+        ],
+        "primitives": [
+          "P-TARGET-01",
+          "P-DOL-01"
+        ],
+        "expr": [
+          "feature",
+          "dol",
+          {
+            "direction": "bullish",
+            "scope": "erl",
+            "tf": "htf",
+            "field": "price"
+          }
+        ],
+        "allocation": 0.0
+      }
+    ],
+    "invalidation": [
+      {
+        "node_id": "S03.inval.narrative",
+        "kind": "predicate",
+        "source": {
+          "block": "stop_invalidation",
+          "index": "narrative_level",
+          "text": "Dealing-range low / HTF invalidation per INT-M11-R04."
+        },
+        "kb_refs": [
+          "INT-M11-R04",
+          "INT-M06-R01"
+        ],
+        "primitives": [
+          "P-RANGE-01",
+          "P-BIAS-02"
+        ],
+        "expr": [
+          "<",
+          [
+            "feature",
+            "bar",
+            {
+              "tf": "intermediate",
+              "component": "close"
+            }
+          ],
+          [
+            "feature",
+            "dealing_range",
+            {
+              "tf": "intermediate",
+              "field": "low"
+            }
+          ]
+        ]
+      }
+    ],
+    "no_trade": [
+      {
+        "node_id": "S03.nt.INT-M11-NT01",
+        "kind": "predicate",
+        "source": {
+          "block": "no_trade_conditions",
+          "index": "INT-M11-NT01",
+          "text": "Bias is unclear when: weekly and daily structure conflict without a clear corrective interpretation; no obvious Draw on Liquidity stands out; price is at equilibrium of the relevant dealing range with no displacement; multiple opposing PD arrays are equally plausible; a major news event is imminent and the narrative is suspended. Response: stand aside. Clarity is a precondition for intermediate engagement; trading without a clear bias is gambling with ICT tools."
+        },
+        "kb_refs": [
+          "INT-M11-NT01"
+        ],
+        "primitives": [
+          "P-GATE-01"
+        ],
+        "expr": [
+          "or",
+          [
+            "==",
+            [
+              "state",
+              "bias_state",
+              {
+                "tf": "htf",
+                "method": "structural",
+                "field": "direction"
+              }
+            ],
+            [
+              "const",
+              "unclear"
+            ]
+          ],
+          [
+            "not",
+            [
+              "exists",
+              [
+                "feature",
+                "dol",
+                {
+                  "direction": "bullish",
+                  "scope": "erl",
+                  "tf": "htf"
+                }
+              ]
+            ]
+          ],
+          [
+            "==",
+            [
+              "feature",
+              "pd_location",
+              {
+                "tf": "htf",
+                "price_tf": "ltf"
+              }
+            ],
+            [
+              "const",
+              "equilibrium"
+            ]
+          ]
+        ]
+      }
+    ],
+    "risk": [
+      {
+        "node_id": "S03.risk.size",
+        "kind": "action",
+        "source": {
+          "block": "parameters",
+          "index": "decisive_close_definition",
+          "text": "unspecified"
+        },
+        "kb_refs": [
+          "INT-M12-R01"
+        ],
+        "primitives": [
+          "P-RISK-01"
+        ],
+        "expr": [
+          "feature",
+          "position_size",
+          {
+            "entry": [
+              "binding",
+              "entry_price"
+            ],
+            "stop": [
+              "binding",
+              "stop_price"
+            ]
+          }
+        ],
+        "emits": {
+          "position_size": [
+            "const",
+            "$value"
+          ]
+        }
+      }
+    ]
+  },
+  "no_trade_dispositions": [
+    {
+      "kb_ref": "INT-M06-NT01",
+      "disposition": "unsupported_subjective",
+      "unsupported_item_id": "U-S03-NT-INT-M06-NT01",
+      "note": "'Deep inside prolonged contraction' and 'chop' have no price test in the source."
+    },
+    {
+      "kb_ref": "INT-M03-NT01",
+      "disposition": "enforced_by_sequence",
+      "note": "Displacement and MSS are required steps."
+    },
+    {
+      "kb_ref": "INT-M02-NT01",
+      "disposition": "enforced_by_feature",
+      "note": "The sweep feature classifies raid versus continuation and only the raid classification advances the sequence."
+    },
+    {
+      "kb_ref": "INT-M05-NT01",
+      "disposition": "enforced_by_feature",
+      "note": "Array selection requires an unmitigated array; a fully mitigated order block is not offered."
+    },
+    {
+      "kb_ref": "INT-M08-NT01",
+      "disposition": "enforced_by_sequence",
+      "note": "The higher-timeframe bias gate cannot be overridden by a lower-timeframe signal."
+    },
+    {
+      "kb_ref": "INT-M11-NT01",
+      "disposition": "compiled",
+      "node_id": "S03.nt.INT-M11-NT01",
+      "note": "Bias unclear."
+    }
+  ],
+  "unsupported": [
+    {
+      "item_id": "U-S03-NT-INT-M06-NT01",
+      "strategy_id": "S03-BULL-DISCOUNT-FW",
+      "source": {
+        "block": "no_trade_conditions",
+        "index": "INT-M06-NT01",
+        "text": "Trading deep inside prolonged contraction without evidence of displacement beginning frequently results in being caught in chop; avoid entries during deep contraction without emerging displacement evidence."
+      },
+      "element": "no-trade condition INT-M06-NT01",
+      "reason_code": "UNSUPPORTED_SUBJECTIVE",
+      "explanation": "'Deep inside prolonged contraction' and 'chop' have no price test in the source.",
+      "kb_refs": [
+        "INT-M06-NT01"
+      ],
+      "blocks_execution": false,
+      "resolution": "Record it in the run report; it is not evaluated by the engine.",
+      "effect_if_unenforced": "The run may include trades the specification would have stood aside from; reported selectivity is therefore an upper bound."
+    },
+    {
+      "item_id": "U-S03-01",
+      "strategy_id": "S03-BULL-DISCOUNT-FW",
+      "source": {
+        "block": "context",
+        "index": "other",
+        "text": "Active dealing range selected per INT-M06-R01 (tested/engineered boundaries; aligned with narrative timeframe; nested inside HTF container)."
+      },
+      "element": "'prefer ranges whose both boundaries have been tested or had liquidity engineered'",
+      "reason_code": "UNSUPPORTED_SUBJECTIVE",
+      "explanation": "The range-selection procedure states a preference, not a threshold: how much testing or engineering qualifies is never stated. The compiled node requires only that a dealing range exists on the intermediate timeframe.",
+      "kb_refs": [
+        "INT-M06-R01",
+        "ADV-M02-R01"
+      ],
+      "blocks_execution": false,
+      "resolution": "Stratify results by whether both boundaries had been swept, rather than filtering on it.",
+      "effect_if_unenforced": "Ranges the specification would have rejected as un-engineered are included; selectivity is overstated."
+    }
+  ],
+  "unconstrained": [
+    {
+      "source": {
+        "block": "session",
+        "index": "session",
+        "text": "unspecified (INT-M06-S01); INT-M06-NT01 forbids entries deep inside prolonged contraction without emerging displacement."
+      },
+      "note": "The specification states the session filter is unspecified. The no-trade condition it cites (INT-M06-NT01) is registered separately as an unsupported subjective condition."
+    }
+  ],
+  "executability": "executable",
+  "blocking_items": []
+}

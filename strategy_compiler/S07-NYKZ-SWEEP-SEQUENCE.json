@@ -1,0 +1,1704 @@
+{
+  "dsl_version": "1.0.0",
+  "strategy_id": "S07-NYKZ-SWEEP-SEQUENCE",
+  "name": "New York Open Kill Zone sweep -> displacement -> MSS sequence",
+  "kind": "variant",
+  "parent_strategy_id": "S06-JUDAS-LONDON",
+  "direction": "reversal_bidirectional",
+  "provenance": {
+    "spec_file": "strategy_reearcher/catalog/strategies.json",
+    "spec_strategy_id": "S07-NYKZ-SWEEP-SEQUENCE",
+    "kb_source_strategy_ids": [
+      "BEG-M08-S02"
+    ],
+    "primitives": [
+      "P-DISP-01",
+      "P-FVG-01",
+      "P-LIQ-01",
+      "P-LIQ-02",
+      "P-MSS-01",
+      "P-RISK-01",
+      "P-STOP-01",
+      "P-TARGET-01",
+      "P-TIME-01",
+      "P-TIME-02"
+    ],
+    "specificity_status": "partially_specified",
+    "spec_unspecified_elements": [
+      "invalidation (only 'as in London')",
+      "stop",
+      "target",
+      "HTF bias",
+      "kill-zone window",
+      "news handling"
+    ],
+    "spec_worked_example": "BEG-M08-C09 example: London high 108; 08:30 news spikes to 110 (sweep) then displaces down through 105."
+  },
+  "timeframes": {
+    "htf": {
+      "purpose": "session-to-session context (what Asia built and London did)",
+      "candidates": [
+        "1d"
+      ],
+      "source": [
+        "BEG-M08-C11"
+      ],
+      "min_history": 120
+    },
+    "ltf": {
+      "purpose": "sweep, displacement, MSS and entry array; the specification leaves the timeframe unspecified and reads 5-minute by analogy with the London sequence",
+      "candidates": [
+        "5m"
+      ],
+      "source": [
+        "BEG-M08-S02"
+      ],
+      "min_history": 800
+    }
+  },
+  "data_requirements": {
+    "instrument": "primary",
+    "correlated_instruments": 0,
+    "bars": {
+      "htf": {
+        "min_history": 120
+      },
+      "ltf": {
+        "min_history": 800
+      }
+    },
+    "timezone": "America/New_York",
+    "session_anchored": true,
+    "requires_period_opens": [
+      "daily",
+      "weekly"
+    ],
+    "external_data": [],
+    "warmup_bars": 200
+  },
+  "parameters": [
+    {
+      "name": "governing_swing_tier",
+      "binding": "frozen_choice",
+      "choices": [
+        "short_term",
+        "intermediate",
+        "long_term"
+      ],
+      "kb_status": "unspecified",
+      "kb_value": "judgment informed by the ST/IT/LT hierarchy",
+      "source": [
+        "BEG-M03-C02",
+        "INT-M01-R02"
+      ],
+      "register_id": "governing_structural_point_tier"
+    },
+    {
+      "name": "displacement_range_multiple",
+      "binding": "frozen_required",
+      "kb_status": "unspecified",
+      "kb_value": "'unusually large relative to recent candles'",
+      "source": [
+        "BEG-M05-R01"
+      ],
+      "register_id": "displacement_range_multiple"
+    },
+    {
+      "name": "displacement_lookback",
+      "binding": "frozen_required",
+      "kb_status": "unspecified",
+      "kb_value": "-",
+      "source": [
+        "BEG-M05-R01"
+      ],
+      "register_id": "displacement_lookback_candles"
+    },
+    {
+      "name": "displacement_body_ratio_min",
+      "binding": "frozen_required",
+      "kb_status": "heuristic_unfixed",
+      "kb_value": "~60-70% cited by secondary tools; the book does not fix it",
+      "source": [
+        "BEG-M05-C01",
+        "BEG-M05-C02",
+        "BEG-M05-AMB01"
+      ],
+      "register_id": "displacement_body_to_range_min"
+    },
+    {
+      "name": "sweep_min_penetration",
+      "binding": "frozen_required",
+      "kb_status": "unspecified",
+      "kb_value": "research parameter 'Y' in the knowledge base's own template",
+      "source": [
+        "ADV-M18-C03"
+      ],
+      "register_id": "sweep_min_penetration"
+    },
+    {
+      "name": "sweep_reclaim_bars",
+      "binding": "frozen_required",
+      "kb_status": "alternatives_documented",
+      "kb_value": "~2-3 lower-timeframe candles (Judas) / 'reasonable number' (PO3) / 'Z' bars",
+      "source": [
+        "BEG-M08-R06",
+        "BEG-M09-R02",
+        "ADV-M18-C03"
+      ],
+      "register_id": "sweep_reclaim_window"
+    },
+    {
+      "name": "equal_level_tolerance",
+      "binding": "frozen_required",
+      "kb_status": "heuristic_unfixed",
+      "kb_value": "~5-10 pips forex cited by secondary sources; 'obvious at a glance'",
+      "source": [
+        "BEG-M04-C05",
+        "INT-M02-R01"
+      ],
+      "register_id": "equal_highs_lows_tolerance"
+    },
+    {
+      "name": "risk_fraction",
+      "binding": "frozen_required",
+      "kb_status": "range_given",
+      "kb_value": "~1% (max ~2%) beginner | 0.5-1% intermediate | 0.25-1% advanced",
+      "source": [
+        "BEG-M13-R01",
+        "INT-M12-R01",
+        "ADV-M17-R02"
+      ],
+      "register_id": "risk_per_trade"
+    },
+    {
+      "name": "stop_buffer_ticks",
+      "binding": "frozen_required",
+      "kb_status": "unspecified",
+      "kb_value": "'just beyond' / 'small buffer' (examples ~12 pips EUR/USD, ~0.60 pts gold)",
+      "source": [
+        "BEG-M11-EX01",
+        "BEG-M12-EX01"
+      ],
+      "register_id": "stop_buffer"
+    },
+    {
+      "name": "first_target_allocation",
+      "binding": "frozen_required",
+      "kb_status": "unspecified",
+      "kb_value": "'e.g. 50% or a fixed fraction' \u2014 the fraction is never stated",
+      "source": [
+        "ADV-M16-R06"
+      ],
+      "register_id": "partial_fraction"
+    },
+    {
+      "name": "fib_anchor",
+      "binding": "frozen_choice",
+      "choices": [
+        "body",
+        "wick"
+      ],
+      "kb_status": "alternatives_documented",
+      "kb_value": "body-to-body (BEG-M07-R01) vs liquidity-sweep wick origin (INT-M07-R01)",
+      "source": [
+        "BEG-M07-R01",
+        "INT-M07-R01"
+      ],
+      "register_id": "fib_anchor_price_type"
+    },
+    {
+      "name": "asian_window_ET",
+      "binding": "frozen_choice",
+      "choices": [
+        [
+          "20:00",
+          "22:00"
+        ],
+        [
+          "20:00",
+          "00:00"
+        ]
+      ],
+      "kb_status": "alternatives_documented",
+      "kb_value": "20:00-22:00 | 20:00-00:00",
+      "source": [
+        "BEG-M08-R01",
+        "INT-M09-R01"
+      ],
+      "register_id": "asian_window_ET"
+    },
+    {
+      "name": "london_open_kz_ET",
+      "binding": "frozen_choice",
+      "choices": [
+        [
+          "02:00",
+          "05:00"
+        ],
+        [
+          "02:00",
+          "04:00"
+        ]
+      ],
+      "kb_status": "alternatives_documented",
+      "kb_value": "02:00-05:00 | 02:00-04:00",
+      "source": [
+        "BEG-M08-R02",
+        "INT-M09-R02",
+        "ADV-M07-R01"
+      ],
+      "register_id": "london_open_kz_ET"
+    },
+    {
+      "name": "new_york_open_kz_ET",
+      "binding": "frozen_choice",
+      "choices": [
+        [
+          "07:00",
+          "10:00"
+        ],
+        [
+          "08:00",
+          "11:00"
+        ],
+        [
+          "08:30",
+          "11:00"
+        ],
+        [
+          "07:00",
+          "09:00"
+        ]
+      ],
+      "kb_status": "alternatives_documented",
+      "kb_value": "four documented windows; unresolved",
+      "source": [
+        "BEG-M08-R04",
+        "INT-M09-R03",
+        "ADV-M07-R01",
+        "BEG-M08-AMB01"
+      ],
+      "register_id": "new_york_open_kz_ET"
+    },
+    {
+      "name": "entry_trigger",
+      "binding": "frozen_choice",
+      "choices": [
+        "limit_at_zone",
+        "ltf_confirmation"
+      ],
+      "kb_status": "alternatives_documented",
+      "kb_value": "the documented entry triggers for this specification: limit_at_zone | ltf_confirmation",
+      "source": [
+        "BEG-M11-S01",
+        "ADV-M16-R02",
+        "ADV-M16-NT01"
+      ],
+      "register_id": "stop_reference"
+    },
+    {
+      "name": "ltf_confirmation_signal",
+      "binding": "frozen_choice",
+      "choices": [
+        "ltf_mss"
+      ],
+      "kb_status": "specified_examples",
+      "kb_value": "1-minute MSS or a rejection candle; only the MSS form is defined",
+      "source": [
+        "BEG-M11-S01"
+      ],
+      "register_id": "ltf_confirmation_signal"
+    },
+    {
+      "name": "daily_bias_method",
+      "binding": "frozen_choice",
+      "choices": [
+        "three_factor",
+        "single_mss"
+      ],
+      "kb_status": "alternatives_documented",
+      "kb_value": "three-factor (primary) vs the single-MSS 'daily bias trick'",
+      "source": [
+        "BEG-M10-C03",
+        "BEG-M10-AMB01"
+      ],
+      "register_id": "daily_bias_method"
+    },
+    {
+      "name": "daily_open_definition",
+      "binding": "frozen_choice",
+      "choices": [
+        "new_york_midnight",
+        "instrument_daily_open"
+      ],
+      "kb_status": "alternatives_documented",
+      "kb_value": "daily open (primary) vs New York midnight (thinner support)",
+      "source": [
+        "ADV-M07-C03",
+        "ADV-M07-AMB01"
+      ],
+      "register_id": "daily_open_definition"
+    }
+  ],
+  "features": [
+    "bar",
+    "displacement",
+    "fvg",
+    "in_session",
+    "latest_index",
+    "liquidity_pools",
+    "midpoint",
+    "mss",
+    "offset",
+    "position_size",
+    "session_range",
+    "sweep"
+  ],
+  "market_state": [
+    "bias_state"
+  ],
+  "blocks": {
+    "context": [
+      {
+        "node_id": "S07.ctx.sessions",
+        "kind": "predicate",
+        "source": {
+          "block": "context",
+          "index": "htf_bias_required",
+          "text": "unspecified in BEG-M08-S02; read in relation to what Asia built and London already did (BEG-M08-C11)."
+        },
+        "kb_refs": [
+          "BEG-M08-C11",
+          "INT-M09-R05"
+        ],
+        "primitives": [
+          "P-TIME-02"
+        ],
+        "expr": [
+          "exists",
+          [
+            "feature",
+            "session_range",
+            {
+              "tf": "ltf",
+              "window_param": "asian_window_ET"
+            }
+          ]
+        ],
+        "gate": false,
+        "emits": {
+          "asian_range": [
+            "feature",
+            "session_range",
+            {
+              "tf": "ltf",
+              "window_param": "asian_window_ET"
+            }
+          ],
+          "london_range": [
+            "feature",
+            "session_range",
+            {
+              "tf": "ltf",
+              "window_param": "london_open_kz_ET"
+            }
+          ]
+        },
+        "compilation_note": "The specification states no bias requirement here and asks only that the session be read in relation to Asia and London, so this node records those ranges and does not veto."
+      },
+      {
+        "node_id": "S07.ctx.levels",
+        "kind": "predicate",
+        "source": {
+          "block": "context",
+          "index": "other",
+          "text": "Reference levels available: Asian range, London session high/low, prior day's high/low. A scheduled US data release (~08:30 ET) is commonly the catalyst."
+        },
+        "kb_refs": [
+          "INT-M09-C05",
+          "BEG-M04-C06"
+        ],
+        "primitives": [
+          "P-LIQ-01"
+        ],
+        "expr": [
+          "and",
+          [
+            "exists",
+            [
+              "feature",
+              "liquidity_pools",
+              {
+                "tf": "ltf",
+                "side": "sell",
+                "kinds": [
+                  "swing",
+                  "equal",
+                  "prev_day",
+                  "session_extreme"
+                ],
+                "select": "nearest",
+                "session_window_param": "london_open_kz_ET",
+                "field": "price"
+              }
+            ]
+          ],
+          [
+            "exists",
+            [
+              "feature",
+              "liquidity_pools",
+              {
+                "tf": "ltf",
+                "side": "buy",
+                "kinds": [
+                  "swing",
+                  "equal",
+                  "prev_day",
+                  "session_extreme"
+                ],
+                "select": "nearest",
+                "session_window_param": "london_open_kz_ET",
+                "field": "price"
+              }
+            ]
+          ]
+        ]
+      }
+    ],
+    "prerequisites": [
+      {
+        "node_id": "S07.pre.01",
+        "kind": "predicate",
+        "source": {
+          "block": "prerequisites",
+          "index": 0,
+          "text": "Time inside the New York Open Kill Zone (P-TIME-01 new_york_open_kz_ET \u2014 choose and freeze one of the documented windows)."
+        },
+        "kb_refs": [
+          "BEG-M08-R04",
+          "INT-M09-R03",
+          "ADV-M07-R01"
+        ],
+        "primitives": [
+          "P-TIME-01"
+        ],
+        "expr": [
+          "feature",
+          "in_session",
+          {
+            "window_param": "new_york_open_kz_ET"
+          }
+        ],
+        "also_covers": [
+          {
+            "block": "session",
+            "index": "session"
+          }
+        ]
+      },
+      {
+        "node_id": "S07.pre.03",
+        "kind": "predicate",
+        "source": {
+          "block": "prerequisites",
+          "index": 2,
+          "text": "Reference levels marked: Asian range, London high/low, prior day high/low (P-LIQ-01)."
+        },
+        "kb_refs": [
+          "INT-M09-C05",
+          "BEG-M04-C06",
+          "BEG-M08-C03"
+        ],
+        "primitives": [
+          "P-LIQ-01",
+          "P-TIME-02"
+        ],
+        "expr": [
+          "and",
+          [
+            "exists",
+            [
+              "feature",
+              "liquidity_pools",
+              {
+                "tf": "ltf",
+                "side": "sell",
+                "kinds": [
+                  "swing",
+                  "equal",
+                  "prev_day",
+                  "session_extreme"
+                ],
+                "select": "nearest",
+                "session_window_param": "london_open_kz_ET",
+                "field": "price"
+              }
+            ]
+          ],
+          [
+            "exists",
+            [
+              "feature",
+              "liquidity_pools",
+              {
+                "tf": "ltf",
+                "side": "buy",
+                "kinds": [
+                  "swing",
+                  "equal",
+                  "prev_day",
+                  "session_extreme"
+                ],
+                "select": "nearest",
+                "session_window_param": "london_open_kz_ET",
+                "field": "price"
+              }
+            ]
+          ]
+        ]
+      }
+    ],
+    "setup_sequence": [
+      {
+        "node_id": "S07.setup.01",
+        "kind": "event",
+        "source": {
+          "block": "setup_sequence",
+          "index": 0,
+          "text": "Liquidity sweep of one reference level (P-LIQ-02)."
+        },
+        "kb_refs": [
+          "BEG-M04-C08",
+          "BEG-M08-C09"
+        ],
+        "primitives": [
+          "P-LIQ-02"
+        ],
+        "expr": [
+          "or",
+          [
+            "==",
+            [
+              "feature",
+              "sweep",
+              {
+                "tf": "ltf",
+                "level": [
+                  "feature",
+                  "liquidity_pools",
+                  {
+                    "tf": "ltf",
+                    "side": "sell",
+                    "kinds": [
+                      "swing",
+                      "equal",
+                      "prev_day",
+                      "session_extreme"
+                    ],
+                    "select": "nearest",
+                    "session_window_param": "london_open_kz_ET",
+                    "field": "price"
+                  }
+                ],
+                "side": "ssl",
+                "since_index": [
+                  "feature",
+                  "liquidity_pools",
+                  {
+                    "tf": "ltf",
+                    "side": "sell",
+                    "kinds": [
+                      "swing",
+                      "equal",
+                      "prev_day",
+                      "session_extreme"
+                    ],
+                    "select": "nearest",
+                    "session_window_param": "london_open_kz_ET",
+                    "field": "from_index"
+                  }
+                ],
+                "field": "classification"
+              }
+            ],
+            [
+              "const",
+              "raid"
+            ]
+          ],
+          [
+            "==",
+            [
+              "feature",
+              "sweep",
+              {
+                "tf": "ltf",
+                "level": [
+                  "feature",
+                  "liquidity_pools",
+                  {
+                    "tf": "ltf",
+                    "side": "buy",
+                    "kinds": [
+                      "swing",
+                      "equal",
+                      "prev_day",
+                      "session_extreme"
+                    ],
+                    "select": "nearest",
+                    "session_window_param": "london_open_kz_ET",
+                    "field": "price"
+                  }
+                ],
+                "side": "bsl",
+                "since_index": [
+                  "feature",
+                  "liquidity_pools",
+                  {
+                    "tf": "ltf",
+                    "side": "buy",
+                    "kinds": [
+                      "swing",
+                      "equal",
+                      "prev_day",
+                      "session_extreme"
+                    ],
+                    "select": "nearest",
+                    "session_window_param": "london_open_kz_ET",
+                    "field": "from_index"
+                  }
+                ],
+                "field": "classification"
+              }
+            ],
+            [
+              "const",
+              "raid"
+            ]
+          ]
+        ],
+        "emits": {
+          "trade_direction": [
+            "if",
+            [
+              "==",
+              [
+                "feature",
+                "sweep",
+                {
+                  "tf": "ltf",
+                  "level": [
+                    "feature",
+                    "liquidity_pools",
+                    {
+                      "tf": "ltf",
+                      "side": "sell",
+                      "kinds": [
+                        "swing",
+                        "equal",
+                        "prev_day",
+                        "session_extreme"
+                      ],
+                      "select": "nearest",
+                      "session_window_param": "london_open_kz_ET",
+                      "field": "price"
+                    }
+                  ],
+                  "side": "ssl",
+                  "since_index": [
+                    "feature",
+                    "liquidity_pools",
+                    {
+                      "tf": "ltf",
+                      "side": "sell",
+                      "kinds": [
+                        "swing",
+                        "equal",
+                        "prev_day",
+                        "session_extreme"
+                      ],
+                      "select": "nearest",
+                      "session_window_param": "london_open_kz_ET",
+                      "field": "from_index"
+                    }
+                  ],
+                  "field": "classification"
+                }
+              ],
+              [
+                "const",
+                "raid"
+              ]
+            ],
+            [
+              "const",
+              "long"
+            ],
+            [
+              "const",
+              "short"
+            ]
+          ],
+          "dir_word": [
+            "if",
+            [
+              "==",
+              [
+                "feature",
+                "sweep",
+                {
+                  "tf": "ltf",
+                  "level": [
+                    "feature",
+                    "liquidity_pools",
+                    {
+                      "tf": "ltf",
+                      "side": "sell",
+                      "kinds": [
+                        "swing",
+                        "equal",
+                        "prev_day",
+                        "session_extreme"
+                      ],
+                      "select": "nearest",
+                      "session_window_param": "london_open_kz_ET",
+                      "field": "price"
+                    }
+                  ],
+                  "side": "ssl",
+                  "since_index": [
+                    "feature",
+                    "liquidity_pools",
+                    {
+                      "tf": "ltf",
+                      "side": "sell",
+                      "kinds": [
+                        "swing",
+                        "equal",
+                        "prev_day",
+                        "session_extreme"
+                      ],
+                      "select": "nearest",
+                      "session_window_param": "london_open_kz_ET",
+                      "field": "from_index"
+                    }
+                  ],
+                  "field": "classification"
+                }
+              ],
+              [
+                "const",
+                "raid"
+              ]
+            ],
+            [
+              "const",
+              "bullish"
+            ],
+            [
+              "const",
+              "bearish"
+            ]
+          ],
+          "sweep_extreme": [
+            "if",
+            [
+              "==",
+              [
+                "feature",
+                "sweep",
+                {
+                  "tf": "ltf",
+                  "level": [
+                    "feature",
+                    "liquidity_pools",
+                    {
+                      "tf": "ltf",
+                      "side": "sell",
+                      "kinds": [
+                        "swing",
+                        "equal",
+                        "prev_day",
+                        "session_extreme"
+                      ],
+                      "select": "nearest",
+                      "session_window_param": "london_open_kz_ET",
+                      "field": "price"
+                    }
+                  ],
+                  "side": "ssl",
+                  "since_index": [
+                    "feature",
+                    "liquidity_pools",
+                    {
+                      "tf": "ltf",
+                      "side": "sell",
+                      "kinds": [
+                        "swing",
+                        "equal",
+                        "prev_day",
+                        "session_extreme"
+                      ],
+                      "select": "nearest",
+                      "session_window_param": "london_open_kz_ET",
+                      "field": "from_index"
+                    }
+                  ],
+                  "field": "classification"
+                }
+              ],
+              [
+                "const",
+                "raid"
+              ]
+            ],
+            [
+              "feature",
+              "sweep",
+              {
+                "tf": "ltf",
+                "level": [
+                  "feature",
+                  "liquidity_pools",
+                  {
+                    "tf": "ltf",
+                    "side": "sell",
+                    "kinds": [
+                      "swing",
+                      "equal",
+                      "prev_day",
+                      "session_extreme"
+                    ],
+                    "select": "nearest",
+                    "session_window_param": "london_open_kz_ET",
+                    "field": "price"
+                  }
+                ],
+                "side": "ssl",
+                "since_index": [
+                  "feature",
+                  "liquidity_pools",
+                  {
+                    "tf": "ltf",
+                    "side": "sell",
+                    "kinds": [
+                      "swing",
+                      "equal",
+                      "prev_day",
+                      "session_extreme"
+                    ],
+                    "select": "nearest",
+                    "session_window_param": "london_open_kz_ET",
+                    "field": "from_index"
+                  }
+                ],
+                "field": "extreme"
+              }
+            ],
+            [
+              "feature",
+              "sweep",
+              {
+                "tf": "ltf",
+                "level": [
+                  "feature",
+                  "liquidity_pools",
+                  {
+                    "tf": "ltf",
+                    "side": "buy",
+                    "kinds": [
+                      "swing",
+                      "equal",
+                      "prev_day",
+                      "session_extreme"
+                    ],
+                    "select": "nearest",
+                    "session_window_param": "london_open_kz_ET",
+                    "field": "price"
+                  }
+                ],
+                "side": "bsl",
+                "since_index": [
+                  "feature",
+                  "liquidity_pools",
+                  {
+                    "tf": "ltf",
+                    "side": "buy",
+                    "kinds": [
+                      "swing",
+                      "equal",
+                      "prev_day",
+                      "session_extreme"
+                    ],
+                    "select": "nearest",
+                    "session_window_param": "london_open_kz_ET",
+                    "field": "from_index"
+                  }
+                ],
+                "field": "extreme"
+              }
+            ]
+          ],
+          "sweep_index": [
+            "if",
+            [
+              "==",
+              [
+                "feature",
+                "sweep",
+                {
+                  "tf": "ltf",
+                  "level": [
+                    "feature",
+                    "liquidity_pools",
+                    {
+                      "tf": "ltf",
+                      "side": "sell",
+                      "kinds": [
+                        "swing",
+                        "equal",
+                        "prev_day",
+                        "session_extreme"
+                      ],
+                      "select": "nearest",
+                      "session_window_param": "london_open_kz_ET",
+                      "field": "price"
+                    }
+                  ],
+                  "side": "ssl",
+                  "since_index": [
+                    "feature",
+                    "liquidity_pools",
+                    {
+                      "tf": "ltf",
+                      "side": "sell",
+                      "kinds": [
+                        "swing",
+                        "equal",
+                        "prev_day",
+                        "session_extreme"
+                      ],
+                      "select": "nearest",
+                      "session_window_param": "london_open_kz_ET",
+                      "field": "from_index"
+                    }
+                  ],
+                  "field": "classification"
+                }
+              ],
+              [
+                "const",
+                "raid"
+              ]
+            ],
+            [
+              "feature",
+              "sweep",
+              {
+                "tf": "ltf",
+                "level": [
+                  "feature",
+                  "liquidity_pools",
+                  {
+                    "tf": "ltf",
+                    "side": "sell",
+                    "kinds": [
+                      "swing",
+                      "equal",
+                      "prev_day",
+                      "session_extreme"
+                    ],
+                    "select": "nearest",
+                    "session_window_param": "london_open_kz_ET",
+                    "field": "price"
+                  }
+                ],
+                "side": "ssl",
+                "since_index": [
+                  "feature",
+                  "liquidity_pools",
+                  {
+                    "tf": "ltf",
+                    "side": "sell",
+                    "kinds": [
+                      "swing",
+                      "equal",
+                      "prev_day",
+                      "session_extreme"
+                    ],
+                    "select": "nearest",
+                    "session_window_param": "london_open_kz_ET",
+                    "field": "from_index"
+                  }
+                ],
+                "field": "sweep_index"
+              }
+            ],
+            [
+              "feature",
+              "sweep",
+              {
+                "tf": "ltf",
+                "level": [
+                  "feature",
+                  "liquidity_pools",
+                  {
+                    "tf": "ltf",
+                    "side": "buy",
+                    "kinds": [
+                      "swing",
+                      "equal",
+                      "prev_day",
+                      "session_extreme"
+                    ],
+                    "select": "nearest",
+                    "session_window_param": "london_open_kz_ET",
+                    "field": "price"
+                  }
+                ],
+                "side": "bsl",
+                "since_index": [
+                  "feature",
+                  "liquidity_pools",
+                  {
+                    "tf": "ltf",
+                    "side": "buy",
+                    "kinds": [
+                      "swing",
+                      "equal",
+                      "prev_day",
+                      "session_extreme"
+                    ],
+                    "select": "nearest",
+                    "session_window_param": "london_open_kz_ET",
+                    "field": "from_index"
+                  }
+                ],
+                "field": "sweep_index"
+              }
+            ]
+          ]
+        }
+      },
+      {
+        "node_id": "S07.setup.02",
+        "kind": "event",
+        "source": {
+          "block": "setup_sequence",
+          "index": 1,
+          "text": "Displacement opposite to the sweep (P-DISP-01)."
+        },
+        "kb_refs": [
+          "BEG-M05-C01",
+          "BEG-M05-R01"
+        ],
+        "primitives": [
+          "P-DISP-01"
+        ],
+        "expr": [
+          "and",
+          [
+            "feature",
+            "displacement",
+            {
+              "tf": "ltf",
+              "at_index": -1,
+              "direction": [
+                "binding",
+                "dir_word"
+              ]
+            }
+          ],
+          [
+            ">",
+            [
+              "feature",
+              "latest_index",
+              {
+                "tf": "ltf"
+              }
+            ],
+            [
+              "binding",
+              "sweep_index"
+            ]
+          ]
+        ],
+        "emits": {
+          "displacement_index": [
+            "feature",
+            "latest_index",
+            {
+              "tf": "ltf"
+            }
+          ]
+        }
+      },
+      {
+        "node_id": "S07.setup.03",
+        "kind": "event",
+        "source": {
+          "block": "setup_sequence",
+          "index": 2,
+          "text": "Structure shift confirming the reversal (P-MSS-01) \u2014 'as in the London Open sequence'."
+        },
+        "kb_refs": [
+          "BEG-M03-C05",
+          "BEG-M08-S02"
+        ],
+        "primitives": [
+          "P-MSS-01"
+        ],
+        "expr": [
+          "feature",
+          "mss",
+          {
+            "tf": "ltf",
+            "at_index": -1,
+            "direction": [
+              "binding",
+              "dir_word"
+            ]
+          }
+        ]
+      }
+    ],
+    "entry": {
+      "zone": {
+        "node_id": "S07.entry.zone",
+        "kind": "selection",
+        "source": {
+          "block": "entry.entry_zone",
+          "index": "entry_zone",
+          "text": "Displacement FVG (by analogy to S06; not restated)."
+        },
+        "kb_refs": [
+          "BEG-M08-S02",
+          "BEG-M05-C04",
+          "INT-M04-R02"
+        ],
+        "primitives": [
+          "P-FVG-01"
+        ],
+        "expr": [
+          "feature",
+          "midpoint",
+          {
+            "zone": [
+              "feature",
+              "fvg",
+              {
+                "tf": "ltf",
+                "direction": [
+                  "binding",
+                  "dir_word"
+                ],
+                "since_index": [
+                  "binding",
+                  "sweep_index"
+                ],
+                "select": "latest"
+              }
+            ]
+          }
+        ],
+        "emits": {
+          "entry_zone": [
+            "const",
+            "$value"
+          ],
+          "array": [
+            "feature",
+            "fvg",
+            {
+              "tf": "ltf",
+              "direction": [
+                "binding",
+                "dir_word"
+              ],
+              "since_index": [
+                "binding",
+                "sweep_index"
+              ],
+              "select": "latest"
+            }
+          ]
+        },
+        "compilation_note": "'by analogy to S06' \u2014 the London sequence's displacement fair value gap and its consequent encroachment."
+      },
+      "triggers": [
+        {
+          "node_id": "S07.entry.trigger.limit",
+          "kind": "event",
+          "source": {
+            "block": "entry.trigger_options",
+            "index": 0,
+            "text": "By analogy to S06 / BEG-M07-S01."
+          },
+          "kb_refs": [
+            "BEG-M08-S02",
+            "BEG-M07-S01"
+          ],
+          "primitives": [
+            "P-FVG-01"
+          ],
+          "expr": [
+            "if",
+            [
+              "==",
+              [
+                "binding",
+                "dir_word"
+              ],
+              [
+                "const",
+                "bullish"
+              ]
+            ],
+            [
+              "<=",
+              [
+                "feature",
+                "bar",
+                {
+                  "tf": "ltf",
+                  "component": "low"
+                }
+              ],
+              [
+                "binding",
+                "array",
+                "high"
+              ]
+            ],
+            [
+              ">=",
+              [
+                "feature",
+                "bar",
+                {
+                  "tf": "ltf",
+                  "component": "high"
+                }
+              ],
+              [
+                "binding",
+                "array",
+                "low"
+              ]
+            ]
+          ],
+          "trigger_id": "limit_at_zone",
+          "fill": {
+            "mode": "limit",
+            "price": [
+              "binding",
+              "entry_zone"
+            ]
+          }
+        },
+        {
+          "node_id": "S07.entry.trigger.confirmation",
+          "kind": "event",
+          "source": {
+            "block": "entry.trigger_options",
+            "index": 0,
+            "text": "By analogy to S06 / BEG-M07-S01."
+          },
+          "kb_refs": [
+            "BEG-M08-S02",
+            "ADV-M16-R02"
+          ],
+          "primitives": [
+            "P-MSS-01"
+          ],
+          "expr": [
+            "and",
+            [
+              "if",
+              [
+                "==",
+                [
+                  "binding",
+                  "dir_word"
+                ],
+                [
+                  "const",
+                  "bullish"
+                ]
+              ],
+              [
+                "<=",
+                [
+                  "feature",
+                  "bar",
+                  {
+                    "tf": "ltf",
+                    "component": "low"
+                  }
+                ],
+                [
+                  "binding",
+                  "array",
+                  "high"
+                ]
+              ],
+              [
+                ">=",
+                [
+                  "feature",
+                  "bar",
+                  {
+                    "tf": "ltf",
+                    "component": "high"
+                  }
+                ],
+                [
+                  "binding",
+                  "array",
+                  "low"
+                ]
+              ]
+            ],
+            [
+              "==",
+              [
+                "param",
+                "ltf_confirmation_signal"
+              ],
+              [
+                "const",
+                "ltf_mss"
+              ]
+            ],
+            [
+              "feature",
+              "mss",
+              {
+                "tf": "ltf",
+                "at_index": -1,
+                "direction": [
+                  "binding",
+                  "dir_word"
+                ]
+              }
+            ]
+          ],
+          "trigger_id": "ltf_confirmation",
+          "fill": {
+            "mode": "market_on_close"
+          }
+        }
+      ]
+    },
+    "stop": {
+      "node_id": "S07.stop",
+      "kind": "selection",
+      "source": {
+        "block": "stop_invalidation",
+        "index": "trade_level",
+        "text": "Not restated \u2014 by analogy to S06: beyond the sweep extreme."
+      },
+      "kb_refs": [
+        "BEG-M08-S02",
+        "BEG-M11-S01"
+      ],
+      "primitives": [
+        "P-STOP-01"
+      ],
+      "expr": [
+        "feature",
+        "offset",
+        {
+          "price": [
+            "binding",
+            "sweep_extreme"
+          ],
+          "ticks": [
+            "param",
+            "stop_buffer_ticks"
+          ],
+          "direction": [
+            "if",
+            [
+              "==",
+              [
+                "binding",
+                "dir_word"
+              ],
+              [
+                "const",
+                "bullish"
+              ]
+            ],
+            [
+              "const",
+              "below"
+            ],
+            [
+              "const",
+              "above"
+            ]
+          ]
+        }
+      ]
+    },
+    "targets": [
+      {
+        "node_id": "S07.target.primary",
+        "kind": "selection",
+        "source": {
+          "block": "target",
+          "index": "primary",
+          "text": "Not restated in this module \u2014 by analogy: next opposing liquidity (London/Asian extremes, prior day levels; INT-M09-R05 sequential session liquidity)."
+        },
+        "kb_refs": [
+          "INT-M09-R05",
+          "BEG-M04-C03",
+          "BEG-M04-C04"
+        ],
+        "primitives": [
+          "P-TARGET-01",
+          "P-LIQ-01"
+        ],
+        "expr": [
+          "if",
+          [
+            "==",
+            [
+              "binding",
+              "dir_word"
+            ],
+            [
+              "const",
+              "bullish"
+            ]
+          ],
+          [
+            "feature",
+            "liquidity_pools",
+            {
+              "tf": "ltf",
+              "side": "buy",
+              "kinds": [
+                "swing",
+                "equal",
+                "prev_day",
+                "session_extreme"
+              ],
+              "select": "nearest",
+              "session_window_param": "london_open_kz_ET",
+              "field": "price"
+            }
+          ],
+          [
+            "feature",
+            "liquidity_pools",
+            {
+              "tf": "ltf",
+              "side": "sell",
+              "kinds": [
+                "swing",
+                "equal",
+                "prev_day",
+                "session_extreme"
+              ],
+              "select": "nearest",
+              "session_window_param": "london_open_kz_ET",
+              "field": "price"
+            }
+          ]
+        ],
+        "allocation": 1.0
+      }
+    ],
+    "invalidation": [],
+    "no_trade": [
+      {
+        "node_id": "S07.nt.INT-M09-NT02",
+        "kind": "predicate",
+        "source": {
+          "block": "no_trade_conditions",
+          "index": "INT-M09-NT02",
+          "text": "When there is no clear narrative or conflicting signals, stand aside regardless of the clock/session timing."
+        },
+        "kb_refs": [
+          "INT-M09-NT02"
+        ],
+        "primitives": [
+          "P-GATE-01"
+        ],
+        "expr": [
+          "==",
+          [
+            "state",
+            "bias_state",
+            {
+              "tf": "htf",
+              "method": "structural",
+              "field": "direction"
+            }
+          ],
+          [
+            "const",
+            "unclear"
+          ]
+        ]
+      }
+    ],
+    "risk": [
+      {
+        "node_id": "S07.risk.size",
+        "kind": "action",
+        "source": {
+          "block": "parameters",
+          "index": "news_filter",
+          "text": "unspecified beyond 'note whether imminent/just occurred'; INT-M12-R05 recommends reduce size or stand aside around high-impact releases when the narrative does not depend on them"
+        },
+        "kb_refs": [
+          "INT-M12-R01"
+        ],
+        "primitives": [
+          "P-RISK-01"
+        ],
+        "expr": [
+          "feature",
+          "position_size",
+          {
+            "entry": [
+              "binding",
+              "entry_price"
+            ],
+            "stop": [
+              "binding",
+              "stop_price"
+            ]
+          }
+        ],
+        "emits": {
+          "position_size": [
+            "const",
+            "$value"
+          ]
+        }
+      }
+    ]
+  },
+  "no_trade_dispositions": [
+    {
+      "kb_ref": "BEG-M08-NT01",
+      "disposition": "unsupported_process",
+      "unsupported_item_id": "U-S07-NT-BEG-M08-NT01",
+      "note": "Disciplined inaction; no market condition to evaluate."
+    },
+    {
+      "kb_ref": "INT-M09-NT02",
+      "disposition": "compiled",
+      "node_id": "S07.nt.INT-M09-NT02",
+      "note": "No clear narrative: bias unclear."
+    },
+    {
+      "kb_ref": "ADV-M07-NT01",
+      "disposition": "unsupported_subjective",
+      "unsupported_item_id": "U-S07-NT-ADV-M07-NT01",
+      "note": "'Re-check the liquidity and structural narrative' is a review instruction, not a market condition."
+    },
+    {
+      "kb_ref": "ADV-M14-NT01",
+      "disposition": "enforced_by_sequence",
+      "note": "No aggressive directional entries during the Asian accumulation window. (already implied by this strategy's own steps)"
+    },
+    {
+      "kb_ref": "INT-M12-R05",
+      "disposition": "not_a_no_trade_object",
+      "note": "listed by the specification but is a rule object, not a no-trade object"
+    }
+  ],
+  "unsupported": [
+    {
+      "item_id": "U-S07-NT-BEG-M08-NT01",
+      "strategy_id": "S07-NYKZ-SWEEP-SEQUENCE",
+      "source": {
+        "block": "no_trade_conditions",
+        "index": "BEG-M08-NT01",
+        "text": "Some days offer no clean setup in any session; disciplined inaction is treated as a legitimate, expected outcome, not a failure."
+      },
+      "element": "no-trade condition BEG-M08-NT01",
+      "reason_code": "UNSUPPORTED_PROCESS",
+      "explanation": "Disciplined inaction; no market condition to evaluate.",
+      "kb_refs": [
+        "BEG-M08-NT01"
+      ],
+      "blocks_execution": false,
+      "resolution": "Record it in the run report; it is not evaluated by the engine."
+    },
+    {
+      "item_id": "U-S07-NT-ADV-M07-NT01",
+      "strategy_id": "S07-NYKZ-SWEEP-SEQUENCE",
+      "source": {
+        "block": "no_trade_conditions",
+        "index": "ADV-M07-NT01",
+        "text": "When time-based expectations fail (expected kill zone produces no liquidity event and no displacement; expansion begins in a dead zone and is immediately reversed; a higher-timeframe opposing force overrides the daily time map), require a re-check of the liquidity and structural narrative, not a forced trade in the next window. Do not trade every kill zone regardless of whether a delivery narrative is active. Do not elevate a lower-timeframe signal appearing outside any relevant kill zone to the same quality as an in-window signal. Do not assume that if London did nothing, New York must reverse -- the higher-timeframe narrative still governs."
+      },
+      "element": "no-trade condition ADV-M07-NT01",
+      "reason_code": "UNSUPPORTED_SUBJECTIVE",
+      "explanation": "'Re-check the liquidity and structural narrative' is a review instruction, not a market condition.",
+      "kb_refs": [
+        "ADV-M07-NT01"
+      ],
+      "blocks_execution": false,
+      "resolution": "Record it in the run report; it is not evaluated by the engine.",
+      "effect_if_unenforced": "The run may include trades the specification would have stood aside from; reported selectivity is therefore an upper bound."
+    },
+    {
+      "item_id": "U-S07-01",
+      "strategy_id": "S07-NYKZ-SWEEP-SEQUENCE",
+      "source": {
+        "block": "prerequisites",
+        "index": 1,
+        "text": "Note whether a scheduled US release is imminent / just occurred."
+      },
+      "element": "scheduled US data release as a context input",
+      "reason_code": "UNSUPPORTED_EXTERNAL_DATA",
+      "explanation": "The step asks the trader to note whether a scheduled release is imminent or has just occurred. That requires an economic calendar, which is not price data and which the specification does not define or bound.",
+      "kb_refs": [
+        "BEG-M08-S02",
+        "INT-M12-R05"
+      ],
+      "blocks_execution": false,
+      "resolution": "Supply a calendar as a separate feed and stratify results by proximity to releases; the step is a note, not a filter, so it is not compiled as a gate."
+    },
+    {
+      "item_id": "U-S07-02",
+      "strategy_id": "S07-NYKZ-SWEEP-SEQUENCE",
+      "source": {
+        "block": "stop_invalidation",
+        "index": "pattern_invalidation",
+        "text": "Not restated \u2014 by analogy: reclaim-based invalidation (BEG-M08-S02 missing_elements)."
+      },
+      "element": "reclaim-based pre-entry invalidation",
+      "reason_code": "GAP_REQUIRES_FROZEN_OPERATIONALISATION",
+      "explanation": "The specification records this element as not restated in the source module ('by analogy'). Compiling the London reclaim test here would import a rule the source did not state for this session, so it is left out.",
+      "kb_refs": [
+        "BEG-M08-S02",
+        "BEG-M08-R06"
+      ],
+      "blocks_execution": false,
+      "resolution": "If the analogy is adopted, run S06's reclaim step explicitly and record it as a research operationalisation.",
+      "effect_if_unenforced": "Setups that London's rules would have discarded as genuine breakouts remain eligible here; the required MSS step is the only protection."
+    }
+  ],
+  "unconstrained": [
+    {
+      "source": {
+        "block": "context",
+        "index": "location",
+        "text": "unspecified."
+      },
+      "note": "The specification states this element is unspecified."
+    }
+  ],
+  "executability": "executable",
+  "blocking_items": []
+}

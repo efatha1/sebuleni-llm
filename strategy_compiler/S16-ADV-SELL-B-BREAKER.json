@@ -1,0 +1,1490 @@
+{
+  "dsl_version": "1.0.0",
+  "strategy_id": "S16-ADV-SELL-B-BREAKER",
+  "name": "Advanced Sell Model \u2014 Variation B: Breaker Continuation (Bearish)",
+  "kind": "variant",
+  "parent_strategy_id": "S15-ADV-SELL-A-FVG-OTE",
+  "direction": "short",
+  "provenance": {
+    "spec_file": "strategy_reearcher/catalog/strategies.json",
+    "spec_strategy_id": "S16-ADV-SELL-B-BREAKER",
+    "kb_source_strategy_ids": [
+      "ADV-M12-S00",
+      "ADV-M12-S02"
+    ],
+    "primitives": [
+      "P-BIAS-02",
+      "P-DISP-01",
+      "P-DOL-01",
+      "P-FVG-01",
+      "P-GATE-01",
+      "P-LIQ-01",
+      "P-LIQ-02",
+      "P-MSS-01",
+      "P-OB-01",
+      "P-OB-02",
+      "P-RANGE-01",
+      "P-RISK-01",
+      "P-STOP-01",
+      "P-TARGET-01",
+      "P-TIME-01"
+    ],
+    "specificity_status": "fully_specified",
+    "spec_unspecified_elements": [
+      "as S12"
+    ],
+    "spec_worked_example": "INT-M05-EX01 Path B is exactly this polarity (bullish OB -> bearish Breaker; short provided HTF context permits)."
+  },
+  "timeframes": {
+    "htf": {
+      "purpose": "monthly/weekly/daily narrative and the controlling range",
+      "candidates": [
+        "1d",
+        "1w"
+      ],
+      "source": [
+        "ADV-M10-R01",
+        "ADV-M02-R01"
+      ],
+      "min_history": 120
+    },
+    "execution": {
+      "purpose": "conditioning and entry",
+      "candidates": [
+        "15m",
+        "5m",
+        "1m"
+      ],
+      "source": [
+        "ADV-M16-R02"
+      ],
+      "min_history": 1000
+    }
+  },
+  "data_requirements": {
+    "instrument": "primary",
+    "correlated_instruments": 0,
+    "bars": {
+      "htf": {
+        "min_history": 120
+      },
+      "execution": {
+        "min_history": 1000
+      }
+    },
+    "timezone": "America/New_York",
+    "session_anchored": true,
+    "requires_period_opens": [
+      "daily",
+      "weekly",
+      "monthly"
+    ],
+    "external_data": [],
+    "warmup_bars": 200
+  },
+  "parameters": [
+    {
+      "name": "governing_swing_tier",
+      "binding": "frozen_choice",
+      "choices": [
+        "short_term",
+        "intermediate",
+        "long_term"
+      ],
+      "kb_status": "unspecified",
+      "kb_value": "judgment informed by the ST/IT/LT hierarchy",
+      "source": [
+        "BEG-M03-C02",
+        "INT-M01-R02"
+      ],
+      "register_id": "governing_structural_point_tier"
+    },
+    {
+      "name": "displacement_range_multiple",
+      "binding": "frozen_required",
+      "kb_status": "unspecified",
+      "kb_value": "'unusually large relative to recent candles'",
+      "source": [
+        "BEG-M05-R01"
+      ],
+      "register_id": "displacement_range_multiple"
+    },
+    {
+      "name": "displacement_lookback",
+      "binding": "frozen_required",
+      "kb_status": "unspecified",
+      "kb_value": "-",
+      "source": [
+        "BEG-M05-R01"
+      ],
+      "register_id": "displacement_lookback_candles"
+    },
+    {
+      "name": "displacement_body_ratio_min",
+      "binding": "frozen_required",
+      "kb_status": "heuristic_unfixed",
+      "kb_value": "~60-70% cited by secondary tools; the book does not fix it",
+      "source": [
+        "BEG-M05-C01",
+        "BEG-M05-C02",
+        "BEG-M05-AMB01"
+      ],
+      "register_id": "displacement_body_to_range_min"
+    },
+    {
+      "name": "sweep_min_penetration",
+      "binding": "frozen_required",
+      "kb_status": "unspecified",
+      "kb_value": "research parameter 'Y' in the knowledge base's own template",
+      "source": [
+        "ADV-M18-C03"
+      ],
+      "register_id": "sweep_min_penetration"
+    },
+    {
+      "name": "sweep_reclaim_bars",
+      "binding": "frozen_required",
+      "kb_status": "alternatives_documented",
+      "kb_value": "~2-3 lower-timeframe candles (Judas) / 'reasonable number' (PO3) / 'Z' bars",
+      "source": [
+        "BEG-M08-R06",
+        "BEG-M09-R02",
+        "ADV-M18-C03"
+      ],
+      "register_id": "sweep_reclaim_window"
+    },
+    {
+      "name": "equal_level_tolerance",
+      "binding": "frozen_required",
+      "kb_status": "heuristic_unfixed",
+      "kb_value": "~5-10 pips forex cited by secondary sources; 'obvious at a glance'",
+      "source": [
+        "BEG-M04-C05",
+        "INT-M02-R01"
+      ],
+      "register_id": "equal_highs_lows_tolerance"
+    },
+    {
+      "name": "risk_fraction",
+      "binding": "frozen_required",
+      "kb_status": "range_given",
+      "kb_value": "~1% (max ~2%) beginner | 0.5-1% intermediate | 0.25-1% advanced",
+      "source": [
+        "BEG-M13-R01",
+        "INT-M12-R01",
+        "ADV-M17-R02"
+      ],
+      "register_id": "risk_per_trade"
+    },
+    {
+      "name": "stop_buffer_ticks",
+      "binding": "frozen_required",
+      "kb_status": "unspecified",
+      "kb_value": "'just beyond' / 'small buffer' (examples ~12 pips EUR/USD, ~0.60 pts gold)",
+      "source": [
+        "BEG-M11-EX01",
+        "BEG-M12-EX01"
+      ],
+      "register_id": "stop_buffer"
+    },
+    {
+      "name": "first_target_allocation",
+      "binding": "frozen_required",
+      "kb_status": "unspecified",
+      "kb_value": "'e.g. 50% or a fixed fraction' \u2014 the fraction is never stated",
+      "source": [
+        "ADV-M16-R06"
+      ],
+      "register_id": "partial_fraction"
+    },
+    {
+      "name": "fib_anchor",
+      "binding": "frozen_choice",
+      "choices": [
+        "body",
+        "wick"
+      ],
+      "kb_status": "alternatives_documented",
+      "kb_value": "body-to-body (BEG-M07-R01) vs liquidity-sweep wick origin (INT-M07-R01)",
+      "source": [
+        "BEG-M07-R01",
+        "INT-M07-R01"
+      ],
+      "register_id": "fib_anchor_price_type"
+    },
+    {
+      "name": "ltf_confirmation_signal",
+      "binding": "frozen_choice",
+      "choices": [
+        "ltf_mss"
+      ],
+      "kb_status": "specified_examples",
+      "kb_value": "1-minute MSS or a rejection candle; only the MSS form is defined",
+      "source": [
+        "BEG-M11-S01"
+      ],
+      "register_id": "ltf_confirmation_signal"
+    },
+    {
+      "name": "authorised_kill_zone_ET",
+      "binding": "frozen_choice",
+      "choices": [
+        [
+          "02:00",
+          "05:00"
+        ],
+        [
+          "02:00",
+          "04:00"
+        ],
+        [
+          "07:00",
+          "10:00"
+        ],
+        [
+          "08:00",
+          "11:00"
+        ],
+        [
+          "08:30",
+          "11:00"
+        ],
+        [
+          "07:00",
+          "09:00"
+        ]
+      ],
+      "kb_status": "alternatives_documented",
+      "kb_value": "the kill zone the daily narrative assigned to distribution/continuation (typically London Open or New York Open); both have documented boundary variants",
+      "source": [
+        "ADV-M16-R07",
+        "BEG-M08-R02",
+        "BEG-M08-R04"
+      ],
+      "register_id": "london_open_kz_ET"
+    },
+    {
+      "name": "decisive_close_definition",
+      "binding": "frozen_choice",
+      "choices": [
+        "body_close_beyond",
+        "body_close_beyond_by_ticks",
+        "full_body_beyond"
+      ],
+      "kb_status": "unspecified",
+      "kb_value": "'decisive' close; the magnitude is never stated",
+      "source": [
+        "INT-M04-R03",
+        "ADV-M06-R03",
+        "INT-M11-R04"
+      ],
+      "register_id": "fvg_failure_close"
+    },
+    {
+      "name": "max_daily_risk",
+      "binding": "frozen_required",
+      "kb_status": "range_given",
+      "kb_value": "e.g. 1-2% of equity",
+      "source": [
+        "ADV-M17-R03"
+      ],
+      "register_id": "max_daily_risk"
+    },
+    {
+      "name": "daily_loss_limit",
+      "binding": "frozen_required",
+      "kb_status": "range_given",
+      "kb_value": "e.g. 1-3% of equity",
+      "source": [
+        "ADV-M17-R03"
+      ],
+      "register_id": "daily_loss_limit"
+    },
+    {
+      "name": "rr_minimum",
+      "binding": "frozen_choice",
+      "choices": [
+        "none",
+        2.0,
+        3.0
+      ],
+      "kb_status": "alternatives_documented",
+      "kb_value": "1:2 / 1:3 as minimum thresholds (INT-M12-R03) vs no R:R filter at all (ADV-M17-R04)",
+      "source": [
+        "INT-M12-R03",
+        "ADV-M17-R04"
+      ],
+      "register_id": "rr_minimum_filter"
+    },
+    {
+      "name": "daily_bias_method",
+      "binding": "frozen_choice",
+      "choices": [
+        "three_factor",
+        "single_mss"
+      ],
+      "kb_status": "alternatives_documented",
+      "kb_value": "three-factor (primary) vs the single-MSS 'daily bias trick'",
+      "source": [
+        "BEG-M10-C03",
+        "BEG-M10-AMB01"
+      ],
+      "register_id": "daily_bias_method"
+    },
+    {
+      "name": "daily_open_definition",
+      "binding": "frozen_choice",
+      "choices": [
+        "new_york_midnight",
+        "instrument_daily_open"
+      ],
+      "kb_status": "alternatives_documented",
+      "kb_value": "daily open (primary) vs New York midnight (thinner support)",
+      "source": [
+        "ADV-M07-C03",
+        "ADV-M07-AMB01"
+      ],
+      "register_id": "daily_open_definition"
+    },
+    {
+      "name": "stop_reference_breaker",
+      "binding": "frozen_choice",
+      "choices": [
+        "breaker_extreme",
+        "displacement_origin"
+      ],
+      "kb_status": "alternatives_documented",
+      "kb_value": "close back beyond the Breaker extreme, or beyond the origin of the displacement that created it",
+      "source": [
+        "ADV-M11-S02",
+        "ADV-M12-S02"
+      ],
+      "register_id": "stop_reference"
+    },
+    {
+      "name": "breaker_test",
+      "binding": "frozen_choice",
+      "choices": [
+        "body_close",
+        "sweep_plus_mss"
+      ],
+      "kb_status": "alternatives_documented",
+      "kb_value": "body close through the far boundary (INT-M05-R02) vs sweep + MSS (BEG-M06-R03)",
+      "source": [
+        "INT-M05-R02",
+        "BEG-M06-R03"
+      ],
+      "register_id": "breaker_test"
+    }
+  ],
+  "features": [
+    "bar",
+    "breaker_state",
+    "displacement_leg",
+    "dol",
+    "fvg",
+    "in_session",
+    "latest_index",
+    "liquidity_pools",
+    "midpoint",
+    "mss",
+    "offset",
+    "order_block",
+    "pd_location",
+    "position_size",
+    "sweep"
+  ],
+  "market_state": [
+    "bias_state"
+  ],
+  "blocks": {
+    "context": [
+      {
+        "node_id": "S16.ctx.bias",
+        "kind": "predicate",
+        "source": {
+          "block": "context",
+          "index": "htf_bias_required",
+          "text": "HTF bias remains bearish."
+        },
+        "kb_refs": [
+          "ADV-M10-R01",
+          "ADV-M10-R02",
+          "ADV-M12-R01"
+        ],
+        "primitives": [
+          "P-BIAS-02",
+          "P-DOL-01"
+        ],
+        "expr": [
+          "and",
+          [
+            "==",
+            [
+              "state",
+              "bias_state",
+              {
+                "tf": "htf",
+                "method": "structural",
+                "field": "direction"
+              }
+            ],
+            [
+              "const",
+              "bearish"
+            ]
+          ],
+          [
+            "exists",
+            [
+              "feature",
+              "dol",
+              {
+                "direction": "bearish",
+                "scope": "erl",
+                "tf": "htf"
+              }
+            ]
+          ]
+        ],
+        "emits": {
+          "dol_erl": [
+            "feature",
+            "dol",
+            {
+              "direction": "bearish",
+              "scope": "erl",
+              "tf": "htf",
+              "field": "price"
+            }
+          ],
+          "dol_irl": [
+            "feature",
+            "dol",
+            {
+              "direction": "bearish",
+              "scope": "irl",
+              "tf": "htf",
+              "field": "price"
+            }
+          ]
+        }
+      },
+      {
+        "node_id": "S16.ctx.location",
+        "kind": "predicate",
+        "source": {
+          "block": "context",
+          "index": "location",
+          "text": "Breaker in premium of the controlling range."
+        },
+        "kb_refs": [
+          "ADV-M02-R01",
+          "ADV-M02-C06",
+          "INT-M06-R02"
+        ],
+        "primitives": [
+          "P-RANGE-01",
+          "P-LIQ-02"
+        ],
+        "expr": [
+          "or",
+          [
+            "==",
+            [
+              "feature",
+              "pd_location",
+              {
+                "tf": "htf",
+                "price_tf": "execution"
+              }
+            ],
+            [
+              "const",
+              "premium"
+            ]
+          ],
+          [
+            "==",
+            [
+              "feature",
+              "sweep",
+              {
+                "tf": "execution",
+                "level": [
+                  "feature",
+                  "liquidity_pools",
+                  {
+                    "tf": "execution",
+                    "side": "buy",
+                    "kinds": [
+                      "swing",
+                      "equal",
+                      "prev_day",
+                      "prev_week"
+                    ],
+                    "select": "nearest",
+                    "field": "price"
+                  }
+                ],
+                "side": "bsl",
+                "since_index": [
+                  "feature",
+                  "liquidity_pools",
+                  {
+                    "tf": "execution",
+                    "side": "buy",
+                    "kinds": [
+                      "swing",
+                      "equal",
+                      "prev_day",
+                      "prev_week"
+                    ],
+                    "select": "nearest",
+                    "field": "from_index"
+                  }
+                ],
+                "field": "classification"
+              }
+            ],
+            [
+              "const",
+              "raid"
+            ]
+          ]
+        ]
+      },
+      {
+        "node_id": "S16.ctx.other",
+        "kind": "predicate",
+        "source": {
+          "block": "context",
+          "index": "other",
+          "text": "Violated bullish OB was high-quality; violation accompanied by genuine bearish displacement and MSS."
+        },
+        "kb_refs": [
+          "INT-M05-R03",
+          "BEG-M06-R03"
+        ],
+        "primitives": [
+          "P-OB-01",
+          "P-OB-02"
+        ],
+        "expr": [
+          "==",
+          [
+            "feature",
+            "breaker_state",
+            {
+              "tf": "execution",
+              "ob": [
+                "feature",
+                "order_block",
+                {
+                  "tf": "execution",
+                  "displacement_index": [
+                    "field",
+                    [
+                      "feature",
+                      "fvg",
+                      {
+                        "tf": "execution",
+                        "direction": "bullish",
+                        "select": "latest"
+                      }
+                    ],
+                    "displacement_index"
+                  ],
+                  "direction": "bullish"
+                }
+              ]
+            }
+          ],
+          [
+            "const",
+            "breaker"
+          ]
+        ],
+        "gate": true
+      }
+    ],
+    "prerequisites": [
+      {
+        "node_id": "S16.pre.01",
+        "kind": "predicate",
+        "source": {
+          "block": "prerequisites",
+          "index": 0,
+          "text": "Eligibility ADV-M12-R01."
+        },
+        "kb_refs": [
+          "ADV-M12-R01",
+          "ADV-M16-R08"
+        ],
+        "primitives": [
+          "P-GATE-01"
+        ],
+        "expr": [
+          "and",
+          [
+            "and",
+            [
+              "==",
+              [
+                "state",
+                "bias_state",
+                {
+                  "tf": "htf",
+                  "method": "structural",
+                  "field": "direction"
+                }
+              ],
+              [
+                "const",
+                "bearish"
+              ]
+            ],
+            [
+              "exists",
+              [
+                "feature",
+                "dol",
+                {
+                  "direction": "bearish",
+                  "scope": "erl",
+                  "tf": "htf"
+                }
+              ]
+            ]
+          ],
+          [
+            "or",
+            [
+              "==",
+              [
+                "feature",
+                "pd_location",
+                {
+                  "tf": "htf",
+                  "price_tf": "execution"
+                }
+              ],
+              [
+                "const",
+                "premium"
+              ]
+            ],
+            [
+              "==",
+              [
+                "feature",
+                "sweep",
+                {
+                  "tf": "execution",
+                  "level": [
+                    "feature",
+                    "liquidity_pools",
+                    {
+                      "tf": "execution",
+                      "side": "buy",
+                      "kinds": [
+                        "swing",
+                        "equal",
+                        "prev_day",
+                        "prev_week"
+                      ],
+                      "select": "nearest",
+                      "field": "price"
+                    }
+                  ],
+                  "side": "bsl",
+                  "since_index": [
+                    "feature",
+                    "liquidity_pools",
+                    {
+                      "tf": "execution",
+                      "side": "buy",
+                      "kinds": [
+                        "swing",
+                        "equal",
+                        "prev_day",
+                        "prev_week"
+                      ],
+                      "select": "nearest",
+                      "field": "from_index"
+                    }
+                  ],
+                  "field": "classification"
+                }
+              ],
+              [
+                "const",
+                "raid"
+              ]
+            ]
+          ],
+          [
+            "feature",
+            "in_session",
+            {
+              "window_param": "authorised_kill_zone_ET"
+            }
+          ]
+        ]
+      },
+      {
+        "node_id": "S16.pre.02",
+        "kind": "predicate",
+        "source": {
+          "block": "prerequisites",
+          "index": 1,
+          "text": "Variation B authorised (prior bullish OB violated; price returning to it)."
+        },
+        "kb_refs": [
+          "ADV-M11-R02",
+          "ADV-M15-C04"
+        ],
+        "primitives": [
+          "P-OB-02"
+        ],
+        "expr": [
+          "==",
+          [
+            "feature",
+            "breaker_state",
+            {
+              "tf": "execution",
+              "ob": [
+                "feature",
+                "order_block",
+                {
+                  "tf": "execution",
+                  "displacement_index": [
+                    "field",
+                    [
+                      "feature",
+                      "fvg",
+                      {
+                        "tf": "execution",
+                        "direction": "bullish",
+                        "select": "latest"
+                      }
+                    ],
+                    "displacement_index"
+                  ],
+                  "direction": "bullish"
+                }
+              ]
+            }
+          ],
+          [
+            "const",
+            "breaker"
+          ]
+        ]
+      },
+      {
+        "node_id": "S16.pre.session",
+        "kind": "predicate",
+        "source": {
+          "block": "session",
+          "index": "session",
+          "text": "Authorised kill zone."
+        },
+        "kb_refs": [
+          "ADV-M16-R07"
+        ],
+        "primitives": [
+          "P-TIME-01"
+        ],
+        "expr": [
+          "feature",
+          "in_session",
+          {
+            "window_param": "authorised_kill_zone_ET"
+          }
+        ]
+      }
+    ],
+    "setup_sequence": [
+      {
+        "node_id": "S16.setup.01",
+        "kind": "event",
+        "source": {
+          "block": "setup_sequence",
+          "index": 0,
+          "text": "External/significant BSL taken."
+        },
+        "kb_refs": [
+          "ADV-M03-R01",
+          "BEG-M04-C08"
+        ],
+        "primitives": [
+          "P-LIQ-02"
+        ],
+        "expr": [
+          "==",
+          [
+            "feature",
+            "sweep",
+            {
+              "tf": "execution",
+              "level": [
+                "feature",
+                "liquidity_pools",
+                {
+                  "tf": "execution",
+                  "side": "buy",
+                  "kinds": [
+                    "swing",
+                    "equal",
+                    "prev_day",
+                    "prev_week"
+                  ],
+                  "select": "nearest",
+                  "field": "price"
+                }
+              ],
+              "side": "bsl",
+              "since_index": [
+                "feature",
+                "liquidity_pools",
+                {
+                  "tf": "execution",
+                  "side": "buy",
+                  "kinds": [
+                    "swing",
+                    "equal",
+                    "prev_day",
+                    "prev_week"
+                  ],
+                  "select": "nearest",
+                  "field": "from_index"
+                }
+              ],
+              "field": "classification"
+            }
+          ],
+          [
+            "const",
+            "raid"
+          ]
+        ],
+        "emits": {
+          "raid_index": [
+            "feature",
+            "sweep",
+            {
+              "tf": "execution",
+              "level": [
+                "feature",
+                "liquidity_pools",
+                {
+                  "tf": "execution",
+                  "side": "buy",
+                  "kinds": [
+                    "swing",
+                    "equal",
+                    "prev_day",
+                    "prev_week"
+                  ],
+                  "select": "nearest",
+                  "field": "price"
+                }
+              ],
+              "side": "bsl",
+              "since_index": [
+                "feature",
+                "liquidity_pools",
+                {
+                  "tf": "execution",
+                  "side": "buy",
+                  "kinds": [
+                    "swing",
+                    "equal",
+                    "prev_day",
+                    "prev_week"
+                  ],
+                  "select": "nearest",
+                  "field": "from_index"
+                }
+              ],
+              "field": "sweep_index"
+            }
+          ],
+          "raid_extreme": [
+            "feature",
+            "sweep",
+            {
+              "tf": "execution",
+              "level": [
+                "feature",
+                "liquidity_pools",
+                {
+                  "tf": "execution",
+                  "side": "buy",
+                  "kinds": [
+                    "swing",
+                    "equal",
+                    "prev_day",
+                    "prev_week"
+                  ],
+                  "select": "nearest",
+                  "field": "price"
+                }
+              ],
+              "side": "bsl",
+              "since_index": [
+                "feature",
+                "liquidity_pools",
+                {
+                  "tf": "execution",
+                  "side": "buy",
+                  "kinds": [
+                    "swing",
+                    "equal",
+                    "prev_day",
+                    "prev_week"
+                  ],
+                  "select": "nearest",
+                  "field": "from_index"
+                }
+              ],
+              "field": "extreme"
+            }
+          ]
+        }
+      },
+      {
+        "node_id": "S16.setup.02",
+        "kind": "event",
+        "source": {
+          "block": "setup_sequence",
+          "index": 1,
+          "text": "Prior bullish OB violated: body close through its far (lower) boundary with bearish displacement, then bearish MSS (P-OB-02) -> bearish Breaker (resistance)."
+        },
+        "kb_refs": [
+          "INT-M05-R02",
+          "BEG-M06-R03",
+          "ADV-M11-S02"
+        ],
+        "primitives": [
+          "P-OB-02",
+          "P-DISP-01",
+          "P-MSS-01"
+        ],
+        "expr": [
+          "and",
+          [
+            "==",
+            [
+              "feature",
+              "breaker_state",
+              {
+                "tf": "execution",
+                "ob": [
+                  "feature",
+                  "order_block",
+                  {
+                    "tf": "execution",
+                    "displacement_index": [
+                      "field",
+                      [
+                        "feature",
+                        "fvg",
+                        {
+                          "tf": "execution",
+                          "direction": "bullish",
+                          "select": "latest"
+                        }
+                      ],
+                      "displacement_index"
+                    ],
+                    "direction": "bullish"
+                  }
+                ]
+              }
+            ],
+            [
+              "const",
+              "breaker"
+            ]
+          ],
+          [
+            "feature",
+            "mss",
+            {
+              "tf": "execution",
+              "at_index": -1,
+              "direction": "bearish"
+            }
+          ]
+        ],
+        "emits": {
+          "breaker": [
+            "feature",
+            "order_block",
+            {
+              "tf": "execution",
+              "displacement_index": [
+                "field",
+                [
+                  "feature",
+                  "fvg",
+                  {
+                    "tf": "execution",
+                    "direction": "bullish",
+                    "select": "latest"
+                  }
+                ],
+                "displacement_index"
+              ],
+              "direction": "bullish"
+            }
+          ],
+          "displacement_index": [
+            "feature",
+            "latest_index",
+            {
+              "tf": "execution"
+            }
+          ],
+          "array": [
+            "feature",
+            "order_block",
+            {
+              "tf": "execution",
+              "displacement_index": [
+                "field",
+                [
+                  "feature",
+                  "fvg",
+                  {
+                    "tf": "execution",
+                    "direction": "bullish",
+                    "select": "latest"
+                  }
+                ],
+                "displacement_index"
+              ],
+              "direction": "bullish"
+            }
+          ]
+        }
+      },
+      {
+        "node_id": "S16.setup.03",
+        "kind": "event",
+        "source": {
+          "block": "setup_sequence",
+          "index": 2,
+          "text": "Price returns to the Breaker in premium."
+        },
+        "kb_refs": [
+          "ADV-M11-S02",
+          "ADV-M02-C06"
+        ],
+        "primitives": [
+          "P-OB-02",
+          "P-RANGE-01"
+        ],
+        "expr": [
+          "and",
+          [
+            "==",
+            [
+              "feature",
+              "pd_location",
+              {
+                "tf": "htf",
+                "price_tf": "execution"
+              }
+            ],
+            [
+              "const",
+              "premium"
+            ]
+          ],
+          [
+            ">=",
+            [
+              "feature",
+              "bar",
+              {
+                "tf": "execution",
+                "component": "high"
+              }
+            ],
+            [
+              "binding",
+              "array",
+              "low"
+            ]
+          ]
+        ]
+      }
+    ],
+    "entry": {
+      "zone": {
+        "node_id": "S16.entry.zone",
+        "kind": "selection",
+        "source": {
+          "block": "entry.entry_zone",
+          "index": "entry_zone",
+          "text": "Bearish Breaker zone."
+        },
+        "kb_refs": [
+          "ADV-M16-R03",
+          "ADV-M05-C03",
+          "INT-M04-R02"
+        ],
+        "primitives": [
+          "P-FVG-01",
+          "P-FIB-01"
+        ],
+        "expr": [
+          "feature",
+          "midpoint",
+          {
+            "zone": [
+              "binding",
+              "array"
+            ]
+          }
+        ],
+        "emits": {
+          "entry_zone": [
+            "const",
+            "$value"
+          ]
+        }
+      },
+      "triggers": [
+        {
+          "node_id": "S16.entry.trigger.confirmation",
+          "kind": "event",
+          "source": {
+            "block": "entry.trigger_options",
+            "index": 0,
+            "text": "LTF confirmation gate + P-GATE-01."
+          },
+          "kb_refs": [
+            "ADV-M16-R02",
+            "ADV-M16-NT01",
+            "ADV-M16-R08"
+          ],
+          "primitives": [
+            "P-MSS-01",
+            "P-GATE-01"
+          ],
+          "expr": [
+            "and",
+            [
+              ">=",
+              [
+                "feature",
+                "bar",
+                {
+                  "tf": "execution",
+                  "component": "high"
+                }
+              ],
+              [
+                "binding",
+                "array",
+                "low"
+              ]
+            ],
+            [
+              "==",
+              [
+                "param",
+                "ltf_confirmation_signal"
+              ],
+              [
+                "const",
+                "ltf_mss"
+              ]
+            ],
+            [
+              "feature",
+              "mss",
+              {
+                "tf": "execution",
+                "at_index": -1,
+                "direction": "bearish"
+              }
+            ],
+            [
+              "feature",
+              "in_session",
+              {
+                "window_param": "authorised_kill_zone_ET"
+              }
+            ]
+          ],
+          "trigger_id": "ltf_confirmation",
+          "fill": {
+            "mode": "market_on_close"
+          }
+        }
+      ]
+    },
+    "stop": {
+      "node_id": "S16.stop",
+      "kind": "selection",
+      "source": {
+        "block": "stop_invalidation",
+        "index": "trade_level",
+        "text": "Close back above the Breaker extreme or above the origin of the bearish displacement that created it."
+      },
+      "kb_refs": [
+        "ADV-M16-R04",
+        "ADV-M11-S02",
+        "INT-M12-R02"
+      ],
+      "primitives": [
+        "P-STOP-01"
+      ],
+      "expr": [
+        "if",
+        [
+          "==",
+          [
+            "param",
+            "stop_reference_breaker"
+          ],
+          [
+            "const",
+            "breaker_extreme"
+          ]
+        ],
+        [
+          "feature",
+          "offset",
+          {
+            "price": [
+              "binding",
+              "array",
+              "high"
+            ],
+            "ticks": [
+              "param",
+              "stop_buffer_ticks"
+            ],
+            "direction": "above"
+          }
+        ],
+        [
+          "feature",
+          "offset",
+          {
+            "price": [
+              "feature",
+              "displacement_leg",
+              {
+                "tf": "execution",
+                "at_index": [
+                  "binding",
+                  "displacement_index"
+                ],
+                "direction": "bearish",
+                "field": "origin"
+              }
+            ],
+            "ticks": [
+              "param",
+              "stop_buffer_ticks"
+            ],
+            "direction": "above"
+          }
+        ]
+      ],
+      "execution_mode": "close"
+    },
+    "targets": [
+      {
+        "node_id": "S16.target.primary",
+        "kind": "selection",
+        "source": {
+          "block": "target",
+          "index": "primary",
+          "text": "IRL partial."
+        },
+        "kb_refs": [
+          "ADV-M16-R05",
+          "ADV-M16-R06",
+          "ADV-M03-R03"
+        ],
+        "primitives": [
+          "P-TARGET-01",
+          "P-DOL-01"
+        ],
+        "expr": [
+          "feature",
+          "dol",
+          {
+            "direction": "bearish",
+            "scope": "irl",
+            "tf": "htf",
+            "field": "price"
+          }
+        ],
+        "allocation": {
+          "param": "first_target_allocation"
+        }
+      },
+      {
+        "node_id": "S16.target.secondary",
+        "kind": "selection",
+        "source": {
+          "block": "target",
+          "index": "secondary",
+          "text": "Sell-side DOL."
+        },
+        "kb_refs": [
+          "ADV-M16-R05",
+          "ADV-M16-R06"
+        ],
+        "primitives": [
+          "P-TARGET-01",
+          "P-DOL-01"
+        ],
+        "expr": [
+          "feature",
+          "dol",
+          {
+            "direction": "bearish",
+            "scope": "erl",
+            "tf": "htf",
+            "field": "price"
+          }
+        ],
+        "allocation": 0.0
+      }
+    ],
+    "invalidation": [
+      {
+        "node_id": "S16.inval.narrative",
+        "kind": "predicate",
+        "source": {
+          "block": "stop_invalidation",
+          "index": "narrative_level",
+          "text": "HTF invalidation."
+        },
+        "kb_refs": [
+          "ADV-M11-R03",
+          "ADV-M10-R05",
+          "ADV-M12-R03",
+          "INT-M08-R05"
+        ],
+        "primitives": [
+          "P-BIAS-02"
+        ],
+        "expr": [
+          "!=",
+          [
+            "state",
+            "bias_state",
+            {
+              "tf": "htf",
+              "method": "structural",
+              "field": "direction"
+            }
+          ],
+          [
+            "const",
+            "bearish"
+          ]
+        ]
+      }
+    ],
+    "no_trade": [],
+    "risk": [
+      {
+        "node_id": "S16.risk.size",
+        "kind": "action",
+        "source": {
+          "block": "parameters",
+          "index": "mirror_of",
+          "text": "S12-ADV-BUY-B-BREAKER"
+        },
+        "kb_refs": [
+          "ADV-M17-R02",
+          "ADV-M17-R03",
+          "ADV-M17-R04"
+        ],
+        "primitives": [
+          "P-RISK-01"
+        ],
+        "expr": [
+          "feature",
+          "position_size",
+          {
+            "entry": [
+              "binding",
+              "entry_price"
+            ],
+            "stop": [
+              "binding",
+              "stop_price"
+            ]
+          }
+        ],
+        "emits": {
+          "position_size": [
+            "const",
+            "$value"
+          ]
+        }
+      }
+    ]
+  },
+  "no_trade_dispositions": [
+    {
+      "kb_ref": "ADV-M12-NT01",
+      "disposition": "enforced_by_sequence",
+      "note": "Mirror of ADV-M11-NT01."
+    },
+    {
+      "kb_ref": "ADV-M15-NT01",
+      "disposition": "enforced_by_sequence",
+      "note": "Distribution models forbidden during accumulation or early manipulation; the engine holds one position at a time, so a long and a short model cannot run together. (already implied by this strategy's own steps)"
+    },
+    {
+      "kb_ref": "ADV-M16-NT01",
+      "disposition": "enforced_by_sequence",
+      "note": "Lower-timeframe confirmation is the entry trigger; the session window is a gate; the engine never widens a stop and never adds to a loser."
+    },
+    {
+      "kb_ref": "INT-M05-NT01",
+      "disposition": "enforced_by_feature",
+      "note": "Array selection requires an unmitigated array; a fully mitigated order block is not offered."
+    }
+  ],
+  "unsupported": [
+    {
+      "item_id": "U-S16-QUALITY",
+      "strategy_id": "S16-ADV-SELL-B-BREAKER",
+      "source": {
+        "block": "context",
+        "index": "other",
+        "text": "Violated bullish OB was high-quality; violation accompanied by genuine bearish displacement and MSS."
+      },
+      "element": "'high-quality' grading of the violated order block",
+      "reason_code": "UNSUPPORTED_SUBJECTIVE",
+      "explanation": "The five quality filters of P-OB-01 are named but never weighted or thresholded, so 'was itself high-quality' has no computable form. The compiled node applies only the observable Breaker test the source does define.",
+      "kb_refs": [
+        "INT-M05-R03",
+        "BEG-M06-C01",
+        "P-OB-01"
+      ],
+      "blocks_execution": false,
+      "resolution": "Stratify results by how many of the five named filters the block satisfied.",
+      "effect_if_unenforced": "Breakers formed from low-quality order blocks are included; the population is broader than the specification intends."
+    }
+  ],
+  "unconstrained": [],
+  "executability": "executable",
+  "blocking_items": []
+}

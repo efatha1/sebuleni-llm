@@ -1,0 +1,1903 @@
+{
+  "dsl_version": "1.0.0",
+  "strategy_id": "S22-ADV-A-SMT-CONFIRMED",
+  "name": "Variation A continuation with SMT divergence as a supporting confirmation layer",
+  "kind": "variant",
+  "parent_strategy_id": "S11-ADV-BUY-A-FVG-OTE",
+  "direction": "either",
+  "provenance": {
+    "spec_file": "strategy_reearcher/catalog/strategies.json",
+    "spec_strategy_id": "S22-ADV-A-SMT-CONFIRMED",
+    "kb_source_strategy_ids": [
+      "ADV-M11-S01",
+      "ADV-M12-S01"
+    ],
+    "primitives": [
+      "P-BIAS-02",
+      "P-DISP-01",
+      "P-DOL-01",
+      "P-FVG-01",
+      "P-GATE-01",
+      "P-LIQ-02",
+      "P-MSS-01",
+      "P-OB-01",
+      "P-RANGE-01",
+      "P-RISK-01",
+      "P-SMT-01",
+      "P-STOP-01",
+      "P-TARGET-01",
+      "P-TIME-01"
+    ],
+    "specificity_status": "partially_specified",
+    "spec_unspecified_elements": [
+      "correlation stability threshold",
+      "swing comparison window",
+      "size reduction magnitude"
+    ],
+    "spec_worked_example": null
+  },
+  "timeframes": {
+    "htf": {
+      "purpose": "single-instrument narrative and bias on the traded instrument",
+      "candidates": [
+        "1d",
+        "1w"
+      ],
+      "source": [
+        "ADV-M13-R07"
+      ],
+      "min_history": 150
+    },
+    "smt_timeframe": {
+      "purpose": "the timeframe on which the liquidity-extreme swings are compared; the specification leaves it unspecified and implies the execution structure timeframe",
+      "candidates": [
+        "15m",
+        "5m"
+      ],
+      "source": [
+        "ADV-M13-R02"
+      ],
+      "min_history": 1000
+    }
+  },
+  "data_requirements": {
+    "instrument": "primary",
+    "correlated_instruments": 1,
+    "bars": {
+      "htf": {
+        "min_history": 150
+      },
+      "smt_timeframe": {
+        "min_history": 1000
+      }
+    },
+    "timezone": "America/New_York",
+    "session_anchored": true,
+    "requires_period_opens": [
+      "daily",
+      "weekly"
+    ],
+    "external_data": [],
+    "warmup_bars": 200
+  },
+  "parameters": [
+    {
+      "name": "governing_swing_tier",
+      "binding": "frozen_choice",
+      "choices": [
+        "short_term",
+        "intermediate",
+        "long_term"
+      ],
+      "kb_status": "unspecified",
+      "kb_value": "judgment informed by the ST/IT/LT hierarchy",
+      "source": [
+        "BEG-M03-C02",
+        "INT-M01-R02"
+      ],
+      "register_id": "governing_structural_point_tier"
+    },
+    {
+      "name": "displacement_range_multiple",
+      "binding": "frozen_required",
+      "kb_status": "unspecified",
+      "kb_value": "'unusually large relative to recent candles'",
+      "source": [
+        "BEG-M05-R01"
+      ],
+      "register_id": "displacement_range_multiple"
+    },
+    {
+      "name": "displacement_lookback",
+      "binding": "frozen_required",
+      "kb_status": "unspecified",
+      "kb_value": "-",
+      "source": [
+        "BEG-M05-R01"
+      ],
+      "register_id": "displacement_lookback_candles"
+    },
+    {
+      "name": "displacement_body_ratio_min",
+      "binding": "frozen_required",
+      "kb_status": "heuristic_unfixed",
+      "kb_value": "~60-70% cited by secondary tools; the book does not fix it",
+      "source": [
+        "BEG-M05-C01",
+        "BEG-M05-C02",
+        "BEG-M05-AMB01"
+      ],
+      "register_id": "displacement_body_to_range_min"
+    },
+    {
+      "name": "sweep_min_penetration",
+      "binding": "frozen_required",
+      "kb_status": "unspecified",
+      "kb_value": "research parameter 'Y' in the knowledge base's own template",
+      "source": [
+        "ADV-M18-C03"
+      ],
+      "register_id": "sweep_min_penetration"
+    },
+    {
+      "name": "sweep_reclaim_bars",
+      "binding": "frozen_required",
+      "kb_status": "alternatives_documented",
+      "kb_value": "~2-3 lower-timeframe candles (Judas) / 'reasonable number' (PO3) / 'Z' bars",
+      "source": [
+        "BEG-M08-R06",
+        "BEG-M09-R02",
+        "ADV-M18-C03"
+      ],
+      "register_id": "sweep_reclaim_window"
+    },
+    {
+      "name": "equal_level_tolerance",
+      "binding": "frozen_required",
+      "kb_status": "heuristic_unfixed",
+      "kb_value": "~5-10 pips forex cited by secondary sources; 'obvious at a glance'",
+      "source": [
+        "BEG-M04-C05",
+        "INT-M02-R01"
+      ],
+      "register_id": "equal_highs_lows_tolerance"
+    },
+    {
+      "name": "risk_fraction",
+      "binding": "frozen_required",
+      "kb_status": "range_given",
+      "kb_value": "~1% (max ~2%) beginner | 0.5-1% intermediate | 0.25-1% advanced",
+      "source": [
+        "BEG-M13-R01",
+        "INT-M12-R01",
+        "ADV-M17-R02"
+      ],
+      "register_id": "risk_per_trade"
+    },
+    {
+      "name": "stop_buffer_ticks",
+      "binding": "frozen_required",
+      "kb_status": "unspecified",
+      "kb_value": "'just beyond' / 'small buffer' (examples ~12 pips EUR/USD, ~0.60 pts gold)",
+      "source": [
+        "BEG-M11-EX01",
+        "BEG-M12-EX01"
+      ],
+      "register_id": "stop_buffer"
+    },
+    {
+      "name": "first_target_allocation",
+      "binding": "frozen_required",
+      "kb_status": "unspecified",
+      "kb_value": "'e.g. 50% or a fixed fraction' \u2014 the fraction is never stated",
+      "source": [
+        "ADV-M16-R06"
+      ],
+      "register_id": "partial_fraction"
+    },
+    {
+      "name": "fib_anchor",
+      "binding": "frozen_choice",
+      "choices": [
+        "body",
+        "wick"
+      ],
+      "kb_status": "alternatives_documented",
+      "kb_value": "body-to-body (BEG-M07-R01) vs liquidity-sweep wick origin (INT-M07-R01)",
+      "source": [
+        "BEG-M07-R01",
+        "INT-M07-R01"
+      ],
+      "register_id": "fib_anchor_price_type"
+    },
+    {
+      "name": "ltf_confirmation_signal",
+      "binding": "frozen_choice",
+      "choices": [
+        "ltf_mss"
+      ],
+      "kb_status": "specified_examples",
+      "kb_value": "1-minute MSS or a rejection candle; only the MSS form is defined",
+      "source": [
+        "BEG-M11-S01"
+      ],
+      "register_id": "ltf_confirmation_signal"
+    },
+    {
+      "name": "authorised_kill_zone_ET",
+      "binding": "frozen_choice",
+      "choices": [
+        [
+          "02:00",
+          "05:00"
+        ],
+        [
+          "02:00",
+          "04:00"
+        ],
+        [
+          "07:00",
+          "10:00"
+        ],
+        [
+          "08:00",
+          "11:00"
+        ],
+        [
+          "08:30",
+          "11:00"
+        ],
+        [
+          "07:00",
+          "09:00"
+        ]
+      ],
+      "kb_status": "alternatives_documented",
+      "kb_value": "the kill zone the daily narrative assigned to distribution/continuation (typically London Open or New York Open); both have documented boundary variants",
+      "source": [
+        "ADV-M16-R07",
+        "BEG-M08-R02",
+        "BEG-M08-R04"
+      ],
+      "register_id": "london_open_kz_ET"
+    },
+    {
+      "name": "stop_reference_advanced",
+      "binding": "frozen_choice",
+      "choices": [
+        "displacement_origin",
+        "array_far_side",
+        "ltf_swing"
+      ],
+      "kb_status": "alternatives_documented",
+      "kb_value": "displacement origin | far side of the entry array | recent lower-timeframe swing",
+      "source": [
+        "ADV-M16-R04",
+        "INT-M12-R02"
+      ],
+      "register_id": "stop_reference"
+    },
+    {
+      "name": "decisive_close_definition",
+      "binding": "frozen_choice",
+      "choices": [
+        "body_close_beyond",
+        "body_close_beyond_by_ticks",
+        "full_body_beyond"
+      ],
+      "kb_status": "unspecified",
+      "kb_value": "'decisive' close; the magnitude is never stated",
+      "source": [
+        "INT-M04-R03",
+        "ADV-M06-R03",
+        "INT-M11-R04"
+      ],
+      "register_id": "fvg_failure_close"
+    },
+    {
+      "name": "smt_correlation_min",
+      "binding": "frozen_required",
+      "kb_status": "unspecified",
+      "kb_value": "'strong, stable correlation on the timeframe analysed'",
+      "source": [
+        "ADV-M13-R01"
+      ],
+      "register_id": "smt_correlation_stability"
+    },
+    {
+      "name": "smt_swing_comparison_window",
+      "binding": "frozen_required",
+      "kb_status": "unspecified",
+      "kb_value": "-",
+      "source": [
+        "ADV-M13-R02"
+      ],
+      "register_id": "smt_correlation_stability"
+    },
+    {
+      "name": "daily_bias_method",
+      "binding": "frozen_choice",
+      "choices": [
+        "three_factor",
+        "single_mss"
+      ],
+      "kb_status": "alternatives_documented",
+      "kb_value": "three-factor (primary) vs the single-MSS 'daily bias trick'",
+      "source": [
+        "BEG-M10-C03",
+        "BEG-M10-AMB01"
+      ],
+      "register_id": "daily_bias_method"
+    },
+    {
+      "name": "daily_open_definition",
+      "binding": "frozen_choice",
+      "choices": [
+        "new_york_midnight",
+        "instrument_daily_open"
+      ],
+      "kb_status": "alternatives_documented",
+      "kb_value": "daily open (primary) vs New York midnight (thinner support)",
+      "source": [
+        "ADV-M07-C03",
+        "ADV-M07-AMB01"
+      ],
+      "register_id": "daily_open_definition"
+    }
+  ],
+  "features": [
+    "bar",
+    "displacement",
+    "displacement_leg",
+    "dol",
+    "fvg",
+    "in_session",
+    "latest_index",
+    "liquidity_pools",
+    "midpoint",
+    "mss",
+    "offset",
+    "order_block",
+    "pd_location",
+    "position_size",
+    "smt_divergence",
+    "sweep"
+  ],
+  "market_state": [
+    "bias_state",
+    "correlated_instrument_view"
+  ],
+  "blocks": {
+    "context": [
+      {
+        "node_id": "S22.ctx.bias",
+        "kind": "predicate",
+        "source": {
+          "block": "context",
+          "index": "htf_bias_required",
+          "text": "Single-instrument narrative and bias constructed FIRST (monthly/weekly/daily) on the primary instrument (ADV-M13-R07 step 1)."
+        },
+        "kb_refs": [
+          "ADV-M13-R07",
+          "ADV-M10-R01"
+        ],
+        "primitives": [
+          "P-BIAS-02",
+          "P-DOL-01"
+        ],
+        "expr": [
+          "and",
+          [
+            "in",
+            [
+              "state",
+              "bias_state",
+              {
+                "tf": "htf",
+                "method": "structural",
+                "field": "direction"
+              }
+            ],
+            [
+              "const",
+              [
+                "bullish",
+                "bearish"
+              ]
+            ]
+          ],
+          [
+            "exists",
+            [
+              "if",
+              [
+                "==",
+                [
+                  "state",
+                  "bias_state",
+                  {
+                    "tf": "htf",
+                    "method": "structural",
+                    "field": "direction"
+                  }
+                ],
+                [
+                  "const",
+                  "bullish"
+                ]
+              ],
+              [
+                "feature",
+                "dol",
+                {
+                  "direction": "bullish",
+                  "scope": "erl",
+                  "tf": "htf"
+                }
+              ],
+              [
+                "feature",
+                "dol",
+                {
+                  "direction": "bearish",
+                  "scope": "erl",
+                  "tf": "htf"
+                }
+              ]
+            ]
+          ]
+        ],
+        "emits": {
+          "dir_word": [
+            "state",
+            "bias_state",
+            {
+              "tf": "htf",
+              "method": "structural",
+              "field": "direction"
+            }
+          ],
+          "trade_direction": [
+            "if",
+            [
+              "==",
+              [
+                "state",
+                "bias_state",
+                {
+                  "tf": "htf",
+                  "method": "structural",
+                  "field": "direction"
+                }
+              ],
+              [
+                "const",
+                "bullish"
+              ]
+            ],
+            [
+              "const",
+              "long"
+            ],
+            [
+              "const",
+              "short"
+            ]
+          ],
+          "dol_irl": [
+            "if",
+            [
+              "==",
+              [
+                "state",
+                "bias_state",
+                {
+                  "tf": "htf",
+                  "method": "structural",
+                  "field": "direction"
+                }
+              ],
+              [
+                "const",
+                "bullish"
+              ]
+            ],
+            [
+              "feature",
+              "dol",
+              {
+                "direction": "bullish",
+                "scope": "irl",
+                "tf": "htf",
+                "field": "price"
+              }
+            ],
+            [
+              "feature",
+              "dol",
+              {
+                "direction": "bearish",
+                "scope": "irl",
+                "tf": "htf",
+                "field": "price"
+              }
+            ]
+          ],
+          "dol_erl": [
+            "if",
+            [
+              "==",
+              [
+                "state",
+                "bias_state",
+                {
+                  "tf": "htf",
+                  "method": "structural",
+                  "field": "direction"
+                }
+              ],
+              [
+                "const",
+                "bullish"
+              ]
+            ],
+            [
+              "feature",
+              "dol",
+              {
+                "direction": "bullish",
+                "scope": "erl",
+                "tf": "htf",
+                "field": "price"
+              }
+            ],
+            [
+              "feature",
+              "dol",
+              {
+                "direction": "bearish",
+                "scope": "erl",
+                "tf": "htf",
+                "field": "price"
+              }
+            ]
+          ]
+        }
+      },
+      {
+        "node_id": "S22.ctx.location",
+        "kind": "predicate",
+        "source": {
+          "block": "context",
+          "index": "location",
+          "text": "As S11/S15 (correct half of the controlling range on the TRADED instrument)."
+        },
+        "kb_refs": [
+          "ADV-M02-C06",
+          "ADV-M13-R04"
+        ],
+        "primitives": [
+          "P-RANGE-01"
+        ],
+        "expr": [
+          "==",
+          [
+            "feature",
+            "pd_location",
+            {
+              "tf": "htf",
+              "price_tf": "smt_timeframe"
+            }
+          ],
+          [
+            "if",
+            [
+              "==",
+              [
+                "state",
+                "bias_state",
+                {
+                  "tf": "htf",
+                  "method": "structural",
+                  "field": "direction"
+                }
+              ],
+              [
+                "const",
+                "bullish"
+              ]
+            ],
+            [
+              "const",
+              "discount"
+            ],
+            [
+              "const",
+              "premium"
+            ]
+          ]
+        ]
+      },
+      {
+        "node_id": "S22.ctx.correlated",
+        "kind": "predicate",
+        "source": {
+          "block": "context",
+          "index": "other",
+          "text": "A second instrument with strong, stable CURRENT correlation on the analysed timeframe (P-SMT-01)."
+        },
+        "kb_refs": [
+          "ADV-M13-R01",
+          "ADV-M13-C02"
+        ],
+        "primitives": [
+          "P-SMT-01"
+        ],
+        "expr": [
+          "exists",
+          [
+            "state",
+            "correlated_instrument_view",
+            {
+              "name": "secondary"
+            }
+          ]
+        ]
+      }
+    ],
+    "prerequisites": [
+      {
+        "node_id": "S22.pre.01",
+        "kind": "predicate",
+        "source": {
+          "block": "prerequisites",
+          "index": 0,
+          "text": "S11/S15 eligibility passes on the traded instrument."
+        },
+        "kb_refs": [
+          "ADV-M11-R01",
+          "ADV-M12-R01",
+          "ADV-M16-R08"
+        ],
+        "primitives": [
+          "P-GATE-01"
+        ],
+        "expr": [
+          "and",
+          [
+            "in",
+            [
+              "state",
+              "bias_state",
+              {
+                "tf": "htf",
+                "method": "structural",
+                "field": "direction"
+              }
+            ],
+            [
+              "const",
+              [
+                "bullish",
+                "bearish"
+              ]
+            ]
+          ],
+          [
+            "==",
+            [
+              "feature",
+              "pd_location",
+              {
+                "tf": "htf",
+                "price_tf": "smt_timeframe"
+              }
+            ],
+            [
+              "if",
+              [
+                "==",
+                [
+                  "state",
+                  "bias_state",
+                  {
+                    "tf": "htf",
+                    "method": "structural",
+                    "field": "direction"
+                  }
+                ],
+                [
+                  "const",
+                  "bullish"
+                ]
+              ],
+              [
+                "const",
+                "discount"
+              ],
+              [
+                "const",
+                "premium"
+              ]
+            ]
+          ],
+          [
+            "feature",
+            "in_session",
+            {
+              "window_param": "authorised_kill_zone_ET"
+            }
+          ]
+        ]
+      },
+      {
+        "node_id": "S22.pre.02",
+        "kind": "predicate",
+        "source": {
+          "block": "prerequisites",
+          "index": 1,
+          "text": "Correlated pair selected and correlation stability verified (definition unspecified \u2014 freeze)."
+        },
+        "kb_refs": [
+          "ADV-M13-R01"
+        ],
+        "primitives": [
+          "P-SMT-01"
+        ],
+        "expr": [
+          "exists",
+          [
+            "state",
+            "correlated_instrument_view",
+            {
+              "name": "secondary"
+            }
+          ]
+        ]
+      },
+      {
+        "node_id": "S22.pre.session",
+        "kind": "predicate",
+        "source": {
+          "block": "session",
+          "index": "session",
+          "text": "Kill zone in which the liquidity event is expected (SMT valid only at liquidity-relevant extremes inside kill zones \u2014 ADV-M13-R02, ADV-M13-NT01)."
+        },
+        "kb_refs": [
+          "ADV-M13-R02",
+          "ADV-M13-NT01",
+          "ADV-M16-R07"
+        ],
+        "primitives": [
+          "P-TIME-01",
+          "P-SMT-01"
+        ],
+        "expr": [
+          "feature",
+          "in_session",
+          {
+            "window_param": "authorised_kill_zone_ET"
+          }
+        ]
+      }
+    ],
+    "setup_sequence": [
+      {
+        "node_id": "S22.setup.01",
+        "kind": "event",
+        "source": {
+          "block": "setup_sequence",
+          "index": 0,
+          "text": "At the expected liquidity event (origin-pool raid inside the kill zone), compare swings across the two instruments (P-SMT-01): bullish SMT if one prints a lower low and the other a higher low; bearish SMT if one prints a higher high and the other a lower high."
+        },
+        "kb_refs": [
+          "ADV-M13-C03",
+          "ADV-M13-R02",
+          "ADV-M13-C05"
+        ],
+        "primitives": [
+          "P-SMT-01",
+          "P-LIQ-02"
+        ],
+        "expr": [
+          "and",
+          [
+            "==",
+            [
+              "if",
+              [
+                "==",
+                [
+                  "state",
+                  "bias_state",
+                  {
+                    "tf": "htf",
+                    "method": "structural",
+                    "field": "direction"
+                  }
+                ],
+                [
+                  "const",
+                  "bullish"
+                ]
+              ],
+              [
+                "feature",
+                "sweep",
+                {
+                  "tf": "smt_timeframe",
+                  "level": [
+                    "feature",
+                    "liquidity_pools",
+                    {
+                      "tf": "smt_timeframe",
+                      "side": "sell",
+                      "kinds": [
+                        "swing",
+                        "equal",
+                        "prev_day"
+                      ],
+                      "select": "nearest",
+                      "field": "price"
+                    }
+                  ],
+                  "side": "ssl",
+                  "since_index": [
+                    "feature",
+                    "liquidity_pools",
+                    {
+                      "tf": "smt_timeframe",
+                      "side": "sell",
+                      "kinds": [
+                        "swing",
+                        "equal",
+                        "prev_day"
+                      ],
+                      "select": "nearest",
+                      "field": "from_index"
+                    }
+                  ],
+                  "field": "classification"
+                }
+              ],
+              [
+                "feature",
+                "sweep",
+                {
+                  "tf": "smt_timeframe",
+                  "level": [
+                    "feature",
+                    "liquidity_pools",
+                    {
+                      "tf": "smt_timeframe",
+                      "side": "buy",
+                      "kinds": [
+                        "swing",
+                        "equal",
+                        "prev_day"
+                      ],
+                      "select": "nearest",
+                      "field": "price"
+                    }
+                  ],
+                  "side": "bsl",
+                  "since_index": [
+                    "feature",
+                    "liquidity_pools",
+                    {
+                      "tf": "smt_timeframe",
+                      "side": "buy",
+                      "kinds": [
+                        "swing",
+                        "equal",
+                        "prev_day"
+                      ],
+                      "select": "nearest",
+                      "field": "from_index"
+                    }
+                  ],
+                  "field": "classification"
+                }
+              ]
+            ],
+            [
+              "const",
+              "raid"
+            ]
+          ],
+          [
+            "exists",
+            [
+              "feature",
+              "smt_divergence",
+              {
+                "tf": "smt_timeframe",
+                "side": [
+                  "if",
+                  [
+                    "==",
+                    [
+                      "state",
+                      "bias_state",
+                      {
+                        "tf": "htf",
+                        "method": "structural",
+                        "field": "direction"
+                      }
+                    ],
+                    [
+                      "const",
+                      "bullish"
+                    ]
+                  ],
+                  [
+                    "const",
+                    "sell"
+                  ],
+                  [
+                    "const",
+                    "buy"
+                  ]
+                ],
+                "correlated": "secondary"
+              }
+            ]
+          ]
+        ],
+        "emits": {
+          "smt": [
+            "feature",
+            "smt_divergence",
+            {
+              "tf": "smt_timeframe",
+              "side": [
+                "if",
+                [
+                  "==",
+                  [
+                    "state",
+                    "bias_state",
+                    {
+                      "tf": "htf",
+                      "method": "structural",
+                      "field": "direction"
+                    }
+                  ],
+                  [
+                    "const",
+                    "bullish"
+                  ]
+                ],
+                [
+                  "const",
+                  "sell"
+                ],
+                [
+                  "const",
+                  "buy"
+                ]
+              ],
+              "correlated": "secondary"
+            }
+          ],
+          "raid_index": [
+            "if",
+            [
+              "==",
+              [
+                "state",
+                "bias_state",
+                {
+                  "tf": "htf",
+                  "method": "structural",
+                  "field": "direction"
+                }
+              ],
+              [
+                "const",
+                "bullish"
+              ]
+            ],
+            [
+              "feature",
+              "sweep",
+              {
+                "tf": "smt_timeframe",
+                "level": [
+                  "feature",
+                  "liquidity_pools",
+                  {
+                    "tf": "smt_timeframe",
+                    "side": "sell",
+                    "kinds": [
+                      "swing",
+                      "equal",
+                      "prev_day"
+                    ],
+                    "select": "nearest",
+                    "field": "price"
+                  }
+                ],
+                "side": "ssl",
+                "since_index": [
+                  "feature",
+                  "liquidity_pools",
+                  {
+                    "tf": "smt_timeframe",
+                    "side": "sell",
+                    "kinds": [
+                      "swing",
+                      "equal",
+                      "prev_day"
+                    ],
+                    "select": "nearest",
+                    "field": "from_index"
+                  }
+                ],
+                "field": "sweep_index"
+              }
+            ],
+            [
+              "feature",
+              "sweep",
+              {
+                "tf": "smt_timeframe",
+                "level": [
+                  "feature",
+                  "liquidity_pools",
+                  {
+                    "tf": "smt_timeframe",
+                    "side": "buy",
+                    "kinds": [
+                      "swing",
+                      "equal",
+                      "prev_day"
+                    ],
+                    "select": "nearest",
+                    "field": "price"
+                  }
+                ],
+                "side": "bsl",
+                "since_index": [
+                  "feature",
+                  "liquidity_pools",
+                  {
+                    "tf": "smt_timeframe",
+                    "side": "buy",
+                    "kinds": [
+                      "swing",
+                      "equal",
+                      "prev_day"
+                    ],
+                    "select": "nearest",
+                    "field": "from_index"
+                  }
+                ],
+                "field": "sweep_index"
+              }
+            ]
+          ],
+          "raid_extreme": [
+            "if",
+            [
+              "==",
+              [
+                "state",
+                "bias_state",
+                {
+                  "tf": "htf",
+                  "method": "structural",
+                  "field": "direction"
+                }
+              ],
+              [
+                "const",
+                "bullish"
+              ]
+            ],
+            [
+              "feature",
+              "sweep",
+              {
+                "tf": "smt_timeframe",
+                "level": [
+                  "feature",
+                  "liquidity_pools",
+                  {
+                    "tf": "smt_timeframe",
+                    "side": "sell",
+                    "kinds": [
+                      "swing",
+                      "equal",
+                      "prev_day"
+                    ],
+                    "select": "nearest",
+                    "field": "price"
+                  }
+                ],
+                "side": "ssl",
+                "since_index": [
+                  "feature",
+                  "liquidity_pools",
+                  {
+                    "tf": "smt_timeframe",
+                    "side": "sell",
+                    "kinds": [
+                      "swing",
+                      "equal",
+                      "prev_day"
+                    ],
+                    "select": "nearest",
+                    "field": "from_index"
+                  }
+                ],
+                "field": "extreme"
+              }
+            ],
+            [
+              "feature",
+              "sweep",
+              {
+                "tf": "smt_timeframe",
+                "level": [
+                  "feature",
+                  "liquidity_pools",
+                  {
+                    "tf": "smt_timeframe",
+                    "side": "buy",
+                    "kinds": [
+                      "swing",
+                      "equal",
+                      "prev_day"
+                    ],
+                    "select": "nearest",
+                    "field": "price"
+                  }
+                ],
+                "side": "bsl",
+                "since_index": [
+                  "feature",
+                  "liquidity_pools",
+                  {
+                    "tf": "smt_timeframe",
+                    "side": "buy",
+                    "kinds": [
+                      "swing",
+                      "equal",
+                      "prev_day"
+                    ],
+                    "select": "nearest",
+                    "field": "from_index"
+                  }
+                ],
+                "field": "extreme"
+              }
+            ]
+          ]
+        }
+      },
+      {
+        "node_id": "S22.setup.02",
+        "kind": "event",
+        "source": {
+          "block": "setup_sequence",
+          "index": 1,
+          "text": "Instrument selection (ADV-M13-R03): bullish SMT -> prefer the instrument that HELD the higher low; bearish SMT -> prefer the instrument that printed the LOWER high \u2014 subject to which offers the cleaner array and better own-narrative alignment."
+        },
+        "kb_refs": [
+          "ADV-M13-R03"
+        ],
+        "primitives": [
+          "P-SMT-01"
+        ],
+        "expr": [
+          "exists",
+          [
+            "field",
+            [
+              "binding",
+              "smt"
+            ],
+            "preferred_instrument"
+          ]
+        ],
+        "emits": {
+          "preferred_instrument": [
+            "field",
+            [
+              "binding",
+              "smt"
+            ],
+            "preferred_instrument"
+          ]
+        }
+      },
+      {
+        "node_id": "S22.setup.03",
+        "kind": "event",
+        "source": {
+          "block": "setup_sequence",
+          "index": 2,
+          "text": "Require subsequent displacement + MSS on the traded instrument in the SMT-implied direction (SMT without MSS is only a warning) (ADV-M13-R04)."
+        },
+        "kb_refs": [
+          "ADV-M13-R04",
+          "BEG-M03-R02",
+          "BEG-M05-R01"
+        ],
+        "primitives": [
+          "P-DISP-01",
+          "P-MSS-01"
+        ],
+        "expr": [
+          "and",
+          [
+            "feature",
+            "displacement",
+            {
+              "tf": "smt_timeframe",
+              "at_index": -1,
+              "direction": [
+                "binding",
+                "dir_word"
+              ]
+            }
+          ],
+          [
+            "feature",
+            "mss",
+            {
+              "tf": "smt_timeframe",
+              "at_index": -1,
+              "direction": [
+                "binding",
+                "dir_word"
+              ]
+            }
+          ],
+          [
+            ">",
+            [
+              "feature",
+              "latest_index",
+              {
+                "tf": "smt_timeframe"
+              }
+            ],
+            [
+              "binding",
+              "raid_index"
+            ]
+          ]
+        ],
+        "emits": {
+          "displacement_index": [
+            "feature",
+            "latest_index",
+            {
+              "tf": "smt_timeframe"
+            }
+          ]
+        }
+      },
+      {
+        "node_id": "S22.setup.04",
+        "kind": "event",
+        "source": {
+          "block": "setup_sequence",
+          "index": 3,
+          "text": "Proceed with the Variation A array entry in the correct half of the range (ADV-M13-R04: SMT does not replace the array or the P/D filter)."
+        },
+        "kb_refs": [
+          "ADV-M13-R04",
+          "ADV-M11-S01",
+          "INT-M06-R03"
+        ],
+        "primitives": [
+          "P-FVG-01",
+          "P-OB-01",
+          "P-RANGE-01"
+        ],
+        "expr": [
+          "and",
+          [
+            "exists",
+            [
+              "feature",
+              "fvg",
+              {
+                "tf": "smt_timeframe",
+                "direction": [
+                  "binding",
+                  "dir_word"
+                ],
+                "since_index": [
+                  "binding",
+                  "raid_index"
+                ],
+                "select": "latest"
+              }
+            ]
+          ],
+          [
+            "==",
+            [
+              "feature",
+              "pd_location",
+              {
+                "tf": "htf",
+                "price": [
+                  "feature",
+                  "midpoint",
+                  {
+                    "zone": [
+                      "feature",
+                      "fvg",
+                      {
+                        "tf": "smt_timeframe",
+                        "direction": [
+                          "binding",
+                          "dir_word"
+                        ],
+                        "since_index": [
+                          "binding",
+                          "raid_index"
+                        ],
+                        "select": "latest"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            [
+              "if",
+              [
+                "==",
+                [
+                  "state",
+                  "bias_state",
+                  {
+                    "tf": "htf",
+                    "method": "structural",
+                    "field": "direction"
+                  }
+                ],
+                [
+                  "const",
+                  "bullish"
+                ]
+              ],
+              [
+                "const",
+                "discount"
+              ],
+              [
+                "const",
+                "premium"
+              ]
+            ]
+          ]
+        ],
+        "emits": {
+          "array": [
+            "feature",
+            "fvg",
+            {
+              "tf": "smt_timeframe",
+              "direction": [
+                "binding",
+                "dir_word"
+              ],
+              "since_index": [
+                "binding",
+                "raid_index"
+              ],
+              "select": "latest"
+            }
+          ],
+          "order_block": [
+            "feature",
+            "order_block",
+            {
+              "tf": "smt_timeframe",
+              "displacement_index": [
+                "binding",
+                "displacement_index"
+              ],
+              "direction": [
+                "binding",
+                "dir_word"
+              ]
+            }
+          ]
+        }
+      }
+    ],
+    "entry": {
+      "zone": {
+        "node_id": "S22.entry.zone",
+        "kind": "selection",
+        "source": {
+          "block": "entry.entry_zone",
+          "index": "entry_zone",
+          "text": "As S11/S15 (FVG / CE / OTE)."
+        },
+        "kb_refs": [
+          "ADV-M16-R03",
+          "ADV-M11-S01"
+        ],
+        "primitives": [
+          "P-FVG-01"
+        ],
+        "expr": [
+          "binding",
+          "array",
+          "ce"
+        ],
+        "emits": {
+          "entry_zone": [
+            "const",
+            "$value"
+          ]
+        }
+      },
+      "triggers": [
+        {
+          "node_id": "S22.entry.trigger",
+          "kind": "event",
+          "source": {
+            "block": "entry.trigger_options",
+            "index": 0,
+            "text": "As S11/S15 with P-GATE-01."
+          },
+          "kb_refs": [
+            "ADV-M16-R02",
+            "ADV-M16-R08"
+          ],
+          "primitives": [
+            "P-MSS-01",
+            "P-GATE-01"
+          ],
+          "expr": [
+            "and",
+            [
+              "if",
+              [
+                "==",
+                [
+                  "binding",
+                  "dir_word"
+                ],
+                [
+                  "const",
+                  "bullish"
+                ]
+              ],
+              [
+                "<=",
+                [
+                  "feature",
+                  "bar",
+                  {
+                    "tf": "smt_timeframe",
+                    "component": "low"
+                  }
+                ],
+                [
+                  "binding",
+                  "array",
+                  "high"
+                ]
+              ],
+              [
+                ">=",
+                [
+                  "feature",
+                  "bar",
+                  {
+                    "tf": "smt_timeframe",
+                    "component": "high"
+                  }
+                ],
+                [
+                  "binding",
+                  "array",
+                  "low"
+                ]
+              ]
+            ],
+            [
+              "==",
+              [
+                "param",
+                "ltf_confirmation_signal"
+              ],
+              [
+                "const",
+                "ltf_mss"
+              ]
+            ],
+            [
+              "feature",
+              "mss",
+              {
+                "tf": "smt_timeframe",
+                "at_index": -1,
+                "direction": [
+                  "binding",
+                  "dir_word"
+                ]
+              }
+            ],
+            [
+              "feature",
+              "in_session",
+              {
+                "window_param": "authorised_kill_zone_ET"
+              }
+            ]
+          ],
+          "trigger_id": "ltf_confirmation",
+          "fill": {
+            "mode": "market_on_close"
+          }
+        }
+      ]
+    },
+    "stop": {
+      "node_id": "S22.stop",
+      "kind": "selection",
+      "source": {
+        "block": "stop_invalidation",
+        "index": "trade_level",
+        "text": "As S11/S15."
+      },
+      "kb_refs": [
+        "ADV-M16-R04",
+        "ADV-M11-S01"
+      ],
+      "primitives": [
+        "P-STOP-01"
+      ],
+      "expr": [
+        "if",
+        [
+          "==",
+          [
+            "param",
+            "stop_reference_advanced"
+          ],
+          [
+            "const",
+            "displacement_origin"
+          ]
+        ],
+        [
+          "feature",
+          "offset",
+          {
+            "price": [
+              "feature",
+              "displacement_leg",
+              {
+                "tf": "smt_timeframe",
+                "at_index": [
+                  "binding",
+                  "displacement_index"
+                ],
+                "direction": [
+                  "binding",
+                  "dir_word"
+                ],
+                "field": "origin"
+              }
+            ],
+            "ticks": [
+              "param",
+              "stop_buffer_ticks"
+            ],
+            "direction": [
+              "if",
+              [
+                "==",
+                [
+                  "binding",
+                  "dir_word"
+                ],
+                [
+                  "const",
+                  "bullish"
+                ]
+              ],
+              [
+                "const",
+                "below"
+              ],
+              [
+                "const",
+                "above"
+              ]
+            ]
+          }
+        ],
+        [
+          "feature",
+          "offset",
+          {
+            "price": [
+              "if",
+              [
+                "==",
+                [
+                  "binding",
+                  "dir_word"
+                ],
+                [
+                  "const",
+                  "bullish"
+                ]
+              ],
+              [
+                "binding",
+                "array",
+                "low"
+              ],
+              [
+                "binding",
+                "array",
+                "high"
+              ]
+            ],
+            "ticks": [
+              "param",
+              "stop_buffer_ticks"
+            ],
+            "direction": [
+              "if",
+              [
+                "==",
+                [
+                  "binding",
+                  "dir_word"
+                ],
+                [
+                  "const",
+                  "bullish"
+                ]
+              ],
+              [
+                "const",
+                "below"
+              ],
+              [
+                "const",
+                "above"
+              ]
+            ]
+          }
+        ]
+      ],
+      "execution_mode": "close"
+    },
+    "targets": [
+      {
+        "node_id": "S22.target.primary",
+        "kind": "selection",
+        "source": {
+          "block": "target",
+          "index": "primary",
+          "text": "As S11/S15."
+        },
+        "kb_refs": [
+          "ADV-M16-R06"
+        ],
+        "primitives": [
+          "P-TARGET-01",
+          "P-DOL-01"
+        ],
+        "expr": [
+          "binding",
+          "dol_irl"
+        ],
+        "allocation": {
+          "param": "first_target_allocation"
+        }
+      },
+      {
+        "node_id": "S22.target.secondary",
+        "kind": "selection",
+        "source": {
+          "block": "target",
+          "index": "secondary",
+          "text": "As S11/S15."
+        },
+        "kb_refs": [
+          "ADV-M16-R05"
+        ],
+        "primitives": [
+          "P-TARGET-01",
+          "P-DOL-01"
+        ],
+        "expr": [
+          "binding",
+          "dol_erl"
+        ],
+        "allocation": 0.0
+      }
+    ],
+    "invalidation": [
+      {
+        "node_id": "S22.inval.narrative",
+        "kind": "predicate",
+        "source": {
+          "block": "stop_invalidation",
+          "index": "narrative_level",
+          "text": "As S11/S15; SMT contradicting the bias -> tighten requirements (stronger displacement, clearer array, smaller size) or stand aside (ADV-M13-R07 step 4) \u2014 SMT alone never overturns HTF bias (ADV-M13-R05)."
+        },
+        "kb_refs": [
+          "ADV-M13-R05",
+          "ADV-M13-R07",
+          "ADV-M11-R03"
+        ],
+        "primitives": [
+          "P-BIAS-02"
+        ],
+        "expr": [
+          "!=",
+          [
+            "state",
+            "bias_state",
+            {
+              "tf": "htf",
+              "method": "structural",
+              "field": "direction"
+            }
+          ],
+          [
+            "binding",
+            "dir_word"
+          ]
+        ]
+      }
+    ],
+    "no_trade": [],
+    "risk": [
+      {
+        "node_id": "S22.risk.size",
+        "kind": "action",
+        "source": {
+          "block": "parameters",
+          "index": "size_adjustment_on_conflict",
+          "text": "'smaller size' \u2014 magnitude unspecified"
+        },
+        "kb_refs": [
+          "ADV-M17-R02",
+          "ADV-M13-R07"
+        ],
+        "primitives": [
+          "P-RISK-01"
+        ],
+        "expr": [
+          "feature",
+          "position_size",
+          {
+            "entry": [
+              "binding",
+              "entry_price"
+            ],
+            "stop": [
+              "binding",
+              "stop_price"
+            ]
+          }
+        ],
+        "emits": {
+          "position_size": [
+            "const",
+            "$value"
+          ]
+        }
+      }
+    ]
+  },
+  "no_trade_dispositions": [
+    {
+      "kb_ref": "ADV-M13-NT01",
+      "disposition": "enforced_by_feature",
+      "note": "smt_divergence requires a correlation test and is only ever a supporting layer; the primary entry model is unchanged."
+    },
+    {
+      "kb_ref": "ADV-M15-NT01",
+      "disposition": "enforced_by_sequence",
+      "note": "Distribution models forbidden during accumulation or early manipulation; the engine holds one position at a time, so a long and a short model cannot run together. (already implied by this strategy's own steps)"
+    },
+    {
+      "kb_ref": "ADV-M11-NT01",
+      "disposition": "enforced_by_sequence",
+      "note": "Bias, discount location and the raid-then-displacement chain are all required steps."
+    },
+    {
+      "kb_ref": "ADV-M12-NT01",
+      "disposition": "enforced_by_sequence",
+      "note": "Mirror of ADV-M11-NT01."
+    }
+  ],
+  "unsupported": [
+    {
+      "item_id": "U-SMT-CORR",
+      "strategy_id": "S22-ADV-A-SMT-CONFIRMED",
+      "source": {
+        "block": "prerequisites",
+        "index": 1,
+        "text": "Correlated pair selected and correlation stability verified (definition unspecified \u2014 freeze)."
+      },
+      "element": "'strong, stable current correlation' test and swing comparison window",
+      "reason_code": "GAP_REQUIRES_FROZEN_OPERATIONALISATION",
+      "explanation": "The specification requires verified correlation stability but records both the threshold and the comparison window as unspecified. A correlation computation is implemented, but its threshold and window must be frozen.",
+      "kb_refs": [
+        "ADV-M13-R01",
+        "ADV-M13-R02"
+      ],
+      "blocks_execution": true,
+      "resolution": "Record an operationalisation for U-SMT-CORR and set smt_correlation_min and smt_swing_comparison_window."
+    },
+    {
+      "item_id": "U-S22-02",
+      "strategy_id": "S22-ADV-A-SMT-CONFIRMED",
+      "source": {
+        "block": "setup_sequence",
+        "index": 1,
+        "text": "Instrument selection (ADV-M13-R03): bullish SMT -> prefer the instrument that HELD the higher low; bearish SMT -> prefer the instrument that printed the LOWER high \u2014 subject to which offers the cleaner array and better own-narrative alignment."
+      },
+      "element": "'subject to which offers the cleaner array and better own-narrative alignment'",
+      "reason_code": "UNSUPPORTED_SUBJECTIVE",
+      "explanation": "The mechanical half of instrument selection (prefer the instrument that held the higher low, or printed the lower high) is compiled. Comparing array cleanliness and narrative alignment across instruments has no price test.",
+      "kb_refs": [
+        "ADV-M13-R03"
+      ],
+      "blocks_execution": false,
+      "resolution": "Fix the traded instrument in advance and use SMT only as the on/off layer.",
+      "effect_if_unenforced": "The traded instrument is whichever the mechanical rule prefers, which may differ from the specification's discretionary choice."
+    },
+    {
+      "item_id": "U-S22-03",
+      "strategy_id": "S22-ADV-A-SMT-CONFIRMED",
+      "source": {
+        "block": "parameters",
+        "index": "size_adjustment_on_conflict",
+        "text": "'smaller size' \u2014 magnitude unspecified"
+      },
+      "element": "'smaller size' when SMT contradicts the bias",
+      "reason_code": "GAP_REQUIRES_FROZEN_OPERATIONALISATION",
+      "explanation": "The magnitude of the reduction is not stated.",
+      "kb_refs": [
+        "ADV-M13-R07"
+      ],
+      "blocks_execution": false,
+      "resolution": "Freeze a reduced risk_fraction for the contradicting-SMT stratum."
+    },
+    {
+      "item_id": "U-S22-04",
+      "strategy_id": "S22-ADV-A-SMT-CONFIRMED",
+      "source": {
+        "block": "context",
+        "index": "other",
+        "text": "A second instrument with strong, stable CURRENT correlation on the analysed timeframe (P-SMT-01)."
+      },
+      "element": "second correlated instrument feed",
+      "reason_code": "UNSUPPORTED_EXTERNAL_DATA",
+      "explanation": "SMT is defined only across two instruments, so the run needs a second, time-aligned bar feed. This is a data requirement rather than a rule gap and is declared in data_requirements.correlated_instruments.",
+      "kb_refs": [
+        "ADV-M13-R01"
+      ],
+      "blocks_execution": false,
+      "resolution": "Supply the correlated instrument in MarketData.correlated['secondary']."
+    }
+  ],
+  "unconstrained": [],
+  "executability": "blocked",
+  "blocking_items": [
+    "U-SMT-CORR"
+  ]
+}

@@ -1,0 +1,99 @@
+{
+  "_meta": {
+    "title": "Required Market-State Calculations",
+    "definition": "A market-state calculation is a derived view of the instrument that more than one feature or strategy depends on, and that must be recomputed from the visible window at every decision bar rather than carried forward as mutable state.",
+    "why_recomputed": "Carrying market state forward is the usual source of look-ahead contamination and of run-to-run divergence. Every state below is a pure function of the bars whose close_time <= the decision bar's close_time (ADV-M18-R04), which is what makes the determinism contract in DSL_SPEC.md §9 provable.",
+    "implementation": "strategy_compiler/engine/market_state.py",
+    "call_form": "[\"state\", \"<state_id>\", {kwargs}]"
+  },
+  "market_state": [
+    {
+      "state_id": "swing_registry",
+      "description": "Confirmed short-term and intermediate-term swing highs and lows per timeframe, each with the index of the candle that confirmed it.",
+      "inputs": ["bars@tf"],
+      "consumed_by": ["structure_state", "governing_point", "dealing_range", "liquidity_pools", "mss"],
+      "look_ahead_control": "A swing is published only once its right-hand confirming candle has closed; the swing's usable-from index is that confirming candle, never the pivot candle.",
+      "kb_refs": ["BEG-M01-C01", "BEG-M01-C02", "INT-M01-R01"]
+    },
+    {
+      "state_id": "structure",
+      "description": "Structure state (bullish / bearish / range) and the governing structural point per timeframe and swing tier.",
+      "inputs": ["swing_registry@tf", "governing_swing_tier"],
+      "consumed_by": ["mss", "bias_structural", "bias_daily"],
+      "look_ahead_control": "Derived only from swings already published by swing_registry.",
+      "kb_refs": ["BEG-M03-C01", "BEG-M03-C02", "BEG-M03-C03", "BEG-M03-C04"]
+    },
+    {
+      "state_id": "controlling_range",
+      "description": "The dealing range that frames the active liquidity objective, its equilibrium, and the nested lower-timeframe range inside it. Authority order macro > intermediate > internal.",
+      "inputs": ["swing_registry@controlling_range_timeframe", "swing_registry@intermediate_tf"],
+      "consumed_by": ["pd_location", "range_depth_fraction", "mss_scope", "dol", "bias_structural"],
+      "look_ahead_control": "The range is retired only after a close beyond a boundary with displacement has printed; the pre-retirement range remains in force for all decisions taken before that close.",
+      "kb_refs": ["INT-M06-R01", "INT-M06-R02", "ADV-M02-R01", "ADV-M02-R02", "ADV-M02-R03"]
+    },
+    {
+      "state_id": "pool_registry",
+      "description": "All marked buy-side and sell-side pools with kind (swing, equal highs/lows, session extreme, previous day/week/month extreme), the timeframe that produced them, whether they are internal or external to the controlling range, and whether they have been swept as of the decision bar.",
+      "inputs": ["swing_registry@tf", "session_calendar", "period_extremes", "equal_level_tolerance"],
+      "consumed_by": ["liquidity_pools", "sweep", "dol", "targets"],
+      "look_ahead_control": "A pool exists from the bar that confirms it. The swept flag is set at the bar that first trades beyond it and is never unset.",
+      "kb_refs": ["BEG-M04-C01", "BEG-M04-C03", "BEG-M04-C04", "BEG-M04-C05", "INT-M02-R01", "ADV-M03-R01"]
+    },
+    {
+      "state_id": "array_registry",
+      "description": "All fair value gaps, order blocks and breakers on each declared timeframe, each with its zone, consequent encroachment, creating displacement leg, premium/discount location and mitigation state (unmitigated / partially mitigated / failed / inverted).",
+      "inputs": ["bars@tf", "displacement", "controlling_range"],
+      "consumed_by": ["fvg", "fvg_state", "fvg_inverted", "order_block", "breaker_state", "entry zone selection"],
+      "look_ahead_control": "An FVG is registered at the close of its third candle; an order block at the close of the displacement candle that defines it. Mitigation state is evaluated only over bars after registration.",
+      "kb_refs": ["BEG-M05-C04", "BEG-M06-C01", "INT-M04-R03", "INT-M05-R02", "ADV-M06-R03"]
+    },
+    {
+      "state_id": "session_calendar",
+      "description": "New-York-anchored session and kill-zone boundaries for each bar, and the completed high/low of each finished window (Asian, London Open, New York Open, London Close).",
+      "inputs": ["bar close_time", "timezone", "window parameters"],
+      "consumed_by": ["in_session", "session_range", "po3_phase", "pool_registry"],
+      "look_ahead_control": "A session range is exposed only after the window has closed; an in-progress window returns None.",
+      "kb_refs": ["BEG-M08-R01", "BEG-M08-R02", "BEG-M08-R03", "BEG-M08-R04", "BEG-M08-R05", "INT-M09-R01"]
+    },
+    {
+      "state_id": "period_opens",
+      "description": "Current daily, weekly and monthly opening prices, plus previous day / week / month high and low.",
+      "inputs": ["bars@1D", "bars@1W", "bars@1M"],
+      "consumed_by": ["period_open", "bias_opening_price", "bias_daily", "pool_registry", "po3_phase"],
+      "look_ahead_control": "Opens are known at period start. Previous-period extremes use only completed periods; the in-progress period's extreme is never used as a previous-period level.",
+      "kb_refs": ["BEG-M10-C02", "BEG-M04-C06", "ADV-M07-C03"]
+    },
+    {
+      "state_id": "bias_state",
+      "description": "The active higher-timeframe bias: direction, premium/discount location, named draw on liquidity, invalidation level, and whether the bias has been retired by an invalidation close. Conditional biases additionally carry the condition that must print before any model is authorised.",
+      "inputs": ["structure@htf", "controlling_range", "period_opens", "dol"],
+      "consumed_by": ["all directional strategies", "model permission gate"],
+      "look_ahead_control": "The bias in force at a decision bar is the one computable from data before that bar; retirement takes effect from the close that triggers it, not retroactively.",
+      "kb_refs": ["INT-M11-R01", "INT-M11-R04", "INT-M11-R05", "ADV-M10-R01", "ADV-M10-R03", "ADV-M10-R05", "ADV-M10-R07"]
+    },
+    {
+      "state_id": "po3_state",
+      "description": "Power-of-3 phase for the daily, weekly and session periods: the accumulation range, which boundary was manipulated, whether distribution has been confirmed by displacement plus MSS, and any failure signature.",
+      "inputs": ["session_calendar", "period_opens", "sweep", "mss"],
+      "consumed_by": ["po3_phase", "model permission gate (weekly gate)"],
+      "look_ahead_control": "Phase transitions are latched at the bar that confirms them; a later failure does not rewrite an earlier phase label.",
+      "kb_refs": ["BEG-M09-C01", "BEG-M09-C02", "BEG-M09-C03", "BEG-M09-R02", "INT-M10-R01", "ADV-M08-R01"]
+    },
+    {
+      "state_id": "correlated_instrument_view",
+      "description": "Aligned bar view of a second instrument on the same timeframe, for the SMT comparison only.",
+      "inputs": ["bars@tf for correlated instrument"],
+      "consumed_by": ["smt_divergence"],
+      "look_ahead_control": "The correlated instrument is truncated to the same close_time cut-off as the primary instrument.",
+      "kb_refs": ["ADV-M13-R01", "ADV-M13-R02"]
+    },
+    {
+      "state_id": "risk_state",
+      "description": "Account equity, risk consumed in the current session, realised loss in the current session, and whether the daily risk ceiling or daily loss limit has been reached.",
+      "inputs": ["closed trades", "risk_fraction", "max_daily_risk", "daily_loss_limit"],
+      "consumed_by": ["position sizing", "no-trade gate"],
+      "look_ahead_control": "Only trades closed at or before the decision bar contribute.",
+      "kb_refs": ["ADV-M17-R02", "ADV-M17-R03", "INT-M12-R01", "BEG-M13-R01"]
+    }
+  ]
+}

@@ -1,0 +1,328 @@
+{
+  "_meta": {
+    "title": "Required Features — closed set of deterministic computations the compiled Strategy DSL may call",
+    "rule": "Every feature maps 1:1 onto a primitive in strategy_reearcher/catalog/primitives.json. No feature introduces a concept, indicator or threshold that is not already in that primitive. Features whose primitive leaves a threshold unspecified declare it in 'frozen_params'; the implementation has no default and raises UnspecifiedParameter.",
+    "purity": "f(visible_window, frozen_params) -> value. No mutable state, no wall clock, no randomness. The visible window is every bar on the requested timeframe whose close_time <= the decision bar's close_time (ADV-M18-R04).",
+    "implementation": "strategy_compiler/engine/features.py, delegating to strategy_reearcher/engine/ict_primitives.py wherever that reference implementation already covers the operation.",
+    "notation": "tf arguments are timeframe ROLES resolved through the strategy's 'timeframes' map."
+  },
+  "features": [
+    {
+      "feature_id": "swing_points",
+      "primitive": "P-SWING-01",
+      "signature": "swing_points(tf, side) -> [{index, price, confirmed_at_index}]",
+      "returns": "list of confirmed short-term swing highs or lows, oldest first",
+      "definition": "Three-candle test: high[i] > high[i-1] and high[i] > high[i+1] (mirror for lows). Confirmed at i+1; a swing whose confirming candle has not closed is not returned.",
+      "frozen_params": [],
+      "kb_refs": ["BEG-M01-C01", "BEG-M01-C02"],
+      "delegates_to": "ict_primitives.swing_highs / swing_lows"
+    },
+    {
+      "feature_id": "swing_points_intermediate",
+      "primitive": "P-SWING-02",
+      "signature": "swing_points_intermediate(tf, side) -> [{index, price}]",
+      "returns": "intermediate-term highs/lows",
+      "definition": "An ITH is a short-term high with lower short-term highs on both sides; ITL is the mirror.",
+      "frozen_params": [],
+      "kb_refs": ["INT-M01-R01", "INT-M01-R02"],
+      "delegates_to": "ict_primitives.intermediate_term_highs / intermediate_term_lows"
+    },
+    {
+      "feature_id": "structure_state",
+      "primitive": "P-STRUCT-01",
+      "signature": "structure_state(tf, swing_tier) -> 'bullish' | 'bearish' | 'range'",
+      "definition": "Bullish requires two consecutive higher highs AND two consecutive higher lows on the selected swing tier; bearish is the mirror; otherwise range.",
+      "frozen_params": ["governing_swing_tier"],
+      "kb_refs": ["BEG-M03-C01", "BEG-M03-C02", "BEG-M03-C03", "BEG-M03-C04"],
+      "delegates_to": "ict_primitives.structure_state"
+    },
+    {
+      "feature_id": "governing_point",
+      "primitive": "P-STRUCT-01",
+      "signature": "governing_point(tf, swing_tier) -> price | None",
+      "definition": "Bullish structure -> most recent confirmed higher low. Bearish structure -> most recent confirmed lower high. Range -> None.",
+      "frozen_params": ["governing_swing_tier"],
+      "kb_refs": ["BEG-M03-C02"],
+      "delegates_to": "ict_primitives.governing_point"
+    },
+    {
+      "feature_id": "displacement",
+      "primitive": "P-DISP-01",
+      "signature": "displacement(tf, at_index, direction, broke_level) -> bool",
+      "definition": "All four criteria: (1) range >= multiple x mean range of the previous lookback candles; (2) body/range >= ratio; (3) close beyond the prior candle's opposing extreme (no significant overlap); (4) breaks the supplied structural level. Criterion 4 is skipped only when broke_level is None, which the compiler never emits for a model that requires structure to break.",
+      "frozen_params": ["displacement_range_multiple", "displacement_lookback", "displacement_body_ratio_min"],
+      "kb_refs": ["BEG-M05-R01", "BEG-M05-C01", "BEG-M05-C02", "INT-M03-R01", "BEG-M05-AMB01"],
+      "delegates_to": "ict_primitives.is_displacement"
+    },
+    {
+      "feature_id": "displacement_leg",
+      "primitive": "P-DISP-01",
+      "signature": "displacement_leg(tf, at_index, direction) -> {origin, termination, origin_index, termination_index} | None",
+      "definition": "The contiguous run of same-direction candles containing the displacement candle. Origin = the run's opposing extreme (low for a bullish leg), termination = the run's extreme in the direction of travel, both as of the decision bar. Body-vs-wick price selection follows the frozen fib_anchor so the leg and its Fibonacci are anchored consistently (INT-M07-R01 'only consistency is required').",
+      "frozen_params": ["fib_anchor"],
+      "kb_refs": ["BEG-M05-C01", "BEG-M07-R01", "INT-M07-R01"],
+      "delegates_to": "engine.features (composition over ict_primitives)"
+    },
+    {
+      "feature_id": "fvg",
+      "primitive": "P-FVG-01",
+      "signature": "fvg(tf, direction, since_index) -> [{low, high, ce, index, direction}]",
+      "definition": "Three consecutive candles, middle candle a displacement candle; bullish when low(c3) > high(c1) with zone [high(c1), low(c3)]; bearish when high(c3) < low(c1) with zone [high(c3), low(c1)]. Touching or overlapping wicks -> no gap. CE = zone midpoint. Labelled at the close of candle 3.",
+      "frozen_params": ["displacement_range_multiple", "displacement_lookback", "displacement_body_ratio_min"],
+      "kb_refs": ["BEG-M05-C04", "BEG-M05-R02", "BEG-M05-R03", "INT-M04-R01", "INT-M04-R02"],
+      "delegates_to": "ict_primitives.fvg (+ is_displacement gate per BEG-M05-R03)"
+    },
+    {
+      "feature_id": "fvg_state",
+      "primitive": "P-FVG-02",
+      "signature": "fvg_state(tf, zone) -> 'unmitigated' | 'partially_mitigated' | 'failed'",
+      "definition": "Failed = a candle body closes through the far side of the zone. The 'decisive' qualifier is unspecified in the source and is supplied by the frozen decisive_close_definition; there is no default.",
+      "frozen_params": ["decisive_close_definition"],
+      "kb_refs": ["INT-M04-R03", "ADV-M06-R03"],
+      "delegates_to": "ict_primitives.fvg_state (+ frozen decisive test)"
+    },
+    {
+      "feature_id": "fvg_inverted",
+      "primitive": "P-FVG-02",
+      "signature": "fvg_inverted(tf, zone) -> bool",
+      "definition": "A failed FVG that has since been retested from the opposite side and held. 'Held' has no computational test in the source; the frozen inversion_hold_definition supplies one and the item is registered as unsupported until it is supplied.",
+      "frozen_params": ["decisive_close_definition", "inversion_hold_definition"],
+      "kb_refs": ["ADV-M06-R03", "INT-M04-AMB01"],
+      "delegates_to": "engine.features"
+    },
+    {
+      "feature_id": "order_block",
+      "primitive": "P-OB-01",
+      "signature": "order_block(tf, displacement_index, direction) -> {low, high, index, direction} | None",
+      "definition": "Last opposing-close candle immediately before the displacement leg; zone = that candle's full high-low range.",
+      "frozen_params": ["order_block_candle_group_size"],
+      "kb_refs": ["BEG-M06-C01", "INT-M05-C01", "INT-M05-R01"],
+      "delegates_to": "ict_primitives.order_block"
+    },
+    {
+      "feature_id": "breaker_state",
+      "primitive": "P-OB-02",
+      "signature": "breaker_state(tf, ob, test) -> 'breaker' | 'mitigation' | 'untested'",
+      "definition": "test='body_close': a candle body closes through the far boundary -> breaker with inverted polarity. test='sweep_plus_mss': body close through the far boundary AND a preceding sweep AND a following MSS opposite the order block's original bias. Both operationalisations are documented (CF-09); the test is a frozen choice.",
+      "frozen_params": ["breaker_test"],
+      "kb_refs": ["BEG-M06-C02", "BEG-M06-C03", "BEG-M06-R03", "INT-M05-R02", "BEG-M06-AMB01"],
+      "delegates_to": "ict_primitives.breaker_or_mitigation (+ sweep/MSS layer)"
+    },
+    {
+      "feature_id": "zone_overlap",
+      "primitive": "P-OB-01",
+      "signature": "zone_overlap(zone_a, zone_b) -> [lo, hi] | None",
+      "definition": "Intersection of two price zones; used for OB-FVG and array-OTE confluence.",
+      "frozen_params": [],
+      "kb_refs": ["BEG-M06-R01", "INT-M05-R04", "INT-M07-C05", "INT-M07-C06"],
+      "delegates_to": "ict_primitives.zones_overlap"
+    },
+    {
+      "feature_id": "liquidity_pools",
+      "primitive": "P-LIQ-01",
+      "signature": "liquidity_pools(tf, side, kinds) -> [{price, kind, index, swept}]",
+      "definition": "Buy-side pools above swing highs, equal highs, session highs and previous day/week/month highs; sell-side is the mirror. 'kinds' selects which of those the strategy marked. Pools are returned with their swept flag as of the decision bar.",
+      "frozen_params": ["equal_level_tolerance"],
+      "kb_refs": ["BEG-M04-C01", "BEG-M04-C03", "BEG-M04-C04", "BEG-M04-C05", "BEG-M04-C06", "INT-M02-R01"],
+      "delegates_to": "ict_primitives.equal_levels + engine.market_state pool registry"
+    },
+    {
+      "feature_id": "sweep",
+      "primitive": "P-LIQ-02",
+      "signature": "sweep(tf, level, side, since_index) -> {side, level, extreme, sweep_index, reversal_index, classification} | None",
+      "definition": "Price trades at least sweep_min_penetration beyond the pool, then closes back through the level within sweep_reclaim_bars -> 'raid'; no reclaim within the window -> 'continuation'; window not yet elapsed -> 'pending'.",
+      "frozen_params": ["sweep_min_penetration", "sweep_reclaim_bars"],
+      "kb_refs": ["BEG-M04-C07", "BEG-M04-C08", "INT-M02-R05", "ADV-M18-C03"],
+      "delegates_to": "ict_primitives.detect_sweep"
+    },
+    {
+      "feature_id": "level_reclaimed",
+      "primitive": "P-LIQ-02",
+      "signature": "level_reclaimed(tf, level, side, from_index, within_bars) -> bool",
+      "definition": "The Judas reclaim test. The price test itself ('close back beyond' vs 'wick back beyond' vs 'close beyond plus buffer') is undefined in the source and is a frozen choice; no default exists.",
+      "frozen_params": ["reclaim_definition", "sweep_reclaim_bars"],
+      "kb_refs": ["BEG-M08-R06", "BEG-M09-R02"],
+      "delegates_to": "engine.features"
+    },
+    {
+      "feature_id": "mss",
+      "primitive": "P-MSS-01",
+      "signature": "mss(tf, at_index, direction) -> bool",
+      "definition": "Market is in a defined structure; a candle body closes beyond the governing structural point against that structure; the breaking move is displacement. Wick-only breaches never qualify.",
+      "frozen_params": ["governing_swing_tier", "displacement_range_multiple", "displacement_lookback", "displacement_body_ratio_min"],
+      "kb_refs": ["BEG-M03-R01", "BEG-M03-R02", "BEG-M03-R03", "INT-M03-R02"],
+      "delegates_to": "ict_primitives.mss_strict"
+    },
+    {
+      "feature_id": "mss_scope",
+      "primitive": "P-MSS-02",
+      "signature": "mss_scope(tf, at_index) -> 'internal' | 'external' | None",
+      "definition": "External when the broken swing is a dealing-range boundary or a long-term pivot; internal otherwise.",
+      "frozen_params": ["controlling_range_timeframe"],
+      "kb_refs": ["INT-M03-R03", "ADV-M04-R01", "ADV-M04-R02"],
+      "delegates_to": "engine.features"
+    },
+    {
+      "feature_id": "dealing_range",
+      "primitive": "P-RANGE-01",
+      "signature": "dealing_range(tf) -> {high, low, equilibrium}",
+      "definition": "Most recent pair of significant swing high and swing low framing current price action on the requested timeframe; equilibrium = (high + low) / 2.",
+      "frozen_params": ["governing_swing_tier"],
+      "kb_refs": ["INT-M01-C03", "INT-M06-C01", "INT-M06-C02", "INT-M06-R01", "ADV-M02-R01"],
+      "delegates_to": "ict_primitives.DealingRange"
+    },
+    {
+      "feature_id": "pd_location",
+      "primitive": "P-RANGE-01",
+      "signature": "pd_location(tf, price) -> 'premium' | 'discount' | 'equilibrium'",
+      "definition": "Above equilibrium = premium, below = discount.",
+      "frozen_params": ["governing_swing_tier"],
+      "kb_refs": ["INT-M06-R02", "BEG-M07-C02"],
+      "delegates_to": "ict_primitives.DealingRange.location"
+    },
+    {
+      "feature_id": "range_depth_fraction",
+      "primitive": "P-RANGE-01",
+      "signature": "range_depth_fraction(tf, price) -> float",
+      "definition": "0 at the range low, 1 at the range high. The deep zone is roughly the outer 20-25% of the range.",
+      "frozen_params": ["governing_swing_tier"],
+      "kb_refs": ["INT-M06-R02"],
+      "delegates_to": "ict_primitives.DealingRange.depth_fraction"
+    },
+    {
+      "feature_id": "fib_levels",
+      "primitive": "P-FIB-01",
+      "signature": "fib_levels(origin, termination) -> {eq, ote_start, ote_sweet, ote_end, ext_27, ext_62}",
+      "definition": "100% at leg origin, 0% at leg termination; OTE band and negative extensions at the frozen level constants.",
+      "frozen_params": ["fib_anchor", "ote_levels"],
+      "kb_refs": ["BEG-M07-R01", "BEG-M07-R03", "INT-M07-R01", "INT-M07-R02"],
+      "delegates_to": "ict_primitives.fib_levels"
+    },
+    {
+      "feature_id": "in_ote",
+      "primitive": "P-FIB-01",
+      "signature": "in_ote(fib, price) -> bool",
+      "definition": "Price lies between the OTE start and end levels, inclusive.",
+      "frozen_params": ["fib_anchor", "ote_levels"],
+      "kb_refs": ["BEG-M07-C04", "BEG-M07-R03"],
+      "delegates_to": "ict_primitives.FibLevels.in_ote"
+    },
+    {
+      "feature_id": "retracement_class",
+      "primitive": "P-FIB-01",
+      "signature": "retracement_class(fib, price) -> 'shallow' | 'between_50_and_62' | 'standard' | 'deep'",
+      "definition": "Shallow <= 50%, standard 62-79%, deep > 79%.",
+      "frozen_params": ["fib_anchor", "ote_levels"],
+      "kb_refs": ["INT-M07-R05"],
+      "delegates_to": "ict_primitives.FibLevels.retracement_class"
+    },
+    {
+      "feature_id": "in_session",
+      "primitive": "P-TIME-01",
+      "signature": "in_session(window_param) -> bool",
+      "definition": "The decision bar's close time, converted to New York local time, falls inside the frozen window (start inclusive, end exclusive; wraps midnight). DST is handled by the zone conversion.",
+      "frozen_params": ["<the named window parameter>"],
+      "kb_refs": ["BEG-M08-R01", "BEG-M08-R02", "BEG-M08-R03", "BEG-M08-R04", "BEG-M08-R05", "INT-M09-R01", "INT-M09-R02", "INT-M09-R03"],
+      "delegates_to": "ict_primitives.in_window"
+    },
+    {
+      "feature_id": "session_range",
+      "primitive": "P-TIME-02",
+      "signature": "session_range(tf, window_param, day_offset) -> {high, low} | None",
+      "definition": "High and low of the completed session window. Returns None while the window is still open, so no decision can consume a range that is not yet final.",
+      "frozen_params": ["<the named window parameter>"],
+      "kb_refs": ["BEG-M08-C03", "BEG-M08-C04", "INT-M09-C01", "INT-M09-C05"],
+      "delegates_to": "ict_primitives.asian_range (generalised over any window)"
+    },
+    {
+      "feature_id": "period_open",
+      "primitive": "P-BIAS-01",
+      "signature": "period_open(period) -> price",
+      "definition": "Opening price of the current daily, weekly or monthly period, known at period start.",
+      "frozen_params": ["daily_open_definition"],
+      "kb_refs": ["BEG-M10-C02", "ADV-M07-C03", "ADV-M07-AMB01"],
+      "delegates_to": "engine.market_state"
+    },
+    {
+      "feature_id": "bias_opening_price",
+      "primitive": "P-BIAS-01",
+      "signature": "bias_opening_price() -> 'bullish' | 'bearish' | 'unclear'",
+      "definition": "Price above both the monthly and weekly open -> bullish; below both -> bearish; disagreement -> unclear.",
+      "frozen_params": [],
+      "kb_refs": ["BEG-M10-C02", "BEG-M10-R01"],
+      "delegates_to": "engine.features"
+    },
+    {
+      "feature_id": "bias_structural",
+      "primitive": "P-BIAS-02",
+      "signature": "bias_structural(tf) -> {direction, pd_location, dol, invalidation}",
+      "definition": "Swing sequence and any MSS on the requested higher timeframe, plus dealing-range location, the named draw on liquidity and an explicit invalidation level. Direction is 'unclear' when the structure is a range.",
+      "frozen_params": ["governing_swing_tier", "bias_invalidation_close"],
+      "kb_refs": ["INT-M11-R01", "INT-M11-R02", "INT-M11-R04", "ADV-M10-R01", "ADV-M10-R02"],
+      "delegates_to": "engine.features"
+    },
+    {
+      "feature_id": "bias_daily",
+      "primitive": "P-BIAS-03",
+      "signature": "bias_daily(method) -> 'bullish' | 'bearish' | 'neutral'",
+      "definition": "method='three_factor': daily structure, price versus the day's (or prior day's) open, and the nearest significant unswept pool must agree, else neutral. method='single_mss': the most recent daily MSS sets the direction. Only closed daily candles and the already-printed daily open are used.",
+      "frozen_params": ["daily_bias_method", "daily_open_definition", "governing_swing_tier"],
+      "kb_refs": ["BEG-M10-C03", "BEG-M10-R02", "BEG-M10-R03", "BEG-M10-R04", "BEG-M10-AMB01"],
+      "delegates_to": "engine.features"
+    },
+    {
+      "feature_id": "dol",
+      "primitive": "P-DOL-01",
+      "signature": "dol(direction, scope) -> {price, kind, tf, irl_or_erl} | None",
+      "definition": "Highest-priority unswept pool on the bias side: higher timeframe over lower, relative equals over single swings, untested over already raided, narrative-aligned over counter-narrative. scope='irl' restricts to pools inside the controlling range, 'erl' to pools beyond it.",
+      "frozen_params": ["controlling_range_timeframe", "equal_level_tolerance"],
+      "kb_refs": ["BEG-M04-C09", "INT-M02-R02", "INT-M02-R03", "INT-M02-R04", "ADV-M03-R02", "ADV-M03-R03"],
+      "delegates_to": "engine.features"
+    },
+    {
+      "feature_id": "po3_phase",
+      "primitive": "P-PO3-01",
+      "signature": "po3_phase(period, accumulation_window_param) -> 'accumulation' | 'manipulation' | 'distribution' | 'failed' | 'undetermined'",
+      "definition": "Accumulation while inside the marked accumulation range; manipulation once a boundary is swept and reversal signs print; distribution once displacement plus MSS in the opposite direction confirm; failed on sweep-and-go, both sides swept with a doji/inside close, or opposing higher-timeframe force before the draw on liquidity is reached.",
+      "frozen_params": ["sweep_min_penetration", "sweep_reclaim_bars", "accumulation_range_definition"],
+      "kb_refs": ["BEG-M09-C01", "BEG-M09-C02", "BEG-M09-C03", "BEG-M09-R02", "INT-M10-R01", "INT-M10-R05", "ADV-M08-R01", "ADV-M08-R05"],
+      "delegates_to": "engine.features"
+    },
+    {
+      "feature_id": "smt_divergence",
+      "primitive": "P-SMT-01",
+      "signature": "smt_divergence(tf, side, window) -> {present, preferred_instrument} | None",
+      "definition": "Two correlated instruments test the same extreme; one makes a new extreme and the other does not. Requires a second instrument feed and a frozen correlation-stability test and comparison window.",
+      "frozen_params": ["smt_correlation_stability", "smt_swing_comparison_window"],
+      "kb_refs": ["ADV-M13-C01", "ADV-M13-C03", "ADV-M13-R01", "ADV-M13-R02", "ADV-M13-R03"],
+      "delegates_to": "engine.features"
+    },
+    {
+      "feature_id": "position_size",
+      "primitive": "P-RISK-01",
+      "signature": "position_size(equity, entry, stop, value_per_unit_move) -> float",
+      "definition": "(equity x risk_fraction) / (|entry - stop| x value per unit price move).",
+      "frozen_params": ["risk_fraction"],
+      "kb_refs": ["INT-M12-R01", "ADV-M17-R02", "BEG-M13-R01"],
+      "delegates_to": "ict_primitives.position_size"
+    },
+    {
+      "feature_id": "r_multiple",
+      "primitive": "P-RISK-01",
+      "signature": "r_multiple(entry, stop, exit_price) -> float",
+      "definition": "Outcome in R units. Recorded always; used as a filter only where a strategy's frozen configuration selects the intermediate-level R:R minimum arm (CF-06).",
+      "frozen_params": [],
+      "kb_refs": ["ADV-M18-R06", "ADV-M17-R04", "INT-M12-R03"],
+      "delegates_to": "ict_primitives.r_multiple"
+    },
+    {
+      "feature_id": "checklist_gate",
+      "primitive": "P-GATE-01",
+      "signature": "checklist_gate(items) -> bool",
+      "definition": "Conjunction of the strategy's own eligibility items, each of which is itself a compiled node. Any failing item blocks entry. This feature adds no item of its own.",
+      "frozen_params": [],
+      "kb_refs": ["ADV-M16-R08", "ADV-M11-R01", "ADV-M12-R01", "ADV-M15-R03"],
+      "delegates_to": "engine.runtime"
+    }
+  ]
+}

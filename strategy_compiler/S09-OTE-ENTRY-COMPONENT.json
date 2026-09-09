@@ -1,0 +1,1502 @@
+{
+  "dsl_version": "1.0.0",
+  "strategy_id": "S09-OTE-ENTRY-COMPONENT",
+  "name": "OTE Entry Zone Construction (reusable entry/stop/target component)",
+  "kind": "component",
+  "parent_strategy_id": null,
+  "direction": "either",
+  "provenance": {
+    "spec_file": "strategy_reearcher/catalog/strategies.json",
+    "spec_strategy_id": "S09-OTE-ENTRY-COMPONENT",
+    "kb_source_strategy_ids": [
+      "BEG-M07-S01"
+    ],
+    "primitives": [
+      "P-BIAS-01",
+      "P-BIAS-02",
+      "P-DISP-01",
+      "P-FIB-01",
+      "P-FVG-01",
+      "P-LIQ-02",
+      "P-MSS-01",
+      "P-OB-01",
+      "P-OB-02",
+      "P-RANGE-01",
+      "P-RISK-01",
+      "P-STOP-01",
+      "P-TARGET-01"
+    ],
+    "specificity_status": "partially_specified",
+    "spec_unspecified_elements": [
+      "exact LTF confirmation signal (deferred to Modules 11-12)",
+      "anchor price type (conflicting documented options)"
+    ],
+    "spec_worked_example": null
+  },
+  "timeframes": {
+    "htf": {
+      "purpose": "bias and the dealing range the OTE band must sit in",
+      "candidates": [
+        "1d",
+        "4h"
+      ],
+      "source": [
+        "BEG-M07-S01",
+        "INT-M07-R03"
+      ],
+      "min_history": 120
+    },
+    "ltf": {
+      "purpose": "the measured displacement leg, the OTE band and the confirmation signal; OTE is fractal so the specification fixes no timeframe",
+      "candidates": [
+        "15m",
+        "5m"
+      ],
+      "source": [
+        "BEG-M07-C04"
+      ],
+      "min_history": 800
+    }
+  },
+  "data_requirements": {
+    "instrument": "primary",
+    "correlated_instruments": 0,
+    "bars": {
+      "htf": {
+        "min_history": 120
+      },
+      "ltf": {
+        "min_history": 800
+      }
+    },
+    "timezone": "America/New_York",
+    "session_anchored": true,
+    "requires_period_opens": [
+      "daily",
+      "weekly"
+    ],
+    "external_data": [],
+    "warmup_bars": 200
+  },
+  "parameters": [
+    {
+      "name": "governing_swing_tier",
+      "binding": "frozen_choice",
+      "choices": [
+        "short_term",
+        "intermediate",
+        "long_term"
+      ],
+      "kb_status": "unspecified",
+      "kb_value": "judgment informed by the ST/IT/LT hierarchy",
+      "source": [
+        "BEG-M03-C02",
+        "INT-M01-R02"
+      ],
+      "register_id": "governing_structural_point_tier"
+    },
+    {
+      "name": "displacement_range_multiple",
+      "binding": "frozen_required",
+      "kb_status": "unspecified",
+      "kb_value": "'unusually large relative to recent candles'",
+      "source": [
+        "BEG-M05-R01"
+      ],
+      "register_id": "displacement_range_multiple"
+    },
+    {
+      "name": "displacement_lookback",
+      "binding": "frozen_required",
+      "kb_status": "unspecified",
+      "kb_value": "-",
+      "source": [
+        "BEG-M05-R01"
+      ],
+      "register_id": "displacement_lookback_candles"
+    },
+    {
+      "name": "displacement_body_ratio_min",
+      "binding": "frozen_required",
+      "kb_status": "heuristic_unfixed",
+      "kb_value": "~60-70% cited by secondary tools; the book does not fix it",
+      "source": [
+        "BEG-M05-C01",
+        "BEG-M05-C02",
+        "BEG-M05-AMB01"
+      ],
+      "register_id": "displacement_body_to_range_min"
+    },
+    {
+      "name": "sweep_min_penetration",
+      "binding": "frozen_required",
+      "kb_status": "unspecified",
+      "kb_value": "research parameter 'Y' in the knowledge base's own template",
+      "source": [
+        "ADV-M18-C03"
+      ],
+      "register_id": "sweep_min_penetration"
+    },
+    {
+      "name": "sweep_reclaim_bars",
+      "binding": "frozen_required",
+      "kb_status": "alternatives_documented",
+      "kb_value": "~2-3 lower-timeframe candles (Judas) / 'reasonable number' (PO3) / 'Z' bars",
+      "source": [
+        "BEG-M08-R06",
+        "BEG-M09-R02",
+        "ADV-M18-C03"
+      ],
+      "register_id": "sweep_reclaim_window"
+    },
+    {
+      "name": "equal_level_tolerance",
+      "binding": "frozen_required",
+      "kb_status": "heuristic_unfixed",
+      "kb_value": "~5-10 pips forex cited by secondary sources; 'obvious at a glance'",
+      "source": [
+        "BEG-M04-C05",
+        "INT-M02-R01"
+      ],
+      "register_id": "equal_highs_lows_tolerance"
+    },
+    {
+      "name": "risk_fraction",
+      "binding": "frozen_required",
+      "kb_status": "range_given",
+      "kb_value": "~1% (max ~2%) beginner | 0.5-1% intermediate | 0.25-1% advanced",
+      "source": [
+        "BEG-M13-R01",
+        "INT-M12-R01",
+        "ADV-M17-R02"
+      ],
+      "register_id": "risk_per_trade"
+    },
+    {
+      "name": "stop_buffer_ticks",
+      "binding": "frozen_required",
+      "kb_status": "unspecified",
+      "kb_value": "'just beyond' / 'small buffer' (examples ~12 pips EUR/USD, ~0.60 pts gold)",
+      "source": [
+        "BEG-M11-EX01",
+        "BEG-M12-EX01"
+      ],
+      "register_id": "stop_buffer"
+    },
+    {
+      "name": "first_target_allocation",
+      "binding": "frozen_required",
+      "kb_status": "unspecified",
+      "kb_value": "'e.g. 50% or a fixed fraction' \u2014 the fraction is never stated",
+      "source": [
+        "ADV-M16-R06"
+      ],
+      "register_id": "partial_fraction"
+    },
+    {
+      "name": "fib_anchor",
+      "binding": "frozen_choice",
+      "choices": [
+        "body",
+        "wick"
+      ],
+      "kb_status": "alternatives_documented",
+      "kb_value": "body-to-body (BEG-M07-R01) vs liquidity-sweep wick origin (INT-M07-R01)",
+      "source": [
+        "BEG-M07-R01",
+        "INT-M07-R01"
+      ],
+      "register_id": "fib_anchor_price_type"
+    },
+    {
+      "name": "ote_levels",
+      "binding": "frozen_choice",
+      "choices": [
+        [
+          0.62,
+          0.705,
+          0.79
+        ],
+        [
+          0.618,
+          null,
+          0.786
+        ]
+      ],
+      "kb_status": "alternatives_documented",
+      "kb_value": "0.62/0.705/0.79 vs 0.618/0.786",
+      "source": [
+        "BEG-M07-R03",
+        "INT-M07-R02"
+      ],
+      "register_id": "ote_levels"
+    },
+    {
+      "name": "entry_level_ote",
+      "binding": "frozen_choice",
+      "choices": [
+        "ote_sweet",
+        "array_overlap_boundary"
+      ],
+      "kb_status": "alternatives_documented",
+      "kb_value": "'often the 70.5% level or the boundary of the overlapping PD array'",
+      "source": [
+        "BEG-M07-S01",
+        "INT-M07-C06"
+      ],
+      "register_id": "target_policy"
+    },
+    {
+      "name": "stop_reference_ote",
+      "binding": "frozen_choice",
+      "choices": [
+        "fib_origin",
+        "conservative_ob_or_79"
+      ],
+      "kb_status": "alternatives_documented",
+      "kb_value": "just beyond the 100% level, or the more conservative of the order-block extreme and 79%",
+      "source": [
+        "BEG-M07-C06",
+        "INT-M07-C06"
+      ],
+      "register_id": "stop_reference"
+    },
+    {
+      "name": "extension_target",
+      "binding": "frozen_choice",
+      "choices": [
+        "ext_27",
+        "ext_62"
+      ],
+      "kb_status": "specified",
+      "kb_value": "negative Fibonacci extensions -27% and -62%",
+      "source": [
+        "BEG-M07-R03",
+        "INT-M07-R02"
+      ],
+      "register_id": "fib_extension_targets"
+    },
+    {
+      "name": "ltf_confirmation_signal",
+      "binding": "frozen_choice",
+      "choices": [
+        "ltf_mss"
+      ],
+      "kb_status": "specified_examples",
+      "kb_value": "1-minute MSS or a rejection candle; only the MSS form is defined",
+      "source": [
+        "BEG-M11-S01"
+      ],
+      "register_id": "ltf_confirmation_signal"
+    }
+  ],
+  "features": [
+    "bar",
+    "displacement",
+    "displacement_leg",
+    "fib_levels",
+    "fvg",
+    "in_ote",
+    "latest_index",
+    "liquidity_pools",
+    "midpoint",
+    "mss",
+    "offset",
+    "order_block",
+    "pd_location",
+    "pick",
+    "position_size",
+    "sweep",
+    "zone_overlap"
+  ],
+  "market_state": [
+    "bias_state"
+  ],
+  "blocks": {
+    "context": [
+      {
+        "node_id": "S09.ctx.bias",
+        "kind": "predicate",
+        "source": {
+          "block": "context",
+          "index": "htf_bias_required",
+          "text": "HTF bias supporting the direction of the measured swing (P-BIAS-01/02)."
+        },
+        "kb_refs": [
+          "BEG-M10-R01",
+          "INT-M11-R01"
+        ],
+        "primitives": [
+          "P-BIAS-01",
+          "P-BIAS-02"
+        ],
+        "expr": [
+          "in",
+          [
+            "state",
+            "bias_state",
+            {
+              "tf": "htf",
+              "method": "structural",
+              "field": "direction"
+            }
+          ],
+          [
+            "const",
+            [
+              "bullish",
+              "bearish"
+            ]
+          ]
+        ],
+        "emits": {
+          "dir_word": [
+            "state",
+            "bias_state",
+            {
+              "tf": "htf",
+              "method": "structural",
+              "field": "direction"
+            }
+          ],
+          "trade_direction": [
+            "if",
+            [
+              "==",
+              [
+                "state",
+                "bias_state",
+                {
+                  "tf": "htf",
+                  "method": "structural",
+                  "field": "direction"
+                }
+              ],
+              [
+                "const",
+                "bullish"
+              ]
+            ],
+            [
+              "const",
+              "long"
+            ],
+            [
+              "const",
+              "short"
+            ]
+          ]
+        }
+      },
+      {
+        "node_id": "S09.ctx.location",
+        "kind": "predicate",
+        "source": {
+          "block": "context",
+          "index": "location",
+          "text": "OTE band must lie in the correct premium/discount half of the dealing range; if it falls on the wrong side of equilibrium the setup is lower quality / needs extra confluence (INT-M07-R03)."
+        },
+        "kb_refs": [
+          "INT-M07-R03",
+          "INT-M07-C03"
+        ],
+        "primitives": [
+          "P-RANGE-01",
+          "P-FIB-01"
+        ],
+        "expr": [
+          "==",
+          [
+            "feature",
+            "pd_location",
+            {
+              "tf": "htf",
+              "price_tf": "ltf"
+            }
+          ],
+          [
+            "if",
+            [
+              "==",
+              [
+                "binding",
+                "dir_word"
+              ],
+              [
+                "const",
+                "bullish"
+              ]
+            ],
+            [
+              "const",
+              "discount"
+            ],
+            [
+              "const",
+              "premium"
+            ]
+          ]
+        ],
+        "gate": false,
+        "compilation_note": "INT-M07-R03 grades an OTE on the wrong side of equilibrium as lower quality requiring extra confluence; it does not forbid it, so this node records and does not veto."
+      },
+      {
+        "node_id": "S09.ctx.leg",
+        "kind": "predicate",
+        "source": {
+          "block": "context",
+          "index": "other",
+          "text": "A genuine displacement-confirmed impulse leg exists (P-DISP-01) \u2014 not a slow move; per the book's working definition the leg produced an MSS (P-MSS-01)."
+        },
+        "kb_refs": [
+          "BEG-M05-C01",
+          "BEG-M03-C05",
+          "BEG-M07-S01"
+        ],
+        "primitives": [
+          "P-DISP-01",
+          "P-MSS-01"
+        ],
+        "expr": [
+          "and",
+          [
+            "feature",
+            "displacement",
+            {
+              "tf": "ltf",
+              "at_index": -1,
+              "direction": [
+                "binding",
+                "dir_word"
+              ]
+            }
+          ],
+          [
+            "feature",
+            "mss",
+            {
+              "tf": "ltf",
+              "at_index": -1,
+              "direction": [
+                "binding",
+                "dir_word"
+              ]
+            }
+          ]
+        ],
+        "emits": {
+          "displacement_index": [
+            "feature",
+            "latest_index",
+            {
+              "tf": "ltf"
+            }
+          ]
+        }
+      }
+    ],
+    "prerequisites": [
+      {
+        "node_id": "S09.pre.01",
+        "kind": "predicate",
+        "source": {
+          "block": "prerequisites",
+          "index": 0,
+          "text": "Confirm HTF bias, genuine displacement, and MSS establishing the new leg."
+        },
+        "kb_refs": [
+          "BEG-M07-S01",
+          "BEG-M03-R02"
+        ],
+        "primitives": [
+          "P-DISP-01",
+          "P-MSS-01",
+          "P-BIAS-02"
+        ],
+        "expr": [
+          "and",
+          [
+            "in",
+            [
+              "state",
+              "bias_state",
+              {
+                "tf": "htf",
+                "method": "structural",
+                "field": "direction"
+              }
+            ],
+            [
+              "const",
+              [
+                "bullish",
+                "bearish"
+              ]
+            ]
+          ],
+          [
+            "feature",
+            "mss",
+            {
+              "tf": "ltf",
+              "at_index": [
+                "binding",
+                "displacement_index"
+              ],
+              "direction": [
+                "binding",
+                "dir_word"
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "node_id": "S09.pre.02",
+        "kind": "predicate",
+        "source": {
+          "block": "prerequisites",
+          "index": 1,
+          "text": "Preferably a liquidity raid preceded the displacement (INT-M07-C04) \u2014 without it the OTE retracement is lower probability."
+        },
+        "kb_refs": [
+          "INT-M07-C04",
+          "BEG-M04-C08"
+        ],
+        "primitives": [
+          "P-LIQ-02"
+        ],
+        "expr": [
+          "==",
+          [
+            "if",
+            [
+              "==",
+              [
+                "binding",
+                "dir_word"
+              ],
+              [
+                "const",
+                "bullish"
+              ]
+            ],
+            [
+              "feature",
+              "sweep",
+              {
+                "tf": "ltf",
+                "level": [
+                  "feature",
+                  "liquidity_pools",
+                  {
+                    "tf": "ltf",
+                    "side": "sell",
+                    "kinds": [
+                      "swing",
+                      "equal",
+                      "prev_day"
+                    ],
+                    "select": "nearest",
+                    "field": "price"
+                  }
+                ],
+                "side": "ssl",
+                "since_index": [
+                  "feature",
+                  "liquidity_pools",
+                  {
+                    "tf": "ltf",
+                    "side": "sell",
+                    "kinds": [
+                      "swing",
+                      "equal",
+                      "prev_day"
+                    ],
+                    "select": "nearest",
+                    "field": "from_index"
+                  }
+                ],
+                "field": "classification"
+              }
+            ],
+            [
+              "feature",
+              "sweep",
+              {
+                "tf": "ltf",
+                "level": [
+                  "feature",
+                  "liquidity_pools",
+                  {
+                    "tf": "ltf",
+                    "side": "buy",
+                    "kinds": [
+                      "swing",
+                      "equal",
+                      "prev_day"
+                    ],
+                    "select": "nearest",
+                    "field": "price"
+                  }
+                ],
+                "side": "bsl",
+                "since_index": [
+                  "feature",
+                  "liquidity_pools",
+                  {
+                    "tf": "ltf",
+                    "side": "buy",
+                    "kinds": [
+                      "swing",
+                      "equal",
+                      "prev_day"
+                    ],
+                    "select": "nearest",
+                    "field": "from_index"
+                  }
+                ],
+                "field": "classification"
+              }
+            ]
+          ],
+          [
+            "const",
+            "raid"
+          ]
+        ],
+        "gate": false,
+        "compilation_note": "The specification says a preceding raid is 'preferable' and that without it the retracement is lower probability; it is recorded, not enforced."
+      }
+    ],
+    "setup_sequence": [
+      {
+        "node_id": "S09.setup.01",
+        "kind": "event",
+        "source": {
+          "block": "setup_sequence",
+          "index": 0,
+          "text": "Anchor Fibonacci on the displacement leg (100% at origin, 0% at termination) (P-FIB-01; anchor price-type per parameter)."
+        },
+        "kb_refs": [
+          "BEG-M07-R01",
+          "INT-M07-R01",
+          "INT-M07-C01"
+        ],
+        "primitives": [
+          "P-FIB-01"
+        ],
+        "expr": [
+          "exists",
+          [
+            "feature",
+            "fib_levels",
+            {
+              "origin": [
+                "feature",
+                "displacement_leg",
+                {
+                  "tf": "ltf",
+                  "at_index": [
+                    "binding",
+                    "displacement_index"
+                  ],
+                  "direction": [
+                    "binding",
+                    "dir_word"
+                  ],
+                  "field": "origin"
+                }
+              ],
+              "termination": [
+                "feature",
+                "displacement_leg",
+                {
+                  "tf": "ltf",
+                  "at_index": [
+                    "binding",
+                    "displacement_index"
+                  ],
+                  "direction": [
+                    "binding",
+                    "dir_word"
+                  ],
+                  "field": "termination"
+                }
+              ]
+            }
+          ]
+        ],
+        "emits": {
+          "fib": [
+            "feature",
+            "fib_levels",
+            {
+              "origin": [
+                "feature",
+                "displacement_leg",
+                {
+                  "tf": "ltf",
+                  "at_index": [
+                    "binding",
+                    "displacement_index"
+                  ],
+                  "direction": [
+                    "binding",
+                    "dir_word"
+                  ],
+                  "field": "origin"
+                }
+              ],
+              "termination": [
+                "feature",
+                "displacement_leg",
+                {
+                  "tf": "ltf",
+                  "at_index": [
+                    "binding",
+                    "displacement_index"
+                  ],
+                  "direction": [
+                    "binding",
+                    "dir_word"
+                  ],
+                  "field": "termination"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "node_id": "S09.setup.02",
+        "kind": "event",
+        "source": {
+          "block": "setup_sequence",
+          "index": 1,
+          "text": "Mark 62%-79% band with emphasis on 70.5%."
+        },
+        "kb_refs": [
+          "BEG-M07-R03",
+          "BEG-M07-C03"
+        ],
+        "primitives": [
+          "P-FIB-01"
+        ],
+        "expr": [
+          "exists",
+          [
+            "field",
+            [
+              "binding",
+              "fib"
+            ],
+            "ote_start"
+          ]
+        ]
+      },
+      {
+        "node_id": "S09.setup.03",
+        "kind": "event",
+        "source": {
+          "block": "setup_sequence",
+          "index": 2,
+          "text": "Wait, without entering, while price pulls back (BEG-M07-NT01)."
+        },
+        "kb_refs": [
+          "BEG-M07-C05",
+          "BEG-M07-NT01"
+        ],
+        "primitives": [
+          "P-FIB-01"
+        ],
+        "expr": [
+          "feature",
+          "in_ote",
+          {
+            "fib": [
+              "binding",
+              "fib"
+            ],
+            "price": [
+              "feature",
+              "bar",
+              {
+                "tf": "ltf",
+                "component": "close"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "node_id": "S09.setup.04",
+        "kind": "event",
+        "source": {
+          "block": "setup_sequence",
+          "index": 3,
+          "text": "Once price trades into the band, check confluence: does an OB, FVG, or Breaker overlap the band? (P-OB-01, P-FVG-01, P-OB-02; INT-M07-C05/C06)."
+        },
+        "kb_refs": [
+          "INT-M07-C05",
+          "INT-M07-C06",
+          "BEG-M06-C01",
+          "BEG-M05-C04"
+        ],
+        "primitives": [
+          "P-FVG-01",
+          "P-OB-01",
+          "P-OB-02"
+        ],
+        "expr": [
+          "const",
+          true
+        ],
+        "emits": {
+          "array": [
+            "feature",
+            "fvg",
+            {
+              "tf": "ltf",
+              "direction": [
+                "binding",
+                "dir_word"
+              ],
+              "since_index": [
+                "binding",
+                "displacement_index"
+              ],
+              "select": "latest"
+            }
+          ],
+          "order_block": [
+            "feature",
+            "order_block",
+            {
+              "tf": "ltf",
+              "displacement_index": [
+                "binding",
+                "displacement_index"
+              ],
+              "direction": [
+                "binding",
+                "dir_word"
+              ]
+            }
+          ],
+          "ote_array_overlap": [
+            "feature",
+            "zone_overlap",
+            {
+              "zone_a": [
+                "feature",
+                "fvg",
+                {
+                  "tf": "ltf",
+                  "direction": [
+                    "binding",
+                    "dir_word"
+                  ],
+                  "since_index": [
+                    "binding",
+                    "displacement_index"
+                  ],
+                  "select": "latest"
+                }
+              ],
+              "zone_b": [
+                "feature",
+                "order_block",
+                {
+                  "tf": "ltf",
+                  "displacement_index": [
+                    "binding",
+                    "displacement_index"
+                  ],
+                  "direction": [
+                    "binding",
+                    "dir_word"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        "compilation_note": "The step is a confluence CHECK, not a filter: Module 7 trades the OTE with or without an overlapping array and only grades the confluence higher. Compiling it as a gate would add an entry condition the source does not impose, so the node always latches and records what it found."
+      },
+      {
+        "node_id": "S09.setup.05",
+        "kind": "event",
+        "source": {
+          "block": "setup_sequence",
+          "index": 4,
+          "text": "Wait for an LTF confirmation signal at/near the zone (signal type not precisely defined in Module 7 \u2014 developed as LTF MSS in Modules 11-12)."
+        },
+        "kb_refs": [
+          "BEG-M07-S01",
+          "BEG-M11-S01",
+          "BEG-M12-S01"
+        ],
+        "primitives": [
+          "P-MSS-01"
+        ],
+        "expr": [
+          "and",
+          [
+            "==",
+            [
+              "param",
+              "ltf_confirmation_signal"
+            ],
+            [
+              "const",
+              "ltf_mss"
+            ]
+          ],
+          [
+            "feature",
+            "mss",
+            {
+              "tf": "ltf",
+              "at_index": -1,
+              "direction": [
+                "binding",
+                "dir_word"
+              ]
+            }
+          ]
+        ]
+      }
+    ],
+    "entry": {
+      "zone": {
+        "node_id": "S09.entry.zone",
+        "kind": "selection",
+        "source": {
+          "block": "entry.entry_zone",
+          "index": "entry_zone",
+          "text": "Near the confirmed reaction point \u2014 often the 70.5% level or the boundary of the overlapping PD array (for OB\u2229OTE the overlap zone is the refined entry)."
+        },
+        "kb_refs": [
+          "BEG-M07-C06",
+          "INT-M07-C06"
+        ],
+        "primitives": [
+          "P-FIB-01",
+          "P-OB-01"
+        ],
+        "expr": [
+          "if",
+          [
+            "==",
+            [
+              "param",
+              "entry_level_ote"
+            ],
+            [
+              "const",
+              "ote_sweet"
+            ]
+          ],
+          [
+            "field",
+            [
+              "binding",
+              "fib"
+            ],
+            "ote_sweet"
+          ],
+          [
+            "feature",
+            "midpoint",
+            {
+              "zone": [
+                "binding",
+                "ote_array_overlap"
+              ]
+            }
+          ]
+        ],
+        "emits": {
+          "entry_zone": [
+            "const",
+            "$value"
+          ]
+        }
+      },
+      "triggers": [
+        {
+          "node_id": "S09.entry.trigger",
+          "kind": "event",
+          "source": {
+            "block": "entry.trigger_options",
+            "index": 0,
+            "text": "LTF confirmation signal at/near the zone (rejection candle / LTF MSS / reaction at 70.5%)."
+          },
+          "kb_refs": [
+            "BEG-M07-S01"
+          ],
+          "primitives": [
+            "P-MSS-01"
+          ],
+          "expr": [
+            "feature",
+            "in_ote",
+            {
+              "fib": [
+                "binding",
+                "fib"
+              ],
+              "price": [
+                "binding",
+                "entry_zone"
+              ]
+            }
+          ],
+          "trigger_id": "ltf_confirmation",
+          "fill": {
+            "mode": "market_on_close"
+          }
+        }
+      ]
+    },
+    "stop": {
+      "node_id": "S09.stop",
+      "kind": "selection",
+      "source": {
+        "block": "stop_invalidation",
+        "index": "trade_level",
+        "text": "Just beyond the 100% level (original swing extreme) (P-STOP-01 B). For OB\u2229OTE, the more conservative of the OB extreme or the 79% level is a documented alternative (INT-M07-C06)."
+      },
+      "kb_refs": [
+        "BEG-M07-C06",
+        "INT-M07-C06"
+      ],
+      "primitives": [
+        "P-STOP-01"
+      ],
+      "expr": [
+        "if",
+        [
+          "==",
+          [
+            "param",
+            "stop_reference_ote"
+          ],
+          [
+            "const",
+            "fib_origin"
+          ]
+        ],
+        [
+          "feature",
+          "offset",
+          {
+            "price": [
+              "field",
+              [
+                "binding",
+                "fib"
+              ],
+              "origin"
+            ],
+            "ticks": [
+              "param",
+              "stop_buffer_ticks"
+            ],
+            "direction": [
+              "if",
+              [
+                "==",
+                [
+                  "binding",
+                  "dir_word"
+                ],
+                [
+                  "const",
+                  "bullish"
+                ]
+              ],
+              [
+                "const",
+                "below"
+              ],
+              [
+                "const",
+                "above"
+              ]
+            ]
+          }
+        ],
+        [
+          "feature",
+          "offset",
+          {
+            "price": [
+              "feature",
+              "pick",
+              {
+                "values": [
+                  [
+                    "field",
+                    [
+                      "binding",
+                      "order_block"
+                    ],
+                    "low"
+                  ],
+                  [
+                    "field",
+                    [
+                      "binding",
+                      "fib"
+                    ],
+                    "ote_end"
+                  ]
+                ],
+                "mode": [
+                  "if",
+                  [
+                    "==",
+                    [
+                      "binding",
+                      "dir_word"
+                    ],
+                    [
+                      "const",
+                      "bullish"
+                    ]
+                  ],
+                  [
+                    "const",
+                    "min"
+                  ],
+                  [
+                    "const",
+                    "max"
+                  ]
+                ]
+              }
+            ],
+            "ticks": [
+              "param",
+              "stop_buffer_ticks"
+            ],
+            "direction": [
+              "if",
+              [
+                "==",
+                [
+                  "binding",
+                  "dir_word"
+                ],
+                [
+                  "const",
+                  "bullish"
+                ]
+              ],
+              [
+                "const",
+                "below"
+              ],
+              [
+                "const",
+                "above"
+              ]
+            ]
+          }
+        ]
+      ]
+    },
+    "targets": [
+      {
+        "node_id": "S09.target.primary",
+        "kind": "selection",
+        "source": {
+          "block": "target",
+          "index": "primary",
+          "text": "Prior opposing liquidity pool."
+        },
+        "kb_refs": [
+          "BEG-M07-C06",
+          "BEG-M04-C03",
+          "BEG-M04-C04"
+        ],
+        "primitives": [
+          "P-TARGET-01",
+          "P-LIQ-01"
+        ],
+        "expr": [
+          "if",
+          [
+            "==",
+            [
+              "binding",
+              "dir_word"
+            ],
+            [
+              "const",
+              "bullish"
+            ]
+          ],
+          [
+            "feature",
+            "liquidity_pools",
+            {
+              "tf": "ltf",
+              "side": "buy",
+              "kinds": [
+                "swing",
+                "equal",
+                "prev_day"
+              ],
+              "select": "nearest",
+              "field": "price"
+            }
+          ],
+          [
+            "feature",
+            "liquidity_pools",
+            {
+              "tf": "ltf",
+              "side": "sell",
+              "kinds": [
+                "swing",
+                "equal",
+                "prev_day"
+              ],
+              "select": "nearest",
+              "field": "price"
+            }
+          ]
+        ],
+        "allocation": {
+          "param": "first_target_allocation"
+        }
+      },
+      {
+        "node_id": "S09.target.secondary",
+        "kind": "selection",
+        "source": {
+          "block": "target",
+          "index": "secondary",
+          "text": "Negative extension -27% or -62% beyond the 0% level (P-TARGET-01 C)."
+        },
+        "kb_refs": [
+          "BEG-M07-R03",
+          "INT-M07-R02"
+        ],
+        "primitives": [
+          "P-FIB-01",
+          "P-TARGET-01"
+        ],
+        "expr": [
+          "if",
+          [
+            "==",
+            [
+              "param",
+              "extension_target"
+            ],
+            [
+              "const",
+              "ext_27"
+            ]
+          ],
+          [
+            "field",
+            [
+              "binding",
+              "fib"
+            ],
+            "ext_27"
+          ],
+          [
+            "field",
+            [
+              "binding",
+              "fib"
+            ],
+            "ext_62"
+          ]
+        ],
+        "allocation": 0.0
+      }
+    ],
+    "invalidation": [
+      {
+        "node_id": "S09.inval.ote",
+        "kind": "predicate",
+        "source": {
+          "block": "stop_invalidation",
+          "index": "pattern_invalidation",
+          "text": "OTE failure: price enters the band then closes beyond the 100% origin -> idea invalidated; do not average (INT-M07-R04)."
+        },
+        "kb_refs": [
+          "INT-M07-R04"
+        ],
+        "primitives": [
+          "P-FIB-01"
+        ],
+        "expr": [
+          "if",
+          [
+            "==",
+            [
+              "binding",
+              "dir_word"
+            ],
+            [
+              "const",
+              "bullish"
+            ]
+          ],
+          [
+            "<",
+            [
+              "feature",
+              "bar",
+              {
+                "tf": "ltf",
+                "component": "close"
+              }
+            ],
+            [
+              "field",
+              [
+                "binding",
+                "fib"
+              ],
+              "origin"
+            ]
+          ],
+          [
+            ">",
+            [
+              "feature",
+              "bar",
+              {
+                "tf": "ltf",
+                "component": "close"
+              }
+            ],
+            [
+              "field",
+              [
+                "binding",
+                "fib"
+              ],
+              "origin"
+            ]
+          ]
+        ]
+      }
+    ],
+    "no_trade": [],
+    "risk": [
+      {
+        "node_id": "S09.risk.size",
+        "kind": "action",
+        "source": {
+          "block": "parameters",
+          "index": "retracement_depth_class",
+          "text": "shallow <=50% (tradeable only with high-quality array + strong HTF, inferior R:R); standard 62-79%; deep >79%"
+        },
+        "kb_refs": [
+          "INT-M12-R01"
+        ],
+        "primitives": [
+          "P-RISK-01"
+        ],
+        "expr": [
+          "feature",
+          "position_size",
+          {
+            "entry": [
+              "binding",
+              "entry_price"
+            ],
+            "stop": [
+              "binding",
+              "stop_price"
+            ]
+          }
+        ],
+        "emits": {
+          "position_size": [
+            "const",
+            "$value"
+          ]
+        }
+      }
+    ]
+  },
+  "no_trade_dispositions": [
+    {
+      "kb_ref": "BEG-M07-NT01",
+      "disposition": "enforced_by_sequence",
+      "note": "The retracement step must latch before the entry step is evaluated."
+    },
+    {
+      "kb_ref": "INT-M07-NT01",
+      "disposition": "unsupported_subjective",
+      "unsupported_item_id": "U-S09-NT-INT-M07-NT01",
+      "note": "Clauses 1, 2 and 4 are enforced by the sequence (displacement required, bias gate, premium/discount filter); clauses 3 and 6 ('tight consolidation', 'low volatility with no kill-zone alignment') have no price test in the source."
+    },
+    {
+      "kb_ref": "INT-M07-AMB01",
+      "disposition": "not_a_no_trade_object",
+      "note": "listed by the specification but is a rule object, not a no-trade object"
+    }
+  ],
+  "unsupported": [
+    {
+      "item_id": "U-S09-NT-INT-M07-NT01",
+      "strategy_id": "S09-OTE-ENTRY-COMPONENT",
+      "source": {
+        "block": "no_trade_conditions",
+        "index": "INT-M07-NT01",
+        "text": "The OTE concept should be de-emphasised or ignored when: (1) no clear displacement has occurred after a liquidity event; (2) the higher-timeframe narrative is ambiguous or conflicting; (3) price is still inside a tight consolidation with no expansion leg to measure; (4) the calculated OTE falls on the wrong side of dealing-range equilibrium relative to the intended direction; (5) the only available PD arrays inside the zone have already been mitigated; (6) session timing is unfavourable (e.g. attempting a full OTE model in a low-volatility period with no kill-zone alignment); (7) the trader is forcing a Fibonacci on a leg that is not the institutional expansion."
+      },
+      "element": "no-trade condition INT-M07-NT01",
+      "reason_code": "UNSUPPORTED_SUBJECTIVE",
+      "explanation": "Clauses 1, 2 and 4 are enforced by the sequence (displacement required, bias gate, premium/discount filter); clauses 3 and 6 ('tight consolidation', 'low volatility with no kill-zone alignment') have no price test in the source.",
+      "kb_refs": [
+        "INT-M07-NT01"
+      ],
+      "blocks_execution": false,
+      "resolution": "Record it in the run report; it is not evaluated by the engine.",
+      "effect_if_unenforced": "The run may include trades the specification would have stood aside from; reported selectivity is therefore an upper bound."
+    },
+    {
+      "item_id": "U-S09-01",
+      "strategy_id": "S09-OTE-ENTRY-COMPONENT",
+      "source": {
+        "block": "setup_sequence",
+        "index": 4,
+        "text": "Wait for an LTF confirmation signal at/near the zone (signal type not precisely defined in Module 7 \u2014 developed as LTF MSS in Modules 11-12)."
+      },
+      "element": "the lower-timeframe confirmation signal",
+      "reason_code": "GAP_REQUIRES_FROZEN_OPERATIONALISATION",
+      "explanation": "Module 7 does not define the confirmation signal and the specification defers it to Modules 11-12, where it is a lower-timeframe MSS. That defined form is compiled; the undefined 'rejection candle' form is not offered.",
+      "kb_refs": [
+        "BEG-M07-S01",
+        "BEG-M11-S01"
+      ],
+      "blocks_execution": false,
+      "resolution": "Select ltf_confirmation_signal = 'ltf_mss', or define the alternative and record it."
+    }
+  ],
+  "unconstrained": [
+    {
+      "source": {
+        "block": "session",
+        "index": "session",
+        "text": "unspecified in Module 7; INT-M07-NT01 (6) de-emphasises OTE in low-volatility periods with no kill-zone alignment."
+      },
+      "note": "Stated as unspecified in Module 7. The cited no-trade condition INT-M07-NT01 is registered separately as unsupported subjective."
+    }
+  ],
+  "executability": "executable",
+  "blocking_items": []
+}

@@ -1,0 +1,1311 @@
+{
+  "_meta": {
+    "title": "Required Timeframe Data",
+    "rule": "The execution timeframe is the fastest non-optional role; it is the only clock on which fills occur. Every role must be bound to a concrete timeframe in the frozen configuration, and every bar must carry a timezone-aware close_time because all session windows are anchored to New York time (BEG-M08-R05).",
+    "timeframe_identifiers": [
+      "1m",
+      "3m",
+      "5m",
+      "15m",
+      "30m",
+      "1h",
+      "4h",
+      "1d",
+      "1w",
+      "1M"
+    ]
+  },
+  "strategies": {
+    "S01-BUY-11STEP": {
+      "execution_timeframe_role": "htf",
+      "roles": {
+        "htf": {
+          "purpose": "higher-timeframe bias and structure (daily)",
+          "candidates": [
+            "1d"
+          ],
+          "source": [
+            "BEG-M11-S01"
+          ],
+          "min_history": 90
+        },
+        "htf_intermediate": {
+          "purpose": "higher-timeframe bias and structure (4-hour)",
+          "candidates": [
+            "4h"
+          ],
+          "source": [
+            "BEG-M11-S01"
+          ],
+          "min_history": 180
+        },
+        "ltf_structure": {
+          "purpose": "MSS, fair value gap and order block",
+          "candidates": [
+            "15m",
+            "5m"
+          ],
+          "source": [
+            "BEG-M11-S01"
+          ],
+          "min_history": 400
+        },
+        "ltf_confirmation": {
+          "purpose": "optional entry trigger",
+          "candidates": [
+            "1m"
+          ],
+          "source": [
+            "BEG-M11-S01"
+          ],
+          "min_history": 400,
+          "optional": true
+        }
+      },
+      "data_requirements": {
+        "instrument": "primary",
+        "correlated_instruments": 0,
+        "bars": {
+          "htf": {
+            "min_history": 90
+          },
+          "htf_intermediate": {
+            "min_history": 180
+          },
+          "ltf_structure": {
+            "min_history": 400
+          },
+          "ltf_confirmation": {
+            "min_history": 400
+          }
+        },
+        "timezone": "America/New_York",
+        "session_anchored": true,
+        "requires_period_opens": [
+          "daily",
+          "weekly"
+        ],
+        "external_data": [],
+        "warmup_bars": 200
+      }
+    },
+    "S02-SELL-11STEP": {
+      "execution_timeframe_role": "htf",
+      "roles": {
+        "htf": {
+          "purpose": "higher-timeframe bias and structure (daily)",
+          "candidates": [
+            "1d"
+          ],
+          "source": [
+            "BEG-M11-S01"
+          ],
+          "min_history": 90
+        },
+        "htf_intermediate": {
+          "purpose": "higher-timeframe bias and structure (4-hour)",
+          "candidates": [
+            "4h"
+          ],
+          "source": [
+            "BEG-M11-S01"
+          ],
+          "min_history": 180
+        },
+        "ltf_structure": {
+          "purpose": "MSS, fair value gap and order block",
+          "candidates": [
+            "15m",
+            "5m"
+          ],
+          "source": [
+            "BEG-M11-S01"
+          ],
+          "min_history": 400
+        },
+        "ltf_confirmation": {
+          "purpose": "optional entry trigger",
+          "candidates": [
+            "1m"
+          ],
+          "source": [
+            "BEG-M11-S01"
+          ],
+          "min_history": 400,
+          "optional": true
+        }
+      },
+      "data_requirements": {
+        "instrument": "primary",
+        "correlated_instruments": 0,
+        "bars": {
+          "htf": {
+            "min_history": 90
+          },
+          "htf_intermediate": {
+            "min_history": 180
+          },
+          "ltf_structure": {
+            "min_history": 400
+          },
+          "ltf_confirmation": {
+            "min_history": 400
+          }
+        },
+        "timezone": "America/New_York",
+        "session_anchored": true,
+        "requires_period_opens": [
+          "daily",
+          "weekly"
+        ],
+        "external_data": [],
+        "warmup_bars": 200
+      }
+    },
+    "S03-BULL-DISCOUNT-FW": {
+      "execution_timeframe_role": "intermediate",
+      "roles": {
+        "htf": {
+          "purpose": "bias and the large dealing range",
+          "candidates": [
+            "1d",
+            "4h"
+          ],
+          "source": [
+            "INT-M06-S01"
+          ],
+          "min_history": 120
+        },
+        "intermediate": {
+          "purpose": "active dealing range and PD arrays",
+          "candidates": [
+            "1h",
+            "15m"
+          ],
+          "source": [
+            "INT-M06-S01"
+          ],
+          "min_history": 400
+        },
+        "ltf": {
+          "purpose": "entry timing",
+          "candidates": [
+            "5m",
+            "1m"
+          ],
+          "source": [
+            "INT-M06-S01",
+            "INT-M01-R05"
+          ],
+          "min_history": 600
+        }
+      },
+      "data_requirements": {
+        "instrument": "primary",
+        "correlated_instruments": 0,
+        "bars": {
+          "htf": {
+            "min_history": 120
+          },
+          "intermediate": {
+            "min_history": 400
+          },
+          "ltf": {
+            "min_history": 600
+          }
+        },
+        "timezone": "America/New_York",
+        "session_anchored": true,
+        "requires_period_opens": [
+          "daily",
+          "weekly"
+        ],
+        "external_data": [],
+        "warmup_bars": 200
+      }
+    },
+    "S04-BEAR-PREMIUM-FW": {
+      "execution_timeframe_role": "intermediate",
+      "roles": {
+        "htf": {
+          "purpose": "bias and the large dealing range",
+          "candidates": [
+            "1d",
+            "4h"
+          ],
+          "source": [
+            "INT-M06-S01"
+          ],
+          "min_history": 120
+        },
+        "intermediate": {
+          "purpose": "active dealing range and PD arrays",
+          "candidates": [
+            "1h",
+            "15m"
+          ],
+          "source": [
+            "INT-M06-S01"
+          ],
+          "min_history": 400
+        },
+        "ltf": {
+          "purpose": "entry timing",
+          "candidates": [
+            "5m",
+            "1m"
+          ],
+          "source": [
+            "INT-M06-S01",
+            "INT-M01-R05"
+          ],
+          "min_history": 600
+        }
+      },
+      "data_requirements": {
+        "instrument": "primary",
+        "correlated_instruments": 0,
+        "bars": {
+          "htf": {
+            "min_history": 120
+          },
+          "intermediate": {
+            "min_history": 400
+          },
+          "ltf": {
+            "min_history": 600
+          }
+        },
+        "timezone": "America/New_York",
+        "session_anchored": true,
+        "requires_period_opens": [
+          "daily",
+          "weekly"
+        ],
+        "external_data": [],
+        "warmup_bars": 200
+      }
+    },
+    "S05-PO3-DAILY": {
+      "execution_timeframe_role": "htf",
+      "roles": {
+        "htf": {
+          "purpose": "daily bias, controlling range and draw on liquidity",
+          "candidates": [
+            "1d"
+          ],
+          "source": [
+            "INT-M10-R04",
+            "ADV-M08-R04"
+          ],
+          "min_history": 120
+        },
+        "ltf": {
+          "purpose": "accumulation range, manipulation sweep, MSS and entry array; the specification leaves this timeframe unspecified and cites 5-minute in its session examples",
+          "candidates": [
+            "5m"
+          ],
+          "source": [
+            "BEG-M09-S01",
+            "INT-M10-R03"
+          ],
+          "min_history": 800
+        }
+      },
+      "data_requirements": {
+        "instrument": "primary",
+        "correlated_instruments": 0,
+        "bars": {
+          "htf": {
+            "min_history": 120
+          },
+          "ltf": {
+            "min_history": 800
+          }
+        },
+        "timezone": "America/New_York",
+        "session_anchored": true,
+        "requires_period_opens": [
+          "daily",
+          "weekly"
+        ],
+        "external_data": [],
+        "warmup_bars": 200
+      }
+    },
+    "S06-JUDAS-LONDON": {
+      "execution_timeframe_role": "htf",
+      "roles": {
+        "htf": {
+          "purpose": "bias stratification only (not a filter at this level)",
+          "candidates": [
+            "1d"
+          ],
+          "source": [
+            "BEG-M08-S01",
+            "INT-M11-C03"
+          ],
+          "min_history": 120
+        },
+        "ltf": {
+          "purpose": "Asian range, sweep, displacement, MSS, reclaim count and entry array",
+          "candidates": [
+            "5m"
+          ],
+          "source": [
+            "BEG-M08-S01",
+            "BEG-M08-R06"
+          ],
+          "min_history": 800
+        }
+      },
+      "data_requirements": {
+        "instrument": "primary",
+        "correlated_instruments": 0,
+        "bars": {
+          "htf": {
+            "min_history": 120
+          },
+          "ltf": {
+            "min_history": 800
+          }
+        },
+        "timezone": "America/New_York",
+        "session_anchored": true,
+        "requires_period_opens": [
+          "daily"
+        ],
+        "external_data": [],
+        "warmup_bars": 200
+      }
+    },
+    "S07-NYKZ-SWEEP-SEQUENCE": {
+      "execution_timeframe_role": "htf",
+      "roles": {
+        "htf": {
+          "purpose": "session-to-session context (what Asia built and London did)",
+          "candidates": [
+            "1d"
+          ],
+          "source": [
+            "BEG-M08-C11"
+          ],
+          "min_history": 120
+        },
+        "ltf": {
+          "purpose": "sweep, displacement, MSS and entry array; the specification leaves the timeframe unspecified and reads 5-minute by analogy with the London sequence",
+          "candidates": [
+            "5m"
+          ],
+          "source": [
+            "BEG-M08-S02"
+          ],
+          "min_history": 800
+        }
+      },
+      "data_requirements": {
+        "instrument": "primary",
+        "correlated_instruments": 0,
+        "bars": {
+          "htf": {
+            "min_history": 120
+          },
+          "ltf": {
+            "min_history": 800
+          }
+        },
+        "timezone": "America/New_York",
+        "session_anchored": true,
+        "requires_period_opens": [
+          "daily",
+          "weekly"
+        ],
+        "external_data": [],
+        "warmup_bars": 200
+      }
+    },
+    "S08-LONDON-CLOSE-RETRACE": {
+      "execution_timeframe_role": "ltf",
+      "roles": {
+        "ltf": {
+          "purpose": "raid of the day's extreme and the retracement; the specification leaves the timeframe unspecified",
+          "candidates": [
+            "5m"
+          ],
+          "source": [
+            "BEG-M08-S03"
+          ],
+          "min_history": 800
+        }
+      },
+      "data_requirements": {
+        "instrument": "primary",
+        "correlated_instruments": 0,
+        "bars": {
+          "ltf": {
+            "min_history": 800
+          }
+        },
+        "timezone": "America/New_York",
+        "session_anchored": true,
+        "requires_period_opens": [
+          "daily"
+        ],
+        "external_data": [],
+        "warmup_bars": 200
+      }
+    },
+    "S09-OTE-ENTRY-COMPONENT": {
+      "execution_timeframe_role": "htf",
+      "roles": {
+        "htf": {
+          "purpose": "bias and the dealing range the OTE band must sit in",
+          "candidates": [
+            "1d",
+            "4h"
+          ],
+          "source": [
+            "BEG-M07-S01",
+            "INT-M07-R03"
+          ],
+          "min_history": 120
+        },
+        "ltf": {
+          "purpose": "the measured displacement leg, the OTE band and the confirmation signal; OTE is fractal so the specification fixes no timeframe",
+          "candidates": [
+            "15m",
+            "5m"
+          ],
+          "source": [
+            "BEG-M07-C04"
+          ],
+          "min_history": 800
+        }
+      },
+      "data_requirements": {
+        "instrument": "primary",
+        "correlated_instruments": 0,
+        "bars": {
+          "htf": {
+            "min_history": 120
+          },
+          "ltf": {
+            "min_history": 800
+          }
+        },
+        "timezone": "America/New_York",
+        "session_anchored": true,
+        "requires_period_opens": [
+          "daily",
+          "weekly"
+        ],
+        "external_data": [],
+        "warmup_bars": 200
+      }
+    },
+    "S10-DAILY-SCALP": {
+      "execution_timeframe_role": "ltf",
+      "roles": {
+        "htf": {
+          "purpose": "daily bias and the pools to be swept and targeted",
+          "candidates": [
+            "1d",
+            "4h"
+          ],
+          "source": [
+            "BEG-M13-C01",
+            "BEG-M13-C02"
+          ],
+          "min_history": 120
+        },
+        "ltf": {
+          "purpose": "execution",
+          "candidates": [
+            "5m",
+            "3m",
+            "1m"
+          ],
+          "source": [
+            "BEG-M13-C05"
+          ],
+          "min_history": 1000
+        }
+      },
+      "data_requirements": {
+        "instrument": "primary",
+        "correlated_instruments": 0,
+        "bars": {
+          "htf": {
+            "min_history": 120
+          },
+          "ltf": {
+            "min_history": 1000
+          }
+        },
+        "timezone": "America/New_York",
+        "session_anchored": true,
+        "requires_period_opens": [
+          "daily",
+          "weekly"
+        ],
+        "external_data": [],
+        "warmup_bars": 200
+      }
+    },
+    "S11-ADV-BUY-A-FVG-OTE": {
+      "execution_timeframe_role": "execution",
+      "roles": {
+        "htf": {
+          "purpose": "monthly/weekly/daily narrative and the controlling range",
+          "candidates": [
+            "1d",
+            "1w"
+          ],
+          "source": [
+            "ADV-M10-R01",
+            "ADV-M02-R01"
+          ],
+          "min_history": 120
+        },
+        "execution": {
+          "purpose": "conditioning and entry",
+          "candidates": [
+            "15m",
+            "5m",
+            "1m"
+          ],
+          "source": [
+            "ADV-M16-R02"
+          ],
+          "min_history": 1000
+        }
+      },
+      "data_requirements": {
+        "instrument": "primary",
+        "correlated_instruments": 0,
+        "bars": {
+          "htf": {
+            "min_history": 120
+          },
+          "execution": {
+            "min_history": 1000
+          }
+        },
+        "timezone": "America/New_York",
+        "session_anchored": true,
+        "requires_period_opens": [
+          "daily",
+          "weekly",
+          "monthly"
+        ],
+        "external_data": [],
+        "warmup_bars": 200
+      }
+    },
+    "S12-ADV-BUY-B-BREAKER": {
+      "execution_timeframe_role": "execution",
+      "roles": {
+        "htf": {
+          "purpose": "monthly/weekly/daily narrative and the controlling range",
+          "candidates": [
+            "1d",
+            "1w"
+          ],
+          "source": [
+            "ADV-M10-R01",
+            "ADV-M02-R01"
+          ],
+          "min_history": 120
+        },
+        "execution": {
+          "purpose": "conditioning and entry",
+          "candidates": [
+            "15m",
+            "5m",
+            "1m"
+          ],
+          "source": [
+            "ADV-M16-R02"
+          ],
+          "min_history": 1000
+        }
+      },
+      "data_requirements": {
+        "instrument": "primary",
+        "correlated_instruments": 0,
+        "bars": {
+          "htf": {
+            "min_history": 120
+          },
+          "execution": {
+            "min_history": 1000
+          }
+        },
+        "timezone": "America/New_York",
+        "session_anchored": true,
+        "requires_period_opens": [
+          "daily",
+          "weekly",
+          "monthly"
+        ],
+        "external_data": [],
+        "warmup_bars": 200
+      }
+    },
+    "S13-ADV-BUY-C-IFVG": {
+      "execution_timeframe_role": "execution",
+      "roles": {
+        "htf": {
+          "purpose": "monthly/weekly/daily narrative and the controlling range",
+          "candidates": [
+            "1d",
+            "1w"
+          ],
+          "source": [
+            "ADV-M10-R01",
+            "ADV-M02-R01"
+          ],
+          "min_history": 120
+        },
+        "execution": {
+          "purpose": "conditioning and entry",
+          "candidates": [
+            "15m",
+            "5m",
+            "1m"
+          ],
+          "source": [
+            "ADV-M16-R02"
+          ],
+          "min_history": 1000
+        }
+      },
+      "data_requirements": {
+        "instrument": "primary",
+        "correlated_instruments": 0,
+        "bars": {
+          "htf": {
+            "min_history": 120
+          },
+          "execution": {
+            "min_history": 1000
+          }
+        },
+        "timezone": "America/New_York",
+        "session_anchored": true,
+        "requires_period_opens": [
+          "daily",
+          "weekly",
+          "monthly"
+        ],
+        "external_data": [],
+        "warmup_bars": 200
+      }
+    },
+    "S14-ADV-BUY-D-HTF-ARRAY-LTF": {
+      "execution_timeframe_role": "htf",
+      "roles": {
+        "htf": {
+          "purpose": "weekly/daily array and draw on liquidity",
+          "candidates": [
+            "1w",
+            "1d"
+          ],
+          "source": [
+            "ADV-M11-S04",
+            "INT-M08-R02"
+          ],
+          "min_history": 120
+        },
+        "intermediate": {
+          "purpose": "nested range and arrays",
+          "candidates": [
+            "4h",
+            "1h"
+          ],
+          "source": [
+            "INT-M08-R02"
+          ],
+          "min_history": 400
+        },
+        "ltf": {
+          "purpose": "sweep, displacement, MSS and the nested entry array",
+          "candidates": [
+            "15m",
+            "5m"
+          ],
+          "source": [
+            "ADV-M11-S04"
+          ],
+          "min_history": 1000
+        }
+      },
+      "data_requirements": {
+        "instrument": "primary",
+        "correlated_instruments": 0,
+        "bars": {
+          "htf": {
+            "min_history": 120
+          },
+          "intermediate": {
+            "min_history": 400
+          },
+          "ltf": {
+            "min_history": 1000
+          }
+        },
+        "timezone": "America/New_York",
+        "session_anchored": true,
+        "requires_period_opens": [
+          "daily",
+          "weekly",
+          "monthly"
+        ],
+        "external_data": [],
+        "warmup_bars": 200
+      }
+    },
+    "S15-ADV-SELL-A-FVG-OTE": {
+      "execution_timeframe_role": "execution",
+      "roles": {
+        "htf": {
+          "purpose": "monthly/weekly/daily narrative and the controlling range",
+          "candidates": [
+            "1d",
+            "1w"
+          ],
+          "source": [
+            "ADV-M10-R01",
+            "ADV-M02-R01"
+          ],
+          "min_history": 120
+        },
+        "execution": {
+          "purpose": "conditioning and entry",
+          "candidates": [
+            "15m",
+            "5m",
+            "1m"
+          ],
+          "source": [
+            "ADV-M16-R02"
+          ],
+          "min_history": 1000
+        }
+      },
+      "data_requirements": {
+        "instrument": "primary",
+        "correlated_instruments": 0,
+        "bars": {
+          "htf": {
+            "min_history": 120
+          },
+          "execution": {
+            "min_history": 1000
+          }
+        },
+        "timezone": "America/New_York",
+        "session_anchored": true,
+        "requires_period_opens": [
+          "daily",
+          "weekly",
+          "monthly"
+        ],
+        "external_data": [],
+        "warmup_bars": 200
+      }
+    },
+    "S16-ADV-SELL-B-BREAKER": {
+      "execution_timeframe_role": "execution",
+      "roles": {
+        "htf": {
+          "purpose": "monthly/weekly/daily narrative and the controlling range",
+          "candidates": [
+            "1d",
+            "1w"
+          ],
+          "source": [
+            "ADV-M10-R01",
+            "ADV-M02-R01"
+          ],
+          "min_history": 120
+        },
+        "execution": {
+          "purpose": "conditioning and entry",
+          "candidates": [
+            "15m",
+            "5m",
+            "1m"
+          ],
+          "source": [
+            "ADV-M16-R02"
+          ],
+          "min_history": 1000
+        }
+      },
+      "data_requirements": {
+        "instrument": "primary",
+        "correlated_instruments": 0,
+        "bars": {
+          "htf": {
+            "min_history": 120
+          },
+          "execution": {
+            "min_history": 1000
+          }
+        },
+        "timezone": "America/New_York",
+        "session_anchored": true,
+        "requires_period_opens": [
+          "daily",
+          "weekly",
+          "monthly"
+        ],
+        "external_data": [],
+        "warmup_bars": 200
+      }
+    },
+    "S17-ADV-SELL-C-IFVG": {
+      "execution_timeframe_role": "execution",
+      "roles": {
+        "htf": {
+          "purpose": "monthly/weekly/daily narrative and the controlling range",
+          "candidates": [
+            "1d",
+            "1w"
+          ],
+          "source": [
+            "ADV-M10-R01",
+            "ADV-M02-R01"
+          ],
+          "min_history": 120
+        },
+        "execution": {
+          "purpose": "conditioning and entry",
+          "candidates": [
+            "15m",
+            "5m",
+            "1m"
+          ],
+          "source": [
+            "ADV-M16-R02"
+          ],
+          "min_history": 1000
+        }
+      },
+      "data_requirements": {
+        "instrument": "primary",
+        "correlated_instruments": 0,
+        "bars": {
+          "htf": {
+            "min_history": 120
+          },
+          "execution": {
+            "min_history": 1000
+          }
+        },
+        "timezone": "America/New_York",
+        "session_anchored": true,
+        "requires_period_opens": [
+          "daily",
+          "weekly",
+          "monthly"
+        ],
+        "external_data": [],
+        "warmup_bars": 200
+      }
+    },
+    "S18-ADV-SELL-D-HTF-ARRAY-LTF": {
+      "execution_timeframe_role": "htf",
+      "roles": {
+        "htf": {
+          "purpose": "weekly/daily array and draw on liquidity",
+          "candidates": [
+            "1w",
+            "1d"
+          ],
+          "source": [
+            "ADV-M11-S04",
+            "INT-M08-R02"
+          ],
+          "min_history": 120
+        },
+        "intermediate": {
+          "purpose": "nested range and arrays",
+          "candidates": [
+            "4h",
+            "1h"
+          ],
+          "source": [
+            "INT-M08-R02"
+          ],
+          "min_history": 400
+        },
+        "ltf": {
+          "purpose": "sweep, displacement, MSS and the nested entry array",
+          "candidates": [
+            "15m",
+            "5m"
+          ],
+          "source": [
+            "ADV-M11-S04"
+          ],
+          "min_history": 1000
+        }
+      },
+      "data_requirements": {
+        "instrument": "primary",
+        "correlated_instruments": 0,
+        "bars": {
+          "htf": {
+            "min_history": 120
+          },
+          "intermediate": {
+            "min_history": 400
+          },
+          "ltf": {
+            "min_history": 1000
+          }
+        },
+        "timezone": "America/New_York",
+        "session_anchored": true,
+        "requires_period_opens": [
+          "daily",
+          "weekly",
+          "monthly"
+        ],
+        "external_data": [],
+        "warmup_bars": 200
+      }
+    },
+    "S19-BUY-LOKZ-ASIAN-SWEEP": {
+      "execution_timeframe_role": "ltf_structure",
+      "roles": {
+        "htf": {
+          "purpose": "weekly and daily bias, range and draw on liquidity",
+          "candidates": [
+            "1d",
+            "1w"
+          ],
+          "source": [
+            "INT-M11-R01",
+            "ADV-M10-R03"
+          ],
+          "min_history": 150
+        },
+        "ltf_structure": {
+          "purpose": "Asian range, sweep, MSS and the London-created array",
+          "candidates": [
+            "5m",
+            "15m"
+          ],
+          "source": [
+            "BEG-M11-S01",
+            "INT-M09-R02"
+          ],
+          "min_history": 1000
+        },
+        "ltf_confirmation": {
+          "purpose": "optional one-minute entry trigger",
+          "candidates": [
+            "1m"
+          ],
+          "source": [
+            "BEG-M11-S01"
+          ],
+          "min_history": 1000,
+          "optional": true
+        }
+      },
+      "data_requirements": {
+        "instrument": "primary",
+        "correlated_instruments": 0,
+        "bars": {
+          "htf": {
+            "min_history": 150
+          },
+          "ltf_structure": {
+            "min_history": 1000
+          },
+          "ltf_confirmation": {
+            "min_history": 1000
+          }
+        },
+        "timezone": "America/New_York",
+        "session_anchored": true,
+        "requires_period_opens": [
+          "daily",
+          "weekly"
+        ],
+        "external_data": [],
+        "warmup_bars": 200
+      }
+    },
+    "S20-SELL-LOKZ-ASIAN-SWEEP": {
+      "execution_timeframe_role": "ltf_structure",
+      "roles": {
+        "htf": {
+          "purpose": "weekly and daily bias, range and draw on liquidity",
+          "candidates": [
+            "1d",
+            "1w"
+          ],
+          "source": [
+            "INT-M11-R01",
+            "ADV-M10-R03"
+          ],
+          "min_history": 150
+        },
+        "ltf_structure": {
+          "purpose": "Asian range, sweep, MSS and the London-created array",
+          "candidates": [
+            "5m",
+            "15m"
+          ],
+          "source": [
+            "BEG-M11-S01",
+            "INT-M09-R02"
+          ],
+          "min_history": 1000
+        },
+        "ltf_confirmation": {
+          "purpose": "optional one-minute entry trigger",
+          "candidates": [
+            "1m"
+          ],
+          "source": [
+            "BEG-M11-S01"
+          ],
+          "min_history": 1000,
+          "optional": true
+        }
+      },
+      "data_requirements": {
+        "instrument": "primary",
+        "correlated_instruments": 0,
+        "bars": {
+          "htf": {
+            "min_history": 150
+          },
+          "ltf_structure": {
+            "min_history": 1000
+          },
+          "ltf_confirmation": {
+            "min_history": 1000
+          }
+        },
+        "timezone": "America/New_York",
+        "session_anchored": true,
+        "requires_period_opens": [
+          "daily",
+          "weekly"
+        ],
+        "external_data": [],
+        "warmup_bars": 200
+      }
+    },
+    "S21-NY-CONTINUATION-OF-LONDON": {
+      "execution_timeframe_role": "htf",
+      "roles": {
+        "htf": {
+          "purpose": "daily/weekly bias and the draw on liquidity",
+          "candidates": [
+            "1d",
+            "1w"
+          ],
+          "source": [
+            "ADV-M14-R03",
+            "INT-M09-R05"
+          ],
+          "min_history": 150
+        },
+        "array_timeframe": {
+          "purpose": "the London leg and the array it left behind",
+          "candidates": [
+            "15m",
+            "5m"
+          ],
+          "source": [
+            "INT-M09-EX01"
+          ],
+          "min_history": 1000
+        },
+        "ltf_confirmation": {
+          "purpose": "optional advanced confirmation entry",
+          "candidates": [
+            "5m",
+            "1m"
+          ],
+          "source": [
+            "ADV-M16-R02"
+          ],
+          "min_history": 1000,
+          "optional": true
+        }
+      },
+      "data_requirements": {
+        "instrument": "primary",
+        "correlated_instruments": 0,
+        "bars": {
+          "htf": {
+            "min_history": 150
+          },
+          "array_timeframe": {
+            "min_history": 1000
+          },
+          "ltf_confirmation": {
+            "min_history": 1000
+          }
+        },
+        "timezone": "America/New_York",
+        "session_anchored": true,
+        "requires_period_opens": [
+          "daily",
+          "weekly"
+        ],
+        "external_data": [],
+        "warmup_bars": 200
+      }
+    },
+    "S22-ADV-A-SMT-CONFIRMED": {
+      "execution_timeframe_role": "htf",
+      "roles": {
+        "htf": {
+          "purpose": "single-instrument narrative and bias on the traded instrument",
+          "candidates": [
+            "1d",
+            "1w"
+          ],
+          "source": [
+            "ADV-M13-R07"
+          ],
+          "min_history": 150
+        },
+        "smt_timeframe": {
+          "purpose": "the timeframe on which the liquidity-extreme swings are compared; the specification leaves it unspecified and implies the execution structure timeframe",
+          "candidates": [
+            "15m",
+            "5m"
+          ],
+          "source": [
+            "ADV-M13-R02"
+          ],
+          "min_history": 1000
+        }
+      },
+      "data_requirements": {
+        "instrument": "primary",
+        "correlated_instruments": 1,
+        "bars": {
+          "htf": {
+            "min_history": 150
+          },
+          "smt_timeframe": {
+            "min_history": 1000
+          }
+        },
+        "timezone": "America/New_York",
+        "session_anchored": true,
+        "requires_period_opens": [
+          "daily",
+          "weekly"
+        ],
+        "external_data": [],
+        "warmup_bars": 200
+      }
+    },
+    "S23-WEEKLY-PO3-GATED-DAILY": {
+      "execution_timeframe_role": "execution",
+      "roles": {
+        "htf": {
+          "purpose": "weekly phase, weekly range and weekly draw on liquidity",
+          "candidates": [
+            "1w"
+          ],
+          "source": [
+            "INT-M10-R02",
+            "ADV-M08-R02"
+          ],
+          "min_history": 60
+        },
+        "execution": {
+          "purpose": "the gated daily model's own execution timeframe",
+          "candidates": [
+            "1d"
+          ],
+          "source": [
+            "ADV-M14-C06"
+          ],
+          "min_history": 400
+        }
+      },
+      "data_requirements": {
+        "instrument": "primary",
+        "correlated_instruments": 0,
+        "bars": {
+          "htf": {
+            "min_history": 60
+          },
+          "execution": {
+            "min_history": 400
+          }
+        },
+        "timezone": "America/New_York",
+        "session_anchored": true,
+        "requires_period_opens": [
+          "weekly",
+          "daily"
+        ],
+        "external_data": [],
+        "warmup_bars": 200
+      }
+    },
+    "S24-SESSION-PO3-TIMED-ENTRY": {
+      "execution_timeframe_role": "daily",
+      "roles": {
+        "daily": {
+          "purpose": "daily Power-of-3 context and the daily draw on liquidity",
+          "candidates": [
+            "1d"
+          ],
+          "source": [
+            "INT-M10-R03",
+            "ADV-M08-C04"
+          ],
+          "min_history": 150
+        },
+        "session_structure": {
+          "purpose": "session accumulation, manipulation and distribution; the specification leaves the timeframe unspecified and implies 5m/1m",
+          "candidates": [
+            "5m",
+            "1m"
+          ],
+          "source": [
+            "INT-M10-R03"
+          ],
+          "min_history": 1000
+        }
+      },
+      "data_requirements": {
+        "instrument": "primary",
+        "correlated_instruments": 0,
+        "bars": {
+          "daily": {
+            "min_history": 150
+          },
+          "session_structure": {
+            "min_history": 1000
+          }
+        },
+        "timezone": "America/New_York",
+        "session_anchored": true,
+        "requires_period_opens": [
+          "daily",
+          "weekly"
+        ],
+        "external_data": [],
+        "warmup_bars": 200
+      }
+    }
+  }
+}

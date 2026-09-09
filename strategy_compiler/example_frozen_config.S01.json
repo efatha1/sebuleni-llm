@@ -1,0 +1,48 @@
+{
+  "_meta": {
+    "title": "Example frozen configuration — S01-BUY-11STEP",
+    "warning": "Every value under 'params' whose knowledge-base status is unspecified, heuristic_unfixed, range_given or alternatives_documented is a RESEARCH PARAMETER (ADV-M18-C03), not ICT doctrine (ADV-M18-R01). The values below are arbitrary illustrative choices used by the validation tests. Freeze real values before any performance number is calculated (ADV-M18-R02) and never edit them after seeing results (ADV-M18-R04).",
+    "template": "strategy_reearcher/research/research_config_template.json",
+    "engine": "strategy_compiler/engine/backtest.py"
+  },
+  "strategy_id": "S01-BUY-11STEP",
+  "date_frozen": "2026-01-01",
+  "instrument": {
+    "symbol": "SYNTH",
+    "tick_size": 0.00001,
+    "value_per_unit_move": 100000.0,
+    "spread": 0.0,
+    "slippage": 0.0
+  },
+  "timeframe_roles": {
+    "htf": "1d",
+    "htf_intermediate": "4h",
+    "ltf_structure": "5m",
+    "ltf_confirmation": "1m"
+  },
+  "starting_equity": 100000.0,
+  "intrabar_policy": "stop_first",
+  "setup_expiry_bars": 60,
+  "params": {
+    "governing_swing_tier": "short_term",
+    "displacement_range_multiple": 2.0,
+    "displacement_lookback": 3,
+    "displacement_body_ratio_min": 0.6,
+    "sweep_min_penetration": 0.0,
+    "sweep_reclaim_bars": 3,
+    "equal_level_tolerance": 0.0002,
+    "risk_fraction": 0.01,
+    "stop_buffer_ticks": 10,
+    "first_target_allocation": 0.5,
+    "fib_anchor": "wick",
+    "ote_levels": [0.62, 0.705, 0.79],
+    "entry_level": "fvg_ce",
+    "entry_trigger": "limit_at_zone",
+    "ltf_confirmation_signal": "ltf_mss",
+    "asian_window_ET": ["20:00", "00:00"],
+    "daily_bias_method": "single_mss",
+    "daily_open_definition": "new_york_midnight"
+  },
+  "operationalisations": {},
+  "rule_change_log": []
+}

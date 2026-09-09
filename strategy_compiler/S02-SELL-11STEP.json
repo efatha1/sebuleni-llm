@@ -1,0 +1,1568 @@
+{
+  "dsl_version": "1.0.0",
+  "strategy_id": "S02-SELL-11STEP",
+  "name": "ICT Sell Model \u2014 The Eleven Steps",
+  "kind": "base_model",
+  "parent_strategy_id": "S01-BUY-11STEP",
+  "direction": "short",
+  "provenance": {
+    "spec_file": "strategy_reearcher/catalog/strategies.json",
+    "spec_strategy_id": "S02-SELL-11STEP",
+    "kb_source_strategy_ids": [
+      "BEG-M12-S01"
+    ],
+    "primitives": [
+      "P-DISP-01",
+      "P-FIB-01",
+      "P-FVG-01",
+      "P-LIQ-01",
+      "P-LIQ-02",
+      "P-MSS-01",
+      "P-OB-01",
+      "P-RANGE-01",
+      "P-RISK-01",
+      "P-STOP-01",
+      "P-STRUCT-01",
+      "P-TARGET-01"
+    ],
+    "specificity_status": "fully_specified",
+    "spec_unspecified_elements": [
+      "same as S01"
+    ],
+    "spec_worked_example": "BEG-M12-EX01 (XAU/USD; entry 2,649.90; stop 2,656.40; T1 2,644.20; T2 ~2,618.00)"
+  },
+  "timeframes": {
+    "htf": {
+      "purpose": "higher-timeframe bias and structure (daily)",
+      "candidates": [
+        "1d"
+      ],
+      "source": [
+        "BEG-M11-S01"
+      ],
+      "min_history": 90
+    },
+    "htf_intermediate": {
+      "purpose": "higher-timeframe bias and structure (4-hour)",
+      "candidates": [
+        "4h"
+      ],
+      "source": [
+        "BEG-M11-S01"
+      ],
+      "min_history": 180
+    },
+    "ltf_structure": {
+      "purpose": "MSS, fair value gap and order block",
+      "candidates": [
+        "15m",
+        "5m"
+      ],
+      "source": [
+        "BEG-M11-S01"
+      ],
+      "min_history": 400
+    },
+    "ltf_confirmation": {
+      "purpose": "optional entry trigger",
+      "candidates": [
+        "1m"
+      ],
+      "source": [
+        "BEG-M11-S01"
+      ],
+      "min_history": 400,
+      "optional": true
+    }
+  },
+  "data_requirements": {
+    "instrument": "primary",
+    "correlated_instruments": 0,
+    "bars": {
+      "htf": {
+        "min_history": 90
+      },
+      "htf_intermediate": {
+        "min_history": 180
+      },
+      "ltf_structure": {
+        "min_history": 400
+      },
+      "ltf_confirmation": {
+        "min_history": 400
+      }
+    },
+    "timezone": "America/New_York",
+    "session_anchored": true,
+    "requires_period_opens": [
+      "daily",
+      "weekly"
+    ],
+    "external_data": [],
+    "warmup_bars": 200
+  },
+  "parameters": [
+    {
+      "name": "governing_swing_tier",
+      "binding": "frozen_choice",
+      "choices": [
+        "short_term",
+        "intermediate",
+        "long_term"
+      ],
+      "kb_status": "unspecified",
+      "kb_value": "judgment informed by the ST/IT/LT hierarchy",
+      "source": [
+        "BEG-M03-C02",
+        "INT-M01-R02"
+      ],
+      "register_id": "governing_structural_point_tier"
+    },
+    {
+      "name": "displacement_range_multiple",
+      "binding": "frozen_required",
+      "kb_status": "unspecified",
+      "kb_value": "'unusually large relative to recent candles'",
+      "source": [
+        "BEG-M05-R01"
+      ],
+      "register_id": "displacement_range_multiple"
+    },
+    {
+      "name": "displacement_lookback",
+      "binding": "frozen_required",
+      "kb_status": "unspecified",
+      "kb_value": "-",
+      "source": [
+        "BEG-M05-R01"
+      ],
+      "register_id": "displacement_lookback_candles"
+    },
+    {
+      "name": "displacement_body_ratio_min",
+      "binding": "frozen_required",
+      "kb_status": "heuristic_unfixed",
+      "kb_value": "~60-70% cited by secondary tools; the book does not fix it",
+      "source": [
+        "BEG-M05-C01",
+        "BEG-M05-C02",
+        "BEG-M05-AMB01"
+      ],
+      "register_id": "displacement_body_to_range_min"
+    },
+    {
+      "name": "sweep_min_penetration",
+      "binding": "frozen_required",
+      "kb_status": "unspecified",
+      "kb_value": "research parameter 'Y' in the knowledge base's own template",
+      "source": [
+        "ADV-M18-C03"
+      ],
+      "register_id": "sweep_min_penetration"
+    },
+    {
+      "name": "sweep_reclaim_bars",
+      "binding": "frozen_required",
+      "kb_status": "alternatives_documented",
+      "kb_value": "~2-3 lower-timeframe candles (Judas) / 'reasonable number' (PO3) / 'Z' bars",
+      "source": [
+        "BEG-M08-R06",
+        "BEG-M09-R02",
+        "ADV-M18-C03"
+      ],
+      "register_id": "sweep_reclaim_window"
+    },
+    {
+      "name": "equal_level_tolerance",
+      "binding": "frozen_required",
+      "kb_status": "heuristic_unfixed",
+      "kb_value": "~5-10 pips forex cited by secondary sources; 'obvious at a glance'",
+      "source": [
+        "BEG-M04-C05",
+        "INT-M02-R01"
+      ],
+      "register_id": "equal_highs_lows_tolerance"
+    },
+    {
+      "name": "risk_fraction",
+      "binding": "frozen_required",
+      "kb_status": "range_given",
+      "kb_value": "~1% (max ~2%) beginner | 0.5-1% intermediate | 0.25-1% advanced",
+      "source": [
+        "BEG-M13-R01",
+        "INT-M12-R01",
+        "ADV-M17-R02"
+      ],
+      "register_id": "risk_per_trade"
+    },
+    {
+      "name": "stop_buffer_ticks",
+      "binding": "frozen_required",
+      "kb_status": "unspecified",
+      "kb_value": "'just beyond' / 'small buffer' (examples ~12 pips EUR/USD, ~0.60 pts gold)",
+      "source": [
+        "BEG-M11-EX01",
+        "BEG-M12-EX01"
+      ],
+      "register_id": "stop_buffer"
+    },
+    {
+      "name": "first_target_allocation",
+      "binding": "frozen_required",
+      "kb_status": "unspecified",
+      "kb_value": "'e.g. 50% or a fixed fraction' \u2014 the fraction is never stated",
+      "source": [
+        "ADV-M16-R06"
+      ],
+      "register_id": "partial_fraction"
+    },
+    {
+      "name": "fib_anchor",
+      "binding": "frozen_choice",
+      "choices": [
+        "body",
+        "wick"
+      ],
+      "kb_status": "alternatives_documented",
+      "kb_value": "body-to-body (BEG-M07-R01) vs liquidity-sweep wick origin (INT-M07-R01)",
+      "source": [
+        "BEG-M07-R01",
+        "INT-M07-R01"
+      ],
+      "register_id": "fib_anchor_price_type"
+    },
+    {
+      "name": "ote_levels",
+      "binding": "frozen_choice",
+      "choices": [
+        [
+          0.62,
+          0.705,
+          0.79
+        ],
+        [
+          0.618,
+          null,
+          0.786
+        ]
+      ],
+      "kb_status": "alternatives_documented",
+      "kb_value": "0.62/0.705/0.79 vs 0.618/0.786",
+      "source": [
+        "BEG-M07-R03",
+        "INT-M07-R02"
+      ],
+      "register_id": "ote_levels"
+    },
+    {
+      "name": "entry_level",
+      "binding": "frozen_choice",
+      "choices": [
+        "fvg_ce",
+        "ob_boundary"
+      ],
+      "kb_status": "alternatives_documented",
+      "kb_value": "consequent encroachment vs order-block boundary, both named in the same step",
+      "source": [
+        "BEG-M11-S01",
+        "INT-M04-R02",
+        "ADV-M16-R03"
+      ],
+      "register_id": "target_policy"
+    },
+    {
+      "name": "entry_trigger",
+      "binding": "frozen_choice",
+      "choices": [
+        "limit_at_zone",
+        "ltf_confirmation"
+      ],
+      "kb_status": "alternatives_documented",
+      "kb_value": "the documented entry triggers for this specification: limit_at_zone | ltf_confirmation",
+      "source": [
+        "BEG-M11-S01",
+        "ADV-M16-R02",
+        "ADV-M16-NT01"
+      ],
+      "register_id": "stop_reference"
+    },
+    {
+      "name": "ltf_confirmation_signal",
+      "binding": "frozen_choice",
+      "choices": [
+        "ltf_mss"
+      ],
+      "kb_status": "specified_examples",
+      "kb_value": "1-minute MSS or a rejection candle; only the MSS form is defined",
+      "source": [
+        "BEG-M11-S01"
+      ],
+      "register_id": "ltf_confirmation_signal"
+    },
+    {
+      "name": "asian_window_ET",
+      "binding": "frozen_choice",
+      "choices": [
+        [
+          "20:00",
+          "22:00"
+        ],
+        [
+          "20:00",
+          "00:00"
+        ]
+      ],
+      "kb_status": "alternatives_documented",
+      "kb_value": "20:00-22:00 | 20:00-00:00",
+      "source": [
+        "BEG-M08-R01",
+        "INT-M09-R01"
+      ],
+      "register_id": "asian_window_ET"
+    },
+    {
+      "name": "daily_bias_method",
+      "binding": "frozen_choice",
+      "choices": [
+        "three_factor",
+        "single_mss"
+      ],
+      "kb_status": "alternatives_documented",
+      "kb_value": "three-factor (primary) vs the single-MSS 'daily bias trick'",
+      "source": [
+        "BEG-M10-C03",
+        "BEG-M10-AMB01"
+      ],
+      "register_id": "daily_bias_method"
+    },
+    {
+      "name": "daily_open_definition",
+      "binding": "frozen_choice",
+      "choices": [
+        "new_york_midnight",
+        "instrument_daily_open"
+      ],
+      "kb_status": "alternatives_documented",
+      "kb_value": "daily open (primary) vs New York midnight (thinner support)",
+      "source": [
+        "ADV-M07-C03",
+        "ADV-M07-AMB01"
+      ],
+      "register_id": "daily_open_definition"
+    }
+  ],
+  "features": [
+    "bar",
+    "displacement",
+    "displacement_leg",
+    "dol",
+    "fib_levels",
+    "fvg",
+    "in_ote",
+    "latest_index",
+    "liquidity_pools",
+    "mss",
+    "offset",
+    "order_block",
+    "pd_location",
+    "position_size",
+    "sweep",
+    "zone_overlap"
+  ],
+  "market_state": [
+    "bias_state",
+    "structure"
+  ],
+  "blocks": {
+    "context": [
+      {
+        "node_id": "S02.ctx.bias",
+        "kind": "predicate",
+        "source": {
+          "block": "context",
+          "index": "htf_bias_required",
+          "text": "Daily and 4-hour bearish structure (lower highs, lower lows) and/or recently confirmed bearish HTF MSS."
+        },
+        "kb_refs": [
+          "BEG-M10-C02",
+          "BEG-M03-C03",
+          "BEG-M03-C04",
+          "BEG-M03-C05"
+        ],
+        "primitives": [
+          "P-STRUCT-01",
+          "P-MSS-01"
+        ],
+        "expr": [
+          "or",
+          [
+            "and",
+            [
+              "==",
+              [
+                "state",
+                "structure",
+                {
+                  "tf": "htf",
+                  "field": "state"
+                }
+              ],
+              [
+                "const",
+                "bearish"
+              ]
+            ],
+            [
+              "==",
+              [
+                "state",
+                "structure",
+                {
+                  "tf": "htf_intermediate",
+                  "field": "state"
+                }
+              ],
+              [
+                "const",
+                "bearish"
+              ]
+            ]
+          ],
+          [
+            "feature",
+            "mss",
+            {
+              "tf": "htf",
+              "direction": "bearish"
+            }
+          ]
+        ]
+      },
+      {
+        "node_id": "S02.ctx.location",
+        "kind": "predicate",
+        "source": {
+          "block": "context",
+          "index": "location",
+          "text": "Current price in the premium half (above 50% equilibrium) of the relevant HTF dealing range (P-RANGE-01)."
+        },
+        "kb_refs": [
+          "BEG-M07-C02",
+          "INT-M06-R02"
+        ],
+        "primitives": [
+          "P-RANGE-01"
+        ],
+        "expr": [
+          "==",
+          [
+            "feature",
+            "pd_location",
+            {
+              "tf": "htf",
+              "price_tf": "ltf_structure"
+            }
+          ],
+          [
+            "const",
+            "premium"
+          ]
+        ],
+        "gate": true,
+        "emits": {
+          "htf_pd_location": [
+            "feature",
+            "pd_location",
+            {
+              "tf": "htf",
+              "price_tf": "ltf_structure"
+            }
+          ]
+        }
+      },
+      {
+        "node_id": "S02.ctx.pool",
+        "kind": "predicate",
+        "source": {
+          "block": "context",
+          "index": "other",
+          "text": "Nearby identifiable buy-side liquidity pool above current price."
+        },
+        "kb_refs": [
+          "BEG-M04-C03",
+          "BEG-M04-C04"
+        ],
+        "primitives": [
+          "P-LIQ-01"
+        ],
+        "expr": [
+          "exists",
+          [
+            "feature",
+            "liquidity_pools",
+            {
+              "tf": "ltf_structure",
+              "side": "buy",
+              "kinds": [
+                "swing",
+                "equal",
+                "session_extreme",
+                "prev_day"
+              ],
+              "select": "nearest",
+              "session_window_param": "asian_window_ET"
+            }
+          ]
+        ]
+      }
+    ],
+    "prerequisites": [
+      {
+        "node_id": "S02.pre.01",
+        "kind": "predicate",
+        "source": {
+          "block": "prerequisites",
+          "index": 0,
+          "text": "Step 1 \u2014 HTF bearish context confirmed; price in premium half."
+        },
+        "kb_refs": [
+          "BEG-M11-S01",
+          "BEG-M03-C03",
+          "BEG-M03-C04"
+        ],
+        "primitives": [
+          "P-STRUCT-01",
+          "P-RANGE-01"
+        ],
+        "expr": [
+          "or",
+          [
+            "and",
+            [
+              "==",
+              [
+                "state",
+                "structure",
+                {
+                  "tf": "htf",
+                  "field": "state"
+                }
+              ],
+              [
+                "const",
+                "bearish"
+              ]
+            ],
+            [
+              "==",
+              [
+                "state",
+                "structure",
+                {
+                  "tf": "htf_intermediate",
+                  "field": "state"
+                }
+              ],
+              [
+                "const",
+                "bearish"
+              ]
+            ]
+          ],
+          [
+            "feature",
+            "mss",
+            {
+              "tf": "htf",
+              "direction": "bearish"
+            }
+          ]
+        ],
+        "emits": {
+          "htf_pd_half": [
+            "feature",
+            "pd_location",
+            {
+              "tf": "htf",
+              "price_tf": "ltf_structure"
+            }
+          ]
+        }
+      },
+      {
+        "node_id": "S02.pre.02",
+        "kind": "predicate",
+        "source": {
+          "block": "prerequisites",
+          "index": 1,
+          "text": "Step 2 \u2014 Nearest significant BSL above price marked: recent swing high, equal highs, session high, or previous day's high (P-LIQ-01)."
+        },
+        "kb_refs": [
+          "BEG-M04-C03",
+          "BEG-M04-C04",
+          "BEG-M04-C05",
+          "BEG-M08-C03"
+        ],
+        "primitives": [
+          "P-LIQ-01"
+        ],
+        "expr": [
+          "exists",
+          [
+            "feature",
+            "liquidity_pools",
+            {
+              "tf": "ltf_structure",
+              "side": "buy",
+              "kinds": [
+                "swing",
+                "equal",
+                "session_extreme",
+                "prev_day"
+              ],
+              "select": "nearest",
+              "session_window_param": "asian_window_ET"
+            }
+          ]
+        ],
+        "emits": {
+          "origin_pool": [
+            "feature",
+            "liquidity_pools",
+            {
+              "tf": "ltf_structure",
+              "side": "buy",
+              "kinds": [
+                "swing",
+                "equal",
+                "session_extreme",
+                "prev_day"
+              ],
+              "select": "nearest",
+              "session_window_param": "asian_window_ET"
+            }
+          ],
+          "origin_level": [
+            "feature",
+            "liquidity_pools",
+            {
+              "tf": "ltf_structure",
+              "side": "buy",
+              "kinds": [
+                "swing",
+                "equal",
+                "session_extreme",
+                "prev_day"
+              ],
+              "select": "nearest",
+              "session_window_param": "asian_window_ET",
+              "field": "price"
+            }
+          ],
+          "origin_from_index": [
+            "feature",
+            "liquidity_pools",
+            {
+              "tf": "ltf_structure",
+              "side": "buy",
+              "kinds": [
+                "swing",
+                "equal",
+                "session_extreme",
+                "prev_day"
+              ],
+              "select": "nearest",
+              "session_window_param": "asian_window_ET",
+              "field": "from_index"
+            }
+          ]
+        }
+      }
+    ],
+    "setup_sequence": [
+      {
+        "node_id": "S02.setup.03",
+        "kind": "event",
+        "source": {
+          "block": "setup_sequence",
+          "index": 0,
+          "text": "Step 3 \u2014 Sweep: price trades through the BSL (ideally sharp brief spike above), then shows signs of reversal back below it (P-LIQ-02)."
+        },
+        "kb_refs": [
+          "BEG-M04-C07",
+          "BEG-M04-C08",
+          "BEG-M11-S01"
+        ],
+        "primitives": [
+          "P-LIQ-02"
+        ],
+        "expr": [
+          "==",
+          [
+            "feature",
+            "sweep",
+            {
+              "tf": "ltf_structure",
+              "level": [
+                "binding",
+                "origin_level"
+              ],
+              "side": "bsl",
+              "since_index": [
+                "binding",
+                "origin_from_index"
+              ],
+              "field": "classification"
+            }
+          ],
+          [
+            "const",
+            "raid"
+          ]
+        ],
+        "emits": {
+          "sweep": [
+            "feature",
+            "sweep",
+            {
+              "tf": "ltf_structure",
+              "level": [
+                "binding",
+                "origin_level"
+              ],
+              "side": "bsl",
+              "since_index": [
+                "binding",
+                "origin_from_index"
+              ]
+            }
+          ],
+          "sweep_extreme": [
+            "feature",
+            "sweep",
+            {
+              "tf": "ltf_structure",
+              "level": [
+                "binding",
+                "origin_level"
+              ],
+              "side": "bsl",
+              "since_index": [
+                "binding",
+                "origin_from_index"
+              ],
+              "field": "extreme"
+            }
+          ],
+          "sweep_index": [
+            "feature",
+            "sweep",
+            {
+              "tf": "ltf_structure",
+              "level": [
+                "binding",
+                "origin_level"
+              ],
+              "side": "bsl",
+              "since_index": [
+                "binding",
+                "origin_from_index"
+              ],
+              "field": "sweep_index"
+            }
+          ]
+        }
+      },
+      {
+        "node_id": "S02.setup.04",
+        "kind": "event",
+        "source": {
+          "block": "setup_sequence",
+          "index": 1,
+          "text": "Step 4 \u2014 Bearish displacement away from the swept high (P-DISP-01)."
+        },
+        "kb_refs": [
+          "BEG-M05-C01",
+          "BEG-M05-R01"
+        ],
+        "primitives": [
+          "P-DISP-01"
+        ],
+        "expr": [
+          "and",
+          [
+            "feature",
+            "displacement",
+            {
+              "tf": "ltf_structure",
+              "at_index": -1,
+              "direction": "bearish"
+            }
+          ],
+          [
+            ">",
+            [
+              "feature",
+              "latest_index",
+              {
+                "tf": "ltf_structure"
+              }
+            ],
+            [
+              "binding",
+              "sweep_index"
+            ]
+          ]
+        ],
+        "emits": {
+          "displacement_index": [
+            "feature",
+            "latest_index",
+            {
+              "tf": "ltf_structure"
+            }
+          ]
+        }
+      },
+      {
+        "node_id": "S02.setup.05",
+        "kind": "event",
+        "source": {
+          "block": "setup_sequence",
+          "index": 2,
+          "text": "Step 5 \u2014 Bearish MSS: body close below a meaningful, relevant short-term swing low on the LTF (P-MSS-01)."
+        },
+        "kb_refs": [
+          "BEG-M03-C05",
+          "BEG-M03-R01",
+          "BEG-M03-R02"
+        ],
+        "primitives": [
+          "P-MSS-01"
+        ],
+        "expr": [
+          "feature",
+          "mss",
+          {
+            "tf": "ltf_structure",
+            "at_index": -1,
+            "direction": "bearish"
+          }
+        ],
+        "emits": {
+          "mss_index": [
+            "feature",
+            "latest_index",
+            {
+              "tf": "ltf_structure"
+            }
+          ]
+        },
+        "also_covers": [
+          {
+            "block": "stop_invalidation",
+            "index": "pre_entry_invalidation"
+          }
+        ]
+      },
+      {
+        "node_id": "S02.setup.06",
+        "kind": "event",
+        "source": {
+          "block": "setup_sequence",
+          "index": 3,
+          "text": "Step 6 \u2014 Mark the bearish FVG left by the displacement (P-FVG-01); check for a bearish OB (last bullish candle before displacement) at/near the zone (P-OB-01)."
+        },
+        "kb_refs": [
+          "BEG-M05-C04",
+          "BEG-M05-R02",
+          "BEG-M06-C01"
+        ],
+        "primitives": [
+          "P-FVG-01",
+          "P-OB-01"
+        ],
+        "expr": [
+          "exists",
+          [
+            "feature",
+            "fvg",
+            {
+              "tf": "ltf_structure",
+              "direction": "bearish",
+              "since_index": [
+                "binding",
+                "sweep_index"
+              ],
+              "select": "latest"
+            }
+          ]
+        ],
+        "emits": {
+          "array": [
+            "feature",
+            "fvg",
+            {
+              "tf": "ltf_structure",
+              "direction": "bearish",
+              "since_index": [
+                "binding",
+                "sweep_index"
+              ],
+              "select": "latest"
+            }
+          ],
+          "order_block": [
+            "feature",
+            "order_block",
+            {
+              "tf": "ltf_structure",
+              "displacement_index": [
+                "binding",
+                "displacement_index"
+              ],
+              "direction": "bearish"
+            }
+          ],
+          "array_ob_overlap": [
+            "feature",
+            "zone_overlap",
+            {
+              "zone_a": [
+                "feature",
+                "fvg",
+                {
+                  "tf": "ltf_structure",
+                  "direction": "bearish",
+                  "since_index": [
+                    "binding",
+                    "sweep_index"
+                  ],
+                  "select": "latest"
+                }
+              ],
+              "zone_b": [
+                "feature",
+                "order_block",
+                {
+                  "tf": "ltf_structure",
+                  "displacement_index": [
+                    "binding",
+                    "displacement_index"
+                  ],
+                  "direction": "bearish"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "node_id": "S02.setup.07",
+        "kind": "event",
+        "source": {
+          "block": "setup_sequence",
+          "index": 4,
+          "text": "Step 7 \u2014 Wait, without entering, for the retracement up toward the FVG/OB zone."
+        },
+        "kb_refs": [
+          "BEG-M01-C08",
+          "BEG-M07-C05"
+        ],
+        "primitives": [
+          "P-FVG-01"
+        ],
+        "expr": [
+          ">=",
+          [
+            "feature",
+            "bar",
+            {
+              "tf": "ltf_structure",
+              "component": "high"
+            }
+          ],
+          [
+            "binding",
+            "array",
+            "low"
+          ]
+        ]
+      },
+      {
+        "node_id": "S02.setup.08",
+        "kind": "event",
+        "source": {
+          "block": "setup_sequence",
+          "index": 5,
+          "text": "Step 8 \u2014 OTE: Fibonacci from the swept high down to the pre-retracement low; FVG/OB zone within/close to 62%-79%, ideally near 70.5% (P-FIB-01)."
+        },
+        "kb_refs": [
+          "BEG-M07-C03",
+          "BEG-M07-C04",
+          "BEG-M07-R01",
+          "BEG-M07-R03"
+        ],
+        "primitives": [
+          "P-FIB-01"
+        ],
+        "expr": [
+          "feature",
+          "in_ote",
+          {
+            "fib": [
+              "feature",
+              "fib_levels",
+              {
+                "origin": [
+                  "if",
+                  [
+                    "==",
+                    [
+                      "param",
+                      "fib_anchor"
+                    ],
+                    [
+                      "const",
+                      "wick"
+                    ]
+                  ],
+                  [
+                    "binding",
+                    "sweep",
+                    "extreme"
+                  ],
+                  [
+                    "feature",
+                    "displacement_leg",
+                    {
+                      "tf": "ltf_structure",
+                      "at_index": [
+                        "binding",
+                        "displacement_index"
+                      ],
+                      "direction": "bearish",
+                      "field": "origin"
+                    }
+                  ]
+                ],
+                "termination": [
+                  "feature",
+                  "displacement_leg",
+                  {
+                    "tf": "ltf_structure",
+                    "at_index": [
+                      "binding",
+                      "displacement_index"
+                    ],
+                    "direction": "bearish",
+                    "field": "termination"
+                  }
+                ]
+              }
+            ],
+            "zone": [
+              "binding",
+              "array"
+            ]
+          }
+        ],
+        "emits": {
+          "fib": [
+            "feature",
+            "fib_levels",
+            {
+              "origin": [
+                "if",
+                [
+                  "==",
+                  [
+                    "param",
+                    "fib_anchor"
+                  ],
+                  [
+                    "const",
+                    "wick"
+                  ]
+                ],
+                [
+                  "binding",
+                  "sweep",
+                  "extreme"
+                ],
+                [
+                  "feature",
+                  "displacement_leg",
+                  {
+                    "tf": "ltf_structure",
+                    "at_index": [
+                      "binding",
+                      "displacement_index"
+                    ],
+                    "direction": "bearish",
+                    "field": "origin"
+                  }
+                ]
+              ],
+              "termination": [
+                "feature",
+                "displacement_leg",
+                {
+                  "tf": "ltf_structure",
+                  "at_index": [
+                    "binding",
+                    "displacement_index"
+                  ],
+                  "direction": "bearish",
+                  "field": "termination"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ],
+    "entry": {
+      "zone": {
+        "node_id": "S02.entry.zone",
+        "kind": "selection",
+        "source": {
+          "block": "entry.entry_zone",
+          "index": "entry_zone",
+          "text": "Step 9 \u2014 at/near the FVG midpoint (CE) or OB boundary inside the confirmed OTE band."
+        },
+        "kb_refs": [
+          "BEG-M07-C06",
+          "INT-M04-R02",
+          "BEG-M06-C01"
+        ],
+        "primitives": [
+          "P-FVG-01",
+          "P-OB-01",
+          "P-FIB-01"
+        ],
+        "expr": [
+          "if",
+          [
+            "==",
+            [
+              "param",
+              "entry_level"
+            ],
+            [
+              "const",
+              "fvg_ce"
+            ]
+          ],
+          [
+            "binding",
+            "array",
+            "ce"
+          ],
+          [
+            "binding",
+            "order_block",
+            "low"
+          ]
+        ],
+        "emits": {
+          "entry_zone": [
+            "const",
+            "$value"
+          ]
+        }
+      },
+      "triggers": [
+        {
+          "node_id": "S02.entry.trigger.limit",
+          "kind": "event",
+          "source": {
+            "block": "entry.trigger_options",
+            "index": 0,
+            "text": "Step 10a \u2014 resting limit (short) at the zone."
+          },
+          "kb_refs": [
+            "BEG-M11-S01",
+            "INT-M04-R02"
+          ],
+          "primitives": [
+            "P-FVG-01"
+          ],
+          "expr": [
+            "feature",
+            "in_ote",
+            {
+              "fib": [
+                "binding",
+                "fib"
+              ],
+              "price": [
+                "binding",
+                "entry_zone"
+              ]
+            }
+          ],
+          "trigger_id": "limit_at_zone",
+          "fill": {
+            "mode": "limit",
+            "price": [
+              "binding",
+              "entry_zone"
+            ]
+          }
+        },
+        {
+          "node_id": "S02.entry.trigger.confirmation",
+          "kind": "event",
+          "source": {
+            "block": "entry.trigger_options",
+            "index": 1,
+            "text": "Step 10b \u2014 market short once price reaches the zone and shows an LTF confirmation (1-minute bearish MSS or rejection candle)."
+          },
+          "kb_refs": [
+            "BEG-M11-S01",
+            "BEG-M03-C05",
+            "ADV-M16-R02"
+          ],
+          "primitives": [
+            "P-MSS-01",
+            "P-GATE-01"
+          ],
+          "expr": [
+            "and",
+            [
+              "feature",
+              "in_ote",
+              {
+                "fib": [
+                  "binding",
+                  "fib"
+                ],
+                "price": [
+                  "binding",
+                  "entry_zone"
+                ]
+              }
+            ],
+            [
+              ">=",
+              [
+                "feature",
+                "bar",
+                {
+                  "tf": "ltf_structure",
+                  "component": "high"
+                }
+              ],
+              [
+                "binding",
+                "entry_zone"
+              ]
+            ],
+            [
+              "==",
+              [
+                "param",
+                "ltf_confirmation_signal"
+              ],
+              [
+                "const",
+                "ltf_mss"
+              ]
+            ],
+            [
+              "feature",
+              "mss",
+              {
+                "tf": "ltf_confirmation",
+                "at_index": -1,
+                "direction": "bearish"
+              }
+            ]
+          ],
+          "trigger_id": "ltf_confirmation",
+          "fill": {
+            "mode": "market_on_close"
+          }
+        }
+      ]
+    },
+    "stop": {
+      "node_id": "S02.stop",
+      "kind": "selection",
+      "source": {
+        "block": "stop_invalidation",
+        "index": "trade_level",
+        "text": "Stop just beyond the high of the sweep (Step 3), small buffer (P-STOP-01 A). Close back above the swept high invalidates."
+      },
+      "kb_refs": [
+        "BEG-M11-S01",
+        "BEG-M12-S01"
+      ],
+      "primitives": [
+        "P-STOP-01"
+      ],
+      "expr": [
+        "feature",
+        "offset",
+        {
+          "price": [
+            "binding",
+            "sweep",
+            "extreme"
+          ],
+          "ticks": [
+            "param",
+            "stop_buffer_ticks"
+          ],
+          "direction": "above"
+        }
+      ]
+    },
+    "targets": [
+      {
+        "node_id": "S02.target.primary",
+        "kind": "selection",
+        "source": {
+          "block": "target",
+          "index": "primary",
+          "text": "Nearest significant SSL below \u2014 displacement low, prior day/week low, equal lows (P-TARGET-01 A)."
+        },
+        "kb_refs": [
+          "BEG-M04-C03",
+          "BEG-M04-C04",
+          "BEG-M11-S01"
+        ],
+        "primitives": [
+          "P-TARGET-01",
+          "P-LIQ-01"
+        ],
+        "expr": [
+          "feature",
+          "liquidity_pools",
+          {
+            "tf": "ltf_structure",
+            "side": "sell",
+            "kinds": [
+              "swing",
+              "equal",
+              "prev_day",
+              "prev_week"
+            ],
+            "select": "nearest",
+            "field": "price"
+          }
+        ],
+        "allocation": {
+          "param": "first_target_allocation"
+        }
+      },
+      {
+        "node_id": "S02.target.secondary",
+        "kind": "selection",
+        "source": {
+          "block": "target",
+          "index": "secondary",
+          "text": "Further HTF sell-side pools."
+        },
+        "kb_refs": [
+          "BEG-M04-C09",
+          "ADV-M03-R03"
+        ],
+        "primitives": [
+          "P-TARGET-01",
+          "P-DOL-01"
+        ],
+        "expr": [
+          "feature",
+          "dol",
+          {
+            "direction": "bearish",
+            "scope": "erl",
+            "tf": "htf",
+            "field": "price"
+          }
+        ],
+        "allocation": 0.0
+      }
+    ],
+    "invalidation": [],
+    "no_trade": [
+      {
+        "node_id": "S02.nt.BEG-M10-NT01",
+        "kind": "predicate",
+        "source": {
+          "block": "no_trade_conditions",
+          "index": "BEG-M10-NT01",
+          "text": "If the higher timeframe fails to produce a clean, consistent read across the bias-forming steps, explicitly label the bias as neutral/unclear and plan to stay on the sidelines rather than forcing a directional call."
+        },
+        "kb_refs": [
+          "BEG-M10-NT01"
+        ],
+        "primitives": [
+          "P-GATE-01"
+        ],
+        "expr": [
+          "==",
+          [
+            "state",
+            "bias_state",
+            {
+              "tf": "htf",
+              "method": "daily",
+              "field": "direction"
+            }
+          ],
+          [
+            "const",
+            "neutral"
+          ]
+        ]
+      }
+    ],
+    "risk": [
+      {
+        "node_id": "S02.risk.size",
+        "kind": "action",
+        "source": {
+          "block": "parameters",
+          "index": "mirror_of",
+          "text": "S01-BUY-11STEP (all parameters identical, polarity reversed \u2014 BEG-M12-R01, BEG-M12-REL01)"
+        },
+        "kb_refs": [
+          "BEG-M13-R01",
+          "INT-M12-R01",
+          "ADV-M17-R02"
+        ],
+        "primitives": [
+          "P-RISK-01"
+        ],
+        "expr": [
+          "feature",
+          "position_size",
+          {
+            "entry": [
+              "binding",
+              "entry_price"
+            ],
+            "stop": [
+              "binding",
+              "stop_price"
+            ]
+          }
+        ],
+        "emits": {
+          "position_size": [
+            "const",
+            "$value"
+          ]
+        }
+      }
+    ]
+  },
+  "no_trade_dispositions": [
+    {
+      "kb_ref": "BEG-M12-NT01",
+      "disposition": "enforced_by_sequence",
+      "note": "Mirror of BEG-M11-NT01."
+    },
+    {
+      "kb_ref": "BEG-M12-NT02",
+      "disposition": "enforced_by_sequence",
+      "note": "Mirror of BEG-M11-NT02."
+    },
+    {
+      "kb_ref": "BEG-M04-NT01",
+      "disposition": "enforced_by_sequence",
+      "note": "A sweep alone never completes the sequence; displacement and MSS are separate required steps."
+    },
+    {
+      "kb_ref": "BEG-M04-NT02",
+      "disposition": "enforced_by_sequence",
+      "note": "The sweep step requires the raid classification, which is only assigned after the reversal prints."
+    },
+    {
+      "kb_ref": "BEG-M05-NT01",
+      "disposition": "enforced_by_feature",
+      "note": "The fair-value-gap registry only registers gaps whose middle candle qualifies as displacement."
+    },
+    {
+      "kb_ref": "BEG-M07-NT01",
+      "disposition": "enforced_by_sequence",
+      "note": "The retracement step must latch before the entry step is evaluated."
+    },
+    {
+      "kb_ref": "BEG-M10-NT01",
+      "disposition": "compiled",
+      "node_id": "S02.nt.BEG-M10-NT01",
+      "note": "Bias neutral or unclear."
+    },
+    {
+      "kb_ref": "BEG-M13-NT01",
+      "disposition": "enforced_by_sequence",
+      "note": "A missing link means the setup machine never reaches the entry step."
+    },
+    {
+      "kb_ref": "BEG-M13-NT02",
+      "disposition": "unsupported_process",
+      "unsupported_item_id": "U-S02-NT-BEG-M13-NT02",
+      "note": "'No trade' is the default outcome of the engine, and recording it as a process success is a journaling instruction."
+    }
+  ],
+  "unsupported": [
+    {
+      "item_id": "U-S02-NT-BEG-M13-NT02",
+      "strategy_id": "S02-SELL-11STEP",
+      "source": {
+        "block": "no_trade_conditions",
+        "index": "BEG-M13-NT02",
+        "text": "If the selected Kill Zone window closes without a qualifying setup, no trade is the correct and disciplined outcome. A day where the plan correctly identified no qualifying setup, and no trade was forced, is recorded as a process success, not a wasted day."
+      },
+      "element": "no-trade condition BEG-M13-NT02",
+      "reason_code": "UNSUPPORTED_PROCESS",
+      "explanation": "'No trade' is the default outcome of the engine, and recording it as a process success is a journaling instruction.",
+      "kb_refs": [
+        "BEG-M13-NT02"
+      ],
+      "blocks_execution": false,
+      "resolution": "Record it in the run report; it is not evaluated by the engine."
+    },
+    {
+      "item_id": "U-S02-01",
+      "strategy_id": "S02-SELL-11STEP",
+      "source": {
+        "block": "entry.trigger_options",
+        "index": 1,
+        "text": "Step 10b \u2014 market short once price reaches the zone and shows an LTF confirmation (1-minute bearish MSS or rejection candle)."
+      },
+      "element": "'rejection candle' as an alternative lower-timeframe confirmation",
+      "reason_code": "GAP_REQUIRES_FROZEN_OPERATIONALISATION",
+      "explanation": "The step offers '1-minute bullish MSS or a rejection candle'. The MSS form is fully defined by BEG-M03-R01/R02 and is implemented; 'rejection candle' is never defined anywhere in the knowledge base, so it is not offered as a selectable value.",
+      "kb_refs": [
+        "BEG-M11-S01"
+      ],
+      "blocks_execution": false,
+      "resolution": "Select ltf_confirmation_signal = 'ltf_mss', or supply a definition and record it as a research operationalisation (ADV-M18-C03)."
+    }
+  ],
+  "unconstrained": [
+    {
+      "source": {
+        "block": "stop_invalidation",
+        "index": "narrative_level",
+        "text": "unspecified in this module."
+      },
+      "note": "The specification states this element is unspecified in this module; there is no rule to compile. Narrative-level invalidation is supplied by the bias-conditioned variants (S19/S20) and the advanced models."
+    },
+    {
+      "source": {
+        "block": "session",
+        "index": "session",
+        "text": "Not restricted; worked example at 14:00 ET (BEG-M12-EX01) \u2014 outside the named Open kill zones."
+      },
+      "note": "The generic statement imposes no session filter, so no session gate is compiled. The worked example's session is recorded in provenance only."
+    }
+  ],
+  "executability": "executable",
+  "blocking_items": []
+}

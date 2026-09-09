@@ -1,0 +1,1488 @@
+{
+  "dsl_version": "1.0.0",
+  "strategy_id": "S10-DAILY-SCALP",
+  "name": "Daily Scalping \u2014 Buy/Sell Model logic with a single-impulse objective inside a kill zone",
+  "kind": "variant",
+  "parent_strategy_id": "S01-BUY-11STEP",
+  "direction": "either",
+  "provenance": {
+    "spec_file": "strategy_reearcher/catalog/strategies.json",
+    "spec_strategy_id": "S10-DAILY-SCALP",
+    "kb_source_strategy_ids": [
+      "BEG-M13-S01"
+    ],
+    "primitives": [
+      "P-BIAS-03",
+      "P-DISP-01",
+      "P-FVG-01",
+      "P-LIQ-01",
+      "P-LIQ-02",
+      "P-MSS-01",
+      "P-OB-01",
+      "P-RISK-01",
+      "P-STOP-01",
+      "P-TARGET-01",
+      "P-TIME-01"
+    ],
+    "specificity_status": "partially_specified",
+    "spec_unspecified_elements": [
+      "numeric definition of 'nearby' / 'single impulse'"
+    ],
+    "spec_worked_example": null
+  },
+  "timeframes": {
+    "htf": {
+      "purpose": "daily bias and the pools to be swept and targeted",
+      "candidates": [
+        "1d",
+        "4h"
+      ],
+      "source": [
+        "BEG-M13-C01",
+        "BEG-M13-C02"
+      ],
+      "min_history": 120
+    },
+    "ltf": {
+      "purpose": "execution",
+      "candidates": [
+        "5m",
+        "3m",
+        "1m"
+      ],
+      "source": [
+        "BEG-M13-C05"
+      ],
+      "min_history": 1000
+    }
+  },
+  "data_requirements": {
+    "instrument": "primary",
+    "correlated_instruments": 0,
+    "bars": {
+      "htf": {
+        "min_history": 120
+      },
+      "ltf": {
+        "min_history": 1000
+      }
+    },
+    "timezone": "America/New_York",
+    "session_anchored": true,
+    "requires_period_opens": [
+      "daily",
+      "weekly"
+    ],
+    "external_data": [],
+    "warmup_bars": 200
+  },
+  "parameters": [
+    {
+      "name": "governing_swing_tier",
+      "binding": "frozen_choice",
+      "choices": [
+        "short_term",
+        "intermediate",
+        "long_term"
+      ],
+      "kb_status": "unspecified",
+      "kb_value": "judgment informed by the ST/IT/LT hierarchy",
+      "source": [
+        "BEG-M03-C02",
+        "INT-M01-R02"
+      ],
+      "register_id": "governing_structural_point_tier"
+    },
+    {
+      "name": "displacement_range_multiple",
+      "binding": "frozen_required",
+      "kb_status": "unspecified",
+      "kb_value": "'unusually large relative to recent candles'",
+      "source": [
+        "BEG-M05-R01"
+      ],
+      "register_id": "displacement_range_multiple"
+    },
+    {
+      "name": "displacement_lookback",
+      "binding": "frozen_required",
+      "kb_status": "unspecified",
+      "kb_value": "-",
+      "source": [
+        "BEG-M05-R01"
+      ],
+      "register_id": "displacement_lookback_candles"
+    },
+    {
+      "name": "displacement_body_ratio_min",
+      "binding": "frozen_required",
+      "kb_status": "heuristic_unfixed",
+      "kb_value": "~60-70% cited by secondary tools; the book does not fix it",
+      "source": [
+        "BEG-M05-C01",
+        "BEG-M05-C02",
+        "BEG-M05-AMB01"
+      ],
+      "register_id": "displacement_body_to_range_min"
+    },
+    {
+      "name": "sweep_min_penetration",
+      "binding": "frozen_required",
+      "kb_status": "unspecified",
+      "kb_value": "research parameter 'Y' in the knowledge base's own template",
+      "source": [
+        "ADV-M18-C03"
+      ],
+      "register_id": "sweep_min_penetration"
+    },
+    {
+      "name": "sweep_reclaim_bars",
+      "binding": "frozen_required",
+      "kb_status": "alternatives_documented",
+      "kb_value": "~2-3 lower-timeframe candles (Judas) / 'reasonable number' (PO3) / 'Z' bars",
+      "source": [
+        "BEG-M08-R06",
+        "BEG-M09-R02",
+        "ADV-M18-C03"
+      ],
+      "register_id": "sweep_reclaim_window"
+    },
+    {
+      "name": "equal_level_tolerance",
+      "binding": "frozen_required",
+      "kb_status": "heuristic_unfixed",
+      "kb_value": "~5-10 pips forex cited by secondary sources; 'obvious at a glance'",
+      "source": [
+        "BEG-M04-C05",
+        "INT-M02-R01"
+      ],
+      "register_id": "equal_highs_lows_tolerance"
+    },
+    {
+      "name": "risk_fraction",
+      "binding": "frozen_required",
+      "kb_status": "range_given",
+      "kb_value": "~1% (max ~2%) beginner | 0.5-1% intermediate | 0.25-1% advanced",
+      "source": [
+        "BEG-M13-R01",
+        "INT-M12-R01",
+        "ADV-M17-R02"
+      ],
+      "register_id": "risk_per_trade"
+    },
+    {
+      "name": "stop_buffer_ticks",
+      "binding": "frozen_required",
+      "kb_status": "unspecified",
+      "kb_value": "'just beyond' / 'small buffer' (examples ~12 pips EUR/USD, ~0.60 pts gold)",
+      "source": [
+        "BEG-M11-EX01",
+        "BEG-M12-EX01"
+      ],
+      "register_id": "stop_buffer"
+    },
+    {
+      "name": "first_target_allocation",
+      "binding": "frozen_required",
+      "kb_status": "unspecified",
+      "kb_value": "'e.g. 50% or a fixed fraction' \u2014 the fraction is never stated",
+      "source": [
+        "ADV-M16-R06"
+      ],
+      "register_id": "partial_fraction"
+    },
+    {
+      "name": "fib_anchor",
+      "binding": "frozen_choice",
+      "choices": [
+        "body",
+        "wick"
+      ],
+      "kb_status": "alternatives_documented",
+      "kb_value": "body-to-body (BEG-M07-R01) vs liquidity-sweep wick origin (INT-M07-R01)",
+      "source": [
+        "BEG-M07-R01",
+        "INT-M07-R01"
+      ],
+      "register_id": "fib_anchor_price_type"
+    },
+    {
+      "name": "entry_trigger",
+      "binding": "frozen_choice",
+      "choices": [
+        "limit_at_zone",
+        "ltf_confirmation"
+      ],
+      "kb_status": "alternatives_documented",
+      "kb_value": "the documented entry triggers for this specification: limit_at_zone | ltf_confirmation",
+      "source": [
+        "BEG-M11-S01",
+        "ADV-M16-R02",
+        "ADV-M16-NT01"
+      ],
+      "register_id": "stop_reference"
+    },
+    {
+      "name": "ltf_confirmation_signal",
+      "binding": "frozen_choice",
+      "choices": [
+        "ltf_mss"
+      ],
+      "kb_status": "specified_examples",
+      "kb_value": "1-minute MSS or a rejection candle; only the MSS form is defined",
+      "source": [
+        "BEG-M11-S01"
+      ],
+      "register_id": "ltf_confirmation_signal"
+    },
+    {
+      "name": "authorised_kill_zone_ET",
+      "binding": "frozen_choice",
+      "choices": [
+        [
+          "02:00",
+          "05:00"
+        ],
+        [
+          "02:00",
+          "04:00"
+        ],
+        [
+          "07:00",
+          "10:00"
+        ],
+        [
+          "08:00",
+          "11:00"
+        ],
+        [
+          "08:30",
+          "11:00"
+        ],
+        [
+          "07:00",
+          "09:00"
+        ]
+      ],
+      "kb_status": "alternatives_documented",
+      "kb_value": "the kill zone the daily narrative assigned to distribution/continuation (typically London Open or New York Open); both have documented boundary variants",
+      "source": [
+        "ADV-M16-R07",
+        "BEG-M08-R02",
+        "BEG-M08-R04"
+      ],
+      "register_id": "london_open_kz_ET"
+    },
+    {
+      "name": "daily_bias_method",
+      "binding": "frozen_choice",
+      "choices": [
+        "three_factor",
+        "single_mss"
+      ],
+      "kb_status": "alternatives_documented",
+      "kb_value": "three-factor (primary) vs the single-MSS 'daily bias trick'",
+      "source": [
+        "BEG-M10-C03",
+        "BEG-M10-AMB01"
+      ],
+      "register_id": "daily_bias_method"
+    },
+    {
+      "name": "daily_open_definition",
+      "binding": "frozen_choice",
+      "choices": [
+        "new_york_midnight",
+        "instrument_daily_open"
+      ],
+      "kb_status": "alternatives_documented",
+      "kb_value": "daily open (primary) vs New York midnight (thinner support)",
+      "source": [
+        "ADV-M07-C03",
+        "ADV-M07-AMB01"
+      ],
+      "register_id": "daily_open_definition"
+    }
+  ],
+  "features": [
+    "bar",
+    "dol",
+    "fvg",
+    "in_session",
+    "liquidity_pools",
+    "mss",
+    "offset",
+    "position_size",
+    "sweep"
+  ],
+  "market_state": [
+    "bias_state"
+  ],
+  "blocks": {
+    "context": [
+      {
+        "node_id": "S10.ctx.bias",
+        "kind": "predicate",
+        "source": {
+          "block": "context",
+          "index": "htf_bias_required",
+          "text": "Daily bias established per the Daily Bias process (P-BIAS-03) and written down pre-market."
+        },
+        "kb_refs": [
+          "BEG-M13-C02",
+          "BEG-M10-R02",
+          "BEG-M10-R03"
+        ],
+        "primitives": [
+          "P-BIAS-03"
+        ],
+        "expr": [
+          "in",
+          [
+            "state",
+            "bias_state",
+            {
+              "tf": "htf",
+              "method": "daily",
+              "field": "direction"
+            }
+          ],
+          [
+            "const",
+            [
+              "bullish",
+              "bearish"
+            ]
+          ]
+        ],
+        "emits": {
+          "dir_word": [
+            "state",
+            "bias_state",
+            {
+              "tf": "htf",
+              "method": "daily",
+              "field": "direction"
+            }
+          ],
+          "trade_direction": [
+            "if",
+            [
+              "==",
+              [
+                "state",
+                "bias_state",
+                {
+                  "tf": "htf",
+                  "method": "daily",
+                  "field": "direction"
+                }
+              ],
+              [
+                "const",
+                "bullish"
+              ]
+            ],
+            [
+              "const",
+              "long"
+            ],
+            [
+              "const",
+              "short"
+            ]
+          ]
+        }
+      },
+      {
+        "node_id": "S10.ctx.draw",
+        "kind": "predicate",
+        "source": {
+          "block": "context",
+          "index": "other",
+          "text": "A clear, nearby liquidity draw is identifiable; only the model matching the daily bias is watched (BEG-M13-C06)."
+        },
+        "kb_refs": [
+          "BEG-M13-C03",
+          "BEG-M13-C06"
+        ],
+        "primitives": [
+          "P-LIQ-01",
+          "P-DOL-01"
+        ],
+        "expr": [
+          "exists",
+          [
+            "feature",
+            "dol",
+            {
+              "direction": [
+                "binding",
+                "dir_word"
+              ],
+              "scope": "any",
+              "tf": "htf"
+            }
+          ]
+        ]
+      }
+    ],
+    "prerequisites": [
+      {
+        "node_id": "S10.pre.01",
+        "kind": "predicate",
+        "source": {
+          "block": "prerequisites",
+          "index": 0,
+          "text": "Pre-market: HTF analysis (D/4H), daily bias, mark opposing pool to be swept and target pool (BEG-M13-C01..C03)."
+        },
+        "kb_refs": [
+          "BEG-M13-C01",
+          "BEG-M13-C02",
+          "BEG-M13-C03"
+        ],
+        "primitives": [
+          "P-BIAS-03",
+          "P-LIQ-01"
+        ],
+        "expr": [
+          "and",
+          [
+            "in",
+            [
+              "state",
+              "bias_state",
+              {
+                "tf": "htf",
+                "method": "daily",
+                "field": "direction"
+              }
+            ],
+            [
+              "const",
+              [
+                "bullish",
+                "bearish"
+              ]
+            ]
+          ],
+          [
+            "exists",
+            [
+              "if",
+              [
+                "==",
+                [
+                  "binding",
+                  "dir_word"
+                ],
+                [
+                  "const",
+                  "bullish"
+                ]
+              ],
+              [
+                "feature",
+                "liquidity_pools",
+                {
+                  "tf": "ltf",
+                  "side": "sell",
+                  "kinds": [
+                    "swing",
+                    "equal",
+                    "prev_day"
+                  ],
+                  "select": "nearest"
+                }
+              ],
+              [
+                "feature",
+                "liquidity_pools",
+                {
+                  "tf": "ltf",
+                  "side": "buy",
+                  "kinds": [
+                    "swing",
+                    "equal",
+                    "prev_day"
+                  ],
+                  "select": "nearest"
+                }
+              ]
+            ]
+          ]
+        ],
+        "emits": {
+          "origin_level": [
+            "if",
+            [
+              "==",
+              [
+                "binding",
+                "dir_word"
+              ],
+              [
+                "const",
+                "bullish"
+              ]
+            ],
+            [
+              "feature",
+              "liquidity_pools",
+              {
+                "tf": "ltf",
+                "side": "sell",
+                "kinds": [
+                  "swing",
+                  "equal",
+                  "prev_day"
+                ],
+                "select": "nearest",
+                "field": "price"
+              }
+            ],
+            [
+              "feature",
+              "liquidity_pools",
+              {
+                "tf": "ltf",
+                "side": "buy",
+                "kinds": [
+                  "swing",
+                  "equal",
+                  "prev_day"
+                ],
+                "select": "nearest",
+                "field": "price"
+              }
+            ]
+          ],
+          "origin_from": [
+            "if",
+            [
+              "==",
+              [
+                "binding",
+                "dir_word"
+              ],
+              [
+                "const",
+                "bullish"
+              ]
+            ],
+            [
+              "feature",
+              "liquidity_pools",
+              {
+                "tf": "ltf",
+                "side": "sell",
+                "kinds": [
+                  "swing",
+                  "equal",
+                  "prev_day"
+                ],
+                "select": "nearest",
+                "field": "from_index"
+              }
+            ],
+            [
+              "feature",
+              "liquidity_pools",
+              {
+                "tf": "ltf",
+                "side": "buy",
+                "kinds": [
+                  "swing",
+                  "equal",
+                  "prev_day"
+                ],
+                "select": "nearest",
+                "field": "from_index"
+              }
+            ]
+          ]
+        }
+      },
+      {
+        "node_id": "S10.pre.02",
+        "kind": "predicate",
+        "source": {
+          "block": "prerequisites",
+          "index": 1,
+          "text": "Select the active kill zone(s) \u2014 commonly London Open and/or New York Open (BEG-M13-C04)."
+        },
+        "kb_refs": [
+          "BEG-M13-C04",
+          "BEG-M08-R02",
+          "BEG-M08-R04"
+        ],
+        "primitives": [
+          "P-TIME-01"
+        ],
+        "expr": [
+          "feature",
+          "in_session",
+          {
+            "window_param": "authorised_kill_zone_ET"
+          }
+        ],
+        "also_covers": [
+          {
+            "block": "session",
+            "index": "session"
+          }
+        ]
+      }
+    ],
+    "setup_sequence": [
+      {
+        "node_id": "S10.setup.01",
+        "kind": "event",
+        "source": {
+          "block": "setup_sequence",
+          "index": 0,
+          "text": "Complete Sweep -> Displace -> MSS -> Retrace sequence exactly as in S01/S02 on the 5-, 3-, or 1-minute chart (BEG-M13-C05)."
+        },
+        "kb_refs": [
+          "BEG-M13-C05",
+          "BEG-M11-S01",
+          "BEG-M12-S01"
+        ],
+        "primitives": [
+          "P-LIQ-02",
+          "P-DISP-01",
+          "P-MSS-01",
+          "P-FVG-01"
+        ],
+        "expr": [
+          "and",
+          [
+            "==",
+            [
+              "feature",
+              "sweep",
+              {
+                "tf": "ltf",
+                "level": [
+                  "binding",
+                  "origin_level"
+                ],
+                "side": [
+                  "if",
+                  [
+                    "==",
+                    [
+                      "binding",
+                      "dir_word"
+                    ],
+                    [
+                      "const",
+                      "bullish"
+                    ]
+                  ],
+                  [
+                    "const",
+                    "ssl"
+                  ],
+                  [
+                    "const",
+                    "bsl"
+                  ]
+                ],
+                "since_index": [
+                  "binding",
+                  "origin_from"
+                ],
+                "field": "classification"
+              }
+            ],
+            [
+              "const",
+              "raid"
+            ]
+          ],
+          [
+            "exists",
+            [
+              "feature",
+              "fvg",
+              {
+                "tf": "ltf",
+                "direction": [
+                  "binding",
+                  "dir_word"
+                ],
+                "since_index": [
+                  "binding",
+                  "sweep_index"
+                ],
+                "select": "latest"
+              }
+            ]
+          ]
+        ],
+        "emits": {
+          "sweep_index": [
+            "feature",
+            "sweep",
+            {
+              "tf": "ltf",
+              "level": [
+                "binding",
+                "origin_level"
+              ],
+              "side": [
+                "if",
+                [
+                  "==",
+                  [
+                    "binding",
+                    "dir_word"
+                  ],
+                  [
+                    "const",
+                    "bullish"
+                  ]
+                ],
+                [
+                  "const",
+                  "ssl"
+                ],
+                [
+                  "const",
+                  "bsl"
+                ]
+              ],
+              "since_index": [
+                "binding",
+                "origin_from"
+              ],
+              "field": "sweep_index"
+            }
+          ],
+          "sweep_extreme": [
+            "feature",
+            "sweep",
+            {
+              "tf": "ltf",
+              "level": [
+                "binding",
+                "origin_level"
+              ],
+              "side": [
+                "if",
+                [
+                  "==",
+                  [
+                    "binding",
+                    "dir_word"
+                  ],
+                  [
+                    "const",
+                    "bullish"
+                  ]
+                ],
+                [
+                  "const",
+                  "ssl"
+                ],
+                [
+                  "const",
+                  "bsl"
+                ]
+              ],
+              "since_index": [
+                "binding",
+                "origin_from"
+              ],
+              "field": "extreme"
+            }
+          ]
+        }
+      },
+      {
+        "node_id": "S10.setup.02",
+        "kind": "event",
+        "source": {
+          "block": "setup_sequence",
+          "index": 1,
+          "text": "Checklist (all four required, else skip): clear liquidity draw; complete sweep-displace-retrace-enter sequence; single-impulse objective; tight, clearly defined invalidation point (BEG-M13-R02)."
+        },
+        "kb_refs": [
+          "BEG-M13-R02",
+          "BEG-M13-C05"
+        ],
+        "primitives": [
+          "P-MSS-01",
+          "P-FVG-01",
+          "P-STOP-01"
+        ],
+        "expr": [
+          "and",
+          [
+            "exists",
+            [
+              "feature",
+              "fvg",
+              {
+                "tf": "ltf",
+                "direction": [
+                  "binding",
+                  "dir_word"
+                ],
+                "since_index": [
+                  "binding",
+                  "sweep_index"
+                ],
+                "select": "latest"
+              }
+            ]
+          ],
+          [
+            "feature",
+            "mss",
+            {
+              "tf": "ltf",
+              "at_index": [
+                "field",
+                [
+                  "feature",
+                  "fvg",
+                  {
+                    "tf": "ltf",
+                    "direction": [
+                      "binding",
+                      "dir_word"
+                    ],
+                    "since_index": [
+                      "binding",
+                      "sweep_index"
+                    ],
+                    "select": "latest"
+                  }
+                ],
+                "displacement_index"
+              ],
+              "direction": [
+                "binding",
+                "dir_word"
+              ]
+            }
+          ],
+          [
+            "if",
+            [
+              "==",
+              [
+                "binding",
+                "dir_word"
+              ],
+              [
+                "const",
+                "bullish"
+              ]
+            ],
+            [
+              "<=",
+              [
+                "feature",
+                "bar",
+                {
+                  "tf": "ltf",
+                  "component": "low"
+                }
+              ],
+              [
+                "field",
+                [
+                  "feature",
+                  "fvg",
+                  {
+                    "tf": "ltf",
+                    "direction": [
+                      "binding",
+                      "dir_word"
+                    ],
+                    "since_index": [
+                      "binding",
+                      "sweep_index"
+                    ],
+                    "select": "latest"
+                  }
+                ],
+                "high"
+              ]
+            ],
+            [
+              ">=",
+              [
+                "feature",
+                "bar",
+                {
+                  "tf": "ltf",
+                  "component": "high"
+                }
+              ],
+              [
+                "field",
+                [
+                  "feature",
+                  "fvg",
+                  {
+                    "tf": "ltf",
+                    "direction": [
+                      "binding",
+                      "dir_word"
+                    ],
+                    "since_index": [
+                      "binding",
+                      "sweep_index"
+                    ],
+                    "select": "latest"
+                  }
+                ],
+                "low"
+              ]
+            ]
+          ]
+        ],
+        "emits": {
+          "array": [
+            "feature",
+            "fvg",
+            {
+              "tf": "ltf",
+              "direction": [
+                "binding",
+                "dir_word"
+              ],
+              "since_index": [
+                "binding",
+                "sweep_index"
+              ],
+              "select": "latest"
+            }
+          ]
+        },
+        "compilation_note": "Items 1, 2 and 4 of the four-item checklist are compiled here (clear liquidity draw, complete sweep-displace-MSS-retrace sequence, defined invalidation). Item 3, the single-impulse objective, has no measure in the source and is registered as blocking unsupported item U-S10-01."
+      }
+    ],
+    "entry": {
+      "zone": {
+        "node_id": "S10.entry.zone",
+        "kind": "selection",
+        "source": {
+          "block": "entry.entry_zone",
+          "index": "entry_zone",
+          "text": "As S01/S02 (FVG CE / OB boundary within OTE)."
+        },
+        "kb_refs": [
+          "BEG-M13-C07",
+          "BEG-M11-S01"
+        ],
+        "primitives": [
+          "P-FVG-01"
+        ],
+        "expr": [
+          "binding",
+          "array",
+          "ce"
+        ],
+        "emits": {
+          "entry_zone": [
+            "const",
+            "$value"
+          ]
+        }
+      },
+      "triggers": [
+        {
+          "node_id": "S10.entry.trigger.limit",
+          "kind": "event",
+          "source": {
+            "block": "entry.trigger_options",
+            "index": 0,
+            "text": "Limit at the finalized entry zone, or market on LTF confirmation (BEG-M13-C07)."
+          },
+          "kb_refs": [
+            "BEG-M13-C07"
+          ],
+          "primitives": [
+            "P-FVG-01"
+          ],
+          "expr": [
+            "if",
+            [
+              "==",
+              [
+                "binding",
+                "dir_word"
+              ],
+              [
+                "const",
+                "bullish"
+              ]
+            ],
+            [
+              "<=",
+              [
+                "feature",
+                "bar",
+                {
+                  "tf": "ltf",
+                  "component": "low"
+                }
+              ],
+              [
+                "binding",
+                "array",
+                "high"
+              ]
+            ],
+            [
+              ">=",
+              [
+                "feature",
+                "bar",
+                {
+                  "tf": "ltf",
+                  "component": "high"
+                }
+              ],
+              [
+                "binding",
+                "array",
+                "low"
+              ]
+            ]
+          ],
+          "trigger_id": "limit_at_zone",
+          "fill": {
+            "mode": "limit",
+            "price": [
+              "binding",
+              "entry_zone"
+            ]
+          }
+        },
+        {
+          "node_id": "S10.entry.trigger.confirmation",
+          "kind": "event",
+          "source": {
+            "block": "entry.trigger_options",
+            "index": 0,
+            "text": "Limit at the finalized entry zone, or market on LTF confirmation (BEG-M13-C07)."
+          },
+          "kb_refs": [
+            "BEG-M13-C07",
+            "ADV-M16-R02"
+          ],
+          "primitives": [
+            "P-MSS-01"
+          ],
+          "expr": [
+            "and",
+            [
+              "if",
+              [
+                "==",
+                [
+                  "binding",
+                  "dir_word"
+                ],
+                [
+                  "const",
+                  "bullish"
+                ]
+              ],
+              [
+                "<=",
+                [
+                  "feature",
+                  "bar",
+                  {
+                    "tf": "ltf",
+                    "component": "low"
+                  }
+                ],
+                [
+                  "binding",
+                  "array",
+                  "high"
+                ]
+              ],
+              [
+                ">=",
+                [
+                  "feature",
+                  "bar",
+                  {
+                    "tf": "ltf",
+                    "component": "high"
+                  }
+                ],
+                [
+                  "binding",
+                  "array",
+                  "low"
+                ]
+              ]
+            ],
+            [
+              "==",
+              [
+                "param",
+                "ltf_confirmation_signal"
+              ],
+              [
+                "const",
+                "ltf_mss"
+              ]
+            ],
+            [
+              "feature",
+              "mss",
+              {
+                "tf": "ltf",
+                "at_index": -1,
+                "direction": [
+                  "binding",
+                  "dir_word"
+                ]
+              }
+            ]
+          ],
+          "trigger_id": "ltf_confirmation",
+          "fill": {
+            "mode": "market_on_close"
+          }
+        }
+      ]
+    },
+    "stop": {
+      "node_id": "S10.stop",
+      "kind": "selection",
+      "source": {
+        "block": "stop_invalidation",
+        "index": "trade_level",
+        "text": "Tight, clearly defined \u2014 beyond the swept level (mirrors Buy/Sell Model stop) (P-STOP-01 A)."
+      },
+      "kb_refs": [
+        "BEG-M13-R02",
+        "BEG-M11-S01"
+      ],
+      "primitives": [
+        "P-STOP-01"
+      ],
+      "expr": [
+        "feature",
+        "offset",
+        {
+          "price": [
+            "binding",
+            "sweep_extreme"
+          ],
+          "ticks": [
+            "param",
+            "stop_buffer_ticks"
+          ],
+          "direction": [
+            "if",
+            [
+              "==",
+              [
+                "binding",
+                "dir_word"
+              ],
+              [
+                "const",
+                "bullish"
+              ]
+            ],
+            [
+              "const",
+              "below"
+            ],
+            [
+              "const",
+              "above"
+            ]
+          ]
+        }
+      ]
+    },
+    "targets": [
+      {
+        "node_id": "S10.target.primary",
+        "kind": "selection",
+        "source": {
+          "block": "target",
+          "index": "primary",
+          "text": "The NEXT nearby liquidity pool only (single-impulse objective) \u2014 not a distant HTF level."
+        },
+        "kb_refs": [
+          "BEG-M13-S01",
+          "BEG-M13-C03"
+        ],
+        "primitives": [
+          "P-TARGET-01",
+          "P-LIQ-01"
+        ],
+        "expr": [
+          "if",
+          [
+            "==",
+            [
+              "binding",
+              "dir_word"
+            ],
+            [
+              "const",
+              "bullish"
+            ]
+          ],
+          [
+            "feature",
+            "liquidity_pools",
+            {
+              "tf": "ltf",
+              "side": "buy",
+              "kinds": [
+                "swing",
+                "equal",
+                "prev_day"
+              ],
+              "select": "nearest",
+              "field": "price"
+            }
+          ],
+          [
+            "feature",
+            "liquidity_pools",
+            {
+              "tf": "ltf",
+              "side": "sell",
+              "kinds": [
+                "swing",
+                "equal",
+                "prev_day"
+              ],
+              "select": "nearest",
+              "field": "price"
+            }
+          ]
+        ],
+        "allocation": 1.0
+      }
+    ],
+    "invalidation": [
+      {
+        "node_id": "S10.inval.bias",
+        "kind": "predicate",
+        "source": {
+          "block": "stop_invalidation",
+          "index": "narrative_level",
+          "text": "Daily bias invalidation."
+        },
+        "kb_refs": [
+          "BEG-M10-R04",
+          "BEG-M13-C02"
+        ],
+        "primitives": [
+          "P-BIAS-03"
+        ],
+        "expr": [
+          "!=",
+          [
+            "state",
+            "bias_state",
+            {
+              "tf": "htf",
+              "method": "daily",
+              "field": "direction"
+            }
+          ],
+          [
+            "binding",
+            "dir_word"
+          ]
+        ]
+      }
+    ],
+    "no_trade": [
+      {
+        "node_id": "S10.nt.BEG-M10-NT01",
+        "kind": "predicate",
+        "source": {
+          "block": "no_trade_conditions",
+          "index": "BEG-M10-NT01",
+          "text": "If the higher timeframe fails to produce a clean, consistent read across the bias-forming steps, explicitly label the bias as neutral/unclear and plan to stay on the sidelines rather than forcing a directional call."
+        },
+        "kb_refs": [
+          "BEG-M10-NT01"
+        ],
+        "primitives": [
+          "P-GATE-01"
+        ],
+        "expr": [
+          "==",
+          [
+            "state",
+            "bias_state",
+            {
+              "tf": "htf",
+              "method": "daily",
+              "field": "direction"
+            }
+          ],
+          [
+            "const",
+            "neutral"
+          ]
+        ]
+      }
+    ],
+    "risk": [
+      {
+        "node_id": "S10.risk.size",
+        "kind": "action",
+        "source": {
+          "block": "parameters",
+          "index": "risk_per_trade",
+          "text": "~1% (max ~2% higher conviction)"
+        },
+        "kb_refs": [
+          "BEG-M13-R01"
+        ],
+        "primitives": [
+          "P-RISK-01"
+        ],
+        "expr": [
+          "feature",
+          "position_size",
+          {
+            "entry": [
+              "binding",
+              "entry_price"
+            ],
+            "stop": [
+              "binding",
+              "stop_price"
+            ]
+          }
+        ],
+        "emits": {
+          "position_size": [
+            "const",
+            "$value"
+          ]
+        }
+      }
+    ]
+  },
+  "no_trade_dispositions": [
+    {
+      "kb_ref": "BEG-M13-NT01",
+      "disposition": "enforced_by_sequence",
+      "note": "A missing link means the setup machine never reaches the entry step."
+    },
+    {
+      "kb_ref": "BEG-M13-NT02",
+      "disposition": "unsupported_process",
+      "unsupported_item_id": "U-S10-NT-BEG-M13-NT02",
+      "note": "'No trade' is the default outcome of the engine, and recording it as a process success is a journaling instruction."
+    },
+    {
+      "kb_ref": "BEG-M11-NT02",
+      "disposition": "enforced_by_sequence",
+      "note": "Every step of the chain is required, and the higher-timeframe context gate is re-checked at entry."
+    },
+    {
+      "kb_ref": "BEG-M12-NT02",
+      "disposition": "enforced_by_sequence",
+      "note": "Mirror of BEG-M11-NT02."
+    },
+    {
+      "kb_ref": "BEG-M10-NT01",
+      "disposition": "compiled",
+      "node_id": "S10.nt.BEG-M10-NT01",
+      "note": "Bias neutral or unclear."
+    }
+  ],
+  "unsupported": [
+    {
+      "item_id": "U-S10-NT-BEG-M13-NT02",
+      "strategy_id": "S10-DAILY-SCALP",
+      "source": {
+        "block": "no_trade_conditions",
+        "index": "BEG-M13-NT02",
+        "text": "If the selected Kill Zone window closes without a qualifying setup, no trade is the correct and disciplined outcome. A day where the plan correctly identified no qualifying setup, and no trade was forced, is recorded as a process success, not a wasted day."
+      },
+      "element": "no-trade condition BEG-M13-NT02",
+      "reason_code": "UNSUPPORTED_PROCESS",
+      "explanation": "'No trade' is the default outcome of the engine, and recording it as a process success is a journaling instruction.",
+      "kb_refs": [
+        "BEG-M13-NT02"
+      ],
+      "blocks_execution": false,
+      "resolution": "Record it in the run report; it is not evaluated by the engine."
+    },
+    {
+      "item_id": "U-S10-01",
+      "strategy_id": "S10-DAILY-SCALP",
+      "source": {
+        "block": "setup_sequence",
+        "index": 1,
+        "text": "Checklist (all four required, else skip): clear liquidity draw; complete sweep-displace-retrace-enter sequence; single-impulse objective; tight, clearly defined invalidation point (BEG-M13-R02)."
+      },
+      "element": "checklist item 3: 'single-impulse objective'",
+      "reason_code": "GAP_REQUIRES_FROZEN_OPERATIONALISATION",
+      "explanation": "The checklist makes all four items mandatory, but neither 'nearby pool' nor 'single impulse' is given any measure; the specification itself records both as unspecified. Deciding whether the nearest pool is reachable in one impulse cannot be computed from the source.",
+      "kb_refs": [
+        "BEG-M13-R02",
+        "BEG-M13-S01"
+      ],
+      "blocks_execution": true,
+      "resolution": "Record an operationalisation for U-S10-01 (for example a maximum distance to the target pool in multiples of the stop distance) as a research parameter."
+    },
+    {
+      "item_id": "U-S10-02",
+      "strategy_id": "S10-DAILY-SCALP",
+      "source": {
+        "block": "parameters",
+        "index": "fragility_note",
+        "text": "highly sensitive to spread, slippage, news \u2014 include transaction-cost modelling"
+      },
+      "element": "transaction-cost sensitivity",
+      "reason_code": "UNSUPPORTED_PROCESS",
+      "explanation": "The specification requires transaction-cost modelling for this model. Spread and slippage are instrument-configuration inputs to the engine, not strategy logic, so this is a run-configuration obligation rather than a compiled rule.",
+      "kb_refs": [
+        "BEG-M13-R02"
+      ],
+      "blocks_execution": false,
+      "resolution": "Set non-zero spread and slippage in the instrument configuration and report them alongside results."
+    }
+  ],
+  "unconstrained": [
+    {
+      "source": {
+        "block": "context",
+        "index": "location",
+        "text": "unspecified beyond parent model."
+      },
+      "note": "Stated as unspecified beyond the parent model."
+    },
+    {
+      "source": {
+        "block": "target",
+        "index": "secondary",
+        "text": "none (by definition)."
+      },
+      "note": "The specification states there is no secondary target by definition."
+    }
+  ],
+  "executability": "blocked",
+  "blocking_items": [
+    "U-S10-01"
+  ]
+}

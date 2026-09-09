@@ -1,0 +1,1086 @@
+{
+  "_meta": {
+    "title": "Unsupported and gap registry \u2014 conditions that do not map to a deterministic computational operation",
+    "policy": "Identified, marked, never silently approximated. An item with blocks_execution=true refuses to run until an explicit operationalisation is recorded in the run configuration and copied into the run manifest (ADV-M18-R01, ADV-M18-C03).",
+    "execution_model_parameters": [
+      {
+        "name": "setup_expiry_bars",
+        "why": "No specification states how long a partially formed setup stays live. Without a bound, a latched liquidity event that never produced displacement would block the machine for the rest of the sample.",
+        "status": "execution-model research parameter, not a rule from the source (ADV-M18-C03); required, no default; recorded in the run manifest."
+      },
+      {
+        "name": "intrabar_policy",
+        "why": "When a bar's range contains both the stop and a target, the source cannot say which came first.",
+        "status": "declared choice ('stop_first' or 'target_first'), recorded in the run manifest."
+      },
+      {
+        "name": "latch supersession",
+        "why": "A pending setup is abandoned when the market prints a different first event (a different origin pool, or a different sweep of it).",
+        "status": "fixed execution-model rule, documented in DSL_SPEC.md; it removes no condition the source states."
+      }
+    ],
+    "counts_by_reason_code": {
+      "GAP_REQUIRES_FROZEN_OPERATIONALISATION": 26,
+      "UNSUPPORTED_EXTERNAL_DATA": 3,
+      "UNSUPPORTED_PROCESS": 15,
+      "UNSUPPORTED_SUBJECTIVE": 14
+    },
+    "blocking_items": [
+      "U-IFVG-HOLD",
+      "U-RECLAIM",
+      "U-S08-01",
+      "U-S08-02",
+      "U-S08-03",
+      "U-S08-04",
+      "U-S08-05",
+      "U-S10-01",
+      "U-S23-01",
+      "U-S23-02",
+      "U-S24-01",
+      "U-SMT-CORR"
+    ],
+    "blocked_strategies": [
+      "S06-JUDAS-LONDON",
+      "S08-LONDON-CLOSE-RETRACE",
+      "S10-DAILY-SCALP",
+      "S13-ADV-BUY-C-IFVG",
+      "S17-ADV-SELL-C-IFVG",
+      "S19-BUY-LOKZ-ASIAN-SWEEP",
+      "S20-SELL-LOKZ-ASIAN-SWEEP",
+      "S22-ADV-A-SMT-CONFIRMED",
+      "S23-WEEKLY-PO3-GATED-DAILY",
+      "S24-SESSION-PO3-TIMED-ENTRY"
+    ]
+  },
+  "items": [
+    {
+      "item_id": "U-S01-NT-BEG-M13-NT02",
+      "strategy_id": "S01-BUY-11STEP",
+      "source": {
+        "block": "no_trade_conditions",
+        "index": "BEG-M13-NT02",
+        "text": "If the selected Kill Zone window closes without a qualifying setup, no trade is the correct and disciplined outcome. A day where the plan correctly identified no qualifying setup, and no trade was forced, is recorded as a process success, not a wasted day."
+      },
+      "element": "no-trade condition BEG-M13-NT02",
+      "reason_code": "UNSUPPORTED_PROCESS",
+      "explanation": "'No trade' is the default outcome of the engine, and recording it as a process success is a journaling instruction.",
+      "kb_refs": [
+        "BEG-M13-NT02"
+      ],
+      "blocks_execution": false,
+      "resolution": "Record it in the run report; it is not evaluated by the engine."
+    },
+    {
+      "item_id": "U-S01-01",
+      "strategy_id": "S01-BUY-11STEP",
+      "source": {
+        "block": "entry.trigger_options",
+        "index": 1,
+        "text": "Step 10b \u2014 market entry once price reaches the zone AND shows an additional LTF confirmation (e.g. 1-minute bullish MSS or a rejection candle)."
+      },
+      "element": "'rejection candle' as an alternative lower-timeframe confirmation",
+      "reason_code": "GAP_REQUIRES_FROZEN_OPERATIONALISATION",
+      "explanation": "The step offers '1-minute bullish MSS or a rejection candle'. The MSS form is fully defined by BEG-M03-R01/R02 and is implemented; 'rejection candle' is never defined anywhere in the knowledge base, so it is not offered as a selectable value.",
+      "kb_refs": [
+        "BEG-M11-S01"
+      ],
+      "blocks_execution": false,
+      "resolution": "Select ltf_confirmation_signal = 'ltf_mss', or supply a definition and record it as a research operationalisation (ADV-M18-C03)."
+    },
+    {
+      "item_id": "U-S02-NT-BEG-M13-NT02",
+      "strategy_id": "S02-SELL-11STEP",
+      "source": {
+        "block": "no_trade_conditions",
+        "index": "BEG-M13-NT02",
+        "text": "If the selected Kill Zone window closes without a qualifying setup, no trade is the correct and disciplined outcome. A day where the plan correctly identified no qualifying setup, and no trade was forced, is recorded as a process success, not a wasted day."
+      },
+      "element": "no-trade condition BEG-M13-NT02",
+      "reason_code": "UNSUPPORTED_PROCESS",
+      "explanation": "'No trade' is the default outcome of the engine, and recording it as a process success is a journaling instruction.",
+      "kb_refs": [
+        "BEG-M13-NT02"
+      ],
+      "blocks_execution": false,
+      "resolution": "Record it in the run report; it is not evaluated by the engine."
+    },
+    {
+      "item_id": "U-S02-01",
+      "strategy_id": "S02-SELL-11STEP",
+      "source": {
+        "block": "entry.trigger_options",
+        "index": 1,
+        "text": "Step 10b \u2014 market short once price reaches the zone and shows an LTF confirmation (1-minute bearish MSS or rejection candle)."
+      },
+      "element": "'rejection candle' as an alternative lower-timeframe confirmation",
+      "reason_code": "GAP_REQUIRES_FROZEN_OPERATIONALISATION",
+      "explanation": "The step offers '1-minute bullish MSS or a rejection candle'. The MSS form is fully defined by BEG-M03-R01/R02 and is implemented; 'rejection candle' is never defined anywhere in the knowledge base, so it is not offered as a selectable value.",
+      "kb_refs": [
+        "BEG-M11-S01"
+      ],
+      "blocks_execution": false,
+      "resolution": "Select ltf_confirmation_signal = 'ltf_mss', or supply a definition and record it as a research operationalisation (ADV-M18-C03)."
+    },
+    {
+      "item_id": "U-S03-NT-INT-M06-NT01",
+      "strategy_id": "S03-BULL-DISCOUNT-FW",
+      "source": {
+        "block": "no_trade_conditions",
+        "index": "INT-M06-NT01",
+        "text": "Trading deep inside prolonged contraction without evidence of displacement beginning frequently results in being caught in chop; avoid entries during deep contraction without emerging displacement evidence."
+      },
+      "element": "no-trade condition INT-M06-NT01",
+      "reason_code": "UNSUPPORTED_SUBJECTIVE",
+      "explanation": "'Deep inside prolonged contraction' and 'chop' have no price test in the source.",
+      "kb_refs": [
+        "INT-M06-NT01"
+      ],
+      "blocks_execution": false,
+      "resolution": "Record it in the run report; it is not evaluated by the engine.",
+      "effect_if_unenforced": "The run may include trades the specification would have stood aside from; reported selectivity is therefore an upper bound."
+    },
+    {
+      "item_id": "U-S03-01",
+      "strategy_id": "S03-BULL-DISCOUNT-FW",
+      "source": {
+        "block": "context",
+        "index": "other",
+        "text": "Active dealing range selected per INT-M06-R01 (tested/engineered boundaries; aligned with narrative timeframe; nested inside HTF container)."
+      },
+      "element": "'prefer ranges whose both boundaries have been tested or had liquidity engineered'",
+      "reason_code": "UNSUPPORTED_SUBJECTIVE",
+      "explanation": "The range-selection procedure states a preference, not a threshold: how much testing or engineering qualifies is never stated. The compiled node requires only that a dealing range exists on the intermediate timeframe.",
+      "kb_refs": [
+        "INT-M06-R01",
+        "ADV-M02-R01"
+      ],
+      "blocks_execution": false,
+      "resolution": "Stratify results by whether both boundaries had been swept, rather than filtering on it.",
+      "effect_if_unenforced": "Ranges the specification would have rejected as un-engineered are included; selectivity is overstated."
+    },
+    {
+      "item_id": "U-S04-NT-INT-M06-NT01",
+      "strategy_id": "S04-BEAR-PREMIUM-FW",
+      "source": {
+        "block": "no_trade_conditions",
+        "index": "INT-M06-NT01",
+        "text": "Trading deep inside prolonged contraction without evidence of displacement beginning frequently results in being caught in chop; avoid entries during deep contraction without emerging displacement evidence."
+      },
+      "element": "no-trade condition INT-M06-NT01",
+      "reason_code": "UNSUPPORTED_SUBJECTIVE",
+      "explanation": "'Deep inside prolonged contraction' and 'chop' have no price test in the source.",
+      "kb_refs": [
+        "INT-M06-NT01"
+      ],
+      "blocks_execution": false,
+      "resolution": "Record it in the run report; it is not evaluated by the engine.",
+      "effect_if_unenforced": "The run may include trades the specification would have stood aside from; reported selectivity is therefore an upper bound."
+    },
+    {
+      "item_id": "U-S04-01",
+      "strategy_id": "S04-BEAR-PREMIUM-FW",
+      "source": {
+        "block": "context",
+        "index": "other",
+        "text": "Dealing range selected per INT-M06-R01."
+      },
+      "element": "'prefer ranges whose both boundaries have been tested or had liquidity engineered'",
+      "reason_code": "UNSUPPORTED_SUBJECTIVE",
+      "explanation": "The range-selection procedure states a preference, not a threshold: how much testing or engineering qualifies is never stated. The compiled node requires only that a dealing range exists on the intermediate timeframe.",
+      "kb_refs": [
+        "INT-M06-R01",
+        "ADV-M02-R01"
+      ],
+      "blocks_execution": false,
+      "resolution": "Stratify results by whether both boundaries had been swept, rather than filtering on it.",
+      "effect_if_unenforced": "Ranges the specification would have rejected as un-engineered are included; selectivity is overstated."
+    },
+    {
+      "item_id": "U-S05-01",
+      "strategy_id": "S05-PO3-DAILY",
+      "source": {
+        "block": "prerequisites",
+        "index": 1,
+        "text": "Mark the Accumulation range = Asian session high/low near the open (P-PO3-01, P-TIME-02). Observe only \u2014 no trades inside the range (BEG-M09-NT01)."
+      },
+      "element": "'relatively tight, roughly horizontal' accumulation range",
+      "reason_code": "UNSUPPORTED_SUBJECTIVE",
+      "explanation": "The specification requires the accumulation range to be tight and roughly horizontal but gives no measure of tightness. The compiled node uses the session range as marked, without a shape test.",
+      "kb_refs": [
+        "BEG-M09-C01"
+      ],
+      "blocks_execution": false,
+      "resolution": "Stratify by realised range width rather than filtering on it.",
+      "effect_if_unenforced": "Days whose Asian session was not a tight range are still labelled as accumulation; the population is broader than the specification intends."
+    },
+    {
+      "item_id": "U-S06-NT-BEG-M08-NT01",
+      "strategy_id": "S06-JUDAS-LONDON",
+      "source": {
+        "block": "no_trade_conditions",
+        "index": "BEG-M08-NT01",
+        "text": "Some days offer no clean setup in any session; disciplined inaction is treated as a legitimate, expected outcome, not a failure."
+      },
+      "element": "no-trade condition BEG-M08-NT01",
+      "reason_code": "UNSUPPORTED_PROCESS",
+      "explanation": "Disciplined inaction; no market condition to evaluate.",
+      "kb_refs": [
+        "BEG-M08-NT01"
+      ],
+      "blocks_execution": false,
+      "resolution": "Record it in the run report; it is not evaluated by the engine."
+    },
+    {
+      "item_id": "U-S06-NT-ADV-M07-NT01",
+      "strategy_id": "S06-JUDAS-LONDON",
+      "source": {
+        "block": "no_trade_conditions",
+        "index": "ADV-M07-NT01",
+        "text": "When time-based expectations fail (expected kill zone produces no liquidity event and no displacement; expansion begins in a dead zone and is immediately reversed; a higher-timeframe opposing force overrides the daily time map), require a re-check of the liquidity and structural narrative, not a forced trade in the next window. Do not trade every kill zone regardless of whether a delivery narrative is active. Do not elevate a lower-timeframe signal appearing outside any relevant kill zone to the same quality as an in-window signal. Do not assume that if London did nothing, New York must reverse -- the higher-timeframe narrative still governs."
+      },
+      "element": "no-trade condition ADV-M07-NT01",
+      "reason_code": "UNSUPPORTED_SUBJECTIVE",
+      "explanation": "'Re-check the liquidity and structural narrative' is a review instruction, not a market condition.",
+      "kb_refs": [
+        "ADV-M07-NT01"
+      ],
+      "blocks_execution": false,
+      "resolution": "Record it in the run report; it is not evaluated by the engine.",
+      "effect_if_unenforced": "The run may include trades the specification would have stood aside from; reported selectivity is therefore an upper bound."
+    },
+    {
+      "item_id": "U-RECLAIM",
+      "strategy_id": "S06-JUDAS-LONDON",
+      "source": {
+        "block": "setup_sequence",
+        "index": 3,
+        "text": "Reclaim test: confirm price does not reclaim the swept level within roughly 2-3 candles on that LTF; if it does, reclassify as a genuine breakout \u2014 no Judas trade (BEG-M08-R06)."
+      },
+      "element": "operational definition of 'reclaim'",
+      "reason_code": "GAP_REQUIRES_FROZEN_OPERATIONALISATION",
+      "explanation": "The specification counts the reclaim window in candles (~2-3) but no passage in the knowledge base defines the price test that constitutes a reclaim (CF-14). Three candidate tests are offered as a frozen choice; the engine will not pick one.",
+      "kb_refs": [
+        "BEG-M08-R06"
+      ],
+      "blocks_execution": true,
+      "resolution": "Record an operationalisation for U-RECLAIM and set reclaim_definition (and reclaim_buffer if the buffered form is chosen)."
+    },
+    {
+      "item_id": "U-S07-NT-BEG-M08-NT01",
+      "strategy_id": "S07-NYKZ-SWEEP-SEQUENCE",
+      "source": {
+        "block": "no_trade_conditions",
+        "index": "BEG-M08-NT01",
+        "text": "Some days offer no clean setup in any session; disciplined inaction is treated as a legitimate, expected outcome, not a failure."
+      },
+      "element": "no-trade condition BEG-M08-NT01",
+      "reason_code": "UNSUPPORTED_PROCESS",
+      "explanation": "Disciplined inaction; no market condition to evaluate.",
+      "kb_refs": [
+        "BEG-M08-NT01"
+      ],
+      "blocks_execution": false,
+      "resolution": "Record it in the run report; it is not evaluated by the engine."
+    },
+    {
+      "item_id": "U-S07-NT-ADV-M07-NT01",
+      "strategy_id": "S07-NYKZ-SWEEP-SEQUENCE",
+      "source": {
+        "block": "no_trade_conditions",
+        "index": "ADV-M07-NT01",
+        "text": "When time-based expectations fail (expected kill zone produces no liquidity event and no displacement; expansion begins in a dead zone and is immediately reversed; a higher-timeframe opposing force overrides the daily time map), require a re-check of the liquidity and structural narrative, not a forced trade in the next window. Do not trade every kill zone regardless of whether a delivery narrative is active. Do not elevate a lower-timeframe signal appearing outside any relevant kill zone to the same quality as an in-window signal. Do not assume that if London did nothing, New York must reverse -- the higher-timeframe narrative still governs."
+      },
+      "element": "no-trade condition ADV-M07-NT01",
+      "reason_code": "UNSUPPORTED_SUBJECTIVE",
+      "explanation": "'Re-check the liquidity and structural narrative' is a review instruction, not a market condition.",
+      "kb_refs": [
+        "ADV-M07-NT01"
+      ],
+      "blocks_execution": false,
+      "resolution": "Record it in the run report; it is not evaluated by the engine.",
+      "effect_if_unenforced": "The run may include trades the specification would have stood aside from; reported selectivity is therefore an upper bound."
+    },
+    {
+      "item_id": "U-S07-01",
+      "strategy_id": "S07-NYKZ-SWEEP-SEQUENCE",
+      "source": {
+        "block": "prerequisites",
+        "index": 1,
+        "text": "Note whether a scheduled US release is imminent / just occurred."
+      },
+      "element": "scheduled US data release as a context input",
+      "reason_code": "UNSUPPORTED_EXTERNAL_DATA",
+      "explanation": "The step asks the trader to note whether a scheduled release is imminent or has just occurred. That requires an economic calendar, which is not price data and which the specification does not define or bound.",
+      "kb_refs": [
+        "BEG-M08-S02",
+        "INT-M12-R05"
+      ],
+      "blocks_execution": false,
+      "resolution": "Supply a calendar as a separate feed and stratify results by proximity to releases; the step is a note, not a filter, so it is not compiled as a gate."
+    },
+    {
+      "item_id": "U-S07-02",
+      "strategy_id": "S07-NYKZ-SWEEP-SEQUENCE",
+      "source": {
+        "block": "stop_invalidation",
+        "index": "pattern_invalidation",
+        "text": "Not restated \u2014 by analogy: reclaim-based invalidation (BEG-M08-S02 missing_elements)."
+      },
+      "element": "reclaim-based pre-entry invalidation",
+      "reason_code": "GAP_REQUIRES_FROZEN_OPERATIONALISATION",
+      "explanation": "The specification records this element as not restated in the source module ('by analogy'). Compiling the London reclaim test here would import a rule the source did not state for this session, so it is left out.",
+      "kb_refs": [
+        "BEG-M08-S02",
+        "BEG-M08-R06"
+      ],
+      "blocks_execution": false,
+      "resolution": "If the analogy is adopted, run S06's reclaim step explicitly and record it as a research operationalisation.",
+      "effect_if_unenforced": "Setups that London's rules would have discarded as genuine breakouts remain eligible here; the required MSS step is the only protection."
+    },
+    {
+      "item_id": "U-S08-NT-BEG-M08-NT01",
+      "strategy_id": "S08-LONDON-CLOSE-RETRACE",
+      "source": {
+        "block": "no_trade_conditions",
+        "index": "BEG-M08-NT01",
+        "text": "Some days offer no clean setup in any session; disciplined inaction is treated as a legitimate, expected outcome, not a failure."
+      },
+      "element": "no-trade condition BEG-M08-NT01",
+      "reason_code": "UNSUPPORTED_PROCESS",
+      "explanation": "Disciplined inaction; no market condition to evaluate.",
+      "kb_refs": [
+        "BEG-M08-NT01"
+      ],
+      "blocks_execution": false,
+      "resolution": "Record it in the run report; it is not evaluated by the engine."
+    },
+    {
+      "item_id": "U-S08-NT-ADV-M07-NT01",
+      "strategy_id": "S08-LONDON-CLOSE-RETRACE",
+      "source": {
+        "block": "no_trade_conditions",
+        "index": "ADV-M07-NT01",
+        "text": "When time-based expectations fail (expected kill zone produces no liquidity event and no displacement; expansion begins in a dead zone and is immediately reversed; a higher-timeframe opposing force overrides the daily time map), require a re-check of the liquidity and structural narrative, not a forced trade in the next window. Do not trade every kill zone regardless of whether a delivery narrative is active. Do not elevate a lower-timeframe signal appearing outside any relevant kill zone to the same quality as an in-window signal. Do not assume that if London did nothing, New York must reverse -- the higher-timeframe narrative still governs."
+      },
+      "element": "no-trade condition ADV-M07-NT01",
+      "reason_code": "UNSUPPORTED_SUBJECTIVE",
+      "explanation": "'Re-check the liquidity and structural narrative' is a review instruction, not a market condition.",
+      "kb_refs": [
+        "ADV-M07-NT01"
+      ],
+      "blocks_execution": false,
+      "resolution": "Record it in the run report; it is not evaluated by the engine.",
+      "effect_if_unenforced": "The run may include trades the specification would have stood aside from; reported selectivity is therefore an upper bound."
+    },
+    {
+      "item_id": "U-S08-01",
+      "strategy_id": "S08-LONDON-CLOSE-RETRACE",
+      "source": {
+        "block": "context",
+        "index": "other",
+        "text": "Price has already extended meaningfully in one direction during London and early New York."
+      },
+      "element": "'has already extended meaningfully in one direction'",
+      "reason_code": "GAP_REQUIRES_FROZEN_OPERATIONALISATION",
+      "explanation": "The precondition is a magnitude with no measure anywhere in the source; the specification itself records extension_magnitude as unspecified.",
+      "kb_refs": [
+        "BEG-M08-S03"
+      ],
+      "blocks_execution": true,
+      "resolution": "Record an operationalisation for U-S08-01 (for example a minimum range in ticks or in multiples of the Asian range) as a research parameter."
+    },
+    {
+      "item_id": "U-S08-02",
+      "strategy_id": "S08-LONDON-CLOSE-RETRACE",
+      "source": {
+        "block": "prerequisites",
+        "index": 1,
+        "text": "Assess that the day has already extended meaningfully in one direction (magnitude unspecified)."
+      },
+      "element": "assessment that the day has already extended meaningfully",
+      "reason_code": "GAP_REQUIRES_FROZEN_OPERATIONALISATION",
+      "explanation": "Same missing measure as U-S08-01, stated here as a prerequisite step.",
+      "kb_refs": [
+        "BEG-M08-S03"
+      ],
+      "blocks_execution": true,
+      "resolution": "Resolved by the same operationalisation as U-S08-01."
+    },
+    {
+      "item_id": "U-S08-03",
+      "strategy_id": "S08-LONDON-CLOSE-RETRACE",
+      "source": {
+        "block": "entry.entry_zone",
+        "index": "entry_zone",
+        "text": "unspecified beyond 'liquidity raid then retracement toward the day's open'."
+      },
+      "element": "entry zone",
+      "reason_code": "GAP_REQUIRES_FROZEN_OPERATIONALISATION",
+      "explanation": "The specification says the entry zone is unspecified beyond 'liquidity raid then retracement toward the day's open'. There is no level to compile.",
+      "kb_refs": [
+        "BEG-M08-S03"
+      ],
+      "blocks_execution": true,
+      "resolution": "Freeze an entry zone built only from documented components and report it as a research operationalisation (ADV-M18-R01)."
+    },
+    {
+      "item_id": "U-S08-04",
+      "strategy_id": "S08-LONDON-CLOSE-RETRACE",
+      "source": {
+        "block": "entry.trigger_options",
+        "index": 0,
+        "text": "unspecified \u2014 a researcher must freeze a trigger using only documented components (e.g. displacement + LTF MSS after the raid, P-DISP-01/P-MSS-01) and report it as a research operationalisation."
+      },
+      "element": "entry trigger",
+      "reason_code": "GAP_REQUIRES_FROZEN_OPERATIONALISATION",
+      "explanation": "The specification explicitly hands the trigger to the researcher.",
+      "kb_refs": [
+        "BEG-M08-S03"
+      ],
+      "blocks_execution": true,
+      "resolution": "Freeze a trigger from documented components (for example displacement plus a lower-timeframe MSS after the raid) and report it as an operationalisation."
+    },
+    {
+      "item_id": "U-S08-05",
+      "strategy_id": "S08-LONDON-CLOSE-RETRACE",
+      "source": {
+        "block": "stop_invalidation",
+        "index": "trade_level",
+        "text": "unspecified in this module."
+      },
+      "element": "trade-level invalidation",
+      "reason_code": "GAP_REQUIRES_FROZEN_OPERATIONALISATION",
+      "explanation": "Unspecified in this module; no stop reference is named.",
+      "kb_refs": [
+        "BEG-M08-S03"
+      ],
+      "blocks_execution": true,
+      "resolution": "Freeze one of the P-STOP-01 options and report it."
+    },
+    {
+      "item_id": "U-S08-06",
+      "strategy_id": "S08-LONDON-CLOSE-RETRACE",
+      "source": {
+        "block": "parameters",
+        "index": "position_size",
+        "text": "reduced relative to primary London/NY setups \u2014 'lowest-probability of the named Kill Zones'"
+      },
+      "element": "'reduced' position size",
+      "reason_code": "GAP_REQUIRES_FROZEN_OPERATIONALISATION",
+      "explanation": "The specification requires reduced size relative to primary setups but gives no reduction factor.",
+      "kb_refs": [
+        "BEG-M08-R03"
+      ],
+      "blocks_execution": false,
+      "resolution": "Freeze a reduction factor and report it; the engine sizes from risk_fraction, so set a smaller risk_fraction for this strategy."
+    },
+    {
+      "item_id": "U-S09-NT-INT-M07-NT01",
+      "strategy_id": "S09-OTE-ENTRY-COMPONENT",
+      "source": {
+        "block": "no_trade_conditions",
+        "index": "INT-M07-NT01",
+        "text": "The OTE concept should be de-emphasised or ignored when: (1) no clear displacement has occurred after a liquidity event; (2) the higher-timeframe narrative is ambiguous or conflicting; (3) price is still inside a tight consolidation with no expansion leg to measure; (4) the calculated OTE falls on the wrong side of dealing-range equilibrium relative to the intended direction; (5) the only available PD arrays inside the zone have already been mitigated; (6) session timing is unfavourable (e.g. attempting a full OTE model in a low-volatility period with no kill-zone alignment); (7) the trader is forcing a Fibonacci on a leg that is not the institutional expansion."
+      },
+      "element": "no-trade condition INT-M07-NT01",
+      "reason_code": "UNSUPPORTED_SUBJECTIVE",
+      "explanation": "Clauses 1, 2 and 4 are enforced by the sequence (displacement required, bias gate, premium/discount filter); clauses 3 and 6 ('tight consolidation', 'low volatility with no kill-zone alignment') have no price test in the source.",
+      "kb_refs": [
+        "INT-M07-NT01"
+      ],
+      "blocks_execution": false,
+      "resolution": "Record it in the run report; it is not evaluated by the engine.",
+      "effect_if_unenforced": "The run may include trades the specification would have stood aside from; reported selectivity is therefore an upper bound."
+    },
+    {
+      "item_id": "U-S09-01",
+      "strategy_id": "S09-OTE-ENTRY-COMPONENT",
+      "source": {
+        "block": "setup_sequence",
+        "index": 4,
+        "text": "Wait for an LTF confirmation signal at/near the zone (signal type not precisely defined in Module 7 \u2014 developed as LTF MSS in Modules 11-12)."
+      },
+      "element": "the lower-timeframe confirmation signal",
+      "reason_code": "GAP_REQUIRES_FROZEN_OPERATIONALISATION",
+      "explanation": "Module 7 does not define the confirmation signal and the specification defers it to Modules 11-12, where it is a lower-timeframe MSS. That defined form is compiled; the undefined 'rejection candle' form is not offered.",
+      "kb_refs": [
+        "BEG-M07-S01",
+        "BEG-M11-S01"
+      ],
+      "blocks_execution": false,
+      "resolution": "Select ltf_confirmation_signal = 'ltf_mss', or define the alternative and record it."
+    },
+    {
+      "item_id": "U-S10-NT-BEG-M13-NT02",
+      "strategy_id": "S10-DAILY-SCALP",
+      "source": {
+        "block": "no_trade_conditions",
+        "index": "BEG-M13-NT02",
+        "text": "If the selected Kill Zone window closes without a qualifying setup, no trade is the correct and disciplined outcome. A day where the plan correctly identified no qualifying setup, and no trade was forced, is recorded as a process success, not a wasted day."
+      },
+      "element": "no-trade condition BEG-M13-NT02",
+      "reason_code": "UNSUPPORTED_PROCESS",
+      "explanation": "'No trade' is the default outcome of the engine, and recording it as a process success is a journaling instruction.",
+      "kb_refs": [
+        "BEG-M13-NT02"
+      ],
+      "blocks_execution": false,
+      "resolution": "Record it in the run report; it is not evaluated by the engine."
+    },
+    {
+      "item_id": "U-S10-01",
+      "strategy_id": "S10-DAILY-SCALP",
+      "source": {
+        "block": "setup_sequence",
+        "index": 1,
+        "text": "Checklist (all four required, else skip): clear liquidity draw; complete sweep-displace-retrace-enter sequence; single-impulse objective; tight, clearly defined invalidation point (BEG-M13-R02)."
+      },
+      "element": "checklist item 3: 'single-impulse objective'",
+      "reason_code": "GAP_REQUIRES_FROZEN_OPERATIONALISATION",
+      "explanation": "The checklist makes all four items mandatory, but neither 'nearby pool' nor 'single impulse' is given any measure; the specification itself records both as unspecified. Deciding whether the nearest pool is reachable in one impulse cannot be computed from the source.",
+      "kb_refs": [
+        "BEG-M13-R02",
+        "BEG-M13-S01"
+      ],
+      "blocks_execution": true,
+      "resolution": "Record an operationalisation for U-S10-01 (for example a maximum distance to the target pool in multiples of the stop distance) as a research parameter."
+    },
+    {
+      "item_id": "U-S10-02",
+      "strategy_id": "S10-DAILY-SCALP",
+      "source": {
+        "block": "parameters",
+        "index": "fragility_note",
+        "text": "highly sensitive to spread, slippage, news \u2014 include transaction-cost modelling"
+      },
+      "element": "transaction-cost sensitivity",
+      "reason_code": "UNSUPPORTED_PROCESS",
+      "explanation": "The specification requires transaction-cost modelling for this model. Spread and slippage are instrument-configuration inputs to the engine, not strategy logic, so this is a run-configuration obligation rather than a compiled rule.",
+      "kb_refs": [
+        "BEG-M13-R02"
+      ],
+      "blocks_execution": false,
+      "resolution": "Set non-zero spread and slippage in the instrument configuration and report them alongside results."
+    },
+    {
+      "item_id": "U-S11-NT-ADV-M07-NT01",
+      "strategy_id": "S11-ADV-BUY-A-FVG-OTE",
+      "source": {
+        "block": "no_trade_conditions",
+        "index": "ADV-M07-NT01",
+        "text": "When time-based expectations fail (expected kill zone produces no liquidity event and no displacement; expansion begins in a dead zone and is immediately reversed; a higher-timeframe opposing force overrides the daily time map), require a re-check of the liquidity and structural narrative, not a forced trade in the next window. Do not trade every kill zone regardless of whether a delivery narrative is active. Do not elevate a lower-timeframe signal appearing outside any relevant kill zone to the same quality as an in-window signal. Do not assume that if London did nothing, New York must reverse -- the higher-timeframe narrative still governs."
+      },
+      "element": "no-trade condition ADV-M07-NT01",
+      "reason_code": "UNSUPPORTED_SUBJECTIVE",
+      "explanation": "'Re-check the liquidity and structural narrative' is a review instruction, not a market condition.",
+      "kb_refs": [
+        "ADV-M07-NT01"
+      ],
+      "blocks_execution": false,
+      "resolution": "Record it in the run report; it is not evaluated by the engine.",
+      "effect_if_unenforced": "The run may include trades the specification would have stood aside from; reported selectivity is therefore an upper bound."
+    },
+    {
+      "item_id": "U-S11-NT-ADV-M17-NT01",
+      "strategy_id": "S11-ADV-BUY-A-FVG-OTE",
+      "source": {
+        "block": "no_trade_conditions",
+        "index": "ADV-M17-NT01",
+        "text": "Overtrading = taking trades that fail the model-selection filters (Module 15) or the pre-entry checklist (Module 16), usually from feeling the need to be in the market -- includes trading outside the authorised session window, trading when bias is unclear, trading lower-quality arrays, and adding risk after the daily risk ceiling has been reached. When the model shortlist is empty, the correct action is zero trades. Revenge trading = attempting to recover a loss by immediately taking another trade not authorised by the narrative and filters, almost always accompanied by increased size or loosened invalidation -- after a loss, return to the narrative stack and selection procedure; if invalidated or no sequence appears, take no further risk (daily loss limit is the final backstop). Do not use fixed-pip stops that ignore the array and structure. Do not reject a high-quality narrative solely because R:R is below an arbitrary number. Do not widen the stop after entry 'to give it room.' Do not continue trading after the daily loss limit has been hit. Do not revenge-size the next trade after a loss. Do not treat 'I need to make back the loss' as a valid reason to select a model. Do not ignore narrative invalidation because the trade is still open and 'might come back.'"
+      },
+      "element": "no-trade condition ADV-M17-NT01",
+      "reason_code": "UNSUPPORTED_PROCESS",
+      "explanation": "Overtrading is a behavioural failure, not a market condition.",
+      "kb_refs": [
+        "ADV-M17-NT01"
+      ],
+      "blocks_execution": false,
+      "resolution": "Record it in the run report; it is not evaluated by the engine."
+    },
+    {
+      "item_id": "U-S11-NARRATIVE",
+      "strategy_id": "S11-ADV-BUY-A-FVG-OTE",
+      "source": {
+        "block": "prerequisites",
+        "index": 0,
+        "text": "Narrative stack written pre-session (monthly -> weekly -> daily) (ADV-M09-R03)."
+      },
+      "element": "narrative stack written pre-session",
+      "reason_code": "UNSUPPORTED_PROCESS",
+      "explanation": "Writing the monthly-weekly-daily narrative before the session is a process discipline, not a market condition. Its computable content (bias direction, range location, named draw on liquidity) is compiled in the context block.",
+      "kb_refs": [
+        "ADV-M09-R03",
+        "ADV-M10-R01"
+      ],
+      "blocks_execution": false,
+      "resolution": "Record that the narrative stack was written; the engine evaluates its computable content only."
+    },
+    {
+      "item_id": "U-S12-QUALITY",
+      "strategy_id": "S12-ADV-BUY-B-BREAKER",
+      "source": {
+        "block": "context",
+        "index": "other",
+        "text": "The violated bearish OB was itself high-quality (liquidity + displacement + MSS at its formation); its violation was accompanied by genuine bullish displacement and MSS (INT-M05-R03)."
+      },
+      "element": "'high-quality' grading of the violated order block",
+      "reason_code": "UNSUPPORTED_SUBJECTIVE",
+      "explanation": "The five quality filters of P-OB-01 are named but never weighted or thresholded, so 'was itself high-quality' has no computable form. The compiled node applies only the observable Breaker test the source does define.",
+      "kb_refs": [
+        "INT-M05-R03",
+        "BEG-M06-C01",
+        "P-OB-01"
+      ],
+      "blocks_execution": false,
+      "resolution": "Stratify results by how many of the five named filters the block satisfied.",
+      "effect_if_unenforced": "Breakers formed from low-quality order blocks are included; the population is broader than the specification intends."
+    },
+    {
+      "item_id": "U-IFVG-HOLD",
+      "strategy_id": "S13-ADV-BUY-C-IFVG",
+      "source": {
+        "block": "setup_sequence",
+        "index": 2,
+        "text": "Inversion demonstrated: price later retests the failed gap from above and it holds as support (polarity flip shown, not assumed) (ADV-M06-R03)."
+      },
+      "element": "'demonstrably holding' after inversion",
+      "reason_code": "GAP_REQUIRES_FROZEN_OPERATIONALISATION",
+      "explanation": "The source requires the inverted gap to have been retested and to have held, but gives no price test for holding, and the specification itself records the definition as unspecified. The engine will not invent one.",
+      "kb_refs": [
+        "ADV-M06-R03",
+        "INT-M04-AMB01"
+      ],
+      "blocks_execution": true,
+      "resolution": "Record an operationalisation for U-IFVG-HOLD and set inversion_hold_definition."
+    },
+    {
+      "item_id": "U-S13-STOP",
+      "strategy_id": "S13-ADV-BUY-C-IFVG",
+      "source": {
+        "block": "stop_invalidation",
+        "index": "trade_level",
+        "text": "unspecified precisely in the source (ADV-M11-S03 missing_elements). Documented general options: far side of the entry array (the IFVG) or displacement origin (ADV-M16-R04) \u2014 researcher must freeze and report."
+      },
+      "element": "trade-level invalidation for this variation",
+      "reason_code": "GAP_REQUIRES_FROZEN_OPERATIONALISATION",
+      "explanation": "The source variation does not state a stop. The two general options it does document (far side of the entry array, displacement origin) are compiled behind a frozen choice; neither is preferred here.",
+      "kb_refs": [
+        "ADV-M11-S03",
+        "ADV-M12-S03",
+        "ADV-M16-R04"
+      ],
+      "blocks_execution": false,
+      "resolution": "Set stop_reference_advanced and report it as a research parameter."
+    },
+    {
+      "item_id": "U-S14-STOPSCOPE",
+      "strategy_id": "S14-ADV-BUY-D-HTF-ARRAY-LTF",
+      "source": {
+        "block": "stop_invalidation",
+        "index": "trade_level",
+        "text": "unspecified precisely for this variation (ADV-M11-S04 missing_elements). Documented general hierarchy: beyond the LTF array / LTF displacement origin (tight) or beyond the HTF array far side / HTF displacement origin (wide) \u2014 INT-M08-EX01 uses daily-range-low / daily-structure-origin as invalidation; ADV-M05-C10 uses 'below the daily displacement origin'."
+      },
+      "element": "trade-level invalidation scope (lower-timeframe tight vs higher-timeframe wide)",
+      "reason_code": "GAP_REQUIRES_FROZEN_OPERATIONALISATION",
+      "explanation": "The source documents both scopes without resolving them; the specification records the choice as something the researcher must freeze.",
+      "kb_refs": [
+        "INT-M08-EX01",
+        "ADV-M05-C10",
+        "ADV-M16-R04"
+      ],
+      "blocks_execution": false,
+      "resolution": "Set stop_scope and report it as a research parameter."
+    },
+    {
+      "item_id": "U-S15-NT-ADV-M17-NT01",
+      "strategy_id": "S15-ADV-SELL-A-FVG-OTE",
+      "source": {
+        "block": "no_trade_conditions",
+        "index": "ADV-M17-NT01",
+        "text": "Overtrading = taking trades that fail the model-selection filters (Module 15) or the pre-entry checklist (Module 16), usually from feeling the need to be in the market -- includes trading outside the authorised session window, trading when bias is unclear, trading lower-quality arrays, and adding risk after the daily risk ceiling has been reached. When the model shortlist is empty, the correct action is zero trades. Revenge trading = attempting to recover a loss by immediately taking another trade not authorised by the narrative and filters, almost always accompanied by increased size or loosened invalidation -- after a loss, return to the narrative stack and selection procedure; if invalidated or no sequence appears, take no further risk (daily loss limit is the final backstop). Do not use fixed-pip stops that ignore the array and structure. Do not reject a high-quality narrative solely because R:R is below an arbitrary number. Do not widen the stop after entry 'to give it room.' Do not continue trading after the daily loss limit has been hit. Do not revenge-size the next trade after a loss. Do not treat 'I need to make back the loss' as a valid reason to select a model. Do not ignore narrative invalidation because the trade is still open and 'might come back.'"
+      },
+      "element": "no-trade condition ADV-M17-NT01",
+      "reason_code": "UNSUPPORTED_PROCESS",
+      "explanation": "Overtrading is a behavioural failure, not a market condition.",
+      "kb_refs": [
+        "ADV-M17-NT01"
+      ],
+      "blocks_execution": false,
+      "resolution": "Record it in the run report; it is not evaluated by the engine."
+    },
+    {
+      "item_id": "U-S15-NARRATIVE",
+      "strategy_id": "S15-ADV-SELL-A-FVG-OTE",
+      "source": {
+        "block": "prerequisites",
+        "index": 0,
+        "text": "Narrative stack written; only short models eligible (ADV-M10-R07)."
+      },
+      "element": "'narrative stack written' clause",
+      "reason_code": "UNSUPPORTED_PROCESS",
+      "explanation": "The model-permission half of this step is compiled; writing the narrative stack is a process discipline with no market test.",
+      "kb_refs": [
+        "ADV-M09-R03",
+        "ADV-M10-R07"
+      ],
+      "blocks_execution": false,
+      "resolution": "Record it in the run report."
+    },
+    {
+      "item_id": "U-S16-QUALITY",
+      "strategy_id": "S16-ADV-SELL-B-BREAKER",
+      "source": {
+        "block": "context",
+        "index": "other",
+        "text": "Violated bullish OB was high-quality; violation accompanied by genuine bearish displacement and MSS."
+      },
+      "element": "'high-quality' grading of the violated order block",
+      "reason_code": "UNSUPPORTED_SUBJECTIVE",
+      "explanation": "The five quality filters of P-OB-01 are named but never weighted or thresholded, so 'was itself high-quality' has no computable form. The compiled node applies only the observable Breaker test the source does define.",
+      "kb_refs": [
+        "INT-M05-R03",
+        "BEG-M06-C01",
+        "P-OB-01"
+      ],
+      "blocks_execution": false,
+      "resolution": "Stratify results by how many of the five named filters the block satisfied.",
+      "effect_if_unenforced": "Breakers formed from low-quality order blocks are included; the population is broader than the specification intends."
+    },
+    {
+      "item_id": "U-IFVG-HOLD",
+      "strategy_id": "S17-ADV-SELL-C-IFVG",
+      "source": {
+        "block": "setup_sequence",
+        "index": 2,
+        "text": "Inversion demonstrated: retest from below holds as resistance."
+      },
+      "element": "'demonstrably holding' after inversion",
+      "reason_code": "GAP_REQUIRES_FROZEN_OPERATIONALISATION",
+      "explanation": "The source requires the inverted gap to have been retested and to have held, but gives no price test for holding, and the specification itself records the definition as unspecified. The engine will not invent one.",
+      "kb_refs": [
+        "ADV-M06-R03",
+        "INT-M04-AMB01"
+      ],
+      "blocks_execution": true,
+      "resolution": "Record an operationalisation for U-IFVG-HOLD and set inversion_hold_definition."
+    },
+    {
+      "item_id": "U-S17-STOP",
+      "strategy_id": "S17-ADV-SELL-C-IFVG",
+      "source": {
+        "block": "stop_invalidation",
+        "index": "trade_level",
+        "text": "unspecified precisely (ADV-M12-S03); general options per ADV-M16-R04."
+      },
+      "element": "trade-level invalidation for this variation",
+      "reason_code": "GAP_REQUIRES_FROZEN_OPERATIONALISATION",
+      "explanation": "The source variation does not state a stop. The two general options it does document (far side of the entry array, displacement origin) are compiled behind a frozen choice; neither is preferred here.",
+      "kb_refs": [
+        "ADV-M11-S03",
+        "ADV-M12-S03",
+        "ADV-M16-R04"
+      ],
+      "blocks_execution": false,
+      "resolution": "Set stop_reference_advanced and report it as a research parameter."
+    },
+    {
+      "item_id": "U-S18-STOPSCOPE",
+      "strategy_id": "S18-ADV-SELL-D-HTF-ARRAY-LTF",
+      "source": {
+        "block": "stop_invalidation",
+        "index": "trade_level",
+        "text": "unspecified precisely; LTF-tight vs HTF-wide documented options (as S14)."
+      },
+      "element": "trade-level invalidation scope (lower-timeframe tight vs higher-timeframe wide)",
+      "reason_code": "GAP_REQUIRES_FROZEN_OPERATIONALISATION",
+      "explanation": "The source documents both scopes without resolving them; the specification records the choice as something the researcher must freeze.",
+      "kb_refs": [
+        "INT-M08-EX01",
+        "ADV-M05-C10",
+        "ADV-M16-R04"
+      ],
+      "blocks_execution": false,
+      "resolution": "Set stop_scope and report it as a research parameter."
+    },
+    {
+      "item_id": "U-S19-NT-BEG-M08-NT01",
+      "strategy_id": "S19-BUY-LOKZ-ASIAN-SWEEP",
+      "source": {
+        "block": "no_trade_conditions",
+        "index": "BEG-M08-NT01",
+        "text": "Some days offer no clean setup in any session; disciplined inaction is treated as a legitimate, expected outcome, not a failure."
+      },
+      "element": "no-trade condition BEG-M08-NT01",
+      "reason_code": "UNSUPPORTED_PROCESS",
+      "explanation": "Disciplined inaction; no market condition to evaluate.",
+      "kb_refs": [
+        "BEG-M08-NT01"
+      ],
+      "blocks_execution": false,
+      "resolution": "Record it in the run report; it is not evaluated by the engine."
+    },
+    {
+      "item_id": "U-RECLAIM",
+      "strategy_id": "S19-BUY-LOKZ-ASIAN-SWEEP",
+      "source": {
+        "block": "setup_sequence",
+        "index": 3,
+        "text": "Judas reclaim test: price does not reclaim the swept level within ~2-3 LTF candles (BEG-M08-R06)."
+      },
+      "element": "operational definition of 'reclaim'",
+      "reason_code": "GAP_REQUIRES_FROZEN_OPERATIONALISATION",
+      "explanation": "The Judas reclaim window is given in candles but no passage defines the price test that constitutes a reclaim (CF-14).",
+      "kb_refs": [
+        "BEG-M08-R06"
+      ],
+      "blocks_execution": true,
+      "resolution": "Record an operationalisation for U-RECLAIM and set reclaim_definition."
+    },
+    {
+      "item_id": "U-S19-NARRATIVE",
+      "strategy_id": "S19-BUY-LOKZ-ASIAN-SWEEP",
+      "source": {
+        "block": "prerequisites",
+        "index": 0,
+        "text": "Daily conditional bias statement written pre-London (P-BIAS-03, ADV-M10-R03)."
+      },
+      "element": "'daily conditional bias statement written pre-London'",
+      "reason_code": "UNSUPPORTED_PROCESS",
+      "explanation": "Writing the statement is a process discipline. Its computable content \u2014 the bias direction, the range half, the named draw and the condition that no model is authorised until the London sweep, displacement and MSS have printed \u2014 is compiled in the context block and in the setup sequence, which cannot reach the entry step before those events latch.",
+      "kb_refs": [
+        "ADV-M10-R03",
+        "INT-M11-EX01"
+      ],
+      "blocks_execution": false,
+      "resolution": "Record that the statement was written before the session."
+    },
+    {
+      "item_id": "U-S20-NT-BEG-M08-NT01",
+      "strategy_id": "S20-SELL-LOKZ-ASIAN-SWEEP",
+      "source": {
+        "block": "no_trade_conditions",
+        "index": "BEG-M08-NT01",
+        "text": "Some days offer no clean setup in any session; disciplined inaction is treated as a legitimate, expected outcome, not a failure."
+      },
+      "element": "no-trade condition BEG-M08-NT01",
+      "reason_code": "UNSUPPORTED_PROCESS",
+      "explanation": "Disciplined inaction; no market condition to evaluate.",
+      "kb_refs": [
+        "BEG-M08-NT01"
+      ],
+      "blocks_execution": false,
+      "resolution": "Record it in the run report; it is not evaluated by the engine."
+    },
+    {
+      "item_id": "U-RECLAIM",
+      "strategy_id": "S20-SELL-LOKZ-ASIAN-SWEEP",
+      "source": {
+        "block": "setup_sequence",
+        "index": 3,
+        "text": "Reclaim test ~2-3 LTF candles (BEG-M08-R06)."
+      },
+      "element": "operational definition of 'reclaim'",
+      "reason_code": "GAP_REQUIRES_FROZEN_OPERATIONALISATION",
+      "explanation": "The Judas reclaim window is given in candles but no passage defines the price test that constitutes a reclaim (CF-14).",
+      "kb_refs": [
+        "BEG-M08-R06"
+      ],
+      "blocks_execution": true,
+      "resolution": "Record an operationalisation for U-RECLAIM and set reclaim_definition."
+    },
+    {
+      "item_id": "U-S20-NARRATIVE",
+      "strategy_id": "S20-SELL-LOKZ-ASIAN-SWEEP",
+      "source": {
+        "block": "prerequisites",
+        "index": 0,
+        "text": "Conditional bearish daily bias written pre-London."
+      },
+      "element": "'daily conditional bias statement written pre-London'",
+      "reason_code": "UNSUPPORTED_PROCESS",
+      "explanation": "Writing the statement is a process discipline. Its computable content \u2014 the bias direction, the range half, the named draw and the condition that no model is authorised until the London sweep, displacement and MSS have printed \u2014 is compiled in the context block and in the setup sequence, which cannot reach the entry step before those events latch.",
+      "kb_refs": [
+        "ADV-M10-R03",
+        "INT-M11-EX01"
+      ],
+      "blocks_execution": false,
+      "resolution": "Record that the statement was written before the session."
+    },
+    {
+      "item_id": "U-S21-NT-ADV-M07-NT01",
+      "strategy_id": "S21-NY-CONTINUATION-OF-LONDON",
+      "source": {
+        "block": "no_trade_conditions",
+        "index": "ADV-M07-NT01",
+        "text": "When time-based expectations fail (expected kill zone produces no liquidity event and no displacement; expansion begins in a dead zone and is immediately reversed; a higher-timeframe opposing force overrides the daily time map), require a re-check of the liquidity and structural narrative, not a forced trade in the next window. Do not trade every kill zone regardless of whether a delivery narrative is active. Do not elevate a lower-timeframe signal appearing outside any relevant kill zone to the same quality as an in-window signal. Do not assume that if London did nothing, New York must reverse -- the higher-timeframe narrative still governs."
+      },
+      "element": "no-trade condition ADV-M07-NT01",
+      "reason_code": "UNSUPPORTED_SUBJECTIVE",
+      "explanation": "'Re-check the liquidity and structural narrative' is a review instruction, not a market condition.",
+      "kb_refs": [
+        "ADV-M07-NT01"
+      ],
+      "blocks_execution": false,
+      "resolution": "Record it in the run report; it is not evaluated by the engine.",
+      "effect_if_unenforced": "The run may include trades the specification would have stood aside from; reported selectivity is therefore an upper bound."
+    },
+    {
+      "item_id": "U-S21-01",
+      "strategy_id": "S21-NY-CONTINUATION-OF-LONDON",
+      "source": {
+        "block": "no_trade_conditions",
+        "index": "INT-M12-R05",
+        "text": "High-impact scheduled news can produce non-structural spikes that violate otherwise sound stops. Practice: reduce size, widen stops only with a corresponding size reduction, or stand aside around the event window when the narrative does not explicitly depend on the release. When volatility expands beyond the structural assumptions of the setup, capital preservation is the priority -- closing or reducing the position is preferable to hoping the narrative reasserts itself immediately."
+      },
+      "element": "high-impact scheduled news handling",
+      "reason_code": "UNSUPPORTED_EXTERNAL_DATA",
+      "explanation": "The listed condition is a rule object, not a no-trade object, and it depends on an economic calendar the specification does not define or bound.",
+      "kb_refs": [
+        "INT-M12-R05"
+      ],
+      "blocks_execution": false,
+      "resolution": "Supply a calendar feed and stratify results by proximity to releases."
+    },
+    {
+      "item_id": "U-SMT-CORR",
+      "strategy_id": "S22-ADV-A-SMT-CONFIRMED",
+      "source": {
+        "block": "prerequisites",
+        "index": 1,
+        "text": "Correlated pair selected and correlation stability verified (definition unspecified \u2014 freeze)."
+      },
+      "element": "'strong, stable current correlation' test and swing comparison window",
+      "reason_code": "GAP_REQUIRES_FROZEN_OPERATIONALISATION",
+      "explanation": "The specification requires verified correlation stability but records both the threshold and the comparison window as unspecified. A correlation computation is implemented, but its threshold and window must be frozen.",
+      "kb_refs": [
+        "ADV-M13-R01",
+        "ADV-M13-R02"
+      ],
+      "blocks_execution": true,
+      "resolution": "Record an operationalisation for U-SMT-CORR and set smt_correlation_min and smt_swing_comparison_window."
+    },
+    {
+      "item_id": "U-S22-02",
+      "strategy_id": "S22-ADV-A-SMT-CONFIRMED",
+      "source": {
+        "block": "setup_sequence",
+        "index": 1,
+        "text": "Instrument selection (ADV-M13-R03): bullish SMT -> prefer the instrument that HELD the higher low; bearish SMT -> prefer the instrument that printed the LOWER high \u2014 subject to which offers the cleaner array and better own-narrative alignment."
+      },
+      "element": "'subject to which offers the cleaner array and better own-narrative alignment'",
+      "reason_code": "UNSUPPORTED_SUBJECTIVE",
+      "explanation": "The mechanical half of instrument selection (prefer the instrument that held the higher low, or printed the lower high) is compiled. Comparing array cleanliness and narrative alignment across instruments has no price test.",
+      "kb_refs": [
+        "ADV-M13-R03"
+      ],
+      "blocks_execution": false,
+      "resolution": "Fix the traded instrument in advance and use SMT only as the on/off layer.",
+      "effect_if_unenforced": "The traded instrument is whichever the mechanical rule prefers, which may differ from the specification's discretionary choice."
+    },
+    {
+      "item_id": "U-S22-03",
+      "strategy_id": "S22-ADV-A-SMT-CONFIRMED",
+      "source": {
+        "block": "parameters",
+        "index": "size_adjustment_on_conflict",
+        "text": "'smaller size' \u2014 magnitude unspecified"
+      },
+      "element": "'smaller size' when SMT contradicts the bias",
+      "reason_code": "GAP_REQUIRES_FROZEN_OPERATIONALISATION",
+      "explanation": "The magnitude of the reduction is not stated.",
+      "kb_refs": [
+        "ADV-M13-R07"
+      ],
+      "blocks_execution": false,
+      "resolution": "Freeze a reduced risk_fraction for the contradicting-SMT stratum."
+    },
+    {
+      "item_id": "U-S22-04",
+      "strategy_id": "S22-ADV-A-SMT-CONFIRMED",
+      "source": {
+        "block": "context",
+        "index": "other",
+        "text": "A second instrument with strong, stable CURRENT correlation on the analysed timeframe (P-SMT-01)."
+      },
+      "element": "second correlated instrument feed",
+      "reason_code": "UNSUPPORTED_EXTERNAL_DATA",
+      "explanation": "SMT is defined only across two instruments, so the run needs a second, time-aligned bar feed. This is a data requirement rather than a rule gap and is declared in data_requirements.correlated_instruments.",
+      "kb_refs": [
+        "ADV-M13-R01"
+      ],
+      "blocks_execution": false,
+      "resolution": "Supply the correlated instrument in MarketData.correlated['secondary']."
+    },
+    {
+      "item_id": "U-S23-01",
+      "strategy_id": "S23-WEEKLY-PO3-GATED-DAILY",
+      "source": {
+        "block": "prerequisites",
+        "index": 0,
+        "text": "Mark the weekly open and the early-week range (P-PO3-01 weekly mapping)."
+      },
+      "element": "'early-week range', described only as 'often Monday'",
+      "reason_code": "GAP_REQUIRES_FROZEN_OPERATIONALISATION",
+      "explanation": "The weekly accumulation range has no definition: the source says 'often Monday' and simultaneously forbids rigid day-of-week rules (ADV-M08-NT01). The compiled phase machine therefore has no weekly accumulation window to measure from.",
+      "kb_refs": [
+        "INT-M10-R02",
+        "ADV-M08-R02",
+        "ADV-M08-NT01"
+      ],
+      "blocks_execution": true,
+      "resolution": "Record an operationalisation for U-S23-01 (an explicit early-week window or a price-based accumulation-range rule) as a research parameter."
+    },
+    {
+      "item_id": "U-S23-02",
+      "strategy_id": "S23-WEEKLY-PO3-GATED-DAILY",
+      "source": {
+        "block": "entry.entry_zone",
+        "index": "entry_zone",
+        "text": "As the gated daily model."
+      },
+      "element": "entry zone, trigger, stop and targets are delegated to the gated daily model",
+      "reason_code": "GAP_REQUIRES_FROZEN_OPERATIONALISATION",
+      "explanation": "This specification is a gate, not a standalone trade model: every execution element says 'as the gated daily model'. It compiles to a filter that must be composed with S11, S15, S19, S20 or S21; it cannot be run alone.",
+      "kb_refs": [
+        "INT-M10-R02",
+        "ADV-M08-R03"
+      ],
+      "blocks_execution": true,
+      "resolution": "Run it as an overlay: evaluate this document's gate and, when it passes, run the chosen daily model's compiled document."
+    },
+    {
+      "item_id": "U-S23-03",
+      "strategy_id": "S23-WEEKLY-PO3-GATED-DAILY",
+      "source": {
+        "block": "parameters",
+        "index": "size_reduction_in_accumulation",
+        "text": "unspecified"
+      },
+      "element": "'reduced size' during weekly accumulation",
+      "reason_code": "GAP_REQUIRES_FROZEN_OPERATIONALISATION",
+      "explanation": "No reduction factor is given.",
+      "kb_refs": [
+        "INT-M10-R02"
+      ],
+      "blocks_execution": false,
+      "resolution": "Freeze a reduced risk_fraction for the accumulation stratum."
+    },
+    {
+      "item_id": "U-S24-01",
+      "strategy_id": "S24-SESSION-PO3-TIMED-ENTRY",
+      "source": {
+        "block": "setup_sequence",
+        "index": 0,
+        "text": "Session accumulation: brief local range inside the window."
+      },
+      "element": "'brief local range inside the window' \u2014 the session accumulation range",
+      "reason_code": "GAP_REQUIRES_FROZEN_OPERATIONALISATION",
+      "explanation": "The specification records session_range_definition as unspecified: how long the local range must build, and how tight it must be, is never stated. The compiled node uses the completed kill-zone window as the range, which is an operationalisation, not the source's own rule.",
+      "kb_refs": [
+        "INT-M10-R03"
+      ],
+      "blocks_execution": true,
+      "resolution": "Record an operationalisation for U-S24-01 fixing the session accumulation window and its tightness test."
+    }
+  ]
+}

@@ -1,0 +1,1525 @@
+{
+  "dsl_version": "1.0.0",
+  "strategy_id": "S18-ADV-SELL-D-HTF-ARRAY-LTF",
+  "name": "Advanced Sell Model \u2014 Variation D: HTF PD-Array Reaction with LTF Confirmation (Bearish)",
+  "kind": "variant",
+  "parent_strategy_id": "S15-ADV-SELL-A-FVG-OTE",
+  "direction": "short",
+  "provenance": {
+    "spec_file": "strategy_reearcher/catalog/strategies.json",
+    "spec_strategy_id": "S18-ADV-SELL-D-HTF-ARRAY-LTF",
+    "kb_source_strategy_ids": [
+      "ADV-M12-S00",
+      "ADV-M12-S04"
+    ],
+    "primitives": [
+      "P-BIAS-02",
+      "P-DISP-01",
+      "P-DOL-01",
+      "P-FVG-01",
+      "P-GATE-01",
+      "P-LIQ-01",
+      "P-LIQ-02",
+      "P-MSS-01",
+      "P-OB-01",
+      "P-RANGE-01",
+      "P-RISK-01",
+      "P-STOP-01",
+      "P-TARGET-01",
+      "P-TIME-01"
+    ],
+    "specificity_status": "partially_specified",
+    "spec_unspecified_elements": [
+      "as S14"
+    ],
+    "spec_worked_example": null
+  },
+  "timeframes": {
+    "htf": {
+      "purpose": "weekly/daily array and draw on liquidity",
+      "candidates": [
+        "1w",
+        "1d"
+      ],
+      "source": [
+        "ADV-M11-S04",
+        "INT-M08-R02"
+      ],
+      "min_history": 120
+    },
+    "intermediate": {
+      "purpose": "nested range and arrays",
+      "candidates": [
+        "4h",
+        "1h"
+      ],
+      "source": [
+        "INT-M08-R02"
+      ],
+      "min_history": 400
+    },
+    "ltf": {
+      "purpose": "sweep, displacement, MSS and the nested entry array",
+      "candidates": [
+        "15m",
+        "5m"
+      ],
+      "source": [
+        "ADV-M11-S04"
+      ],
+      "min_history": 1000
+    }
+  },
+  "data_requirements": {
+    "instrument": "primary",
+    "correlated_instruments": 0,
+    "bars": {
+      "htf": {
+        "min_history": 120
+      },
+      "intermediate": {
+        "min_history": 400
+      },
+      "ltf": {
+        "min_history": 1000
+      }
+    },
+    "timezone": "America/New_York",
+    "session_anchored": true,
+    "requires_period_opens": [
+      "daily",
+      "weekly",
+      "monthly"
+    ],
+    "external_data": [],
+    "warmup_bars": 200
+  },
+  "parameters": [
+    {
+      "name": "governing_swing_tier",
+      "binding": "frozen_choice",
+      "choices": [
+        "short_term",
+        "intermediate",
+        "long_term"
+      ],
+      "kb_status": "unspecified",
+      "kb_value": "judgment informed by the ST/IT/LT hierarchy",
+      "source": [
+        "BEG-M03-C02",
+        "INT-M01-R02"
+      ],
+      "register_id": "governing_structural_point_tier"
+    },
+    {
+      "name": "displacement_range_multiple",
+      "binding": "frozen_required",
+      "kb_status": "unspecified",
+      "kb_value": "'unusually large relative to recent candles'",
+      "source": [
+        "BEG-M05-R01"
+      ],
+      "register_id": "displacement_range_multiple"
+    },
+    {
+      "name": "displacement_lookback",
+      "binding": "frozen_required",
+      "kb_status": "unspecified",
+      "kb_value": "-",
+      "source": [
+        "BEG-M05-R01"
+      ],
+      "register_id": "displacement_lookback_candles"
+    },
+    {
+      "name": "displacement_body_ratio_min",
+      "binding": "frozen_required",
+      "kb_status": "heuristic_unfixed",
+      "kb_value": "~60-70% cited by secondary tools; the book does not fix it",
+      "source": [
+        "BEG-M05-C01",
+        "BEG-M05-C02",
+        "BEG-M05-AMB01"
+      ],
+      "register_id": "displacement_body_to_range_min"
+    },
+    {
+      "name": "sweep_min_penetration",
+      "binding": "frozen_required",
+      "kb_status": "unspecified",
+      "kb_value": "research parameter 'Y' in the knowledge base's own template",
+      "source": [
+        "ADV-M18-C03"
+      ],
+      "register_id": "sweep_min_penetration"
+    },
+    {
+      "name": "sweep_reclaim_bars",
+      "binding": "frozen_required",
+      "kb_status": "alternatives_documented",
+      "kb_value": "~2-3 lower-timeframe candles (Judas) / 'reasonable number' (PO3) / 'Z' bars",
+      "source": [
+        "BEG-M08-R06",
+        "BEG-M09-R02",
+        "ADV-M18-C03"
+      ],
+      "register_id": "sweep_reclaim_window"
+    },
+    {
+      "name": "equal_level_tolerance",
+      "binding": "frozen_required",
+      "kb_status": "heuristic_unfixed",
+      "kb_value": "~5-10 pips forex cited by secondary sources; 'obvious at a glance'",
+      "source": [
+        "BEG-M04-C05",
+        "INT-M02-R01"
+      ],
+      "register_id": "equal_highs_lows_tolerance"
+    },
+    {
+      "name": "risk_fraction",
+      "binding": "frozen_required",
+      "kb_status": "range_given",
+      "kb_value": "~1% (max ~2%) beginner | 0.5-1% intermediate | 0.25-1% advanced",
+      "source": [
+        "BEG-M13-R01",
+        "INT-M12-R01",
+        "ADV-M17-R02"
+      ],
+      "register_id": "risk_per_trade"
+    },
+    {
+      "name": "stop_buffer_ticks",
+      "binding": "frozen_required",
+      "kb_status": "unspecified",
+      "kb_value": "'just beyond' / 'small buffer' (examples ~12 pips EUR/USD, ~0.60 pts gold)",
+      "source": [
+        "BEG-M11-EX01",
+        "BEG-M12-EX01"
+      ],
+      "register_id": "stop_buffer"
+    },
+    {
+      "name": "first_target_allocation",
+      "binding": "frozen_required",
+      "kb_status": "unspecified",
+      "kb_value": "'e.g. 50% or a fixed fraction' \u2014 the fraction is never stated",
+      "source": [
+        "ADV-M16-R06"
+      ],
+      "register_id": "partial_fraction"
+    },
+    {
+      "name": "fib_anchor",
+      "binding": "frozen_choice",
+      "choices": [
+        "body",
+        "wick"
+      ],
+      "kb_status": "alternatives_documented",
+      "kb_value": "body-to-body (BEG-M07-R01) vs liquidity-sweep wick origin (INT-M07-R01)",
+      "source": [
+        "BEG-M07-R01",
+        "INT-M07-R01"
+      ],
+      "register_id": "fib_anchor_price_type"
+    },
+    {
+      "name": "ltf_confirmation_signal",
+      "binding": "frozen_choice",
+      "choices": [
+        "ltf_mss"
+      ],
+      "kb_status": "specified_examples",
+      "kb_value": "1-minute MSS or a rejection candle; only the MSS form is defined",
+      "source": [
+        "BEG-M11-S01"
+      ],
+      "register_id": "ltf_confirmation_signal"
+    },
+    {
+      "name": "authorised_kill_zone_ET",
+      "binding": "frozen_choice",
+      "choices": [
+        [
+          "02:00",
+          "05:00"
+        ],
+        [
+          "02:00",
+          "04:00"
+        ],
+        [
+          "07:00",
+          "10:00"
+        ],
+        [
+          "08:00",
+          "11:00"
+        ],
+        [
+          "08:30",
+          "11:00"
+        ],
+        [
+          "07:00",
+          "09:00"
+        ]
+      ],
+      "kb_status": "alternatives_documented",
+      "kb_value": "the kill zone the daily narrative assigned to distribution/continuation (typically London Open or New York Open); both have documented boundary variants",
+      "source": [
+        "ADV-M16-R07",
+        "BEG-M08-R02",
+        "BEG-M08-R04"
+      ],
+      "register_id": "london_open_kz_ET"
+    },
+    {
+      "name": "decisive_close_definition",
+      "binding": "frozen_choice",
+      "choices": [
+        "body_close_beyond",
+        "body_close_beyond_by_ticks",
+        "full_body_beyond"
+      ],
+      "kb_status": "unspecified",
+      "kb_value": "'decisive' close; the magnitude is never stated",
+      "source": [
+        "INT-M04-R03",
+        "ADV-M06-R03",
+        "INT-M11-R04"
+      ],
+      "register_id": "fvg_failure_close"
+    },
+    {
+      "name": "max_daily_risk",
+      "binding": "frozen_required",
+      "kb_status": "range_given",
+      "kb_value": "e.g. 1-2% of equity",
+      "source": [
+        "ADV-M17-R03"
+      ],
+      "register_id": "max_daily_risk"
+    },
+    {
+      "name": "daily_loss_limit",
+      "binding": "frozen_required",
+      "kb_status": "range_given",
+      "kb_value": "e.g. 1-3% of equity",
+      "source": [
+        "ADV-M17-R03"
+      ],
+      "register_id": "daily_loss_limit"
+    },
+    {
+      "name": "rr_minimum",
+      "binding": "frozen_choice",
+      "choices": [
+        "none",
+        2.0,
+        3.0
+      ],
+      "kb_status": "alternatives_documented",
+      "kb_value": "1:2 / 1:3 as minimum thresholds (INT-M12-R03) vs no R:R filter at all (ADV-M17-R04)",
+      "source": [
+        "INT-M12-R03",
+        "ADV-M17-R04"
+      ],
+      "register_id": "rr_minimum_filter"
+    },
+    {
+      "name": "daily_bias_method",
+      "binding": "frozen_choice",
+      "choices": [
+        "three_factor",
+        "single_mss"
+      ],
+      "kb_status": "alternatives_documented",
+      "kb_value": "three-factor (primary) vs the single-MSS 'daily bias trick'",
+      "source": [
+        "BEG-M10-C03",
+        "BEG-M10-AMB01"
+      ],
+      "register_id": "daily_bias_method"
+    },
+    {
+      "name": "daily_open_definition",
+      "binding": "frozen_choice",
+      "choices": [
+        "new_york_midnight",
+        "instrument_daily_open"
+      ],
+      "kb_status": "alternatives_documented",
+      "kb_value": "daily open (primary) vs New York midnight (thinner support)",
+      "source": [
+        "ADV-M07-C03",
+        "ADV-M07-AMB01"
+      ],
+      "register_id": "daily_open_definition"
+    },
+    {
+      "name": "stop_scope",
+      "binding": "frozen_choice",
+      "choices": [
+        "ltf_tight",
+        "htf_wide"
+      ],
+      "kb_status": "alternatives_documented",
+      "kb_value": "lower-timeframe array/displacement origin (tight) vs higher-timeframe array far side (wide)",
+      "source": [
+        "INT-M08-EX01",
+        "ADV-M05-C10",
+        "ADV-M16-R04"
+      ],
+      "register_id": "stop_reference"
+    }
+  ],
+  "features": [
+    "bar",
+    "dealing_range",
+    "displacement",
+    "displacement_leg",
+    "dol",
+    "fvg",
+    "in_session",
+    "latest_index",
+    "liquidity_pools",
+    "midpoint",
+    "mss",
+    "offset",
+    "pd_location",
+    "position_size",
+    "sweep"
+  ],
+  "market_state": [
+    "bias_state"
+  ],
+  "blocks": {
+    "context": [
+      {
+        "node_id": "S18.ctx.bias",
+        "kind": "predicate",
+        "source": {
+          "block": "context",
+          "index": "htf_bias_required",
+          "text": "HTF bearish narrative; no HTF invalidation printed."
+        },
+        "kb_refs": [
+          "ADV-M10-R01",
+          "ADV-M10-R02",
+          "ADV-M12-R01"
+        ],
+        "primitives": [
+          "P-BIAS-02",
+          "P-DOL-01"
+        ],
+        "expr": [
+          "and",
+          [
+            "==",
+            [
+              "state",
+              "bias_state",
+              {
+                "tf": "htf",
+                "method": "structural",
+                "field": "direction"
+              }
+            ],
+            [
+              "const",
+              "bearish"
+            ]
+          ],
+          [
+            "exists",
+            [
+              "feature",
+              "dol",
+              {
+                "direction": "bearish",
+                "scope": "erl",
+                "tf": "htf"
+              }
+            ]
+          ]
+        ],
+        "emits": {
+          "dol_erl": [
+            "feature",
+            "dol",
+            {
+              "direction": "bearish",
+              "scope": "erl",
+              "tf": "htf",
+              "field": "price"
+            }
+          ],
+          "dol_irl": [
+            "feature",
+            "dol",
+            {
+              "direction": "bearish",
+              "scope": "irl",
+              "tf": "htf",
+              "field": "price"
+            }
+          ]
+        }
+      },
+      {
+        "node_id": "S18.ctx.location",
+        "kind": "predicate",
+        "source": {
+          "block": "context",
+          "index": "location",
+          "text": "HTF array (weekly/daily OB or FVG) unmitigated, in premium."
+        },
+        "kb_refs": [
+          "ADV-M02-R01",
+          "ADV-M02-C06",
+          "INT-M06-R02"
+        ],
+        "primitives": [
+          "P-RANGE-01",
+          "P-LIQ-02"
+        ],
+        "expr": [
+          "or",
+          [
+            "==",
+            [
+              "feature",
+              "pd_location",
+              {
+                "tf": "htf",
+                "price_tf": "ltf"
+              }
+            ],
+            [
+              "const",
+              "premium"
+            ]
+          ],
+          [
+            "==",
+            [
+              "feature",
+              "sweep",
+              {
+                "tf": "ltf",
+                "level": [
+                  "feature",
+                  "liquidity_pools",
+                  {
+                    "tf": "ltf",
+                    "side": "buy",
+                    "kinds": [
+                      "swing",
+                      "equal",
+                      "prev_day",
+                      "prev_week"
+                    ],
+                    "select": "nearest",
+                    "field": "price"
+                  }
+                ],
+                "side": "bsl",
+                "since_index": [
+                  "feature",
+                  "liquidity_pools",
+                  {
+                    "tf": "ltf",
+                    "side": "buy",
+                    "kinds": [
+                      "swing",
+                      "equal",
+                      "prev_day",
+                      "prev_week"
+                    ],
+                    "select": "nearest",
+                    "field": "from_index"
+                  }
+                ],
+                "field": "classification"
+              }
+            ],
+            [
+              "const",
+              "raid"
+            ]
+          ]
+        ]
+      },
+      {
+        "node_id": "S18.ctx.other",
+        "kind": "predicate",
+        "source": {
+          "block": "context",
+          "index": "other",
+          "text": "LTF only refines."
+        },
+        "kb_refs": [
+          "INT-M08-R04"
+        ],
+        "primitives": [
+          "P-FVG-01",
+          "P-DOL-01"
+        ],
+        "expr": [
+          "exists",
+          [
+            "feature",
+            "fvg",
+            {
+              "tf": "htf",
+              "direction": "bearish",
+              "select": "latest"
+            }
+          ]
+        ],
+        "gate": false,
+        "compilation_note": "The clause states a division of labour (higher timeframe supplies the zone, lower timeframe only times the entry) rather than a condition; the node records that an unmitigated higher-timeframe array exists and does not veto."
+      }
+    ],
+    "prerequisites": [
+      {
+        "node_id": "S18.pre.01",
+        "kind": "predicate",
+        "source": {
+          "block": "prerequisites",
+          "index": 0,
+          "text": "HTF and intermediate maps (INT-M08-R02)."
+        },
+        "kb_refs": [
+          "INT-M08-R02"
+        ],
+        "primitives": [
+          "P-RANGE-01",
+          "P-DOL-01"
+        ],
+        "expr": [
+          "and",
+          [
+            "and",
+            [
+              "exists",
+              [
+                "feature",
+                "dealing_range",
+                {
+                  "tf": "htf"
+                }
+              ]
+            ],
+            [
+              "exists",
+              [
+                "feature",
+                "dol",
+                {
+                  "direction": "bearish",
+                  "scope": "erl",
+                  "tf": "htf"
+                }
+              ]
+            ]
+          ],
+          [
+            "exists",
+            [
+              "feature",
+              "dealing_range",
+              {
+                "tf": "intermediate"
+              }
+            ]
+          ]
+        ]
+      },
+      {
+        "node_id": "S18.pre.02",
+        "kind": "predicate",
+        "source": {
+          "block": "prerequisites",
+          "index": 1,
+          "text": "Eligibility ADV-M12-R01; Variation D authorised."
+        },
+        "kb_refs": [
+          "ADV-M12-R01",
+          "ADV-M11-R02"
+        ],
+        "primitives": [
+          "P-GATE-01"
+        ],
+        "expr": [
+          "and",
+          [
+            "and",
+            [
+              "==",
+              [
+                "state",
+                "bias_state",
+                {
+                  "tf": "htf",
+                  "method": "structural",
+                  "field": "direction"
+                }
+              ],
+              [
+                "const",
+                "bearish"
+              ]
+            ],
+            [
+              "exists",
+              [
+                "feature",
+                "dol",
+                {
+                  "direction": "bearish",
+                  "scope": "erl",
+                  "tf": "htf"
+                }
+              ]
+            ]
+          ],
+          [
+            "or",
+            [
+              "==",
+              [
+                "feature",
+                "pd_location",
+                {
+                  "tf": "htf",
+                  "price_tf": "ltf"
+                }
+              ],
+              [
+                "const",
+                "premium"
+              ]
+            ],
+            [
+              "==",
+              [
+                "feature",
+                "sweep",
+                {
+                  "tf": "ltf",
+                  "level": [
+                    "feature",
+                    "liquidity_pools",
+                    {
+                      "tf": "ltf",
+                      "side": "buy",
+                      "kinds": [
+                        "swing",
+                        "equal",
+                        "prev_day",
+                        "prev_week"
+                      ],
+                      "select": "nearest",
+                      "field": "price"
+                    }
+                  ],
+                  "side": "bsl",
+                  "since_index": [
+                    "feature",
+                    "liquidity_pools",
+                    {
+                      "tf": "ltf",
+                      "side": "buy",
+                      "kinds": [
+                        "swing",
+                        "equal",
+                        "prev_day",
+                        "prev_week"
+                      ],
+                      "select": "nearest",
+                      "field": "from_index"
+                    }
+                  ],
+                  "field": "classification"
+                }
+              ],
+              [
+                "const",
+                "raid"
+              ]
+            ]
+          ],
+          [
+            "feature",
+            "in_session",
+            {
+              "window_param": "authorised_kill_zone_ET"
+            }
+          ]
+        ]
+      },
+      {
+        "node_id": "S18.pre.session",
+        "kind": "predicate",
+        "source": {
+          "block": "session",
+          "index": "session",
+          "text": "unspecified; ADV-M16-R07 applies."
+        },
+        "kb_refs": [
+          "ADV-M16-R07"
+        ],
+        "primitives": [
+          "P-TIME-01"
+        ],
+        "expr": [
+          "feature",
+          "in_session",
+          {
+            "window_param": "authorised_kill_zone_ET"
+          }
+        ]
+      }
+    ],
+    "setup_sequence": [
+      {
+        "node_id": "S18.setup.01",
+        "kind": "event",
+        "source": {
+          "block": "setup_sequence",
+          "index": 0,
+          "text": "Price reaches the HTF PD array in premium."
+        },
+        "kb_refs": [
+          "ADV-M05-C06",
+          "INT-M04-C09",
+          "ADV-M02-C06"
+        ],
+        "primitives": [
+          "P-FVG-01",
+          "P-RANGE-01"
+        ],
+        "expr": [
+          "and",
+          [
+            "exists",
+            [
+              "feature",
+              "fvg",
+              {
+                "tf": "htf",
+                "direction": "bearish",
+                "select": "latest"
+              }
+            ]
+          ],
+          [
+            "==",
+            [
+              "feature",
+              "pd_location",
+              {
+                "tf": "htf",
+                "price": [
+                  "feature",
+                  "midpoint",
+                  {
+                    "zone": [
+                      "feature",
+                      "fvg",
+                      {
+                        "tf": "htf",
+                        "direction": "bearish",
+                        "select": "latest"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            [
+              "const",
+              "premium"
+            ]
+          ],
+          [
+            ">=",
+            [
+              "feature",
+              "bar",
+              {
+                "tf": "ltf",
+                "component": "high"
+              }
+            ],
+            [
+              "field",
+              [
+                "feature",
+                "fvg",
+                {
+                  "tf": "htf",
+                  "direction": "bearish",
+                  "select": "latest"
+                }
+              ],
+              "low"
+            ]
+          ]
+        ],
+        "emits": {
+          "htf_array": [
+            "feature",
+            "fvg",
+            {
+              "tf": "htf",
+              "direction": "bearish",
+              "select": "latest"
+            }
+          ]
+        }
+      },
+      {
+        "node_id": "S18.setup.02",
+        "kind": "event",
+        "source": {
+          "block": "setup_sequence",
+          "index": 1,
+          "text": "LTF: liquidity sweep -> bearish displacement -> LTF MSS inside the HTF array."
+        },
+        "kb_refs": [
+          "INT-M08-R04",
+          "ADV-M11-S04",
+          "BEG-M03-R02"
+        ],
+        "primitives": [
+          "P-LIQ-02",
+          "P-DISP-01",
+          "P-MSS-01"
+        ],
+        "expr": [
+          "and",
+          [
+            "==",
+            [
+              "feature",
+              "sweep",
+              {
+                "tf": "ltf",
+                "level": [
+                  "feature",
+                  "liquidity_pools",
+                  {
+                    "tf": "ltf",
+                    "side": "buy",
+                    "kinds": [
+                      "swing",
+                      "equal",
+                      "prev_day",
+                      "prev_week"
+                    ],
+                    "select": "nearest",
+                    "field": "price"
+                  }
+                ],
+                "side": "bsl",
+                "since_index": [
+                  "feature",
+                  "liquidity_pools",
+                  {
+                    "tf": "ltf",
+                    "side": "buy",
+                    "kinds": [
+                      "swing",
+                      "equal",
+                      "prev_day",
+                      "prev_week"
+                    ],
+                    "select": "nearest",
+                    "field": "from_index"
+                  }
+                ],
+                "field": "classification"
+              }
+            ],
+            [
+              "const",
+              "raid"
+            ]
+          ],
+          [
+            "feature",
+            "displacement",
+            {
+              "tf": "ltf",
+              "at_index": -1,
+              "direction": "bearish"
+            }
+          ],
+          [
+            "feature",
+            "mss",
+            {
+              "tf": "ltf",
+              "at_index": -1,
+              "direction": "bearish"
+            }
+          ]
+        ],
+        "emits": {
+          "raid_index": [
+            "feature",
+            "sweep",
+            {
+              "tf": "ltf",
+              "level": [
+                "feature",
+                "liquidity_pools",
+                {
+                  "tf": "ltf",
+                  "side": "buy",
+                  "kinds": [
+                    "swing",
+                    "equal",
+                    "prev_day",
+                    "prev_week"
+                  ],
+                  "select": "nearest",
+                  "field": "price"
+                }
+              ],
+              "side": "bsl",
+              "since_index": [
+                "feature",
+                "liquidity_pools",
+                {
+                  "tf": "ltf",
+                  "side": "buy",
+                  "kinds": [
+                    "swing",
+                    "equal",
+                    "prev_day",
+                    "prev_week"
+                  ],
+                  "select": "nearest",
+                  "field": "from_index"
+                }
+              ],
+              "field": "sweep_index"
+            }
+          ],
+          "raid_extreme": [
+            "feature",
+            "sweep",
+            {
+              "tf": "ltf",
+              "level": [
+                "feature",
+                "liquidity_pools",
+                {
+                  "tf": "ltf",
+                  "side": "buy",
+                  "kinds": [
+                    "swing",
+                    "equal",
+                    "prev_day",
+                    "prev_week"
+                  ],
+                  "select": "nearest",
+                  "field": "price"
+                }
+              ],
+              "side": "bsl",
+              "since_index": [
+                "feature",
+                "liquidity_pools",
+                {
+                  "tf": "ltf",
+                  "side": "buy",
+                  "kinds": [
+                    "swing",
+                    "equal",
+                    "prev_day",
+                    "prev_week"
+                  ],
+                  "select": "nearest",
+                  "field": "from_index"
+                }
+              ],
+              "field": "extreme"
+            }
+          ],
+          "displacement_index": [
+            "feature",
+            "latest_index",
+            {
+              "tf": "ltf"
+            }
+          ]
+        }
+      },
+      {
+        "node_id": "S18.setup.03",
+        "kind": "event",
+        "source": {
+          "block": "setup_sequence",
+          "index": 2,
+          "text": "LTF array forms nested inside the HTF array."
+        },
+        "kb_refs": [
+          "INT-M04-R05",
+          "ADV-M09-C06",
+          "ADV-M16-R03"
+        ],
+        "primitives": [
+          "P-FVG-01"
+        ],
+        "expr": [
+          "and",
+          [
+            "exists",
+            [
+              "feature",
+              "fvg",
+              {
+                "tf": "ltf",
+                "direction": "bearish",
+                "since_index": [
+                  "binding",
+                  "raid_index"
+                ],
+                "select": "latest"
+              }
+            ]
+          ],
+          [
+            "overlaps",
+            [
+              "feature",
+              "fvg",
+              {
+                "tf": "ltf",
+                "direction": "bearish",
+                "since_index": [
+                  "binding",
+                  "raid_index"
+                ],
+                "select": "latest"
+              }
+            ],
+            [
+              "binding",
+              "htf_array"
+            ]
+          ]
+        ],
+        "emits": {
+          "array": [
+            "feature",
+            "fvg",
+            {
+              "tf": "ltf",
+              "direction": "bearish",
+              "since_index": [
+                "binding",
+                "raid_index"
+              ],
+              "select": "latest"
+            }
+          ]
+        }
+      }
+    ],
+    "entry": {
+      "zone": {
+        "node_id": "S18.entry.zone",
+        "kind": "selection",
+        "source": {
+          "block": "entry.entry_zone",
+          "index": "entry_zone",
+          "text": "LTF array inside HTF array (CE preferred)."
+        },
+        "kb_refs": [
+          "ADV-M16-R03",
+          "ADV-M05-C03",
+          "INT-M04-R02"
+        ],
+        "primitives": [
+          "P-FVG-01",
+          "P-FIB-01"
+        ],
+        "expr": [
+          "binding",
+          "array",
+          "ce"
+        ],
+        "emits": {
+          "entry_zone": [
+            "const",
+            "$value"
+          ]
+        }
+      },
+      "triggers": [
+        {
+          "node_id": "S18.entry.trigger.confirmation",
+          "kind": "event",
+          "source": {
+            "block": "entry.trigger_options",
+            "index": 0,
+            "text": "Retracement into the LTF array; P-GATE-01."
+          },
+          "kb_refs": [
+            "ADV-M16-R02",
+            "ADV-M16-NT01",
+            "ADV-M16-R08"
+          ],
+          "primitives": [
+            "P-MSS-01",
+            "P-GATE-01"
+          ],
+          "expr": [
+            "and",
+            [
+              ">=",
+              [
+                "feature",
+                "bar",
+                {
+                  "tf": "ltf",
+                  "component": "high"
+                }
+              ],
+              [
+                "binding",
+                "array",
+                "low"
+              ]
+            ],
+            [
+              "==",
+              [
+                "param",
+                "ltf_confirmation_signal"
+              ],
+              [
+                "const",
+                "ltf_mss"
+              ]
+            ],
+            [
+              "feature",
+              "mss",
+              {
+                "tf": "ltf",
+                "at_index": -1,
+                "direction": "bearish"
+              }
+            ],
+            [
+              "feature",
+              "in_session",
+              {
+                "window_param": "authorised_kill_zone_ET"
+              }
+            ]
+          ],
+          "trigger_id": "ltf_confirmation",
+          "fill": {
+            "mode": "market_on_close"
+          }
+        }
+      ]
+    },
+    "stop": {
+      "node_id": "S18.stop",
+      "kind": "selection",
+      "source": {
+        "block": "stop_invalidation",
+        "index": "trade_level",
+        "text": "unspecified precisely; LTF-tight vs HTF-wide documented options (as S14)."
+      },
+      "kb_refs": [
+        "ADV-M16-R04",
+        "ADV-M11-S01",
+        "INT-M12-R02"
+      ],
+      "primitives": [
+        "P-STOP-01"
+      ],
+      "expr": [
+        "if",
+        [
+          "==",
+          [
+            "param",
+            "stop_scope"
+          ],
+          [
+            "const",
+            "ltf_tight"
+          ]
+        ],
+        [
+          "feature",
+          "offset",
+          {
+            "price": [
+              "feature",
+              "displacement_leg",
+              {
+                "tf": "ltf",
+                "at_index": [
+                  "binding",
+                  "displacement_index"
+                ],
+                "direction": "bearish",
+                "field": "origin"
+              }
+            ],
+            "ticks": [
+              "param",
+              "stop_buffer_ticks"
+            ],
+            "direction": "above"
+          }
+        ],
+        [
+          "feature",
+          "offset",
+          {
+            "price": [
+              "binding",
+              "htf_array",
+              "high"
+            ],
+            "ticks": [
+              "param",
+              "stop_buffer_ticks"
+            ],
+            "direction": "above"
+          }
+        ]
+      ],
+      "execution_mode": "close"
+    },
+    "targets": [
+      {
+        "node_id": "S18.target.primary",
+        "kind": "selection",
+        "source": {
+          "block": "target",
+          "index": "primary",
+          "text": "Partial at intermediate internal SSL."
+        },
+        "kb_refs": [
+          "ADV-M16-R05",
+          "ADV-M16-R06",
+          "ADV-M03-R03"
+        ],
+        "primitives": [
+          "P-TARGET-01",
+          "P-DOL-01"
+        ],
+        "expr": [
+          "feature",
+          "dol",
+          {
+            "direction": "bearish",
+            "scope": "irl",
+            "tf": "htf",
+            "field": "price"
+          }
+        ],
+        "allocation": {
+          "param": "first_target_allocation"
+        }
+      },
+      {
+        "node_id": "S18.target.secondary",
+        "kind": "selection",
+        "source": {
+          "block": "target",
+          "index": "secondary",
+          "text": "HTF external sell-side DOL."
+        },
+        "kb_refs": [
+          "ADV-M16-R05",
+          "ADV-M16-R06"
+        ],
+        "primitives": [
+          "P-TARGET-01",
+          "P-DOL-01"
+        ],
+        "expr": [
+          "feature",
+          "dol",
+          {
+            "direction": "bearish",
+            "scope": "erl",
+            "tf": "htf",
+            "field": "price"
+          }
+        ],
+        "allocation": 0.0
+      }
+    ],
+    "invalidation": [
+      {
+        "node_id": "S18.inval.narrative",
+        "kind": "predicate",
+        "source": {
+          "block": "stop_invalidation",
+          "index": "narrative_level",
+          "text": "Decisive HTF close beyond HTF invalidation (INT-M08-R05)."
+        },
+        "kb_refs": [
+          "ADV-M11-R03",
+          "ADV-M10-R05",
+          "ADV-M12-R03",
+          "INT-M08-R05"
+        ],
+        "primitives": [
+          "P-BIAS-02"
+        ],
+        "expr": [
+          "!=",
+          [
+            "state",
+            "bias_state",
+            {
+              "tf": "htf",
+              "method": "structural",
+              "field": "direction"
+            }
+          ],
+          [
+            "const",
+            "bearish"
+          ]
+        ]
+      }
+    ],
+    "no_trade": [
+      {
+        "node_id": "S18.nt.ADV-M02-NT01",
+        "kind": "predicate",
+        "source": {
+          "block": "no_trade_conditions",
+          "index": "ADV-M02-NT01",
+          "text": "If a lower-timeframe range's premium/discount location conflicts with the controlling higher-timeframe range, require additional confluence or stand aside rather than entering long from deep premium (or short from deep discount) of the controlling range purely because a lower-timeframe signal appeared."
+        },
+        "kb_refs": [
+          "ADV-M02-NT01"
+        ],
+        "primitives": [
+          "P-GATE-01"
+        ],
+        "expr": [
+          "!=",
+          [
+            "feature",
+            "pd_location",
+            {
+              "tf": "htf",
+              "price_tf": "ltf"
+            }
+          ],
+          [
+            "const",
+            "premium"
+          ]
+        ]
+      }
+    ],
+    "risk": [
+      {
+        "node_id": "S18.risk.size",
+        "kind": "action",
+        "source": {
+          "block": "parameters",
+          "index": "mirror_of",
+          "text": "S14-ADV-BUY-D-HTF-ARRAY-LTF"
+        },
+        "kb_refs": [
+          "ADV-M17-R02",
+          "ADV-M17-R03",
+          "ADV-M17-R04"
+        ],
+        "primitives": [
+          "P-RISK-01"
+        ],
+        "expr": [
+          "feature",
+          "position_size",
+          {
+            "entry": [
+              "binding",
+              "entry_price"
+            ],
+            "stop": [
+              "binding",
+              "stop_price"
+            ]
+          }
+        ],
+        "emits": {
+          "position_size": [
+            "const",
+            "$value"
+          ]
+        }
+      }
+    ]
+  },
+  "no_trade_dispositions": [
+    {
+      "kb_ref": "ADV-M12-NT01",
+      "disposition": "enforced_by_sequence",
+      "note": "Mirror of ADV-M11-NT01."
+    },
+    {
+      "kb_ref": "INT-M08-NT01",
+      "disposition": "enforced_by_sequence",
+      "note": "The higher-timeframe bias gate cannot be overridden by a lower-timeframe signal."
+    },
+    {
+      "kb_ref": "ADV-M09-NT01",
+      "disposition": "enforced_by_sequence",
+      "note": "The higher-timeframe bias gate is evaluated before any lower-timeframe setup can start."
+    },
+    {
+      "kb_ref": "ADV-M02-NT01",
+      "disposition": "compiled",
+      "node_id": "S18.nt.ADV-M02-NT01",
+      "note": "Lower-timeframe premium/discount conflicting with the controlling range."
+    }
+  ],
+  "unsupported": [
+    {
+      "item_id": "U-S18-STOPSCOPE",
+      "strategy_id": "S18-ADV-SELL-D-HTF-ARRAY-LTF",
+      "source": {
+        "block": "stop_invalidation",
+        "index": "trade_level",
+        "text": "unspecified precisely; LTF-tight vs HTF-wide documented options (as S14)."
+      },
+      "element": "trade-level invalidation scope (lower-timeframe tight vs higher-timeframe wide)",
+      "reason_code": "GAP_REQUIRES_FROZEN_OPERATIONALISATION",
+      "explanation": "The source documents both scopes without resolving them; the specification records the choice as something the researcher must freeze.",
+      "kb_refs": [
+        "INT-M08-EX01",
+        "ADV-M05-C10",
+        "ADV-M16-R04"
+      ],
+      "blocks_execution": false,
+      "resolution": "Set stop_scope and report it as a research parameter."
+    }
+  ],
+  "unconstrained": [],
+  "executability": "executable",
+  "blocking_items": []
+}

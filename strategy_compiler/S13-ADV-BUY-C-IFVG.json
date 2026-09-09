@@ -1,0 +1,1467 @@
+{
+  "dsl_version": "1.0.0",
+  "strategy_id": "S13-ADV-BUY-C-IFVG",
+  "name": "Advanced Buy Model \u2014 Variation C: Inversion FVG Continuation",
+  "kind": "variant",
+  "parent_strategy_id": "S11-ADV-BUY-A-FVG-OTE",
+  "direction": "long",
+  "provenance": {
+    "spec_file": "strategy_reearcher/catalog/strategies.json",
+    "spec_strategy_id": "S13-ADV-BUY-C-IFVG",
+    "kb_source_strategy_ids": [
+      "ADV-M11-S00",
+      "ADV-M11-S03"
+    ],
+    "primitives": [
+      "P-BIAS-02",
+      "P-DISP-01",
+      "P-DOL-01",
+      "P-FVG-01",
+      "P-FVG-02",
+      "P-GATE-01",
+      "P-LIQ-01",
+      "P-LIQ-02",
+      "P-MSS-01",
+      "P-OB-01",
+      "P-RANGE-01",
+      "P-RISK-01",
+      "P-STOP-01",
+      "P-TARGET-01",
+      "P-TIME-01"
+    ],
+    "specificity_status": "partially_specified",
+    "spec_unspecified_elements": [
+      "trade-level invalidation price",
+      "definition of demonstrated inversion"
+    ],
+    "spec_worked_example": null
+  },
+  "timeframes": {
+    "htf": {
+      "purpose": "monthly/weekly/daily narrative and the controlling range",
+      "candidates": [
+        "1d",
+        "1w"
+      ],
+      "source": [
+        "ADV-M10-R01",
+        "ADV-M02-R01"
+      ],
+      "min_history": 120
+    },
+    "execution": {
+      "purpose": "conditioning and entry",
+      "candidates": [
+        "15m",
+        "5m",
+        "1m"
+      ],
+      "source": [
+        "ADV-M16-R02"
+      ],
+      "min_history": 1000
+    }
+  },
+  "data_requirements": {
+    "instrument": "primary",
+    "correlated_instruments": 0,
+    "bars": {
+      "htf": {
+        "min_history": 120
+      },
+      "execution": {
+        "min_history": 1000
+      }
+    },
+    "timezone": "America/New_York",
+    "session_anchored": true,
+    "requires_period_opens": [
+      "daily",
+      "weekly",
+      "monthly"
+    ],
+    "external_data": [],
+    "warmup_bars": 200
+  },
+  "parameters": [
+    {
+      "name": "governing_swing_tier",
+      "binding": "frozen_choice",
+      "choices": [
+        "short_term",
+        "intermediate",
+        "long_term"
+      ],
+      "kb_status": "unspecified",
+      "kb_value": "judgment informed by the ST/IT/LT hierarchy",
+      "source": [
+        "BEG-M03-C02",
+        "INT-M01-R02"
+      ],
+      "register_id": "governing_structural_point_tier"
+    },
+    {
+      "name": "displacement_range_multiple",
+      "binding": "frozen_required",
+      "kb_status": "unspecified",
+      "kb_value": "'unusually large relative to recent candles'",
+      "source": [
+        "BEG-M05-R01"
+      ],
+      "register_id": "displacement_range_multiple"
+    },
+    {
+      "name": "displacement_lookback",
+      "binding": "frozen_required",
+      "kb_status": "unspecified",
+      "kb_value": "-",
+      "source": [
+        "BEG-M05-R01"
+      ],
+      "register_id": "displacement_lookback_candles"
+    },
+    {
+      "name": "displacement_body_ratio_min",
+      "binding": "frozen_required",
+      "kb_status": "heuristic_unfixed",
+      "kb_value": "~60-70% cited by secondary tools; the book does not fix it",
+      "source": [
+        "BEG-M05-C01",
+        "BEG-M05-C02",
+        "BEG-M05-AMB01"
+      ],
+      "register_id": "displacement_body_to_range_min"
+    },
+    {
+      "name": "sweep_min_penetration",
+      "binding": "frozen_required",
+      "kb_status": "unspecified",
+      "kb_value": "research parameter 'Y' in the knowledge base's own template",
+      "source": [
+        "ADV-M18-C03"
+      ],
+      "register_id": "sweep_min_penetration"
+    },
+    {
+      "name": "sweep_reclaim_bars",
+      "binding": "frozen_required",
+      "kb_status": "alternatives_documented",
+      "kb_value": "~2-3 lower-timeframe candles (Judas) / 'reasonable number' (PO3) / 'Z' bars",
+      "source": [
+        "BEG-M08-R06",
+        "BEG-M09-R02",
+        "ADV-M18-C03"
+      ],
+      "register_id": "sweep_reclaim_window"
+    },
+    {
+      "name": "equal_level_tolerance",
+      "binding": "frozen_required",
+      "kb_status": "heuristic_unfixed",
+      "kb_value": "~5-10 pips forex cited by secondary sources; 'obvious at a glance'",
+      "source": [
+        "BEG-M04-C05",
+        "INT-M02-R01"
+      ],
+      "register_id": "equal_highs_lows_tolerance"
+    },
+    {
+      "name": "risk_fraction",
+      "binding": "frozen_required",
+      "kb_status": "range_given",
+      "kb_value": "~1% (max ~2%) beginner | 0.5-1% intermediate | 0.25-1% advanced",
+      "source": [
+        "BEG-M13-R01",
+        "INT-M12-R01",
+        "ADV-M17-R02"
+      ],
+      "register_id": "risk_per_trade"
+    },
+    {
+      "name": "stop_buffer_ticks",
+      "binding": "frozen_required",
+      "kb_status": "unspecified",
+      "kb_value": "'just beyond' / 'small buffer' (examples ~12 pips EUR/USD, ~0.60 pts gold)",
+      "source": [
+        "BEG-M11-EX01",
+        "BEG-M12-EX01"
+      ],
+      "register_id": "stop_buffer"
+    },
+    {
+      "name": "first_target_allocation",
+      "binding": "frozen_required",
+      "kb_status": "unspecified",
+      "kb_value": "'e.g. 50% or a fixed fraction' \u2014 the fraction is never stated",
+      "source": [
+        "ADV-M16-R06"
+      ],
+      "register_id": "partial_fraction"
+    },
+    {
+      "name": "fib_anchor",
+      "binding": "frozen_choice",
+      "choices": [
+        "body",
+        "wick"
+      ],
+      "kb_status": "alternatives_documented",
+      "kb_value": "body-to-body (BEG-M07-R01) vs liquidity-sweep wick origin (INT-M07-R01)",
+      "source": [
+        "BEG-M07-R01",
+        "INT-M07-R01"
+      ],
+      "register_id": "fib_anchor_price_type"
+    },
+    {
+      "name": "ltf_confirmation_signal",
+      "binding": "frozen_choice",
+      "choices": [
+        "ltf_mss"
+      ],
+      "kb_status": "specified_examples",
+      "kb_value": "1-minute MSS or a rejection candle; only the MSS form is defined",
+      "source": [
+        "BEG-M11-S01"
+      ],
+      "register_id": "ltf_confirmation_signal"
+    },
+    {
+      "name": "authorised_kill_zone_ET",
+      "binding": "frozen_choice",
+      "choices": [
+        [
+          "02:00",
+          "05:00"
+        ],
+        [
+          "02:00",
+          "04:00"
+        ],
+        [
+          "07:00",
+          "10:00"
+        ],
+        [
+          "08:00",
+          "11:00"
+        ],
+        [
+          "08:30",
+          "11:00"
+        ],
+        [
+          "07:00",
+          "09:00"
+        ]
+      ],
+      "kb_status": "alternatives_documented",
+      "kb_value": "the kill zone the daily narrative assigned to distribution/continuation (typically London Open or New York Open); both have documented boundary variants",
+      "source": [
+        "ADV-M16-R07",
+        "BEG-M08-R02",
+        "BEG-M08-R04"
+      ],
+      "register_id": "london_open_kz_ET"
+    },
+    {
+      "name": "decisive_close_definition",
+      "binding": "frozen_choice",
+      "choices": [
+        "body_close_beyond",
+        "body_close_beyond_by_ticks",
+        "full_body_beyond"
+      ],
+      "kb_status": "unspecified",
+      "kb_value": "'decisive' close; the magnitude is never stated",
+      "source": [
+        "INT-M04-R03",
+        "ADV-M06-R03",
+        "INT-M11-R04"
+      ],
+      "register_id": "fvg_failure_close"
+    },
+    {
+      "name": "max_daily_risk",
+      "binding": "frozen_required",
+      "kb_status": "range_given",
+      "kb_value": "e.g. 1-2% of equity",
+      "source": [
+        "ADV-M17-R03"
+      ],
+      "register_id": "max_daily_risk"
+    },
+    {
+      "name": "daily_loss_limit",
+      "binding": "frozen_required",
+      "kb_status": "range_given",
+      "kb_value": "e.g. 1-3% of equity",
+      "source": [
+        "ADV-M17-R03"
+      ],
+      "register_id": "daily_loss_limit"
+    },
+    {
+      "name": "rr_minimum",
+      "binding": "frozen_choice",
+      "choices": [
+        "none",
+        2.0,
+        3.0
+      ],
+      "kb_status": "alternatives_documented",
+      "kb_value": "1:2 / 1:3 as minimum thresholds (INT-M12-R03) vs no R:R filter at all (ADV-M17-R04)",
+      "source": [
+        "INT-M12-R03",
+        "ADV-M17-R04"
+      ],
+      "register_id": "rr_minimum_filter"
+    },
+    {
+      "name": "daily_bias_method",
+      "binding": "frozen_choice",
+      "choices": [
+        "three_factor",
+        "single_mss"
+      ],
+      "kb_status": "alternatives_documented",
+      "kb_value": "three-factor (primary) vs the single-MSS 'daily bias trick'",
+      "source": [
+        "BEG-M10-C03",
+        "BEG-M10-AMB01"
+      ],
+      "register_id": "daily_bias_method"
+    },
+    {
+      "name": "daily_open_definition",
+      "binding": "frozen_choice",
+      "choices": [
+        "new_york_midnight",
+        "instrument_daily_open"
+      ],
+      "kb_status": "alternatives_documented",
+      "kb_value": "daily open (primary) vs New York midnight (thinner support)",
+      "source": [
+        "ADV-M07-C03",
+        "ADV-M07-AMB01"
+      ],
+      "register_id": "daily_open_definition"
+    },
+    {
+      "name": "stop_reference_advanced",
+      "binding": "frozen_choice",
+      "choices": [
+        "displacement_origin",
+        "array_far_side",
+        "ltf_swing"
+      ],
+      "kb_status": "alternatives_documented",
+      "kb_value": "displacement origin | far side of the entry array | recent lower-timeframe swing",
+      "source": [
+        "ADV-M16-R04",
+        "INT-M12-R02"
+      ],
+      "register_id": "stop_reference"
+    },
+    {
+      "name": "inversion_hold_definition",
+      "binding": "frozen_choice",
+      "choices": [
+        "retest_then_close_beyond_zone_without_decisive_break"
+      ],
+      "kb_status": "unspecified",
+      "kb_value": "'demonstrably holding' is never given a price test",
+      "source": [
+        "ADV-M06-R03"
+      ],
+      "register_id": "ifvg_demonstration"
+    }
+  ],
+  "features": [
+    "bar",
+    "displacement",
+    "displacement_leg",
+    "dol",
+    "fvg",
+    "fvg_inverted",
+    "fvg_state",
+    "in_session",
+    "latest_index",
+    "liquidity_pools",
+    "midpoint",
+    "mss",
+    "offset",
+    "pd_location",
+    "position_size",
+    "sweep"
+  ],
+  "market_state": [
+    "bias_state"
+  ],
+  "blocks": {
+    "context": [
+      {
+        "node_id": "S13.ctx.bias",
+        "kind": "predicate",
+        "source": {
+          "block": "context",
+          "index": "htf_bias_required",
+          "text": "HTF bias bullish."
+        },
+        "kb_refs": [
+          "ADV-M10-R01",
+          "ADV-M10-R02",
+          "ADV-M11-R01"
+        ],
+        "primitives": [
+          "P-BIAS-02",
+          "P-DOL-01"
+        ],
+        "expr": [
+          "and",
+          [
+            "==",
+            [
+              "state",
+              "bias_state",
+              {
+                "tf": "htf",
+                "method": "structural",
+                "field": "direction"
+              }
+            ],
+            [
+              "const",
+              "bullish"
+            ]
+          ],
+          [
+            "exists",
+            [
+              "feature",
+              "dol",
+              {
+                "direction": "bullish",
+                "scope": "erl",
+                "tf": "htf"
+              }
+            ]
+          ]
+        ],
+        "emits": {
+          "dol_erl": [
+            "feature",
+            "dol",
+            {
+              "direction": "bullish",
+              "scope": "erl",
+              "tf": "htf",
+              "field": "price"
+            }
+          ],
+          "dol_irl": [
+            "feature",
+            "dol",
+            {
+              "direction": "bullish",
+              "scope": "irl",
+              "tf": "htf",
+              "field": "price"
+            }
+          ]
+        }
+      },
+      {
+        "node_id": "S13.ctx.location",
+        "kind": "predicate",
+        "source": {
+          "block": "context",
+          "index": "location",
+          "text": "The IFVG sits in discount relative to the controlling range."
+        },
+        "kb_refs": [
+          "ADV-M02-R01",
+          "ADV-M02-C06",
+          "INT-M06-R02"
+        ],
+        "primitives": [
+          "P-RANGE-01",
+          "P-LIQ-02"
+        ],
+        "expr": [
+          "or",
+          [
+            "==",
+            [
+              "feature",
+              "pd_location",
+              {
+                "tf": "htf",
+                "price_tf": "execution"
+              }
+            ],
+            [
+              "const",
+              "discount"
+            ]
+          ],
+          [
+            "==",
+            [
+              "feature",
+              "sweep",
+              {
+                "tf": "execution",
+                "level": [
+                  "feature",
+                  "liquidity_pools",
+                  {
+                    "tf": "execution",
+                    "side": "sell",
+                    "kinds": [
+                      "swing",
+                      "equal",
+                      "prev_day",
+                      "prev_week"
+                    ],
+                    "select": "nearest",
+                    "field": "price"
+                  }
+                ],
+                "side": "ssl",
+                "since_index": [
+                  "feature",
+                  "liquidity_pools",
+                  {
+                    "tf": "execution",
+                    "side": "sell",
+                    "kinds": [
+                      "swing",
+                      "equal",
+                      "prev_day",
+                      "prev_week"
+                    ],
+                    "select": "nearest",
+                    "field": "from_index"
+                  }
+                ],
+                "field": "classification"
+              }
+            ],
+            [
+              "const",
+              "raid"
+            ]
+          ]
+        ]
+      },
+      {
+        "node_id": "S13.ctx.other",
+        "kind": "predicate",
+        "source": {
+          "block": "context",
+          "index": "other",
+          "text": "The original bearish FVG has been decisively traded through (failed) \u2014 P-FVG-02."
+        },
+        "kb_refs": [
+          "ADV-M06-R03",
+          "INT-M04-R03"
+        ],
+        "primitives": [
+          "P-FVG-02"
+        ],
+        "expr": [
+          "==",
+          [
+            "feature",
+            "fvg_state",
+            {
+              "tf": "execution",
+              "zone": [
+                "feature",
+                "fvg",
+                {
+                  "tf": "execution",
+                  "direction": "bearish",
+                  "select": "latest"
+                }
+              ]
+            }
+          ],
+          [
+            "const",
+            "failed"
+          ]
+        ],
+        "gate": true
+      }
+    ],
+    "prerequisites": [
+      {
+        "node_id": "S13.pre.01",
+        "kind": "predicate",
+        "source": {
+          "block": "prerequisites",
+          "index": 0,
+          "text": "Eligibility checklist ADV-M11-R01 passes."
+        },
+        "kb_refs": [
+          "ADV-M11-R01",
+          "ADV-M16-R08"
+        ],
+        "primitives": [
+          "P-GATE-01"
+        ],
+        "expr": [
+          "and",
+          [
+            "and",
+            [
+              "==",
+              [
+                "state",
+                "bias_state",
+                {
+                  "tf": "htf",
+                  "method": "structural",
+                  "field": "direction"
+                }
+              ],
+              [
+                "const",
+                "bullish"
+              ]
+            ],
+            [
+              "exists",
+              [
+                "feature",
+                "dol",
+                {
+                  "direction": "bullish",
+                  "scope": "erl",
+                  "tf": "htf"
+                }
+              ]
+            ]
+          ],
+          [
+            "or",
+            [
+              "==",
+              [
+                "feature",
+                "pd_location",
+                {
+                  "tf": "htf",
+                  "price_tf": "execution"
+                }
+              ],
+              [
+                "const",
+                "discount"
+              ]
+            ],
+            [
+              "==",
+              [
+                "feature",
+                "sweep",
+                {
+                  "tf": "execution",
+                  "level": [
+                    "feature",
+                    "liquidity_pools",
+                    {
+                      "tf": "execution",
+                      "side": "sell",
+                      "kinds": [
+                        "swing",
+                        "equal",
+                        "prev_day",
+                        "prev_week"
+                      ],
+                      "select": "nearest",
+                      "field": "price"
+                    }
+                  ],
+                  "side": "ssl",
+                  "since_index": [
+                    "feature",
+                    "liquidity_pools",
+                    {
+                      "tf": "execution",
+                      "side": "sell",
+                      "kinds": [
+                        "swing",
+                        "equal",
+                        "prev_day",
+                        "prev_week"
+                      ],
+                      "select": "nearest",
+                      "field": "from_index"
+                    }
+                  ],
+                  "field": "classification"
+                }
+              ],
+              [
+                "const",
+                "raid"
+              ]
+            ]
+          ],
+          [
+            "feature",
+            "in_session",
+            {
+              "window_param": "authorised_kill_zone_ET"
+            }
+          ]
+        ]
+      },
+      {
+        "node_id": "S13.pre.02",
+        "kind": "predicate",
+        "source": {
+          "block": "prerequisites",
+          "index": 1,
+          "text": "Variation C authorised: a prior FVG has inverted AND is demonstrably holding (ADV-M11-R02)."
+        },
+        "kb_refs": [
+          "ADV-M11-R02",
+          "ADV-M15-C04"
+        ],
+        "primitives": [
+          "P-FVG-02"
+        ],
+        "expr": [
+          "feature",
+          "fvg_inverted",
+          {
+            "tf": "execution",
+            "zone": [
+              "feature",
+              "fvg",
+              {
+                "tf": "execution",
+                "direction": "bearish",
+                "select": "latest"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "node_id": "S13.pre.session",
+        "kind": "predicate",
+        "source": {
+          "block": "session",
+          "index": "session",
+          "text": "Authorised kill zone (ADV-M16-R07)."
+        },
+        "kb_refs": [
+          "ADV-M16-R07"
+        ],
+        "primitives": [
+          "P-TIME-01"
+        ],
+        "expr": [
+          "feature",
+          "in_session",
+          {
+            "window_param": "authorised_kill_zone_ET"
+          }
+        ]
+      }
+    ],
+    "setup_sequence": [
+      {
+        "node_id": "S13.setup.01",
+        "kind": "event",
+        "source": {
+          "block": "setup_sequence",
+          "index": 0,
+          "text": "Liquidity sweep (often of sell-side) (P-LIQ-02)."
+        },
+        "kb_refs": [
+          "BEG-M04-C08",
+          "ADV-M03-R01"
+        ],
+        "primitives": [
+          "P-LIQ-02"
+        ],
+        "expr": [
+          "==",
+          [
+            "feature",
+            "sweep",
+            {
+              "tf": "execution",
+              "level": [
+                "feature",
+                "liquidity_pools",
+                {
+                  "tf": "execution",
+                  "side": "sell",
+                  "kinds": [
+                    "swing",
+                    "equal",
+                    "prev_day",
+                    "prev_week"
+                  ],
+                  "select": "nearest",
+                  "field": "price"
+                }
+              ],
+              "side": "ssl",
+              "since_index": [
+                "feature",
+                "liquidity_pools",
+                {
+                  "tf": "execution",
+                  "side": "sell",
+                  "kinds": [
+                    "swing",
+                    "equal",
+                    "prev_day",
+                    "prev_week"
+                  ],
+                  "select": "nearest",
+                  "field": "from_index"
+                }
+              ],
+              "field": "classification"
+            }
+          ],
+          [
+            "const",
+            "raid"
+          ]
+        ],
+        "emits": {
+          "raid_index": [
+            "feature",
+            "sweep",
+            {
+              "tf": "execution",
+              "level": [
+                "feature",
+                "liquidity_pools",
+                {
+                  "tf": "execution",
+                  "side": "sell",
+                  "kinds": [
+                    "swing",
+                    "equal",
+                    "prev_day",
+                    "prev_week"
+                  ],
+                  "select": "nearest",
+                  "field": "price"
+                }
+              ],
+              "side": "ssl",
+              "since_index": [
+                "feature",
+                "liquidity_pools",
+                {
+                  "tf": "execution",
+                  "side": "sell",
+                  "kinds": [
+                    "swing",
+                    "equal",
+                    "prev_day",
+                    "prev_week"
+                  ],
+                  "select": "nearest",
+                  "field": "from_index"
+                }
+              ],
+              "field": "sweep_index"
+            }
+          ],
+          "raid_extreme": [
+            "feature",
+            "sweep",
+            {
+              "tf": "execution",
+              "level": [
+                "feature",
+                "liquidity_pools",
+                {
+                  "tf": "execution",
+                  "side": "sell",
+                  "kinds": [
+                    "swing",
+                    "equal",
+                    "prev_day",
+                    "prev_week"
+                  ],
+                  "select": "nearest",
+                  "field": "price"
+                }
+              ],
+              "side": "ssl",
+              "since_index": [
+                "feature",
+                "liquidity_pools",
+                {
+                  "tf": "execution",
+                  "side": "sell",
+                  "kinds": [
+                    "swing",
+                    "equal",
+                    "prev_day",
+                    "prev_week"
+                  ],
+                  "select": "nearest",
+                  "field": "from_index"
+                }
+              ],
+              "field": "extreme"
+            }
+          ]
+        }
+      },
+      {
+        "node_id": "S13.setup.02",
+        "kind": "event",
+        "source": {
+          "block": "setup_sequence",
+          "index": 1,
+          "text": "A prior bearish FVG is traded through with decisive displacement and a body close beyond its far side (FVG failure, P-FVG-02)."
+        },
+        "kb_refs": [
+          "INT-M04-R03",
+          "ADV-M06-R03"
+        ],
+        "primitives": [
+          "P-FVG-02"
+        ],
+        "expr": [
+          "==",
+          [
+            "feature",
+            "fvg_state",
+            {
+              "tf": "execution",
+              "zone": [
+                "feature",
+                "fvg",
+                {
+                  "tf": "execution",
+                  "direction": "bearish",
+                  "select": "latest"
+                }
+              ]
+            }
+          ],
+          [
+            "const",
+            "failed"
+          ]
+        ],
+        "emits": {
+          "failed_gap": [
+            "feature",
+            "fvg",
+            {
+              "tf": "execution",
+              "direction": "bearish",
+              "select": "latest"
+            }
+          ]
+        }
+      },
+      {
+        "node_id": "S13.setup.03",
+        "kind": "event",
+        "source": {
+          "block": "setup_sequence",
+          "index": 2,
+          "text": "Inversion demonstrated: price later retests the failed gap from above and it holds as support (polarity flip shown, not assumed) (ADV-M06-R03)."
+        },
+        "kb_refs": [
+          "ADV-M06-R03",
+          "ADV-M06-C07"
+        ],
+        "primitives": [
+          "P-FVG-02"
+        ],
+        "expr": [
+          "feature",
+          "fvg_inverted",
+          {
+            "tf": "execution",
+            "zone": [
+              "binding",
+              "failed_gap"
+            ]
+          }
+        ],
+        "emits": {
+          "array": [
+            "binding",
+            "failed_gap"
+          ]
+        }
+      },
+      {
+        "node_id": "S13.setup.04",
+        "kind": "event",
+        "source": {
+          "block": "setup_sequence",
+          "index": 3,
+          "text": "Continuation higher begins after the demonstrated hold."
+        },
+        "kb_refs": [
+          "ADV-M11-S03",
+          "ADV-M06-R02"
+        ],
+        "primitives": [
+          "P-DISP-01"
+        ],
+        "expr": [
+          "feature",
+          "displacement",
+          {
+            "tf": "execution",
+            "at_index": -1,
+            "direction": "bullish"
+          }
+        ],
+        "emits": {
+          "displacement_index": [
+            "feature",
+            "latest_index",
+            {
+              "tf": "execution"
+            }
+          ]
+        }
+      }
+    ],
+    "entry": {
+      "zone": {
+        "node_id": "S13.entry.zone",
+        "kind": "selection",
+        "source": {
+          "block": "entry.entry_zone",
+          "index": "entry_zone",
+          "text": "The IFVG zone acting as support (CE refinement permitted)."
+        },
+        "kb_refs": [
+          "ADV-M16-R03",
+          "ADV-M05-C03",
+          "INT-M04-R02"
+        ],
+        "primitives": [
+          "P-FVG-01",
+          "P-FIB-01"
+        ],
+        "expr": [
+          "feature",
+          "midpoint",
+          {
+            "zone": [
+              "binding",
+              "array"
+            ]
+          }
+        ],
+        "emits": {
+          "entry_zone": [
+            "const",
+            "$value"
+          ]
+        }
+      },
+      "triggers": [
+        {
+          "node_id": "S13.entry.trigger.confirmation",
+          "kind": "event",
+          "source": {
+            "block": "entry.trigger_options",
+            "index": 0,
+            "text": "Only after inversion is demonstrated \u2014 premature IFVG entries at first trade-through are a flagged error (ADV-M11-S03, ADV-M06-NT01); LTF confirmation gate applies."
+          },
+          "kb_refs": [
+            "ADV-M16-R02",
+            "ADV-M16-NT01",
+            "ADV-M16-R08"
+          ],
+          "primitives": [
+            "P-MSS-01",
+            "P-GATE-01"
+          ],
+          "expr": [
+            "and",
+            [
+              "<=",
+              [
+                "feature",
+                "bar",
+                {
+                  "tf": "execution",
+                  "component": "low"
+                }
+              ],
+              [
+                "binding",
+                "array",
+                "high"
+              ]
+            ],
+            [
+              "==",
+              [
+                "param",
+                "ltf_confirmation_signal"
+              ],
+              [
+                "const",
+                "ltf_mss"
+              ]
+            ],
+            [
+              "feature",
+              "mss",
+              {
+                "tf": "execution",
+                "at_index": -1,
+                "direction": "bullish"
+              }
+            ],
+            [
+              "feature",
+              "in_session",
+              {
+                "window_param": "authorised_kill_zone_ET"
+              }
+            ]
+          ],
+          "trigger_id": "ltf_confirmation",
+          "fill": {
+            "mode": "market_on_close"
+          }
+        }
+      ]
+    },
+    "stop": {
+      "node_id": "S13.stop",
+      "kind": "selection",
+      "source": {
+        "block": "stop_invalidation",
+        "index": "trade_level",
+        "text": "unspecified precisely in the source (ADV-M11-S03 missing_elements). Documented general options: far side of the entry array (the IFVG) or displacement origin (ADV-M16-R04) \u2014 researcher must freeze and report."
+      },
+      "kb_refs": [
+        "ADV-M16-R04",
+        "ADV-M11-S01",
+        "INT-M12-R02"
+      ],
+      "primitives": [
+        "P-STOP-01"
+      ],
+      "expr": [
+        "if",
+        [
+          "==",
+          [
+            "param",
+            "stop_reference_advanced"
+          ],
+          [
+            "const",
+            "displacement_origin"
+          ]
+        ],
+        [
+          "feature",
+          "offset",
+          {
+            "price": [
+              "feature",
+              "displacement_leg",
+              {
+                "tf": "execution",
+                "at_index": [
+                  "binding",
+                  "displacement_index"
+                ],
+                "direction": "bullish",
+                "field": "origin"
+              }
+            ],
+            "ticks": [
+              "param",
+              "stop_buffer_ticks"
+            ],
+            "direction": "below"
+          }
+        ],
+        [
+          "feature",
+          "offset",
+          {
+            "price": [
+              "binding",
+              "array",
+              "low"
+            ],
+            "ticks": [
+              "param",
+              "stop_buffer_ticks"
+            ],
+            "direction": "below"
+          }
+        ]
+      ],
+      "execution_mode": "close"
+    },
+    "targets": [
+      {
+        "node_id": "S13.target.primary",
+        "kind": "selection",
+        "source": {
+          "block": "target",
+          "index": "primary",
+          "text": "Intermediate IRL pool (partial)."
+        },
+        "kb_refs": [
+          "ADV-M16-R05",
+          "ADV-M16-R06",
+          "ADV-M03-R03"
+        ],
+        "primitives": [
+          "P-TARGET-01",
+          "P-DOL-01"
+        ],
+        "expr": [
+          "feature",
+          "dol",
+          {
+            "direction": "bullish",
+            "scope": "irl",
+            "tf": "htf",
+            "field": "price"
+          }
+        ],
+        "allocation": {
+          "param": "first_target_allocation"
+        }
+      },
+      {
+        "node_id": "S13.target.secondary",
+        "kind": "selection",
+        "source": {
+          "block": "target",
+          "index": "secondary",
+          "text": "Named buy-side DOL."
+        },
+        "kb_refs": [
+          "ADV-M16-R05",
+          "ADV-M16-R06"
+        ],
+        "primitives": [
+          "P-TARGET-01",
+          "P-DOL-01"
+        ],
+        "expr": [
+          "feature",
+          "dol",
+          {
+            "direction": "bullish",
+            "scope": "erl",
+            "tf": "htf",
+            "field": "price"
+          }
+        ],
+        "allocation": 0.0
+      }
+    ],
+    "invalidation": [
+      {
+        "node_id": "S13.inval.narrative",
+        "kind": "predicate",
+        "source": {
+          "block": "stop_invalidation",
+          "index": "narrative_level",
+          "text": "HTF invalidation from the bias statement."
+        },
+        "kb_refs": [
+          "ADV-M11-R03",
+          "ADV-M10-R05",
+          "ADV-M12-R03",
+          "INT-M08-R05"
+        ],
+        "primitives": [
+          "P-BIAS-02"
+        ],
+        "expr": [
+          "!=",
+          [
+            "state",
+            "bias_state",
+            {
+              "tf": "htf",
+              "method": "structural",
+              "field": "direction"
+            }
+          ],
+          [
+            "const",
+            "bullish"
+          ]
+        ]
+      }
+    ],
+    "no_trade": [
+      {
+        "node_id": "S13.nt.ADV-M06-NT02",
+        "kind": "predicate",
+        "source": {
+          "block": "no_trade_conditions",
+          "index": "ADV-M06-NT02",
+          "text": "When the imbalance that was expected to hold is traded through with opposing displacement and external MSS, continuation models that relied on that imbalance are invalidated; the Draw on Liquidity and structural narrative must be updated before any new model is selected."
+        },
+        "kb_refs": [
+          "ADV-M06-NT02"
+        ],
+        "primitives": [
+          "P-GATE-01"
+        ],
+        "expr": [
+          "==",
+          [
+            "feature",
+            "fvg_state",
+            {
+              "tf": "execution",
+              "zone": [
+                "binding",
+                "array"
+              ]
+            }
+          ],
+          [
+            "const",
+            "failed"
+          ]
+        ]
+      }
+    ],
+    "risk": [
+      {
+        "node_id": "S13.risk.size",
+        "kind": "action",
+        "source": {
+          "block": "parameters",
+          "index": "inversion_demonstration_definition",
+          "text": "unspecified (what constitutes 'holding' as support)"
+        },
+        "kb_refs": [
+          "ADV-M17-R02",
+          "ADV-M17-R03",
+          "ADV-M17-R04"
+        ],
+        "primitives": [
+          "P-RISK-01"
+        ],
+        "expr": [
+          "feature",
+          "position_size",
+          {
+            "entry": [
+              "binding",
+              "entry_price"
+            ],
+            "stop": [
+              "binding",
+              "stop_price"
+            ]
+          }
+        ],
+        "emits": {
+          "position_size": [
+            "const",
+            "$value"
+          ]
+        }
+      }
+    ]
+  },
+  "no_trade_dispositions": [
+    {
+      "kb_ref": "ADV-M11-NT01",
+      "disposition": "enforced_by_sequence",
+      "note": "Bias, discount location and the raid-then-displacement chain are all required steps."
+    },
+    {
+      "kb_ref": "ADV-M06-NT01",
+      "disposition": "enforced_by_feature",
+      "note": "fvg_inverted requires a demonstrated hold after failure; the feature cannot label inversion at first trade-through."
+    },
+    {
+      "kb_ref": "ADV-M06-NT02",
+      "disposition": "compiled",
+      "node_id": "S13.nt.ADV-M06-NT02",
+      "note": "Entry array failed (traded through with opposing displacement)."
+    },
+    {
+      "kb_ref": "ADV-M15-NT01",
+      "disposition": "enforced_by_sequence",
+      "note": "Distribution models forbidden during accumulation or early manipulation; the engine holds one position at a time, so a long and a short model cannot run together. (already implied by this strategy's own steps)"
+    },
+    {
+      "kb_ref": "ADV-M16-NT01",
+      "disposition": "enforced_by_sequence",
+      "note": "Lower-timeframe confirmation is the entry trigger; the session window is a gate; the engine never widens a stop and never adds to a loser."
+    }
+  ],
+  "unsupported": [
+    {
+      "item_id": "U-IFVG-HOLD",
+      "strategy_id": "S13-ADV-BUY-C-IFVG",
+      "source": {
+        "block": "setup_sequence",
+        "index": 2,
+        "text": "Inversion demonstrated: price later retests the failed gap from above and it holds as support (polarity flip shown, not assumed) (ADV-M06-R03)."
+      },
+      "element": "'demonstrably holding' after inversion",
+      "reason_code": "GAP_REQUIRES_FROZEN_OPERATIONALISATION",
+      "explanation": "The source requires the inverted gap to have been retested and to have held, but gives no price test for holding, and the specification itself records the definition as unspecified. The engine will not invent one.",
+      "kb_refs": [
+        "ADV-M06-R03",
+        "INT-M04-AMB01"
+      ],
+      "blocks_execution": true,
+      "resolution": "Record an operationalisation for U-IFVG-HOLD and set inversion_hold_definition."
+    },
+    {
+      "item_id": "U-S13-STOP",
+      "strategy_id": "S13-ADV-BUY-C-IFVG",
+      "source": {
+        "block": "stop_invalidation",
+        "index": "trade_level",
+        "text": "unspecified precisely in the source (ADV-M11-S03 missing_elements). Documented general options: far side of the entry array (the IFVG) or displacement origin (ADV-M16-R04) \u2014 researcher must freeze and report."
+      },
+      "element": "trade-level invalidation for this variation",
+      "reason_code": "GAP_REQUIRES_FROZEN_OPERATIONALISATION",
+      "explanation": "The source variation does not state a stop. The two general options it does document (far side of the entry array, displacement origin) are compiled behind a frozen choice; neither is preferred here.",
+      "kb_refs": [
+        "ADV-M11-S03",
+        "ADV-M12-S03",
+        "ADV-M16-R04"
+      ],
+      "blocks_execution": false,
+      "resolution": "Set stop_reference_advanced and report it as a research parameter."
+    }
+  ],
+  "unconstrained": [],
+  "executability": "blocked",
+  "blocking_items": [
+    "U-IFVG-HOLD"
+  ]
+}

@@ -1,0 +1,1647 @@
+{
+  "dsl_version": "1.0.0",
+  "strategy_id": "S05-PO3-DAILY",
+  "name": "Power of 3 (AMD) Daily Template \u2014 Asia accumulation / London manipulation / distribution entry",
+  "kind": "base_model",
+  "parent_strategy_id": null,
+  "direction": "reversal_bidirectional",
+  "provenance": {
+    "spec_file": "strategy_reearcher/catalog/strategies.json",
+    "spec_strategy_id": "S05-PO3-DAILY",
+    "kb_source_strategy_ids": [
+      "BEG-M09-S01"
+    ],
+    "primitives": [
+      "P-DISP-01",
+      "P-DOL-01",
+      "P-FVG-01",
+      "P-LIQ-02",
+      "P-MSS-01",
+      "P-OB-01",
+      "P-PO3-01",
+      "P-RANGE-01",
+      "P-RISK-01",
+      "P-STOP-01",
+      "P-TARGET-01",
+      "P-TIME-01",
+      "P-TIME-02"
+    ],
+    "specificity_status": "partially_specified",
+    "spec_unspecified_elements": [
+      "exact stop placement (two documented options)",
+      "manipulation reversal window in candles",
+      "LTF confirmation timeframe",
+      "accumulation tightness"
+    ],
+    "spec_worked_example": "INT-M10-EX01 (Asian 1.0810-1.0850; London sweep to 1.0795; distribution higher through 1.0850)"
+  },
+  "timeframes": {
+    "htf": {
+      "purpose": "daily bias, controlling range and draw on liquidity",
+      "candidates": [
+        "1d"
+      ],
+      "source": [
+        "INT-M10-R04",
+        "ADV-M08-R04"
+      ],
+      "min_history": 120
+    },
+    "ltf": {
+      "purpose": "accumulation range, manipulation sweep, MSS and entry array; the specification leaves this timeframe unspecified and cites 5-minute in its session examples",
+      "candidates": [
+        "5m"
+      ],
+      "source": [
+        "BEG-M09-S01",
+        "INT-M10-R03"
+      ],
+      "min_history": 800
+    }
+  },
+  "data_requirements": {
+    "instrument": "primary",
+    "correlated_instruments": 0,
+    "bars": {
+      "htf": {
+        "min_history": 120
+      },
+      "ltf": {
+        "min_history": 800
+      }
+    },
+    "timezone": "America/New_York",
+    "session_anchored": true,
+    "requires_period_opens": [
+      "daily",
+      "weekly"
+    ],
+    "external_data": [],
+    "warmup_bars": 200
+  },
+  "parameters": [
+    {
+      "name": "governing_swing_tier",
+      "binding": "frozen_choice",
+      "choices": [
+        "short_term",
+        "intermediate",
+        "long_term"
+      ],
+      "kb_status": "unspecified",
+      "kb_value": "judgment informed by the ST/IT/LT hierarchy",
+      "source": [
+        "BEG-M03-C02",
+        "INT-M01-R02"
+      ],
+      "register_id": "governing_structural_point_tier"
+    },
+    {
+      "name": "displacement_range_multiple",
+      "binding": "frozen_required",
+      "kb_status": "unspecified",
+      "kb_value": "'unusually large relative to recent candles'",
+      "source": [
+        "BEG-M05-R01"
+      ],
+      "register_id": "displacement_range_multiple"
+    },
+    {
+      "name": "displacement_lookback",
+      "binding": "frozen_required",
+      "kb_status": "unspecified",
+      "kb_value": "-",
+      "source": [
+        "BEG-M05-R01"
+      ],
+      "register_id": "displacement_lookback_candles"
+    },
+    {
+      "name": "displacement_body_ratio_min",
+      "binding": "frozen_required",
+      "kb_status": "heuristic_unfixed",
+      "kb_value": "~60-70% cited by secondary tools; the book does not fix it",
+      "source": [
+        "BEG-M05-C01",
+        "BEG-M05-C02",
+        "BEG-M05-AMB01"
+      ],
+      "register_id": "displacement_body_to_range_min"
+    },
+    {
+      "name": "sweep_min_penetration",
+      "binding": "frozen_required",
+      "kb_status": "unspecified",
+      "kb_value": "research parameter 'Y' in the knowledge base's own template",
+      "source": [
+        "ADV-M18-C03"
+      ],
+      "register_id": "sweep_min_penetration"
+    },
+    {
+      "name": "sweep_reclaim_bars",
+      "binding": "frozen_required",
+      "kb_status": "alternatives_documented",
+      "kb_value": "~2-3 lower-timeframe candles (Judas) / 'reasonable number' (PO3) / 'Z' bars",
+      "source": [
+        "BEG-M08-R06",
+        "BEG-M09-R02",
+        "ADV-M18-C03"
+      ],
+      "register_id": "sweep_reclaim_window"
+    },
+    {
+      "name": "equal_level_tolerance",
+      "binding": "frozen_required",
+      "kb_status": "heuristic_unfixed",
+      "kb_value": "~5-10 pips forex cited by secondary sources; 'obvious at a glance'",
+      "source": [
+        "BEG-M04-C05",
+        "INT-M02-R01"
+      ],
+      "register_id": "equal_highs_lows_tolerance"
+    },
+    {
+      "name": "risk_fraction",
+      "binding": "frozen_required",
+      "kb_status": "range_given",
+      "kb_value": "~1% (max ~2%) beginner | 0.5-1% intermediate | 0.25-1% advanced",
+      "source": [
+        "BEG-M13-R01",
+        "INT-M12-R01",
+        "ADV-M17-R02"
+      ],
+      "register_id": "risk_per_trade"
+    },
+    {
+      "name": "stop_buffer_ticks",
+      "binding": "frozen_required",
+      "kb_status": "unspecified",
+      "kb_value": "'just beyond' / 'small buffer' (examples ~12 pips EUR/USD, ~0.60 pts gold)",
+      "source": [
+        "BEG-M11-EX01",
+        "BEG-M12-EX01"
+      ],
+      "register_id": "stop_buffer"
+    },
+    {
+      "name": "first_target_allocation",
+      "binding": "frozen_required",
+      "kb_status": "unspecified",
+      "kb_value": "'e.g. 50% or a fixed fraction' \u2014 the fraction is never stated",
+      "source": [
+        "ADV-M16-R06"
+      ],
+      "register_id": "partial_fraction"
+    },
+    {
+      "name": "fib_anchor",
+      "binding": "frozen_choice",
+      "choices": [
+        "body",
+        "wick"
+      ],
+      "kb_status": "alternatives_documented",
+      "kb_value": "body-to-body (BEG-M07-R01) vs liquidity-sweep wick origin (INT-M07-R01)",
+      "source": [
+        "BEG-M07-R01",
+        "INT-M07-R01"
+      ],
+      "register_id": "fib_anchor_price_type"
+    },
+    {
+      "name": "accumulation_window_ET",
+      "binding": "frozen_choice",
+      "choices": [
+        [
+          "20:00",
+          "22:00"
+        ],
+        [
+          "20:00",
+          "00:00"
+        ]
+      ],
+      "kb_status": "alternatives_documented",
+      "kb_value": "the accumulation range is the Asian session range; the window has two forms",
+      "source": [
+        "BEG-M09-C05",
+        "INT-M10-R01",
+        "BEG-M08-R01"
+      ],
+      "register_id": "asian_window_ET"
+    },
+    {
+      "name": "asian_window_ET",
+      "binding": "frozen_choice",
+      "choices": [
+        [
+          "20:00",
+          "22:00"
+        ],
+        [
+          "20:00",
+          "00:00"
+        ]
+      ],
+      "kb_status": "alternatives_documented",
+      "kb_value": "20:00-22:00 | 20:00-00:00",
+      "source": [
+        "BEG-M08-R01",
+        "INT-M09-R01"
+      ],
+      "register_id": "asian_window_ET"
+    },
+    {
+      "name": "stop_reference_po3",
+      "binding": "frozen_choice",
+      "choices": [
+        "manipulation_extreme",
+        "displacement_origin"
+      ],
+      "kb_status": "alternatives_documented",
+      "kb_value": "below/above the manipulation extreme, or the displacement origin",
+      "source": [
+        "BEG-M09-S01",
+        "P-STOP-01",
+        "INT-M11-EX01"
+      ],
+      "register_id": "stop_reference"
+    },
+    {
+      "name": "daily_open_definition",
+      "binding": "frozen_choice",
+      "choices": [
+        "new_york_midnight",
+        "instrument_daily_open"
+      ],
+      "kb_status": "alternatives_documented",
+      "kb_value": "daily open (primary) vs New York midnight (thinner support)",
+      "source": [
+        "ADV-M07-C03",
+        "ADV-M07-AMB01"
+      ],
+      "register_id": "daily_open_definition"
+    },
+    {
+      "name": "daily_bias_method",
+      "binding": "frozen_choice",
+      "choices": [
+        "three_factor",
+        "single_mss"
+      ],
+      "kb_status": "alternatives_documented",
+      "kb_value": "three-factor (primary) vs the single-MSS 'daily bias trick'",
+      "source": [
+        "BEG-M10-C03",
+        "BEG-M10-AMB01"
+      ],
+      "register_id": "daily_bias_method"
+    }
+  ],
+  "features": [
+    "bar",
+    "dealing_range",
+    "displacement",
+    "displacement_leg",
+    "dol",
+    "fvg",
+    "in_session",
+    "latest_index",
+    "mss",
+    "offset",
+    "order_block",
+    "pd_location",
+    "period_open",
+    "position_size",
+    "session_range",
+    "sweep"
+  ],
+  "market_state": [
+    "bias_state",
+    "po3_state"
+  ],
+  "blocks": {
+    "context": [
+      {
+        "node_id": "S05.ctx.bias",
+        "kind": "predicate",
+        "source": {
+          "block": "context",
+          "index": "htf_bias_required",
+          "text": "Not explicit in BEG-M09-S01; INT-M10-R04 / ADV-M08-R04: highest quality when the daily PO3 direction aligns with weekly/daily bias and price is in discount (bullish) / premium (bearish) of the controlling range. A PO3 opposing HTF bias is lower probability \u2014 favour the HTF story."
+        },
+        "kb_refs": [
+          "INT-M10-R04",
+          "ADV-M08-R04",
+          "BEG-M09-S01"
+        ],
+        "primitives": [
+          "P-BIAS-02",
+          "P-PO3-01"
+        ],
+        "expr": [
+          "!=",
+          [
+            "state",
+            "bias_state",
+            {
+              "tf": "htf",
+              "method": "structural",
+              "field": "direction"
+            }
+          ],
+          [
+            "const",
+            "unclear"
+          ]
+        ],
+        "gate": false,
+        "emits": {
+          "htf_bias": [
+            "state",
+            "bias_state",
+            {
+              "tf": "htf",
+              "method": "structural",
+              "field": "direction"
+            }
+          ]
+        },
+        "compilation_note": "BEG-M09-S01 states no bias precondition; INT-M10-R04/ADV-M08-R04 call alignment a quality grading ('highest quality when ...'), so this node grades and does not veto."
+      },
+      {
+        "node_id": "S05.ctx.location",
+        "kind": "predicate",
+        "source": {
+          "block": "context",
+          "index": "location",
+          "text": "Controlling-range half consistent with the expected distribution direction (P-RANGE-01)."
+        },
+        "kb_refs": [
+          "INT-M10-R04",
+          "ADV-M08-R04"
+        ],
+        "primitives": [
+          "P-RANGE-01"
+        ],
+        "expr": [
+          "exists",
+          [
+            "feature",
+            "dealing_range",
+            {
+              "tf": "htf"
+            }
+          ]
+        ],
+        "gate": false,
+        "emits": {
+          "controlling_half": [
+            "feature",
+            "pd_location",
+            {
+              "tf": "htf",
+              "price_tf": "ltf"
+            }
+          ]
+        }
+      },
+      {
+        "node_id": "S05.ctx.open_and_range",
+        "kind": "predicate",
+        "source": {
+          "block": "context",
+          "index": "other",
+          "text": "An identifiable opening price for the period (daily open) and a defined Asian range (P-TIME-02)."
+        },
+        "kb_refs": [
+          "ADV-M07-C03",
+          "BEG-M08-C03"
+        ],
+        "primitives": [
+          "P-TIME-02"
+        ],
+        "expr": [
+          "and",
+          [
+            "exists",
+            [
+              "feature",
+              "period_open",
+              {
+                "period": "daily",
+                "tf": "ltf"
+              }
+            ]
+          ],
+          [
+            "exists",
+            [
+              "feature",
+              "session_range",
+              {
+                "tf": "ltf",
+                "window_param": "accumulation_window_ET"
+              }
+            ]
+          ]
+        ],
+        "emits": {
+          "daily_open": [
+            "feature",
+            "period_open",
+            {
+              "period": "daily",
+              "tf": "ltf"
+            }
+          ]
+        }
+      }
+    ],
+    "prerequisites": [
+      {
+        "node_id": "S05.pre.01",
+        "kind": "predicate",
+        "source": {
+          "block": "prerequisites",
+          "index": 0,
+          "text": "Identify the day's opening price (ADV-M07-C03)."
+        },
+        "kb_refs": [
+          "ADV-M07-C03",
+          "ADV-M07-AMB01"
+        ],
+        "primitives": [
+          "P-PO3-01"
+        ],
+        "expr": [
+          "exists",
+          [
+            "feature",
+            "period_open",
+            {
+              "period": "daily",
+              "tf": "ltf"
+            }
+          ]
+        ]
+      },
+      {
+        "node_id": "S05.pre.02",
+        "kind": "predicate",
+        "source": {
+          "block": "prerequisites",
+          "index": 1,
+          "text": "Mark the Accumulation range = Asian session high/low near the open (P-PO3-01, P-TIME-02). Observe only \u2014 no trades inside the range (BEG-M09-NT01)."
+        },
+        "kb_refs": [
+          "BEG-M09-C01",
+          "BEG-M08-C03",
+          "BEG-M09-NT01"
+        ],
+        "primitives": [
+          "P-PO3-01",
+          "P-TIME-02"
+        ],
+        "expr": [
+          "and",
+          [
+            "exists",
+            [
+              "feature",
+              "session_range",
+              {
+                "tf": "ltf",
+                "window_param": "accumulation_window_ET"
+              }
+            ]
+          ],
+          [
+            "not",
+            [
+              "feature",
+              "in_session",
+              {
+                "window_param": "accumulation_window_ET"
+              }
+            ]
+          ]
+        ],
+        "emits": {
+          "acc_high": [
+            "feature",
+            "session_range",
+            {
+              "tf": "ltf",
+              "window_param": "accumulation_window_ET",
+              "field": "high"
+            }
+          ],
+          "acc_low": [
+            "feature",
+            "session_range",
+            {
+              "tf": "ltf",
+              "window_param": "accumulation_window_ET",
+              "field": "low"
+            }
+          ],
+          "acc_end": [
+            "feature",
+            "session_range",
+            {
+              "tf": "ltf",
+              "window_param": "accumulation_window_ET",
+              "field": "end_index"
+            }
+          ]
+        }
+      }
+    ],
+    "setup_sequence": [
+      {
+        "node_id": "S05.setup.01",
+        "kind": "event",
+        "source": {
+          "block": "setup_sequence",
+          "index": 0,
+          "text": "Manipulation: price breaks one boundary of the accumulation range \u2014 an unusually sharp, brief spike consistent with a stop-run (classic: London Open sweep of one Asian-range side) \u2014 then shows signs of reversing shortly after (P-LIQ-02, P-PO3-01). Do not trade the manipulation itself as the trend (ADV-M08-R03)."
+        },
+        "kb_refs": [
+          "BEG-M09-C02",
+          "BEG-M09-R02",
+          "INT-M10-C05",
+          "ADV-M08-R03"
+        ],
+        "primitives": [
+          "P-PO3-01",
+          "P-LIQ-02"
+        ],
+        "expr": [
+          "or",
+          [
+            "==",
+            [
+              "feature",
+              "sweep",
+              {
+                "tf": "ltf",
+                "level": [
+                  "feature",
+                  "session_range",
+                  {
+                    "tf": "ltf",
+                    "window_param": "accumulation_window_ET",
+                    "field": "low"
+                  }
+                ],
+                "side": "ssl",
+                "since_index": [
+                  "feature",
+                  "session_range",
+                  {
+                    "tf": "ltf",
+                    "window_param": "accumulation_window_ET",
+                    "field": "end_index"
+                  }
+                ],
+                "field": "classification"
+              }
+            ],
+            [
+              "const",
+              "raid"
+            ]
+          ],
+          [
+            "==",
+            [
+              "feature",
+              "sweep",
+              {
+                "tf": "ltf",
+                "level": [
+                  "feature",
+                  "session_range",
+                  {
+                    "tf": "ltf",
+                    "window_param": "accumulation_window_ET",
+                    "field": "high"
+                  }
+                ],
+                "side": "bsl",
+                "since_index": [
+                  "feature",
+                  "session_range",
+                  {
+                    "tf": "ltf",
+                    "window_param": "accumulation_window_ET",
+                    "field": "end_index"
+                  }
+                ],
+                "field": "classification"
+              }
+            ],
+            [
+              "const",
+              "raid"
+            ]
+          ]
+        ],
+        "emits": {
+          "trade_direction": [
+            "if",
+            [
+              "==",
+              [
+                "feature",
+                "sweep",
+                {
+                  "tf": "ltf",
+                  "level": [
+                    "feature",
+                    "session_range",
+                    {
+                      "tf": "ltf",
+                      "window_param": "accumulation_window_ET",
+                      "field": "low"
+                    }
+                  ],
+                  "side": "ssl",
+                  "since_index": [
+                    "feature",
+                    "session_range",
+                    {
+                      "tf": "ltf",
+                      "window_param": "accumulation_window_ET",
+                      "field": "end_index"
+                    }
+                  ],
+                  "field": "classification"
+                }
+              ],
+              [
+                "const",
+                "raid"
+              ]
+            ],
+            [
+              "const",
+              "long"
+            ],
+            [
+              "const",
+              "short"
+            ]
+          ],
+          "dir_word": [
+            "if",
+            [
+              "==",
+              [
+                "feature",
+                "sweep",
+                {
+                  "tf": "ltf",
+                  "level": [
+                    "feature",
+                    "session_range",
+                    {
+                      "tf": "ltf",
+                      "window_param": "accumulation_window_ET",
+                      "field": "low"
+                    }
+                  ],
+                  "side": "ssl",
+                  "since_index": [
+                    "feature",
+                    "session_range",
+                    {
+                      "tf": "ltf",
+                      "window_param": "accumulation_window_ET",
+                      "field": "end_index"
+                    }
+                  ],
+                  "field": "classification"
+                }
+              ],
+              [
+                "const",
+                "raid"
+              ]
+            ],
+            [
+              "const",
+              "bullish"
+            ],
+            [
+              "const",
+              "bearish"
+            ]
+          ],
+          "manip_extreme": [
+            "if",
+            [
+              "==",
+              [
+                "feature",
+                "sweep",
+                {
+                  "tf": "ltf",
+                  "level": [
+                    "feature",
+                    "session_range",
+                    {
+                      "tf": "ltf",
+                      "window_param": "accumulation_window_ET",
+                      "field": "low"
+                    }
+                  ],
+                  "side": "ssl",
+                  "since_index": [
+                    "feature",
+                    "session_range",
+                    {
+                      "tf": "ltf",
+                      "window_param": "accumulation_window_ET",
+                      "field": "end_index"
+                    }
+                  ],
+                  "field": "classification"
+                }
+              ],
+              [
+                "const",
+                "raid"
+              ]
+            ],
+            [
+              "feature",
+              "sweep",
+              {
+                "tf": "ltf",
+                "level": [
+                  "feature",
+                  "session_range",
+                  {
+                    "tf": "ltf",
+                    "window_param": "accumulation_window_ET",
+                    "field": "low"
+                  }
+                ],
+                "side": "ssl",
+                "since_index": [
+                  "feature",
+                  "session_range",
+                  {
+                    "tf": "ltf",
+                    "window_param": "accumulation_window_ET",
+                    "field": "end_index"
+                  }
+                ],
+                "field": "extreme"
+              }
+            ],
+            [
+              "feature",
+              "sweep",
+              {
+                "tf": "ltf",
+                "level": [
+                  "feature",
+                  "session_range",
+                  {
+                    "tf": "ltf",
+                    "window_param": "accumulation_window_ET",
+                    "field": "high"
+                  }
+                ],
+                "side": "bsl",
+                "since_index": [
+                  "feature",
+                  "session_range",
+                  {
+                    "tf": "ltf",
+                    "window_param": "accumulation_window_ET",
+                    "field": "end_index"
+                  }
+                ],
+                "field": "extreme"
+              }
+            ]
+          ],
+          "manip_index": [
+            "if",
+            [
+              "==",
+              [
+                "feature",
+                "sweep",
+                {
+                  "tf": "ltf",
+                  "level": [
+                    "feature",
+                    "session_range",
+                    {
+                      "tf": "ltf",
+                      "window_param": "accumulation_window_ET",
+                      "field": "low"
+                    }
+                  ],
+                  "side": "ssl",
+                  "since_index": [
+                    "feature",
+                    "session_range",
+                    {
+                      "tf": "ltf",
+                      "window_param": "accumulation_window_ET",
+                      "field": "end_index"
+                    }
+                  ],
+                  "field": "classification"
+                }
+              ],
+              [
+                "const",
+                "raid"
+              ]
+            ],
+            [
+              "feature",
+              "sweep",
+              {
+                "tf": "ltf",
+                "level": [
+                  "feature",
+                  "session_range",
+                  {
+                    "tf": "ltf",
+                    "window_param": "accumulation_window_ET",
+                    "field": "low"
+                  }
+                ],
+                "side": "ssl",
+                "since_index": [
+                  "feature",
+                  "session_range",
+                  {
+                    "tf": "ltf",
+                    "window_param": "accumulation_window_ET",
+                    "field": "end_index"
+                  }
+                ],
+                "field": "sweep_index"
+              }
+            ],
+            [
+              "feature",
+              "sweep",
+              {
+                "tf": "ltf",
+                "level": [
+                  "feature",
+                  "session_range",
+                  {
+                    "tf": "ltf",
+                    "window_param": "accumulation_window_ET",
+                    "field": "high"
+                  }
+                ],
+                "side": "bsl",
+                "since_index": [
+                  "feature",
+                  "session_range",
+                  {
+                    "tf": "ltf",
+                    "window_param": "accumulation_window_ET",
+                    "field": "end_index"
+                  }
+                ],
+                "field": "sweep_index"
+              }
+            ]
+          ]
+        }
+      },
+      {
+        "node_id": "S05.setup.02",
+        "kind": "event",
+        "source": {
+          "block": "setup_sequence",
+          "index": 1,
+          "text": "Distribution confirmation: LTF MSS in the direction opposite to the manipulation (P-MSS-01), following displacement (P-DISP-01)."
+        },
+        "kb_refs": [
+          "BEG-M09-C03",
+          "BEG-M03-C05",
+          "BEG-M05-C01"
+        ],
+        "primitives": [
+          "P-DISP-01",
+          "P-MSS-01"
+        ],
+        "expr": [
+          "and",
+          [
+            "feature",
+            "displacement",
+            {
+              "tf": "ltf",
+              "at_index": -1,
+              "direction": [
+                "binding",
+                "dir_word"
+              ]
+            }
+          ],
+          [
+            "feature",
+            "mss",
+            {
+              "tf": "ltf",
+              "at_index": -1,
+              "direction": [
+                "binding",
+                "dir_word"
+              ]
+            }
+          ],
+          [
+            ">",
+            [
+              "feature",
+              "latest_index",
+              {
+                "tf": "ltf"
+              }
+            ],
+            [
+              "binding",
+              "manip_index"
+            ]
+          ]
+        ],
+        "emits": {
+          "displacement_index": [
+            "feature",
+            "latest_index",
+            {
+              "tf": "ltf"
+            }
+          ]
+        }
+      },
+      {
+        "node_id": "S05.setup.03",
+        "kind": "event",
+        "source": {
+          "block": "setup_sequence",
+          "index": 2,
+          "text": "Locate the PD array (FVG/OB) created by the distribution displacement (P-FVG-01/P-OB-01) \u2014 the retracement into it is the entry window (INT-M10-R03, ADV-M08-R03)."
+        },
+        "kb_refs": [
+          "INT-M10-R03",
+          "ADV-M08-R03",
+          "BEG-M05-C04",
+          "BEG-M06-C01"
+        ],
+        "primitives": [
+          "P-FVG-01",
+          "P-OB-01"
+        ],
+        "expr": [
+          "exists",
+          [
+            "feature",
+            "fvg",
+            {
+              "tf": "ltf",
+              "direction": [
+                "binding",
+                "dir_word"
+              ],
+              "since_index": [
+                "binding",
+                "manip_index"
+              ],
+              "select": "latest"
+            }
+          ]
+        ],
+        "emits": {
+          "array": [
+            "feature",
+            "fvg",
+            {
+              "tf": "ltf",
+              "direction": [
+                "binding",
+                "dir_word"
+              ],
+              "since_index": [
+                "binding",
+                "manip_index"
+              ],
+              "select": "latest"
+            }
+          ],
+          "order_block": [
+            "feature",
+            "order_block",
+            {
+              "tf": "ltf",
+              "displacement_index": [
+                "binding",
+                "displacement_index"
+              ],
+              "direction": [
+                "binding",
+                "dir_word"
+              ]
+            }
+          ]
+        }
+      }
+    ],
+    "entry": {
+      "zone": {
+        "node_id": "S05.entry.zone",
+        "kind": "selection",
+        "source": {
+          "block": "entry.entry_zone",
+          "index": "entry_zone",
+          "text": "Retracement into the distribution-displacement PD array (FVG/OB/OTE), in the direction of the confirmed distribution."
+        },
+        "kb_refs": [
+          "INT-M10-R03",
+          "INT-M04-R02"
+        ],
+        "primitives": [
+          "P-FVG-01"
+        ],
+        "expr": [
+          "binding",
+          "array",
+          "ce"
+        ],
+        "emits": {
+          "entry_zone": [
+            "const",
+            "$value"
+          ]
+        }
+      },
+      "triggers": [
+        {
+          "node_id": "S05.entry.trigger",
+          "kind": "event",
+          "source": {
+            "block": "entry.trigger_options",
+            "index": 0,
+            "text": "After LTF MSS confirmation only \u2014 never during the manipulation move (BEG-M09-S01, BEG-M09-NT02)."
+          },
+          "kb_refs": [
+            "BEG-M09-S01",
+            "BEG-M09-NT02"
+          ],
+          "primitives": [
+            "P-MSS-01"
+          ],
+          "expr": [
+            "if",
+            [
+              "==",
+              [
+                "binding",
+                "dir_word"
+              ],
+              [
+                "const",
+                "bullish"
+              ]
+            ],
+            [
+              "<=",
+              [
+                "feature",
+                "bar",
+                {
+                  "tf": "ltf",
+                  "component": "low"
+                }
+              ],
+              [
+                "binding",
+                "array",
+                "high"
+              ]
+            ],
+            [
+              ">=",
+              [
+                "feature",
+                "bar",
+                {
+                  "tf": "ltf",
+                  "component": "high"
+                }
+              ],
+              [
+                "binding",
+                "array",
+                "low"
+              ]
+            ]
+          ],
+          "trigger_id": "after_ltf_mss",
+          "fill": {
+            "mode": "limit",
+            "price": [
+              "binding",
+              "entry_zone"
+            ]
+          },
+          "compilation_note": "The MSS requirement is the preceding setup step, so this trigger can only fire after it has latched; entering during the manipulation move is structurally impossible."
+        }
+      ]
+    },
+    "stop": {
+      "node_id": "S05.stop",
+      "kind": "selection",
+      "source": {
+        "block": "stop_invalidation",
+        "index": "trade_level",
+        "text": "Not restated in BEG-M09-S01 (deferred to Module 7 / Modules 11-12). KB-documented choices: below/above the manipulation extreme (sweep extreme, P-STOP-01 A) or the displacement origin (P-STOP-01 B); INT-M11-EX01 daily invalidation 'below the Asian low / origin of the expected bullish displacement'."
+      },
+      "kb_refs": [
+        "BEG-M09-S01",
+        "INT-M11-EX01",
+        "BEG-M11-S01"
+      ],
+      "primitives": [
+        "P-STOP-01"
+      ],
+      "expr": [
+        "if",
+        [
+          "==",
+          [
+            "param",
+            "stop_reference_po3"
+          ],
+          [
+            "const",
+            "manipulation_extreme"
+          ]
+        ],
+        [
+          "feature",
+          "offset",
+          {
+            "price": [
+              "binding",
+              "manip_extreme"
+            ],
+            "ticks": [
+              "param",
+              "stop_buffer_ticks"
+            ],
+            "direction": [
+              "if",
+              [
+                "==",
+                [
+                  "binding",
+                  "dir_word"
+                ],
+                [
+                  "const",
+                  "bullish"
+                ]
+              ],
+              [
+                "const",
+                "below"
+              ],
+              [
+                "const",
+                "above"
+              ]
+            ]
+          }
+        ],
+        [
+          "feature",
+          "offset",
+          {
+            "price": [
+              "feature",
+              "displacement_leg",
+              {
+                "tf": "ltf",
+                "at_index": [
+                  "binding",
+                  "displacement_index"
+                ],
+                "direction": [
+                  "binding",
+                  "dir_word"
+                ],
+                "field": "origin"
+              }
+            ],
+            "ticks": [
+              "param",
+              "stop_buffer_ticks"
+            ],
+            "direction": [
+              "if",
+              [
+                "==",
+                [
+                  "binding",
+                  "dir_word"
+                ],
+                [
+                  "const",
+                  "bullish"
+                ]
+              ],
+              [
+                "const",
+                "below"
+              ],
+              [
+                "const",
+                "above"
+              ]
+            ]
+          }
+        ]
+      ]
+    },
+    "targets": [
+      {
+        "node_id": "S05.target.primary",
+        "kind": "selection",
+        "source": {
+          "block": "target",
+          "index": "primary",
+          "text": "Liquidity resting on the opposite side of the original accumulation range (e.g. Asian high for a bullish day)."
+        },
+        "kb_refs": [
+          "BEG-M09-C03",
+          "INT-M10-R01"
+        ],
+        "primitives": [
+          "P-PO3-01",
+          "P-TARGET-01"
+        ],
+        "expr": [
+          "if",
+          [
+            "==",
+            [
+              "binding",
+              "dir_word"
+            ],
+            [
+              "const",
+              "bullish"
+            ]
+          ],
+          [
+            "binding",
+            "acc_high"
+          ],
+          [
+            "binding",
+            "acc_low"
+          ]
+        ],
+        "allocation": {
+          "param": "first_target_allocation"
+        }
+      },
+      {
+        "node_id": "S05.target.secondary",
+        "kind": "selection",
+        "source": {
+          "block": "target",
+          "index": "secondary",
+          "text": "Beyond \u2014 the daily / HTF Draw on Liquidity (INT-M10-R01, P-DOL-01)."
+        },
+        "kb_refs": [
+          "INT-M10-R01",
+          "ADV-M03-R03"
+        ],
+        "primitives": [
+          "P-DOL-01",
+          "P-TARGET-01"
+        ],
+        "expr": [
+          "feature",
+          "dol",
+          {
+            "direction": [
+              "binding",
+              "dir_word"
+            ],
+            "scope": "erl",
+            "tf": "htf",
+            "field": "price"
+          }
+        ],
+        "allocation": 0.0
+      }
+    ],
+    "invalidation": [
+      {
+        "node_id": "S05.inval.pattern",
+        "kind": "predicate",
+        "source": {
+          "block": "stop_invalidation",
+          "index": "pattern_invalidation",
+          "text": "If the move beyond the accumulation range fails to reverse within a reasonable number of candles -> genuine breakout, AMD read invalidated, no distribution trade (BEG-M09-R02). PO3 failure modes: sweep-and-go; both sides swept with doji/inside close; HTF opposing force reverses distribution (INT-M10-R05, ADV-M08-R05)."
+        },
+        "kb_refs": [
+          "BEG-M09-R02",
+          "INT-M10-R05",
+          "ADV-M08-R05"
+        ],
+        "primitives": [
+          "P-PO3-01"
+        ],
+        "expr": [
+          "==",
+          [
+            "state",
+            "po3_state",
+            {
+              "tf": "ltf",
+              "accumulation_window_param": "accumulation_window_ET",
+              "period": "daily",
+              "field": "phase"
+            }
+          ],
+          [
+            "const",
+            "failed"
+          ]
+        ]
+      }
+    ],
+    "no_trade": [
+      {
+        "node_id": "S05.nt.BEG-M09-NT01",
+        "kind": "predicate",
+        "source": {
+          "block": "no_trade_conditions",
+          "index": "BEG-M09-NT01",
+          "text": "Resist entering trades based purely on price moving within the accumulation range; treat the Accumulation phase as observational only."
+        },
+        "kb_refs": [
+          "BEG-M09-NT01"
+        ],
+        "primitives": [
+          "P-GATE-01"
+        ],
+        "expr": [
+          "==",
+          [
+            "state",
+            "po3_state",
+            {
+              "tf": "ltf",
+              "accumulation_window_param": "accumulation_window_ET",
+              "period": "daily",
+              "field": "phase"
+            }
+          ],
+          [
+            "const",
+            "accumulation"
+          ]
+        ]
+      },
+      {
+        "node_id": "S05.nt.INT-M10-NT01",
+        "kind": "predicate",
+        "source": {
+          "block": "no_trade_conditions",
+          "index": "INT-M10-NT01",
+          "text": "When the expected PO3 fails or a day prints as a non-textbook alternative profile with no clear narrative, the trader does not insist on the original idea and should stand aside if necessary after reassessing the HTF narrative and Draw on Liquidity."
+        },
+        "kb_refs": [
+          "INT-M10-NT01"
+        ],
+        "primitives": [
+          "P-GATE-01"
+        ],
+        "expr": [
+          "==",
+          [
+            "state",
+            "po3_state",
+            {
+              "tf": "ltf",
+              "accumulation_window_param": "accumulation_window_ET",
+              "period": "daily",
+              "field": "phase"
+            }
+          ],
+          [
+            "const",
+            "failed"
+          ]
+        ]
+      },
+      {
+        "node_id": "S05.nt.ADV-M08-NT01",
+        "kind": "predicate",
+        "source": {
+          "block": "no_trade_conditions",
+          "index": "ADV-M08-NT01",
+          "text": "During the Accumulation phase, generally stand aside or prepare -- do not force directional entries. Do not trade the manipulation phase itself as if it were the trend. Do not assume that once manipulation has occurred, distribution is guaranteed. Do not force a daily PO3 that conflicts with a clear weekly opposing narrative. Do not apply rigid day-of-week rules to weekly PO3 without reference to actual liquidity and structure."
+        },
+        "kb_refs": [
+          "ADV-M08-NT01"
+        ],
+        "primitives": [
+          "P-GATE-01"
+        ],
+        "expr": [
+          "in",
+          [
+            "state",
+            "po3_state",
+            {
+              "tf": "ltf",
+              "accumulation_window_param": "accumulation_window_ET",
+              "period": "daily",
+              "field": "phase"
+            }
+          ],
+          [
+            "const",
+            [
+              "accumulation",
+              "manipulation"
+            ]
+          ]
+        ]
+      },
+      {
+        "node_id": "S05.nt.BEG-M08-NT02",
+        "kind": "predicate",
+        "source": {
+          "block": "no_trade_conditions",
+          "index": "BEG-M08-NT02",
+          "text": "During the Asian session/Kill Zone: avoid expecting large directional trades; mark the range only, do not seek entries."
+        },
+        "kb_refs": [
+          "BEG-M08-NT02"
+        ],
+        "primitives": [
+          "P-GATE-01"
+        ],
+        "expr": [
+          "feature",
+          "in_session",
+          {
+            "window_param": "asian_window_ET"
+          }
+        ]
+      },
+      {
+        "node_id": "S05.nt.INT-M09-NT01",
+        "kind": "predicate",
+        "source": {
+          "block": "no_trade_conditions",
+          "index": "INT-M09-NT01",
+          "text": "Chasing breakouts of the Asian range during the Asian session itself is a common low-quality behaviour; the Asian range is marked for reference, not usually for aggressive directional trading. Do not force setups in low-conviction dead zones (midday/lunch, late Asian hours); stand aside instead."
+        },
+        "kb_refs": [
+          "INT-M09-NT01"
+        ],
+        "primitives": [
+          "P-GATE-01"
+        ],
+        "expr": [
+          "feature",
+          "in_session",
+          {
+            "window_param": "asian_window_ET"
+          }
+        ]
+      }
+    ],
+    "risk": [
+      {
+        "node_id": "S05.risk.size",
+        "kind": "action",
+        "source": {
+          "block": "parameters",
+          "index": "accumulation_range_definition",
+          "text": "Asian session range; Asian window per P-TIME-01 alternatives"
+        },
+        "kb_refs": [
+          "BEG-M13-R01"
+        ],
+        "primitives": [
+          "P-RISK-01"
+        ],
+        "expr": [
+          "feature",
+          "position_size",
+          {
+            "entry": [
+              "binding",
+              "entry_price"
+            ],
+            "stop": [
+              "binding",
+              "stop_price"
+            ]
+          }
+        ],
+        "emits": {
+          "position_size": [
+            "const",
+            "$value"
+          ]
+        }
+      }
+    ]
+  },
+  "no_trade_dispositions": [
+    {
+      "kb_ref": "BEG-M09-NT01",
+      "disposition": "compiled",
+      "node_id": "S05.nt.BEG-M09-NT01",
+      "note": "No entries while the Power-of-3 phase is accumulation."
+    },
+    {
+      "kb_ref": "BEG-M09-NT02",
+      "disposition": "enforced_by_sequence",
+      "note": "The lower-timeframe MSS is a required step before entry."
+    },
+    {
+      "kb_ref": "INT-M10-NT01",
+      "disposition": "compiled",
+      "node_id": "S05.nt.INT-M10-NT01",
+      "note": "Power-of-3 failure signature."
+    },
+    {
+      "kb_ref": "ADV-M08-NT01",
+      "disposition": "compiled",
+      "node_id": "S05.nt.ADV-M08-NT01",
+      "note": "Power-of-3 phase gate: no directional entries during accumulation, and the manipulation move is not traded as the trend."
+    },
+    {
+      "kb_ref": "BEG-M08-NT02",
+      "disposition": "compiled",
+      "node_id": "S05.nt.BEG-M08-NT02",
+      "note": "No entries inside the Asian window."
+    },
+    {
+      "kb_ref": "INT-M09-NT01",
+      "disposition": "compiled",
+      "node_id": "S05.nt.INT-M09-NT01",
+      "note": "No entries inside the Asian window or in the dead zones named by the specification."
+    }
+  ],
+  "unsupported": [
+    {
+      "item_id": "U-S05-01",
+      "strategy_id": "S05-PO3-DAILY",
+      "source": {
+        "block": "prerequisites",
+        "index": 1,
+        "text": "Mark the Accumulation range = Asian session high/low near the open (P-PO3-01, P-TIME-02). Observe only \u2014 no trades inside the range (BEG-M09-NT01)."
+      },
+      "element": "'relatively tight, roughly horizontal' accumulation range",
+      "reason_code": "UNSUPPORTED_SUBJECTIVE",
+      "explanation": "The specification requires the accumulation range to be tight and roughly horizontal but gives no measure of tightness. The compiled node uses the session range as marked, without a shape test.",
+      "kb_refs": [
+        "BEG-M09-C01"
+      ],
+      "blocks_execution": false,
+      "resolution": "Stratify by realised range width rather than filtering on it.",
+      "effect_if_unenforced": "Days whose Asian session was not a tight range are still labelled as accumulation; the population is broader than the specification intends."
+    }
+  ],
+  "unconstrained": [
+    {
+      "source": {
+        "block": "session",
+        "index": "session",
+        "text": "Asia = accumulation (observe); London (esp. open) = manipulation; London continuation / New York = distribution (BEG-M09-R03, INT-M10-R01, ADV-M08-R01). Tendency, not law \u2014 around major news the phases may shift sessions."
+      },
+      "note": "The specification calls the Asia/London/New York phase mapping a tendency, not a law, and says the phases may shift around major news. No session gate is compiled; the accumulation window parameter is what anchors the phases."
+    }
+  ],
+  "executability": "executable",
+  "blocking_items": []
+}

@@ -1,0 +1,1774 @@
+{
+  "dsl_version": "1.0.0",
+  "strategy_id": "S06-JUDAS-LONDON",
+  "name": "Judas Swing \u2014 London Open Kill Zone reversal of an Asian-range sweep",
+  "kind": "base_model",
+  "parent_strategy_id": null,
+  "direction": "reversal_bidirectional",
+  "provenance": {
+    "spec_file": "strategy_reearcher/catalog/strategies.json",
+    "spec_strategy_id": "S06-JUDAS-LONDON",
+    "kb_source_strategy_ids": [
+      "BEG-M08-S01"
+    ],
+    "primitives": [
+      "P-DISP-01",
+      "P-FIB-01",
+      "P-FVG-01",
+      "P-LIQ-02",
+      "P-MSS-01",
+      "P-RISK-01",
+      "P-STOP-01",
+      "P-TARGET-01",
+      "P-TIME-01",
+      "P-TIME-02"
+    ],
+    "specificity_status": "partially_specified",
+    "spec_unspecified_elements": [
+      "HTF bias precondition (not stated in this section)",
+      "exact stop and target (deferred to Module 7)",
+      "operational definition of 'reclaim'",
+      "kill-zone boundary choice"
+    ],
+    "spec_worked_example": "BEG-M08-C06 example: Asian 100-103; 02:30 ET spike to 104.5; displacement down through 100; 5m bearish MSS; FVG 100.5-101.5 = short entry zone."
+  },
+  "timeframes": {
+    "htf": {
+      "purpose": "bias stratification only (not a filter at this level)",
+      "candidates": [
+        "1d"
+      ],
+      "source": [
+        "BEG-M08-S01",
+        "INT-M11-C03"
+      ],
+      "min_history": 120
+    },
+    "ltf": {
+      "purpose": "Asian range, sweep, displacement, MSS, reclaim count and entry array",
+      "candidates": [
+        "5m"
+      ],
+      "source": [
+        "BEG-M08-S01",
+        "BEG-M08-R06"
+      ],
+      "min_history": 800
+    }
+  },
+  "data_requirements": {
+    "instrument": "primary",
+    "correlated_instruments": 0,
+    "bars": {
+      "htf": {
+        "min_history": 120
+      },
+      "ltf": {
+        "min_history": 800
+      }
+    },
+    "timezone": "America/New_York",
+    "session_anchored": true,
+    "requires_period_opens": [
+      "daily"
+    ],
+    "external_data": [],
+    "warmup_bars": 200
+  },
+  "parameters": [
+    {
+      "name": "governing_swing_tier",
+      "binding": "frozen_choice",
+      "choices": [
+        "short_term",
+        "intermediate",
+        "long_term"
+      ],
+      "kb_status": "unspecified",
+      "kb_value": "judgment informed by the ST/IT/LT hierarchy",
+      "source": [
+        "BEG-M03-C02",
+        "INT-M01-R02"
+      ],
+      "register_id": "governing_structural_point_tier"
+    },
+    {
+      "name": "displacement_range_multiple",
+      "binding": "frozen_required",
+      "kb_status": "unspecified",
+      "kb_value": "'unusually large relative to recent candles'",
+      "source": [
+        "BEG-M05-R01"
+      ],
+      "register_id": "displacement_range_multiple"
+    },
+    {
+      "name": "displacement_lookback",
+      "binding": "frozen_required",
+      "kb_status": "unspecified",
+      "kb_value": "-",
+      "source": [
+        "BEG-M05-R01"
+      ],
+      "register_id": "displacement_lookback_candles"
+    },
+    {
+      "name": "displacement_body_ratio_min",
+      "binding": "frozen_required",
+      "kb_status": "heuristic_unfixed",
+      "kb_value": "~60-70% cited by secondary tools; the book does not fix it",
+      "source": [
+        "BEG-M05-C01",
+        "BEG-M05-C02",
+        "BEG-M05-AMB01"
+      ],
+      "register_id": "displacement_body_to_range_min"
+    },
+    {
+      "name": "sweep_min_penetration",
+      "binding": "frozen_required",
+      "kb_status": "unspecified",
+      "kb_value": "research parameter 'Y' in the knowledge base's own template",
+      "source": [
+        "ADV-M18-C03"
+      ],
+      "register_id": "sweep_min_penetration"
+    },
+    {
+      "name": "sweep_reclaim_bars",
+      "binding": "frozen_required",
+      "kb_status": "alternatives_documented",
+      "kb_value": "~2-3 lower-timeframe candles (Judas) / 'reasonable number' (PO3) / 'Z' bars",
+      "source": [
+        "BEG-M08-R06",
+        "BEG-M09-R02",
+        "ADV-M18-C03"
+      ],
+      "register_id": "sweep_reclaim_window"
+    },
+    {
+      "name": "equal_level_tolerance",
+      "binding": "frozen_required",
+      "kb_status": "heuristic_unfixed",
+      "kb_value": "~5-10 pips forex cited by secondary sources; 'obvious at a glance'",
+      "source": [
+        "BEG-M04-C05",
+        "INT-M02-R01"
+      ],
+      "register_id": "equal_highs_lows_tolerance"
+    },
+    {
+      "name": "risk_fraction",
+      "binding": "frozen_required",
+      "kb_status": "range_given",
+      "kb_value": "~1% (max ~2%) beginner | 0.5-1% intermediate | 0.25-1% advanced",
+      "source": [
+        "BEG-M13-R01",
+        "INT-M12-R01",
+        "ADV-M17-R02"
+      ],
+      "register_id": "risk_per_trade"
+    },
+    {
+      "name": "stop_buffer_ticks",
+      "binding": "frozen_required",
+      "kb_status": "unspecified",
+      "kb_value": "'just beyond' / 'small buffer' (examples ~12 pips EUR/USD, ~0.60 pts gold)",
+      "source": [
+        "BEG-M11-EX01",
+        "BEG-M12-EX01"
+      ],
+      "register_id": "stop_buffer"
+    },
+    {
+      "name": "first_target_allocation",
+      "binding": "frozen_required",
+      "kb_status": "unspecified",
+      "kb_value": "'e.g. 50% or a fixed fraction' \u2014 the fraction is never stated",
+      "source": [
+        "ADV-M16-R06"
+      ],
+      "register_id": "partial_fraction"
+    },
+    {
+      "name": "fib_anchor",
+      "binding": "frozen_choice",
+      "choices": [
+        "body",
+        "wick"
+      ],
+      "kb_status": "alternatives_documented",
+      "kb_value": "body-to-body (BEG-M07-R01) vs liquidity-sweep wick origin (INT-M07-R01)",
+      "source": [
+        "BEG-M07-R01",
+        "INT-M07-R01"
+      ],
+      "register_id": "fib_anchor_price_type"
+    },
+    {
+      "name": "ote_levels",
+      "binding": "frozen_choice",
+      "choices": [
+        [
+          0.62,
+          0.705,
+          0.79
+        ],
+        [
+          0.618,
+          null,
+          0.786
+        ]
+      ],
+      "kb_status": "alternatives_documented",
+      "kb_value": "0.62/0.705/0.79 vs 0.618/0.786",
+      "source": [
+        "BEG-M07-R03",
+        "INT-M07-R02"
+      ],
+      "register_id": "ote_levels"
+    },
+    {
+      "name": "extension_target",
+      "binding": "frozen_choice",
+      "choices": [
+        "ext_27",
+        "ext_62"
+      ],
+      "kb_status": "specified",
+      "kb_value": "negative Fibonacci extensions -27% and -62%",
+      "source": [
+        "BEG-M07-R03",
+        "INT-M07-R02"
+      ],
+      "register_id": "fib_extension_targets"
+    },
+    {
+      "name": "asian_window_ET",
+      "binding": "frozen_choice",
+      "choices": [
+        [
+          "20:00",
+          "22:00"
+        ],
+        [
+          "20:00",
+          "00:00"
+        ]
+      ],
+      "kb_status": "alternatives_documented",
+      "kb_value": "20:00-22:00 | 20:00-00:00",
+      "source": [
+        "BEG-M08-R01",
+        "INT-M09-R01"
+      ],
+      "register_id": "asian_window_ET"
+    },
+    {
+      "name": "london_open_kz_ET",
+      "binding": "frozen_choice",
+      "choices": [
+        [
+          "02:00",
+          "05:00"
+        ],
+        [
+          "02:00",
+          "04:00"
+        ]
+      ],
+      "kb_status": "alternatives_documented",
+      "kb_value": "02:00-05:00 | 02:00-04:00",
+      "source": [
+        "BEG-M08-R02",
+        "INT-M09-R02",
+        "ADV-M07-R01"
+      ],
+      "register_id": "london_open_kz_ET"
+    },
+    {
+      "name": "entry_trigger",
+      "binding": "frozen_choice",
+      "choices": [
+        "limit_at_zone",
+        "ltf_confirmation"
+      ],
+      "kb_status": "alternatives_documented",
+      "kb_value": "the documented entry triggers for this specification: limit_at_zone | ltf_confirmation",
+      "source": [
+        "BEG-M11-S01",
+        "ADV-M16-R02",
+        "ADV-M16-NT01"
+      ],
+      "register_id": "stop_reference"
+    },
+    {
+      "name": "ltf_confirmation_signal",
+      "binding": "frozen_choice",
+      "choices": [
+        "ltf_mss"
+      ],
+      "kb_status": "specified_examples",
+      "kb_value": "1-minute MSS or a rejection candle; only the MSS form is defined",
+      "source": [
+        "BEG-M11-S01"
+      ],
+      "register_id": "ltf_confirmation_signal"
+    },
+    {
+      "name": "reclaim_definition",
+      "binding": "frozen_choice",
+      "choices": [
+        "close_back_beyond_level",
+        "wick_back_beyond_level",
+        "close_back_beyond_level_plus_buffer"
+      ],
+      "kb_status": "unspecified",
+      "kb_value": "no passage defines the price test that constitutes a reclaim (CF-14)",
+      "source": [
+        "BEG-M08-R06"
+      ],
+      "register_id": "reclaim_definition"
+    },
+    {
+      "name": "daily_bias_method",
+      "binding": "frozen_choice",
+      "choices": [
+        "three_factor",
+        "single_mss"
+      ],
+      "kb_status": "alternatives_documented",
+      "kb_value": "three-factor (primary) vs the single-MSS 'daily bias trick'",
+      "source": [
+        "BEG-M10-C03",
+        "BEG-M10-AMB01"
+      ],
+      "register_id": "daily_bias_method"
+    },
+    {
+      "name": "daily_open_definition",
+      "binding": "frozen_choice",
+      "choices": [
+        "new_york_midnight",
+        "instrument_daily_open"
+      ],
+      "kb_status": "alternatives_documented",
+      "kb_value": "daily open (primary) vs New York midnight (thinner support)",
+      "source": [
+        "ADV-M07-C03",
+        "ADV-M07-AMB01"
+      ],
+      "register_id": "daily_open_definition"
+    }
+  ],
+  "features": [
+    "bar",
+    "displacement",
+    "displacement_leg",
+    "fib_levels",
+    "fvg",
+    "in_session",
+    "latest_index",
+    "level_reclaimed",
+    "mss",
+    "offset",
+    "position_size",
+    "session_range",
+    "sweep"
+  ],
+  "market_state": [
+    "bias_state"
+  ],
+  "blocks": {
+    "context": [
+      {
+        "node_id": "S06.ctx.bias",
+        "kind": "predicate",
+        "source": {
+          "block": "context",
+          "index": "htf_bias_required",
+          "text": "Not explicitly stated in the London Open section (BEG-M08-S01 missing_elements); implied alignment with Modules 2/10 bias. Intermediate/advanced text requires the daily narrative to name which Asian side is expected to be raided (INT-M11-C03, ADV-M10-R03) \u2014 treat HTF alignment as a required filter when testing the conditioned variant S19/S20, and as a stratification variable when testing this base form."
+        },
+        "kb_refs": [
+          "BEG-M08-S01",
+          "INT-M11-C03",
+          "ADV-M10-R03"
+        ],
+        "primitives": [
+          "P-BIAS-02"
+        ],
+        "expr": [
+          "!=",
+          [
+            "state",
+            "bias_state",
+            {
+              "tf": "htf",
+              "method": "structural",
+              "field": "direction"
+            }
+          ],
+          [
+            "const",
+            "unclear"
+          ]
+        ],
+        "gate": false,
+        "emits": {
+          "htf_bias": [
+            "state",
+            "bias_state",
+            {
+              "tf": "htf",
+              "method": "structural",
+              "field": "direction"
+            }
+          ]
+        },
+        "compilation_note": "The specification states there is no higher-timeframe precondition in this base form and directs that bias alignment be a stratification variable, so this node records and does not veto. The bias-conditioned form is S19/S20."
+      },
+      {
+        "node_id": "S06.ctx.range",
+        "kind": "predicate",
+        "source": {
+          "block": "context",
+          "index": "other",
+          "text": "A completed Asian Range with high and low marked before the London window opens (P-TIME-02)."
+        },
+        "kb_refs": [
+          "BEG-M08-C03",
+          "BEG-M08-C04"
+        ],
+        "primitives": [
+          "P-TIME-02"
+        ],
+        "expr": [
+          "exists",
+          [
+            "feature",
+            "session_range",
+            {
+              "tf": "ltf",
+              "window_param": "asian_window_ET"
+            }
+          ]
+        ]
+      }
+    ],
+    "prerequisites": [
+      {
+        "node_id": "S06.pre.01",
+        "kind": "predicate",
+        "source": {
+          "block": "prerequisites",
+          "index": 0,
+          "text": "Time check: current time inside the London Open Kill Zone (P-TIME-01 london_open_kz_ET)."
+        },
+        "kb_refs": [
+          "BEG-M08-R02",
+          "BEG-M08-R05",
+          "INT-M09-R02"
+        ],
+        "primitives": [
+          "P-TIME-01"
+        ],
+        "expr": [
+          "feature",
+          "in_session",
+          {
+            "window_param": "london_open_kz_ET"
+          }
+        ],
+        "also_covers": [
+          {
+            "block": "session",
+            "index": "session"
+          }
+        ]
+      },
+      {
+        "node_id": "S06.pre.02",
+        "kind": "predicate",
+        "source": {
+          "block": "prerequisites",
+          "index": 1,
+          "text": "Asian Range high and low marked (P-TIME-02)."
+        },
+        "kb_refs": [
+          "BEG-M08-C03",
+          "INT-M09-C01"
+        ],
+        "primitives": [
+          "P-TIME-02"
+        ],
+        "expr": [
+          "exists",
+          [
+            "feature",
+            "session_range",
+            {
+              "tf": "ltf",
+              "window_param": "asian_window_ET"
+            }
+          ]
+        ],
+        "emits": {
+          "asian_high": [
+            "feature",
+            "session_range",
+            {
+              "tf": "ltf",
+              "window_param": "asian_window_ET",
+              "field": "high"
+            }
+          ],
+          "asian_low": [
+            "feature",
+            "session_range",
+            {
+              "tf": "ltf",
+              "window_param": "asian_window_ET",
+              "field": "low"
+            }
+          ]
+        }
+      }
+    ],
+    "setup_sequence": [
+      {
+        "node_id": "S06.setup.01",
+        "kind": "event",
+        "source": {
+          "block": "setup_sequence",
+          "index": 0,
+          "text": "Price sweeps beyond one of the two Asian-range levels (P-LIQ-02)."
+        },
+        "kb_refs": [
+          "BEG-M04-C08",
+          "BEG-M08-C06"
+        ],
+        "primitives": [
+          "P-LIQ-02"
+        ],
+        "expr": [
+          "or",
+          [
+            "==",
+            [
+              "feature",
+              "sweep",
+              {
+                "tf": "ltf",
+                "level": [
+                  "feature",
+                  "session_range",
+                  {
+                    "tf": "ltf",
+                    "window_param": "asian_window_ET",
+                    "field": "low"
+                  }
+                ],
+                "side": "ssl",
+                "since_index": [
+                  "feature",
+                  "session_range",
+                  {
+                    "tf": "ltf",
+                    "window_param": "asian_window_ET",
+                    "field": "end_index"
+                  }
+                ],
+                "field": "classification"
+              }
+            ],
+            [
+              "const",
+              "raid"
+            ]
+          ],
+          [
+            "==",
+            [
+              "feature",
+              "sweep",
+              {
+                "tf": "ltf",
+                "level": [
+                  "feature",
+                  "session_range",
+                  {
+                    "tf": "ltf",
+                    "window_param": "asian_window_ET",
+                    "field": "high"
+                  }
+                ],
+                "side": "bsl",
+                "since_index": [
+                  "feature",
+                  "session_range",
+                  {
+                    "tf": "ltf",
+                    "window_param": "asian_window_ET",
+                    "field": "end_index"
+                  }
+                ],
+                "field": "classification"
+              }
+            ],
+            [
+              "const",
+              "raid"
+            ]
+          ]
+        ],
+        "emits": {
+          "trade_direction": [
+            "if",
+            [
+              "==",
+              [
+                "feature",
+                "sweep",
+                {
+                  "tf": "ltf",
+                  "level": [
+                    "feature",
+                    "session_range",
+                    {
+                      "tf": "ltf",
+                      "window_param": "asian_window_ET",
+                      "field": "low"
+                    }
+                  ],
+                  "side": "ssl",
+                  "since_index": [
+                    "feature",
+                    "session_range",
+                    {
+                      "tf": "ltf",
+                      "window_param": "asian_window_ET",
+                      "field": "end_index"
+                    }
+                  ],
+                  "field": "classification"
+                }
+              ],
+              [
+                "const",
+                "raid"
+              ]
+            ],
+            [
+              "const",
+              "long"
+            ],
+            [
+              "const",
+              "short"
+            ]
+          ],
+          "dir_word": [
+            "if",
+            [
+              "==",
+              [
+                "feature",
+                "sweep",
+                {
+                  "tf": "ltf",
+                  "level": [
+                    "feature",
+                    "session_range",
+                    {
+                      "tf": "ltf",
+                      "window_param": "asian_window_ET",
+                      "field": "low"
+                    }
+                  ],
+                  "side": "ssl",
+                  "since_index": [
+                    "feature",
+                    "session_range",
+                    {
+                      "tf": "ltf",
+                      "window_param": "asian_window_ET",
+                      "field": "end_index"
+                    }
+                  ],
+                  "field": "classification"
+                }
+              ],
+              [
+                "const",
+                "raid"
+              ]
+            ],
+            [
+              "const",
+              "bullish"
+            ],
+            [
+              "const",
+              "bearish"
+            ]
+          ],
+          "manip_extreme": [
+            "if",
+            [
+              "==",
+              [
+                "feature",
+                "sweep",
+                {
+                  "tf": "ltf",
+                  "level": [
+                    "feature",
+                    "session_range",
+                    {
+                      "tf": "ltf",
+                      "window_param": "asian_window_ET",
+                      "field": "low"
+                    }
+                  ],
+                  "side": "ssl",
+                  "since_index": [
+                    "feature",
+                    "session_range",
+                    {
+                      "tf": "ltf",
+                      "window_param": "asian_window_ET",
+                      "field": "end_index"
+                    }
+                  ],
+                  "field": "classification"
+                }
+              ],
+              [
+                "const",
+                "raid"
+              ]
+            ],
+            [
+              "feature",
+              "sweep",
+              {
+                "tf": "ltf",
+                "level": [
+                  "feature",
+                  "session_range",
+                  {
+                    "tf": "ltf",
+                    "window_param": "asian_window_ET",
+                    "field": "low"
+                  }
+                ],
+                "side": "ssl",
+                "since_index": [
+                  "feature",
+                  "session_range",
+                  {
+                    "tf": "ltf",
+                    "window_param": "asian_window_ET",
+                    "field": "end_index"
+                  }
+                ],
+                "field": "extreme"
+              }
+            ],
+            [
+              "feature",
+              "sweep",
+              {
+                "tf": "ltf",
+                "level": [
+                  "feature",
+                  "session_range",
+                  {
+                    "tf": "ltf",
+                    "window_param": "asian_window_ET",
+                    "field": "high"
+                  }
+                ],
+                "side": "bsl",
+                "since_index": [
+                  "feature",
+                  "session_range",
+                  {
+                    "tf": "ltf",
+                    "window_param": "asian_window_ET",
+                    "field": "end_index"
+                  }
+                ],
+                "field": "extreme"
+              }
+            ]
+          ],
+          "manip_index": [
+            "if",
+            [
+              "==",
+              [
+                "feature",
+                "sweep",
+                {
+                  "tf": "ltf",
+                  "level": [
+                    "feature",
+                    "session_range",
+                    {
+                      "tf": "ltf",
+                      "window_param": "asian_window_ET",
+                      "field": "low"
+                    }
+                  ],
+                  "side": "ssl",
+                  "since_index": [
+                    "feature",
+                    "session_range",
+                    {
+                      "tf": "ltf",
+                      "window_param": "asian_window_ET",
+                      "field": "end_index"
+                    }
+                  ],
+                  "field": "classification"
+                }
+              ],
+              [
+                "const",
+                "raid"
+              ]
+            ],
+            [
+              "feature",
+              "sweep",
+              {
+                "tf": "ltf",
+                "level": [
+                  "feature",
+                  "session_range",
+                  {
+                    "tf": "ltf",
+                    "window_param": "asian_window_ET",
+                    "field": "low"
+                  }
+                ],
+                "side": "ssl",
+                "since_index": [
+                  "feature",
+                  "session_range",
+                  {
+                    "tf": "ltf",
+                    "window_param": "asian_window_ET",
+                    "field": "end_index"
+                  }
+                ],
+                "field": "sweep_index"
+              }
+            ],
+            [
+              "feature",
+              "sweep",
+              {
+                "tf": "ltf",
+                "level": [
+                  "feature",
+                  "session_range",
+                  {
+                    "tf": "ltf",
+                    "window_param": "asian_window_ET",
+                    "field": "high"
+                  }
+                ],
+                "side": "bsl",
+                "since_index": [
+                  "feature",
+                  "session_range",
+                  {
+                    "tf": "ltf",
+                    "window_param": "asian_window_ET",
+                    "field": "end_index"
+                  }
+                ],
+                "field": "sweep_index"
+              }
+            ]
+          ],
+          "manip_level": [
+            "if",
+            [
+              "==",
+              [
+                "feature",
+                "sweep",
+                {
+                  "tf": "ltf",
+                  "level": [
+                    "feature",
+                    "session_range",
+                    {
+                      "tf": "ltf",
+                      "window_param": "asian_window_ET",
+                      "field": "low"
+                    }
+                  ],
+                  "side": "ssl",
+                  "since_index": [
+                    "feature",
+                    "session_range",
+                    {
+                      "tf": "ltf",
+                      "window_param": "asian_window_ET",
+                      "field": "end_index"
+                    }
+                  ],
+                  "field": "classification"
+                }
+              ],
+              [
+                "const",
+                "raid"
+              ]
+            ],
+            [
+              "feature",
+              "session_range",
+              {
+                "tf": "ltf",
+                "window_param": "asian_window_ET",
+                "field": "low"
+              }
+            ],
+            [
+              "feature",
+              "session_range",
+              {
+                "tf": "ltf",
+                "window_param": "asian_window_ET",
+                "field": "high"
+              }
+            ]
+          ],
+          "manip_side": [
+            "if",
+            [
+              "==",
+              [
+                "feature",
+                "sweep",
+                {
+                  "tf": "ltf",
+                  "level": [
+                    "feature",
+                    "session_range",
+                    {
+                      "tf": "ltf",
+                      "window_param": "asian_window_ET",
+                      "field": "low"
+                    }
+                  ],
+                  "side": "ssl",
+                  "since_index": [
+                    "feature",
+                    "session_range",
+                    {
+                      "tf": "ltf",
+                      "window_param": "asian_window_ET",
+                      "field": "end_index"
+                    }
+                  ],
+                  "field": "classification"
+                }
+              ],
+              [
+                "const",
+                "raid"
+              ]
+            ],
+            [
+              "const",
+              "ssl"
+            ],
+            [
+              "const",
+              "bsl"
+            ]
+          ]
+        }
+      },
+      {
+        "node_id": "S06.setup.02",
+        "kind": "event",
+        "source": {
+          "block": "setup_sequence",
+          "index": 1,
+          "text": "Displacement in the OPPOSITE direction to the sweep (P-DISP-01)."
+        },
+        "kb_refs": [
+          "BEG-M05-C01",
+          "BEG-M05-R01"
+        ],
+        "primitives": [
+          "P-DISP-01"
+        ],
+        "expr": [
+          "and",
+          [
+            "feature",
+            "displacement",
+            {
+              "tf": "ltf",
+              "at_index": -1,
+              "direction": [
+                "binding",
+                "dir_word"
+              ]
+            }
+          ],
+          [
+            ">",
+            [
+              "feature",
+              "latest_index",
+              {
+                "tf": "ltf"
+              }
+            ],
+            [
+              "binding",
+              "manip_index"
+            ]
+          ]
+        ],
+        "emits": {
+          "displacement_index": [
+            "feature",
+            "latest_index",
+            {
+              "tf": "ltf"
+            }
+          ]
+        }
+      },
+      {
+        "node_id": "S06.setup.03",
+        "kind": "event",
+        "source": {
+          "block": "setup_sequence",
+          "index": 2,
+          "text": "Market Structure Shift on a lower timeframe (commonly the 5-minute) in the reversed direction (P-MSS-01)."
+        },
+        "kb_refs": [
+          "BEG-M03-C05",
+          "BEG-M03-R01"
+        ],
+        "primitives": [
+          "P-MSS-01"
+        ],
+        "expr": [
+          "feature",
+          "mss",
+          {
+            "tf": "ltf",
+            "at_index": -1,
+            "direction": [
+              "binding",
+              "dir_word"
+            ]
+          }
+        ]
+      },
+      {
+        "node_id": "S06.setup.04",
+        "kind": "event",
+        "source": {
+          "block": "setup_sequence",
+          "index": 3,
+          "text": "Reclaim test: confirm price does not reclaim the swept level within roughly 2-3 candles on that LTF; if it does, reclassify as a genuine breakout \u2014 no Judas trade (BEG-M08-R06)."
+        },
+        "kb_refs": [
+          "BEG-M08-R06"
+        ],
+        "primitives": [
+          "P-LIQ-02"
+        ],
+        "expr": [
+          "not",
+          [
+            "feature",
+            "level_reclaimed",
+            {
+              "tf": "ltf",
+              "level": [
+                "binding",
+                "manip_level"
+              ],
+              "side": [
+                "binding",
+                "manip_side"
+              ],
+              "from_index": [
+                "binding",
+                "manip_index"
+              ],
+              "within_bars": [
+                "param",
+                "sweep_reclaim_bars"
+              ]
+            }
+          ]
+        ],
+        "also_covers": [
+          {
+            "block": "stop_invalidation",
+            "index": "pattern_invalidation"
+          }
+        ]
+      },
+      {
+        "node_id": "S06.setup.05",
+        "kind": "event",
+        "source": {
+          "block": "setup_sequence",
+          "index": 4,
+          "text": "The FVG left by the displacement, if one forms, is the entry zone (P-FVG-01)."
+        },
+        "kb_refs": [
+          "BEG-M05-C04",
+          "BEG-M07-C06"
+        ],
+        "primitives": [
+          "P-FVG-01"
+        ],
+        "expr": [
+          "exists",
+          [
+            "feature",
+            "fvg",
+            {
+              "tf": "ltf",
+              "direction": [
+                "binding",
+                "dir_word"
+              ],
+              "since_index": [
+                "binding",
+                "manip_index"
+              ],
+              "select": "latest"
+            }
+          ]
+        ],
+        "emits": {
+          "array": [
+            "feature",
+            "fvg",
+            {
+              "tf": "ltf",
+              "direction": [
+                "binding",
+                "dir_word"
+              ],
+              "since_index": [
+                "binding",
+                "manip_index"
+              ],
+              "select": "latest"
+            }
+          ],
+          "fib": [
+            "feature",
+            "fib_levels",
+            {
+              "origin": [
+                "binding",
+                "manip_extreme"
+              ],
+              "termination": [
+                "feature",
+                "displacement_leg",
+                {
+                  "tf": "ltf",
+                  "at_index": [
+                    "binding",
+                    "displacement_index"
+                  ],
+                  "direction": [
+                    "binding",
+                    "dir_word"
+                  ],
+                  "field": "termination"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ],
+    "entry": {
+      "zone": {
+        "node_id": "S06.entry.zone",
+        "kind": "selection",
+        "source": {
+          "block": "entry.entry_zone",
+          "index": "entry_zone",
+          "text": "The displacement FVG in the reversed direction (per Module 7 Entry Zone: CE / OTE overlap)."
+        },
+        "kb_refs": [
+          "BEG-M07-C06",
+          "INT-M04-R02"
+        ],
+        "primitives": [
+          "P-FVG-01",
+          "P-FIB-01"
+        ],
+        "expr": [
+          "binding",
+          "array",
+          "ce"
+        ],
+        "emits": {
+          "entry_zone": [
+            "const",
+            "$value"
+          ]
+        }
+      },
+      "triggers": [
+        {
+          "node_id": "S06.entry.trigger.limit",
+          "kind": "event",
+          "source": {
+            "block": "entry.trigger_options",
+            "index": 0,
+            "text": "Retracement into the FVG (deferred to BEG-M07-S01 mechanics: limit at zone or LTF confirmation)."
+          },
+          "kb_refs": [
+            "BEG-M07-S01",
+            "BEG-M11-S01"
+          ],
+          "primitives": [
+            "P-FVG-01"
+          ],
+          "expr": [
+            "if",
+            [
+              "==",
+              [
+                "binding",
+                "dir_word"
+              ],
+              [
+                "const",
+                "bullish"
+              ]
+            ],
+            [
+              "<=",
+              [
+                "feature",
+                "bar",
+                {
+                  "tf": "ltf",
+                  "component": "low"
+                }
+              ],
+              [
+                "binding",
+                "array",
+                "high"
+              ]
+            ],
+            [
+              ">=",
+              [
+                "feature",
+                "bar",
+                {
+                  "tf": "ltf",
+                  "component": "high"
+                }
+              ],
+              [
+                "binding",
+                "array",
+                "low"
+              ]
+            ]
+          ],
+          "trigger_id": "limit_at_zone",
+          "fill": {
+            "mode": "limit",
+            "price": [
+              "binding",
+              "entry_zone"
+            ]
+          }
+        },
+        {
+          "node_id": "S06.entry.trigger.confirmation",
+          "kind": "event",
+          "source": {
+            "block": "entry.trigger_options",
+            "index": 0,
+            "text": "Retracement into the FVG (deferred to BEG-M07-S01 mechanics: limit at zone or LTF confirmation)."
+          },
+          "kb_refs": [
+            "BEG-M07-S01",
+            "ADV-M16-R02"
+          ],
+          "primitives": [
+            "P-MSS-01"
+          ],
+          "expr": [
+            "and",
+            [
+              "if",
+              [
+                "==",
+                [
+                  "binding",
+                  "dir_word"
+                ],
+                [
+                  "const",
+                  "bullish"
+                ]
+              ],
+              [
+                "<=",
+                [
+                  "feature",
+                  "bar",
+                  {
+                    "tf": "ltf",
+                    "component": "low"
+                  }
+                ],
+                [
+                  "binding",
+                  "array",
+                  "high"
+                ]
+              ],
+              [
+                ">=",
+                [
+                  "feature",
+                  "bar",
+                  {
+                    "tf": "ltf",
+                    "component": "high"
+                  }
+                ],
+                [
+                  "binding",
+                  "array",
+                  "low"
+                ]
+              ]
+            ],
+            [
+              "==",
+              [
+                "param",
+                "ltf_confirmation_signal"
+              ],
+              [
+                "const",
+                "ltf_mss"
+              ]
+            ],
+            [
+              "feature",
+              "mss",
+              {
+                "tf": "ltf",
+                "at_index": -1,
+                "direction": [
+                  "binding",
+                  "dir_word"
+                ]
+              }
+            ]
+          ],
+          "trigger_id": "ltf_confirmation",
+          "fill": {
+            "mode": "market_on_close"
+          },
+          "compilation_note": "The single trigger option defers to BEG-M07-S01, which documents both a resting limit and a confirmation entry; both arms are compiled from that one source element."
+        }
+      ]
+    },
+    "stop": {
+      "node_id": "S06.stop",
+      "kind": "selection",
+      "source": {
+        "block": "stop_invalidation",
+        "index": "trade_level",
+        "text": "Deferred to Module 7 Entry Zone: beyond the 100% swing extreme = the sweep extreme (P-STOP-01 A/B coincide here)."
+      },
+      "kb_refs": [
+        "BEG-M07-C06",
+        "BEG-M11-S01"
+      ],
+      "primitives": [
+        "P-STOP-01"
+      ],
+      "expr": [
+        "feature",
+        "offset",
+        {
+          "price": [
+            "binding",
+            "manip_extreme"
+          ],
+          "ticks": [
+            "param",
+            "stop_buffer_ticks"
+          ],
+          "direction": [
+            "if",
+            [
+              "==",
+              [
+                "binding",
+                "dir_word"
+              ],
+              [
+                "const",
+                "bullish"
+              ]
+            ],
+            [
+              "const",
+              "below"
+            ],
+            [
+              "const",
+              "above"
+            ]
+          ]
+        }
+      ]
+    },
+    "targets": [
+      {
+        "node_id": "S06.target.primary",
+        "kind": "selection",
+        "source": {
+          "block": "target",
+          "index": "primary",
+          "text": "Deferred to Module 7: prior opposing liquidity pool \u2014 the opposite Asian-range boundary and the liquidity beyond it (BEG-M08-C06 example: SSL below the Asian low)."
+        },
+        "kb_refs": [
+          "BEG-M08-C06",
+          "BEG-M04-C03",
+          "BEG-M04-C04"
+        ],
+        "primitives": [
+          "P-TARGET-01",
+          "P-TIME-02"
+        ],
+        "expr": [
+          "if",
+          [
+            "==",
+            [
+              "binding",
+              "dir_word"
+            ],
+            [
+              "const",
+              "bullish"
+            ]
+          ],
+          [
+            "binding",
+            "asian_high"
+          ],
+          [
+            "binding",
+            "asian_low"
+          ]
+        ],
+        "allocation": {
+          "param": "first_target_allocation"
+        }
+      },
+      {
+        "node_id": "S06.target.secondary",
+        "kind": "selection",
+        "source": {
+          "block": "target",
+          "index": "secondary",
+          "text": "Negative Fibonacci extension (-27% / -62%) of the displacement leg (BEG-M07-R03)."
+        },
+        "kb_refs": [
+          "BEG-M07-R03",
+          "INT-M07-R02"
+        ],
+        "primitives": [
+          "P-FIB-01",
+          "P-TARGET-01"
+        ],
+        "expr": [
+          "if",
+          [
+            "==",
+            [
+              "param",
+              "extension_target"
+            ],
+            [
+              "const",
+              "ext_27"
+            ]
+          ],
+          [
+            "field",
+            [
+              "binding",
+              "fib"
+            ],
+            "ext_27"
+          ],
+          [
+            "field",
+            [
+              "binding",
+              "fib"
+            ],
+            "ext_62"
+          ]
+        ],
+        "allocation": 0.0
+      }
+    ],
+    "invalidation": [],
+    "no_trade": [
+      {
+        "node_id": "S06.nt.BEG-M08-NT02",
+        "kind": "predicate",
+        "source": {
+          "block": "no_trade_conditions",
+          "index": "BEG-M08-NT02",
+          "text": "During the Asian session/Kill Zone: avoid expecting large directional trades; mark the range only, do not seek entries."
+        },
+        "kb_refs": [
+          "BEG-M08-NT02"
+        ],
+        "primitives": [
+          "P-GATE-01"
+        ],
+        "expr": [
+          "feature",
+          "in_session",
+          {
+            "window_param": "asian_window_ET"
+          }
+        ]
+      },
+      {
+        "node_id": "S06.nt.INT-M09-NT01",
+        "kind": "predicate",
+        "source": {
+          "block": "no_trade_conditions",
+          "index": "INT-M09-NT01",
+          "text": "Chasing breakouts of the Asian range during the Asian session itself is a common low-quality behaviour; the Asian range is marked for reference, not usually for aggressive directional trading. Do not force setups in low-conviction dead zones (midday/lunch, late Asian hours); stand aside instead."
+        },
+        "kb_refs": [
+          "INT-M09-NT01"
+        ],
+        "primitives": [
+          "P-GATE-01"
+        ],
+        "expr": [
+          "feature",
+          "in_session",
+          {
+            "window_param": "asian_window_ET"
+          }
+        ]
+      },
+      {
+        "node_id": "S06.nt.INT-M09-NT02",
+        "kind": "predicate",
+        "source": {
+          "block": "no_trade_conditions",
+          "index": "INT-M09-NT02",
+          "text": "When there is no clear narrative or conflicting signals, stand aside regardless of the clock/session timing."
+        },
+        "kb_refs": [
+          "INT-M09-NT02"
+        ],
+        "primitives": [
+          "P-GATE-01"
+        ],
+        "expr": [
+          "==",
+          [
+            "state",
+            "bias_state",
+            {
+              "tf": "htf",
+              "method": "structural",
+              "field": "direction"
+            }
+          ],
+          [
+            "const",
+            "unclear"
+          ]
+        ]
+      }
+    ],
+    "risk": [
+      {
+        "node_id": "S06.risk.size",
+        "kind": "action",
+        "source": {
+          "block": "parameters",
+          "index": "asian_window",
+          "text": "see P-TIME-01"
+        },
+        "kb_refs": [
+          "BEG-M13-R01"
+        ],
+        "primitives": [
+          "P-RISK-01"
+        ],
+        "expr": [
+          "feature",
+          "position_size",
+          {
+            "entry": [
+              "binding",
+              "entry_price"
+            ],
+            "stop": [
+              "binding",
+              "stop_price"
+            ]
+          }
+        ],
+        "emits": {
+          "position_size": [
+            "const",
+            "$value"
+          ]
+        }
+      }
+    ]
+  },
+  "no_trade_dispositions": [
+    {
+      "kb_ref": "BEG-M08-NT01",
+      "disposition": "unsupported_process",
+      "unsupported_item_id": "U-S06-NT-BEG-M08-NT01",
+      "note": "Disciplined inaction; no market condition to evaluate."
+    },
+    {
+      "kb_ref": "BEG-M08-NT02",
+      "disposition": "compiled",
+      "node_id": "S06.nt.BEG-M08-NT02",
+      "note": "No entries inside the Asian window."
+    },
+    {
+      "kb_ref": "BEG-M04-NT01",
+      "disposition": "enforced_by_sequence",
+      "note": "A sweep alone never completes the sequence; displacement and MSS are separate required steps."
+    },
+    {
+      "kb_ref": "BEG-M04-NT02",
+      "disposition": "enforced_by_sequence",
+      "note": "The sweep step requires the raid classification, which is only assigned after the reversal prints."
+    },
+    {
+      "kb_ref": "INT-M09-NT01",
+      "disposition": "compiled",
+      "node_id": "S06.nt.INT-M09-NT01",
+      "note": "No entries inside the Asian window or in the dead zones named by the specification."
+    },
+    {
+      "kb_ref": "INT-M09-NT02",
+      "disposition": "compiled",
+      "node_id": "S06.nt.INT-M09-NT02",
+      "note": "No clear narrative: bias unclear."
+    },
+    {
+      "kb_ref": "ADV-M07-NT01",
+      "disposition": "unsupported_subjective",
+      "unsupported_item_id": "U-S06-NT-ADV-M07-NT01",
+      "note": "'Re-check the liquidity and structural narrative' is a review instruction, not a market condition."
+    }
+  ],
+  "unsupported": [
+    {
+      "item_id": "U-S06-NT-BEG-M08-NT01",
+      "strategy_id": "S06-JUDAS-LONDON",
+      "source": {
+        "block": "no_trade_conditions",
+        "index": "BEG-M08-NT01",
+        "text": "Some days offer no clean setup in any session; disciplined inaction is treated as a legitimate, expected outcome, not a failure."
+      },
+      "element": "no-trade condition BEG-M08-NT01",
+      "reason_code": "UNSUPPORTED_PROCESS",
+      "explanation": "Disciplined inaction; no market condition to evaluate.",
+      "kb_refs": [
+        "BEG-M08-NT01"
+      ],
+      "blocks_execution": false,
+      "resolution": "Record it in the run report; it is not evaluated by the engine."
+    },
+    {
+      "item_id": "U-S06-NT-ADV-M07-NT01",
+      "strategy_id": "S06-JUDAS-LONDON",
+      "source": {
+        "block": "no_trade_conditions",
+        "index": "ADV-M07-NT01",
+        "text": "When time-based expectations fail (expected kill zone produces no liquidity event and no displacement; expansion begins in a dead zone and is immediately reversed; a higher-timeframe opposing force overrides the daily time map), require a re-check of the liquidity and structural narrative, not a forced trade in the next window. Do not trade every kill zone regardless of whether a delivery narrative is active. Do not elevate a lower-timeframe signal appearing outside any relevant kill zone to the same quality as an in-window signal. Do not assume that if London did nothing, New York must reverse -- the higher-timeframe narrative still governs."
+      },
+      "element": "no-trade condition ADV-M07-NT01",
+      "reason_code": "UNSUPPORTED_SUBJECTIVE",
+      "explanation": "'Re-check the liquidity and structural narrative' is a review instruction, not a market condition.",
+      "kb_refs": [
+        "ADV-M07-NT01"
+      ],
+      "blocks_execution": false,
+      "resolution": "Record it in the run report; it is not evaluated by the engine.",
+      "effect_if_unenforced": "The run may include trades the specification would have stood aside from; reported selectivity is therefore an upper bound."
+    },
+    {
+      "item_id": "U-RECLAIM",
+      "strategy_id": "S06-JUDAS-LONDON",
+      "source": {
+        "block": "setup_sequence",
+        "index": 3,
+        "text": "Reclaim test: confirm price does not reclaim the swept level within roughly 2-3 candles on that LTF; if it does, reclassify as a genuine breakout \u2014 no Judas trade (BEG-M08-R06)."
+      },
+      "element": "operational definition of 'reclaim'",
+      "reason_code": "GAP_REQUIRES_FROZEN_OPERATIONALISATION",
+      "explanation": "The specification counts the reclaim window in candles (~2-3) but no passage in the knowledge base defines the price test that constitutes a reclaim (CF-14). Three candidate tests are offered as a frozen choice; the engine will not pick one.",
+      "kb_refs": [
+        "BEG-M08-R06"
+      ],
+      "blocks_execution": true,
+      "resolution": "Record an operationalisation for U-RECLAIM and set reclaim_definition (and reclaim_buffer if the buffered form is chosen)."
+    }
+  ],
+  "unconstrained": [
+    {
+      "source": {
+        "block": "context",
+        "index": "location",
+        "text": "unspecified in this module."
+      },
+      "note": "The specification states this element is unspecified in this module."
+    }
+  ],
+  "executability": "blocked",
+  "blocking_items": [
+    "U-RECLAIM"
+  ]
+}

@@ -1,0 +1,215 @@
+{
+  "manifest": {
+    "dsl_digest": "f0dc26fdec9b899d38f1b2f8c84361d948a1a731e8ab21dd7b38fe762a9fa538",
+    "config_digest": "97789b95f184bf4311242339ec3bc1d2465cc2c4283debe785ccc66a83c1a244",
+    "instrument_digest": "f78372aab426ade0bd09b2a5258a2236e0b6a043590ba6d0e7a79645d759f322",
+    "data_digest": "92438e3085f48b9cbd639890192604b6c33659214934579705f9a7feb4fdd4d9",
+    "engine_version": "1.0.0",
+    "execution_timeframe": "1m",
+    "intrabar_policy": "stop_first",
+    "trades_digest": "acc1566f47b570964ee0dff6dd9b70df2cc5f9bd1014b20eb48d32c85caaed6b"
+  },
+  "diagnostics": {
+    "bars": 2640,
+    "setups_started": 12,
+    "setups_completed": 34,
+    "setups_expired": 11,
+    "setups_superseded": 0,
+    "entries": 1,
+    "gate_rejections": 0
+  },
+  "summary": {
+    "trades_total": 1,
+    "trades_closed": 0,
+    "trades_open_at_sample_end": 1,
+    "wins": 0,
+    "losses": 0,
+    "win_rate": null,
+    "avg_win_r": null,
+    "avg_loss_r": null,
+    "expectancy_r": null,
+    "total_r": 0,
+    "max_drawdown_r": 0.0,
+    "r_banked_on_still_open_trades": 0.49999999999996736,
+    "note": "Open trades are excluded from win rate and expectancy. Sample adequacy is the researcher's responsibility: the capstone standard is 100 trading days / 50 complete setups across multiple regimes (ADV-M19-S01)."
+  },
+  "frozen_config": {
+    "strategy_id": "S01-BUY-11STEP",
+    "instrument": {
+      "symbol": "SYNTH",
+      "tick_size": 1e-05,
+      "value_per_unit_move": 100000.0,
+      "spread": 0.0,
+      "slippage": 0.0
+    },
+    "timeframe_roles": {
+      "htf": "1d",
+      "htf_intermediate": "4h",
+      "ltf_confirmation": "1m",
+      "ltf_structure": "5m"
+    },
+    "params": {
+      "asian_window_ET": [
+        "20:00",
+        "00:00"
+      ],
+      "daily_bias_method": "single_mss",
+      "daily_open_definition": "new_york_midnight",
+      "displacement_body_ratio_min": 0.6,
+      "displacement_lookback": 3,
+      "displacement_range_multiple": 2.0,
+      "entry_level": "fvg_ce",
+      "entry_trigger": "limit_at_zone",
+      "equal_level_tolerance": 0.0002,
+      "fib_anchor": "wick",
+      "first_target_allocation": 0.5,
+      "governing_swing_tier": "short_term",
+      "ltf_confirmation_signal": "ltf_mss",
+      "ote_levels": [
+        0.62,
+        0.705,
+        0.79
+      ],
+      "risk_fraction": 0.01,
+      "stop_buffer_ticks": 10,
+      "sweep_min_penetration": 0.0,
+      "sweep_reclaim_bars": 3
+    },
+    "operationalisations": {},
+    "starting_equity": 100000.0,
+    "intrabar_policy": "stop_first",
+    "setup_expiry_bars": 60,
+    "date_frozen": "2026-01-01"
+  },
+  "trades": [
+    {
+      "trade_id": "S01-BUY-11STEP_000000",
+      "strategy_id": "S01-BUY-11STEP",
+      "instrument": "SYNTH",
+      "direction": "long",
+      "entry_time": "2024-03-06T18:33:00-05:00",
+      "entry_price": 1.084,
+      "stop_price": 1.0806,
+      "size": 2.941176470588175,
+      "htf_state": {
+        "structure": "bullish",
+        "governing_point": 1.103,
+        "bias": "bullish",
+        "pd_location": "discount",
+        "dealing_range_high": 1.112,
+        "dealing_range_low": 1.103,
+        "dealing_range_equilibrium": 1.1075,
+        "timeframe_role": "htf"
+      },
+      "ltf_state": {
+        "structure": "bearish",
+        "governing_point": 1.0834,
+        "timeframe_role": "ltf_structure"
+      },
+      "session_state": {
+        "asian_window_ET": false,
+        "london_open_kz_ET": null,
+        "new_york_open_kz_ET": null,
+        "london_close_kz_ET": null,
+        "authorised_kill_zone_ET": null
+      },
+      "entry_session": "outside_kz",
+      "liquidity_state": {
+        "buy_unswept_count": 0,
+        "buy_nearest_price": 1.0874,
+        "sell_unswept_count": 4,
+        "sell_nearest_price": 1.0856000000000001
+      },
+      "used_concepts": {
+        "S01.setup.03": true,
+        "S01.setup.04": true,
+        "S01.setup.05": true,
+        "S01.setup.06": true,
+        "S01.setup.07": true,
+        "S01.setup.08": true
+      },
+      "available_unused": {
+        "ote_existed": true,
+        "order_block_existed": true,
+        "fvg_ob_overlap": true,
+        "in_london_kz": null,
+        "in_ny_kz": null,
+        "in_asian_window": false,
+        "htf_in_discount": true,
+        "htf_in_premium": false,
+        "po3_phase": null,
+        "smt_present": null,
+        "range_depth_fraction": -1.777777777777756,
+        "deep_discount": true,
+        "bias_opening_price": "bullish",
+        "daily_bias": "bullish"
+      },
+      "result": {
+        "r_total": 0.49999999999996736,
+        "mfe": 8.88235294117629,
+        "mae": -0.26470588235297193,
+        "duration_bars": 47,
+        "exit_reason": "target_0",
+        "exits": [
+          {
+            "reason": "target_0",
+            "price": 1.0874,
+            "allocation": 0.5,
+            "r_multiple": 0.9999999999999347
+          }
+        ]
+      },
+      "setup_events": [
+        {
+          "node_id": "S01.setup.03",
+          "bar_index": 2745,
+          "time": "2024-03-06T17:46:00-05:00"
+        },
+        {
+          "node_id": "S01.setup.04",
+          "bar_index": 2754,
+          "time": "2024-03-06T17:55:00-05:00"
+        },
+        {
+          "node_id": "S01.setup.05",
+          "bar_index": 2754,
+          "time": "2024-03-06T17:55:00-05:00"
+        },
+        {
+          "node_id": "S01.setup.06",
+          "bar_index": 2759,
+          "time": "2024-03-06T18:00:00-05:00"
+        },
+        {
+          "node_id": "S01.setup.07",
+          "bar_index": 2759,
+          "time": "2024-03-06T18:00:00-05:00"
+        },
+        {
+          "node_id": "S01.setup.08",
+          "bar_index": 2759,
+          "time": "2024-03-06T18:00:00-05:00"
+        }
+      ],
+      "targets": [
+        1.0874,
+        1.122
+      ],
+      "bindings": {
+        "displacement_index": 550,
+        "entry_price": 1.084,
+        "entry_zone": 1.084,
+        "htf_pd_half": "discount",
+        "htf_pd_location": "discount",
+        "mss_index": 550,
+        "origin_from_index": 335,
+        "origin_level": 1.08073,
+        "position_size": 2.941176470588175,
+        "stop_price": 1.0806,
+        "sweep_extreme": 1.0807,
+        "sweep_index": 339
+      }
+    }
+  ],
+  "mandatory_statement": "These results describe this operationalisation of the strategy specification, not ICT doctrine (ADV-M18-R01). Every value under 'frozen_config' whose knowledge-base status is unspecified, heuristic_unfixed, range_given or alternatives_documented is a research parameter chosen by the researcher, as is every entry under 'operationalisations' and the three execution-model fields (setup_expiry_bars, intrabar_policy, latch supersession)."
+}

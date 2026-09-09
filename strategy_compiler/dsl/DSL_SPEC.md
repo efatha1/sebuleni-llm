@@ -259,7 +259,7 @@ recorded in the run manifest so results can never be attributed to the source:
 |---|---|
 | `setup_expiry_bars` | No specification states how long a partially formed setup stays live. Without a bound, a latched liquidity event that never produced displacement blocks the machine for the rest of the sample. Measured from the previously latched event. A node may override it with `ordering.within_bars`. |
 | `intrabar_policy` | When one bar's range contains both the stop and a target, no source can say which was reached first. |
-| latch supersession | A pending setup is abandoned as soon as the first event re-evaluates to a *different* event (a different origin pool, or a different sweep of it). This is a fixed engine rule rather than a parameter; it removes no condition the source states. |
+| `latch supersession` | A pending setup is abandoned as soon as the first event re-evaluates to a *different* event (a different origin pool, or a different sweep of it). This is a fixed engine rule rather than a parameter; it removes no condition the source states. |
 
 ## 9. Determinism contract
 
